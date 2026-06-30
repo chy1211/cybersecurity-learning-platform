@@ -127,7 +127,7 @@ Invoke-WebRequest http://localhost:5000/api/health
 
 ```powershell
 Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\frontend'
-npm install
+npm ci
 npm run dev -- --port 3000
 ```
 
