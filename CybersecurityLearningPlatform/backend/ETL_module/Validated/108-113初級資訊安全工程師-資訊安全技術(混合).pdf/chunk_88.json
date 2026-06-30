@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "跨站腳本攻擊 (xss)",
+      "type": "attack",
+      "display_name": "跨站指令碼 (XSS)"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "javascript",
+      "type": "tool",
+      "display_name": "JavaScript"
+    },
+    "reasoning": "文本提到 XSS 攻擊成功的常見原因是未防範 JavaScript 的注入，因此 XSS 攻擊依賴於 JavaScript 作為執行攻擊的工具/手段。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "跨站指令碼 (XSS) 是 'attack' 的合理實例，JavaScript 是 'tool' 的合理實例，且 'depends_on' 關係在資安領域中是合理的，因為 XSS 攻擊常常依賴 JavaScript 的執行。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'depends_on' 未在規則中明確限制，且主體 'XSS' 類別為 'attack'，受體 'JavaScript' 類別為 'tool'，未違反任何明確規則。",
+        "response": "correct",
+        "reason": "三元組未違反語義限制清單中的任何規則，且關係 'depends_on' 在給定的規則中未有明確限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "跨站指令碼 (XSS) 與 跨站腳本攻擊 (xss) 是同義詞，JavaScript 的名稱完全匹配 Ldr 中的資源",
+        "response": "correct",
+        "standard_subject": "跨站腳本攻擊 (xss)",
+        "standard_object": "javascript",
+        "reason": "根據同義詞判定準則，跨站指令碼 (XSS) 是跨站腳本攻擊 (xss) 的同義詞，JavaScript 的名稱完全匹配 Ldr 中的資源。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "跨站指令碼 (XSS)",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "JavaScript",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 XSS 攻擊成功的常見原因是未防範 JavaScript 的注入，因此 XSS 攻擊依賴於 JavaScript 作為執行攻擊的工具/手段。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "cwe (common weakness enumeration)",
+      "type": "tool",
+      "display_name": "CWE (Common Weakness Enumeration)"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點種類"
+    },
+    "reasoning": "CWE 是一個用於定義和分類軟體弱點的標準清單，在此視為一種分析弱點種類的工具。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "CWE 是一種工具，用于分析弱點，因此其名稱與類別 'tool' 對齊，且 'can_analyze' 與 'vulnerability' 的語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。由於 CWE (Common Weakness Enumeration) 的類別是 tool，而非 vulnerability，因此不觸發規則3的限制。其他規則均不適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體是 CWE (Common Weakness Enumeration)，是一種工具（tool），可以執行分析（can_analyze）動作，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 的類別 \"vulnerability\" 與 Ldr 中的 \"弱點\" 類別相同，且 \"弱點\" 是 \"vulnerability\" 的同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據同義詞對照範例，\"弱點\" 是 \"vulnerability\" 的同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CWE (Common Weakness Enumeration)",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點種類",
+        "type": "vulnerability"
+      },
+      "reasoning": "CWE 是一個用於定義和分類軟體弱點的標準清單，在此視為一種分析弱點種類的工具。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "社交工程",
+      "type": "technique",
+      "display_name": "社交工程"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "文本描述社交工程將惡意程式隱藏在郵件中來誘騙使用者，顯示該攻擊手段依賴惡意程式作為工具。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "社交工程是攻擊的一種形式，惡意程式是工具的一種，'depends_on' 關係在資安領域中是合理的，表示攻擊可能依賴特定工具。",
+        "response": "correct",
+        "reason": "社交工程攻擊依賴惡意程式的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'depends_on'，未在規則中明確定義相關限制。",
+        "response": "correct",
+        "reason": "三元組中的關係 'depends_on' 未在語義限制清單中明確定義相關限制，且未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "社交工程與社會工程學為同義詞，惡意程式為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "社交工程與社會工程學為同義詞，但根據規則3，廣義/狹義一律保留；惡意程式為完全等價同義詞，但主體與受體不相同，因此判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "社交工程",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "惡意程式",
+        "type": "tool"
+      },
+      "reasoning": "文本描述社交工程將惡意程式隱藏在郵件中來誘騙使用者，顯示該攻擊手段依賴惡意程式作為工具。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "防毒及郵件過濾解決方案",
+      "type": "tool",
+      "display_name": "防毒及郵件過濾解決方案"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "社交工程",
+      "type": "technique",
+      "display_name": "社交工程"
+    },
+    "reasoning": "文本提到導入防毒及郵件過濾解決方案可有效防止惡意郵件社交工程。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防毒及郵件過濾解決方案 可被視為 'tool' 的合理實例，社交工程 可被視為 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "防毒及郵件過濾解決方案作為一種工具，能夠減輕社交工程攻擊的風險，符合資安領域的常見實踐。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是防毒及郵件過濾解決方案，類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體防毒及郵件過濾解決方案是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「社交工程」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防毒及郵件過濾解決方案",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "社交工程",
+        "type": "attack"
+      },
+      "reasoning": "文本提到導入防毒及郵件過濾解決方案可有效防止惡意郵件社交工程。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊安全教育訓練",
+      "type": "policy",
+      "display_name": "資訊安全教育訓練"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "社交工程",
+      "type": "technique",
+      "display_name": "社交工程"
+    },
+    "reasoning": "文本將教育訓練列為防止社交工程的有效方案，教育訓練屬於組織的資安政策/計畫，可用於緩解攻擊風險。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資訊安全教育訓練 (policy) 是一種合理的政策實例，社交工程 (attack) 是一種合理的攻擊實例，'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，與政策與攻擊之間的關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組符合此規則。其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體是資訊安全教育訓練，類別為 policy，符合規則2的允許條件。無其他規則被觸發違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資訊安全教育訓練' 與 Ldr 中的 '資訊安全教育與訓練' 關係為同義詞，受體 '社交工程' 與 Ldr 中的 '社交工程' 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體與 Ldr 中的資源不完全相同，但受體與 Ldr 中的 '社交工程' 完全相同，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全教育訓練",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "社交工程",
+        "type": "attack"
+      },
+      "reasoning": "文本將教育訓練列為防止社交工程的有效方案，教育訓練屬於組織的資安政策/計畫，可用於緩解攻擊風險。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "社交工程",
+      "type": "technique",
+      "display_name": "社交工程演練測試"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "社交工程",
+      "type": "technique",
+      "display_name": "社交工程"
+    },
+    "reasoning": "演練測試是一種防禦技術，透過模擬攻擊來提升人員警覺性，從而緩解社交工程攻擊。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "社交工程演練測試是 technique 的合理實例，社交工程是 attack 的合理實例。",
+        "response": "correct",
+        "reason": "社交工程演練測試與社交工程之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是社交工程演練測試（類別：technique），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "該三元組的主體和關係符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "社交工程演練測試與社交工程之間的關係是同義詞重複，因為兩者都指涉及使用社會工程學技巧來進行測試或攻擊的概念",
+        "response": "duplicate",
+        "standard_subject": "社交工程",
+        "standard_object": "社交工程",
+        "reason": "根據同義詞判定準則，社交工程演練測試與社交工程是同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "社交工程演練測試",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "社交工程",
+        "type": "attack"
+      },
+      "reasoning": "演練測試是一種防禦技術，透過模擬攻擊來提升人員警覺性，從而緩解社交工程攻擊。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "資安管理人員",
+      "type": "securityTeam",
+      "display_name": "資安管理人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "cve (common vulnerabilities and exposures)",
+      "type": "tool",
+      "display_name": "CVE (Common Vulnerabilities and Exposures)"
+    },
+    "reasoning": "文本指出資安管理人員利用 CVE 作為資訊來源來尋找弱點，因此資安人員使用了 CVE 這個工具。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安管理人員 (securityTeam) 使用 CVE (tool) 是合理的，CVE 是一種工具，資安管理人員使用它來管理漏洞。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體類別為 'securityTeam'，不違反此規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 'securityTeam'，關係為 'uses'，受體為 'CVE'，此組合在給定的規則中沒有明確的違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Subject) 為資安管理人員，與 Ldr 中的資安管理人員完全匹配，受體 (Object) 為 CVE，與 Ldr 中的 cwe (common weakness enumeration) 類別相同，但非完全匹配，兩者皆為資安領域的工具或資源，無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源完全匹配，受體雖然與 Ldr 中的某些工具相關，但不完全匹配，且無同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安管理人員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "CVE (Common Vulnerabilities and Exposures)",
+        "type": "tool"
+      },
+      "reasoning": "文本指出資安管理人員利用 CVE 作為資訊來源來尋找弱點，因此資安人員使用了 CVE 這個工具。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "cve (common vulnerabilities and exposures)",
+      "type": "tool",
+      "display_name": "CVE (Common Vulnerabilities and Exposures)"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "vulnerability",
+      "type": "vulnerability",
+      "display_name": "弱點 (Vulnerabilities)"
+    },
+    "reasoning": "CVE 提供已知弱點的編號與詳細資訊，可用於分析系統中的弱點。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "CVE 是一種工具，合理對齊 'tool' 類別；弱點是資安領域中的漏洞，合理對齊 'vulnerability' 類別；'can_analyze' 關係描述了工具對弱點的分析能力，語意上合理。",
+        "response": "correct",
+        "reason": "CVE 與弱點之間的 'can_analyze' 關係完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用，因為主體類別為 tool，不是 vulnerability。規則4：不適用。規則5：不適用，因為關係不是 uses。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是 CVE (Common Vulnerabilities and Exposures)，是一種工具（tool），可以執行分析（can_analyze）動作，受體是弱點（Vulnerabilities），符合語義限制清單中沒有明確的違反規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "cve (common vulnerabilities and exposures)",
+        "standard_object": "vulnerability",
+        "reason": "根據資安領域已知同義詞對照範例，'弱點' 是 'vulnerability' 的同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CVE (Common Vulnerabilities and Exposures)",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點 (Vulnerabilities)",
+        "type": "vulnerability"
+      },
+      "reasoning": "CVE 提供已知弱點的編號與詳細資訊，可用於分析系統中的弱點。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "vulnerability",
+      "type": "vulnerability",
+      "display_name": "弱點 (Vulnerabilities)"
+    },
+    "reasoning": "文本提到作業系統中存在弱點，符合系統可能暴露弱點的邏輯。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '作業系統' 是 'system' 的合理實例，'弱點' 是 'vulnerability' 的合理實例，關係 'can_expose' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但允許 'can_expose' 動作。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '作業系統' 與關係 'can_expose'、受體 '弱點' 符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「作業系統」與 Ldr 中的「作業系統」完全等價同義詞，受體「弱點」與 Ldr 中的「vulnerability」為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "vulnerability",
+        "reason": "根據資安領域已知同義詞對照範例，「弱點」與「vulnerability」為同義詞，但根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點 (Vulnerabilities)",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到作業系統中存在弱點，符合系統可能暴露弱點的邏輯。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "vulnerability",
+      "type": "vulnerability",
+      "display_name": "弱點 (Vulnerabilities)"
+    },
+    "reasoning": "文本提到應用程式中存在弱點，符合應用程式可能暴露弱點的邏輯。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '應用程式' 是 'app' 的合理實例，'弱點' 是 'vulnerability' 的合理實例，關係 'can_expose' 在資安領域中指應用程式可能暴露弱點，符合語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：允許 vulnerability 發起 'can_expose' 動作，符合此規則。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 '應用程式'，關係為 'can_expose'，受體為 '弱點'，這符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體分別為「應用程式」和「弱點」，與 Ldr 中的「應用程式」和「vulnerability」/「弱點」完全等價同義詞或相關概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "vulnerability",
+        "reason": "根據資安領域已知同義詞對照範例，「弱點」是「vulnerability」的同義詞，因此受體為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點 (Vulnerabilities)",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到應用程式中存在弱點，符合應用程式可能暴露弱點的邏輯。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  }
+]

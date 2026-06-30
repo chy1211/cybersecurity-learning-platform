@@ -1,0 +1,782 @@
+[
+  {
+    "subject": {
+      "name": "記憶卡",
+      "type": "system",
+      "display_name": "記憶卡"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "rom",
+      "type": "system",
+      "display_name": "ROM"
+    },
+    "reasoning": "文本提到記憶卡內部包含 ROM，ROM 作為系統的組成元件，歸類為 feature，關係為 has_a。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "記憶卡 (Memory Card) 是系統 (system) 的合理實例，ROM (Read-Only Memory) 是功能 (feature) 的合理實例，'has_a' 關係在系統與功能之間是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組（記憶卡 has_a ROM）沒有明確違反語義限制清單中的任何規則，且關係 'has_a' 不在限制清單中被明確限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "記憶卡與記憶體為同義詞，ROM為記憶體的一種類型，但根據規則3，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則3，記憶卡和ROM之間的關係是廣義/狹義從屬，因此判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "記憶卡",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "ROM",
+        "type": "feature"
+      },
+      "reasoning": "文本提到記憶卡內部包含 ROM，ROM 作為系統的組成元件，歸類為 feature，關係為 has_a。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "記憶卡",
+      "type": "system",
+      "display_name": "記憶卡"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "eeprom",
+      "type": "feature",
+      "display_name": "EEPROM"
+    },
+    "reasoning": "文本提到記憶卡內部包含 EEPROM，歸類為 feature，關係為 has_a。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'system'、受體的類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "記憶卡 (Memory Card) 可被視為系統 (system) 的一部分，EEPROM 是一種記憶體技術，屬於功能 (feature) 的範疇，'has_a' 關係在此語境下合理，因為系統可以包含特定的功能或元件，如 EEPROM。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，並且在語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1至8，發現待檢查三元組（記憶卡 has_a EEPROM）不觸發任何違規條件，尤其是規則5和規則6不適用，因為關係為 has_a，而非 uses 或 deployed_in。",
+        "response": "correct",
+        "reason": "三元組不違反任何語義限制清單中的規則，尤其是主體為 system 類別的記憶卡，與受體為 feature 類別的 EEPROM 之間的 has_a 關係在給定的規則中沒有被明確限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「記憶卡」與 Ldr 中的「記憶卡」完全相同，受體「EEPROM」與 Ldr 中的「eeprom」完全相同，均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全相同，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "記憶卡",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "EEPROM",
+        "type": "feature"
+      },
+      "reasoning": "文本提到記憶卡內部包含 EEPROM，歸類為 feature，關係為 has_a。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "記憶卡",
+      "type": "system",
+      "display_name": "記憶卡"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "邏輯電路",
+      "type": "feature",
+      "display_name": "邏輯電路"
+    },
+    "reasoning": "文本提到記憶卡內部包含邏輯電路，歸類為 feature，關係為 has_a。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "記憶卡可以被視為系統的一部分，邏輯電路可以被視為系統的特徵，'has_a' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查規則，發現沒有直接相關的規則被觸發，尤其是 'has_a' 關係在給定的規則中沒有明確的限制。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在給定的語義限制清單中被明確限制或定義，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "記憶卡與記憶體為同義詞，記憶卡與rom、eeprom無直接關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體或受體為同義詞重複，且主體與受體無直接從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "記憶卡",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "邏輯電路",
+        "type": "feature"
+      },
+      "reasoning": "文本提到記憶卡內部包含邏輯電路，歸類為 feature，關係為 has_a。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "記憶卡",
+      "type": "system",
+      "display_name": "記憶卡"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "輸入/輸出介面",
+      "type": "feature",
+      "display_name": "輸入/輸出介面"
+    },
+    "reasoning": "文本提到記憶卡內部包含輸入/輸出介面，歸類為 feature，關係為 has_a。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "記憶卡是 system 的合理實例，輸入/輸出介面是 feature 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組（記憶卡 has_a 輸入/輸出介面）不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "記憶卡與記憶體之間存在相似性，但非完全等價同義詞；記憶卡與輸入/輸出介面之間不存在直接從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定記憶卡與輸入/輸出介面之間的直接同義詞或從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "記憶卡",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "輸入/輸出介面",
+        "type": "feature"
+      },
+      "reasoning": "文本提到記憶卡內部包含輸入/輸出介面，歸類為 feature，關係為 has_a。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "rom",
+      "type": "system",
+      "display_name": "ROM"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "永久資料",
+      "type": "data",
+      "display_name": "永久資料"
+    },
+    "reasoning": "文本指出 ROM 用以存放永久資料，根據 Schema，feature 可以 uses data。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "ROM 可被視為 'feature' 的合理實例，'永久資料' 可被視為 'data' 的合理實例，'uses' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "ROM 使用永久資料的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5觸發，因為主體的類別是system，但使用了'uses'關係，且受體是data，符合規則允許的條件，不違反。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是system，使用'uses'關係，且受體是data，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (ROM) 與 Ldr 中的 'rom' 完全等價同義詞，受體 (永久資料) 與 Ldr 中的 '永久資料' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ROM",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "永久資料",
+        "type": "data"
+      },
+      "reasoning": "文本指出 ROM 用以存放永久資料，根據 Schema，feature 可以 uses data。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "晶片卡",
+      "type": "system",
+      "display_name": "晶片卡"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "cpu",
+      "type": "tool",
+      "display_name": "CPU"
+    },
+    "reasoning": "文本提到晶片卡的主要元件包含中央處理單元 (CPU)，CPU 作為執行運算的硬體工具，歸類為 tool，關係為 has_a。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "晶片卡 (Chip Card) 可被視為系統 (system) 的一部分，CPU 可被視為工具 (tool) 的一種，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "晶片卡與 CPU 的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的項目。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與規則列表中沒有直接相關的限制，因此無法判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "晶片卡與記憶卡、非接觸式 ic 卡為同義詞或相關概念，但晶片卡與 CPU 無直接同義詞關係，CPU 與電腦為相關概念，但非同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體或受體為同義詞重複，且無廣義/狹義從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "晶片卡",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "CPU",
+        "type": "tool"
+      },
+      "reasoning": "文本提到晶片卡的主要元件包含中央處理單元 (CPU)，CPU 作為執行運算的硬體工具，歸類為 tool，關係為 has_a。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "eeprom",
+      "type": "feature",
+      "display_name": "EEPROM"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "應用資料",
+      "type": "data",
+      "display_name": "應用資料"
+    },
+    "reasoning": "文本指出 EEPROM 用以存放應用資料，根據 Schema，feature 可以 uses data。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "EEPROM 是 'feature' 的合理實例，'應用資料' 是 'data' 的合理實例，且 'uses' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，在給定的三元組中，主體是EEPROM（類別：feature），而非data，因此不觸發規則5的違規條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "因為EEPROM的類別是feature，而非data，且關係為uses，受體是應用資料，符合規則5的合法條件。因此，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Subject) 與受體 (Object) 分別與 Ldr 中的資源完全匹配，無需進一步分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 (Subject) 與受體 (Object) 名稱與 Ldr 中的資源完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "EEPROM",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "應用資料",
+        "type": "data"
+      },
+      "reasoning": "文本指出 EEPROM 用以存放應用資料，根據 Schema，feature 可以 uses data。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "cpu",
+      "type": "tool",
+      "display_name": "CPU"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資料保密",
+      "type": "function",
+      "display_name": "資料安全保護"
+    },
+    "reasoning": "文本提到晶片卡具有處理指令和資料安全保護等功能，而這些功能是由 CPU 執行的，根據 Schema，tool 可以 has_a function。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "CPU 是 'tool' 的合理實例，資料安全保護是 'function' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的項目。",
+        "response": "correct",
+        "reason": "三元組中的主體 'CPU' 是一種工具，與 '資料安全保護' 進行 'has_a' 關係，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "CPU 與 '電腦' 不完全等價，但 'cpu' 完全匹配；'資料安全保護' 與 '資料保密' 可視為同義詞",
+        "response": "duplicate",
+        "standard_subject": "cpu",
+        "standard_object": "資料保密",
+        "reason": "根據同義詞判定，'cpu' 與 'CPU' 完全匹配，'資料安全保護' 與 '資料保密' 可視為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CPU",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資料安全保護",
+        "type": "function"
+      },
+      "reasoning": "文本提到晶片卡具有處理指令和資料安全保護等功能，而這些功能是由 CPU 執行的，根據 Schema，tool 可以 has_a function。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "晶片卡",
+      "type": "system",
+      "display_name": "晶片卡"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ram",
+      "type": "feature",
+      "display_name": "RAM"
+    },
+    "reasoning": "文本提到晶片卡元件包含隨機存取記憶體 (RAM)，歸類為 feature，關係為 has_a。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "晶片卡 (Subject) 是 'system' 的合理實例，RAM (Object) 是 'feature' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "晶片卡與 RAM 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 '晶片卡' 的類別 'system' 和受體 'RAM' 的類別 'feature' 之間的關係 'has_a' 在給定的規則中沒有被明確禁止或限制。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 和實體類別之間的關係在給定的語義限制清單中沒有被明確禁止或限制，因此不構成違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "晶片卡與記憶卡、非接觸式 ic 卡等為相關概念，但非完全等價同義詞；RAM 與 eeprom、邏輯電路等為系統的不同特徵，無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定同義詞或廣義/狹義從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "晶片卡",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "RAM",
+        "type": "feature"
+      },
+      "reasoning": "文本提到晶片卡元件包含隨機存取記憶體 (RAM)，歸類為 feature，關係為 has_a。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "ram",
+      "type": "feature",
+      "display_name": "RAM"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "暫存資料",
+      "type": "data",
+      "display_name": "暫存資料"
+    },
+    "reasoning": "圖 15-5 顯示 RAM 對應暫存資料，根據 Schema，feature 可以 uses data。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "RAM 是 'feature' 的合理實例，'暫存資料' 是 'data' 的合理實例，且 'uses' 是描述 RAM 與 暫存資料 之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的定義，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，在此三元組中，主體是RAM（類別：feature），而非data，因此不觸發規則5的違規條件。其他規則不直接適用於此三元組的主體和關係。",
+        "response": "correct",
+        "reason": "由於三元組中的主體是RAM（類別：feature），使用（uses）暫存資料（類別：data），不觸發語義限制清單中的任何規則，尤其是規則5不適用於此情況。因此，該三元組不違反任何語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (RAM) 與 Ldr 中的 'ram' 完全等價同義詞，受體 (暫存資料) 與 Ldr 中的 '暫存記憶' 具有高相似度，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體與 Ldr 中的 'ram' 完全等價，但受體與 Ldr 中的 '暫存記憶' 不完全等價，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RAM",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "暫存資料",
+        "type": "data"
+      },
+      "reasoning": "圖 15-5 顯示 RAM 對應暫存資料，根據 Schema，feature 可以 uses data。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "接觸式 ic 卡",
+      "type": "system",
+      "display_name": "接觸式 IC 卡"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "金屬接觸點",
+      "type": "feature",
+      "display_name": "金屬接觸點"
+    },
+    "reasoning": "文本提到接觸式 IC 卡在卡上提供外接的金屬接觸點，歸類為 feature，關係為 has_a。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "接觸式 IC 卡 可被視為 'system' 的實例，金屬接觸點 可被視為 'feature' 的實例，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體和受體的類別組合在給定的規則中沒有被明確禁止。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 和主體、受體的類別組合沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"接觸式 IC 卡\" 與 Ldr 中的 \"晶片卡\" 關係為同義詞，受體 \"金屬接觸點\" 與 Ldr 中的 \"接觸點\" 關係為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，主體和受體與 Ldr 中的資源不完全相同，但可視為同義詞或子類型，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "接觸式 IC 卡",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "金屬接觸點",
+        "type": "feature"
+      },
+      "reasoning": "文本提到接觸式 IC 卡在卡上提供外接的金屬接觸點，歸類為 feature，關係為 has_a。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "讀寫裝置",
+      "type": "tool",
+      "display_name": "讀寫裝置"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "接觸式 ic 卡",
+      "type": "system",
+      "display_name": "接觸式 IC 卡"
+    },
+    "reasoning": "文本提到讀寫裝置可對卡片提供電源和信號並傳輸資料，這是一種控制與管理行為，根據 Schema，tool 可以 controls system。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "讀寫裝置 (tool) 和 接觸式 IC 卡 (system) 的名稱與其類別合理對齊，符合資安領域的常見用語和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊和同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 tool，具有主動執行能力，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體為 tool，關係為 controls，受體為 system，符合規則8的允許條件，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆不與現有近似資源清單中的任何項目完全相同，且無法根據給定的同義詞對照範例判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "讀寫裝置",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "接觸式 IC 卡",
+        "type": "system"
+      },
+      "reasoning": "文本提到讀寫裝置可對卡片提供電源和信號並傳輸資料，這是一種控制與管理行為，根據 Schema，tool 可以 controls system。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 12
+    }
+  },
+  {
+    "subject": {
+      "name": "非接觸式 ic 卡",
+      "type": "system",
+      "display_name": "非接觸式 IC 卡"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "感應天線",
+      "type": "feature",
+      "display_name": "感應天線"
+    },
+    "reasoning": "文本提到非接觸式 IC 卡由晶片與感應天線組成，歸類為 feature，關係為 has_a。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 13,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "非接觸式 IC 卡 可被視為 system 的合理實例，感應天線 可被視為 feature 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違反。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 和主體、受體的類別組合沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "非接觸式 IC 卡與 Ldr 中的 '非接觸式 ic 卡' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "非接觸式 IC 卡",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "感應天線",
+        "type": "feature"
+      },
+      "reasoning": "文本提到非接觸式 IC 卡由晶片與感應天線組成，歸類為 feature，關係為 has_a。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 13
+    }
+  },
+  {
+    "subject": {
+      "name": "悠遊卡",
+      "type": "app",
+      "display_name": "悠遊卡"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "非接觸式 ic 卡",
+      "type": "system",
+      "display_name": "非接觸式 IC 卡"
+    },
+    "reasoning": "文本將悠遊卡作為非接觸式 IC 卡的應用範例，在知識圖譜中可視為該類系統的一個實例或子集，關係為 is_part_of。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 14,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "悠遊卡 可以被視為 'system' 的合理實例，非接觸式 IC 卡 也可以被視為 'system' 的合理實例，兩者之間的 'is_part_of' 關係在語意上是合理的，因為悠遊卡是一種非接觸式 IC 卡的實現形式。",
+        "response": "correct",
+        "reason": "悠遊卡與非接觸式 IC 卡之間的 'is_part_of' 關係在類別、屬性與語意上均符合預先定義的清單與原則。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：觸發檢查，規則7：無關，規則8：無關。根據規則6，當關係為 deployed_in 時，受體的類別必須是 system，但此三元組的關係是 is_part_of，不是 deployed_in，因此不觸發規則6的違規檢查。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中，悠遊卡與非接觸式 IC 卡分別與 Ldr 中的悠遊卡和非接觸式 ic 卡完全匹配，且無廣義或狹義關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，主體與受體皆與 Ldr 中的資源完全匹配，但無需進行同義詞合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "悠遊卡",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "非接觸式 IC 卡",
+        "type": "system"
+      },
+      "reasoning": "文本將悠遊卡作為非接觸式 IC 卡的應用範例，在知識圖譜中可視為該類系統的一個實例或子集，關係為 is_part_of。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 14
+    }
+  },
+  {
+    "subject": {
+      "name": "晶片卡",
+      "type": "system",
+      "display_name": "Java 卡"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "晶片卡",
+      "type": "system",
+      "display_name": "晶片卡"
+    },
+    "reasoning": "Java 卡是依據應用系統分類的一種晶片卡，關係為 is_part_of。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 15,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Java 卡與晶片卡皆為 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "Java 卡與晶片卡的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 is_part_of，不是 deployed_in。規則7：不適用，因為關係為 is_part_of，不是 generates。規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（Java 卡 is_part_of 晶片卡）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Java 卡與晶片卡在資安領域中是同義詞，兩者都指的是一種具有晶片的卡片，具有相同的功能和特性。",
+        "response": "duplicate",
+        "standard_subject": "晶片卡",
+        "standard_object": "晶片卡",
+        "reason": "根據同義詞判定，Java 卡和晶片卡是同義詞，指的是同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Java 卡",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "晶片卡",
+        "type": "system"
+      },
+      "reasoning": "Java 卡是依據應用系統分類的一種晶片卡，關係為 is_part_of。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 15
+    }
+  }
+]

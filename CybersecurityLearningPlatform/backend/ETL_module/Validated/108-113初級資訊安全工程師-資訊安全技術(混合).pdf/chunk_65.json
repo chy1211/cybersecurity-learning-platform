@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "詳細錯誤訊息",
+      "type": "data",
+      "display_name": "詳細錯誤訊息"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資訊洩露漏洞",
+      "type": "vulnerability",
+      "display_name": "資訊洩露漏洞"
+    },
+    "reasoning": "文本指出未適當處理詳細錯誤訊息（data）會導致威脅，這在資安邏輯中是指資料暴露了系統的弱點 (vulnerability)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "詳細錯誤訊息 可以被視為 'data' 的合理實例，資訊洩露漏洞 可以被視為 'vulnerability' 的合理實例，'can_expose' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的關係為'can_expose'，主體類別為vulnerability，符合規則3的特例允許。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體分別與 Ldr 中的「錯誤訊息」和「資訊洩漏弱點」最為相似，且受體「資訊洩露漏洞」可視為「資訊洩漏弱點」的同義詞或子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定和廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "詳細錯誤訊息",
+        "type": "data"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "資訊洩露漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出未適當處理詳細錯誤訊息（data）會導致威脅，這在資安邏輯中是指資料暴露了系統的弱點 (vulnerability)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "ids",
+      "type": "tool",
+      "display_name": "IDS"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "網路環境",
+      "type": "system",
+      "display_name": "網路環境"
+    },
+    "reasoning": "文本提到 IDS 的部署位置，IDS 是一個偵測工具 (tool)，部署在整體環境/系統 (system) 中。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IDS 是一種 'tool'，網路環境是 'system' 的合理實例，符合語意對齊原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，主體為 IDS (類別: tool)，關係為 deployed_in，受體為網路環境 (類別: system)。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，受體的類別是 system，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "IDS 是一個工具，網路環境是系統，兩者之間沒有直接的同義詞關係，但根據資安領域的知識，IDS 可以用於監控和保護網路環境，因此兩者之間存在著密切的關聯。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，IDS 和網路環境之間沒有同義詞關係，且 IDS 是一個工具，網路環境是系統，兩者之間存在著廣義/狹義的從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IDS",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "網路環境",
+        "type": "system"
+      },
+      "reasoning": "文本提到 IDS 的部署位置，IDS 是一個偵測工具 (tool)，部署在整體環境/系統 (system) 中。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "ids",
+      "type": "tool",
+      "display_name": "IDS"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "網路流量",
+      "type": "data",
+      "display_name": "網路流量"
+    },
+    "reasoning": "文本提到 IDS 收集進出之流量以達功效，流量屬於資料 (data)，IDS 作為工具 (tool) 具備分析該資料的能力。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IDS 是一種工具（tool），網路流量是資料（data），因此實體名稱與其類別合理對齊，符合語意對齊原則。",
+        "response": "correct",
+        "reason": "IDS 與網路流量的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但可以分析 (can_analyze) 是 tool 的合法動作。",
+        "response": "correct",
+        "reason": "三元組中的主體是 IDS (類別: tool)，關係是 can_analyze，受體是網路流量 (類別: data)，這符合工具可以分析資料的邏輯，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (IDS) 與 Ldr 中的 'ids' 完全等價同義詞，受體 (網路流量) 與 Ldr 中的 '網路流量' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "ids",
+        "standard_object": "網路流量",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IDS",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "網路流量",
+        "type": "data"
+      },
+      "reasoning": "文本提到 IDS 收集進出之流量以達功效，流量屬於資料 (data)，IDS 作為工具 (tool) 具備分析該資料的能力。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊洩露漏洞",
+      "type": "vulnerability",
+      "display_name": "資訊洩露漏洞"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資訊洩露",
+      "type": "risk",
+      "display_name": "資訊洩露"
+    },
+    "reasoning": "漏洞 (vulnerability) 的存在會導致資訊洩露這一負面後果/風險 (risk)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊洩露漏洞 (vulnerability) 可以合理地與 'can_expose' 關係連接到資訊洩露 (risk)，因為資訊洩露漏洞可能導致資訊洩露風險。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體為vulnerability，關係為can_expose，符合規則3的特例允許，因此不觸發違規。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，vulnerability可以發起'can_expose'動作。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊洩露漏洞與資訊洩露均指資安領域中資訊外露的狀況，前者強調漏洞，後者強調風險，但兩者概念上密切相關，資訊洩露漏洞是資訊洩露的原因之一，然而根據給定的同義詞對照範例，兩者並未被明確定義為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，資訊洩露漏洞和資訊洩露雖然相關，但無直接同義詞關係，且前者是漏洞，後者是風險，屬於不同類型的資安概念，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊洩露漏洞",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "資訊洩露",
+        "type": "risk"
+      },
+      "reasoning": "漏洞 (vulnerability) 的存在會導致資訊洩露這一負面後果/風險 (risk)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "html.encode",
+      "type": "technique",
+      "display_name": "HTML.Encode"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "xss",
+      "type": "vulnerability",
+      "display_name": "XSS"
+    },
+    "reasoning": "文本明確提到 HTML.Encode 是解決 (mitigates) XSS 攻擊 (attack) 的一種方法 (technique)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "HTML.Encode 是一種編碼技術，合理對齊 'technique' 類別；XSS（Cross-Site Scripting）是一種網站攻擊，合理對齊 'attack' 類別；'mitigates' 關係描述了減輕攻擊的意義，與 'technique' 和 'attack' 的語意相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是 HTML.Encode，類別是 technique，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 HTML.Encode 屬於 technique 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 XSS 與 Ldr 中的 xss 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "xss",
+        "reason": "根據資安領域已知同義詞對照範例，XSS 可以與 xss 視為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "HTML.Encode",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "XSS",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到 HTML.Encode 是解決 (mitigates) XSS 攻擊 (attack) 的一種方法 (technique)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "防毒軟體",
+      "type": "tool",
+      "display_name": "防毒軟體"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "特徵比對",
+      "type": "technique",
+      "display_name": "特徵比對"
+    },
+    "reasoning": "文本提到防毒軟體 (tool) 常使用特徵比對 (technique) 來偵測惡意程式。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防毒軟體是工具（tool）的合理實例，特徵比對是技術（technique）的合理實例，且 'uses' 關係在資安領域中是合理的，表示工具使用特定技術。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則5：當關係為 uses 時，如果主體 (Subject) 的類別是 data，則為違反；但如果 data 僅是出現在受體 (Object) 位置，則屬合法。由於主體是防毒軟體 (類別: tool)，不符合規則5的違反條件。其他規則不直接適用此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體是防毒軟體 (類別: tool)，使用特徵比對 (類別: technique) 不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「防毒軟體」與 Ldr 中的「防毒軟體」完全相同，受體「特徵比對」不在 Ldr 中，但無法直接判定與 Ldr 中的資源是否有同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防毒軟體",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "特徵比對",
+        "type": "technique"
+      },
+      "reasoning": "文本提到防毒軟體 (tool) 常使用特徵比對 (technique) 來偵測惡意程式。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "防毒軟體",
+      "type": "tool",
+      "display_name": "防毒軟體"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "reasoning": "文本提到防毒軟體可監視作業系統 (system) 的可疑活動，監視在 Schema 中對應為分析 (can_analyze)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防毒軟體是 tool 的合理實例，作業系統是 system 的合理實例，'can_analyze' 關係在資安領域中是合理的，因為防毒軟體可以分析作業系統。",
+        "response": "correct",
+        "reason": "防毒軟體與作業系統的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的主體是防毒軟體（tool），關係是can_analyze，受體是作業系統（system），這符合一般的資安分析邏輯，沒有明顯違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的防毒軟體可以分析作業系統，符合一般的資安分析邏輯，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞或相似名稱出現在 Ldr 中，但無直接同義詞關係，主體 '防毒軟體' 與 '防毒解毒軟體'、'防病毒軟體' 相似，受體 '作業系統' 與 '電腦作業系統'、'windows 作業系統' 等相似，但無需合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "依據【廣義/狹義一律保留】與【不確定時預設保留】原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防毒軟體",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到防毒軟體可監視作業系統 (system) 的可疑活動，監視在 Schema 中對應為分析 (can_analyze)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "設定中斷點",
+      "type": "technique",
+      "display_name": "設定中斷點"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "軟體逆向工程動態分析",
+      "type": "technique",
+      "display_name": "軟體逆向工程動態分析"
+    },
+    "reasoning": "設定中斷點是動態分析過程中的一個具體手法，兩者皆為技術 (technique)，且前者屬於後者的一部分。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "設定中斷點是軟體逆向工程動態分析的一部分，符合語意對齊，且 'technique' 是合理的類別名稱。",
+        "response": "correct",
+        "reason": "設定中斷點與軟體逆向工程動態分析之間的 'is_part_of' 關係，完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關。關係 'is_part_of' 不在任何規則中被明確限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "設定中斷點與軟體逆向工程動態分析之間無直接同義詞關係，但兩者皆屬於技術類別，軟體逆向工程動態分析可能涉及設定中斷點的技術，但兩者並非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定設定中斷點與軟體逆向工程動態分析之間的直接同義詞關係，且兩者非廣義/狹義從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "設定中斷點",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "軟體逆向工程動態分析",
+        "type": "technique"
+      },
+      "reasoning": "設定中斷點是動態分析過程中的一個具體手法，兩者皆為技術 (technique)，且前者屬於後者的一部分。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "防毒軟體",
+      "type": "tool",
+      "display_name": "防毒軟體"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "防毒軟體 (tool) 的核心功能是偵測 (can_detect) 惡意程式 (attack)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防毒軟體是工具（tool）的合理實例，惡意程式是攻擊（attack）的合理實例，'can_detect' 關係在資安領域中是合理的，表示工具可以偵測攻擊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為 tool，具有主動執行能力，符合 controls 的前置條件，但當前關係為 can_detect，不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體（防毒軟體）和關係（can_detect）以及受體（惡意程式）之間的關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似資源，但無直接同義詞關係，惡意程式為攻擊類別，防毒軟體為工具類別，兩者無直接從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無同義詞關係，且主體與受體屬於不同類別，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防毒軟體",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "防毒軟體 (tool) 的核心功能是偵測 (can_detect) 惡意程式 (attack)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "防毒軟體",
+      "type": "tool",
+      "display_name": "防毒軟體"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "reasoning": "文本提到防毒軟體可監視應用程式 (app) 的行為，對應為分析 (can_analyze)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'app' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防毒軟體是 tool 的合理實例，應用程式是 app 的合理實例，'can_analyze' 關係在資安領域中合理適用於防毒軟體與應用程式之間。",
+        "response": "correct",
+        "reason": "防毒軟體與應用程式的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為 tool，關係為 can_analyze，受體為 app，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中常見的術語，且兩者之間存在著明確的類別關係，主體為防毒軟體（tool），受體為應用程式（app），兩者在資安領域中具有不同的含義與功能，不存在同義詞關係或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體在資安教材中不可互換使用、指稱不同概念，不存在同義詞關係，且不存在廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防毒軟體",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "reasoning": "文本提到防毒軟體可監視應用程式 (app) 的行為，對應為分析 (can_analyze)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

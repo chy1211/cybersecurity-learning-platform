@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "tls",
+      "type": "feature",
+      "display_name": "TLS"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊外洩",
+      "type": "risk",
+      "display_name": "資訊外洩"
+    },
+    "reasoning": "文本提到 TLS 可以加密處理電子郵件，確保郵件在傳輸過程中安全不外洩。TLS 作為工具 (tool) 緩解了資訊外洩 (risk) 的風險。",
+    "source_id": "chunk_96",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "TLS 是一種工具（tool），可用於減輕（mitigates）資訊外洩（risk）的風險，名稱與類別合理對齊，且符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "TLS、'mitigates' 和 '資訊外洩' 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。由於主體 TLS 類別為 feature，不符合規則2的條件，觸發違規檢查。",
+        "response": "violation",
+        "reason": "三元組中的主體 TLS 類別為 feature，不符合規則2中關於 mitigates 動作的限制，導致違規。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組中的主體 TLS 類別為 feature，不符合規則2中關於 mitigates 動作的限制，導致違規。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "TLS",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本提到 TLS 可以加密處理電子郵件，確保郵件在傳輸過程中安全不外洩。TLS 作為工具 (tool) 緩解了資訊外洩 (risk) 的風險。",
+      "source_id": "chunk_96",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  }
+]

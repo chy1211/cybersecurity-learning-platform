@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "ddos",
+      "type": "attack",
+      "display_name": "DDoS"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "購物網站",
+      "type": "app",
+      "display_name": "購物網站"
+    },
+    "reasoning": "文本明確提到購物網站遭受到分散式阻絕服務攻擊 (DDoS)，導致無法提供服務並造成營收損失，符合 (attack, can_harm, app) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "DDoS 是 'attack' 的合理實例，購物網站是 'app' 的合理實例，且 'can_harm' 的語意與 DDoS 對購物網站的影響相符。",
+        "response": "correct",
+        "reason": "DDoS 對購物網站的影響符合 'attack' 可以 'can_harm' 'app' 的預期關係。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_harm，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 can_harm 不違反任何語義限制清單中的規則，且主體和受體的類別與關係之間的邏輯關係合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "DDoS 是阻斷服務攻擊的英文縮寫，與資安領域已知同義詞對照範例中的「阻斷服務 ≡ DoS攻擊 ≡ 阻斷服務攻擊」相符，購物網站與「線上購物」、「電子商務網站」、「網站」、「網頁」皆屬於 app 類別，但購物網站與「線上購物」、「電子商務網站」更為相近，然而仍屬於不同實體。",
+        "response": "correct",
+        "standard_subject": "ddos",
+        "standard_object": "",
+        "reason": "根據同義詞判定，DDoS 是阻斷服務攻擊的英文縮寫，與已知同義詞對照範例相符，購物網站與其他 app 類別實體不完全相同，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DDoS",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "購物網站",
+        "type": "app"
+      },
+      "reasoning": "文本明確提到購物網站遭受到分散式阻絕服務攻擊 (DDoS)，導致無法提供服務並造成營收損失，符合 (attack, can_harm, app) 的 Schema。",
+      "source_id": "chunk_6",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "ddos",
+      "type": "attack",
+      "display_name": "DDoS"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "文本提到 DDoS 導致『三天之內無法提供服務』，這直接破壞了資安三要素中的可用性 (Availability)，符合 (attack, violates, principle) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "DDoS 是 'attack' 的合理實例，可用性是 'principle' 的合理實例，且 'violates' 的語意與 DDoS 對可用性的影響相符。",
+        "response": "correct",
+        "reason": "DDoS 對可用性的影響符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：適用，但三元組中的主體是 DDoS (攻擊)，受體是可用性 (資安原則)，符合規則允許的條件。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 DDoS (攻擊)，受體是可用性 (資安原則)，符合規則4的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "DDoS 是阻斷服務攻擊的同義詞，受體「可用性」與 Ldr 中的「可用性」完全相同，主體 DDoS 與 Ldr 中的「ddos」完全相同",
+        "response": "correct",
+        "standard_subject": "ddos",
+        "standard_object": "可用性",
+        "reason": "根據同義詞判定，DDoS 是阻斷服務攻擊的同義詞，且受體與 Ldr 中的資源完全相同。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DDoS",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "文本提到 DDoS 導致『三天之內無法提供服務』，這直接破壞了資安三要素中的可用性 (Availability)，符合 (attack, violates, principle) 的 Schema。",
+      "source_id": "chunk_6",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "營運持續計畫 (bcp)",
+      "type": "policy",
+      "display_name": "營運持續計畫 (BCP)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "損失",
+      "type": "risk",
+      "display_name": "損失"
+    },
+    "reasoning": "文本指出 BCP 的目的是使『有形與無形之損失降至最低』，因此 BCP 作為一種策略/計畫，用以緩解損失風險，符合 (policy, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '營運持續計畫 (BCP)' 是 'policy' 的合理實例，'損失' 是 'risk' 的合理實例，關係 'mitigates' 在資安領域中是合理的用法。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 '營運持續計畫 (BCP)'，其類別是 'policy'，因此符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "因為三元組的主體是 'policy' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中，分別為 \"營運持續計畫 (bcp)\" 與 \"損失\"，且兩者分別與原實體完全匹配，無需進一步分析廣義或狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆已在 Ldr 中找到完全匹配的實體名稱，無同義詞重複需要標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "營運持續計畫 (BCP)",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "損失",
+        "type": "risk"
+      },
+      "reasoning": "文本指出 BCP 的目的是使『有形與無形之損失降至最低』，因此 BCP 作為一種策略/計畫，用以緩解損失風險，符合 (policy, mitigates, risk) 的 Schema。",
+      "source_id": "chunk_6",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本將防火牆列為『風險轉移策略』的一部分，用以轉移/降低風險，符合 (tool, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，風險是風險（risk）的合理實例，'mitigates' 的語意也合理地描述了防火牆與風險之間的關係。",
+        "response": "correct",
+        "reason": "防火牆、風險和 'mitigates' 的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是防火牆（tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（防火牆）是 tool，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「防火牆」與 Ldr 中的「防火牆」完全相同，受體「風險」與 Ldr 中的「風險」完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體皆與 Ldr 中的資源完全相同，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本將防火牆列為『風險轉移策略』的一部分，用以轉移/降低風險，符合 (tool, mitigates, risk) 的 Schema。",
+      "source_id": "chunk_6",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "營運持續計畫小組",
+      "type": "securityTeam",
+      "display_name": "營運持續計畫小組"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "營運持續計畫 (bcp)",
+      "type": "policy",
+      "display_name": "營運持續計畫 (BCP)"
+    },
+    "reasoning": "文本提到 BCP 小組需要作決策以執行計畫，代表該安全團隊在實作此政策，符合 (securityTeam, implements, policy) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "營運持續計畫小組 (securityTeam) 實施 營運持續計畫 (policy) 的情境是合理的，'securityTeam' 的名稱與其類別對齊，'policy' 的名稱也與其類別對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為主體是安全團隊(securityTeam)而非攻擊者(attacker)。規則2：不適用，因為關係是implements而非mitigates。規則3：不適用，因為主體類別是securityTeam而非vulnerability。規則4：不適用，因為關係是implements而非violates，且主體類別不是principle。規則5：不適用，因為關係是implements而非uses。規則6：不適用，因為關係是implements而非deployed_in。規則7：不適用，因為關係是implements而非generates。規則8：不適用，因為關係是implements而非controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（營運持續計畫小組）與受體（營運持續計畫）之間的implements關係，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "營運持續計畫 (bcp)",
+        "reason": "受體「營運持續計畫 (BCP)」與 Ldr 中的「營運持續計畫 (bcp)」為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "營運持續計畫小組",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "營運持續計畫 (BCP)",
+        "type": "policy"
+      },
+      "reasoning": "文本提到 BCP 小組需要作決策以執行計畫，代表該安全團隊在實作此政策，符合 (securityTeam, implements, policy) 的 Schema。",
+      "source_id": "chunk_6",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測與防範",
+      "type": "tool",
+      "display_name": "入侵偵測與防範"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "攻擊"
+    },
+    "reasoning": "入侵偵測 (IDS) 的核心功能即為偵測惡意攻擊行為，且被列在風險轉移工具中，符合 (tool, can_detect, attack) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測與防範是 tool 的合理實例，攻擊是 attack 的合理實例，'can_detect' 的語意也與入侵偵測與防範能夠偵測攻擊的能力相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為 tool，具有主動執行能力，符合 controls 的主體條件，但當前關係為 can_detect，不是 controls，因此不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體（入侵偵測與防範）和關係（can_detect）以及受體（攻擊）之間的關係在給定的語義限制清單中沒有被明確禁止或限制，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測與防範與入侵偵測系統、網路型入侵偵測系統、入侵偵測設備等相關，但攻擊與入侵攻擊、網路攻擊等相關，兩者之間無直接同義詞關係，但皆在資安領域中",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無直接同義詞關係，且主體和受體皆為資安領域中不同類型的實體，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測與防範",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "入侵偵測 (IDS) 的核心功能即為偵測惡意攻擊行為，且被列在風險轉移工具中，符合 (tool, can_detect, attack) 的 Schema。",
+      "source_id": "chunk_6",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "反間諜軟體",
+      "type": "tool",
+      "display_name": "反間諜軟體"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本將反間諜軟體列為轉移風險的資訊技術手段，符合 (tool, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "反間諜軟體是 tool 的合理實例，風險是 risk 的合理實例，且 'mitigates' 是描述 tool 與 risk 間關係的合理屬性。",
+        "response": "correct",
+        "reason": "反間諜軟體（tool）與風險（risk）之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體 '反間諜軟體' 屬於 tool 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '反間諜軟體' 屬於 tool 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「風險」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "反間諜軟體",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本將反間諜軟體列為轉移風險的資訊技術手段，符合 (tool, mitigates, risk) 的 Schema。",
+      "source_id": "chunk_6",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "反垃圾郵件",
+      "type": "tool",
+      "display_name": "反垃圾郵件"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本將反垃圾郵件列為轉移風險的資訊技術手段，符合 (tool, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "反垃圾郵件是工具（tool）的合理實例，風險是風險（risk）的合理實例，'mitigates' 是描述工具與風險關係的合理屬性。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體 '反垃圾郵件' 屬於 tool 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '反垃圾郵件' 屬於 tool 類別，符合規則2的條件，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「風險」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "反垃圾郵件",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本將反垃圾郵件列為轉移風險的資訊技術手段，符合 (tool, mitigates, risk) 的 Schema。",
+      "source_id": "chunk_6",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "企業虛擬網路",
+      "type": "tool",
+      "display_name": "企業虛擬網路"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本將企業虛擬網路列為轉移風險的資訊技術手段，符合 (tool, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "企業虛擬網路是 tool 的合理實例，風險是 risk 的合理實例，'mitigates' 的語意也合理地描述了企業虛擬網路與風險之間的關係。",
+        "response": "correct",
+        "reason": "企業虛擬網路、風險和 'mitigates' 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是企業虛擬網路（類別：tool），符合規則2的條件，代表合法。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且無其他規則被違反。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"風險\" 與 Ldr 中的 \"風險\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "企業虛擬網路",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本將企業虛擬網路列為轉移風險的資訊技術手段，符合 (tool, mitigates, risk) 的 Schema。",
+      "source_id": "chunk_6",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "cvss",
+      "type": "tool",
+      "display_name": "CVSS"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到 CVSS 是『弱點計分系統』，其目的是對弱點進行量化分析，因此將 CVSS 定義為 tool，弱點定義為 vulnerability，關係為 can_analyze。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "CVSS 是一種工具，合理對齊 'tool' 類別；'弱點' 是一種漏洞，合理對齊 'vulnerability' 類別；'can_analyze' 關係在資安領域中是合理的，因為工具可以分析弱點。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係是can_analyze，而不是mitigates。規則3不適用，因為主體是CVSS（類別：tool），不是vulnerability。規則4不適用，因為三元組中沒有提到principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，沒有任何規則被觸發為違規。",
+        "response": "correct",
+        "reason": "三元組中的主體CVSS（類別：tool）與關係can_analyze、受體弱點（類別：vulnerability）之間的關係沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 的類別為 vulnerability，與 Ldr 中的 '弱點' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，'漏洞'、'弱點'、'脆弱性' 均指 vulnerability，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CVSS",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到 CVSS 是『弱點計分系統』，其目的是對弱點進行量化分析，因此將 CVSS 定義為 tool，弱點定義為 vulnerability，關係為 can_analyze。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到使用者容易受到惡意程式的危害。在本體論中，攻擊 (attack) 造成損害的對象通常是系統 (system)、應用程式 (app) 或資料 (data)，此處將其泛化為對系統的危害。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "惡意程式 (attack) 是攻擊類別的合理實例，系統 (system) 是系統類別的合理實例，'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需要注意的是，'can_harm' 關係可能涉及主動行為，惡意程式（attack）作為主體是合理的，因為它具有主動發起攻擊的能力。",
+        "response": "correct",
+        "reason": "三元組中的主體（惡意程式）與關係（can_harm）以及受體（系統）之間的關係在給定的語義限制清單中沒有明確的違反規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「惡意程式」與 Ldr 中的「惡意程式」完全相同，受體「系統」與 Ldr 中的「系統」完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全相同，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到使用者容易受到惡意程式的危害。在本體論中，攻擊 (attack) 造成損害的對象通常是系統 (system)、應用程式 (app) 或資料 (data)，此處將其泛化為對系統的危害。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "木馬程式",
+      "type": "attack",
+      "display_name": "木馬程式"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "文本將木馬程式列為惡意程式的一種，因此使用 is_part_of 關係，且兩者均屬於 attack 類型。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "木馬程式是 'attack' 的合理實例，惡意程式也是 'attack' 的合理實例，兩者名稱與類別對齊，且在資安領域中常見。",
+        "response": "correct",
+        "reason": "木馬程式與惡意程式的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關。三元組中，木馬程式（attack）與惡意程式（attack）之間的關係是『is_part_of』，這不涉及任何規則中的明確限制。",
+        "response": "correct",
+        "reason": "由於三元組不觸發語義限制清單中的任何規則，且關係『is_part_of』在給定的規則中沒有被明確限制，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "木馬程式是惡意程式的一種子類型，兩者之間存在著廣義和狹義的從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則3，若一個實體是另一個的子類型，判定為correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "木馬程式",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "文本將木馬程式列為惡意程式的一種，因此使用 is_part_of 關係，且兩者均屬於 attack 類型。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "蠕蟲",
+      "type": "attack",
+      "display_name": "蠕蟲"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "文本將蠕蟲列為惡意程式的一種，因此使用 is_part_of 關係，且兩者均屬於 attack 類型。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "蠕蟲和惡意程式都是攻擊（attack）的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。檢查規則2：不適用，因為三元組中沒有提到mitigates動作。檢查規則3：不適用，因為主體類別為attack，不是vulnerability。檢查規則4：不適用，因為關係不是violates，且主體不是principle。檢查規則5：不適用，因為關係不是uses，且主體類別不是data。檢查規則6：不適用，因為關係不是deployed_in。檢查規則7：不適用，因為關係不是generates。檢查規則8：不適用，因為關係不是controls。由於沒有任何規則被觸發，三元組不違反任何語義限制。",
+        "response": "correct",
+        "reason": "三元組中的關係is_part_of不在語義限制清單中被明確限制，且主體和受體的類別也沒有違反任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體（蠕蟲）與受體（惡意程式）皆為資安領域的攻擊類型，且惡意程式是蠕蟲的廣義概念，但兩者在此語境下不完全等價，蠕蟲是一種特定類型的惡意程式。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，蠕蟲是惡意程式的子類型，故不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "蠕蟲",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "文本將蠕蟲列為惡意程式的一種，因此使用 is_part_of 關係，且兩者均屬於 attack 類型。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "病毒"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "文本在比較病毒與蠕蟲時，將其視為惡意程式的類別，因此使用 is_part_of 關係，且兩者均屬於 attack 類型。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "病毒和惡意程式都是攻擊（attack）的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。檢查規則2：不適用，因為三元組中的關係不是 mitigates。檢查規則3：不適用，因為三元組中的主體類別不是 vulnerability。檢查規則4：不適用，因為三元組中的關係不是 violates，且主體不是 principle。檢查規則5：不適用，因為三元組中的關係不是 uses，或者主體的類別不是 data。檢查規則6：不適用，因為三元組中的關係不是 deployed_in。檢查規則7：不適用，因為三元組中的關係不是 generates。檢查規則8：不適用，因為三元組中的關係不是 controls。由於三元組中的關係是 is_part_of，且主體和受體的類別都為 attack，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的關係和實體類別沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體（病毒）與受體（惡意程式）皆為資安領域的攻擊類別，惡意程式是病毒的廣義概念，但兩者在此語境下可視為同義詞，尤其考慮到資安領域已知同義詞對照範例中，惡意程式、惡意軟體、惡意代碼被視為同義詞，且病毒是惡意程式的一種特定類型。",
+        "response": "duplicate",
+        "standard_subject": "惡意程式",
+        "standard_object": "惡意程式",
+        "reason": "根據資安領域已知同義詞對照範例和實體間的語義關係，病毒和惡意程式在此語境下被判定為同義詞，因此被視為重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "病毒",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "文本在比較病毒與蠕蟲時，將其視為惡意程式的類別，因此使用 is_part_of 關係，且兩者均屬於 attack 類型。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "勒索軟體",
+      "type": "attack",
+      "display_name": "勒索軟體"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "文本將勒索軟體列為惡意程式的一種，因此使用 is_part_of 關係，且兩者均屬於 attack 類型。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "勒索軟體是 'attack' 的合理實例，惡意程式也是 'attack' 的合理實例，兩者之間的 'is_part_of' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：未觸發。檢查規則2：未觸發。檢查規則3：未觸發。檢查規則4：未觸發。檢查規則5：未觸發。檢查規則6：未觸發。檢查規則7：未觸發。檢查規則8：未觸發。",
+        "response": "correct",
+        "reason": "三元組（勒索軟體 is_part_of 惡意程式）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體（勒索軟體）與受體（惡意程式）在資安領域中代表不同的概念，前者是指一種特定類型的惡意軟體，後者則是指所有類型的惡意軟體，兩者之間存在廣義/狹義的從屬關係，但根據判斷準則，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留的判斷準則，主體和受體之間的從屬關係不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "勒索軟體",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "文本將勒索軟體列為惡意程式的一種，因此使用 is_part_of 關係，且兩者均屬於 attack 類型。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "dns 快取污染",
+      "type": "attack",
+      "display_name": "DNS 快取污染"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "dns",
+      "type": "app",
+      "display_name": "DNS"
+    },
+    "reasoning": "DNS 快取污染是一種針對 DNS 服務的攻擊。雖然文本提到它是針對『應用層』，但根據 Schema，attack 不能直接 harm feature (應用層)，因此將受體具體化為 DNS (app)，關係為 can_harm。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "DNS 快取污染 是 'attack' 的合理實例，DNS 是 'app' 的合理實例，且 'can_harm' 是描述攻擊對應用程式的合理關係。",
+        "response": "correct",
+        "reason": "DNS 快取污染作為攻擊對 DNS 應用程式的危害，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體 'DNS 快取污染' 的類別是 'attack'，可以發起 'can_harm' 動作，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組 'DNS 快取污染'、'can_harm'、'DNS' 沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "DNS 快取污染與 DNS 皆為資安領域的獨立實體，前者為攻擊類別，後者為應用類別，無直接同義詞關係或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，DNS 快取污染與 DNS 不存在同義詞或從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DNS 快取污染",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "DNS",
+        "type": "app"
+      },
+      "reasoning": "DNS 快取污染是一種針對 DNS 服務的攻擊。雖然文本提到它是針對『應用層』，但根據 Schema，attack 不能直接 harm feature (應用層)，因此將受體具體化為 DNS (app)，關係為 can_harm。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "弱點掃描",
+      "type": "technique",
+      "display_name": "弱點掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "弱點掃描是一種用來發現與分析系統缺陷的技術，因此將其定義為 technique，對象為 vulnerability，關係為 can_analyze。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '弱點掃描' 是 'technique' 的合理實例，'弱點' 是 'vulnerability' 的合理實例，且 'can_analyze' 是合理的關係。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體是弱點掃描，屬於technique，且關係是can_analyze，不是mitigates。規則3不適用，因為主體是弱點掃描，類別是technique，不是vulnerability。規則4不適用，因為三元組中沒有提到principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係合理，沒有違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「弱點掃描」與 Ldr 中的「弱點掃描」完全相同，受體「弱點」與 Ldr 中的「弱點」完全相同，且「弱點」與「漏洞」、「脆弱性」為同義詞，但根據規則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。然而，這裡的「弱點掃描」和「弱點」是不同類別的實體，分別對應「technique」和「vulnerability」，因此不涉及子類型關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 1，主體和受體與 Ldr 中的某些資源完全相同，但由於它們屬於不同的類別且無同義詞關係，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "弱點掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "弱點掃描是一種用來發現與分析系統缺陷的技術，因此將其定義為 technique，對象為 vulnerability，關係為 can_analyze。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  }
+]

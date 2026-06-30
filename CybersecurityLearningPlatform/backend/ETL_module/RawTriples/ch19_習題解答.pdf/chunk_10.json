@@ -1,0 +1,152 @@
+[
+  {
+    "subject": {
+      "name": "分散式架構",
+      "type": "system"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到分散式架構規模大且跨網域，若不考量安全議題則有潛在風險。根據 Schema，system 可透過 can_expose 關聯至 vulnerability，以此代表其潛在的安全缺陷。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "潛在風險",
+      "type": "risk"
+    },
+    "reasoning": "文本指出缺乏安全考量會導致潛在風險。在本體論中，vulnerability can_expose risk 是合法的路徑，用以描述缺陷導致的後果。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "惡意程式",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料隱私",
+      "type": "data"
+    },
+    "reasoning": "文本明確指出植入惡意程式將導致資料隱私洩漏。將惡意程式視為 attack，資料隱私視為 data，符合 (attack, can_harm, data) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "惡意程式",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "分散式架構",
+      "type": "system"
+    },
+    "reasoning": "惡意程式被植入分散式架構並造成損害（如計算結果不正確），符合 (attack, can_harm, system) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "安全政策",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "潛在風險",
+      "type": "risk"
+    },
+    "reasoning": "文本提到必須重新檢視安全政策以實現安全，意即透過政策來緩解風險，符合 (policy, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "稅務趨勢分析系統",
+      "type": "app"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "個人人事資料",
+      "type": "data"
+    },
+    "reasoning": "文本舉例該系統存取個人人事資料，這是一種使用行為，符合 (app, uses, data) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "個人人事資料",
+      "type": "data"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本指出存取到個人人事資料是一種安全風險。根據 Schema，data can_expose vulnerability，代表敏感資料的不當存取暴露了系統的權限管理弱點。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "NoSQL資料庫",
+      "type": "app"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "雲端環境",
+      "type": "system"
+    },
+    "reasoning": "文本提到在複雜的雲端環境中，NoSQL 資料庫面臨挑戰，顯示其部署於雲端環境中，符合 (app, deployed_in, system) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "中介軟體",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "安全功能",
+      "type": "function"
+    },
+    "reasoning": "文本提到 NoSQL 資料庫須在中介軟體實現安全功能。將中介軟體視為 tool，安全功能視為 function，符合 (tool, has_a, function) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "NoSQL資料庫",
+      "type": "app"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到 NoSQL 資料庫設計之初未設置安全功能模組，這本身就是一種設計缺陷（弱點），符合 (app, can_expose, vulnerability) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 10
+  }
+]

@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "競業禁止",
+      "type": "policy",
+      "display_name": "競業禁止"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "公司損失",
+      "type": "risk",
+      "display_name": "公司損失"
+    },
+    "reasoning": "競業禁止是一種規範（policy），其目的是為了防止員工利用機密對雇主造成重大危險或損失（risk），因此關係為 mitigates。",
+    "source_id": "chunk_4",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "競業禁止 可被視為一種政策 (policy)，公司損失 可被視為一種風險 (risk)，且 'mitigates' 的語意與政策減輕風險的概念相符。",
+        "response": "correct",
+        "reason": "競業禁止 (policy) 透過 'mitigates' 關係減輕公司損失 (risk) 的風險，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，競業禁止 (類別: policy) 執行 mitigates 動作，符合規則。其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "競業禁止 (類別: policy) 執行 mitigates 動作，符合規則2，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "公司損失與損失之間的關係是廣義/狹義從屬，公司損失是損失的一種特定類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則3，若一個實體是另一個的子類型，判定為correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "競業禁止",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "公司損失",
+        "type": "risk"
+      },
+      "reasoning": "競業禁止是一種規範（policy），其目的是為了防止員工利用機密對雇主造成重大危險或損失（risk），因此關係為 mitigates。",
+      "source_id": "chunk_4",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "員工"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "競業禁止",
+      "type": "policy",
+      "display_name": "競業禁止"
+    },
+    "reasoning": "文本提到雇主要求員工在離職後一定期間內不得從事相同工作，即員工需履行/執行競業禁止的義務，符合 ('user', 'implements', 'policy')。",
+    "source_id": "chunk_4",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "員工 (user) 實現 (implements) 競業禁止 (policy) 的語意對齊是合理的，因為員工可以實施公司的政策，包括競業禁止政策。",
+        "response": "correct",
+        "reason": "員工實施競業禁止政策的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中，主體為員工（類別：user），關係為implements，受體為競業禁止（類別：policy），未發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "未發現三元組違反語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，員工和競業禁止不在同義詞對照範例中，且無廣義/狹義一律保留關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "員工",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "競業禁止",
+        "type": "policy"
+      },
+      "reasoning": "文本提到雇主要求員工在離職後一定期間內不得從事相同工作，即員工需履行/執行競業禁止的義務，符合 ('user', 'implements', 'policy')。",
+      "source_id": "chunk_4",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "離職員工",
+      "type": "attacker",
+      "display_name": "離職員工"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "原雇主公司",
+      "type": "system",
+      "display_name": "原雇主公司"
+    },
+    "reasoning": "文本指出員工離職後若利用營業秘密創業或投靠競爭對手，會造成公司損害。在此情境下，該員工扮演威脅者角色 (attacker)，對公司 (system) 造成危害。",
+    "source_id": "chunk_4",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "離職員工 可被視為 'attacker' 的合理實例，原雇主公司 可被視為 'system' 的合理實例，'can_harm' 的語意與攻擊者對系統的危害相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未違反，因為離職員工只被歸類為攻擊者(attacker)，未被歸類為安全團隊(securityTeam)。規則2：不適用，因為關係為can_harm，不是mitigates。規則3：不適用，因為主體類別為attacker，不是vulnerability。規則4：不適用，因為關係為can_harm，不是violates，且主體不是principle。規則5：不適用，因為關係為can_harm，不是uses。規則6：不適用，因為關係為can_harm，不是deployed_in。規則7：不適用，因為關係為can_harm，不是generates。規則8：未違反，因為主體是具有主動執行能力的角色（attacker）。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，三元組符合規則所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，Ldr為空，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "離職員工",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "原雇主公司",
+        "type": "system"
+      },
+      "reasoning": "文本指出員工離職後若利用營業秘密創業或投靠競爭對手，會造成公司損害。在此情境下，該員工扮演威脅者角色 (attacker)，對公司 (system) 造成危害。",
+      "source_id": "chunk_4",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "雇主",
+      "type": "user",
+      "display_name": "雇主"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "保密措施",
+      "type": "policy",
+      "display_name": "保密措施"
+    },
+    "reasoning": "營業秘密的三要件之一是『所有人已採取合理之保密措施』，保密措施屬於規範/策略 (policy)，由所有人 (user) 實作。",
+    "source_id": "chunk_4",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "雇主 (user) 實施 (implements) 保密措施 (policy) 在語意上是合理的，因為 'user' 可以是實施 'policy' 的實體，如公司或組織實施保密措施。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。實體 '雇主' 的類別為 'user'，與 'implements' 關係和 '保密措施' 的類別 'policy' 組成的三元組，未直接違反任何規則。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "雇主與員工、經營者皆為不同類型的使用者，保密措施與競業禁止皆為政策，但無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定同義詞關係，且實體間無廣義/狹義從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雇主",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "保密措施",
+        "type": "policy"
+      },
+      "reasoning": "營業秘密的三要件之一是『所有人已採取合理之保密措施』，保密措施屬於規範/策略 (policy)，由所有人 (user) 實作。",
+      "source_id": "chunk_4",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "歐盟通用資料保護規範",
+      "type": "policy",
+      "display_name": "歐盟通用資料保護規範"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "GDPR 是一項法律規範 (policy)，其核心目的在於保護個人資料，緩解個資外洩等風險 (risk)。",
+    "source_id": "chunk_4",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "歐盟通用資料保護規範 (GDPR) 是一種政策 (policy)，個資外洩是一種風險 (risk)，'mitigates' 關係在資安領域中指的是減輕風險，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "歐盟通用資料保護規範與個資外洩的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '歐盟通用資料保護規範' 屬於類別 'policy'，因此符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '歐盟通用資料保護規範' 屬於類別 'policy'，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為完全等價同義詞無關，且無廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定實體間的同義詞或從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "歐盟通用資料保護規範",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "GDPR 是一項法律規範 (policy)，其核心目的在於保護個人資料，緩解個資外洩等風險 (risk)。",
+      "source_id": "chunk_4",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "電子簽章法",
+      "type": "policy",
+      "display_name": "電子簽章法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "網路交易風險",
+      "type": "risk",
+      "display_name": "網路交易風險"
+    },
+    "reasoning": "電子簽章法 (policy) 旨在建立值得信賴的網路交易環境，藉此降低網路交易中的不信任或詐欺風險 (risk)。",
+    "source_id": "chunk_4",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "電子簽章法 是 policy 的合理實例，網路交易風險 是 risk 的合理實例。",
+        "response": "correct",
+        "reason": "電子簽章法 (policy) 透過 'mitigates' 關係減輕 網路交易風險 (risk)，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，電子簽章法（類別：policy）執行 mitigates 動作，符合規則。其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "電子簽章法（類別：policy）與網路交易風險（類別：risk）之間的 mitigates 關係，符合規則2的描述，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "電子簽章法與網路交易風險之間沒有直接的同義詞或從屬關係，兩者分別屬於policy和risk類別，無法直接判定為同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定電子簽章法和網路交易風險之間的直接同義詞或從屬關係，根據不確定時預設保留原則，判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子簽章法",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "網路交易風險",
+        "type": "risk"
+      },
+      "reasoning": "電子簽章法 (policy) 旨在建立值得信賴的網路交易環境，藉此降低網路交易中的不信任或詐欺風險 (risk)。",
+      "source_id": "chunk_4",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

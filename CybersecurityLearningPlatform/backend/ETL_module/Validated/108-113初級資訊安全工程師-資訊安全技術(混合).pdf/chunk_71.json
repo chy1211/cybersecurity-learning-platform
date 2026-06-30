@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "跨站腳本攻擊",
+      "type": "attack",
+      "display_name": "跨站指令碼攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "cookie 資訊",
+      "type": "data",
+      "display_name": "Cookie 資料"
+    },
+    "reasoning": "文本指出 XSS 攻擊可能造成『Cookie 資料被竊取』，即攻擊對資料造成損害，對應 Schema 中的 ('attack', 'can_harm', 'data')。",
+    "source_id": "chunk_71",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "跨站指令碼攻擊 (XSS) 是 'attack' 的合理實例，Cookie 資料是 'data' 的合理實例，'can_harm' 關係在資安領域中指的是攻擊可以對資料造成傷害，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為主體的類別是 attack，而非 data。檢查規則6：無關。檢查規則7：無關。檢查規則8：無關，因為關係是 can_harm，而非 controls。",
+        "response": "correct",
+        "reason": "三元組（跨站指令碼攻擊 can_harm Cookie 資料）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "跨站指令碼攻擊與跨網站腳本攻擊為同義詞，Cookie 資料與 cookie 資訊為同義詞",
+        "response": "duplicate",
+        "standard_subject": "跨站腳本攻擊",
+        "standard_object": "cookie 資訊",
+        "reason": "根據同義詞對照表與資安教材，跨站指令碼攻擊與跨網站腳本攻擊、Cookie 資料與 cookie 資訊分別為同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "跨站指令碼攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "Cookie 資料",
+        "type": "data"
+      },
+      "reasoning": "文本指出 XSS 攻擊可能造成『Cookie 資料被竊取』，即攻擊對資料造成損害，對應 Schema 中的 ('attack', 'can_harm', 'data')。",
+      "source_id": "chunk_71",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "網站漏洞",
+      "type": "vulnerability",
+      "display_name": "網站漏洞"
+    },
+    "reasoning": "文本提到『攻擊者利用網站的漏洞』，符合 attacker 利用 vulnerability 的邏輯，對應 Schema 中的 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_71",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，網站漏洞 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 的語意也與攻擊者對網站漏洞的關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。規則2：不適用，因為三元組中的關係不是mitigates。規則3：不適用，因為三元組中的主體類別不是vulnerability發起主動行為。規則4：不適用，因為三元組中的關係不是violates。規則5：不適用，因為三元組中的關係不是uses。規則6：不適用，因為三元組中的關係不是deployed_in。規則7：不適用，因為三元組中的關係不是generates。規則8：不適用，因為三元組中的關係不是controls。然而，根據規則3的描述，vulnerability本身是被動缺陷，原則上不可發起主動行為，但這裡的can_exploit似乎是一種特殊的主動行為，然而這裡的主體是攻擊者，而不是漏洞本身，因此不直接違反規則3。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，關係是can_exploit，受體是網站漏洞，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全等價同義詞，受體 \"網站漏洞\" 與 Ldr 中的 \"漏洞\"、\"安全漏洞\"、\"程式漏洞\" 等相關但非完全等價同義詞，然而 \"網站漏洞\" 可被視為 \"漏洞\" 的子類型，因此判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，\"網站漏洞\" 是 \"漏洞\" 的子類型，故不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "網站漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『攻擊者利用網站的漏洞』，符合 attacker 利用 vulnerability 的邏輯，對應 Schema 中的 ('attacker', 'can_exploit', 'vulnerability')。",
+      "source_id": "chunk_71",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "跨站指令碼攻擊",
+      "type": "attack",
+      "display_name": "跨站指令碼攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "session 連線",
+      "type": "data",
+      "display_name": "Session 連線"
+    },
+    "reasoning": "文本指出 XSS 攻擊可能造成『Session 連線被劫持』，Session 資訊屬於資料實體，對應 Schema 中的 ('attack', 'can_harm', 'data')。",
+    "source_id": "chunk_71",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "跨站指令碼攻擊 (XSS) 是 'attack' 的合理實例，Session 連線是 'data' 的合理實例，'can_harm' 關係在資安領域中是合理的，因為攻擊可以對資料造成傷害。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為攻擊類別，具有主動執行能力，符合規則8的允許條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（跨站指令碼攻擊）與關係（can_harm）以及受體（Session 連線）之間的關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "跨站指令碼攻擊與跨站腳本攻擊、跨網站腳本攻擊為同義詞，且與 Session 連線無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，跨站指令碼攻擊與跨站腳本攻擊、跨網站腳本攻擊為同義詞，但與 Session 連線無直接同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "跨站指令碼攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "Session 連線",
+        "type": "data"
+      },
+      "reasoning": "文本指出 XSS 攻擊可能造成『Session 連線被劫持』，Session 資訊屬於資料實體，對應 Schema 中的 ('attack', 'can_harm', 'data')。",
+      "source_id": "chunk_71",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "waf",
+      "type": "tool",
+      "display_name": "WAF"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "l7 layer",
+      "type": "feature",
+      "display_name": "L7 layer"
+    },
+    "reasoning": "題目將 WAF 定義為 L7 layer Firewall，表示 WAF 具有第七層（應用層）的特徵，對應 Schema 中的 ('tool', 'has_a', 'feature')。",
+    "source_id": "chunk_71",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "WAF 是一種網路應用防火牆，通常具有 L7 層的功能，因此 'WAF' 是 'tool' 的合理實例，'L7 layer' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（WAF has_a L7 layer）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "WAF 與 Ldr 中的 waf 完全等價同義詞，L7 layer 與 Ldr 中的 osi 第 7 層廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "waf",
+        "standard_object": "",
+        "reason": "根據同義詞判定，WAF 與 waf 完全等價，L7 layer 與 osi 第 7 層為同一概念的不同表達方式，但不完全匹配，故保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WAF",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "L7 layer",
+        "type": "feature"
+      },
+      "reasoning": "題目將 WAF 定義為 L7 layer Firewall，表示 WAF 具有第七層（應用層）的特徵，對應 Schema 中的 ('tool', 'has_a', 'feature')。",
+      "source_id": "chunk_71",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "跨站指令碼攻擊",
+      "type": "attack",
+      "display_name": "跨站指令碼攻擊"
+    },
+    "reasoning": "題目詢問上述行為屬於何種攻擊方法，答案為 XSS，表示攻擊者執行了此項攻擊，對應 Schema 中的 ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_71",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 實施 (implements) 跨站指令碼攻擊 (attack) 在語意上是合理的，因為攻擊者可能會使用或實施各種攻擊技術，包括跨站指令碼攻擊。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且在語意上是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有提到安全團隊(securityTeam)。規則2：不適用，因為三元組中的關係是implements，而不是mitigates。規則3：不適用，因為主體類別是攻擊者(attacker)，不是漏洞(vulnerability)。規則4：不適用，因為三元組中的關係是implements，而不是violates。規則5：不適用，因為三元組中的關係是implements，而不是uses。規則6：不適用，因為三元組中的關係是implements，而不是deployed_in。規則7：不適用，因為三元組中的關係是implements，而不是generates。規則8：不適用，因為三元組中的關係是implements，而不是controls。",
+        "response": "correct",
+        "reason": "三元組中的攻擊者(attacker)實施(implements)跨站指令碼攻擊(attack)的動作，沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞或近似資源存在",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例與判斷準則，無法直接判定為同義詞重複，且主體與受體之間存在著廣義/狹義的從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "跨站指令碼攻擊",
+        "type": "attack"
+      },
+      "reasoning": "題目詢問上述行為屬於何種攻擊方法，答案為 XSS，表示攻擊者執行了此項攻擊，對應 Schema 中的 ('attacker', 'implements', 'attack')。",
+      "source_id": "chunk_71",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "nmap",
+      "type": "tool",
+      "display_name": "Nmap"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "通訊埠",
+      "type": "feature",
+      "display_name": "通訊埠"
+    },
+    "reasoning": "文本提到 Nmap 是用來『探測通訊埠 (Port)』的軟體，探測行為屬於分析系統特徵，對應 Schema 中的 ('tool', 'can_analyze', 'feature')。",
+    "source_id": "chunk_71",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Nmap 是一種網路掃描工具，可以分析通訊埠，因此 'Nmap' 是 'tool' 的合理實例，'通訊埠' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（Nmap, can_analyze, 通訊埠）未觸發語義限制清單中的任何規則，且主體Nmap為tool，符合一般工具可以分析特徵的邏輯。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Nmap 與 Ldr 中的 nmap 完全等價同義詞，受體 通訊埠 與 Ldr 中的 連接埠 密切相關但非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "nmap",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，主體 Nmap 可以標準化為 nmap，但受體 通訊埠 與 連接埠 雖然相關但不完全等價，故不進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Nmap",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "通訊埠",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 Nmap 是用來『探測通訊埠 (Port)』的軟體，探測行為屬於分析系統特徵，對應 Schema 中的 ('tool', 'can_analyze', 'feature')。",
+      "source_id": "chunk_71",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "nc",
+      "type": "tool",
+      "display_name": "NC"
+    },
+    "reasoning": "文本提到 NC 常被用來建立 Backdoor，這意味著攻擊者會使用 NC 這個工具，對應 Schema 中的 ('attacker', 'uses', 'tool')。",
+    "source_id": "chunk_71",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 使用工具 (tool) 的情境是合理的，'uses' 關係也符合攻擊者使用工具的語意。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規檢查，因為主體的類別是 attacker，而不是 data，但這裡的主體是攻擊者，使用工具 NC，因此不違反規則5。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，使用工具 NC，沒有明確違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全等價同義詞，受體 \"NC\" 與 Ldr 中的資源不直接匹配，但 \"NC\" 可能是工具的縮寫，需要進一步確認。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全匹配，但受體 \"NC\" 無法直接與 Ldr 中的資源匹配，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "NC",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 NC 常被用來建立 Backdoor，這意味著攻擊者會使用 NC 這個工具，對應 Schema 中的 ('attacker', 'uses', 'tool')。",
+      "source_id": "chunk_71",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "ldap",
+      "type": "app",
+      "display_name": "LDAP"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "通訊埠 389",
+      "type": "feature",
+      "display_name": "通訊埠 389"
+    },
+    "reasoning": "文本指出 LDAP 協定較常使用之通訊埠為 389，通訊埠是應用程式的屬性/特徵，對應 Schema 中的 ('app', 'has_a', 'feature')。",
+    "source_id": "chunk_71",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "LDAP 是一種應用程式（app），而 '通訊埠 389' 是 LDAP 的特徵（feature），因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 app，不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則沒有發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組（LDAP, has_a, 通訊埠 389）沒有觸發語義限制清單中的任何規則，且無法找到明確的違規證據。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "LDAP 與 Ldr 中的 'dns' 不是完全等價同義詞，LDAP 是一種通訊協定，'dns' 是另一種通訊協定，兩者之間沒有廣義/狹義從屬關係；通訊埠 389 是 LDAP 的預設通訊埠，與 Ldr 中的 '通訊埠' 有關，但 '通訊埠 389' 是 '通訊埠' 的子類型，'通訊埠 3389' 則是另一種通訊埠，與 LDAP 無直接關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，LDAP 與 'dns' 之間沒有從屬關係，通訊埠 389 是 LDAP 的預設通訊埠，但 '通訊埠 389' 與 '通訊埠' 之間有從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "LDAP",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "通訊埠 389",
+        "type": "feature"
+      },
+      "reasoning": "文本指出 LDAP 協定較常使用之通訊埠為 389，通訊埠是應用程式的屬性/特徵，對應 Schema 中的 ('app', 'has_a', 'feature')。",
+      "source_id": "chunk_71",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "網路監看",
+      "type": "technique",
+      "display_name": "網路監看"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "wireshark",
+      "type": "tool",
+      "display_name": "Wireshark"
+    },
+    "reasoning": "文本提到透過下載網路監看 (Sniffing) 工具（如：Wireshark）來進行側錄，表示此技術依賴該工具，對應 Schema 中的 ('technique', 'depends_on', 'tool')。",
+    "source_id": "chunk_71",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網路監看 (Network Monitoring) 是一種合理的 'technique'，而 Wireshark 是一種網路封包分析工具，屬於 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "網路監看與 Wireshark 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'depends_on' 與給定的語義限制清單中沒有直接相關的規則，因此無法判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路監看與監聽是同義詞，兩者都指的是監聽網路流量的技術；Wireshark 是一個工具，與 nmap、nc 等其他工具不同，但都屬於工具類別。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，網路監看與監聽是同義詞，但由於實體名稱與 Ldr 中某資源的 name 字串不完全相同，且無法確定，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路監看",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "Wireshark",
+        "type": "tool"
+      },
+      "reasoning": "文本提到透過下載網路監看 (Sniffing) 工具（如：Wireshark）來進行側錄，表示此技術依賴該工具，對應 Schema 中的 ('technique', 'depends_on', 'tool')。",
+      "source_id": "chunk_71",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "wireshark",
+      "type": "tool",
+      "display_name": "Wireshark"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "應用協定資料",
+      "type": "data",
+      "display_name": "應用協定資料"
+    },
+    "reasoning": "文本提到使用 Wireshark 可以『側錄到應用協定』，側錄並分析封包資料是其功能，對應 Schema 中的 ('tool', 'can_analyze', 'data')。",
+    "source_id": "chunk_71",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Wireshark 是一種網路封包分析工具，合理對齊 'tool' 類別；'應用協定資料' 是一種網路資料，合理對齊 'data' 類別。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（Wireshark can_analyze 應用協定資料）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"應用協定資料\" 與 Ldr 中的 \"應用資料\" 類別相同，且名稱相似，可能是同義詞或廣義/狹義從屬關係，但根據給定的同義詞對照範例，沒有直接的同義詞對應關係，因此需要進一步分析。然而，根據給定的判斷準則，若一個實體是另一個的子類型，則判定為 correct。由於 \"應用協定資料\" 可能是 \"應用資料\" 的子類型，因此判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，若一個實體是另一個的子類型，則判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Wireshark",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "應用協定資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到使用 Wireshark 可以『側錄到應用協定』，側錄並分析封包資料是其功能，對應 Schema 中的 ('tool', 'can_analyze', 'data')。",
+      "source_id": "chunk_71",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  }
+]

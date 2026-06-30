@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "風險分析",
+      "type": "function",
+      "display_name": "風險分析"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到風險分析的目的在於找出風險發生的可能性與評估風險等級。在資安本體論中，分析風險必然涉及對系統弱點 (vulnerability) 的分析，且 (technique, can_analyze, vulnerability) 是合法的 Schema 邊界。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "風險分析 (technique) 可以分析弱點 (vulnerability)，這是資安領域中合理的語意對齊，接受同義詞寬容原則後仍然合理。",
+        "response": "correct",
+        "reason": "風險分析可以分析弱點，完全符合預先定義的類別與屬性清單，語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。由於三元組中的主體是風險分析（類別：function），而非漏洞，因此不觸發規則3的違規條件。其他規則均不適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體是風險分析（類別：function），不符合任何規則的違規條件，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞存在於 Ldr 中，風險分析與風險分析與評鑑之間有相似的概念，但根據規則，若一個實體是另一個的子類型，判定為 correct；而弱點與漏洞、脆弱性為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據同義詞對照表，弱點與漏洞、脆弱性為同義詞，且主體與受體皆有相似的概念，但依據規則，若無法確定，預設 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險分析",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到風險分析的目的在於找出風險發生的可能性與評估風險等級。在資安本體論中，分析風險必然涉及對系統弱點 (vulnerability) 的分析，且 (technique, can_analyze, vulnerability) 是合法的 Schema 邊界。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "存取控制",
+      "type": "technique",
+      "display_name": "存取控制"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權存取",
+      "type": "attack",
+      "display_name": "未經授權存取"
+    },
+    "reasoning": "文本明確指出存取控制旨在「防止系統資源或資料被未經授權地存取」。未經授權的存取是一種惡意行為 (attack)，而存取控制作為一種防禦技術 (technique) 用於緩解此威脅，符合 (technique, mitigates, attack)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "存取控制 (technique) 和 未經授權存取 (attack) 的名稱與其類別合理對齊，且 'mitigates' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "存取控制 (technique) 和 未經授權存取 (attack) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是存取控制（technique），符合規則2的條件，未觸發違規。",
+        "response": "correct",
+        "reason": "該三元組的主體是存取控制（technique），符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "存取控制與存取控制方法、回復型存取控制等為廣義/狹義從屬關係；未經授權存取與未授權存取、未經授權的存取等為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與Ldr中某資源的name字串完全相同，且無同義詞重複，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "存取控制",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "未經授權存取",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出存取控制旨在「防止系統資源或資料被未經授權地存取」。未經授權的存取是一種惡意行為 (attack)，而存取控制作為一種防禦技術 (technique) 用於緩解此威脅，符合 (technique, mitigates, attack)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "存取控制",
+      "type": "technique",
+      "display_name": "存取控制"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本提到存取控制需「依據資料的機密層級不同，去設立存取權限」，這意味著存取控制技術必須分析資料的屬性（如機密層級），符合 (technique, can_analyze, data)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "存取控制 (technique) 可以分析資料 (data)，這是資安領域中合理的語意對齊，'can_analyze' 關係在此語境下是適當的。",
+        "response": "correct",
+        "reason": "存取控制可以分析資料的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別為technique。檢查規則4：不適用。檢查規則5：不適用，因為主體類別不是data。檢查規則6：不適用，因為關係不是deployed_in。檢查規則7：不適用，因為關係不是generates。檢查規則8：不適用，因為關係不是controls。由於沒有規則被觸發，三元組不違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（存取控制）和關係（can_analyze）以及受體（資料）之間的關係沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "存取控制與資料存取控制之間存在廣義/狹義從屬關係，前者是後者的父類別，但兩者皆指涉資安領域的存取控制機制，尤其是資料存取控制明確指涉資料的存取控制，與主體存取控制的概念相關但更具體於資料層面。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "基於廣義/狹義一律保留原則，存取控制與資料存取控制之間的關係不被視為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "存取控制",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到存取控制需「依據資料的機密層級不同，去設立存取權限」，這意味著存取控制技術必須分析資料的屬性（如機密層級），符合 (technique, can_analyze, data)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "角色基準存取控制 (rbac)",
+      "type": "technique",
+      "display_name": "角色基準存取控制 (RBAC)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "存取控制",
+      "type": "technique",
+      "display_name": "存取控制"
+    },
+    "reasoning": "文本將 RBAC 列為存取控制的三種主要操作模式之一，因此 RBAC 是存取控制這一大類技術中的一種具體實現，符合 (technique, is_part_of, technique)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "角色基準存取控制 (RBAC) 和存取控制都是 'technique' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單 Lc,p，通過了清單合法性和語意對齊的檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關。檢查規則6：無關。檢查規則7：無關。檢查規則8：無關。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有被明確限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "存取控制是RBAC的父類別，兩者在資安領域中指涉不同層次的存取控制概念",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "RBAC是存取控制的一種特定實現方式，兩者之間存在廣義/狹義的從屬關係"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "角色基準存取控制 (RBAC)",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "存取控制",
+        "type": "technique"
+      },
+      "reasoning": "文本將 RBAC 列為存取控制的三種主要操作模式之一，因此 RBAC 是存取控制這一大類技術中的一種具體實現，符合 (technique, is_part_of, technique)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "強制存取控制 (mac)",
+      "type": "technique",
+      "display_name": "強制存取控制 (MAC)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "存取控制",
+      "type": "technique",
+      "display_name": "存取控制"
+    },
+    "reasoning": "同上，MAC 是存取控制的一種操作模式，符合 (technique, is_part_of, technique)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "強制存取控制 (MAC) 與存取控制 均為 'technique' 的合理實例，考慮到同義詞寬容原則，MAC 是存取控制的一種技術，因此語意對齊。",
+        "response": "correct",
+        "reason": "強制存取控制 (MAC) 是存取控制的一部分，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則，發現規則1、2、3、4、5、6、7、8均不直接適用於此三元組，因為它們所描述的關係或主體、受體類別與給定的三元組不符。特別是，規則2、5、6、7、8所描述的關係（如mitigates、uses、deployed_in、generates、controls）與給定的關係'is_part_of'不同，規則1、3、4所描述的情況也不適用於此三元組。",
+        "response": "correct",
+        "reason": "由於給定的三元組（強制存取控制 is_part_of 存取控制）不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞或相關概念，但無直接完全等價的同義詞關係，然而根據資安領域已知同義詞對照範例，存取控制是資安領域中的一個廣義概念，強制存取控制（MAC）是存取控制的一種特定實現方式，因此兩者之間存在著廣義與狹義的從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留的判斷準則，強制存取控制（MAC）是存取控制的子類型，故不進行合併，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "強制存取控制 (MAC)",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "存取控制",
+        "type": "technique"
+      },
+      "reasoning": "同上，MAC 是存取控制的一種操作模式，符合 (technique, is_part_of, technique)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "存取控制",
+      "type": "technique",
+      "display_name": "任意存取控制 (DAC)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "存取控制",
+      "type": "technique",
+      "display_name": "存取控制"
+    },
+    "reasoning": "同上，DAC 是存取控制的一種操作模式，符合 (technique, is_part_of, technique)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均存在於 Lc,p 中。",
+        "step_2_alignment_check": "主體 '任意存取控制 (DAC)' 與受體 '存取控制' 的名稱與其類別 'technique' 合理對齊，考慮到同義詞寬容原則，'DAC' 是 '存取控制' 的常見縮寫。",
+        "response": "correct",
+        "reason": "主體、受體與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在語義限制清單中被明確限制，且主體和受體的類別與給定的規則不衝突。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Subject) \"任意存取控制 (DAC)\" 與受體 (Object) \"存取控制\" 在資安領域中可視為同義詞，兩者都指涉存取控制的概念，且 \"任意存取控制 (DAC)\" 是 \"存取控制\" 的一種特定實現方式，但在此場合下，兩者被視為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "存取控制",
+        "standard_object": "存取控制",
+        "reason": "根據同義詞判定準則，\"任意存取控制 (DAC)\" 與 \"存取控制\" 被判定為同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "任意存取控制 (DAC)",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "存取控制",
+        "type": "technique"
+      },
+      "reasoning": "同上，DAC 是存取控制的一種操作模式，符合 (technique, is_part_of, technique)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "reasoning": "文本提到存取控制決定「使用者與作業系統之間的溝通」，隱含了使用者操作或使用作業系統的行為，符合 (user, uses, system)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "使用者 (user) 可以使用作業系統 (system)，這是一種合理的語意對齊，符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，通過類別與屬性檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體類別為 'user'，不違反規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 '使用者'，關係為 'uses'，受體為 '作業系統'，不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「使用者」與 Ldr 中的「使用者」完全匹配，受體「作業系統」與 Ldr 中的「作業系統」完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到存取控制決定「使用者與作業系統之間的溝通」，隱含了使用者操作或使用作業系統的行為，符合 (user, uses, system)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "存取事件記錄",
+      "type": "data",
+      "display_name": "存取事件記錄"
+    },
+    "reasoning": "文本提到「記錄所有的存取事件，以便未來追蹤使用」。在實作中，是由作業系統或其存取控制模組產生這些日誌資料，符合 (system, generates, data)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "作業系統 (system) 可以生成存取事件記錄 (data)，這是資安領域中常見的關係，且名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全匹配，受體 \"存取事件記錄\" 與 Ldr 中的 \"事件記錄\" 類似，但非完全匹配，兩者皆無同義詞重複關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，主體與受體皆無同義詞重複關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "存取事件記錄",
+        "type": "data"
+      },
+      "reasoning": "文本提到「記錄所有的存取事件，以便未來追蹤使用」。在實作中，是由作業系統或其存取控制模組產生這些日誌資料，符合 (system, generates, data)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "多因素驗證",
+      "type": "technique",
+      "display_name": "多因素驗證"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權存取",
+      "type": "attack",
+      "display_name": "未經授權存取"
+    },
+    "reasoning": "多因素驗證用於「鑑別使用者身份」，其核心目的是防止攻擊者透過盜用單一憑據進行未經授權的存取，符合 (technique, mitigates, attack)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "多因素驗證是 technique 的合理實例，未經授權存取是 attack 的合理實例，且 'mitigates' 的語意與多因素驗證對未經授權存取的關係相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '多因素驗證' 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '多因素驗證' 屬於 technique 類別，符合規則2的條件，且未發現其他明確違反的規則。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"多因素驗證\" 與 Ldr 中的 \"多因子認證\"、\"多因素身份驗證\" 和 \"多因素身分驗證\" 皆為同義詞，受體 \"未經授權存取\" 與 Ldr 中的 \"未授權存取\"、\"未經授權的存取\"、\"非授權存取\" 和 \"非法存取\" 皆為同義詞或相關概念，但依據判斷準則 2，若兩個實體在資安教材中可互換使用、指稱同一概念，則判定為 duplicate。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆有相近同義詞，但依據廣義/狹義一律保留原則，無法確認完全等價，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "多因素驗證",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "未經授權存取",
+        "type": "attack"
+      },
+      "reasoning": "多因素驗證用於「鑑別使用者身份」，其核心目的是防止攻擊者透過盜用單一憑據進行未經授權的存取，符合 (technique, mitigates, attack)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "存取控制",
+      "type": "technique",
+      "display_name": "存取控制"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "reasoning": "存取控制決定使用者與作業系統之間的溝通，必須分析作業系統的資源狀態以決定是否允許存取，符合 (technique, can_analyze, system)。",
+    "source_id": "chunk_65",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "存取控制 (technique) 可以分析作業系統 (system)，這是資安領域中合理的語意對齊，'can_analyze' 關係在此情境下也是適當的。",
+        "response": "correct",
+        "reason": "存取控制與作業系統之間的 'can_analyze' 關係完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為存取控制（technique），關係為can_analyze，受體為作業系統（system），未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「存取控制」與 Ldr 中的「存取控制」完全等價同義詞，受體「作業系統」與 Ldr 中的「作業系統」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "存取控制",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "reasoning": "存取控制決定使用者與作業系統之間的溝通，必須分析作業系統的資源狀態以決定是否允許存取，符合 (technique, can_analyze, system)。",
+      "source_id": "chunk_65",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 10
+    }
+  }
+]

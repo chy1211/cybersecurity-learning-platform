@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "備份資料",
+      "type": "data",
+      "display_name": "備份資料"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "磁帶",
+      "type": "tool",
+      "display_name": "磁帶"
+    },
+    "reasoning": "文本提到『備份於磁帶的資料』，描述資料存放於磁帶設備中，符合 data 部署於 system 的邏輯。",
+    "source_id": "chunk_118",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "備份資料 (data) 與磁帶 (system) 的名稱與其被賦予的類別合理對齊，備份資料是 data 的合理實例，磁帶可以被視為 system 的一種實例，尤其是在資安領域中，磁帶可能被用於儲存備份資料。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6指出當關係為deployed_in時，受體的類別必須是system，但在此三元組中，受體是磁帶（tool），因此觸發違規。",
+        "response": "violation",
+        "reason": "三元組中的受體（磁帶）類別為tool，與規則6中規定的system類別不符，導致違反語義限制。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組中的受體（磁帶）類別為tool，與規則6中規定的system類別不符，導致違反語義限制。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "備份資料",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "磁帶",
+        "type": "system"
+      },
+      "reasoning": "文本提到『備份於磁帶的資料』，描述資料存放於磁帶設備中，符合 data 部署於 system 的邏輯。",
+      "source_id": "chunk_118",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  }
+]

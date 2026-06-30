@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "系統設定檔",
+      "type": "data",
+      "display_name": "系統設定檔"
+    },
+    "reasoning": "系統設定檔是由作業系統產生並維護的資訊實體，符合 (system, generates, data) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "作業系統 (system) 可以生成系統設定檔 (data)，這是語意上合理的對齊，符合資安領域的常見實踐。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組符合規則所允許的條件，因為受體的類別是data。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全等價同義詞，受體 \"系統設定檔\" 與 Ldr 中的 \"設定檔\" 可能是同義詞或相關概念，但不完全匹配。",
+        "response": "correct",
+        "standard_subject": "作業系統",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體 \"作業系統\" 是 Ldr 中的完全匹配，受體 \"系統設定檔\" 與 \"設定檔\" 雖然相關但不完全等價，根據規則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "系統設定檔",
+        "type": "data"
+      },
+      "reasoning": "系統設定檔是由作業系統產生並維護的資訊實體，符合 (system, generates, data) 的 Schema。",
+      "source_id": "chunk_112",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "/etc/shadow",
+      "type": "data",
+      "display_name": "/etc/shadow"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "linux",
+      "type": "system",
+      "display_name": "Linux 作業系統"
+    },
+    "reasoning": "/etc/shadow 是 Linux 系統中的一個特定檔案（資料），存放於該系統中，符合 (data, deployed_in, system) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '/etc/shadow' 是 'data' 的合理實例，受體 'Linux 作業系統' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：不觸發，因為主體的類別是 data 但關係是 deployed_in，不是 uses；規則6：觸發，且符合規則，受體的類別是 system。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，且未發現其他明確違反的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 Linux 作業系統 與 Ldr 中的 linux 相似度高達 0.8986，且兩者皆指稱同一系統類型，屬於同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "linux",
+        "reason": "根據同義詞判定準則，Linux 作業系統 與 linux 屬於同義詞關係，但依據廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "/etc/shadow",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "Linux 作業系統",
+        "type": "system"
+      },
+      "reasoning": "/etc/shadow 是 Linux 系統中的一個特定檔案（資料），存放於該系統中，符合 (data, deployed_in, system) 的 Schema。",
+      "source_id": "chunk_112",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "系統設定檔",
+      "type": "data",
+      "display_name": "系統設定檔"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本指出攻擊者翻找設定檔是為了尋找帳號密碼，這意味著設定檔若管理不當會暴露認證資訊等弱點，符合 (data, can_expose, vulnerability) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'vulnerability' 與關係 'can_expose' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "系統設定檔 (data) 可能暴露弱點 (vulnerability) 的情境在資安領域中是合理的，'can_expose' 關係在此語境下也是適當的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但允許 'can_expose' 動作。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 '系統設定檔'，類別為 'data'，關係為 'can_expose'，受體為 '弱點'，類別為 'vulnerability'。根據規則3，vulnerability 可以發起 'can_expose' 動作，因此不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體分別與 Ldr 中的「系統設定檔」和「弱點」具有高相似度，但根據同義詞對照表，「弱點」是資安領域已知的同義詞，與「漏洞」和「脆弱性」等同義。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中的資源不完全相同，且無法確認為同義詞或子類型關係，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統設定檔",
+        "type": "data"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出攻擊者翻找設定檔是為了尋找帳號密碼，這意味著設定檔若管理不當會暴露認證資訊等弱點，符合 (data, can_expose, vulnerability) 的 Schema。",
+      "source_id": "chunk_112",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "reasoning": "文本提到『當攻擊者取得作業系統存取權限時』，這代表攻擊者取得了對系統的控制權，符合 (attacker, controls, system) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 類別的合理實例，作業系統 (system) 是 'system' 類別的合理實例，且 'controls' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未觸發，因為三元組中沒有同時具有攻擊者(attacker)與安全團隊(securityTeam)的身分。規則2：未觸發，因為三元組中的關係是controls，不是mitigates。規則3：未觸發，因為三元組中的主體類別是attacker，不是vulnerability。規則4：未觸發，因為三元組中的關係是controls，不是violates。規則5：未觸發，因為三元組中的關係是controls，不是uses。規則6：未觸發，因為三元組中的關係是controls，不是deployed_in。規則7：未觸發，因為三元組中的關係是controls，不是generates。規則8：觸發，因為三元組中的主體是attacker，符合具有主動執行能力的角色或工具的描述，且關係是controls，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體是attacker，關係是controls，受體是system，符合規則8的允許條件，且未發現其他規則的違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「攻擊者」與 Ldr 中的「攻擊者」完全等價同義詞，受體「作業系統」與 Ldr 中的「作業系統」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到『當攻擊者取得作業系統存取權限時』，這代表攻擊者取得了對系統的控制權，符合 (attacker, controls, system) 的 Schema。",
+      "source_id": "chunk_112",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "安全強化",
+      "type": "technique",
+      "display_name": "安全強化"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "文本提到『為了讓作業系統變得更安全、更難以入侵，通常企業會對作業系統進行安全強化』，說明強化技術是用來緩解攻擊風險，符合 (technique, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "安全強化是 technique 的合理實例，駭客攻擊是 attack 的合理實例，且 'mitigates' 關係在資安領域中常用於描述安全措施對攻擊的緩解作用。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '安全強化' 屬於類別 'technique'，因此符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '安全強化' 屬於類別 'technique'，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "安全強化與安全探測之間的關係是不同概念，駭客攻擊是攻擊的子集，但與網路攻擊、駭客入侵等其他攻擊類型之間的關係是同一類別下的不同實例",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，安全強化和駭客攻擊之間沒有直接的同義詞或廣義/狹義關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全強化",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『為了讓作業系統變得更安全、更難以入侵，通常企業會對作業系統進行安全強化』，說明強化技術是用來緩解攻擊風險，符合 (technique, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_112",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼原則",
+      "type": "policy",
+      "display_name": "密碼原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "密碼原則是安全強化的一環，旨在防止未經授權的存取（如暴力破解攻擊），符合 (policy, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "密碼原則 (policy) 是一種安全原則，駭客攻擊 (attack) 是一種攻擊行為，'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，語意對齊合理。",
+        "response": "correct",
+        "reason": "密碼原則與駭客攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '密碼原則'，類別為 'policy'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '密碼原則' 屬於 'policy' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全匹配的資源存在於 Ldr 中，分別為 \"密碼原則\" 與 \"駭客攻擊\"，且無同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆直接匹配到 Ldr 中的唯一資源，無同義詞或子類型關係需要考慮。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "密碼原則是安全強化的一環，旨在防止未經授權的存取（如暴力破解攻擊），符合 (policy, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_112",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "fail2ban",
+      "type": "tool",
+      "display_name": "fail2ban"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "fail2ban 透過將登入錯誤過多的使用者列入黑名單來防禦攻擊，符合 (tool, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "fail2ban 是一種安全工具，合理對齊 'tool' 類別；駭客攻擊是攻擊行為，合理對齊 'attack' 類別。",
+        "response": "correct",
+        "reason": "fail2ban 作為一種安全工具，能夠減輕駭客攻擊的風險，符合 'mitigates' 關係的語意。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 fail2ban，類別是 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "因為三元組的主體是 tool，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"駭客攻擊\" 與 Ldr 中的 \"駭客攻擊\" 完全相同，屬於完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "fail2ban",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "fail2ban 透過將登入錯誤過多的使用者列入黑名單來防禦攻擊，符合 (tool, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_112",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "iptables",
+      "type": "tool",
+      "display_name": "iptables"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "防火牆功能",
+      "type": "function",
+      "display_name": "防火牆功能"
+    },
+    "reasoning": "文本明確提到『使用 iptables 防火牆功能』，表示 iptables 這個工具具備防火牆的功能，符合 (tool, has_a, function) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 'iptables' 是一種網路安全工具，具有 '防火牆功能'，這與其類別 'tool' 和 'function' 的定義相符，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體是tool，具有主動執行能力，符合規則8的允許條件。",
+        "response": "correct",
+        "reason": "三元組中的主體是tool，關係是has_a，受體是防火牆功能，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "iptables 是一種工具，與現有近似資源清單中的 fail2ban 並不直接相關，但防火牆功能與防火牆的概念相關，防火牆是資安領域已知同義詞對照範例中的防火牆功能",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，iptables 是一種工具，與防火牆功能相關但不完全等價，且無法確定為同義詞重複，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "iptables",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "防火牆功能",
+        "type": "function"
+      },
+      "reasoning": "文本明確提到『使用 iptables 防火牆功能』，表示 iptables 這個工具具備防火牆的功能，符合 (tool, has_a, function) 的 Schema。",
+      "source_id": "chunk_112",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "iptables",
+      "type": "tool",
+      "display_name": "iptables"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "透過限制存取來源來最小化連線來源，是一種防禦攻擊的手段，符合 (tool, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "iptables 是一種防火牆工具，合理對齊 'tool' 類別；駭客攻擊是攻擊行為，合理對齊 'attack' 類別；'mitigates' 關係描述了 iptables 如何減輕駭客攻擊的風險，語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。由於主體 'iptables' 類別為 'tool'，因此符合規則2的條件，未觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體 'iptables' 屬於 'tool' 類別，符合規則2的要求，故無違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"駭客攻擊\" 與 Ldr 中的 \"駭客攻擊\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "iptables",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "透過限制存取來源來最小化連線來源，是一種防禦攻擊的手段，符合 (tool, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_112",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "reasoning": "滲透測試是一種模擬攻擊來分析系統安全弱點的技術，符合 (technique, can_analyze, system) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試 (technique) 可以分析作業系統 (system)，這是資安領域中常見的實例關係，語意對齊合理。",
+        "response": "correct",
+        "reason": "滲透測試與作業系統的關係符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。唯一相關的規則是無，但三元組中的主體（滲透測試）與受體（作業系統）之間的關係（can_analyze）在給定的規則中沒有明確的限制或違反。",
+        "response": "correct",
+        "reason": "三元組中的滲透測試（technique）可以分析作業系統（system），這在給定的語義限制清單中沒有被明確禁止或限制。因此，根據無罪推定原則，該三元組被判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆在 Ldr 中找到完全匹配的資源，分別為滲透測試和作業系統，且兩者之間沒有同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體皆為完全匹配且無同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "reasoning": "滲透測試是一種模擬攻擊來分析系統安全弱點的技術，符合 (technique, can_analyze, system) 的 Schema。",
+      "source_id": "chunk_112",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "員工"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "營運持續計劃",
+      "type": "system",
+      "display_name": "營運持續計劃"
+    },
+    "reasoning": "文本提到『訓練每一位員工使了解營運持續計劃』，這意味著員工在訓練後需執行或遵循該計劃。根據 Schema，使用者 (user) 執行/實作規範 (policy) 使用 'implements' 關係。",
+    "source_id": "chunk_5",
+    "source_file": "ch12_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "員工 (user) 實施 (implements) 營運持續計劃 (policy) 是語意上合理的，因為員工可以實施公司的政策，包括營運持續計劃。",
+        "response": "correct",
+        "reason": "員工實施營運持續計劃的三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別為 user，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查完所有規則，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（員工）與受體（營運持續計劃）之間的 implements 關係，未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源，但無完全等價同義詞關係，受體「營運持續計劃」與「營運持續管理」之間存在廣義/狹義從屬關係，但無法確認主體「員工」與「組織員工」之間的關係是否為同義詞或從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認主體與受體之間的同義詞或從屬關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "員工",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "營運持續計劃",
+        "type": "policy"
+      },
+      "reasoning": "文本提到『訓練每一位員工使了解營運持續計劃』，這意味著員工在訓練後需執行或遵循該計劃。根據 Schema，使用者 (user) 執行/實作規範 (policy) 使用 'implements' 關係。",
+      "source_id": "chunk_5",
+      "source_file": "ch12_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "問卷調查",
+      "type": "technique",
+      "display_name": "問卷調查"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "訓練成果",
+      "type": "data",
+      "display_name": "訓練成果"
+    },
+    "reasoning": "文本提到『需要問卷調查以了解訓練成果』。問卷調查是一種分析方法 (technique)，訓練成果是資訊實體 (data)。根據 Schema，技術 (technique) 分析資料 (data) 使用 'can_analyze' 關係。",
+    "source_id": "chunk_5",
+    "source_file": "ch12_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "問卷調查 (technique) 與 訓練成果 (data) 的名稱與其類別合理對齊，且 'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "問卷調查與訓練成果的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體是 technique，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則相關性後，發現三元組（問卷調查 can_analyze 訓練成果）不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組不違反任何語義限制清單中的規則，且主體和受體的類別與關係之間的邏輯關係合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，且主體與受體名稱無直接同義詞關係，依據前提確認原則直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "問卷調查",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "訓練成果",
+        "type": "data"
+      },
+      "reasoning": "文本提到『需要問卷調查以了解訓練成果』。問卷調查是一種分析方法 (technique)，訓練成果是資訊實體 (data)。根據 Schema，技術 (technique) 分析資料 (data) 使用 'can_analyze' 關係。",
+      "source_id": "chunk_5",
+      "source_file": "ch12_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "訓練",
+      "type": "technique",
+      "display_name": "訓練"
+    },
+    "reasoning": "文本描述了實施訓練的流程（設定目標、準備教材等），這暗示了有負責執行此流程的安全團隊或管理人員。根據 Schema，安全團隊 (securityTeam) 使用技術 (technique) 使用 'uses' 關係。",
+    "source_id": "chunk_5",
+    "source_file": "ch12_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 使用訓練 (technique) 是合理的，符合實體名稱與其類別的對齊，且 'uses' 關係在此語境下是適當的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。規則2：不適用，因為動作不是 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為關係不是 violates。規則5：觸發違規檢查，因為關係為 uses，但主體類別是 securityTeam，不是 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是資安人員（securityTeam），使用（uses）訓練（technique），這符合一般的資安知識圖譜邏輯，沒有明確違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安人員與現有近似資源清單中的「資安人員」完全相同，訓練與現有近似資源清單中的「問卷調查」不完全相同，但「訓練」在資安領域中可能與「technique」相關聯，然而沒有直接的同義詞對照範例可供參考。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，資安人員與現有近似資源清單中的「資安人員」完全相同，且無法確定訓練與問卷調查之間的直接關聯，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "訓練",
+        "type": "technique"
+      },
+      "reasoning": "文本描述了實施訓練的流程（設定目標、準備教材等），這暗示了有負責執行此流程的安全團隊或管理人員。根據 Schema，安全團隊 (securityTeam) 使用技術 (technique) 使用 'uses' 關係。",
+      "source_id": "chunk_5",
+      "source_file": "ch12_習題解答.pdf",
+      "source_index": 4
+    }
+  }
+]

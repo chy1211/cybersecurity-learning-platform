@@ -1,0 +1,137 @@
+[
+  {
+    "subject": {
+      "name": "Rootkit",
+      "type": "tool"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "操作系統",
+      "type": "system"
+    },
+    "reasoning": "文本提到 Rootkit 用於隱藏攻擊者對操作系統的控制權，因此將 Rootkit 視為惡意工具 (tool)，其對操作系統 (system) 具有控制關係。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "Bootkit",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "Rootkit",
+      "type": "attack"
+    },
+    "reasoning": "文本指出 Bootkit 與 Rootkit 類似且功能重疊（隱藏存在），在資安概念中 Bootkit 是 Rootkit 的一種特殊形式，因此使用 is_part_of 且兩者皆定義為 attack。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "Bootkit",
+      "type": "tool"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "引導區塊",
+      "type": "system"
+    },
+    "reasoning": "文本明確提到 Bootkit 安裝在操作系統的引導 (boot) 區塊，因此將 Bootkit 視為工具 (tool)，引導區塊視為系統組成部分 (system)。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "政府組態基準 (GCB)",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "系統風險",
+      "type": "risk"
+    },
+    "reasoning": "文本提到導入 GCB 用於強化作業系統安全，強化安全即是緩解 (mitigates) 潛在的風險 (risk)。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "提升權限弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本描述攻擊者會利用已知的提升權限弱點來取得 root 或 Administrator 權限，符合 attacker can_exploit vulnerability 的定義。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "Dirty COW",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "權限提升風險",
+      "type": "risk"
+    },
+    "reasoning": "Dirty COW 被列為提升權限的弱點，弱點 (vulnerability) 會導致特定的風險 (risk) 暴露。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "Juicy Potato",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "權限提升風險",
+      "type": "risk"
+    },
+    "reasoning": "Juicy Potato 同樣被列為提升權限的弱點，因此其類型為 vulnerability 且可導致 risk。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "SetUID",
+      "type": "feature"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "提升權限弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "SetUID 是 Linux 的一個系統特徵 (feature)，但若設定不當會成為提升權限的弱點，符合 feature can_expose vulnerability。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "網路芳鄰",
+      "type": "app"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "TCP 445",
+      "type": "feature"
+    },
+    "reasoning": "網路芳鄰是一個應用服務 (app)，它使用 TCP 445 連接埠，連接埠屬於網路特徵 (feature)。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9
+  }
+]

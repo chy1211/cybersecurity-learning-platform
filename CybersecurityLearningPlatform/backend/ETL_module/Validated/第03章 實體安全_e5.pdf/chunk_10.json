@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "鎖",
+      "type": "tool",
+      "display_name": "鎖"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "入侵",
+      "type": "attack",
+      "display_name": "入侵"
+    },
+    "reasoning": "文本提到鎖可以『阻隔與延遲入侵者意圖』，因此將『鎖』視為工具 (tool)，將其防禦的行為定義為緩解 (mitigates) 『入侵』這一攻擊行為 (attack)。",
+    "source_id": "chunk_10",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "鎖 (tool) 和 入侵 (attack) 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用語和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "鎖 (tool) 和 入侵 (attack) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，鎖 (tool) 執行 mitigates 入侵 (attack) 符合規則。",
+        "response": "correct",
+        "reason": "鎖 (tool) 執行 mitigates 入侵 (attack) 符合語義限制清單中的規則2，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「入侵」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "鎖",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "入侵",
+        "type": "attack"
+      },
+      "reasoning": "文本提到鎖可以『阻隔與延遲入侵者意圖』，因此將『鎖』視為工具 (tool)，將其防禦的行為定義為緩解 (mitigates) 『入侵』這一攻擊行為 (attack)。",
+      "source_id": "chunk_10",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "鎖",
+      "type": "tool",
+      "display_name": "鎖"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "鎖",
+      "type": "tool",
+      "display_name": "密碼鎖"
+    },
+    "reasoning": "文本列舉了鎖的多種形式，包括密碼鎖，因此『鎖』與『密碼鎖』之間存在包含關係 (has_a)，兩者均為工具 (tool)。",
+    "source_id": "chunk_10",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "鎖和密碼鎖都是工具的合理實例，符合語意對齊，且接受資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "鎖和密碼鎖的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則，發現規則1、2、3、4、5、6、7、8都不直接適用於此三元組，因為它們的條件不符合此三元組的主體、關係、受體類別與內容。",
+        "response": "correct",
+        "reason": "此三元組不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "鎖與密碼鎖之間的關係是同義詞重複，因為兩者都指的是用於保護資訊安全的工具",
+        "response": "duplicate",
+        "standard_subject": "鎖",
+        "standard_object": "鎖",
+        "reason": "鎖和密碼鎖是同義詞，指的是相同的概念"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "鎖",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "密碼鎖",
+        "type": "tool"
+      },
+      "reasoning": "文本列舉了鎖的多種形式，包括密碼鎖，因此『鎖』與『密碼鎖』之間存在包含關係 (has_a)，兩者均為工具 (tool)。",
+      "source_id": "chunk_10",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼鎖",
+      "type": "tool",
+      "display_name": "密碼鎖"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "機房",
+      "type": "system",
+      "display_name": "機房"
+    },
+    "reasoning": "文本明確提到『機房安裝密碼鎖』，描述了工具 (tool) 部署於特定基礎設施系統 (system) 的狀態。",
+    "source_id": "chunk_10",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "密碼鎖是工具（tool）的合理實例，機房是系統（system）的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：觸發，檢查關係為 deployed_in 時，受體的類別是否為 system，結果為符合規則。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係為 deployed_in，受體的類別為 system，符合規則6的要求。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"密碼鎖\" 與 Ldr 中的 \"鎖\" 類似，但非完全等價同義詞；受體 \"機房\" 與 Ldr 中的 \"機房\" 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "機房",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源不完全匹配，受體與 Ldr 中的資源完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼鎖",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "機房",
+        "type": "system"
+      },
+      "reasoning": "文本明確提到『機房安裝密碼鎖』，描述了工具 (tool) 部署於特定基礎設施系統 (system) 的狀態。",
+      "source_id": "chunk_10",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼鎖",
+      "type": "tool",
+      "display_name": "密碼鎖"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權進入",
+      "type": "attack",
+      "display_name": "未經授權進入"
+    },
+    "reasoning": "文本提到密碼鎖用於『防止無權限人員進入機房』，這是一種緩解 (mitigates) 惡意進入 (attack) 的手段。",
+    "source_id": "chunk_10",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "密碼鎖是工具（tool）的合理實例，未經授權進入是攻擊（attack）的合理實例，且 'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，與密碼鎖的功能相符。",
+        "response": "correct",
+        "reason": "密碼鎖（tool）與未經授權進入（attack）之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體 '密碼鎖' 屬於 tool 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '密碼鎖' 屬於 tool 類別，符合規則2的條件，且未發現其他明確違反的規則。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"密碼鎖\" 與 Ldr 中的 \"鎖\" 類似，但非完全等價同義詞；受體 \"未經授權進入\" 可能與 \"入侵\" 關聯，但無直接同義詞對應",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定同義詞關係，且主體和受體之間無明確的廣義/狹義從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼鎖",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "未經授權進入",
+        "type": "attack"
+      },
+      "reasoning": "文本提到密碼鎖用於『防止無權限人員進入機房』，這是一種緩解 (mitigates) 惡意進入 (attack) 的手段。",
+      "source_id": "chunk_10",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "感應燈光",
+      "type": "tool",
+      "display_name": "感應燈光設備"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "安全基礎設施",
+      "type": "system",
+      "display_name": "安全設施"
+    },
+    "reasoning": "文本直接指出『感應燈光設備也是安全設施的一部份』，因此定義為工具 (tool) 屬於系統 (system) 的關係。",
+    "source_id": "chunk_10",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "感應燈光設備 可被視為 tool 的合理實例，安全設施 可被視為 system 的合理實例。",
+        "response": "correct",
+        "reason": "感應燈光設備與安全設施的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與主體 tool、受體 system 的類別組合，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "感應燈光設備與感應燈光為同義詞，安全設施與安全基礎設施為同義詞",
+        "response": "duplicate",
+        "standard_subject": "感應燈光",
+        "standard_object": "安全基礎設施",
+        "reason": "根據同義詞判定，感應燈光設備與感應燈光、安全設施與安全基礎設施為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "感應燈光設備",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "安全設施",
+        "type": "system"
+      },
+      "reasoning": "文本直接指出『感應燈光設備也是安全設施的一部份』，因此定義為工具 (tool) 屬於系統 (system) 的關係。",
+      "source_id": "chunk_10",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵者",
+      "type": "attacker",
+      "display_name": "入侵者"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資訊安全系統",
+      "type": "system",
+      "display_name": "資訊安全設施"
+    },
+    "reasoning": "文本提到入侵者可能『侵入資訊安全設施』，這符合攻擊者 (attacker) 對系統 (system) 造成危害 (can_harm) 的邏輯。",
+    "source_id": "chunk_10",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵者 (attacker) 是攻擊者的合理實例，資訊安全設施 (system) 是系統的合理實例，'can_harm' 的語意與攻擊者對系統的危害行為相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。規則2：不適用，因為三元組中的關係不是mitigates。規則3：不適用，因為三元組中的主體類別不是vulnerability。規則4：不適用，因為三元組中的關係不是violates，且主體不是principle。規則5：不適用，因為三元組中的關係不是uses，或者data不是主體。規則6：不適用，因為三元組中的關係不是deployed_in。規則7：不適用，因為三元組中的關係不是generates。規則8：不適用，因為三元組中的關係不是controls，但可以_harm代表主動行為，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（入侵者）與關係（can_harm）以及受體（資訊安全設施）之間的關係，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊安全設施與 Ldr 中的資源進行比較，發現資訊安全設施與資訊安全系統具有高度相似性，兩者都指涉資安領域中的系統或設施，屬於同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資訊安全系統",
+        "reason": "根據同義詞判定準則，資訊安全設施與資訊安全系統屬於同義詞關係，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵者",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資訊安全設施",
+        "type": "system"
+      },
+      "reasoning": "文本提到入侵者可能『侵入資訊安全設施』，這符合攻擊者 (attacker) 對系統 (system) 造成危害 (can_harm) 的邏輯。",
+      "source_id": "chunk_10",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "感應燈光",
+      "type": "tool",
+      "display_name": "感應燈光設備"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "入侵",
+      "type": "attack",
+      "display_name": "入侵"
+    },
+    "reasoning": "文本提到燈光可以『嚇阻入侵者』並『避免其...入侵資訊設施』，因此感應燈光設備 (tool) 具有緩解 (mitigates) 入侵攻擊 (attack) 的作用。",
+    "source_id": "chunk_10",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "感應燈光設備可以被視為 'tool' 的合理實例，入侵是 'attack' 的典型例子，'mitigates' 的使用在此語境下是合理的，因為感應燈光設備可以用來減輕入侵的風險。",
+        "response": "correct",
+        "reason": "感應燈光設備、入侵與 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是感應燈光設備，類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（感應燈光設備）是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "感應燈光設備與感應燈光為同義詞，入侵為完全匹配",
+        "response": "correct",
+        "standard_subject": "感應燈光",
+        "standard_object": "入侵",
+        "reason": "根據同義詞判定，感應燈光設備與感應燈光為同義詞，入侵為完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "感應燈光設備",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "入侵",
+        "type": "attack"
+      },
+      "reasoning": "文本提到燈光可以『嚇阻入侵者』並『避免其...入侵資訊設施』，因此感應燈光設備 (tool) 具有緩解 (mitigates) 入侵攻擊 (attack) 的作用。",
+      "source_id": "chunk_10",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "感應燈光設備",
+      "type": "tool",
+      "display_name": "感應燈光設備"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "觸發燈光",
+      "type": "tool",
+      "display_name": "觸發燈光"
+    },
+    "reasoning": "文本將感應燈光分為四種，其中包含觸發燈光，因此兩者為工具 (tool) 之間的包含關係 (has_a)。",
+    "source_id": "chunk_10",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "感應燈光設備與觸發燈光的名稱與其類別 'tool' 合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "感應燈光設備和觸發燈光的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係 'has_a' 組合不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "感應燈光設備與感應燈光為同義詞，觸發燈光為相關但不同概念的工具",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，感應燈光設備與感應燈光雖然相似，但不完全等價；觸發燈光為不同概念的工具，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "感應燈光設備",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "觸發燈光",
+        "type": "tool"
+      },
+      "reasoning": "文本將感應燈光分為四種，其中包含觸發燈光，因此兩者為工具 (tool) 之間的包含關係 (has_a)。",
+      "source_id": "chunk_10",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "強化玻璃",
+      "type": "tool",
+      "display_name": "強化玻璃"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "物理撞擊入侵",
+      "type": "attack",
+      "display_name": "物理撞擊入侵"
+    },
+    "reasoning": "文本提到強化玻璃具有『很大的抗撞擊強度』，是用於防止物理破壞進入的工具 (tool)，因此可緩解 (mitigates) 相關的物理攻擊 (attack)。",
+    "source_id": "chunk_10",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "強化玻璃是工具的一種合理實例，物理撞擊入侵是攻擊的一種合理實例，'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，與強化玻璃的功能相符。",
+        "response": "correct",
+        "reason": "強化玻璃作為工具可以減輕物理撞擊入侵的攻擊，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體 '強化玻璃' 屬於類別 'tool'，因此符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '強化玻璃' 屬於類別 'tool'，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆無完全等價同義詞，且無廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體的同義詞或從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "強化玻璃",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "物理撞擊入侵",
+        "type": "attack"
+      },
+      "reasoning": "文本提到強化玻璃具有『很大的抗撞擊強度』，是用於防止物理破壞進入的工具 (tool)，因此可緩解 (mitigates) 相關的物理攻擊 (attack)。",
+      "source_id": "chunk_10",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

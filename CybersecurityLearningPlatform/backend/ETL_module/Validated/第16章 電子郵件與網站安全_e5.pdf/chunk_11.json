@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "web 應用程式",
+      "type": "app",
+      "display_name": "Web 應用程式"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "xss 缺陷",
+      "type": "vulnerability",
+      "display_name": "XSS 缺陷"
+    },
+    "reasoning": "文本提到 Web 應用程式在生成網頁時若不對輸入進行驗證或過濾，就會出現 XSS 缺陷。符合 ('app', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Web 應用程式是 'app' 的合理實例，XSS 缺陷是 'vulnerability' 的合理實例，'can_expose' 的語意也合理地描述了 Web 應用程式與 XSS 缺陷之間的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但主體類別為 vulnerability，且關係為 can_expose，屬於特例允許。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體類別為 vulnerability，且關係為 can_expose，屬於規則3中的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Web 應用程式與網頁應用程式、網路應用程式為同義詞或廣義/狹義從屬關係，XSS 缺陷與 xss 為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定與廣義/狹義一律保留原則，Web 應用程式與 XSS 缺陷不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Web 應用程式",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "XSS 缺陷",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到 Web 應用程式在生成網頁時若不對輸入進行驗證或過濾，就會出現 XSS 缺陷。符合 ('app', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_11",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "xss",
+      "type": "vulnerability",
+      "display_name": "XSS 缺陷"
+    },
+    "reasoning": "文本指出 XSS 允許攻擊者在受害者的瀏覽器中執行腳本，這意味著攻擊者利用了該缺陷。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，XSS 缺陷 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是攻擊者與漏洞之間的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者與安全團隊的身分。規則2：不適用，因為三元組中沒有mitigates動作。規則3：不適用，因為三元組中的主體類別是attacker，而不是vulnerability。規則4：不適用，因為三元組中沒有principle作為主體。規則5：不適用，因為三元組中的關係不是uses。規則6：不適用，因為三元組中的關係不是deployed_in。規則7：不適用，因為三元組中的關係不是generates。規則8：不適用，因為三元組中的關係不是controls。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，關係是can_exploit，受體是XSS缺陷，符合資安知識圖譜的語義限制，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 XSS 缺陷 與 Ldr 中的 xss 缺陷 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "xss",
+        "reason": "根據同義詞判定，XSS 缺陷 與 xss 均指同一概念，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "XSS 缺陷",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出 XSS 允許攻擊者在受害者的瀏覽器中執行腳本，這意味著攻擊者利用了該缺陷。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+      "source_id": "chunk_11",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "不安全的反序列化",
+      "type": "vulnerability",
+      "display_name": "不安全的反序列化"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "遠端程式執行",
+      "type": "risk",
+      "display_name": "遠端程式執行"
+    },
+    "reasoning": "文本明確指出不安全的反序列化通常會導致遠端程式執行（RCE），將 RCE 視為一種風險後果。符合 ('vulnerability', 'can_expose', 'risk')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "不安全的反序列化 是 vulnerability 的合理實例，遠端程式執行 是 risk 的合理實例，'can_expose' 關係在資安領域中合理適用於此類別之間的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但 'can_expose' (暴露) 動作是特例允許的。因此，三元組中的 '不安全的反序列化' (類別: vulnerability) 與 'can_expose' 關係不違反規則3。",
+        "response": "correct",
+        "reason": "三元組中的 '不安全的反序列化' (類別: vulnerability) 與 'can_expose' 關係符合規則3的特例允許，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "不安全的反序列化與遠端程式執行之間沒有直接的同義詞關係，也不是廣義或狹義的從屬關係，兩者皆屬資安領域的不同概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體在資安教材中不可互換使用、指稱不同概念，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "不安全的反序列化",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "遠端程式執行",
+        "type": "risk"
+      },
+      "reasoning": "文本明確指出不安全的反序列化通常會導致遠端程式執行（RCE），將 RCE 視為一種風險後果。符合 ('vulnerability', 'can_expose', 'risk')。",
+      "source_id": "chunk_11",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "元件",
+      "type": "feature",
+      "display_name": "元件"
+    },
+    "reasoning": "文本提到元件包含函式庫、框架等，且應用程式使用這些元件，將元件視為應用程式的組成特徵。符合 ('app', 'has_a', 'feature')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '應用程式' 的類別 'app' 合理對齊，實體 '元件' 的類別 'feature' 也合理對齊，符合語意與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '應用程式' 和受體 '元件' 之間的關聯，沒有明確違反任何一條語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "元件",
+        "type": "feature"
+      },
+      "reasoning": "文本提到元件包含函式庫、框架等，且應用程式使用這些元件，將元件視為應用程式的組成特徵。符合 ('app', 'has_a', 'feature')。",
+      "source_id": "chunk_11",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "不安全的反序列化",
+      "type": "vulnerability",
+      "display_name": "不安全的反序列化"
+    },
+    "reasoning": "文本提到反序列化缺陷可以用來執行攻擊（如重送、注入），表示攻擊者可利用此漏洞。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，不安全的反序列化 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是描述攻擊者與漏洞之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者與安全團隊的身分。規則2：不適用，因為三元組中沒有提到mitigates動作。規則3：不適用，因為三元組中的主體類別是攻擊者，而不是漏洞。規則4：不適用，因為三元組中沒有提到principle。規則5：不適用，因為三元組中的關係不是uses。規則6：不適用，因為三元組中的關係不是deployed_in。規則7：不適用，因為三元組中的關係不是generates。規則8：不適用，因為三元組中的關係不是controls，但can_exploit與controls有相似的主動性質，需進一步分析。進一步分析後，發現can_exploit的主體是攻擊者，符合具有主動執行能力的角色，與規則8的精神相符，故不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，關係是can_exploit，受體是不安全的反序列化，沒有明確違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有近似資源清單中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "不安全的反序列化",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到反序列化缺陷可以用來執行攻擊（如重送、注入），表示攻擊者可利用此漏洞。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+      "source_id": "chunk_11",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "xss 攻擊",
+      "type": "attack",
+      "display_name": "XSS 攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網頁瀏覽器",
+      "type": "system",
+      "display_name": "網頁瀏覽器"
+    },
+    "reasoning": "文本提到 XSS 允許在受害者的瀏覽器中執行腳本以劫持對話或重導向，對瀏覽器端的操作造成危害。符合 ('attack', 'can_harm', 'app')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "XSS 攻擊是 'attack' 的合理實例，網頁瀏覽器是 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 'XSS 攻擊' 的類別 'attack' 與受體 '網頁瀏覽器' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係 'can_harm' 沒有在語義限制清單中被明確限制為違反，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "XSS 攻擊與 Ldr 中的資源比較，發現 '駭客攻擊'、'攻擊' 等資源與其相似，但非完全等價同義詞；'網頁瀏覽器' 在 Ldr 中有完全匹配的資源。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，XSS 攻擊與 Ldr 中的資源不完全匹配，且 '網頁瀏覽器' 已在 Ldr 中有完全匹配的資源，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "XSS 攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網頁瀏覽器",
+        "type": "app"
+      },
+      "reasoning": "文本提到 XSS 允許在受害者的瀏覽器中執行腳本以劫持對話或重導向，對瀏覽器端的操作造成危害。符合 ('attack', 'can_harm', 'app')。",
+      "source_id": "chunk_11",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "含有已知漏洞的元件",
+      "type": "vulnerability",
+      "display_name": "含有已知漏洞的元件"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料丟失",
+      "type": "risk",
+      "display_name": "資料丟失"
+    },
+    "reasoning": "文本指出使用有漏洞的元件將可能造成嚴重的資料丟失。符合 ('vulnerability', 'can_expose', 'risk')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "主體 '含有已知漏洞的元件' 的類別 'vulnerability' 合理對齊，受體 '資料丟失' 的類別 'risk' 也合理對齊，關係 'can_expose' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但特例允許 'can_expose' (暴露) 動作。因此，三元組中的 'can_expose' 關係不違反規則3。",
+        "response": "correct",
+        "reason": "三元組中的 'can_expose' 關係符合規則3的特例允許，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 '已知漏洞' 實體為同義詞，受體 '資料丟失' 與 Ldr 中的 '檔案遺失' 實體在資安領域中可視為相關但非完全等價的概念，兩者皆屬於 'risk' 類別，但 '資料丟失' 較為廣義，涵蓋了 '檔案遺失' 的情況。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，主體與受體不進行合併，保留原狀。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "含有已知漏洞的元件",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "資料丟失",
+        "type": "risk"
+      },
+      "reasoning": "文本指出使用有漏洞的元件將可能造成嚴重的資料丟失。符合 ('vulnerability', 'can_expose', 'risk')。",
+      "source_id": "chunk_11",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "日誌記錄和監測不足",
+      "type": "vulnerability",
+      "display_name": "日誌記錄和監測不足"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "持續攻擊系統",
+      "type": "risk",
+      "display_name": "持續攻擊系統"
+    },
+    "reasoning": "文本提到日誌記錄和監測不足允許攻擊者持續攻擊系統，這是一種由漏洞導致的風險狀態。符合 ('vulnerability', 'can_expose', 'risk')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "日誌記錄和監測不足 可以被視為 'vulnerability' 的合理實例，持續攻擊系統 可以被視為 'risk' 的合理實例，'can_expose' 的關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但 'can_expose' (暴露) 動作是特例允許的。因此，三元組中的 '日誌記錄和監測不足' (類別: vulnerability) 與 'can_expose' 關係不違反規則3。",
+        "response": "correct",
+        "reason": "三元組中的主體 '日誌記錄和監測不足' (類別: vulnerability) 與 'can_expose' 關係符合規則3的特例允許，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆無直接同義詞對應，但主體與現有資源 '不安全的反序列化'、'含有已知漏洞的元件' 屬於同一類別 'vulnerability'，而受體 '持續攻擊系統' 與 '遠端程式執行'、'資料丟失' 屬於同一類別 'risk'，但無直接同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體與現有資源之間的直接同義詞或從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "日誌記錄和監測不足",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "持續攻擊系統",
+        "type": "risk"
+      },
+      "reasoning": "文本提到日誌記錄和監測不足允許攻擊者持續攻擊系統，這是一種由漏洞導致的風險狀態。符合 ('vulnerability', 'can_expose', 'risk')。",
+      "source_id": "chunk_11",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到攻擊者可以持續攻擊系統或轉向更多系統，暗示了對系統的控制或滲透。符合 ('attacker', 'controls', 'system')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 類別的合理實例，系統 (system) 是 'system' 類別的合理實例，關係 'controls' 在資安領域中是合理的描述。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為攻擊者，具有主動執行能力，符合規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（攻擊者）與關係（controls）以及受體（系統）之間的關係符合規則8的描述，沒有違反任何語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全匹配，受體 \"系統\" 與 Ldr 中的 \"系統\" 完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體和受體名稱與 Ldr 中的資源 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到攻擊者可以持續攻擊系統或轉向更多系統，暗示了對系統的控制或滲透。符合 ('attacker', 'controls', 'system')。",
+      "source_id": "chunk_11",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "注入攻擊",
+      "type": "attack",
+      "display_name": "注入攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本最後提到網站遭受注入或隱碼攻擊，導致資料（被竄改/損害）。符合 ('attack', 'can_harm', 'data')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "注入攻擊 (attack) 可能對資料 (data) 造成傷害，符合語意對齊，且 'attack' 和 'data' 是資安領域中常見的術語，同義詞寬容原則下被接受。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 '注入攻擊' 的類別 'attack' 與受體 '資料' 的類別 'data' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 與主體 '注入攻擊' 和受體 '資料' 的組合在給定的語義限制清單中沒有被明確限制或禁止，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "注入攻擊與 Ldr 中的 \"注入攻擊\" 完全等價同義詞，資料與 Ldr 中的 \"資料\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "注入攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本最後提到網站遭受注入或隱碼攻擊，導致資料（被竄改/損害）。符合 ('attack', 'can_harm', 'data')。",
+      "source_id": "chunk_11",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 10
+    }
+  }
+]

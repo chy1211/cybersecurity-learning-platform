@@ -1,0 +1,626 @@
+[
+  {
+    "subject": {
+      "name": "交換器",
+      "type": "system",
+      "display_name": "交換器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "網路資料",
+      "type": "data",
+      "display_name": "NetFlow 資料"
+    },
+    "reasoning": "文本提到配備 NetFlow 的交換器可以報告網路資訊，這符合 system generates data 的定義。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "交換器 (switch) 是 'system' 的合理實例，NetFlow 資料是 'data' 的合理實例，且 'generates' 是描述系統產生資料的合理關係。",
+        "response": "correct",
+        "reason": "交換器產生 NetFlow 資料的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 NetFlow 資料 與 Ldr 中的網路資料 屬於同一概念的不同稱呼，兩者均指網路流量的資料",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "網路資料",
+        "reason": "根據同義詞判定，NetFlow 資料 與 網路資料 可互換使用，指稱同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "交換器",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "NetFlow 資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到配備 NetFlow 的交換器可以報告網路資訊，這符合 system generates data 的定義。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "路由器",
+      "type": "system",
+      "display_name": "路由器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "netflow 資料",
+      "type": "data",
+      "display_name": "NetFlow 資料"
+    },
+    "reasoning": "文本提到配備 NetFlow 的路由器可以報告網路資訊，這符合 system generates data 的定義。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "路由器 (router) 是系統 (system) 的合理實例，NetFlow 資料是資料 (data) 的合理實例，'generates' 描述路由器生成 NetFlow 資料的關係是合理的。",
+        "response": "correct",
+        "reason": "路由器作為系統生成 NetFlow 資料的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為關係不是violates，且principle不是受體。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "路由器與企業級路由器之間存在狹義關係，前者是後者的子類型，但根據規則3，廣義/狹義一律保留，因此不進行合併；而NetFlow資料與網路資料之間沒有明確的同義詞關係或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則3，廣義/狹義一律保留，且無法確定NetFlow資料與網路資料之間的同義詞關係或從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "路由器",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "NetFlow 資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到配備 NetFlow 的路由器可以報告網路資訊，這符合 system generates data 的定義。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "netflow 收集器",
+      "type": "tool",
+      "display_name": "NetFlow 收集器"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "netflow 資料",
+      "type": "data",
+      "display_name": "NetFlow 資料"
+    },
+    "reasoning": "文本明確指出 NetFlow 收集器會「分析 NetFlow 資料」，符合 tool can_analyze data 的定義。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "NetFlow 收集器 是工具 (tool) 的合理實例，NetFlow 資料 是資料 (data) 的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則，發現三元組中主體為 tool，關係為 can_analyze，受體為 data，符合一般工具可以分析資料的邏輯，沒有違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（NetFlow 收集器）和受體（NetFlow 資料）之間的關係（can_analyze）在語義上是合理的，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "NetFlow 資料與網路資料之間存在相似性，但非完全等價同義詞；NetFlow 收集器與防火牆之間無直接關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，NetFlow 資料是網路資料的一種子類型，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "NetFlow 收集器",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "NetFlow 資料",
+        "type": "data"
+      },
+      "reasoning": "文本明確指出 NetFlow 收集器會「分析 NetFlow 資料」，符合 tool can_analyze data 的定義。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "netflow 資料",
+      "type": "data",
+      "display_name": "NetFlow 資料"
+    },
+    "reasoning": "文本提到配備 NetFlow 的防火牆可以報告網路資訊，這符合 system generates data 的定義。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防火牆是 system 的合理實例，NetFlow 資料是 data 的合理實例，'generates' 的語意也與防火牆生成 NetFlow 資料的概念相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：觸發，關係為 generates，受體 NetFlow 資料 的類別是 data，符合規則。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 generates 與受體 NetFlow 資料 的類別 data 符合規則7，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與現有近似資源清單中的「防火牆」完全匹配，受體「NetFlow 資料」與「網路資料」相似但不完全等價，兩者皆無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，主體「防火牆」直接判定為正確，受體「NetFlow 資料」與「網路資料」不完全匹配，無法判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "NetFlow 資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到配備 NetFlow 的防火牆可以報告網路資訊，這符合 system generates data 的定義。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "安全漏洞",
+      "type": "vulnerability",
+      "display_name": "安全漏洞"
+    },
+    "reasoning": "文本提到滲透測試評估安全漏洞，符合 technique can_analyze vulnerability。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試 (technique) 可以分析安全漏洞 (vulnerability)，這是資安領域中常見的實踐，名稱與類別對齊合理。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 technique，與規則中描述的 vulnerability 不符，故不觸發；規則8：關係為 can_analyze，主體為滲透測試（technique），不違反 controls 的限制；其他規則與三元組無直接關聯。",
+        "response": "correct",
+        "reason": "三元組中的主體（滲透測試）與關係（can_analyze）以及受體（安全漏洞）之間的關係在給定的語義限制清單中沒有明確的違反規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (滲透測試) 與 Ldr 中的 '滲透測試' 完全等價，受體 (安全漏洞) 與 Ldr 中的 '安全漏洞' 完全等價，且兩者皆為資安領域已知同義詞對照範例中的 '漏洞 ≡ 弱點 ≡ 脆弱性' 的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，滲透測試與安全漏洞不構成同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "安全漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到滲透測試評估安全漏洞，符合 technique can_analyze vulnerability。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "電腦系統",
+      "type": "system",
+      "display_name": "電腦系統"
+    },
+    "reasoning": "文本提到滲透測試評估電腦系統的安全漏洞，這是一種對系統的分析行為，符合 technique can_analyze system。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試 (technique) 可以分析電腦系統 (system)，這符合資安領域的常見實踐和語意對齊，接受同義詞寬容原則後仍然合理。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_analyze' 不在任何規則中被明確限制，且主體 '滲透測試' 的類別 'technique' 與受體 '電腦系統' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"滲透測試\" 與 Ldr 中的 \"滲透測試\" 完全等價，受體 \"電腦系統\" 與 Ldr 中的 \"電腦系統\" 完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "電腦系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到滲透測試評估電腦系統的安全漏洞，這是一種對系統的分析行為，符合 technique can_analyze system。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "滲透測試團隊",
+      "type": "securityTeam",
+      "display_name": "滲透測試人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "reasoning": "滲透測試人員是執行滲透測試這一技術的角色，符合 securityTeam uses technique。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試人員 (securityTeam) 使用滲透測試 (technique) 是語意上合理的，符合實體名稱與其類別的對齊，且 '滲透測試' 是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不觸發，因為滲透測試人員不具有攻擊者身分。規則2：不適用，因為動作不是 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為關係不是 violates。規則5：不觸發，因為主體類別不是 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組不觸發任何語義限制清單中的規則，因此判定為正確。滲透測試人員使用滲透測試是一種合理的關聯，沒有違反任何給定的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似資源，但主體 '滲透測試人員' 與 '滲透測試團隊' 關係為同義詞，受體 '滲透測試' 完全匹配",
+        "response": "correct",
+        "standard_subject": "滲透測試團隊",
+        "standard_object": "滲透測試",
+        "reason": "根據同義詞判定，主體與 '滲透測試團隊' 關係為同義詞，受體完全匹配 '滲透測試'。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試人員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "reasoning": "滲透測試人員是執行滲透測試這一技術的角色，符合 securityTeam uses technique。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "網路攻擊",
+      "type": "attack",
+      "display_name": "網路攻擊"
+    },
+    "reasoning": "文本提到滲透測試能提高防禦能力，確保能更好地抵禦未來的網路攻擊，符合 technique mitigates attack。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試 (technique) 是一種合理的技術實例，網路攻擊 (attack) 是一種合理的攻擊實例，'mitigates' 關係在資安領域中是合理的，表示某技術可以減輕特定攻擊的風險。",
+        "response": "correct",
+        "reason": "滲透測試與網路攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是滲透測試（類別：technique），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體是滲透測試（類別：technique），符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (滲透測試) 與 Ldr 中的 '滲透測試' 完全等價，受體 (網路攻擊) 與 Ldr 中的 '網路攻擊' 完全等價，兩者皆無需標準化。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "網路攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到滲透測試能提高防禦能力，確保能更好地抵禦未來的網路攻擊，符合 technique mitigates attack。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "連接埠掃描",
+      "type": "technique",
+      "display_name": "連接埠掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "電腦系統",
+      "type": "system",
+      "display_name": "電腦系統"
+    },
+    "reasoning": "連接埠掃描用於識別目標系統的潛在存取點，屬於對系統的分析，符合 technique can_analyze system。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "連接埠掃描是 'technique' 的合理實例，電腦系統是 'system' 的合理實例，且 'can_analyze' 是合理的關係描述。",
+        "response": "correct",
+        "reason": "連接埠掃描與電腦系統的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別為 technique，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查完成，無明確違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（連接埠掃描）與受體（電腦系統）之間的關係（can_analyze）在給定的語義限制清單中沒有被明確禁止或限制，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「連接埠掃描」與 Ldr 中的「連接埠掃描」完全相同，受體「電腦系統」與 Ldr 中的「電腦系統」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "連接埠掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "電腦系統",
+        "type": "system"
+      },
+      "reasoning": "連接埠掃描用於識別目標系統的潛在存取點，屬於對系統的分析，符合 technique can_analyze system。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "漏洞掃描",
+      "type": "technique",
+      "display_name": "漏洞掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "安全漏洞",
+      "type": "vulnerability",
+      "display_name": "安全漏洞"
+    },
+    "reasoning": "漏洞掃描旨在識別潛在可利用漏洞，符合 technique can_analyze vulnerability。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '漏洞掃描' 的名稱與其類別 'technique' 合理對齊，實體 '安全漏洞' 的名稱與其類別 'vulnerability' 也合理對齊，考慮到同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該規則與待檢查三元組相關，因為主體是 '漏洞掃描' (類別: technique)，而非 '漏洞'，因此不觸發規則3的違規。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '漏洞掃描' 屬於 'technique' 類別，與 'vulnerability' 類別無關，且關係 'can_analyze' 在此.context 下不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似資源，主體 '漏洞掃描' 與 '弱點掃描' 關係密切，受體 '安全漏洞' 與 '漏洞' 關係密切，但主體與受體之間無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體之間的直接同義詞關係，且無廣義/狹義從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "漏洞掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "安全漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "漏洞掃描旨在識別潛在可利用漏洞，符合 technique can_analyze vulnerability。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "滲透測試人員",
+      "type": "securityTeam",
+      "display_name": "滲透測試人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "連接埠掃描",
+      "type": "technique",
+      "display_name": "連接埠掃描"
+    },
+    "reasoning": "文本提到主動監視（由滲透測試人員執行）包括連接埠掃描，符合 securityTeam uses technique。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "滲透測試人員是 securityTeam 的合理實例，連接埠掃描是 technique 的合理實例。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為滲透測試人員不具有攻擊者身分。規則2：不適用，因為主體為 securityTeam，不是 policy、technique 或 tool。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為主體不是 principle。規則5：觸發檢查，因為關係為 uses，但主體類別是 securityTeam，不是 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（滲透測試人員）與關係（uses）和受體（連接埠掃描）之間的關係在給定的語義限制清單中沒有明確違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"滲透測試人員\" 與 Ldr 中的 \"滲透測試團隊\" 類似，但非完全等價同義詞；受體 \"連接埠掃描\" 與 Ldr 中的 \"連接埠掃描\" 完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "連接埠掃描",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源不完全匹配，受體與 Ldr 中的資源完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試人員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "連接埠掃描",
+        "type": "technique"
+      },
+      "reasoning": "文本提到主動監視（由滲透測試人員執行）包括連接埠掃描，符合 securityTeam uses technique。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "滲透測試人員",
+      "type": "securityTeam",
+      "display_name": "滲透測試人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "漏洞掃描",
+      "type": "technique",
+      "display_name": "漏洞掃描"
+    },
+    "reasoning": "文本提到主動監視（由滲透測試人員執行）包括漏洞掃描，符合 securityTeam uses technique。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試人員 (securityTeam) 使用漏洞掃描 (technique) 是資安領域中合理的實例關係，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "滲透測試人員使用漏洞掃描的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。規則2：不適用，因為動作不是 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為關係不是 violates 且主體不是 principle。規則5：觸發檢查，因為關係是 uses，但主體的類別是 securityTeam，不是 data，因此不違反。規則6、7、8：不適用，因為關係不是 deployed_in、generates 或 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是滲透測試人員（securityTeam），使用漏洞掃描（technique），這符合規則允許的條件，沒有違反任何語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源存在於 Ldr 中，但主體 '滲透測試人員' 與 '滲透測試團隊' 類似，受體 '漏洞掃描' 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】與【同義詞判定】，主體與受體皆無完全相同的資源存在於 Ldr 中，且無法確認為同義詞，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試人員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "漏洞掃描",
+        "type": "technique"
+      },
+      "reasoning": "文本提到主動監視（由滲透測試人員執行）包括漏洞掃描，符合 securityTeam uses technique。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 12
+    }
+  }
+]

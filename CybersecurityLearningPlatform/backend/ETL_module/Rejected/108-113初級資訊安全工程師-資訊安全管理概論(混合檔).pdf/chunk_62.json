@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "個人資料",
+      "type": "data",
+      "display_name": "個人資料"
+    },
+    "reasoning": "文本討論所有權議題中，個人與組織獲取並使用所需資料的權利。符合 ('user', 'uses', 'data')。",
+    "source_id": "chunk_62",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "使用者 (user) 是 'user' 類別的合理實例，個人資料 (data) 是 'data' 類別的合理實例，'uses' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為主體不是principle。規則5觸發違規，因為關係為uses且主體的類別是user，但受體的類別是data，符合規則5的違反條件。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "violation",
+        "reason": "三元組違反規則5，因為當關係為uses時，主體的類別是user，受體的類別是data，觸發了規則5的違反條件。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組違反規則5，因為當關係為uses時，主體的類別是user，受體的類別是data，觸發了規則5的違反條件。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "個人資料",
+        "type": "data"
+      },
+      "reasoning": "文本討論所有權議題中，個人與組織獲取並使用所需資料的權利。符合 ('user', 'uses', 'data')。",
+      "source_id": "chunk_62",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  }
+]

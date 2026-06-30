@@ -1,0 +1,137 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "USB 符記",
+      "type": "system"
+    },
+    "reasoning": "文本提到使用者在認證時需要攜帶此設施（如 USB 符記）。根據 Schema，user 可以 uses system，因此將硬體符記視為一個小型系統。",
+    "source_id": "chunk_2",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "IC 卡",
+      "type": "system"
+    },
+    "reasoning": "文本將 IC 卡列為認證設施，使用者需攜帶使用。符合 (user, uses, system) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "生物特徵認證",
+      "type": "technique"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "認證設備",
+      "type": "tool"
+    },
+    "reasoning": "文本指出生物特徵認證是經由認證設備判別後作出判斷，表示該技術依賴於設備的執行。符合 (technique, depends_on, tool) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "認證設備",
+      "type": "tool"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "生理特徵",
+      "type": "feature"
+    },
+    "reasoning": "文本提到認證設備對生理特徵（如指紋、虹膜）進行判別。符合 (tool, can_analyze, feature) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "認證系統",
+      "type": "system"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "認知密碼",
+      "type": "data"
+    },
+    "reasoning": "文本提到系統預先設定訊息作為認知密碼的答案，並在認證時要求提供。符合 (system, uses, data) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "設備敏感度設定錯誤",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "錯誤接受率 (FAR)",
+      "type": "risk"
+    },
+    "reasoning": "文本提到判斷結果與設備敏感度有很大關係，且錯誤接受率（非法使用者通過）是一種錯誤結果。將敏感度設定不當視為漏洞，導致 FAR 風險。符合 (vulnerability, can_expose, risk) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "設備敏感度設定錯誤",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "錯誤拒絕率 (FRR)",
+      "type": "risk"
+    },
+    "reasoning": "同上，敏感度調整不當會導致合法使用者被拒絕（FRR）。符合 (vulnerability, can_expose, risk) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "生物特徵認證",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "非法使用者存取",
+      "type": "attack"
+    },
+    "reasoning": "認證的目的是為了區分合法與非法使用者，防止非法者進入。符合 (technique, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "認知密碼",
+      "type": "data"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本舉例認知密碼包含生日、小學等容易被猜測的資訊，這類資料本身容易導致安全弱點。符合 (data, can_expose, vulnerability) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 9
+  }
+]

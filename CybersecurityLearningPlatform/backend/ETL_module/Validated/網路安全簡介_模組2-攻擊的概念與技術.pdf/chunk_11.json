@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "權限競爭",
+      "type": "vulnerability",
+      "display_name": "競爭條件"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全風險",
+      "type": "risk",
+      "display_name": "安全風險"
+    },
+    "reasoning": "文本提到『競爭條件就成為暴露源』，競爭條件是一種典型的軟體漏洞 (vulnerability)，而暴露源導致的是潛在的風險 (risk)。符合 Schema: (vulnerability, can_expose, risk)。",
+    "source_id": "chunk_11",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "競爭條件 (vulnerability) 可能是安全風險 (risk) 的一種原因，'can_expose' 關係在資安領域中合理，表示漏洞可能暴露安全風險。",
+        "response": "correct",
+        "reason": "競爭條件與安全風險之間的 'can_expose' 關係在資安領域中是合理的，且符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但 'can_expose' (暴露) 動作是特例允許的。因此，競爭條件 (類別: vulnerability) 與 can_expose 關係不違反規則3。",
+        "response": "correct",
+        "reason": "競爭條件 (類別: vulnerability) 透過 'can_expose' 關係暴露安全風險 (類別: risk) 符合規則3的特例允許，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "競爭條件與權限競爭為同義詞，安全風險為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "權限競爭",
+        "standard_object": "安全風險",
+        "reason": "根據同義詞判定，競爭條件與權限競爭、安全風險為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "競爭條件",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『競爭條件就成為暴露源』，競爭條件是一種典型的軟體漏洞 (vulnerability)，而暴露源導致的是潛在的風險 (risk)。符合 Schema: (vulnerability, can_expose, risk)。",
+      "source_id": "chunk_11",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "開發人員",
+      "type": "user",
+      "display_name": "開發人員"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "軟體漏洞"
+    },
+    "reasoning": "文本指出開發人員若嘗試創建自己的安全演算法『可能只會引入新的漏洞』。開發人員在此被視為系統操作/開發個體 (user)，其行為導致漏洞產生。符合 Schema: (user, can_expose, vulnerability)。",
+    "source_id": "chunk_11",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'vulnerability' 與關係 'can_expose' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "開發人員 (user) 與 軟體漏洞 (vulnerability) 的名稱與其類別合理對齊，且 'can_expose' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊與同義詞寬容原則均通過。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：允許 'can_expose' 動作，符合特例允許。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '開發人員' 與關係 'can_expose'、受體 '軟體漏洞' 符合規則3的特例允許，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"軟體漏洞\" 與 Ldr 中的 \"程式漏洞\"、\"安全漏洞\"、\"漏洞\" 等相關資源具有同義詞關係，指涉資安領域中的漏洞概念。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據資安領域已知同義詞對照範例，\"漏洞\"、\"弱點\"、\"脆弱性\" 均指同一概念，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "開發人員",
+        "type": "user"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "軟體漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出開發人員若嘗試創建自己的安全演算法『可能只會引入新的漏洞』。開發人員在此被視為系統操作/開發個體 (user)，其行為導致漏洞產生。符合 Schema: (user, can_expose, vulnerability)。",
+      "source_id": "chunk_11",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "存取控制",
+      "type": "policy",
+      "display_name": "存取控制"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全漏洞",
+      "type": "vulnerability",
+      "display_name": "安全漏洞"
+    },
+    "reasoning": "文本提到『存取控制的不當使用會造成許多安全漏洞』。存取控制是系統的一項屬性或組成部分 (feature)，其設定錯誤會導致漏洞。符合 Schema: (feature, can_expose, vulnerability)。",
+    "source_id": "chunk_11",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "存取控制 (Access Control) 是安全功能 (feature) 的合理實例，安全漏洞 (Security Vulnerability) 是漏洞 (vulnerability) 的合理實例，'can_expose' 關係在資安領域中指的是某個功能或特性可能會暴露某個漏洞，這在語意上是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且在語意上是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但允許 'can_expose' 動作。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '存取控制' 類別為 'policy'，與 '安全漏洞' 類別為 'vulnerability' 的受體之間的 'can_expose' 關係，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "存取控制與控制機制之間存在廣義/狹義從屬關係，但根據給定的資源清單，存取控制的相似度最高為1.0，且與主體功能存取控制、存取控制政策等存在相似關係；而安全漏洞的相似度最高為1.0，且與漏洞、程式漏洞等存在相似關係。然而，根據判斷準則，若一個實體是另一個的子類型，判定為correct，禁止合併。因此，存取控制和安全漏洞之間不構成同義詞重複關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，存取控制和安全漏洞不構成同義詞重複關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "存取控制",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『存取控制的不當使用會造成許多安全漏洞』。存取控制是系統的一項屬性或組成部分 (feature)，其設定錯誤會導致漏洞。符合 Schema: (feature, can_expose, vulnerability)。",
+      "source_id": "chunk_11",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "目標設備",
+      "type": "system",
+      "display_name": "目標設備"
+    },
+    "reasoning": "文本描述『如果攻擊者能夠實際存取目標設備...駭客都可以繞過作業系統』，這意味著攻擊者取得了對硬體/系統的控制權。符合 Schema: (attacker, controls, system)。",
+    "source_id": "chunk_11",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 分別對應到 'Classes' 的 'attacker'、'system' 和 'Properties' 的 'controls'，因此皆在 Lc,p 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是 'attacker' 的合理實例，目標設備 (system) 是 'system' 的合理實例，關係 'controls' 在資安領域中是合理的描述，例如駭客控制目標設備。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未觸發，因為駭客不具有安全團隊的身分。規則2：不適用，因為動作不是 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為主體不是 principle。規則5：不適用，因為關係不是 uses。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：觸發檢查，因為關係是 controls，主體是具有主動執行能力的角色（駭客），符合規則所允許的條件。",
+        "response": "correct",
+        "reason": "三元組符合規則8的允許條件，駭客作為主體具有控制目標設備的能力，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「駭客」與 Ldr 中的「駭客」完全相同，受體「目標設備」不在 Ldr 中，但無法直接判定為同義詞重複或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認原則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "目標設備",
+        "type": "system"
+      },
+      "reasoning": "文本描述『如果攻擊者能夠實際存取目標設備...駭客都可以繞過作業系統』，這意味著攻擊者取得了對硬體/系統的控制權。符合 Schema: (attacker, controls, system)。",
+      "source_id": "chunk_11",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "軟體更新",
+      "type": "technique",
+      "display_name": "軟體更新"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "漏洞利用",
+      "type": "risk",
+      "display_name": "漏洞利用"
+    },
+    "reasoning": "文本明確指出『軟體更新的目標是...避免漏洞利用』。軟體更新是一種維護流程 (technique)，用以緩解漏洞被利用的攻擊 (attack)。符合 Schema: (technique, mitigates, attack)。",
+    "source_id": "chunk_11",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "軟體更新是 technique 的合理實例，漏洞利用是 attack 的合理實例，且 'mitigates' 是合理的關係描述。",
+        "response": "correct",
+        "reason": "軟體更新與漏洞利用的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的軟體更新（technique）與漏洞利用（risk）之間的關係為 mitigates，符合規則2的允許條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源存在於 Ldr 中，軟體更新與軟體系統更新具有高相似度，漏洞利用為完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "軟體更新與軟體系統更新雖相似，但非完全同義詞，且軟體更新為主體不直接等同於現有資源，受體漏洞利用已完全匹配，但主體不需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "軟體更新",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "漏洞利用",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出『軟體更新的目標是...避免漏洞利用』。軟體更新是一種維護流程 (technique)，用以緩解漏洞被利用的攻擊 (attack)。符合 Schema: (technique, mitigates, attack)。",
+      "source_id": "chunk_11",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "敏感資料",
+      "type": "data",
+      "display_name": "敏感資料"
+    },
+    "reasoning": "文本提到駭客可以『直接從磁碟讀取資料』，這是一種對資料機密性的侵害行為。符合 Schema: (attacker, can_harm, data)。",
+    "source_id": "chunk_11",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是 'attacker' 的合理實例，敏感資料 (data) 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為駭客不具有安全團隊的身分。規則2：不適用，因為主體不是 policy, technique 或 tool。規則3：不適用，因為主體不是 vulnerability。規則4：不適用，因為關係不是 violates。規則5：不適用，因為關係不是 uses。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls，但需要注意的是，當關係為 can_harm 時，主體需要是具有主動執行能力的角色或工具，駭客屬於 attacker 類別，符合此條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（駭客）與關係（can_harm）以及受體（敏感資料）之間的關係在給定的語義限制清單中沒有明確的違反規則。駭客作為攻擊者，可以對敏感資料造成傷害，符合資安知識圖譜的邏輯。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (駭客) 與 Ldr 中的 '駭客' 完全等價同義詞，受體 (敏感資料) 與 Ldr 中的 '敏感資料' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的某資源 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "敏感資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到駭客可以『直接從磁碟讀取資料』，這是一種對資料機密性的侵害行為。符合 Schema: (attacker, can_harm, data)。",
+      "source_id": "chunk_11",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "滲透測試團隊",
+      "type": "securityTeam",
+      "display_name": "滲透測試團隊"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "軟體漏洞",
+      "type": "vulnerability",
+      "display_name": "軟體漏洞"
+    },
+    "reasoning": "文本提到組織投資滲透測試團隊，目的是在漏洞被利用前『搜尋、尋找和修補軟體漏洞』。符合 Schema: (securityTeam, can_detect, vulnerability)。",
+    "source_id": "chunk_11",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'vulnerability' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試團隊 (securityTeam) 可以檢測軟體漏洞 (vulnerability)，這是資安領域中合理的語意對齊，'can_detect' 關係也合理地描述了這種關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，語意對齊也合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為滲透測試團隊不具有攻擊者身份。規則2：不適用，因為關係是 can_detect，不是 mitigates。規則3：不適用，因為主體是滲透測試團隊，不是漏洞。規則4：不適用，因為關係是 can_detect，不是 violates。規則5：不適用，因為關係是 can_detect，不是 uses。規則6：不適用，因為關係是 can_detect，不是 deployed_in。規則7：不適用，因為關係是 can_detect，不是 generates。規則8：不適用，因為關係是 can_detect，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（滲透測試團隊, can_detect, 軟體漏洞）不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "滲透測試團隊與測試團隊為同義詞，軟體漏洞與漏洞、程式漏洞、安全漏洞等為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，滲透測試團隊與測試團隊、軟體漏洞與漏洞等為同義詞，但根據廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試團隊",
+        "type": "securityTeam"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "軟體漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到組織投資滲透測試團隊，目的是在漏洞被利用前『搜尋、尋找和修補軟體漏洞』。符合 Schema: (securityTeam, can_detect, vulnerability)。",
+      "source_id": "chunk_11",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "google 零計畫團隊",
+      "type": "securityTeam",
+      "display_name": "Google 零計畫團隊"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "軟體漏洞"
+    },
+    "reasoning": "文本將 Google 零計畫描述為一個『專門致力於尋找軟體漏洞』的常設團隊。符合 Schema: (securityTeam, can_detect, vulnerability)。",
+    "source_id": "chunk_11",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'vulnerability' 與關係 'can_detect' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Google 零計畫團隊是安全團隊的合理實例，軟體漏洞是漏洞的合理實例，'can_detect' 關係在安全團隊與漏洞之間是合理的。",
+        "response": "correct",
+        "reason": "Google 零計畫團隊、軟體漏洞與 'can_detect' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有攻擊者身份；規則2：不適用，因為動作不是 mitigates；規則3：不適用，因為主體類別不是 vulnerability；規則4：不適用，因為關係不是 violates；規則5：不適用，因為關係不是 uses；規則6：不適用，因為關係不是 deployed_in；規則7：不適用，因為關係不是 generates；規則8：不適用，因為關係不是 controls，但需要注意的是，當關係為 can_detect 時，主體需要是具有偵測能力的角色或工具，securityTeam 屬於此類。",
+        "response": "correct",
+        "reason": "三元組中的主體 Google 零計畫團隊是一個安全團隊，具有偵測軟體漏洞的能力，符合 can_detect 關係的語義要求。因此，該三元組不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據資安領域已知同義詞對照範例，軟體漏洞與漏洞是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Google 零計畫團隊",
+        "type": "securityTeam"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "軟體漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本將 Google 零計畫描述為一個『專門致力於尋找軟體漏洞』的常設團隊。符合 Schema: (securityTeam, can_detect, vulnerability)。",
+      "source_id": "chunk_11",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "軟體漏洞",
+      "type": "vulnerability",
+      "display_name": "軟體漏洞"
+    },
+    "reasoning": "文本提到作業系統生產商每天發布修補程式以避免漏洞利用，隱含了作業系統本身會暴露漏洞。符合 Schema: (system, can_expose, vulnerability)。",
+    "source_id": "chunk_11",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "作業系統 (system) 可以暴露 (can_expose) 軟體漏洞 (vulnerability)，這是資安領域中合理的語意關係。",
+        "response": "correct",
+        "reason": "主體、關係和受體都符合預先定義的類別和屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作不是mitigates。規則3允許vulnerability發起'can_expose'動作，與三元組的關係相符。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是作業系統，關係是can_expose，受體是軟體漏洞，符合規則3的特例允許，沒有違反任何規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全等價同義詞，受體 \"軟體漏洞\" 與 Ldr 中的 \"軟體漏洞\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均為完全等價同義詞，無需進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "軟體漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到作業系統生產商每天發布修補程式以避免漏洞利用，隱含了作業系統本身會暴露漏洞。符合 Schema: (system, can_expose, vulnerability)。",
+      "source_id": "chunk_11",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 9
+    }
+  }
+]

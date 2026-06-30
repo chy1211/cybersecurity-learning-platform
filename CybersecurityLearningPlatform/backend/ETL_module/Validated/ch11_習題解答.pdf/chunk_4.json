@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "建構管理",
+      "type": "policy",
+      "display_name": "建構管理"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本提到『需要完善的建構管理，以降低風險』。建構管理在此被視為一種管理方針(policy)，其目的在於緩解(mitigates)風險(risk)。",
+    "source_id": "chunk_4",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '建構管理' 可被視為 'policy' 的合理實例，'風險' 是 'risk' 的直接對應，'mitigates' 的語意與 'policy' 減輕 'risk' 的概念相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是建構管理（類別：policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（建構管理）是 policy 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「風險」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "建構管理",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『需要完善的建構管理，以降低風險』。建構管理在此被視為一種管理方針(policy)，其目的在於緩解(mitigates)風險(risk)。",
+      "source_id": "chunk_4",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "系統環境或參數",
+      "type": "feature",
+      "display_name": "系統環境或參數"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "安全弱點"
+    },
+    "reasoning": "文本指出『若任意改變系統的環境或參數時...造成系統安全弱點』。系統環境與參數屬於系統特徵(feature)，其變動可導致(can_expose)漏洞/弱點(vulnerability)。",
+    "source_id": "chunk_4",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "系統環境或參數可以被視為 'feature' 的合理實例，安全弱點可以被視為 'vulnerability' 的合理實例，'can_expose' 關係在資安領域中是合理的，因為系統環境或參數可能會暴露安全弱點。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體類別為feature，關係為can_expose，受體為vulnerability，未觸發其他規則的違規條件。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，且未違反其他規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「安全隱患」、「弱點」、「系統弱點」和「認證弱點」均屬於同義詞範疇，尤其是「弱點」與「安全弱點」在資安領域中可視為同義詞或相近概念，指涉的是系統或環境中的漏洞或脆弱性。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據同義詞判定準則，受體「安全弱點」與 Ldr 中的「弱點」為同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統環境或參數",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出『若任意改變系統的環境或參數時...造成系統安全弱點』。系統環境與參數屬於系統特徵(feature)，其變動可導致(can_expose)漏洞/弱點(vulnerability)。",
+      "source_id": "chunk_4",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "microsoft sdl",
+      "type": "policy",
+      "display_name": "Microsoft SDL"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "惡意軟體之攻擊",
+      "type": "attack",
+      "display_name": "惡意軟體之攻擊"
+    },
+    "reasoning": "文本明確提到『微軟公司為預防惡意軟體之攻擊...提出一種安全性軟體開發的流程模式，稱為Microsoft SDL』。SDL 作為公司實行的政策(policy)，旨在緩解(mitigates)攻擊(attack)。",
+    "source_id": "chunk_4",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Microsoft SDL 是一種安全開發生命週期政策，合理對齊 'policy' 類別；惡意軟體之攻擊是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "Microsoft SDL 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 'Microsoft SDL' 類別為 'policy'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 'Microsoft SDL' 類別為 'policy'，符合規則2的條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資源 '駭客攻擊' 類別相同，但非完全等價同義詞，惡意軟體之攻擊與駭客攻擊之間存在著廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Microsoft SDL",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "惡意軟體之攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到『微軟公司為預防惡意軟體之攻擊...提出一種安全性軟體開發的流程模式，稱為Microsoft SDL』。SDL 作為公司實行的政策(policy)，旨在緩解(mitigates)攻擊(attack)。",
+      "source_id": "chunk_4",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "威脅建模",
+      "type": "technique",
+      "display_name": "威脅建模"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "microsoft sdl",
+      "type": "policy",
+      "display_name": "Microsoft SDL"
+    },
+    "reasoning": "文本提到 SDL 包含『軟體設計時開發威脅模型』。威脅建模是一種安全技術(technique)，它是 SDL 這一整體技術流程的一部分(is_part_of)。",
+    "source_id": "chunk_4",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "威脅建模 (Threat Modeling) 是一種安全技術 (technique)，Microsoft SDL (Security Development Lifecycle) 也是一種安全技術 (technique)，因此名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的定義，且名稱與類別語意對齊，故無違反。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被定義為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆無直接同義詞對應關係，且無廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定同義詞或從屬關係，依據規則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "威脅建模",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Microsoft SDL",
+        "type": "technique"
+      },
+      "reasoning": "文本提到 SDL 包含『軟體設計時開發威脅模型』。威脅建模是一種安全技術(technique)，它是 SDL 這一整體技術流程的一部分(is_part_of)。",
+      "source_id": "chunk_4",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "microsoft sdl",
+      "type": "technique",
+      "display_name": "Microsoft SDL"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "靜態分析程式碼掃描工具",
+      "type": "tool",
+      "display_name": "靜態分析程式碼掃描工具"
+    },
+    "reasoning": "文本提到 SDL 流程中『實作時使用靜態分析程式碼掃描工具』。將 SDL 視為一種開發技術(technique)，它依賴(depends_on)特定的工具(tool)來執行。",
+    "source_id": "chunk_4",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Microsoft SDL 是一種安全開發生命週期的技術（technique），靜態分析程式碼掃描工具是工具（tool）的合理實例，'depends_on' 關係在此語境下合理，因為 SDL 可能依賴於工具來實現其安全目標。",
+        "response": "correct",
+        "reason": "Microsoft SDL 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'depends_on'，未在規則中明確定義限制，但根據 '無罪推定' 原則，若無明確違反，則視為合法。",
+        "response": "correct",
+        "reason": "三元組中的關係 'depends_on' 未在語義限制清單中明確定義為違規，且主體和受體的類別組合未觸發任何規則中的限制條件，因此判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，Ldr 為空，且主體與受體名稱無直接同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Microsoft SDL",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "靜態分析程式碼掃描工具",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 SDL 流程中『實作時使用靜態分析程式碼掃描工具』。將 SDL 視為一種開發技術(technique)，它依賴(depends_on)特定的工具(tool)來執行。",
+      "source_id": "chunk_4",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "靜態分析程式碼掃描工具",
+      "type": "tool",
+      "display_name": "靜態分析程式碼掃描工具"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "程式碼",
+      "type": "data",
+      "display_name": "程式碼"
+    },
+    "reasoning": "靜態分析工具的功能是對程式碼進行掃描分析。工具(tool)對程式碼(data)執行分析(can_analyze)。",
+    "source_id": "chunk_4",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "靜態分析程式碼掃描工具是 tool 的合理實例，程式碼是 data 的合理實例，'can_analyze' 的語意也與工具分析資料的概念相符。",
+        "response": "correct",
+        "reason": "靜態分析程式碼掃描工具與程式碼之間的 'can_analyze' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用；規則2：不適用；規則3：不適用；規則4：不適用；規則5：不適用；規則6：不適用；規則7：不適用；規則8：不適用。三元組中，主體為工具（tool），關係為 can_analyze，受體為程式碼（data），未發現明確違反語義限制清單中的任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係未違反語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "靜態分析程式碼掃描工具",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "程式碼",
+        "type": "data"
+      },
+      "reasoning": "靜態分析工具的功能是對程式碼進行掃描分析。工具(tool)對程式碼(data)執行分析(can_analyze)。",
+      "source_id": "chunk_4",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "驗證",
+      "type": "technique",
+      "display_name": "驗證"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "microsoft sdl",
+      "type": "policy",
+      "display_name": "Microsoft SDL"
+    },
+    "reasoning": "驗證(Verification)是 Microsoft SDL 七個組成部分之一，因此是一種技術(technique)且屬於(is_part_of) SDL 技術流程。",
+    "source_id": "chunk_4",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "驗證 (Validation) 可被視為一種技術 (technique)，而 Microsoft SDL (Security Development Lifecycle) 也是技術 (technique) 的一種實例，兩者名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被定義為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「驗證」與 Ldr 中的「驗證」完全等價，受體「Microsoft SDL」與 Ldr 中的「microsoft sdl」完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "驗證",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Microsoft SDL",
+        "type": "technique"
+      },
+      "reasoning": "驗證(Verification)是 Microsoft SDL 七個組成部分之一，因此是一種技術(technique)且屬於(is_part_of) SDL 技術流程。",
+      "source_id": "chunk_4",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "黑箱測試/白箱測試",
+      "type": "technique",
+      "display_name": "黑箱測試/白箱測試"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "驗證",
+      "type": "technique",
+      "display_name": "驗證"
+    },
+    "reasoning": "文本指出『驗證 ( verification )：黑箱測試/白箱測試』。測試方法是驗證階段具體的技術實作，因此是技術(technique)之中的一部分(is_part_of)。",
+    "source_id": "chunk_4",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "黑箱測試/白箱測試 可以被視為 'technique' 的合理實例，驗證也可以被視為 'technique' 的合理實例，考慮到資安領域的同義詞、縮寫與翻譯寬容原則。",
+        "response": "correct",
+        "reason": "黑箱測試/白箱測試 和 驗證 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則，發現規則1、2、3、4、5、6、7、8都不直接適用於此三元組，因為它們的條件不符合此三元組的主體、關係、受體類別與內容。",
+        "response": "correct",
+        "reason": "此三元組不觸發任何語義限制清單中的規則，故判定為正確。黑箱測試/白箱測試作為technique，與驗證的關係is_part_of，沒有違反任何給定的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "黑箱測試和白箱測試是驗證的不同方法，驗證是兩者的廣義概念，但根據規則，廣義/狹義一律保留，不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，黑箱測試和白箱測試是驗證的子類型，故不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "黑箱測試/白箱測試",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "驗證",
+        "type": "technique"
+      },
+      "reasoning": "文本指出『驗證 ( verification )：黑箱測試/白箱測試』。測試方法是驗證階段具體的技術實作，因此是技術(technique)之中的一部分(is_part_of)。",
+      "source_id": "chunk_4",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "回應",
+      "type": "technique",
+      "display_name": "回應"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "缺失"
+    },
+    "reasoning": "文本提到回應階段包含『缺失追踪解決』。回應(Response)作為一種技術流程(technique)，其功能在於分析並處理(can_analyze)系統的缺失/漏洞(vulnerability)。",
+    "source_id": "chunk_4",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '回應' 的名稱與其類別 'technique' 合理對齊，實體 '缺失' 的名稱與其類別 'vulnerability' 也合理對齊，考慮到資安領域的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該規則與待檢查三元組相關，因為三元組的主體是 '回應' (類別: technique)，但受體是 '缺失' (類別: vulnerability)，然而，關係 'can_analyze' 並不直接違反規則3，因為規則3主要限制的是漏洞本身的主動行為，而這裡的主體是 '回應'，是一種技術。因此，該三元組不直接違反規則3。其他規則與此三元組無直接關聯。",
+        "response": "correct",
+        "reason": "三元組中的主體是 '回應' (類別: technique)，與 'can_analyze' 關係相符，不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 '缺失' 與 Ldr 中的 '弱點' 屬於同義詞對照範例中的 '漏洞 ≡ 弱點 ≡ 脆弱性'，因此是完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據同義詞對照範例，'缺失' 是 '弱點' 的同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "回應",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "缺失",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到回應階段包含『缺失追踪解決』。回應(Response)作為一種技術流程(technique)，其功能在於分析並處理(can_analyze)系統的缺失/漏洞(vulnerability)。",
+      "source_id": "chunk_4",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 9
+    }
+  }
+]

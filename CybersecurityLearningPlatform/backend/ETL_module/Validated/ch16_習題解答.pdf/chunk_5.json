@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "存取控制管理疏忽",
+      "type": "vulnerability",
+      "display_name": "存取控制管理疏忽"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料不當存取",
+      "type": "risk",
+      "display_name": "資料不當存取"
+    },
+    "reasoning": "文本指出『存取控制管理疏忽...造成系統資料被不當存取』，管理疏忽屬於漏洞 (vulnerability)，而資料被不當存取是其導致的負面後果 (risk)。",
+    "source_id": "chunk_5",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "存取控制管理疏忽 是 'vulnerability' 的合理實例，資料不當存取 是 'risk' 的合理實例，'can_expose' 的語意也合理地描述了存取控制管理疏忽 對 資料不當存取 的關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但特例允許 'can_expose' (暴露) 動作。因此，三元組中的 'can_expose' 關係觸發了規則3的特例允許，代表不違反規則。",
+        "response": "correct",
+        "reason": "三元組中的 'can_expose' 關係符合規則3的特例允許，代表不違反規則。因此，最終判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "存取控制管理疏忽與現有近似資源清單中的存取控制管理疏忽完全相同，屬於完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認判斷準則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "存取控制管理疏忽",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "資料不當存取",
+        "type": "risk"
+      },
+      "reasoning": "文本指出『存取控制管理疏忽...造成系統資料被不當存取』，管理疏忽屬於漏洞 (vulnerability)，而資料被不當存取是其導致的負面後果 (risk)。",
+      "source_id": "chunk_5",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "sql injection 隱碼攻擊",
+      "type": "attack",
+      "display_name": "SQL 隱碼攻擊"
+    },
+    "reasoning": "文本提到『造成 SQL 隱碼攻擊』，在資安情境中，這類攻擊是由攻擊者（駭客）發起的，因此使用 attacker implements attack。",
+    "source_id": "chunk_5",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，受體類別 'attack' 也存在於 Lc,p 的 'Classes' 中，關係 'implements' 存在於 Lc,p 的 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，SQL 隱碼攻擊 (attack) 是攻擊的合理實例，兩者之間的 'implements' 關係在資安領域中是合理的，因為駭客可能會實施 SQL 隱碼攻擊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：未違反，因為駭客（attacker）與安全團隊（securityTeam）沒有同時出現。檢查規則2：不適用，因為動作不是 mitigates。檢查規則3：不適用，因為主體類別不是 vulnerability。檢查規則4：不適用，因為關係不是 violates 且 principle 不是主體。檢查規則5：不適用，因為關係不是 uses 或主體類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於 implements 動作涉及主體（駭客）對受體（SQL 隱碼攻擊）的實施，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的駭客（attacker）實施 SQL 隱碼攻擊（attack）沒有違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 SQL 隱碼攻擊 與 Ldr 中的 sql injection 隱碼攻擊 為同義詞，主體駭客與 Ldr 中的駭客為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "駭客",
+        "standard_object": "sql injection 隱碼攻擊",
+        "reason": "根據同義詞對照表，SQL 隱碼攻擊 可以被視為 SQL Injection 的同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "SQL 隱碼攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『造成 SQL 隱碼攻擊』，在資安情境中，這類攻擊是由攻擊者（駭客）發起的，因此使用 attacker implements attack。",
+      "source_id": "chunk_5",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "緩衝區溢位攻擊",
+      "type": "attack",
+      "display_name": "緩衝溢位攻擊"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "入侵程式",
+      "type": "tool",
+      "display_name": "入侵程式"
+    },
+    "reasoning": "文本提到緩衝溢位攻擊會『載入入侵程式』來取得權限，表示該攻擊手段依賴於特定的工具（入侵程式）來達成目的。",
+    "source_id": "chunk_5",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "緩衝溢位攻擊 (Buffer Overflow Attack) 是 'attack' 的合理實例，入侵程式 (Malware) 是 'tool' 的合理實例，且 'depends_on' 關係在資安領域中常見，表示攻擊手法可能依賴特定工具或條件。",
+        "response": "correct",
+        "reason": "緩衝溢位攻擊與入侵程式的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 'depends_on'，不涉及 'controls' 關係。另外，根據給定的三元組，'緩衝溢位攻擊' 是 'attack' 類別，'入侵程式' 是 'tool' 類別，'depends_on' 關係表示攻擊依賴於工具，這在資安知識圖譜中是一種合理的關係。",
+        "response": "correct",
+        "reason": "三元組中的關係 'depends_on' 不違反任何語義限制清單中的規則，且主體和受體之間的關係在資安知識圖譜中是合理的。"
+      },
+      "step_2": {
+        "granularity_analysis": "緩衝溢位攻擊與緩衝區溢位攻擊為同義詞",
+        "response": "duplicate",
+        "standard_subject": "緩衝區溢位攻擊",
+        "standard_object": "",
+        "reason": "根據同義詞判定，緩衝溢位攻擊與緩衝區溢位攻擊是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "緩衝溢位攻擊",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "入侵程式",
+        "type": "tool"
+      },
+      "reasoning": "文本提到緩衝溢位攻擊會『載入入侵程式』來取得權限，表示該攻擊手段依賴於特定的工具（入侵程式）來達成目的。",
+      "source_id": "chunk_5",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "網站伺服器",
+      "type": "system",
+      "display_name": "網站伺服器"
+    },
+    "reasoning": "文本明確提到『駭客獲得系統的控制權限』以及『在所控制的網站伺服器植入木馬』，符合 attacker controls system。",
+    "source_id": "chunk_5",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 與 網站伺服器 (system) 的名稱與其被賦予的類別合理對齊，駭客可以控制網站伺服器的語意是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 attacker，具有主動執行能力，符合 controls 關係的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（駭客）具有主動執行能力，符合規則8中關於 controls 關係的要求。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源存在於 Ldr 中，但需進一步判定同義詞關係與子類型關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，駭客與網站伺服器在給定的資源清單中沒有完全匹配的同義詞，且無法確認為子類型關係，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "網站伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本明確提到『駭客獲得系統的控制權限』以及『在所控制的網站伺服器植入木馬』，符合 attacker controls system。",
+      "source_id": "chunk_5",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網頁資料",
+      "type": "data",
+      "display_name": "網頁資料"
+    },
+    "reasoning": "文本提到駭客『竄改網頁資料』，這是一種對資料完整性的破壞，符合 attacker can_harm data。",
+    "source_id": "chunk_5",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，受體類別 'data' 也存在於 Lc,p 的 'Classes' 中，關係 'can_harm' 存在於 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是 'attacker' 的合理實例，網頁資料 (data) 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未觸發，因為駭客不具有安全團隊的身分。規則2：未觸發，因為主體不是 policy, technique 或 tool。規則3：未觸發，因為主體類別不是 vulnerability。規則4：未觸發，因為關係不是 violates。規則5：未觸發，因為主體的類別不是 data。規則6：未觸發，因為關係不是 deployed_in。規則7：未觸發，因為關係不是 generates。規則8：未觸發，因為關係不是 controls，但需要注意規則5的例外情況，然而這裡的主體是駭客，受體是網頁資料，符合一般的 can_harm 關係邏輯。",
+        "response": "correct",
+        "reason": "三元組中的駭客可以對網頁資料進行傷害（can_harm），這符合一般的資安邏輯，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源存在於 Ldr 中，分別為完全匹配和相似度高的資料",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體 '駭客' 完全匹配 Ldr 中的 '駭客'，而受體 '網頁資料' 雖然與 '資料' 相似，但不完全相同，且無法確認為同義詞，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網頁資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到駭客『竄改網頁資料』，這是一種對資料完整性的破壞，符合 attacker can_harm data。",
+      "source_id": "chunk_5",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "木馬程式",
+      "type": "attack",
+      "display_name": "木馬程式"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "網站伺服器",
+      "type": "system",
+      "display_name": "網站伺服器"
+    },
+    "reasoning": "木馬程式被植入伺服器後用以維持控制並竊取資訊，符合 tool controls system 的邏輯。",
+    "source_id": "chunk_5",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'tool' 和受體的類別 'system' 都存在於 Lc,p 的 'Classes' 中，關係 'controls' 存在於 'Properties' 中。",
+        "step_2_alignment_check": "木馬程式是工具（tool）的合理實例，網站伺服器是系統（system）的合理實例，關係 'controls' 在資安領域中是合理的，表示木馬程式可以控制網站伺服器。",
+        "response": "correct",
+        "reason": "木馬程式控制網站伺服器的三元組完全符合預先定義的類別與屬性清單，語意對齊且合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體（木馬程式）是具有主動執行能力的角色或工具，符合規則8的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（木馬程式）是具有主動執行能力的角色或工具，符合規則8的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「木馬程式」與 Ldr 中的「木馬程式」完全相同，受體「網站伺服器」與 Ldr 中的「網站伺服器」完全相同，且無同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的名稱完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "木馬程式",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "網站伺服器",
+        "type": "system"
+      },
+      "reasoning": "木馬程式被植入伺服器後用以維持控制並竊取資訊，符合 tool controls system 的邏輯。",
+      "source_id": "chunk_5",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "木馬程式",
+      "type": "attack",
+      "display_name": "木馬程式"
+    },
+    "reasoning": "文本提到駭客『植入木馬程式』以竊取資訊，表示駭客使用了木馬程式這個工具。",
+    "source_id": "chunk_5",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 使用木馬程式 (tool) 是資安領域中常見的場景，實體名稱與其類別合理對齊，符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為駭客不具有安全團隊的身分。規則2：不適用，因為主體不是 policy, technique 或 tool。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為主體不是 principle。規則5：觸發，因為主體的類別是 attacker，而不是 data，但使用 uses 關係是允許的。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（駭客）使用木馬程式（uses 關係）不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域已知實體，且無直接同義詞關係，但受體為攻擊類別，主體為攻擊者類別，兩者無直接從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無同義詞關係，且主體與受體無從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "木馬程式",
+        "type": "tool"
+      },
+      "reasoning": "文本提到駭客『植入木馬程式』以竊取資訊，表示駭客使用了木馬程式這個工具。",
+      "source_id": "chunk_5",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "網站用戶",
+      "type": "user",
+      "display_name": "網站用戶"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "瀏覽器",
+      "type": "app",
+      "display_name": "瀏覽器"
+    },
+    "reasoning": "文本提到『網站用戶在不知不覺中透過瀏覽器下載功能』，描述了使用者操作應用程式的行為。",
+    "source_id": "chunk_5",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網站用戶是 'user' 的合理實例，瀏覽器是 'app' 的合理實例，'uses' 是描述用戶使用應用程式的合理關係。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體類別是user，而不是data，但這裡的uses關係涉及到user使用瀏覽器，與規則5的限制不符。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "雖然規則5提到當關係為uses時，如果主體的類別是data則為違反，但這裡的主體是user，使用瀏覽器屬於合法使用行為，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源存在於 Ldr 中，但需進一步判定同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體 '網站用戶' 與 Ldr 中的 '用戶' 或 '使用者' 皆有高相似度，但無法確認為完全同義詞；受體 '瀏覽器' 完全匹配 Ldr 中的 '瀏覽器'，但根據規則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站用戶",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "瀏覽器",
+        "type": "app"
+      },
+      "reasoning": "文本提到『網站用戶在不知不覺中透過瀏覽器下載功能』，描述了使用者操作應用程式的行為。",
+      "source_id": "chunk_5",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "網站安全檢測系統",
+      "type": "tool",
+      "display_name": "網站安全檢測系統"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "系統漏洞"
+    },
+    "reasoning": "文本定義網站安全檢測系統是『對網站進行漏洞檢查的機制』，因此該工具具備分析漏洞的能力。",
+    "source_id": "chunk_5",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網站安全檢測系統是 tool 的合理實例，系統漏洞是 vulnerability 的合理實例，'can_analyze' 關係在資安領域中是合理的，因為安全檢測系統可以分析系統漏洞。",
+        "response": "correct",
+        "reason": "網站安全檢測系統、系統漏洞與 'can_analyze' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用，因為主體類別為 tool，不是 vulnerability。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是網站安全檢測系統（類別：tool），關係是 can_analyze，受體是系統漏洞（類別：vulnerability），這符合工具可以分析漏洞的邏輯，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"系統漏洞\" 與 Ldr 中的 \"漏洞\"、\"安全漏洞\"、\"系統弱點\" 皆指涉及資安領域中的脆弱性或漏洞概念，尤其 \"漏洞\" 與 \"系統漏洞\" 在語義上非常接近，皆可指涉及系統中的安全漏洞或弱點。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據資安領域已知同義詞對照範例，\"漏洞\"、\"弱點\"、\"脆弱性\" 均指涉及資安領域中的 vulnerability，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站安全檢測系統",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本定義網站安全檢測系統是『對網站進行漏洞檢查的機制』，因此該工具具備分析漏洞的能力。",
+      "source_id": "chunk_5",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "網站安全開發與維護人員",
+      "type": "securityTeam",
+      "display_name": "網站安全開發與維護人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "網站安全開發",
+      "type": "function",
+      "display_name": "網站安全開發"
+    },
+    "reasoning": "文本提到應設有專門人員『負責網站的安全開發』，這將安全團隊的角色與其執行的功能（安全開發）聯繫起來。",
+    "source_id": "chunk_5",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網站安全開發與維護人員 是 securityTeam 的合理實例，網站安全開發 是 function 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：不適用，因為動作不是 mitigates。檢查規則3：不適用，因為主體類別不是 vulnerability。檢查規則4：不適用，因為關係不是 violates。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於三元組中的主體是安全團隊(securityTeam)，關係是 implements，受體是網站安全開發，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "網站安全開發與維護人員與網站安全開發之間的關係是不同的概念，前者是指負責網站安全的團隊，後者是指網站安全的開發過程",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，網站安全開發與維護人員和網站安全開發是不同的概念，無法判定為同義詞或廣義/狹義從屬關係，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站安全開發與維護人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "網站安全開發",
+        "type": "function"
+      },
+      "reasoning": "文本提到應設有專門人員『負責網站的安全開發』，這將安全團隊的角色與其執行的功能（安全開發）聯繫起來。",
+      "source_id": "chunk_5",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 10
+    }
+  }
+]

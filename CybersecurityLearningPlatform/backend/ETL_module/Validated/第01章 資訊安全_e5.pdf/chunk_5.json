@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "機房",
+      "type": "system",
+      "display_name": "機房"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "監視系統",
+      "type": "system",
+      "display_name": "監視系統"
+    },
+    "reasoning": "文本提到實體安全包含監視系統，且機房是重要地點，因此將機房視為系統，監視系統為其包含的工具。符合 ('system', 'has_a', 'tool')。",
+    "source_id": "chunk_5",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "機房 (system) 與 監視系統 (tool) 的名稱與其類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊與同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 has_a，不是 deployed_in。規則7：不適用，因為關係為 has_a，不是 generates。規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（機房 has_a 監視系統）未觸發語義限制清單中的任何規則，且無明確違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "機房與監視系統為不同系統，無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體無同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "機房",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "監視系統",
+        "type": "tool"
+      },
+      "reasoning": "文本提到實體安全包含監視系統，且機房是重要地點，因此將機房視為系統，監視系統為其包含的工具。符合 ('system', 'has_a', 'tool')。",
+      "source_id": "chunk_5",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "機房",
+      "type": "system",
+      "display_name": "機房"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "火災防護與消防系統",
+      "type": "tool",
+      "display_name": "火災防護與消防系統"
+    },
+    "reasoning": "文本將火災防護與消防系統列為實體安全範疇，部署於機房等環境中。符合 ('system', 'has_a', 'tool')。",
+    "source_id": "chunk_5",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "機房 (system) 可以有火災防護與消防系統 (tool)，這是合理的實例關係。",
+        "response": "correct",
+        "reason": "機房與火災防護與消防系統的關係符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 has_a，不是 deployed_in。檢查規則7：不適用，因為關係為 has_a，不是 generates。檢查規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 has_a 不在語義限制清單中被明確限制，因此無法判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 '機房' 完全等價同義詞，受體 '火災防護與消防系統' 與 Ldr 中的資源不直接相關",
+        "response": "correct",
+        "standard_subject": "機房",
+        "standard_object": "",
+        "reason": "主體 '機房' 與 Ldr 中的 '機房' 完全匹配，受體 '火災防護與消防系統' 不是 Ldr 中資源的同義詞或子類型。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "機房",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "火災防護與消防系統",
+        "type": "tool"
+      },
+      "reasoning": "文本將火災防護與消防系統列為實體安全範疇，部署於機房等環境中。符合 ('system', 'has_a', 'tool')。",
+      "source_id": "chunk_5",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資料加密",
+      "type": "function",
+      "display_name": "資料加密"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "密碼學",
+      "type": "tool",
+      "display_name": "密碼學"
+    },
+    "reasoning": "文本指出密碼學技術應用於資料加密，資料加密是密碼學的一種具體技術實現。符合 ('technique', 'is_part_of', 'technique')。",
+    "source_id": "chunk_5",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資料加密是密碼學的一部分，名稱與類別對齊，且符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查後發現，給定的三元組（資料加密 is_part_of 密碼學）與規則列表中沒有直接的違反關係。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係（is_part_of）沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全匹配的資源，且無需進一步的同義詞或廣義/狹義分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 '資料加密' 與受體 '密碼學' 在 Ldr 中已有完全匹配的資源，且無同義詞或從屬關係需要考慮。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料加密",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "密碼學",
+        "type": "technique"
+      },
+      "reasoning": "文本指出密碼學技術應用於資料加密，資料加密是密碼學的一種具體技術實現。符合 ('technique', 'is_part_of', 'technique')。",
+      "source_id": "chunk_5",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "身分認證",
+      "type": "function",
+      "display_name": "身分認證"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "密碼學",
+      "type": "tool",
+      "display_name": "密碼學"
+    },
+    "reasoning": "文本指出密碼學技術應用於身分認證，身分認證是密碼學的一種具體技術實現。符合 ('technique', 'is_part_of', 'technique')。",
+    "source_id": "chunk_5",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "身分認證與密碼學都是資安領域中 technique 的合理實例，且 'is_part_of' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係 'is_part_of' 沒有在給定的規則中被明確限制，因此不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全匹配的資源，且無需進一步同義詞判定。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 '身分認證' 與受體 '密碼學' 分別與 Ldr 中的 '身分認證' 和 '密碼學' 完全匹配，無需進一步判定。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "身分認證",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "密碼學",
+        "type": "technique"
+      },
+      "reasoning": "文本指出密碼學技術應用於身分認證，身分認證是密碼學的一種具體技術實現。符合 ('technique', 'is_part_of', 'technique')。",
+      "source_id": "chunk_5",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "電腦駭客"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資訊安全威脅",
+      "type": "attack",
+      "display_name": "網路安全威脅"
+    },
+    "reasoning": "文本明確將電腦駭客列為網路安全威脅的來源之一，駭客發起攻擊行為。符合 ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_5",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "電腦駭客 (attacker) 和 網路安全威脅 (attack) 的名稱與其類別合理對齊，符合資安領域的常見用語和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為主體是電腦駭客，沒有同時具有攻擊者和安全團隊的身分。規則2：不適用，因為關係是implements，不是mitigates。規則3：不適用，因為主體類別是attacker，不是vulnerability。規則4：不適用，因為關係是implements，不是violates。規則5：不適用，因為關係是implements，不是uses。規則6：不適用，因為關係是implements，不是deployed_in。規則7：不適用，因為關係是implements，不是generates。規則8：不適用，因為關係是implements，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（電腦駭客）和關係（implements）以及受體（網路安全威脅）之間的關係沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，該三元組被判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"電腦駭客\" 與 Ldr 中的 \"駭客\" 關係為同義詞，受體 \"網路安全威脅\" 與 Ldr 中的 \"資訊安全威脅\" 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "駭客",
+        "standard_object": "資訊安全威脅",
+        "reason": "根據同義詞判定準則，主體和受體均找到相應的同義詞對應項。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電腦駭客",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "網路安全威脅",
+        "type": "attack"
+      },
+      "reasoning": "文本明確將電腦駭客列為網路安全威脅的來源之一，駭客發起攻擊行為。符合 ('attacker', 'implements', 'attack')。",
+      "source_id": "chunk_5",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "內部人員",
+      "type": "user",
+      "display_name": "內部人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資訊安全威脅",
+      "type": "attack",
+      "display_name": "網路安全威脅"
+    },
+    "reasoning": "文本提到內部人員的惡意破壞是網路安全威脅的來源，此處內部人員扮演攻擊者角色。符合 ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_5",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "內部人員 (attacker) 與 網路安全威脅 (attack) 的名稱與其類別合理對齊，內部人員可以實施網路安全威脅。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用，因為 implements 不是 mitigates。檢查規則3：不適用，因為主體類別是 user，不是 vulnerability。檢查規則4：不適用，因為主體不是 principle。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但 implements 關係下，user 可以實施網路安全威脅的防禦或應對措施，屬於合理行為。",
+        "response": "correct",
+        "reason": "三元組中的主體（內部人員）與關係（implements）和受體（網路安全威脅）之間的關係，沒有明確違反語義限制清單中的任何規則。內部人員可以實施網路安全威脅的防禦或應對措施，屬於合理行為。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路安全威脅與資訊安全威脅為同義詞，兩者指稱同一概念。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資訊安全威脅",
+        "reason": "根據同義詞判定，網路安全威脅與資訊安全威脅為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部人員",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "網路安全威脅",
+        "type": "attack"
+      },
+      "reasoning": "文本提到內部人員的惡意破壞是網路安全威脅的來源，此處內部人員扮演攻擊者角色。符合 ('attacker', 'implements', 'attack')。",
+      "source_id": "chunk_5",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "病毒攻擊",
+      "type": "attack",
+      "display_name": "病毒攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網路系統",
+      "type": "system",
+      "display_name": "網路系統"
+    },
+    "reasoning": "文本提到惡意軟體（如病毒程式）的傳播是網路安全威脅，會對系統造成破壞。符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_5",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "病毒攻擊是 'attack' 的合理實例，網路系統是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統影響的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是病毒攻擊（類別：attack），而關係是can_harm，受體是網路系統（類別：system），這不涉及控制關係。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"病毒攻擊\" 與 Ldr 中的 \"網路攻擊\"、\"駭客攻擊\" 等相關，但非完全等價同義詞；受體 \"網路系統\" 與 Ldr 中的 \"系統\"、\"電腦系統\" 等相關，具有廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "病毒攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網路系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到惡意軟體（如病毒程式）的傳播是網路安全威脅，會對系統造成破壞。符合 ('attack', 'can_harm', 'system')。",
+      "source_id": "chunk_5",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "網路系統",
+      "type": "system",
+      "display_name": "網路系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本指出網路系統包含複雜設施與協定，難免存在許多的弱點。符合 ('system', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_5",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網路系統可以被視為系統的一部分，'can_expose' 這個關係在資安領域中指的是系統可能暴露弱點，'vulnerability' 是弱點的英文，與系統和弱點的概念相符，語意對齊且合理。",
+        "response": "correct",
+        "reason": "主體、關係和受體的類別和屬性都符合預先定義的清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的關係'can_expose'與規則3的特例允許相符，其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '網路系統' 與 Ldr 中的 '網路系統' 完全等價，受體 '弱點' 與 Ldr 中的 '弱點' 完全等價，兩者均為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞對照表，'弱點' 是 '漏洞'、'脆弱性' 的同義詞，且 '網路系統' 與 '系統' 關係密切，但不完全等同，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路系統",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出網路系統包含複雜設施與協定，難免存在許多的弱點。符合 ('system', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_5",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本明確提到「攻擊者利用系統的弱點做為入侵點」。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_5",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，弱點 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是描述攻擊者與弱點之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。規則2：不適用，因為三元組中沒有mitigates動作。規則3：不適用，因為三元組中的主體類別是攻擊者，而不是漏洞。規則4：不適用，因為三元組中沒有principle。規則5：不適用，因為三元組中的關係不是uses。規則6：不適用，因為三元組中的關係不是deployed_in。規則7：不適用，因為三元組中的關係不是generates。規則8：不適用，因為三元組中的關係不是controls，但can_exploit與控制相關，主體是攻擊者，符合規則8的主動執行能力要求。",
+        "response": "correct",
+        "reason": "三元組中的攻擊者可以利用弱點，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，'弱點' 是 '漏洞'、'脆弱性' 的同義詞，且 '攻擊者' 與 '駭客' 類別相同，但不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確提到「攻擊者利用系統的弱點做為入侵點」。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+      "source_id": "chunk_5",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網路系統",
+      "type": "system",
+      "display_name": "網路系統"
+    },
+    "reasoning": "文本提到攻擊者利用弱點對系統進行破壞。符合 ('attacker', 'can_harm', 'system')。",
+    "source_id": "chunk_5",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 類別的合理實例，網路系統 (system) 是 'system' 類別的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。檢查規則2：不適用，因為三元組中的關係不是mitigates。檢查規則3：不適用，因為三元組中的主體類別不是vulnerability。檢查規則4：不適用，因為三元組中的關係不是violates，且主體不是principle。檢查規則5：不適用，因為三元組中的關係不是uses。檢查規則6：不適用，因為三元組中的關係不是deployed_in。檢查規則7：不適用，因為三元組中的關係不是generates。檢查規則8：不適用，因為三元組中的關係不是controls，但檢查到can_harm與controls有相似的主動性質，需進一步分析。進一步分析發現，can_harm的主體是攻擊者，屬於具有主動執行能力的角色，符合規則8的前提，但規則8明確限定了controls關係，can_harm不在其列，故不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的攻擊者可以對網路系統造成傷害，符合資安知識圖譜的邏輯，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "攻擊者與網路系統分別與現有近似資源清單中的「攻擊者」和「網路系統」完全匹配，且無同義詞重複關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與Ldr中某資源的name字串完全相同，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網路系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到攻擊者利用弱點對系統進行破壞。符合 ('attacker', 'can_harm', 'system')。",
+      "source_id": "chunk_5",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "網路安全威脅",
+      "type": "attack",
+      "display_name": "網路安全威脅"
+    },
+    "reasoning": "文本提到駭客嘗試「穿透防火牆」，暗示防火牆是用於防禦/緩解網路攻擊的工具。符合 ('tool', 'mitigates', 'attack')。",
+    "source_id": "chunk_5",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，網路安全威脅是攻擊（attack）的合理實例，且 'mitigates' 的語意與防火牆減輕網路安全威脅的概念相符。",
+        "response": "correct",
+        "reason": "防火牆、網路安全威脅與 'mitigates' 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是防火牆（類別：tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（防火牆）是 tool 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「防火牆」與 Ldr 中的「防火牆」完全等價同義詞，受體「網路安全威脅」與 Ldr 中的「資訊安全威脅」具有高相似度，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源完全匹配，但受體與 Ldr 中的資源不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "網路安全威脅",
+        "type": "attack"
+      },
+      "reasoning": "文本提到駭客嘗試「穿透防火牆」，暗示防火牆是用於防禦/緩解網路攻擊的工具。符合 ('tool', 'mitigates', 'attack')。",
+      "source_id": "chunk_5",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 11
+    }
+  }
+]

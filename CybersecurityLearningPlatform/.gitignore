@@ -1,0 +1,79 @@
+# GitHub handoff sync policy
+# Keep source code, sanitized docs, runtime prompts, and reproducible experiment outputs.
+# Exclude local-only, generated, archived, private, or dependency files.
+
+# Environment and secrets
+.env
+.env.*
+backend/.env
+backend/.env.*
+!backend/.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+service_account*.json
+
+# Dependencies and build outputs
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Runtime logs and local user state
+backend/logs/
+backend/*.log
+backend/**/*_log.txt
+backend/api_requests_log.txt
+backend/user_progress.json
+backend/user_mistakes.json
+
+# Graphify is local tooling output and is not part of public handoff
+graphify-out/
+graphify_detect_summary.json
+.graphifyignore
+
+# ETL source chunks and transient test runs
+backend/ETL_module/Chunks/
+backend/ETL_module/TestRun/
+
+# Large caches, local backups, and generated database dumps
+backend/ETL_module/embedding_cache.json
+backend/ETL_module/*embedding*cache*.json
+backend/ETL_module/enterprise_attack.json
+backend/ETL_module/neo4j_backup_*.json
+backend/MatchGPT/phase1_backups/
+backend/MatchGPT/neo4j_backup_*.json
+backend/MatchGPT/*backup*.json
+
+# Historical or superseded code paths
+backend/**/archive/
+backend/ETL_module/BakCode/
+backend/ETL_module/03_validate_and_import_bak.py
+backend/ETL_module/03_validate_and_import_test.py
+
+# One-off local analysis outputs
+out.json
+skill_tree_data.json
+test_chapter_query.py
+BACKEND_LOGIC.md
+LLM_PROMPTS.md
+backend/MatchGPT/apply_platform_out.txt
+backend/MatchGPT/apply_platform_err.txt
+backend/MatchGPT/*.pdf

@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "網路犯罪份子",
+      "type": "attacker",
+      "display_name": "網路犯罪份子"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "apt",
+      "type": "attack",
+      "display_name": "APT"
+    },
+    "reasoning": "文本提到公司僱用網路犯罪份子來建立長期存在（APT 的特徵），因此攻擊者實作了 APT 攻擊。符合 Schema: (attacker, implements, attack).",
+    "source_id": "chunk_11",
+    "source_file": "single_choice.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "網路犯罪份子 (attacker) 實例名稱合理對齊，其類別為 'attacker'；APT (attack) 實例名稱合理對齊，其類別為 'attack'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。檢查規則2：不適用，因為三元組中的關係是implements，不是mitigates。檢查規則3：不適用，因為三元組中的主體類別是attacker，不是vulnerability。檢查規則4：不適用，因為三元組中的關係是implements，不是violates。檢查規則5：不適用，因為三元組中的關係是implements，不是uses。檢查規則6：不適用，因為三元組中的關係是implements，不是deployed_in。檢查規則7：不適用，因為三元組中的關係是implements，不是generates。檢查規則8：不適用，因為三元組中的關係是implements，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是網路犯罪份子（attacker），關係是implements，受體是APT（attack），這符合一般的攻擊者實施攻擊的邏輯，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路犯罪份子與網路犯罪分子為同義詞，APT為攻擊的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定與廣義/狹義一律保留原則，網路犯罪份子與網路犯罪分子為同義詞，但不進行合併；APT為攻擊的子類型，保留原狀。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路犯罪份子",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "APT",
+        "type": "attack"
+      },
+      "reasoning": "文本提到公司僱用網路犯罪份子來建立長期存在（APT 的特徵），因此攻擊者實作了 APT 攻擊。符合 Schema: (attacker, implements, attack).",
+      "source_id": "chunk_11",
+      "source_file": "single_choice.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "apt",
+      "type": "attack",
+      "display_name": "APT"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "敏感資料",
+      "type": "data",
+      "display_name": "敏感性資料"
+    },
+    "reasoning": "文本明確指出 APT 讓公司能夠『竊取或破壞』敏感性資料。符合 Schema: (attack, can_harm, data).",
+    "source_id": "chunk_11",
+    "source_file": "single_choice.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "APT 是 'attack' 的合理實例，敏感性資料是 'data' 的合理實例，'can_harm' 是描述攻擊對資料可能造成傷害的合理關係。",
+        "response": "correct",
+        "reason": "APT 對敏感性資料的 'can_harm' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。檢查規則2：不適用，因為三元組中的關係不是 mitigates。檢查規則3：不適用，因為三元組中的主體類別不是 vulnerability。檢查規則4：不適用，因為三元組中的關係不是 violates，且 principle 不是主體。檢查規則5：不適用，因為三元組中的關係不是 uses。檢查規則6：不適用，因為三元組中的關係不是 deployed_in。檢查規則7：不適用，因為三元組中的關係不是 generates。檢查規則8：不適用，因為三元組中的關係不是 controls。由於三元組中的主體是 APT（攻擊者），關係是 can_harm，受體是敏感性資料，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係合理，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"敏感性資料\" 與 Ldr 中的 \"敏感資料\" 關係為同義詞，兩者指稱同一概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "敏感資料",
+        "reason": "根據同義詞判定準則，受體 \"敏感性資料\" 與 \"敏感資料\" 被判定為同義詞，但根據規則 3，廣義/狹義一律保留，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "APT",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "敏感性資料",
+        "type": "data"
+      },
+      "reasoning": "文本明確指出 APT 讓公司能夠『竊取或破壞』敏感性資料。符合 Schema: (attack, can_harm, data).",
+      "source_id": "chunk_11",
+      "source_file": "single_choice.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "apt",
+      "type": "attack",
+      "display_name": "APT"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "競爭對手的網路",
+      "type": "system",
+      "display_name": "競爭對手的網路"
+    },
+    "reasoning": "APT 攻擊旨在進入並在競爭對手的網路中建立存在，對其基礎設施造成潛在危害。符合 Schema: (attack, can_harm, system).",
+    "source_id": "chunk_11",
+    "source_file": "single_choice.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "APT 是 'attack' 的合理實例，競爭對手的網路是 'system' 的合理實例，關係 'can_harm' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有提到攻擊者(attacker)與安全團隊(securityTeam)的身分。規則2：不適用，因為三元組中的關係是can_harm，不是mitigates。規則3：不適用，因為三元組中的主體類別是attack，不是vulnerability。規則4：不適用，因為三元組中的關係是can_harm，不是violates。規則5：不適用，因為三元組中的關係是can_harm，不是uses。規則6：不適用，因為三元組中的關係是can_harm，不是deployed_in。規則7：不適用，因為三元組中的關係是can_harm，不是generates。規則8：不適用，因為三元組中的關係是can_harm，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (APT) 與 Ldr 中的 'apt' 完全等價同義詞，受體 (競爭對手的網路) 與 Ldr 中的 '競爭對手的網路' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "apt",
+        "standard_object": "競爭對手的網路",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞判定或廣義/狹義一律保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "APT",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "競爭對手的網路",
+        "type": "system"
+      },
+      "reasoning": "APT 攻擊旨在進入並在競爭對手的網路中建立存在，對其基礎設施造成潛在危害。符合 Schema: (attack, can_harm, system).",
+      "source_id": "chunk_11",
+      "source_file": "single_choice.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "ids",
+      "type": "tool",
+      "display_name": "IDS"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "惡意攻擊",
+      "type": "attack",
+      "display_name": "惡意攻擊"
+    },
+    "reasoning": "IDS (入侵偵測系統) 通過將封包與惡意簽名比較來發現攻擊。符合 Schema: (tool, can_detect, attack).",
+    "source_id": "chunk_11",
+    "source_file": "single_choice.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IDS 是一種工具（tool），惡意攻擊（attack）是攻擊的類別，'can_detect' 關係在資安領域中是合理的，因為IDS可以偵測惡意攻擊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體是 tool，具有主動執行能力，符合 controls 的主體條件，但當前關係是 can_detect，不是 controls，因此不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體是 IDS（類別：tool），關係是 can_detect，受體是惡意攻擊（類別：attack），這不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (IDS) 與 Ldr 中的 'ids' 完全等價同義詞，受體 (惡意攻擊) 與 Ldr 中的 '惡意攻擊' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "ids",
+        "standard_object": "惡意攻擊",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進一步合併或修改。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IDS",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "惡意攻擊",
+        "type": "attack"
+      },
+      "reasoning": "IDS (入侵偵測系統) 通過將封包與惡意簽名比較來發現攻擊。符合 Schema: (tool, can_detect, attack).",
+      "source_id": "chunk_11",
+      "source_file": "single_choice.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "ids",
+      "type": "tool",
+      "display_name": "IDS"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "封包資料流",
+      "type": "data",
+      "display_name": "封包資料流"
+    },
+    "reasoning": "文本提到 IDS 會『監視網路流量並將擷取的封包資料流』進行比較，這是一種分析行為。符合 Schema: (tool, can_analyze, data).",
+    "source_id": "chunk_11",
+    "source_file": "single_choice.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IDS 是一種工具（tool），可以分析封包資料流（data），這符合語意對齊，且 'IDS' 和 '封包資料流' 是資安領域中常見的術語，同義詞寬容原則也得到滿足。",
+        "response": "correct",
+        "reason": "IDS 的類別為 'tool'、關係 'can_analyze' 和封包資料流的類別 'data' 符合預先定義的類別與屬性清單，且語意對齊和同義詞寬容原則得到滿足。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_analyze' 的主體是 'IDS'，類別為 'tool'，符合一般工具可以進行分析的邏輯，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體 'IDS' 是一種工具，可以執行 'can_analyze' 動作，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "IDS 是一個工具，與 Ldr 中的 'ids' 完全等價；封包資料流與 Ldr 中的 '資料封包' 相似，但不完全等價。",
+        "response": "correct",
+        "standard_subject": "ids",
+        "standard_object": "",
+        "reason": "根據前提確認，IDS 的名稱與 Ldr 中的 'ids' 完全相同，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IDS",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "封包資料流",
+        "type": "data"
+      },
+      "reasoning": "文本提到 IDS 會『監視網路流量並將擷取的封包資料流』進行比較，這是一種分析行為。符合 Schema: (tool, can_analyze, data).",
+      "source_id": "chunk_11",
+      "source_file": "single_choice.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "拒絕服務",
+      "type": "attack",
+      "display_name": "拒絕服務"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "拒絕服務攻擊的核心目的就是讓合法使用者無法使用服務，直接違反資安三要素中的可用性。符合 Schema: (attack, violates, principle).",
+    "source_id": "chunk_11",
+    "source_file": "single_choice.json",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '拒絕服務' 是 'attack' 的合理實例，'可用性' 是 'principle' 的合理實例，關係 'violates' 合理描述了 'attack' 對 'principle' 的影響。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4適用，主體類別為attack，關係為violates，受體類別為principle，符合規則允許的條件。規則5、6、7、8不適用，因為關係不是uses、deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組符合規則4的允許條件，主體為attack，關係為violates，受體為principle，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「拒絕服務」與 Ldr 中的「拒絕服務」完全相同，受體「可用性」與 Ldr 中的「可用性」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源完全相同，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "拒絕服務",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "拒絕服務攻擊的核心目的就是讓合法使用者無法使用服務，直接違反資安三要素中的可用性。符合 Schema: (attack, violates, principle).",
+      "source_id": "chunk_11",
+      "source_file": "single_choice.json",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "拒絕服務",
+      "type": "attack",
+      "display_name": "拒絕服務"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "reasoning": "拒絕服務攻擊導致客戶無法造訪網站且網站當機，對應用程式造成損害。符合 Schema: (attack, can_harm, app).",
+    "source_id": "chunk_11",
+    "source_file": "single_choice.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '拒絕服務' 是 'attack' 的合理實例，'網站' 是 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_harm'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被定義為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「拒絕服務」與 Ldr 中的「拒絕服務」完全相同，受體「網站」與 Ldr 中的「網站」完全相同，且無同義詞重複關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源完全相同，無需進行同義詞判定或廣義/狹義一律保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "拒絕服務",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網站",
+        "type": "app"
+      },
+      "reasoning": "拒絕服務攻擊導致客戶無法造訪網站且網站當機，對應用程式造成損害。符合 Schema: (attack, can_harm, app).",
+      "source_id": "chunk_11",
+      "source_file": "single_choice.json",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "無線路由器",
+      "type": "tool",
+      "display_name": "無線路由器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ssid廣播",
+      "type": "feature",
+      "display_name": "SSID廣播"
+    },
+    "reasoning": "SSID 廣播是無線路由器的一個設定屬性/特徵。符合 Schema: (tool, has_a, feature).",
+    "source_id": "chunk_11",
+    "source_file": "single_choice.json",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "無線路由器是 'tool' 的合理實例，SSID廣播是 'feature' 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為無線路由器通常具有SSID廣播功能。",
+        "response": "correct",
+        "reason": "無線路由器與SSID廣播之間的 'has_a' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無相關性。檢查規則2：無相關性。檢查規則3：無相關性。檢查規則4：無相關性。檢查規則5：無相關性。檢查規則6：無相關性。檢查規則7：無相關性。檢查規則8：無相關性，'tool' 可以具有 'has_a' 關係，且 'feature' 是合法的受體類別。",
+        "response": "correct",
+        "reason": "三元組中的主體 '無線路由器' 是 'tool' 類別，具有 'has_a' 關係，指向 'SSID廣播'，這符合語義限制清單中沒有明確的違反規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "無線路由器與Ldr中的無線路由器完全相同，SSID廣播不在Ldr中，但無需進一步分析，因為主體已經完全匹配",
+        "response": "correct",
+        "standard_subject": "無線路由器",
+        "standard_object": "",
+        "reason": "主體名稱與Ldr中的某資源name完全相同，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "無線路由器",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "SSID廣播",
+        "type": "feature"
+      },
+      "reasoning": "SSID 廣播是無線路由器的一個設定屬性/特徵。符合 Schema: (tool, has_a, feature).",
+      "source_id": "chunk_11",
+      "source_file": "single_choice.json",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "安全性分析師",
+      "type": "securityTeam",
+      "display_name": "安全性分析師"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "linux伺服器",
+      "type": "system",
+      "display_name": "Linux伺服器"
+    },
+    "reasoning": "安全性分析師在調查過程中分析受影響的 Linux 伺服器。符合 Schema: (securityTeam, can_analyze, system).",
+    "source_id": "chunk_11",
+    "source_file": "single_choice.json",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "安全性分析師是 securityTeam 的合理實例，Linux伺服器是 system 的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有提到攻擊者(attacker)。規則2：不適用，因為三元組中的關係是can_analyze，而不是mitigates。規則3：不適用，因為三元組中的主體類別是securityTeam，而不是vulnerability。規則4：不適用，因為三元組中的關係是can_analyze，而不是violates。規則5：不適用，因為三元組中的關係是can_analyze，而不是uses。規則6：不適用，因為三元組中的關係是can_analyze，而不是deployed_in。規則7：不適用，因為三元組中的關係是can_analyze，而不是generates。規則8：不適用，因為三元組中的關係是can_analyze，而不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是安全性分析師（securityTeam），關係是can_analyze，受體是Linux伺服器（system），這符合一般的安全分析師可以分析系統的邏輯，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "安全性分析師與資安分析師為同義詞，Linux伺服器與伺服器為廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，安全性分析師與資安分析師為同義詞，但不進行合併；Linux伺服器為伺服器的子類型，保留原狀。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全性分析師",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "Linux伺服器",
+        "type": "system"
+      },
+      "reasoning": "安全性分析師在調查過程中分析受影響的 Linux 伺服器。符合 Schema: (securityTeam, can_analyze, system).",
+      "source_id": "chunk_11",
+      "source_file": "single_choice.json",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "linux伺服器",
+      "type": "system",
+      "display_name": "Linux伺服器"
+    },
+    "reasoning": "文本提到駭客能夠『取得』伺服器，意味著取得了控制權。符合 Schema: (attacker, controls, system).",
+    "source_id": "chunk_11",
+    "source_file": "single_choice.json",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 與 Linux伺服器 (system) 的名稱與其被賦予的類別合理對齊，駭客是攻擊者的合理實例，Linux伺服器是系統的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為駭客（attacker），具有主動執行能力，符合規則8的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（駭客）具有主動執行能力，符合規則8的要求，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) \"Linux伺服器\" 與 Ldr 中的 \"linux伺服器\" 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "linux伺服器",
+        "reason": "根據同義詞判定準則，判定 \"Linux伺服器\" 與 \"linux伺服器\" 為同義詞，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "Linux伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本提到駭客能夠『取得』伺服器，意味著取得了控制權。符合 Schema: (attacker, controls, system).",
+      "source_id": "chunk_11",
+      "source_file": "single_choice.json",
+      "source_index": 10
+    }
+  }
+]

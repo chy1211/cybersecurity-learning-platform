@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "關聯式資料庫",
+      "type": "system",
+      "display_name": "關聯式資料庫"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "sql",
+      "type": "tool",
+      "display_name": "SQL"
+    },
+    "reasoning": "文本提到 SQL 是實現關聯式存取介面的語法，因此將 SQL 視為關聯式資料庫系統的一個特徵 (feature)。符合 Schema: (system, has_a, feature)。",
+    "source_id": "chunk_3",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'system' 存在於 Lc,p 的 'Classes' 中，受體的類別 'feature' 也存在於 Lc,p 的 'Classes' 中，關係 'has_a' 存在於 'Properties' 中。",
+        "step_2_alignment_check": "關聯式資料庫是 system 的合理實例，SQL 是 feature 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為關聯式資料庫可以具有 SQL 功能。",
+        "response": "correct",
+        "reason": "主體、受體的類別與關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 不在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被定義為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"關聯式資料庫\" 與 Ldr 中的 \"關聯式資料庫\" 完全相同，受體 \"SQL\" 與 Ldr 中的 \"sql\" 完全相同，但考慮到實體類別的不同，主體與受體之間的關係不構成同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體的名稱雖然在 Ldr 中找到完全匹配，但由於它們的類別不同（system 與 tool），因此不視為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "關聯式資料庫",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "SQL",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 SQL 是實現關聯式存取介面的語法，因此將 SQL 視為關聯式資料庫系統的一個特徵 (feature)。符合 Schema: (system, has_a, feature)。",
+      "source_id": "chunk_3",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資料表",
+      "type": "feature",
+      "display_name": "資料表"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "主鍵",
+      "type": "feature",
+      "display_name": "主鍵"
+    },
+    "reasoning": "文本提到資料結構需要具有主鍵以辨別記錄，主鍵是資料表的一個關鍵特徵。符合 Schema: (system, has_a, feature)。",
+    "source_id": "chunk_3",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '資料表' 可被視為 'system' 的合理實例，'主鍵' 可被視為 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '資料表' 和受體 '主鍵' 的類別組合，沒有明確違反任何一條語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中特定類型的實體，且與現有近似資源清單中的項目有直接對應關係，但無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體皆不符合同義詞判定，且無廣義/狹義一律保留的情況，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料表",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "主鍵",
+        "type": "feature"
+      },
+      "reasoning": "文本提到資料結構需要具有主鍵以辨別記錄，主鍵是資料表的一個關鍵特徵。符合 Schema: (system, has_a, feature)。",
+      "source_id": "chunk_3",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資料表",
+      "type": "feature",
+      "display_name": "資料表"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "欄位",
+      "type": "feature",
+      "display_name": "欄位"
+    },
+    "reasoning": "文本指出資料表包含欄位（屬性），欄位是資料表的組成屬性。符合 Schema: (system, has_a, feature)。",
+    "source_id": "chunk_3",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '資料表' 可被視為 'system' 的合理實例，'欄位' 可被視為 'feature' 的合理實例，且 'has_a' 關係在資安領域中是合理的，描述系統具有特定功能或特徵的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無任何規則直接與三元組『資料表 (feature) has_a 欄位 (feature)』相關，因此無明確違規。",
+        "response": "correct",
+        "reason": "三元組『資料表 (feature) has_a 欄位 (feature)』不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料表",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "欄位",
+        "type": "feature"
+      },
+      "reasoning": "文本指出資料表包含欄位（屬性），欄位是資料表的組成屬性。符合 Schema: (system, has_a, feature)。",
+      "source_id": "chunk_3",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資料表",
+      "type": "feature",
+      "display_name": "資料表"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "記錄",
+      "type": "data",
+      "display_name": "記錄"
+    },
+    "reasoning": "資料表用來儲存和管理記錄（組值），記錄屬於資料實體。符合 Schema: (system, uses, data)。",
+    "source_id": "chunk_3",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '資料表' 可被視為 'system' 的合理實例，'記錄' 可被視為 'data' 的合理實例，且 'uses' 的關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，給定的三元組中，主體是資料表（feature），而非data，且關係是uses，受體是記錄（data），因此不觸發規則5的違規條件。其他規則與給定的三元組無直接關聯。",
+        "response": "correct",
+        "reason": "三元組中的主體（資料表）與關係（uses）及受體（記錄）不違反語義限制清單中的任何規則，尤其是規則5不適用於此案例。因此，該三元組被判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Subject) 資料表與 Ldr 中的資源 '資料表' 完全相同，受體 (Object) 記錄與 Ldr 中的資源無直接關聯",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料表",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "記錄",
+        "type": "data"
+      },
+      "reasoning": "資料表用來儲存和管理記錄（組值），記錄屬於資料實體。符合 Schema: (system, uses, data)。",
+      "source_id": "chunk_3",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "關聯式資料庫",
+      "type": "system",
+      "display_name": "關聯式資料庫"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資料表",
+      "type": "feature",
+      "display_name": "資料表"
+    },
+    "reasoning": "關聯式資料庫由多個資料表組成，資料表在此被視為系統內的一個子系統或結構單元。符合 Schema: (system, has_a, system)。",
+    "source_id": "chunk_3",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "關聯式資料庫是一種系統，資料表是系統的一部分，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組（關聯式資料庫 has_a 資料表）不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似資源，但無直接同義詞關係，主體「關聯式資料庫」與「資料庫系統」相似，受體「資料表」為獨立實體",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無同義詞關係，且實體間無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "關聯式資料庫",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資料表",
+        "type": "system"
+      },
+      "reasoning": "關聯式資料庫由多個資料表組成，資料表在此被視為系統內的一個子系統或結構單元。符合 Schema: (system, has_a, system)。",
+      "source_id": "chunk_3",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "學生關聯表",
+      "type": "system",
+      "display_name": "學生關聯表"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "關聯式資料庫",
+      "type": "system",
+      "display_name": "關聯式資料庫"
+    },
+    "reasoning": "文本描述建立關聯式資料庫的步驟是建立學生、書本、出版商等關聯表，因此這些表是該資料庫系統的一部分。符合 Schema: (system, is_part_of, system)。",
+    "source_id": "chunk_3",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "學生關聯表和關聯式資料庫都是合理的 'system' 實例，'is_part_of' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "學生關聯表和關聯式資料庫的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 is_part_of，不是 deployed_in。規則7：不適用，因為關係為 is_part_of，不是 generates。規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與主體、受體的類別（system）不直接違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"關聯式資料庫\" 與 Ldr 中的 \"關聯式資料庫\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "學生關聯表",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "關聯式資料庫",
+        "type": "system"
+      },
+      "reasoning": "文本描述建立關聯式資料庫的步驟是建立學生、書本、出版商等關聯表，因此這些表是該資料庫系統的一部分。符合 Schema: (system, is_part_of, system)。",
+      "source_id": "chunk_3",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "書本關聯表",
+      "type": "system",
+      "display_name": "書本關聯表"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "關聯式資料庫",
+      "type": "system",
+      "display_name": "關聯式資料庫"
+    },
+    "reasoning": "同上，書本關聯表是構成該關聯式資料庫系統的組成部分。符合 Schema: (system, is_part_of, system)。",
+    "source_id": "chunk_3",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "書本關聯表與關聯式資料庫皆為 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "書本關聯表與關聯式資料庫的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體類別是 system，不是 data。檢查規則6：觸發，關係為 is_part_of，但規則6 指定的是 deployed_in，故不違反。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間的組合，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為系統類別，且受體「關聯式資料庫」與 Ldr 中的「關聯式資料庫」完全相同，主體「書本關聯表」與 Ldr 中的「學生關聯表」或「資料庫系統」不完全相同，但考慮到「書本關聯表」可能是「資料庫系統」的一種特定實現或子類型，然而根據給定的規則，若一個實體是另一個的子類型，則判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，若一個實體是另一個的子類型，則判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "書本關聯表",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "關聯式資料庫",
+        "type": "system"
+      },
+      "reasoning": "同上，書本關聯表是構成該關聯式資料庫系統的組成部分。符合 Schema: (system, is_part_of, system)。",
+      "source_id": "chunk_3",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "出版商關聯表",
+      "type": "system",
+      "display_name": "出版商關聯表"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "關聯式資料庫",
+      "type": "system",
+      "display_name": "關聯式資料庫"
+    },
+    "reasoning": "同上，出版商關聯表是構成該關聯式資料庫系統的組成部分。符合 Schema: (system, is_part_of, system)。",
+    "source_id": "chunk_3",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "出版商關聯表 與 關聯式資料庫 的名稱與其類別 'system' 合理對齊，出版商關聯表 可被視為系統的一部分，關聯式資料庫 也是一種系統。",
+        "response": "correct",
+        "reason": "出版商關聯表 與 關聯式資料庫 的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查是否有其他規則適用：沒有。",
+        "response": "correct",
+        "reason": "三元組不觸發任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"關聯式資料庫\" 與 Ldr 中的 \"關聯式資料庫\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "出版商關聯表",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "關聯式資料庫",
+        "type": "system"
+      },
+      "reasoning": "同上，出版商關聯表是構成該關聯式資料庫系統的組成部分。符合 Schema: (system, is_part_of, system)。",
+      "source_id": "chunk_3",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

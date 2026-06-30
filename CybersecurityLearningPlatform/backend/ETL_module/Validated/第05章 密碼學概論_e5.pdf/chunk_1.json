@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "加密程式",
+      "type": "app",
+      "display_name": "加密程式"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "明文資訊",
+      "type": "data",
+      "display_name": "明文"
+    },
+    "reasoning": "文本提到『通過加密程式，明文和金鑰進行加密運算』，因此加密程式（app）使用了明文（data）作為輸入。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "加密程式 (app) 使用明文 (data) 是語意上合理的，'app' 和 'data' 的名稱與其類別對齊，且 'uses' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "加密程式使用明文的三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，待檢查三元組中，主體是加密程式（類別：app），關係是uses，受體是明文（類別：data），因此不觸發規則5的違規條件。其他規則與此三元組無直接關聯。",
+        "response": "correct",
+        "reason": "三元組中的主體是加密程式（類別：app），不符合規則5中主體類別為data的違規條件，且其他規則不適用於此三元組。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"加密程式\" 與 Ldr 中的 \"程式\" 和 \"軟體程式\" 皆為相關但非完全等價同義詞，受體 \"明文\" 與 Ldr 中的 \"明文資訊\" 可視為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "明文資訊",
+        "reason": "根據同義詞判定，受體 \"明文\" 可以視為 \"明文資訊\" 的同義詞，但主體 \"加密程式\" 與 Ldr 中的資源不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加密程式",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "明文",
+        "type": "data"
+      },
+      "reasoning": "文本提到『通過加密程式，明文和金鑰進行加密運算』，因此加密程式（app）使用了明文（data）作為輸入。",
+      "source_id": "chunk_1",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "加密程式",
+      "type": "app",
+      "display_name": "加密程式"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "密文",
+      "type": "data",
+      "display_name": "密文"
+    },
+    "reasoning": "文本提到加密運算後『變成密文』，表示加密程式（app）產生了密文（data）。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "加密程式 (app) 可以生成密文 (data)，這是資安領域中合理的語意對齊，符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：觸發，主體為加密程式（類別：app），關係為 generates，受體為密文（類別：data），符合規則7的允許條件。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「加密程式」與 Ldr 中的「加密程式」完全相同，受體「密文」與 Ldr 中的「密碼」或「私密金鑰」相關但不完全相同，且無直接同義詞對照。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體「加密程式」直接判定 correct，受體「密文」無直接同義詞對照，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加密程式",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "密文",
+        "type": "data"
+      },
+      "reasoning": "文本提到加密運算後『變成密文』，表示加密程式（app）產生了密文（data）。",
+      "source_id": "chunk_1",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "解密程式",
+      "type": "app",
+      "display_name": "解密程式"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "密文",
+      "type": "data",
+      "display_name": "密文"
+    },
+    "reasoning": "文本提到『通過解密程式，密文和金鑰進行解密運算』，因此解密程式（app）使用了密文（data）作為輸入。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "解密程式是一個合理的 'app' 實例，密文是一個合理的 'data' 實例，'uses' 關係在資安領域中是合理的，因為解密程式可能使用密文進行解密。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5觸發，因為關係是uses，且主體的類別是app，但受體的類別是data，符合規則5的例外允許情況，不違反。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是解密程式（類別：app），關係是uses，受體是密文（類別：data），這符合規則5的例外允許情況，不違反任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆無完全等價同義詞，但受體 '密文' 與 Ldr 中的 '密文' 完全匹配，主體 '解密程式' 與 Ldr 中的 '加密程式' 類別相近但非同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "密文",
+        "reason": "受體 '密文' 與 Ldr 中的 '密文' 完全匹配，故受體標準化為 '密文'，而主體 '解密程式' 與 Ldr 中的 '加密程式' 類別相近但非同義詞，故不進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "解密程式",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "密文",
+        "type": "data"
+      },
+      "reasoning": "文本提到『通過解密程式，密文和金鑰進行解密運算』，因此解密程式（app）使用了密文（data）作為輸入。",
+      "source_id": "chunk_1",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "加密程式",
+      "type": "app",
+      "display_name": "加密程式"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "金鑰",
+      "type": "data",
+      "display_name": "金鑰"
+    },
+    "reasoning": "文本提到『通過加密程式，明文和金鑰進行加密運算』，因此加密程式（app）使用了金鑰（data）作為輸入。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "加密程式 (app) 使用金鑰 (data) 是資安領域中合理的語意對齊，'app' 和 'data' 的名稱與其類別相符，且 'uses' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "加密程式使用金鑰的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體的類別是app，而不是data，但這裡的主體是加密程式（類別：app），使用金鑰（類別：data），符合規則5的允許條件。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是加密程式（類別：app），使用金鑰（類別：data），這符合規則5的允許條件，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"加密程式\" 與 Ldr 中的 \"加密程式\" 完全匹配，受體 \"金鑰\" 與 Ldr 中的 \"私密金鑰\"、\"加密金鑰 kc\"、\"金鑰物件\" 均有相似的概念，但無法完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體 \"加密程式\" 與 Ldr 中的 \"加密程式\" 完全匹配，無需進一步判斷；受體 \"金鑰\" 雖有相似概念，但無法完全匹配，根據不確定時預設保留的原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加密程式",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "金鑰",
+        "type": "data"
+      },
+      "reasoning": "文本提到『通過加密程式，明文和金鑰進行加密運算』，因此加密程式（app）使用了金鑰（data）作為輸入。",
+      "source_id": "chunk_1",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "解密程式",
+      "type": "app",
+      "display_name": "解密程式"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "金鑰",
+      "type": "data",
+      "display_name": "金鑰"
+    },
+    "reasoning": "文本提到『通過解密程式，密文和金鑰進行解密運算』，因此解密程式（app）使用了金鑰（data）作為輸入。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "解密程式是一種合理的 'app' 實例，金鑰是一種合理的 'data' 實例，'uses' 關係在資安領域中是合理的，表示程式使用金鑰進行解密。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，待檢查三元組中，主體是解密程式（類別：app），而非data，因此不觸發規則5的違規條件。其他規則中，沒有直接與主體為app、關係為uses、受體為金鑰（類別：data）的組合相關的限制。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何違規條件，尤其是規則5不適用於此案例，因為主體的類別是app，而非data。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"解密程式\" 與 Ldr 中的 \"解密程式\" 完全相同，受體 \"金鑰\" 與 Ldr 中的 \"金鑰\" 完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全相同，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "解密程式",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "金鑰",
+        "type": "data"
+      },
+      "reasoning": "文本提到『通過解密程式，密文和金鑰進行解密運算』，因此解密程式（app）使用了金鑰（data）作為輸入。",
+      "source_id": "chunk_1",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "古典密碼系統",
+      "type": "system",
+      "display_name": "古典密碼系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到古典密碼學『容易遭受暴力攻擊』且『極易被破解』，這意味著該系統（system）暴露了安全弱點（vulnerability）。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "古典密碼系統是 system 的合理實例，弱點是 vulnerability 的合理實例，'can_expose' 關係在資安領域中是合理的，因為系統可能會暴露弱點。",
+        "response": "correct",
+        "reason": "古典密碼系統、can_expose 和弱點之間的關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作不是mitigates。規則3適用，但三元組中的can_expose動作是對漏洞的特例允許。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的can_expose動作是對漏洞的特例允許，且不觸發其他規則的違規條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，'漏洞'、'弱點'、'脆弱性' 均指 'vulnerability'，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "古典密碼系統",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到古典密碼學『容易遭受暴力攻擊』且『極易被破解』，這意味著該系統（system）暴露了安全弱點（vulnerability）。",
+      "source_id": "chunk_1",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "現代密碼學",
+      "type": "technique",
+      "display_name": "現代密碼學"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "電腦",
+      "type": "tool",
+      "display_name": "電腦"
+    },
+    "reasoning": "文本提到『現代密碼學...使用電腦為輔助計算工具』，表示該技術（technique）依賴於電腦（tool）來執行。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "現代密碼學是 technique 的合理實例，電腦是 tool 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則，發現待檢查三元組（現代密碼學 depends_on 電腦）不觸發任何違規條件。規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作是depends_on，而非mitigates。規則3不適用，因為主體是technique，而非vulnerability。規則4不適用，因為關係是depends_on，而非violates。規則5不適用，因為主體的類別是technique，而非data。規則6不適用，因為關係是depends_on，而非deployed_in。規則7不適用，因為關係是depends_on，而非generates。規則8不適用，因為關係是depends_on，而非controls。",
+        "response": "correct",
+        "reason": "三元組（現代密碼學 depends_on 電腦）不觸發任何違規條件，符合語義限制清單的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，且主體與受體無直接同義詞關係，依據前提確認直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "現代密碼學",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "電腦",
+        "type": "tool"
+      },
+      "reasoning": "文本提到『現代密碼學...使用電腦為輔助計算工具』，表示該技術（technique）依賴於電腦（tool）來執行。",
+      "source_id": "chunk_1",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "解密程式",
+      "type": "app",
+      "display_name": "解密程式"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "明文",
+      "type": "data",
+      "display_name": "明文"
+    },
+    "reasoning": "文本提到解密運算後『變成明文』，表示解密程式（app）產生了明文（data）。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "解密程式 (app) 可以生成明文 (data)，這符合資安領域的常見實例與語意對齊，接受同義詞寬容原則後仍然合理。",
+        "response": "correct",
+        "reason": "解密程式生成明文的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：觸發，檢查關係 'generates' 時，受體 '明文' 的類別是 'data'，符合規則。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 'generates' 與受體 '明文' 的類別 'data' 符合規則7，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '解密程式' 與 Ldr 中的 '解密程式' 完全相同，受體 '明文' 與 Ldr 中的 '明文資訊' 可能是同義詞或相關概念，但不完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體 '解密程式' 與 Ldr 中的 '解密程式' 完全相同，因此直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "解密程式",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "明文",
+        "type": "data"
+      },
+      "reasoning": "文本提到解密運算後『變成明文』，表示解密程式（app）產生了明文（data）。",
+      "source_id": "chunk_1",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "暴力攻擊",
+      "type": "attack",
+      "display_name": "暴力攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "明文",
+      "type": "data",
+      "display_name": "明文"
+    },
+    "reasoning": "暴力攻擊（attack）的目的在於破解密文以獲取明文，從而危害明文（data）的機密性。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "暴力攻擊 (attack) 是攻擊類別的合理實例，明文 (data) 是資料類別的合理實例，且 'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 attack，而非 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則，發現無直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（暴力攻擊）與關係（can_harm）以及受體（明文）之間的關係，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"暴力攻擊\" 與 Ldr 中的 \"攻擊\" 關係為廣義/狹義從屬，受體 \"明文\" 與 Ldr 中的 \"明文\" 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "明文",
+        "reason": "根據判斷準則 3，主體 \"暴力攻擊\" 是 \"攻擊\" 的子類型，故不合併；受體 \"明文\" 與 Ldr 中的 \"明文\" 完全相同，判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "暴力攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "明文",
+        "type": "data"
+      },
+      "reasoning": "暴力攻擊（attack）的目的在於破解密文以獲取明文，從而危害明文（data）的機密性。",
+      "source_id": "chunk_1",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

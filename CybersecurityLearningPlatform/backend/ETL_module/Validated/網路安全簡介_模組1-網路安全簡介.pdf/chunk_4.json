@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "手機銀行應用程式",
+      "type": "app",
+      "display_name": "手機銀行應用程式"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "資金轉移記錄",
+      "type": "data",
+      "display_name": "資金轉移記錄"
+    },
+    "reasoning": "文本提到透過手機銀行應用程式轉移資金，此動作會產生交易資料，符合 ('app', 'generates', 'data') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "手機銀行應用程式是一個合理的 'app' 實例，資金轉移記錄是一個合理的 'data' 實例，'generates' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係是generates，而不是mitigates。規則3不適用，因為主體的類別是app，而不是vulnerability。規則4不適用，因為主體的類別是app，而不是principle。規則5不適用，因為關係是generates，而不是uses。規則6不適用，因為關係是generates，而不是deployed_in。規則7適用，且三元組符合規則，因為受體的類別是data。規則8不適用，因為關係是generates，而不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的條件，且沒有違反其他規則。因此，三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "手機銀行應用程式與Ldr中的手機銀行應用程式完全相同，且資金轉移記錄不在Ldr中，因此無需進一步分析",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與Ldr中的某一項完全匹配，無同義詞重複情況"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "手機銀行應用程式",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "資金轉移記錄",
+        "type": "data"
+      },
+      "reasoning": "文本提到透過手機銀行應用程式轉移資金，此動作會產生交易資料，符合 ('app', 'generates', 'data') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "網路犯罪份子",
+      "type": "attacker",
+      "display_name": "網路犯罪份子"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "身份盜竊",
+      "type": "attack",
+      "display_name": "身份盜竊"
+    },
+    "reasoning": "文本明確指出網路犯罪份子致力於執行身份盜竊行為，符合 ('attacker', 'implements', 'attack') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，受體類別 'attack' 也存在於 Lc,p 的 'Classes' 中，關係 'implements' 存在於 Lc,p 的 'Properties' 中。",
+        "step_2_alignment_check": "網路犯罪份子是 attacker 的合理實例，身份盜竊是 attack 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：未違反，因為三元組中主體是網路犯罪份子（attacker），沒有同時具有安全團隊（securityTeam）的身分。檢查規則2：不適用，因為關係是implements，不是mitigates。檢查規則3：不適用，因為主體類別是attacker，不是vulnerability。檢查規則4：不適用，因為關係是implements，不是violates，且主體不是principle。檢查規則5：不適用，因為關係是implements，不是uses。檢查規則6：不適用，因為關係是implements，不是deployed_in。檢查規則7：不適用，因為關係是implements，不是generates。檢查規則8：不適用，因為關係是implements，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（網路犯罪份子）和關係（implements）以及受體（身份盜竊）之間的關係沒有明確違反任何一條語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路犯罪份子與網路攻擊者為同義詞，身份盜竊與竊盜、盜用帳號及密碼、資料竊取等為同義詞或廣義/狹義從屬關係，但根據判斷準則，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，網路犯罪份子與網路攻擊者、身份盜竊與其他相關攻擊類型不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路犯罪份子",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "身份盜竊",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出網路犯罪份子致力於執行身份盜竊行為，符合 ('attacker', 'implements', 'attack') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "身份盜竊",
+      "type": "attack",
+      "display_name": "醫療身份盜竊"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "身份盜竊",
+      "type": "attack",
+      "display_name": "身份盜竊"
+    },
+    "reasoning": "醫療身份盜竊是身份盜竊的一種具體形式，符合 ('attack', 'is_part_of', 'attack') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "醫療身份盜竊與身份盜竊皆為攻擊（attack）的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "醫療身份盜竊與身份盜竊的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關。檢查規則6：無關。檢查規則7：無關。檢查規則8：無關。",
+        "response": "correct",
+        "reason": "三元組（醫療身份盜竊 is_part_of 身份盜竊）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "醫療身份盜竊與身份盜竊為同義詞",
+        "response": "duplicate",
+        "standard_subject": "身份盜竊",
+        "standard_object": "身份盜竊",
+        "reason": "根據資安領域已知同義詞對照範例，醫療身份盜竊與身份盜竊可視為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "醫療身份盜竊",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "身份盜竊",
+        "type": "attack"
+      },
+      "reasoning": "醫療身份盜竊是身份盜竊的一種具體形式，符合 ('attack', 'is_part_of', 'attack') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "銀行網站",
+      "type": "app",
+      "display_name": "銀行網站"
+    },
+    "reasoning": "文本提到使用者透過銀行網站存取帳戶對帳單，符合 ('user', 'uses', 'app') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "使用者 (user) 是 'user' 類別的合理實例，銀行網站 (app) 是 'app' 類別的合理實例，'uses' 關係在此語境中合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 user，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為使用者，關係為 uses，受體為銀行網站，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「使用者」與 Ldr 中的「使用者」完全等價同義詞，受體「銀行網站」與 Ldr 中的「銀行網站」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "銀行網站",
+        "type": "app"
+      },
+      "reasoning": "文本提到使用者透過銀行網站存取帳戶對帳單，符合 ('user', 'uses', 'app') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "穿戴式技術",
+      "type": "system",
+      "display_name": "穿戴式技術"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "個人健康資料",
+      "type": "data",
+      "display_name": "個人健康資料"
+    },
+    "reasoning": "文本提到智慧手錶等穿戴式技術收集（產生）用於研究與監測的資料，符合 ('system', 'generates', 'data') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '穿戴式技術' 是 'system' 的合理實例，'個人健康資料' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作是generates，而非mitigates。規則3不適用，因為主體類別是system，而非vulnerability。規則4不適用，因為關係是generates，而非violates。規則5不適用，因為主體類別是system，而非data。規則6不適用，因為關係是generates，而非deployed_in。規則7適用，且三元組符合規則：當關係為generates時，受體的類別必須是data，且此三元組的受體是個人健康資料，類別為data。規則8不適用，因為關係是generates，而非controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的條件，且未發現其他規則的違反。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "個人健康資料與個人資料、個人資訊、個人基本資料等存在同義詞關係，但無法完全確定是完全等價同義詞或廣義/狹義從屬",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法確定時預設保留，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "穿戴式技術",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "個人健康資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到智慧手錶等穿戴式技術收集（產生）用於研究與監測的資料，符合 ('system', 'generates', 'data') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "身份盜竊",
+      "type": "attack",
+      "display_name": "身份盜竊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "私人資料",
+      "type": "data",
+      "display_name": "私人資料"
+    },
+    "reasoning": "身份盜竊涉及竊取私人資料並對其造成損害（如毀掉信用評級），符合 ('attack', 'can_harm', 'data') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "身份盜竊是 'attack' 的合理實例，私人資料是 'data' 的合理實例，且 'can_harm' 是描述攻擊對資料可能造成傷害的合理關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_harm'，發現無直接相關規則限制此類別組合的使用。",
+        "response": "correct",
+        "reason": "三元組（身份盜竊 can_harm 私人資料）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"身份盜竊\" 與 Ldr 中的 \"身份盜竊\" 完全等價同義詞，受體 \"私人資料\" 與 Ldr 中的 \"個人資料\" 密切相關但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "身份盜竊",
+        "standard_object": "",
+        "reason": "主體為完全等價同義詞，受體非完全等價同義詞，依據判斷準則 1 和 3，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "身份盜竊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "私人資料",
+        "type": "data"
+      },
+      "reasoning": "身份盜竊涉及竊取私人資料並對其造成損害（如毀掉信用評級），符合 ('attack', 'can_harm', 'data') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "身份盜竊",
+      "type": "attack",
+      "display_name": "身份盜竊"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "機密性",
+      "type": "principle",
+      "display_name": "機密性"
+    },
+    "reasoning": "身份盜竊透過非法獲取私人資訊，直接違反了資安核心原則中的機密性，符合 ('attack', 'violates', 'principle') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "身份盜竊 (attack) 是攻擊類別的合理實例，機密性 (principle) 是原則類別的合理實例，且 'violates' 關係在資安領域中是合理的用法。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：觸發，principle 僅能作為被違反的受體，但此三元組中 principle 是受體，符合規則。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體（身份盜竊）與受體（機密性）之間的關係（violates）符合語義限制清單中的規則，尤其是規則4沒有被違反，因為principle是作為被違反的受體。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞或相似名稱出現在 Ldr 中，但根據給定的同義詞對照範例和判斷準則，主體 '身份盜竊' 可以被視為 '身份竊盜' 的同義詞，受體 '機密性' 則直接出現在 Ldr 中，且為完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例和判斷準則，主體和受體不需要標準化為其他名稱，因為它們在 Ldr 中已有直接或間接的對應關係，但不構成 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "身份盜竊",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "機密性",
+        "type": "principle"
+      },
+      "reasoning": "身份盜竊透過非法獲取私人資訊，直接違反了資安核心原則中的機密性，符合 ('attack', 'violates', 'principle') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "網際網路服務供應商 (isp)",
+      "type": "system",
+      "display_name": "網際網路服務供應商 (ISP)"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "線上活動資料",
+      "type": "data",
+      "display_name": "線上活動資料"
+    },
+    "reasoning": "文本提到 ISP 會追蹤線上活動並產生相關資料，符合 ('system', 'generates', 'data') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網際網路服務供應商 (ISP) 可被視為 'system' 的合理實例，線上活動資料可被視為 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有攻擊者或安全團隊的身分。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組符合規則：當關係為generates時，受體的類別是data。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的條件，且沒有違反其他規則。因此，三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "網際網路服務供應商 (ISP) 與現有近似資源清單中沒有完全匹配的同義詞，線上活動資料與私人資料或個人健康資料有相似的概念，但不是完全等價的同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法找到完全匹配的同義詞或子類型關係，因此預設保留為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網際網路服務供應商 (ISP)",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "線上活動資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到 ISP 會追蹤線上活動並產生相關資料，符合 ('system', 'generates', 'data') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "廣告商",
+      "type": "attacker",
+      "display_name": "廣告商"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "追蹤技術",
+      "type": "technique",
+      "display_name": "追蹤技術"
+    },
+    "reasoning": "在隱私侵犯的脈絡下，廣告商被視為獲取資料的威脅者，他們使用監控與追蹤技術，符合 ('attacker', 'uses', 'technique') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'technique' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "廣告商 (attacker) 使用追蹤技術 (technique) 是語意上合理的，符合實體名稱與其類別的對齊，且 'attacker' 和 'technique' 在資安領域中是常見的術語。",
+        "response": "correct",
+        "reason": "廣告商使用追蹤技術的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規檢查，因為主體的類別是 attacker，而不是 data，但這裡的主體是 attacker，使用追蹤技術，與規則5無直接關聯。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是廣告商（類別：attacker），關係是使用（uses），受體是追蹤技術（類別：technique），這不直接違反任何一條語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "廣告商與網路犯罪份子之間沒有直接的同義詞關係或從屬關係，兩者概念不同，廣告商可能使用追蹤技術但不一定是網路犯罪份子",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定同義詞或從屬關係，預設保留"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "廣告商",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "追蹤技術",
+        "type": "technique"
+      },
+      "reasoning": "在隱私侵犯的脈絡下，廣告商被視為獲取資料的威脅者，他們使用監控與追蹤技術，符合 ('attacker', 'uses', 'technique') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "網路犯罪份子",
+      "type": "attacker",
+      "display_name": "網路犯罪份子"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "系統弱點",
+      "type": "vulnerability",
+      "display_name": "系統弱點"
+    },
+    "reasoning": "文本描述犯罪份子竊取資料以存取帳戶，這隱含了利用系統或人的弱點，符合 ('attacker', 'can_exploit', 'vulnerability') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網路犯罪份子 (attacker) 是 'attacker' 的合理實例，系統弱點 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是描述 attacker 與 vulnerability 間關係的合理屬性。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中主體是網路犯罪份子（attacker），沒有同時具有安全團隊（securityTeam）的身分。規則2：不適用，因為三元組中關係是can_exploit，不是mitigates。規則3：不適用，因為三元組中主體是網路犯罪份子（attacker），不是漏洞（vulnerability）。規則4：不適用，因為三元組中關係是can_exploit，不是violates。規則5：不適用，因為三元組中關係是can_exploit，不是uses。規則6：不適用，因為三元組中關係是can_exploit，不是deployed_in。規則7：不適用，因為三元組中關係是can_exploit，不是generates。規則8：不適用，因為三元組中關係是can_exploit，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的網路犯罪份子（attacker）可以利用（can_exploit）系統弱點（vulnerability），這符合資安知識圖譜的邏輯，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路犯罪份子",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "系統弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本描述犯罪份子竊取資料以存取帳戶，這隱含了利用系統或人的弱點，符合 ('attacker', 'can_exploit', 'vulnerability') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 10
+    }
+  }
+]

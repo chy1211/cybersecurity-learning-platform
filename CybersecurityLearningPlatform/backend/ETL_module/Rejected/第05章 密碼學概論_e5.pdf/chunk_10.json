@@ -1,0 +1,94 @@
+[
+  {
+    "subject": {
+      "name": "rsa演算法",
+      "type": "tool",
+      "display_name": "RSA演算法"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "公開金鑰",
+      "type": "feature",
+      "display_name": "公開金鑰"
+    },
+    "reasoning": "在金鑰對產生程序中，演算法會計算並產生公開金鑰 e 與 N，這屬於產出的資料(data)。",
+    "source_id": "chunk_10",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "RSA演算法是一種加密工具，合理對齊 'tool' 類別；公開金鑰是加密資料的一部分，合理對齊 'data' 類別；'generates' 關係在此語境下合理，因為 RSA 演算法可以生成公開金鑰。",
+        "response": "correct",
+        "reason": "RSA演算法、公開金鑰與 'generates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)，但本三元組的受體是公開金鑰 (類別: feature)，因此觸發違規檢查。",
+        "response": "violation",
+        "reason": "三元組中的關係 'generates' 須與 data 類別的受體匹配，但公開金鑰屬於 feature 類別，導致違反規則7。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組中的關係 'generates' 須與 data 類別的受體匹配，但公開金鑰屬於 feature 類別，導致違反規則7。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA演算法",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "公開金鑰",
+        "type": "data"
+      },
+      "reasoning": "在金鑰對產生程序中，演算法會計算並產生公開金鑰 e 與 N，這屬於產出的資料(data)。",
+      "source_id": "chunk_10",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa演算法",
+      "type": "tool",
+      "display_name": "RSA演算法"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "私密金鑰",
+      "type": "tool",
+      "display_name": "私密金鑰"
+    },
+    "reasoning": "在金鑰對產生程序中，演算法會計算並產生私密金鑰 d，這屬於產出的資料(data)。",
+    "source_id": "chunk_10",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "RSA演算法是一種密碼學工具，合理對齊 'tool' 類別；私密金鑰是一種資料，合理對齊 'data' 類別；'generates' 關係在資安領域中常用於描述演算法生成金鑰的過程，語意對齊合理。",
+        "response": "correct",
+        "reason": "RSA演算法、生成私密金鑰的過程符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7指出當關係為generates時，受體的類別必須是data，但在此三元組中，受體是私密金鑰，類別是tool，與規則7不符，觸發違規檢查。",
+        "response": "violation",
+        "reason": "三元組中的關係generates與受體私密金鑰的類別tool不符合規則7的要求，導致語義不一致。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組中的關係generates與受體私密金鑰的類別tool不符合規則7的要求，導致語義不一致。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA演算法",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "私密金鑰",
+        "type": "data"
+      },
+      "reasoning": "在金鑰對產生程序中，演算法會計算並產生私密金鑰 d，這屬於產出的資料(data)。",
+      "source_id": "chunk_10",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "資訊設施機房",
+      "type": "system",
+      "display_name": "資訊設施機房"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "建築物",
+      "type": "system",
+      "display_name": "建築物"
+    },
+    "reasoning": "文本提到『機房應設置於建築物最安全內部』，機房是建築物內的一個特定區域/系統，因此選擇 system is_part_of system。",
+    "source_id": "chunk_5",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊設施機房 可以被視為 system 的合理實例，建築物 也可以被視為 system 的合理實例，且 'is_part_of' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的規定且語意對齊，故此三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查是否有其他規則適用：沒有相關規則直接適用於 'is_part_of' 關係，且主體和受體的類別均為 'system'，因此無明確違規。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別均為 'system'，且關係 'is_part_of' 沒有在語義限制清單中被明確限制，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中的系統類別，且兩者名稱在資安教材中可互換使用、指稱同一概念",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若一個實體是另一個的子類型或無法確定，預設保留，且兩者名稱在資安教材中可互換使用、指稱同一概念，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊設施機房",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "建築物",
+        "type": "system"
+      },
+      "reasoning": "文本提到『機房應設置於建築物最安全內部』，機房是建築物內的一個特定區域/系統，因此選擇 system is_part_of system。",
+      "source_id": "chunk_5",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "建築物",
+      "type": "system",
+      "display_name": "建築物"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "圍牆",
+      "type": "feature",
+      "display_name": "牆"
+    },
+    "reasoning": "文本提到『建築物的建構包含牆、窗、門』，牆是建築物這個系統的組成部分，因此選擇 system has_a feature。",
+    "source_id": "chunk_5",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "建築物是 system 的合理實例，牆是 feature 的合理實例，'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 不在語義限制清單中被明確限制，且主體和受體的類別組合未觸發任何規則的違反條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體牆與圍牆為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "圍牆",
+        "reason": "根據同義詞判定，牆與圍牆指稱同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "建築物",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "牆",
+        "type": "feature"
+      },
+      "reasoning": "文本提到『建築物的建構包含牆、窗、門』，牆是建築物這個系統的組成部分，因此選擇 system has_a feature。",
+      "source_id": "chunk_5",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "系統管理人員",
+      "type": "securityTeam",
+      "display_name": "系統管理人員"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "機房",
+      "type": "system",
+      "display_name": "資訊設施機房"
+    },
+    "reasoning": "文本提到『只有系統管理人員才能進入資訊設施機房』，這代表該角色對機房具有存取控制權，因此選擇 securityTeam controls system。",
+    "source_id": "chunk_5",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "系統管理人員 (securityTeam) 控制資訊設施機房 (system) 的語意是合理的，'securityTeam' 和 'system' 的名稱與其類別對齊，且 'controls' 關係在資安領域中是常見的用法。",
+        "response": "correct",
+        "reason": "主體、受體和關係都符合預先定義的類別和屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 securityTeam，具有主動執行能力，符合規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（系統管理人員）是具有主動執行能力的角色，符合規則8的要求，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊設施機房與機房之間存在同義詞關係，兩者指涉相同概念",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "機房",
+        "reason": "根據同義詞判定，資訊設施機房與機房被判定為同義詞，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統管理人員",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "資訊設施機房",
+        "type": "system"
+      },
+      "reasoning": "文本提到『只有系統管理人員才能進入資訊設施機房』，這代表該角色對機房具有存取控制權，因此選擇 securityTeam controls system。",
+      "source_id": "chunk_5",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "監視系統",
+      "type": "system",
+      "display_name": "監視系統"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "建築物",
+      "type": "system",
+      "display_name": "建築物"
+    },
+    "reasoning": "文本將監視系統列為實體安全設施，部署於建築物中以保護環境，因此選擇 tool deployed_in system。",
+    "source_id": "chunk_5",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "監視系統 (tool) 與 建築物 (system) 的名稱與其類別合理對齊，符合語意對齊原則。",
+        "response": "correct",
+        "reason": "監視系統作為工具部署在建築物這個系統中，完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。此三元組的關係為 deployed_in，主體為監視系統 (類別: system)，受體為建築物 (類別: system)，因此觸發規則6，但建築物的類別為 system，符合規則6的要求。",
+        "response": "correct",
+        "reason": "三元組的關係和實體類別符合規則6的要求，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為系統類別，但名稱不同，需進一步分析同義詞關係與子類型關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體不具有完全相同的名稱或同義詞關係，且無法確認子類型關係，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "監視系統",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "建築物",
+        "type": "system"
+      },
+      "reasoning": "文本將監視系統列為實體安全設施，部署於建築物中以保護環境，因此選擇 tool deployed_in system。",
+      "source_id": "chunk_5",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測",
+      "type": "technique",
+      "display_name": "入侵偵測"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "攻擊"
+    },
+    "reasoning": "入侵偵測設備的功能即為發現未經授權的進入或攻擊行為，符合 tool can_detect attack 的邏輯。",
+    "source_id": "chunk_5",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測 (Intrusion Detection) 是一種工具 (tool)，攻擊 (attack) 是一種攻擊行為，'can_detect' 關係在資安領域中指工具可以偵測攻擊，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "入侵偵測工具可以偵測攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_detect'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_detect' 沒有在語義限制清單中被明確限制，且主體 '入侵偵測' 的類別 'technique' 與受體 '攻擊' 的類別 'attack' 在給定的規則中沒有違反任何語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似資源，但無直接同義詞關係，主體為入侵偵測（technique），受體為攻擊（attack），兩者無直接從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無同義詞關係，且主體與受體無從屬關係，依據判斷準則3，判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "入侵偵測設備的功能即為發現未經授權的進入或攻擊行為，符合 tool can_detect attack 的邏輯。",
+      "source_id": "chunk_5",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "建築物安全規範",
+      "type": "policy",
+      "display_name": "建築物安全規範"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "災害",
+      "type": "risk",
+      "display_name": "自然災害"
+    },
+    "reasoning": "文本提到『建築物在建造時，需考慮自然災害危害程度』，這是一種透過設計規範來降低風險的行為，因此選擇 policy mitigates risk。",
+    "source_id": "chunk_5",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "建築物安全規範 (policy) 是一種安全政策，自然災害 (risk) 是一種風險，'mitigates' 關係在資安領域中指的是減輕風險，名稱與類別之間的對齊是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '建築物安全規範' 屬於類別 'policy'，因此符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '建築物安全規範' 屬於類別 'policy'，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "自然災害與災害為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "災害",
+        "reason": "根據資安領域已知同義詞對照範例，自然災害與災害是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "建築物安全規範",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "自然災害",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『建築物在建造時，需考慮自然災害危害程度』，這是一種透過設計規範來降低風險的行為，因此選擇 policy mitigates risk。",
+      "source_id": "chunk_5",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "建築物",
+      "type": "system",
+      "display_name": "建築物"
+    },
+    "reasoning": "文本提到地點是否『容易遭受攻擊』，且前文提到暴動、動亂等因素，這些攻擊行為會對建築物實體造成損害，因此選擇 attack can_harm system。",
+    "source_id": "chunk_5",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊 (attack) 是一種合理的攻擊類別實例，建築物 (system) 是一種合理的系統類別實例，'can_harm' 是一種合理的關係，描述攻擊對系統的影響。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查完所有規則，沒有發現明確違反的項目。",
+        "response": "correct",
+        "reason": "三元組（攻擊 can_harm 建築物）沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊\" 與 Ldr 中的 \"攻擊\" 完全等價同義詞，受體 \"建築物\" 與 Ldr 中的 \"建築物\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "建築物",
+        "type": "system"
+      },
+      "reasoning": "文本提到地點是否『容易遭受攻擊』，且前文提到暴動、動亂等因素，這些攻擊行為會對建築物實體造成損害，因此選擇 attack can_harm system。",
+      "source_id": "chunk_5",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "安全區域",
+      "type": "system",
+      "display_name": "安全區域"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "建築物",
+      "type": "system",
+      "display_name": "建築物"
+    },
+    "reasoning": "文本提到『建築物需要區分不同等級的安全區域』，安全區域是建築物內部的劃分，因此選擇 system is_part_of system。",
+    "source_id": "chunk_5",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全區域和建築物都可以被視為系統（system）的合理實例，且 'is_part_of' 關係在資安領域中用於描述系統之間的關聯，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與主體、受體的類別組合，未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "建築物與資訊設施機房、機房之間存在廣義/狹義從屬關係，但與安全區域無直接同義詞或從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定安全區域與建築物之間的直接同義詞或從屬關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全區域",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "建築物",
+        "type": "system"
+      },
+      "reasoning": "文本提到『建築物需要區分不同等級的安全區域』，安全區域是建築物內部的劃分，因此選擇 system is_part_of system。",
+      "source_id": "chunk_5",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "進出通道管制",
+      "type": "function",
+      "display_name": "進出通道管制"
+    },
+    "reasoning": "進出通道管制是安全設施的一種功能，由負責安全的人員執行與維護，因此選擇 securityTeam implements function。",
+    "source_id": "chunk_5",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實施進出通道管制 (function) 合理對齊，符合語意與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "主體、關係、受體皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為 securityTeam，具有主動執行能力，符合 controls 的主體條件，但實際關係為 implements，不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係沒有明確違反語義限制清單中的任何規則，尤其是 implements 關係在給定的規則中沒有被明確限制與 securityTeam 和 function 的組合相關聯。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資安人員' 與 Ldr 中 '資安人員' 完全等價，受體 '進出通道管制' 與 Ldr 中 '管制人員出入' 可能為同義詞或廣義/狹義從屬，但根據給定的同義詞對照範例和判斷準則，兩者之間的關係需要進一步分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若無法確定，預設 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "進出通道管制",
+        "type": "function"
+      },
+      "reasoning": "進出通道管制是安全設施的一種功能，由負責安全的人員執行與維護，因此選擇 securityTeam implements function。",
+      "source_id": "chunk_5",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "建築物",
+      "type": "system",
+      "display_name": "建築物"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "防火材料",
+      "type": "feature",
+      "display_name": "防火材料"
+    },
+    "reasoning": "文本提到『需採用防火...的材料』，材料屬性是建築物系統的特徵，因此選擇 system has_a feature。",
+    "source_id": "chunk_5",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "建築物是 system 的合理實例，防火材料是 feature 的合理實例。",
+        "response": "correct",
+        "reason": "主體、關係、受體皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '建築物' 和受體 '防火材料' 的類別組合，沒有明確違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"建築物\" 與 Ldr 中的 \"建築物\" 完全等價，受體 \"防火材料\" 與 Ldr 中的 \"防火措施\" 可能是同義詞或相關概念，但不完全等價。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源完全匹配，受體雖然可能與某些概念相關，但無法確定為完全同義詞或子類型，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "建築物",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "防火材料",
+        "type": "feature"
+      },
+      "reasoning": "文本提到『需採用防火...的材料』，材料屬性是建築物系統的特徵，因此選擇 system has_a feature。",
+      "source_id": "chunk_5",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 10
+    }
+  }
+]

@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "背景查核",
+      "type": "policy",
+      "display_name": "人員背景查核"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "聘僱風險",
+      "type": "risk",
+      "display_name": "聘僱風險"
+    },
+    "reasoning": "文本提到『人員在聘僱前，必須查核過去經歷與背景，以降低風險』。將背景查核視為一種聘僱政策 (policy)，其目的是緩解 (mitigates) 潛在的風險 (risk)。",
+    "source_id": "chunk_10",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "人員背景查核 是 policy 的合理實例，聘僱風險 是 risk 的合理實例，且 'mitigates' 關係在資安領域中合理適用於政策與風險之間的關係。",
+        "response": "correct",
+        "reason": "人員背景查核（policy）與聘僱風險（risk）之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組符合此規則，無違反。",
+        "response": "correct",
+        "reason": "三元組中的主體是人員背景查核（類別：policy），其關係是 mitigates，受體是聘僱風險（類別：risk），符合規則2的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"人員背景查核\" 與 Ldr 中的 \"背景查核\" 關係為同義詞，受體 \"聘僱風險\" 與 Ldr 中的 \"風險\" 關係為廣義/狹義從屬",
+        "response": "correct",
+        "standard_subject": "背景查核",
+        "standard_object": "",
+        "reason": "根據同義詞判定，人員背景查核為背景查核的同義詞，且聘僱風險是風險的子類型，依據規則3，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "人員背景查核",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "聘僱風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『人員在聘僱前，必須查核過去經歷與背景，以降低風險』。將背景查核視為一種聘僱政策 (policy)，其目的是緩解 (mitigates) 潛在的風險 (risk)。",
+      "source_id": "chunk_10",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "安全保密協議",
+      "type": "policy",
+      "display_name": "保密協議"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊外洩",
+      "type": "risk",
+      "display_name": "資訊洩密"
+    },
+    "reasoning": "文本指出簽署保密協議可『避免其無意中洩密』。保密協議作為一種政策 (policy)，其功能是緩解 (mitigates) 資訊洩密這一風險 (risk)。",
+    "source_id": "chunk_10",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "保密協議 (policy) 是一種合理的政策實例，資訊洩密 (risk) 是一種合理的風險實例，'mitigates' 關係在保密協議與資訊洩密之間是語意對齊的。",
+        "response": "correct",
+        "reason": "保密協議與資訊洩密的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是保密協議（policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體和關係符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "保密協議與安全保密協議為同義詞，資訊洩密與資訊外洩為同義詞",
+        "response": "duplicate",
+        "standard_subject": "安全保密協議",
+        "standard_object": "資訊外洩",
+        "reason": "根據同義詞判定，保密協議與安全保密協議、資訊洩密與資訊外洩為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "保密協議",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊洩密",
+        "type": "risk"
+      },
+      "reasoning": "文本指出簽署保密協議可『避免其無意中洩密』。保密協議作為一種政策 (policy)，其功能是緩解 (mitigates) 資訊洩密這一風險 (risk)。",
+      "source_id": "chunk_10",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "員工"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "安全保密協議",
+      "type": "policy",
+      "display_name": "保密協議"
+    },
+    "reasoning": "文本提到『新進人員也應適當簽署保密協議』，簽署並遵守協議即為執行該政策。因此，使用者 (user) 實作/執行 (implements) 規範與策略 (policy)。",
+    "source_id": "chunk_10",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "員工 (user) 實現保密協議 (policy) 的情境下，'員工' 是 'user' 的合理實例，'保密協議' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "員工實現保密協議的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為員工，關係為implements，受體為保密協議，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組未觸發語義限制清單中的任何規則，故判定為正確。員工實施保密協議的動作在給定的規則下沒有明確的限制或違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "員工與組織員工之間存在廣義/狹義從屬關係，保密協議與安全保密協議為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "安全保密協議",
+        "reason": "根據判斷準則，員工與組織員工之間的關係不需要合併，而保密協議與安全保密協議被判定為同義詞，因此受體進行了標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "員工",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "保密協議",
+        "type": "policy"
+      },
+      "reasoning": "文本提到『新進人員也應適當簽署保密協議』，簽署並遵守協議即為執行該政策。因此，使用者 (user) 實作/執行 (implements) 規範與策略 (policy)。",
+      "source_id": "chunk_10",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "員工"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "文本提到『人員在職期間...會接觸不同等級的資訊資產』。接觸資產在知識圖譜中可定義為使用者 (user) 使用 (uses) 資料 (data)。",
+    "source_id": "chunk_10",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "員工 (user) 使用資訊資產 (data) 是語意上合理的，且 'uses' 關係在資安領域中常見，表示使用或存取的行為。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體類別是user，使用uses關係，但規則5指出當主體類別是data時才違反，故此規則不違反。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是員工（類別：user），關係是uses，受體是資訊資產（類別：system），這符合規則允許的條件，沒有明確違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "員工與組織員工之間存在廣義/狹義從屬關係，但根據規則，廣義/狹義一律保留；資訊資產與資產、硬體資產、虛擬資產之間也存在廣義/狹義從屬關係，同樣一律保留。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則，廣義/狹義一律保留，故員工和資訊資產不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "員工",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資訊資產",
+        "type": "data"
+      },
+      "reasoning": "文本提到『人員在職期間...會接觸不同等級的資訊資產』。接觸資產在知識圖譜中可定義為使用者 (user) 使用 (uses) 資料 (data)。",
+      "source_id": "chunk_10",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "員工"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "reasoning": "文本提到提供『防火牆管理』的教育訓練，暗示員工在工作中需操作防火牆。根據 Schema，user 可 uses system，因此將防火牆歸類為 system。",
+    "source_id": "chunk_10",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "員工 (user) 使用防火牆 (system) 的情境是合理的，'員工' 是 'user' 的合理實例，'防火牆' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為動作是uses，而非mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為主體類別不是principle。規則5觸發，因為主體類別是user，而關係是uses，但規則5指出當主體類別是data時才是違反，故此三元組不違反規則5。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體為員工（類別：user），關係為uses，受體為防火牆（類別：tool），未發現明確且直接的違反項目，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據已知同義詞對照範例，無法直接判定主體或受體為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "員工",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "防火牆",
+        "type": "system"
+      },
+      "reasoning": "文本提到提供『防火牆管理』的教育訓練，暗示員工在工作中需操作防火牆。根據 Schema，user 可 uses system，因此將防火牆歸類為 system。",
+      "source_id": "chunk_10",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "員工"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "電腦網路",
+      "type": "system",
+      "display_name": "電腦網路"
+    },
+    "reasoning": "文本提到提供『電腦網路管理』的教育訓練，暗示員工需操作網路系統。根據 Schema，user 可 uses system。",
+    "source_id": "chunk_10",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "員工 (user) 使用電腦網路 (system) 是語意上合理的，符合實體名稱與其類別的對齊，且 'uses' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "員工使用電腦網路的三元組完全符合預先定義的類別與屬性清單，且語意上是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，沒有任何規則被觸發為違規。",
+        "response": "correct",
+        "reason": "三元組中的主體為員工，關係為uses，受體為電腦網路，沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "員工與組織員工之間存在廣義/狹義從屬關係，電腦網路與網際網路、網路環境、網路系統等存在廣義/狹義從屬關係或同義詞重複",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，員工和電腦網路與現有近似資源清單中的項目存在廣義/狹義從屬關係或同義詞重複，但根據【廣義/狹義一律保留】原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "員工",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "電腦網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到提供『電腦網路管理』的教育訓練，暗示員工需操作網路系統。根據 Schema，user 可 uses system。",
+      "source_id": "chunk_10",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "員工"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料庫",
+      "type": "app",
+      "display_name": "資料庫"
+    },
+    "reasoning": "文本提到提供『資料庫管理』的教育訓練，暗示員工需操作資料庫應用程式。根據 Schema，user 可 uses app。",
+    "source_id": "chunk_10",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "員工 (user) 使用資料庫 (app) 是語意上合理的，'uses' 關係也符合實體之間的邏輯關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體的類別是user，而關係是uses，但規則5指出當主體類別是data時才違反，故此三元組不違反規則5。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體為員工（類別：user），關係為uses，受體為資料庫（類別：app），未發現明確且直接的違反項目，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "員工",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資料庫",
+        "type": "app"
+      },
+      "reasoning": "文本提到提供『資料庫管理』的教育訓練，暗示員工需操作資料庫應用程式。根據 Schema，user 可 uses app。",
+      "source_id": "chunk_10",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

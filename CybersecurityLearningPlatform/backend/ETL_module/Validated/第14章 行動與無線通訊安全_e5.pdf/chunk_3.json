@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "usim卡",
+      "type": "tool",
+      "display_name": "USIM卡"
+    },
+    "reasoning": "文本提到『透過 USIM 卡提供應用程式較佳的安全性』，表示應用程式在安全機制中包含或使用了 USIM 卡作為工具，符合 (app, has_a, tool) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'app' 和受體的類別 'tool' 都存在於 Lc,p 的 'Classes' 中，關係 'has_a' 存在於 'Properties' 中。",
+        "step_2_alignment_check": "實體 '應用程式' 的名稱與其類別 'app' 合理對齊，實體 'USIM卡' 的名稱與其類別 'tool' 也合理對齊，因為 USIM 卡是一種工具。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於三元組中的關係 'has_a' 不在任何規則中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違反，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，且沒有明確的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「應用程式」與 Ldr 中的「應用程式」完全相同，受體「USIM卡」與 Ldr 中的「sim卡」具有相似的概念，但非完全相同的同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體為完全匹配，受體雖然相似但不完全相同，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "USIM卡",
+        "type": "tool"
+      },
+      "reasoning": "文本提到『透過 USIM 卡提供應用程式較佳的安全性』，表示應用程式在安全機制中包含或使用了 USIM 卡作為工具，符合 (app, has_a, tool) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "特定演算法",
+      "type": "function",
+      "display_name": "特定演算法"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "傳輸資料",
+      "type": "data",
+      "display_name": "傳輸資料"
+    },
+    "reasoning": "文本提到『特定的演算法來確保傳輸資料的完整性』。確保完整性需要對資料進行雜湊或校驗分析，因此將演算法視為 function，傳輸資料視為 data，符合 (function, can_analyze, data) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "特定演算法 (function) 可以分析傳輸資料 (data) 是語意上合理的，符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用，因為主體類別為 function，不是 vulnerability。規則4：不適用。規則5：不適用，因為主體類別不是 data。規則6：不適用。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是特定演算法，關係是 can_analyze，受體是傳輸資料，沒有觸發任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"傳輸資料\" 與 Ldr 中的 \"通訊資料\" 和 \"網路通訊資料\" 皆為相關概念，但非完全等價同義詞，且無明確的廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定 \"傳輸資料\" 與 Ldr 中資源的同義詞關係，依據判斷準則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "特定演算法",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "傳輸資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到『特定的演算法來確保傳輸資料的完整性』。確保完整性需要對資料進行雜湊或校驗分析，因此將演算法視為 function，傳輸資料視為 data，符合 (function, can_analyze, data) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "4g無線網路",
+      "type": "system",
+      "display_name": "4G無線網路"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "tcp/ip協定組",
+      "type": "feature",
+      "display_name": "TCP/IP協定組"
+    },
+    "reasoning": "文本指出『4G 無線網路完全以 TCP/IP 的架構運作』，TCP/IP 是該系統的組成特徵/協定，符合 (system, has_a, feature) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "4G無線網路 可以被視為 'system' 的實例，TCP/IP協定組 可以被視為 'feature' 的實例，且 'has_a' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 has_a，不是 uses。檢查規則6：不適用，因為關係為 has_a，不是 deployed_in。檢查規則7：不適用，因為關係為 has_a，不是 generates。檢查規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 has_a 與規則清單中沒有直接衝突，且主體和受體的類別組合在給定的規則中沒有被明確禁止。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '4G無線網路' 與 Ldr 中的 '4g' 相似度最高，受體 'TCP/IP協定組' 與 Ldr 中的 'ip協定' 相似度最高，兩者皆無完全等價同義詞關係，但 '4G無線網路' 可視為 '4g' 的廣義/狹義從屬，'TCP/IP協定組' 可視為 'ip協定' 的廣義/狹義從屬",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "4G無線網路",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "TCP/IP協定組",
+        "type": "feature"
+      },
+      "reasoning": "文本指出『4G 無線網路完全以 TCP/IP 的架構運作』，TCP/IP 是該系統的組成特徵/協定，符合 (system, has_a, feature) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "3gpp",
+      "type": "securityTeam",
+      "display_name": "3GPP"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "4g lte 標準",
+      "type": "policy",
+      "display_name": "4G LTE 標準"
+    },
+    "reasoning": "3GPP 作為標準制定組織（對應 securityTeam），發展出 4G LTE 的標準（對應 policy/規範），符合 (securityTeam, implements, policy) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "3GPP 是一安全團隊（securityTeam）的合理實例，4G LTE 標準是政策（policy）的合理實例，'implements' 關係在此語境下合理，因為 3GPP 實施了 4G LTE 標準。",
+        "response": "correct",
+        "reason": "主體、關係和受體的類別與屬性完全符合預先定義的清單，並且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為主體是安全團隊(securityTeam)而非攻擊者(attacker)。規則2：不適用，因為關係是 implements 而非 mitigates。規則3：不適用，因為主體類別是 securityTeam 而非 vulnerability。規則4：不適用，因為關係是 implements 而非 violates，且主體類別不是 principle。規則5：不適用，因為關係是 implements 而非 uses。規則6：不適用，因為關係是 implements 而非 deployed_in。規則7：不適用，因為關係是 implements 而非 generates。規則8：不適用，因為關係是 implements 而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（3GPP）是安全團隊（securityTeam），關係是 implements，受體是 4G LTE 標準（policy），這符合一般的實施關係，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "3GPP 是一個安全團隊，4G LTE 標準是一種政策，兩者之間沒有直接的同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，Ldr 為空，且主體和受體之間沒有同義詞或從屬關係，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "3GPP",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "4G LTE 標準",
+        "type": "policy"
+      },
+      "reasoning": "3GPP 作為標準制定組織（對應 securityTeam），發展出 4G LTE 的標準（對應 policy/規範），符合 (securityTeam, implements, policy) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "4g lte",
+      "type": "system",
+      "display_name": "4G LTE"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "用戶設備 (ue)",
+      "type": "system",
+      "display_name": "用戶設備 (UE)"
+    },
+    "reasoning": "文本明確列出 LTE 系統架構的組成要件包含用戶設備 (UE)，符合 (system, has_a, system) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "4G LTE 和用戶設備 (UE) 都是 'system' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊和同義詞寬容原則也得到滿足。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses，或者data不是主體。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，沒有任何規則被觸發，表示三元組合法。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間的組合沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "4G LTE 與 Ldr 中的 \"4g lte\" 完全等價同義詞，且 \"用戶設備\" 與 Ldr 中的 \"用戶設備\" 完全匹配，但無需合併因為它們是不同實體。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，4G LTE 與 \"4g lte\" 相同，但不需要進行合併，因為它們是不同的實體。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "4G LTE",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "用戶設備 (UE)",
+        "type": "system"
+      },
+      "reasoning": "文本明確列出 LTE 系統架構的組成要件包含用戶設備 (UE)，符合 (system, has_a, system) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "4g lte",
+      "type": "system",
+      "display_name": "4G LTE"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "無線存取網路",
+      "type": "system",
+      "display_name": "無線存取網路 (E-UTRAN)"
+    },
+    "reasoning": "文本明確列出 LTE 系統架構的組成要件包含無線存取網路 (E-UTRAN)，符合 (system, has_a, system) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "4G LTE 和無線存取網路 (E-UTRAN) 都是 'system' 的合理實例，考慮到資安領域的同義詞、縮寫與翻譯寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 has_a，不是 deployed_in。規則7：不適用，因為關係為 has_a，不是 generates。規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間的組合，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "4G LTE 與 '4g lte' 完全等價同義詞，無線存取網路 (E-UTRAN) 與 '無線存取網路' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "4g lte",
+        "standard_object": "無線存取網路",
+        "reason": "主體與受體皆找到完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "4G LTE",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "無線存取網路 (E-UTRAN)",
+        "type": "system"
+      },
+      "reasoning": "文本明確列出 LTE 系統架構的組成要件包含無線存取網路 (E-UTRAN)，符合 (system, has_a, system) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "4g lte",
+      "type": "system",
+      "display_name": "4G LTE"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "核心網路 (epc)",
+      "type": "system",
+      "display_name": "核心網路 (EPC)"
+    },
+    "reasoning": "文本明確列出 LTE 系統架構的組成要件包含核心網路 (EPC)，符合 (system, has_a, system) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "4G LTE 和核心網路 (EPC) 都是 'system' 的合理實例，符合資安領域的常見用語和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "主體、受體和關係都符合預先定義的類別和屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 has_a，不是 deployed_in。規則7：不適用，因為關係為 has_a，不是 generates。規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（4G LTE）和受體（核心網路 (EPC)）皆為 system 類別，且關係為 has_a，未觸發任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "4G LTE 與 4g lte 完全等價同義詞，核心網路 (EPC) 與 核心網路 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆非同義詞重複，且無廣義/狹義從屬關係，依據判斷準則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "4G LTE",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "核心網路 (EPC)",
+        "type": "system"
+      },
+      "reasoning": "文本明確列出 LTE 系統架構的組成要件包含核心網路 (EPC)，符合 (system, has_a, system) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "4g lte",
+      "type": "system",
+      "display_name": "4G LTE"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "多媒體子系統 (ims)",
+      "type": "system",
+      "display_name": "多媒體子系統 (IMS)"
+    },
+    "reasoning": "文本明確列出 LTE 系統架構的組成要件包含多媒體子系統 (IMS)，符合 (system, has_a, system) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "4G LTE 和多媒體子系統 (IMS) 都是 'system' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則沒有直接觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '4G LTE' 和受體 '多媒體子系統 (IMS)' 的類別組合，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "4G LTE 與 Ldr 中的 '4g lte' 完全等價同義詞，多媒體子系統 (IMS) 與 Ldr 中的 'ims' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆非同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "4G LTE",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "多媒體子系統 (IMS)",
+        "type": "system"
+      },
+      "reasoning": "文本明確列出 LTE 系統架構的組成要件包含多媒體子系統 (IMS)，符合 (system, has_a, system) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "4g lte",
+      "type": "system",
+      "display_name": "4G LTE"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "網路存取安全",
+      "type": "feature",
+      "display_name": "網路存取安全"
+    },
+    "reasoning": "文本提到 4G LTE 考慮的安全層面包含『網路存取安全』，這屬於系統的安全特徵/屬性，符合 (system, has_a, feature) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "4G LTE 是 'system' 的合理實例，網路存取安全是 'feature' 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 '4G LTE' 的類別是 'system'，受體 '網路存取安全' 的類別是 'feature'，這符合一般的系統具有特徵的邏輯。",
+        "response": "correct",
+        "reason": "三元組 '4G LTE has_a 網路存取安全' 沒有違反語義限制清單中的任何規則，且符合系統具有特徵的邏輯。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '4G LTE' 與 Ldr 中的 '4g lte' 完全等價同義詞，受體 '網路存取安全' 與 Ldr 中的 '網路存取安全' 完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "4G LTE",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "網路存取安全",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 4G LTE 考慮的安全層面包含『網路存取安全』，這屬於系統的安全特徵/屬性，符合 (system, has_a, feature) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "4g lte",
+      "type": "system",
+      "display_name": "4G LTE"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "核心網路安全",
+      "type": "feature",
+      "display_name": "核心網路安全"
+    },
+    "reasoning": "文本提到 4G LTE 考慮的安全層面包含『核心網路安全』，這屬於系統的安全特徵/屬性，符合 (system, has_a, feature) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "4G LTE 是一個系統（system），核心網路安全是系統的一個特徵（feature），因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係 'has_a' 不在任何規則中被明確限制，且主體和受體的類別組合在給定的規則中沒有被明確禁止或限制。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 4G LTE 與 Ldr 中的 4g lte 完全等價同義詞，受體 核心網路安全 與 Ldr 中的 核心網路安全 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "4g lte",
+        "standard_object": "核心網路安全",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "4G LTE",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "核心網路安全",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 4G LTE 考慮的安全層面包含『核心網路安全』，這屬於系統的安全特徵/屬性，符合 (system, has_a, feature) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 10
+    }
+  }
+]

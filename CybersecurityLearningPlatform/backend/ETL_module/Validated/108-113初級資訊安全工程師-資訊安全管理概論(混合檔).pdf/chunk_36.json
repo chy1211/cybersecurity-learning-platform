@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "資訊安全管理系統 (isms)",
+      "type": "system",
+      "display_name": "資訊安全管理系統 (ISMS)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資訊安全政策",
+      "type": "policy",
+      "display_name": "資訊安全政策"
+    },
+    "reasoning": "文本提到 ISMS 包含建立資訊安全之政策的需求。在 Schema 中，system 可以 has_a feature，因此將政策視為該系統的一個組成特徵。",
+    "source_id": "chunk_36",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊安全管理系統 (ISMS) 是 system 的合理實例，資訊安全政策是 feature 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為系統通常包含或實施特定的安全政策或功能。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊。檢查規則2：不適用，因為三元組中的關係不是mitigates。檢查規則3：不適用，因為主體類別不是vulnerability。檢查規則4：不適用，因為關係不是violates，且主體不是principle。檢查規則5：不適用，因為關係不是uses，或者data不是主體。檢查規則6：不適用，因為關係不是deployed_in。檢查規則7：不適用，因為關係不是generates。檢查規則8：不適用，因為關係不是controls。檢查規則，發現沒有直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊安全管理系統 (ISMS) 與資訊安全管理系統 (isms) 完全等價同義詞，資訊安全政策與資訊安全政策完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，實體名稱與 Ldr 中某資源的 name 字串完全相同或可互換使用，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全管理系統 (ISMS)",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資訊安全政策",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 ISMS 包含建立資訊安全之政策的需求。在 Schema 中，system 可以 has_a feature，因此將政策視為該系統的一個組成特徵。",
+      "source_id": "chunk_36",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊安全政策",
+      "type": "policy",
+      "display_name": "資訊安全政策"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊安全風險",
+      "type": "risk",
+      "display_name": "資訊安全風險"
+    },
+    "reasoning": "文本提到管理組織的資訊安全風險，而政策是管理風險的手段。符合 ('policy', 'mitigates', 'risk') 的定義。",
+    "source_id": "chunk_36",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資訊安全政策 (policy) 是一種合理的政策實例，資訊安全風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是資訊安全政策（policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體和關係符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊安全政策與安全政策、資訊安全策略等為同義詞或廣義/狹義從屬關係，但根據判斷準則，若一個實體是另一個的子類型，判定為 correct，禁止合併。資訊安全風險與資訊風險、網路安全風險等為同義詞或廣義/狹義從屬關係，但根據判斷準則，若一個實體是另一個的子類型，判定為 correct，禁止合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全政策",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊安全風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到管理組織的資訊安全風險，而政策是管理風險的手段。符合 ('policy', 'mitigates', 'risk') 的定義。",
+      "source_id": "chunk_36",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "內部稽核",
+      "type": "technique",
+      "display_name": "內部稽核"
+    },
+    "reasoning": "文本討論進行資安內部稽核的做法，這是一種由資安團隊執行的審查技術。符合 ('securityTeam', 'uses', 'technique')。",
+    "source_id": "chunk_36",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 使用內部稽核 (technique) 是合理的，內部稽核是資安人員可能使用的技術之一。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別是 securityTeam，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是資安人員（securityTeam），關係是 uses，受體是內部稽核（technique），這符合規則的允許條件，沒有明確違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資安人員' 與 Ldr 中的 '資安人員' 完全等價同義詞，受體 '內部稽核' 與 Ldr 中的 '內部稽核' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "內部稽核",
+        "type": "technique"
+      },
+      "reasoning": "文本討論進行資安內部稽核的做法，這是一種由資安團隊執行的審查技術。符合 ('securityTeam', 'uses', 'technique')。",
+      "source_id": "chunk_36",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "拒絕服務 (dos)",
+      "type": "attack",
+      "display_name": "拒絕服務 (DoS)"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "文本明確詢問破壞「可用性」的攻擊手法，並列出拒絕服務 (DoS)。符合 ('attack', 'violates', 'principle')。",
+    "source_id": "chunk_36",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '拒絕服務 (DoS)' 是 'attack' 的合理實例，'可用性' 是 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4適用，主體類別為attack，受體類別為principle，符合規則允許的條件。規則5、6、7、8不適用，因為關係不是uses、deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（拒絕服務）與受體（可用性）之間的關係（violates）符合語義限制清單中的規則，尤其是規則4允許principle作為被違反的受體。因此，該三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中之資源完全相符，且無需進一步同義詞判定或廣義/狹義一律保留的考量。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "拒絕服務 (DoS)",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "文本明確詢問破壞「可用性」的攻擊手法，並列出拒絕服務 (DoS)。符合 ('attack', 'violates', 'principle')。",
+      "source_id": "chunk_36",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "google 駭客 (google-hacking)",
+      "type": "technique",
+      "display_name": "Google 駭客 (Google-Hacking)"
+    },
+    "reasoning": "Google-Hacking 是一種搜尋漏洞的技術，由攻擊者使用。符合 ('attacker', 'uses', 'technique')。",
+    "source_id": "chunk_36",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'technique' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 使用 Google 駭客 (Google-Hacking) 技術，名稱與類別對齊，且符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為駭客不具有安全團隊的身分。規則2：不適用，因為主體為attacker，不是policy、technique或tool。規則3：不適用，因為主體類別為attacker，不是vulnerability。規則4：不適用，因為主體不是principle。規則5：觸發，因為主體的類別是attacker，使用了technique，符合規則允許的條件，不違反。規則6、7、8：不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（駭客）使用Google駭客（Google-Hacking）技術，沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似的資源存在於 Ldr 中，主體 '駭客' 完全等價於 '駭客'，而受體 'Google 駭客' 與 'google hacking' 關係密切，但非完全等價同義詞，受體與 'google hacking' 屬於同一概念的不同表達方式",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，'Google 駭客' 與 'google hacking' 可視為同一概念，但非完全等價同義詞，且無法確認為 duplicate，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "Google 駭客 (Google-Hacking)",
+        "type": "technique"
+      },
+      "reasoning": "Google-Hacking 是一種搜尋漏洞的技術，由攻擊者使用。符合 ('attacker', 'uses', 'technique')。",
+      "source_id": "chunk_36",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "竄改存款金額",
+      "type": "attack",
+      "display_name": "竄改存款金額"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "文本提到駭客侵入銀行資料庫竄改金額是破壞「完整性」的行為。符合 ('attack', 'violates', 'principle')。",
+    "source_id": "chunk_36",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "主體 '竄改存款金額' 是 'attack' 的合理實例，受體 '完整性' 是 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：觸發，principle 僅能作為被違反的受體，但此三元組中 principle 是受體，符合規則。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊類別，受體是完整性原則，關係是違反，符合規則4的描述，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中之資源完全相符，無需進一步分析同義詞或廣義/狹義關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與現有近似資源清單中之資源完全相同，直接判定正確。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "竄改存款金額",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "文本提到駭客侵入銀行資料庫竄改金額是破壞「完整性」的行為。符合 ('attack', 'violates', 'principle')。",
+      "source_id": "chunk_36",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "個人資料保護法",
+      "type": "policy",
+      "display_name": "個人資料保護法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "文本提到個人資料保護法與保護個人資訊隱私有關，法律（政策）旨在緩解個資外洩的風險。符合 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_36",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "個人資料保護法 (policy) 是一種合理的政策實例，個資外洩 (risk) 是一種合理的風險實例，'mitigates' 關係在此語境下合理描述政策對風險的減輕作用。",
+        "response": "correct",
+        "reason": "個人資料保護法與個資外洩的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，個人資料保護法（類別：policy）執行 mitigates 動作，符合規則。其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "個人資料保護法（類別：policy）與個資外洩（類別：risk）之間的 mitigates 關係，符合語義限制清單中的規則2，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "個人資料保護法與Ldr中的個人資料保護法完全相同，個資外洩與Ldr中的個資外洩完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與Ldr中的name字串完全相同，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人資料保護法",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本提到個人資料保護法與保護個人資訊隱私有關，法律（政策）旨在緩解個資外洩的風險。符合 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_36",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "社交工程",
+      "type": "technique",
+      "display_name": "社交工程"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網路攻擊手法",
+      "type": "attack",
+      "display_name": "網路攻擊手法"
+    },
+    "reasoning": "文本將社交工程列為網路攻擊手法的一種。符合 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_36",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "社交工程 與 網路攻擊手法 均為 'attack' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "社交工程與網路攻擊手法的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則後，發現待檢查三元組（社交工程 is_part_of 網路攻擊手法）不直接違反任何一條語義限制清單中的規則。規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為主體類別不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組不違反任何規則。",
+        "response": "correct",
+        "reason": "三元組（社交工程 is_part_of 網路攻擊手法）不直接違反任何一條語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "社交工程與社會工程學為同義詞，網路攻擊手法與web攻擊手法、攻擊方法、攻擊手段、網路攻擊等為同義詞或廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "社交工程與網路攻擊手法不構成同義詞重複，且無廣義/狹義從屬關係，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "社交工程",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "網路攻擊手法",
+        "type": "attack"
+      },
+      "reasoning": "文本將社交工程列為網路攻擊手法的一種。符合 ('attack', 'is_part_of', 'attack')。",
+      "source_id": "chunk_36",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  }
+]

@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "資料庫",
+      "type": "app",
+      "display_name": "資料庫"
+    },
+    "reasoning": "文本提到『應用程式可以經由存取介面以存取資料庫』，這描述了應用程式與資料庫系統之間的連線關係，符合 ('app', 'connects_to', 'system') 的 Schema。",
+    "source_id": "chunk_5",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '應用程式' 是 'app' 的合理實例，'資料庫' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 connects_to，不是 uses。檢查規則6：不適用，因為關係為 connects_to，不是 deployed_in。檢查規則7：不適用，因為關係為 connects_to，不是 generates。檢查規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間的組合，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中已知的同義詞對照範例中的『資料庫』與『應用程式』，且兩者在此場合下無廣義/狹義從屬關係，但根據給定的資安領域已知同義詞對照範例，兩者皆為 app 類別，但無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體在資安教材中無可互換使用、指稱同一概念的直接關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "資料庫",
+        "type": "system"
+      },
+      "reasoning": "文本提到『應用程式可以經由存取介面以存取資料庫』，這描述了應用程式與資料庫系統之間的連線關係，符合 ('app', 'connects_to', 'system') 的 Schema。",
+      "source_id": "chunk_5",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "存取介面",
+      "type": "app",
+      "display_name": "存取介面"
+    },
+    "reasoning": "文本提到應用程式『經由存取介面』來存取資料，存取介面是應用程式用來達成功能的組成部分或屬性，符合 ('app', 'has_a', 'feature') 的 Schema。",
+    "source_id": "chunk_5",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '應用程式' 是 'app' 的合理實例，'存取介面' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 has_a，不是 uses。檢查規則6：不適用，因為關係為 has_a，不是 deployed_in。檢查規則7：不適用，因為關係為 has_a，不是 generates。檢查規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（主體：應用程式，關係：has_a，受體：存取介面）不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆為資安領域已知實體，且無同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "存取介面",
+        "type": "feature"
+      },
+      "reasoning": "文本提到應用程式『經由存取介面』來存取資料，存取介面是應用程式用來達成功能的組成部分或屬性，符合 ('app', 'has_a', 'feature') 的 Schema。",
+      "source_id": "chunk_5",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資料庫",
+      "type": "app",
+      "display_name": "資料庫"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本明確指出『資料庫存放資料』，在知識圖譜中，系統存放或處理資料可定義為使用資料，符合 ('system', 'uses', 'data') 的 Schema。",
+    "source_id": "chunk_5",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '資料庫' 是 'system' 的合理實例，'資料' 是 'data' 的合理實例，關係 'uses' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，給定的三元組中，主體是資料庫（類別：app），關係是uses，受體是資料（類別：data），因此不觸發規則5的違規條件。",
+        "response": "correct",
+        "reason": "三元組中的主體是資料庫（類別：app），不符合規則5中主體類別為data的違規情況，且其他規則不適用於此三元組。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"資料庫\" 與 Ldr 中的 \"資料庫\" 完全匹配，受體 \"資料\" 與 Ldr 中的 \"資料\" 完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體與受體名稱與 Ldr 中的某資源 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料庫",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本明確指出『資料庫存放資料』，在知識圖譜中，系統存放或處理資料可定義為使用資料，符合 ('system', 'uses', 'data') 的 Schema。",
+      "source_id": "chunk_5",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "學生",
+      "type": "user",
+      "display_name": "學生"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "書本",
+      "type": "data",
+      "display_name": "書本"
+    },
+    "reasoning": "文本提到『學生可以購買書本』，書本在此情境中被視為資料庫中的資訊實體 (data)，使用者購買/獲取資訊即為使用資料，符合 ('user', 'uses', 'data') 的 Schema。",
+    "source_id": "chunk_5",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "學生 (Student) 是 'user' 的合理實例，書本 (Book) 可被視為 'data' 的實例，考慮到同義詞寬容原則，'uses' 的關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規檢查，因為主體的類別是 user，而關係為 uses，受體的類別是 data，符合規則5的描述，但需要注意規則5的具體內容，當主體的類別是 data 時才違反，若主體類別非 data 但受體類別是 data 則不違反。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "根據規則5，當關係為 uses 時，如果主體的類別是 data 才違反，但在此三元組中，主體的類別是 user，而非 data，因此不觸發規則5的違規條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"書本\" 與 Ldr 中的 \"資料\" 關係為不相關，因為 \"書本\" 是一種實體物品，而 \"資料\" 是一種資訊或數據。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法找到完全等價的同義詞或從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "學生",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "書本",
+        "type": "data"
+      },
+      "reasoning": "文本提到『學生可以購買書本』，書本在此情境中被視為資料庫中的資訊實體 (data)，使用者購買/獲取資訊即為使用資料，符合 ('user', 'uses', 'data') 的 Schema。",
+      "source_id": "chunk_5",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "sql",
+      "type": "tool",
+      "display_name": "SQL"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本將 SQL 列為語法並討論關聯性資料庫的查詢原理。SQL 作為一種查詢工具，其核心功能是分析與提取資料，符合 ('tool', 'can_analyze', 'data') 的 Schema。",
+    "source_id": "chunk_5",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SQL 是一種工具（tool），可以分析資料（data），因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別是合理對齊的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則相關性後，發現給定的三元組（SQL can_analyze 資料）沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（SQL）是一種工具，可以執行分析動作（can_analyze），且受體（資料）是合法的分析對象，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (SQL) 與 Ldr 中的 \"sql\" 完全等價同義詞，受體 (資料) 與 Ldr 中的 \"資料\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本將 SQL 列為語法並討論關聯性資料庫的查詢原理。SQL 作為一種查詢工具，其核心功能是分析與提取資料，符合 ('tool', 'can_analyze', 'data') 的 Schema。",
+      "source_id": "chunk_5",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 5
+    }
+  }
+]

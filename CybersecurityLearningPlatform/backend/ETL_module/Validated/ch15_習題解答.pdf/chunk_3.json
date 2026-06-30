@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "八達通",
+      "type": "tool",
+      "display_name": "八達通"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ic卡",
+      "type": "system",
+      "display_name": "IC卡"
+    },
+    "reasoning": "文本提到八達通是一套電子收費系統，採用 IC 卡作為其核心工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "八達通是一種電子支付系統，可以被視為 'system' 的合理實例；IC卡是一種工具，可以被視為 'tool' 的合理實例。根據同義詞寬容原則，八達通和 IC 卡的名稱與其被賦予的類別合理對齊。",
+        "response": "correct",
+        "reason": "八達通和 IC 卡的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查是否有其他相關規則：沒有相關規則被觸發。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "八達通與ic卡在資安領域中是相關但不同的概念，八達通是一種工具，ic卡是一種系統，兩者之間存在著廣義/狹義的從屬關係，但根據給定的資源清單和同義詞對照範例，八達通和ic卡之間沒有直接的同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，八達通和ic卡之間沒有直接的同義詞關係，且不存在子類型關係，因此判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "八達通",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "IC卡",
+        "type": "tool"
+      },
+      "reasoning": "文本提到八達通是一套電子收費系統，採用 IC 卡作為其核心工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "用戶",
+      "type": "user",
+      "display_name": "用戶"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "行動電話",
+      "type": "system",
+      "display_name": "行動電話"
+    },
+    "reasoning": "文本描述用戶利用行動電話手機進行購物與交易，符合 ('user', 'uses', 'system') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "用戶 (user) 是 'user' 的合理實例，行動電話 (system) 是 'system' 的合理實例，'uses' 是描述用戶與系統之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體是用戶，關係是uses，受體是行動電話，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '用戶' 與 Ldr 中的 '用戶' 完全等價同義詞，受體 '行動電話' 與 Ldr 中的 '行動電話' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "用戶",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "行動電話",
+        "type": "system"
+      },
+      "reasoning": "文本描述用戶利用行動電話手機進行購物與交易，符合 ('user', 'uses', 'system') 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "八達通",
+      "type": "tool",
+      "display_name": "八達通"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "餘額資訊",
+      "type": "data",
+      "display_name": "餘額資訊"
+    },
+    "reasoning": "文本指出收費器會顯示餘額資訊，這屬於系統運作產出的資料，符合 ('system', 'generates', 'data') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "八達通是一個合理的系統實例，餘額資訊是一種合理的數據實例，'generates' 關係在資安領域中是合理的，表示系統可以產生或更新餘額資訊。",
+        "response": "correct",
+        "reason": "八達通作為一個系統，可以生成餘額資訊，這符合資安領域的常見邏輯和定義。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為八達通不具有攻擊者或安全團隊的身分。規則2不適用，因為generates不是mitigates。規則3不適用，因為八達通不是漏洞。規則4不適用，因為八達通不是資安原則。規則5不適用，因為uses不是關係。規則6不適用，因為deployed_in不是關係。規則7適用，八達通生成餘額資訊，且餘額資訊是data，符合規則。規則8不適用，因為controls不是關係。",
+        "response": "correct",
+        "reason": "八達通生成餘額資訊，符合規則7的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "八達通為工具類別，與現有近似資源清單中的八達通完全匹配，餘額資訊不在同義詞對照範例中，且無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與Ldr中某資源的name字串完全相同，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "八達通",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "餘額資訊",
+        "type": "data"
+      },
+      "reasoning": "文本指出收費器會顯示餘額資訊，這屬於系統運作產出的資料，符合 ('system', 'generates', 'data') 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "行動電話",
+      "type": "system",
+      "display_name": "行動電話"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "電信網路",
+      "type": "system",
+      "display_name": "電信網路"
+    },
+    "reasoning": "文本提到透過電信網路，用戶可獲得服務，且行動電話需連線至網路，符合 ('system', 'connects_to', 'system') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "行動電話和電信網路都是系統（system）的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "行動電話和電信網路的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 connects_to，不是 deployed_in。規則7：不適用，因為關係為 connects_to，不是 generates。規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（行動電話）和受體（電信網路）之間的關係（connects_to）沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "行動電話與行動通訊、行動通訊系統等存在相似性，但無完全等價同義詞關係，且行動電話是行動通訊系統的一部分，因此屬於廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，行動電話與行動通訊系統之間的關係不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "行動電話",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "電信網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到透過電信網路，用戶可獲得服務，且行動電話需連線至網路，符合 ('system', 'connects_to', 'system') 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "磁條卡",
+      "type": "feature",
+      "display_name": "磁條卡"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "偽造弱點"
+    },
+    "reasoning": "文本指出磁條卡「易於偽造」，這代表磁條卡的物理特徵暴露了可被偽造的漏洞，符合 ('feature', 'can_expose', 'vulnerability') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '磁條卡' 是 'feature' 的合理實例，'偽造弱點' 是 'vulnerability' 的合理實例，關係 'can_expose' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但允許 'can_expose' 動作。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '磁條卡' 類別為 'feature'，與規則3中提到的 'vulnerability' 不符，且 'can_expose' 動作在規則3中被明確允許，因此不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資源 '弱點' 是同義詞，兩者均指 'vulnerability'，因此是完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，'偽造弱點' 與 '弱點' 均指 'vulnerability'，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "磁條卡",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "偽造弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出磁條卡「易於偽造」，這代表磁條卡的物理特徵暴露了可被偽造的漏洞，符合 ('feature', 'can_expose', 'vulnerability') 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "偽造弱點",
+      "type": "vulnerability",
+      "display_name": "偽造弱點"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "冒用風險",
+      "type": "risk",
+      "display_name": "冒用風險"
+    },
+    "reasoning": "文本將「卡片被偷竊或遺失，遭人冒用」與「易於偽造」並列，說明漏洞會導致冒用的風險，符合 ('vulnerability', 'can_expose', 'risk') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "偽造弱點 (vulnerability) 可以合理地與 'can_expose' 關係連接到冒用風險 (risk)，因為偽造弱點可能會暴露冒用風險。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許，未觸發其他規則的違規條件。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體分別與 Ldr 中的「弱點」和「風險」具有高相似度，但根據同義詞對照範例，「弱點」是「漏洞」或「脆弱性」的同義詞，與「風險」無直接同義關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體和受體不具有直接同義關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "偽造弱點",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "冒用風險",
+        "type": "risk"
+      },
+      "reasoning": "文本將「卡片被偷竊或遺失，遭人冒用」與「易於偽造」並列，說明漏洞會導致冒用的風險，符合 ('vulnerability', 'can_expose', 'risk') 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "偽裝攻擊 (masquerade)",
+      "type": "attack",
+      "display_name": "偽造攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "持卡人資料",
+      "type": "data",
+      "display_name": "持卡人資料"
+    },
+    "reasoning": "文本提到以不當途徑取得持卡人資料來製作偽造卡片，這是一種對資料完整性與機密性的侵害，符合 ('attack', 'can_harm', 'data') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "偽造攻擊 (attack) 是攻擊類別的合理實例，持卡人資料 (data) 是資料類別的合理實例，且 'can_harm' 是描述攻擊對資料可能造成傷害的合理關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是攻擊（attack），不是資料（data）。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係不是控制（controls）。",
+        "response": "correct",
+        "reason": "三元組（偽造攻擊 can_harm 持卡人資料）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "偽造攻擊與現有近似資源清單中的「偽裝攻擊 (masquerade)」具有相似的概念，但非完全等價同義詞；然而，「偽造攻擊」與「偽裝攻擊」在資安領域中可視為同一概念的不同表達方式，因此可判定為同義詞重複。",
+        "response": "duplicate",
+        "standard_subject": "偽裝攻擊 (masquerade)",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例與教材中可互換使用的概念，判定「偽造攻擊」與「偽裝攻擊」為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "偽造攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "持卡人資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到以不當途徑取得持卡人資料來製作偽造卡片，這是一種對資料完整性與機密性的侵害，符合 ('attack', 'can_harm', 'data') 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "晶片式信用卡",
+      "type": "tool",
+      "display_name": "晶片式信用卡"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "行動電話",
+      "type": "system",
+      "display_name": "行動電話"
+    },
+    "reasoning": "文本提到「將晶片式信用卡插入手機匣口」，描述了工具被放置/部署於特定系統中，符合 ('tool', 'deployed_in', 'system') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "晶片式信用卡是 'tool' 的合理實例，行動電話是 'system' 的合理實例，且 'deployed_in' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "晶片式信用卡作為工具部署在行動電話系統上，完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組的受體是行動電話，屬於系統類別，符合規則6的要求。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的晶片式信用卡作為工具，部署於行動電話這個系統，符合規則6的要求，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "晶片式信用卡與八達通、ic卡皆屬工具或系統類別，但無直接同義詞關係，且晶片式信用卡與行動電話無直接從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無同義詞關係，且無廣義/狹義從屬關係，依據規則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "晶片式信用卡",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "行動電話",
+        "type": "system"
+      },
+      "reasoning": "文本提到「將晶片式信用卡插入手機匣口」，描述了工具被放置/部署於特定系統中，符合 ('tool', 'deployed_in', 'system') 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 10
+    }
+  }
+]

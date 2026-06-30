@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "資料外洩",
+      "type": "risk",
+      "display_name": "資料外洩"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "組織",
+      "type": "system",
+      "display_name": "組織"
+    },
+    "reasoning": "文本提到『資料外洩可能造成個人與組織之困擾』，將資料外洩視為一種攻擊事件(attack)，其對組織(system)造成損害，符合 attack can_harm system。",
+    "source_id": "chunk_86",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資料外洩 (Data Breach) 是 'attack' 的合理實例，組織 (Organization) 是 'system' 的合理實例，'can_harm' 的語意也合理地描述了攻擊對系統的影響。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為 '資料外洩'，類別為 'risk'，與 'can_harm' 關係和 '組織' 受體之間的關係，未直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中，'資料外洩' 作為 'risk' 類別，與 'can_harm' 關係和 '組織' 受體之間的關係，未直接違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"資料外洩\" 與 Ldr 中的 \"資料外洩\" 完全等價同義詞，受體 \"組織\" 與 Ldr 中的 \"組織\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料外洩",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "組織",
+        "type": "system"
+      },
+      "reasoning": "文本提到『資料外洩可能造成個人與組織之困擾』，將資料外洩視為一種攻擊事件(attack)，其對組織(system)造成損害，符合 attack can_harm system。",
+      "source_id": "chunk_86",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "紙本類資訊資產保護原則",
+      "type": "policy",
+      "display_name": "紙本類資訊資產保護原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "保護原則屬於 policy，其目的在於降低或防止個資外洩等風險(risk)，符合 policy mitigates risk。",
+    "source_id": "chunk_86",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "紙本類資訊資產保護原則 可被視為 policy 的實例，個資外洩 可被視為 risk 的實例，且 'mitigates' 的語意與資安領域的常見用法相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是紙本類資訊資產保護原則，類別為 policy，符合規則2的允許條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體紙本類資訊資產保護原則是 policy 類別，符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩是資訊外洩的子類型，兩者之間存在狹義關係，但根據規則3，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則3，個資外洩是資訊外洩的子類型，兩者之間存在狹義關係，因此判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "紙本類資訊資產保護原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "保護原則屬於 policy，其目的在於降低或防止個資外洩等風險(risk)，符合 policy mitigates risk。",
+      "source_id": "chunk_86",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "軟體掃描工具",
+      "type": "tool",
+      "display_name": "軟體掃描工具"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "軟體類資產",
+      "type": "app",
+      "display_name": "軟體類資產"
+    },
+    "reasoning": "文本提到『軟體類資產之盤點可藉由軟體掃描工具來輔助執行』，盤點行為在本體論中對應為工具分析應用程式，符合 tool can_analyze app。",
+    "source_id": "chunk_86",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'app' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "軟體掃描工具是 tool 的合理實例，軟體類資產是 app 的合理實例，'can_analyze' 的語意與資安領域常見的工具分析軟體類資產的能力相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係是can_analyze，而不是mitigates。規則3不適用，因為主體的類別是tool，而不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls，但主體的類別是tool，符合規則8的描述，但不直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "軟體掃描工具與掃描工具、軟體工具、漏洞掃描工具等存在語義相似性，但非完全等價同義詞；軟體類資產與軟體資產存在高相似度，可能為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，軟體掃描工具與現有近似資源清單中的工具存在語義相似性，但非完全等價同義詞，且軟體類資產與軟體資產可能為同義詞，但無法確認完全等價，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "軟體掃描工具",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "軟體類資產",
+        "type": "app"
+      },
+      "reasoning": "文本提到『軟體類資產之盤點可藉由軟體掃描工具來輔助執行』，盤點行為在本體論中對應為工具分析應用程式，符合 tool can_analyze app。",
+      "source_id": "chunk_86",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "軟體掃描工具",
+      "type": "tool",
+      "display_name": "軟體掃描工具"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "硬體類資產",
+      "type": "system",
+      "display_name": "硬體類資產"
+    },
+    "reasoning": "文本提到『硬體類資產之盤點可藉由軟體掃描工具來輔助執行』，硬體資產視為 system，符合 tool can_analyze system。",
+    "source_id": "chunk_86",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "軟體掃描工具 (tool) 與 硬體類資產 (system) 的名稱與其類別合理對齊，軟體掃描工具可以分析硬體類資產的安全性，因此 'can_analyze' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "軟體掃描工具與硬體類資產的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需注意 'can_analyze' 關係下，主體 'tool' 的類別是否合適。根據給定的三元組，'tool' 可以 'can_analyze' 'system'，這在給定的規則中沒有明確的限制或違反。",
+        "response": "correct",
+        "reason": "三元組中的主體 '軟體掃描工具' (tool) 與關係 'can_analyze' 和受體 '硬體類資產' (system) 的組合，在提供的語義限制清單中沒有明確的違反規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似資源，但主體為完全等價同義詞，受體為廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "軟體掃描工具",
+        "standard_object": "",
+        "reason": "主體為完全等價同義詞，受體無完全匹配同義詞，依據判斷準則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "軟體掃描工具",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "硬體類資產",
+        "type": "system"
+      },
+      "reasoning": "文本提到『硬體類資產之盤點可藉由軟體掃描工具來輔助執行』，硬體資產視為 system，符合 tool can_analyze system。",
+      "source_id": "chunk_86",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "檔案搜尋工具",
+      "type": "tool",
+      "display_name": "檔案搜尋工具"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊類資產",
+      "type": "data",
+      "display_name": "資訊類資產"
+    },
+    "reasoning": "文本提到『資訊類資產之盤點可藉由檔案搜尋工具來輔助執行』，資訊資產視為 data，符合 tool can_analyze data。",
+    "source_id": "chunk_86",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "檔案搜尋工具是 tool 的合理實例，資訊類資產是 data 的合理實例，'can_analyze' 關係在資安領域中合理適用於檔案搜尋工具與資訊類資產之間。",
+        "response": "correct",
+        "reason": "檔案搜尋工具與資訊類資產的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但可以分析 (can_analyze) 是 tool 的合法動作。",
+        "response": "correct",
+        "reason": "三元組中的主體是檔案搜尋工具（tool），可以執行分析（can_analyze）動作，且受體是資訊類資產（data），符合語義限制清單中沒有明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 '資訊類資產' 與 Ldr 中的 '資料資產' 關係為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，'資訊類資產' 與 '資料資產' 可視為同一概念，但根據【廣義/狹義一律保留】原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "檔案搜尋工具",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊類資產",
+        "type": "data"
+      },
+      "reasoning": "文本提到『資訊類資產之盤點可藉由檔案搜尋工具來輔助執行』，資訊資產視為 data，符合 tool can_analyze data。",
+      "source_id": "chunk_86",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  }
+]

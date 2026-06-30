@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "提權",
+      "type": "attack",
+      "display_name": "提權"
+    },
+    "reasoning": "提權（Privilege Escalation）是一種獲取更高權限的方法，屬於攻擊技術。攻擊者使用此技術來提升權限，因此選擇 attacker -> uses -> technique。",
+    "source_id": "chunk_52",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 使用提權 (technique) 的情境是合理的，'attacker' 是 'attacker' 類別的實例，'technique' 是 'technique' 類別的實例。",
+        "response": "correct",
+        "reason": "攻擊者使用提權的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有安全團隊(securityTeam)的身分。規則2：不適用，因為三元組中的動作是uses，不是mitigates。規則3：不適用，因為主體類別是attacker，不是vulnerability。規則4：不適用，因為關係是uses，不是violates。規則5：觸發違規，因為主體的類別是attacker，使用uses關係。規則6、7、8：不適用，因為三元組中的關係是uses，不是deployed_in、generates或controls。",
+        "response": "violation",
+        "reason": "三元組中的主體是attacker，使用uses關係，觸發規則5的違規條件。因此，該三元組違反了語義限制清單中的規則5。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組中的主體是attacker，使用uses關係，觸發規則5的違規條件。因此，該三元組違反了語義限制清單中的規則5。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "提權",
+        "type": "technique"
+      },
+      "reasoning": "提權（Privilege Escalation）是一種獲取更高權限的方法，屬於攻擊技術。攻擊者使用此技術來提升權限，因此選擇 attacker -> uses -> technique。",
+      "source_id": "chunk_52",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  }
+]

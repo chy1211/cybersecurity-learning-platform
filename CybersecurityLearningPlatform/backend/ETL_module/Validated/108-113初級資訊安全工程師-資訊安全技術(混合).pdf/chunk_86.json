@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "directory traversal",
+      "type": "attack",
+      "display_name": "Directory Traversal"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "/etc/passwd",
+      "type": "data",
+      "display_name": "/etc/passwd"
+    },
+    "reasoning": "文本提到 %2F..%2Fetc%2Fpasswd 是 Directory Traversal 攻擊的特徵，此攻擊旨在非法讀取系統敏感檔案（如 /etc/passwd），因此將其定義為 attack 對 data 的 can_harm。",
+    "source_id": "chunk_86",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Directory Traversal 是 'attack' 的合理實例，/etc/passwd 是 'data' 的合理實例，'can_harm' 的語意也與攻擊對資料的危害相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 attack，而非 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查完成，無明確違反規則。",
+        "response": "correct",
+        "reason": "三元組中的主體是 Directory Traversal，關係是 can_harm，受體是 /etc/passwd，經過檢查，未發現明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 /etc/passwd 與 Ldr 中的資源 /etc/passwd 完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "/etc/passwd",
+        "reason": "受體 /etc/passwd 與 Ldr 中的資源 /etc/passwd 完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Directory Traversal",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "/etc/passwd",
+        "type": "data"
+      },
+      "reasoning": "文本提到 %2F..%2Fetc%2Fpasswd 是 Directory Traversal 攻擊的特徵，此攻擊旨在非法讀取系統敏感檔案（如 /etc/passwd），因此將其定義為 attack 對 data 的 can_harm。",
+      "source_id": "chunk_86",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "mimikatz",
+      "type": "tool",
+      "display_name": "mimikatz"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "帳號與密碼",
+      "type": "data",
+      "display_name": "帳號密碼"
+    },
+    "reasoning": "文本指出 mimikatz 可以傾倒（dump）記憶體中的帳號密碼，這是一種對記憶體資料的分析與提取行為，符合 tool can_analyze data 的定義。",
+    "source_id": "chunk_86",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "mimikatz 是一種工具（tool），可以分析帳號密碼（data），這符合資安領域的常見實踐和語意對齊。",
+        "response": "correct",
+        "reason": "mimikatz 的類別和關係與 Lc,p 的定義相符，且語意上合理，符合資安領域的實踐。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需要注意的是，'can_analyze' 關係中，主體 'mimikatz' 的類別是 'tool'，這符合一般工具可以進行分析的邏輯，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中，'mimikatz' 作為工具，可以分析帳號密碼，沒有違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 '帳號密碼' 與 Ldr 中的 '帳號與密碼' 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "帳號與密碼",
+        "reason": "根據同義詞判定，'帳號密碼' 與 '帳號與密碼' 指稱同一概念，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "mimikatz",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "帳號密碼",
+        "type": "data"
+      },
+      "reasoning": "文本指出 mimikatz 可以傾倒（dump）記憶體中的帳號密碼，這是一種對記憶體資料的分析與提取行為，符合 tool can_analyze data 的定義。",
+      "source_id": "chunk_86",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "penetration testing",
+      "type": "technique",
+      "display_name": "Penetration Testing"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "reasoning": "文本將 Penetration Testing 列為評估應用程式安全性的檢測方法，這是一種分析應用程式漏洞的技術，符合 technique can_analyze app。",
+    "source_id": "chunk_86",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'app' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Penetration Testing 是 'technique' 的合理實例，'can_analyze' 關係適用於 'technique' 對 'app' 的分析，且 'app' 是 'app' 類別的合理實例。",
+        "response": "correct",
+        "reason": "Penetration Testing、'can_analyze' 關係與 'app' 三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_analyze' 不在任何規則中被明確限制，且主體 'Penetration Testing' 的類別 'technique' 沒有被任何規則直接限制與 'can_analyze' 的組合。",
+        "response": "correct",
+        "reason": "三元組中的主體 'Penetration Testing' 與關係 'can_analyze'、受體 '應用程式' 的組合沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Penetration Testing) 與近似資源清單中的 '滲透測試' 關係為完全等價同義詞，受體 (應用程式) 與近似資源清單中的 '應用程式' 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，Penetration Testing 與 '滲透測試' 為同義詞，應用程式為完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Penetration Testing",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "reasoning": "文本將 Penetration Testing 列為評估應用程式安全性的檢測方法，這是一種分析應用程式漏洞的技術，符合 technique can_analyze app。",
+      "source_id": "chunk_86",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資料庫稽核",
+      "type": "technique",
+      "display_name": "資料庫稽核"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "異常存取資安事件",
+      "type": "attack",
+      "display_name": "異常存取資安事件"
+    },
+    "reasoning": "文本提到資料庫稽核可用於「及時發現」異常存取資安事件，因此將資料庫稽核視為一種功能 (function)，其關係為 can_detect attack。",
+    "source_id": "chunk_86",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資料庫稽核 (function) 可以檢測異常存取資安事件 (attack)，這符合資安領域的常見實踐和語意對齊，同義詞寬容原則也支持這種關聯。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，語意對齊且同義詞寬容原則也得到滿足。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'can_detect' 不在任何規則中被明確限制，且主體 '資料庫稽核' 的類別 'technique' 與受體 '異常存取資安事件' 的類別 'attack' 之間的關係 'can_detect' 在給定的規則中沒有被明確禁止。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_detect' 與主體、受體的類別組合在給定的語義限制清單中沒有被明確禁止或限制，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「資料庫稽核」與 Ldr 中的「資料庫稽核」完全相同，受體「異常存取資安事件」與 Ldr 中的「異常存取資安事件」完全相同，兩者皆無需標準化。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源完全相同，無需進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料庫稽核",
+        "type": "function"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "異常存取資安事件",
+        "type": "attack"
+      },
+      "reasoning": "文本提到資料庫稽核可用於「及時發現」異常存取資安事件，因此將資料庫稽核視為一種功能 (function)，其關係為 can_detect attack。",
+      "source_id": "chunk_86",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "threat modeling",
+      "type": "technique",
+      "display_name": "Threat Modeling"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "reasoning": "文本將 Threat Modeling 列為評估應用程式安全性的檢測方法，這是一種分析應用程式潛在威脅的技術，符合 technique can_analyze app。",
+    "source_id": "chunk_86",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'app' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Threat Modeling 是 technique 的合理實例，'應用程式' 是 app 的合理實例，'can_analyze' 是合理的關係。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的主體是'Threat Modeling'，是一種技術（technique），而關係是'can_analyze'，受體是'應用程式'（app），這些元素在給定的規則中沒有明確的違反條件。",
+        "response": "correct",
+        "reason": "三元組中的元素組合沒有明確違反語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Threat Modeling 與 '威脅建模' 是完全等價同義詞，且 '應用程式' 在 Ldr 中出現過，與 'app' 類別相關，但主體與受體之間的關係不直接涉及同義詞重複或廣義/狹義從屬。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體不涉及同義詞重複或廣義/狹義從屬，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Threat Modeling",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "reasoning": "文本將 Threat Modeling 列為評估應用程式安全性的檢測方法，這是一種分析應用程式潛在威脅的技術，符合 technique can_analyze app。",
+      "source_id": "chunk_86",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "source code review",
+      "type": "technique",
+      "display_name": "Source Code Review"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "reasoning": "文本將 Source Code Review 列為評估應用程式安全性的檢測方法，這是一種透過分析程式碼來分析應用程式的技術，符合 technique can_analyze app。",
+    "source_id": "chunk_86",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'app' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Source Code Review 是一種 'technique'，而 'technique' 的名稱與其類別合理對齊；'應用程式' 是 'app' 的合理實例，同義詞寬容原則下接受 'app' 的翻譯。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的主體是 Source Code Review，類別是 technique，關係是 can_analyze，受體是應用程式，類別是 app，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組不違反語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Source Code Review) 與 Ldr 中的 '程式碼檢測' 關係為同義詞，受體 (應用程式) 與 Ldr 中的 '應用程式' 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆非同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Source Code Review",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "reasoning": "文本將 Source Code Review 列為評估應用程式安全性的檢測方法，這是一種透過分析程式碼來分析應用程式的技術，符合 technique can_analyze app。",
+      "source_id": "chunk_86",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資料庫聚合",
+      "type": "attack",
+      "display_name": "資料庫聚合"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "機密資訊",
+      "type": "data",
+      "display_name": "機密資訊"
+    },
+    "reasoning": "文本描述資料庫聚合（Database Aggregation）是指透過連結數筆不具機密性的資料而獲得機密資訊，這是一種惡意獲取資料的攻擊行為，符合 attack can_harm data。",
+    "source_id": "chunk_86",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '資料庫聚合' 的類別 'attack' 合理對齊，因為資料庫聚合可能是一種攻擊手法；實體 '機密資訊' 的類別 'data' 也合理對齊，因為機密資訊是一種資料。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是資料庫聚合（attack），關係是can_harm，受體是機密資訊（data），不涉及控制關係。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "機密資訊與 Ldr 中的資源有完全等價同義詞關係，例如「機密資訊」與「機密資料」",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若一個實體是另一個的子類型或無法確定，預設保留，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料庫聚合",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "機密資訊",
+        "type": "data"
+      },
+      "reasoning": "文本描述資料庫聚合（Database Aggregation）是指透過連結數筆不具機密性的資料而獲得機密資訊，這是一種惡意獲取資料的攻擊行為，符合 attack can_harm data。",
+      "source_id": "chunk_86",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料庫",
+      "type": "app",
+      "display_name": "資料庫"
+    },
+    "reasoning": "文本提到資安人員有責任確保資料庫的安全，這包含對資料庫進行安全分析與監控，符合 securityTeam can_analyze app。",
+    "source_id": "chunk_86",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'app' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 可以分析資料庫 (app) 的資料，'can_analyze' 關係在此語境下合理，且 'securityTeam' 和 'app' 的名稱與其類別對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為 securityTeam，具有主動執行能力，符合 controls 的主體條件，但此三元組的關係為 can_analyze，不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安人員）和關係（can_analyze）以及受體（資料庫）之間的關係沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全匹配的資源名稱，分別為「資安人員」與「資料庫」",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與現有近似資源清單中某些資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資料庫",
+        "type": "app"
+      },
+      "reasoning": "文本提到資安人員有責任確保資料庫的安全，這包含對資料庫進行安全分析與監控，符合 securityTeam can_analyze app。",
+      "source_id": "chunk_86",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  }
+]

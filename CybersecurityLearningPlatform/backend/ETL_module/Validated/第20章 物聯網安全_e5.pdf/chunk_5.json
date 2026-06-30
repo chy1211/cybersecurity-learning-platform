@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "雲端介面",
+      "type": "app",
+      "display_name": "雲端介面"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "物聯網架構",
+      "type": "system",
+      "display_name": "物聯網架構"
+    },
+    "reasoning": "文本提到『物聯網架構與十大弱點風險』以及『檢查雲端介面是否存在安全漏洞』，顯示雲端介面是物聯網系統中的一個應用組件。",
+    "source_id": "chunk_5",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雲端介面是 'app' 的合理實例，物聯網架構是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "雲端介面作為 'app' 部署在物聯網架構的 'system' 上，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，主體為 app，關係為 deployed_in，受體為 system，無違反任何規則。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，且無其他規則被違反，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端介面與 Ldr 中的「雲端介面」完全相同，物聯網架構與 Ldr 中的「物聯網架構」完全相同，且無同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端介面",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "物聯網架構",
+        "type": "system"
+      },
+      "reasoning": "文本提到『物聯網架構與十大弱點風險』以及『檢查雲端介面是否存在安全漏洞』，顯示雲端介面是物聯網系統中的一個應用組件。",
+      "source_id": "chunk_5",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端介面",
+      "type": "app",
+      "display_name": "雲端介面"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "xss 缺陷",
+      "type": "vulnerability",
+      "display_name": "XSS 漏洞"
+    },
+    "reasoning": "文本明確指出網路管理者應檢查雲端介面是否能通過 XSS 等漏洞測試，表示該應用程式可能暴露此漏洞。",
+    "source_id": "chunk_5",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雲端介面 (app) 可能暴露 XSS 漏洞 (vulnerability) 的情況下，'can_expose' 關係在語意上是合理的，因為雲端介面可能會暴露安全漏洞，如 XSS。",
+        "response": "correct",
+        "reason": "雲端介面與 XSS 漏洞之間的 'can_expose' 關係符合預先定義的類別與屬性清單，且語意上是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 XSS 漏洞 與 Ldr 中的 xss 缺陷、xss 均指同一概念，且漏洞是資安領域已知同義詞對照範例中的弱點、脆弱性",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "xss 缺陷",
+        "reason": "根據資安領域已知同義詞對照範例，XSS 漏洞與 xss 缺陷是同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端介面",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "XSS 漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確指出網路管理者應檢查雲端介面是否能通過 XSS 等漏洞測試，表示該應用程式可能暴露此漏洞。",
+      "source_id": "chunk_5",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端介面",
+      "type": "app",
+      "display_name": "雲端介面"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "sql injection 漏洞",
+      "type": "vulnerability",
+      "display_name": "SQL injection 漏洞"
+    },
+    "reasoning": "文本提到檢查雲端介面是否能通過 SQL injection 漏洞測試，表示該應用程式可能暴露此漏洞。",
+    "source_id": "chunk_5",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雲端介面 (app) 可能暴露 SQL injection 漏洞 (vulnerability) 的情況下，'can_expose' 關係是合理的，且實體名稱與其類別對齊。",
+        "response": "correct",
+        "reason": "雲端介面與 SQL injection 漏洞之間的 'can_expose' 關係符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3適用，但三元組中的can_expose動作是對漏洞的特例允許。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的can_expose動作是對漏洞的特例允許，符合規則3的特例條件。因此，三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 SQL injection 漏洞 與 Ldr 中的漏洞、安全漏洞、程式漏洞、竄改漏洞 等均屬於同一類別 vulnerability，但 SQL injection 漏洞 是漏洞的子類型，且與 Ldr 中的資源不完全相同，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，SQL injection 漏洞 是漏洞的子類型，因此不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端介面",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "SQL injection 漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到檢查雲端介面是否能通過 SQL injection 漏洞測試，表示該應用程式可能暴露此漏洞。",
+      "source_id": "chunk_5",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端介面",
+      "type": "app",
+      "display_name": "雲端介面"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "csrf",
+      "type": "vulnerability",
+      "display_name": "CSRF 漏洞"
+    },
+    "reasoning": "文本提到檢查雲端介面是否能通過 CSRF 漏洞測試，表示該應用程式可能暴露此漏洞。",
+    "source_id": "chunk_5",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雲端介面 (app) 可能暴露 CSRF 漏洞 (vulnerability) 的情境是合理的，'can_expose' 關係在此語境下也是適當的。",
+        "response": "correct",
+        "reason": "雲端介面與 CSRF 漏洞之間的 'can_expose' 關係在資安領域中是合理且語意對齊的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 CSRF 漏洞與 Ldr 中的資源 'csrf' 名稱相似，且 'CSRF 漏洞' 可視為 'csrf' 的中文全稱，兩者指涉相同的資安概念。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "csrf",
+        "reason": "根據同義詞判定，CSRF 漏洞與 csrf 指涉相同的資安概念，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端介面",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "CSRF 漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到檢查雲端介面是否能通過 CSRF 漏洞測試，表示該應用程式可能暴露此漏洞。",
+      "source_id": "chunk_5",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "跨站腳本攻擊 (xss)",
+      "type": "attack",
+      "display_name": "跨站腳本攻擊 (XSS)"
+    },
+    "reasoning": "文本描述 XSS 是一種攻擊方法，且攻擊者利用漏洞注入惡意指令，因此攻擊者實作此攻擊。",
+    "source_id": "chunk_5",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 實施 (implements) 跨站腳本攻擊 (XSS) 是語意上合理的，攻擊者是一個實體，跨站腳本攻擊是一種攻擊手法，實施關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "攻擊者實施跨站腳本攻擊的三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：未違反，因為三元組中沒有同時具有攻擊者與安全團隊的身分。檢查規則2：不適用，因為動作是 implements 而非 mitigates。檢查規則3：不適用，因為主體類別為 attacker 而非 vulnerability。檢查規則4：不適用，因為關係為 implements 而非 violates。檢查規則5：不適用，因為關係為 implements 而非 uses。檢查規則6：不適用，因為關係為 implements 而非 deployed_in。檢查規則7：不適用，因為關係為 implements 而非 generates。檢查規則8：不適用，因為關係為 implements 而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的攻擊者實施跨站腳本攻擊，符合實體之間的合理關係，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源存在於 Ldr 中，但需進一步判定同義詞關係與子類型關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然有相似的資源，但根據廣義/狹義一律保留的原則，攻擊者與跨站腳本攻擊之間的關係不構成同義詞或子類型關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "跨站腳本攻擊 (XSS)",
+        "type": "attack"
+      },
+      "reasoning": "文本描述 XSS 是一種攻擊方法，且攻擊者利用漏洞注入惡意指令，因此攻擊者實作此攻擊。",
+      "source_id": "chunk_5",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "xss 攻擊腳本",
+      "type": "tool",
+      "display_name": "XSS 攻擊腳本"
+    },
+    "reasoning": "文本流程圖第一步提到『攻擊者貼上 XSS 攻擊腳本』，腳本在此作為執行攻擊的工具。",
+    "source_id": "chunk_5",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 使用 XSS 攻擊腳本 (tool) 是語意上合理的，'attacker' 和 'tool' 的名稱與其類別對齊，且 'XSS 攻擊腳本' 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者與安全團隊的身分。規則2：不適用，因為主體為攻擊者，不是policy、technique或tool。規則3：不適用，因為主體類別不是vulnerability。規則4：不適用，因為關係不是violates，且主體不是principle。規則5：觸發，因為關係為uses，且主體的類別是攻擊者，而不是data。規則6、7、8：不適用，因為關係不匹配。",
+        "response": "correct",
+        "reason": "雖然規則5提到當關係為uses時，如果主體的類別是data則為違反，但在這個三元組中，主體是攻擊者，使用XSS攻擊腳本，沒有違反規則5的內容。因此，根據無罪推定原則，該三元組不被判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "XSS 攻擊腳本",
+        "type": "tool"
+      },
+      "reasoning": "文本流程圖第一步提到『攻擊者貼上 XSS 攻擊腳本』，腳本在此作為執行攻擊的工具。",
+      "source_id": "chunk_5",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "跨站腳本攻擊 (xss)",
+      "type": "attack",
+      "display_name": "跨站腳本攻擊 (XSS)"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "重要資訊",
+      "type": "data",
+      "display_name": "重要資訊"
+    },
+    "reasoning": "文本流程圖第五步提到『將受害者重要的資訊傳送給攻擊者』，說明此攻擊會危害/竊取資料。",
+    "source_id": "chunk_5",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "跨站腳本攻擊 (XSS) 是 'attack' 的合理實例，重要資訊是 'data' 的合理實例，'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（跨站腳本攻擊）與受體（重要資訊）之間的關係（can_harm）在給定的語義限制清單中沒有被明確禁止或限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "跨站腳本攻擊 (XSS) 與 Ldr 中的 \"跨站腳本攻擊 (xss)\" 完全等價同義詞，重要資訊與 Ldr 中的 \"重要資訊\" 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，實體名稱與 Ldr 中某資源的 name 字串完全相同或為同義詞，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "跨站腳本攻擊 (XSS)",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "重要資訊",
+        "type": "data"
+      },
+      "reasoning": "文本流程圖第五步提到『將受害者重要的資訊傳送給攻擊者』，說明此攻擊會危害/竊取資料。",
+      "source_id": "chunk_5",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "不充足的驗證與授權",
+      "type": "vulnerability",
+      "display_name": "充足的驗證與授權不足"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全風險",
+      "type": "risk",
+      "display_name": "安全風險"
+    },
+    "reasoning": "文本將『充足的驗證與授權不足』列為『十大弱點風險』之一，漏洞會導致風險暴露。",
+    "source_id": "chunk_5",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "主體 '充足的驗證與授權不足' 是 'vulnerability' 的合理實例，受體 '安全風險' 是 'risk' 的合理實例，關係 'can_expose' 合理地連接了主體與受體。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許，未發現其他明確違反的規則。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，且無其他明確違反的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"充足的驗證與授權不足\" 與 Ldr 中的 \"不充足的驗證與授權\" 關係為同義詞，受體 \"安全風險\" 與 Ldr 中的 \"安全風險\" 關係為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "不充足的驗證與授權",
+        "standard_object": "安全風險",
+        "reason": "根據同義詞判定準則，主體與 Ldr 中的資源為同義詞，受體與 Ldr 中的資源為完全等價同義詞，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "充足的驗證與授權不足",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全風險",
+        "type": "risk"
+      },
+      "reasoning": "文本將『充足的驗證與授權不足』列為『十大弱點風險』之一，漏洞會導致風險暴露。",
+      "source_id": "chunk_5",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "不安全的網路服務",
+      "type": "vulnerability",
+      "display_name": "不安全的網路服務"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全風險",
+      "type": "risk",
+      "display_name": "安全風險"
+    },
+    "reasoning": "文本將『不安全的網路服務』列為『十大弱點風險』之一，漏洞會導致風險暴露。",
+    "source_id": "chunk_5",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "不安全的網路服務是 vulnerability 的合理實例，安全風險是 risk 的合理實例，'can_expose' 關係在資安領域中合理適用於描述漏洞可能暴露風險。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許，因此不觸發違規。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，主體為vulnerability，關係為can_expose，受體為安全風險，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "不安全的網路服務與安全風險之間的關係是風險與漏洞的對應關係，兩者皆屬於資安領域的基本概念，但不完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體在資安教材中可指稱不同的概念，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "不安全的網路服務",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全風險",
+        "type": "risk"
+      },
+      "reasoning": "文本將『不安全的網路服務』列為『十大弱點風險』之一，漏洞會導致風險暴露。",
+      "source_id": "chunk_5",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "一般使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "網頁",
+      "type": "app",
+      "display_name": "網頁介面"
+    },
+    "reasoning": "文本提到『一般使用者瀏覽網頁時』，表示使用者在使用網頁應用程式。",
+    "source_id": "chunk_5",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "一般使用者 (user) 與 網頁介面 (app) 的名稱與其被賦予的類別合理對齊，且 'uses' 關係在資安領域中是合理的，表示使用者使用應用程式。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體類別是user，使用網頁介面是合法的。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（一般使用者）使用網頁介面（app）是合法的，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"一般使用者\" 與 Ldr 中的 \"使用者\" 和 \"用戶\" 皆為同義詞，受體 \"網頁介面\" 與 Ldr 中的 \"網頁\" 和 \"網站\" 皆為同義詞，但 \"網頁介面\" 更接近 \"網頁\" 的概念。",
+        "response": "correct",
+        "standard_subject": "使用者",
+        "standard_object": "網頁",
+        "reason": "根據同義詞判定，主體和受體皆有相近的同義詞，但 \"網頁介面\" 與 \"網頁\" 的關係更為接近，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "一般使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "網頁介面",
+        "type": "app"
+      },
+      "reasoning": "文本提到『一般使用者瀏覽網頁時』，表示使用者在使用網頁應用程式。",
+      "source_id": "chunk_5",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

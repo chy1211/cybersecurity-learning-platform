@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "屬性加密 (abe)",
+      "type": "tool",
+      "display_name": "屬性加密 (ABE)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未授權存取",
+      "type": "attack",
+      "display_name": "非授權存取"
+    },
+    "reasoning": "文本提到 ABE 是為了確保只有被授權者才可以存取資料，這是一種防止非授權存取攻擊的技術，符合 (technique, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "屬性加密 (ABE) 是一種合理的 'technique' 實例，非授權存取是一種合理的 'attack' 實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的屬性加密 (ABE) 屬於 tool 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的屬性加密 (ABE) 屬於 tool 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"非授權存取\" 與 Ldr 中的 \"未授權存取\" 和 \"未經授權存取\" 皆指同一概念，屬於同義詞重複；主體 \"屬性加密 (ABE)\" 與 Ldr 中的 \"屬性加密 (abe)\" 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "屬性加密 (abe)",
+        "standard_object": "未授權存取",
+        "reason": "根據同義詞判定準則，主體和受體皆可被判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "屬性加密 (ABE)",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "非授權存取",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 ABE 是為了確保只有被授權者才可以存取資料，這是一種防止非授權存取攻擊的技術，符合 (technique, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "細粒度存取控制",
+      "type": "technique",
+      "display_name": "細粒度存取控制"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "非授權存取",
+      "type": "attack",
+      "display_name": "非授權存取"
+    },
+    "reasoning": "文本明確指出細粒度存取控制是為了確保資料不會被非授權者所存取，符合 (technique, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "細粒度存取控制 (technique) 是一種合理的技術實例，非授權存取 (attack) 是一種合理的攻擊實例，且 'mitigates' 關係在資安領域中是合理的，表示某技術可以減輕某攻擊。",
+        "response": "correct",
+        "reason": "細粒度存取控制與非授權存取的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。由於主體 '細粒度存取控制' 屬於 'technique' 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '細粒度存取控制' 屬於 'technique' 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"細粒度存取控制\" 與 Ldr 中的 \"細粒度存取控制\" 完全相同，受體 \"非授權存取\" 與 Ldr 中的 \"未授權存取\" 或 \"未經授權存取\" 類似，但非完全相同的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1，主體為完全相同的實體名稱，且受體雖有相似同義詞但不完全相同，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "細粒度存取控制",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "非授權存取",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出細粒度存取控制是為了確保資料不會被非授權者所存取，符合 (technique, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "人事資料系統",
+      "type": "app",
+      "display_name": "人事資料系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "不當的存取控制",
+      "type": "vulnerability",
+      "display_name": "存取控制不足"
+    },
+    "reasoning": "文本舉例若人事資料系統僅通過密碼認證即可存取所有資料，這描述了一種系統設定上的缺陷（漏洞），符合 (app, can_expose, vulnerability) 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "人事資料系統是 'app' 的合理實例，存取控制不足是 'vulnerability' 的合理實例，'can_expose' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體類別為app，與規則3無直接關聯，但受體類別為vulnerability，符合規則3的特例允許，其他規則均不適用此三元組。",
+        "response": "correct",
+        "reason": "三元組中的vulnerability發起'can_expose'動作，符合規則3的特例允許，無違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "存取控制不足與不當的存取控制為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "不當的存取控制",
+        "reason": "根據資安領域已知同義詞對照範例，存取控制不足與不當的存取控制是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "人事資料系統",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "存取控制不足",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本舉例若人事資料系統僅通過密碼認證即可存取所有資料，這描述了一種系統設定上的缺陷（漏洞），符合 (app, can_expose, vulnerability) 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "存取控制不足",
+      "type": "vulnerability",
+      "display_name": "存取控制不足"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料外洩",
+      "type": "risk",
+      "display_name": "資料外洩"
+    },
+    "reasoning": "文本指出在大數據環境下，若存取控制不夠細緻（漏洞），將會提高資料外洩之風險，符合 (vulnerability, can_expose, risk) 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "存取控制不足 是 'vulnerability' 的合理實例，資料外洩 是 'risk' 的合理實例，'can_expose' 關係在資安領域中合理描述存取控制不足可能導致資料外洩的風險。",
+        "response": "correct",
+        "reason": "存取控制不足與資料外洩的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體為vulnerability，關係為can_expose，符合規則3的特例允許，因此不觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係符合規則3的特例允許，未發現明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '存取控制不足' 與 Ldr 中 '不當的存取控制' 關係為同義詞，受體 '資料外洩' 與 Ldr 中 '資料外洩' 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體與 Ldr 中的 '不當的存取控制' 可能為同義詞，但受體 '資料外洩' 與 Ldr 中的 '資料外洩' 完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "存取控制不足",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "資料外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本指出在大數據環境下，若存取控制不夠細緻（漏洞），將會提高資料外洩之風險，符合 (vulnerability, can_expose, risk) 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資料儲存與交易紀錄策略",
+      "type": "policy",
+      "display_name": "資料儲存與交易紀錄策略"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料外洩",
+      "type": "risk",
+      "display_name": "資料洩漏"
+    },
+    "reasoning": "文本提到儲存與交易紀錄的策略必須符合安全需求，以避免資料洩漏之風險，符合 (policy, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資料儲存與交易紀錄策略 是 policy 的合理實例，資料洩漏 是 risk 的合理實例，'mitigates' 是描述 policy 對 risk 的關係的合理屬性。",
+        "response": "correct",
+        "reason": "主體、關係和受體都符合預先定義的類別和屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 '資料儲存與交易紀錄策略'，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體是 policy，符合規則2的條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"資料洩漏\" 與 Ldr 中的 \"資料外洩\" 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資料外洩",
+        "reason": "根據同義詞判定，資料洩漏與資料外洩為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料儲存與交易紀錄策略",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料洩漏",
+        "type": "risk"
+      },
+      "reasoning": "文本提到儲存與交易紀錄的策略必須符合安全需求，以避免資料洩漏之風險，符合 (policy, mitigates, risk) 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "交通流量分析系統",
+      "type": "app",
+      "display_name": "交通流量分析系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "車牌號碼辨識資料",
+      "type": "data",
+      "display_name": "車牌號碼辨識資料"
+    },
+    "reasoning": "文本提到該系統處理的資料包含車牌號碼辨識，代表該應用程式會產生或處理此類資料，符合 (app, generates, data) 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "交通流量分析系統是 'app' 的合理實例，車牌號碼辨識資料是 'data' 的合理實例，且 'generates' 的語意與 'app' 生成 'data' 的概念相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為三元組中沒有提到principle。規則5不適用，因為主體的類別不是data。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "與 Ldr 中的資源不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆不在近似資源清單中，且無同義詞關係，依據判斷準則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "交通流量分析系統",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "車牌號碼辨識資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到該系統處理的資料包含車牌號碼辨識，代表該應用程式會產生或處理此類資料，符合 (app, generates, data) 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "細粒度稽核",
+      "type": "technique",
+      "display_name": "細粒度稽核"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "入侵事件",
+      "type": "attack",
+      "display_name": "入侵事件"
+    },
+    "reasoning": "文本明確指出透過稽核可以發現已經發生的入侵事件，符合 (technique, can_detect, attack) 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "細粒度稽核 (technique) 可以檢測入侵事件 (attack)，這符合資安領域的常見實踐和語意對齊，同義詞寬容原則也支持這種關聯。",
+        "response": "correct",
+        "reason": "細粒度稽核可以檢測入侵事件，完全符合預先定義的類別與屬性清單和語意對齊原則。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_detect'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_detect' 沒有在語義限制清單中被明確限制或定義，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"細粒度稽核\" 與 Ldr 中的 \"稽核\" 類別相同，但名稱不完全相同，可能是同義詞或子類型；受體 \"入侵事件\" 與 Ldr 中的 \"入侵\"、\"惡意入侵事件\" 等類別相關，但名稱不完全相同，可能是同義詞或子類型。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體和受體與 Ldr 中的資源是否完全等價同義詞或子類型，根據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "細粒度稽核",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "入侵事件",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出透過稽核可以發現已經發生的入侵事件，符合 (technique, can_detect, attack) 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "資料來源分析 (data provenance)",
+      "type": "technique",
+      "display_name": "資料來源分析 (Data Provenance)"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "需求報告資料",
+      "type": "data",
+      "display_name": "需求報告資料"
+    },
+    "reasoning": "文本提到資料來源分析是用來確保資料正確性（如金屬業需求報告），以避免錯誤分析，符合 (technique, can_analyze, data) 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資料來源分析 (Data Provenance) 是一種技術 (technique)，需求報告資料 (需求報告資料) 是一種資料 (data)，且 'can_analyze' 是一個合理的關係，描述技術可以分析資料。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 technique，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則相關性後，發現三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體是資料來源分析（Data Provenance），是一種技術（technique），與關係 can_analyze 和受體需求報告資料（需求報告資料）之間的關係在給定的規則中沒有被明確禁止或限制。因此，根據無罪推定原則，該三元組被判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆不直接匹配 Ldr 中的任何項目，且無同義詞關係可供判斷。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體或受體與 Ldr 中項目之間的直接關聯或同義詞關係，依據規則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料來源分析 (Data Provenance)",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "需求報告資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到資料來源分析是用來確保資料正確性（如金屬業需求報告），以避免錯誤分析，符合 (technique, can_analyze, data) 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "終端輸入驗證與過濾",
+      "type": "technique",
+      "display_name": "終端輸入驗證與過濾"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "蒐集資料"
+    },
+    "reasoning": "該技術旨在驗證與過濾輸入的資料以確保其正確性，符合 (technique, can_analyze, data) 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "終端輸入驗證與過濾 是 technique 的合理實例，蒐集資料 是 data 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 technique，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則相關性後，發現規則3、5、7、8 不直接適用於此三元組，且無其他規則直接違反。",
+        "response": "correct",
+        "reason": "三元組中的主體是終端輸入驗證與過濾（technique），關係是 can_analyze，受體是蒐集資料（data），此組合在給定的規則中沒有明確的違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"蒐集資料\" 與 Ldr 中的 \"資料\" 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資料",
+        "reason": "根據資安領域已知同義詞對照範例，\"蒐集資料\" 與 \"資料\" 可視為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "終端輸入驗證與過濾",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "蒐集資料",
+        "type": "data"
+      },
+      "reasoning": "該技術旨在驗證與過濾輸入的資料以確保其正確性，符合 (technique, can_analyze, data) 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

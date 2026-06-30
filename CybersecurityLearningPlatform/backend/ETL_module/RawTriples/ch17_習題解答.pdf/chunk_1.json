@@ -1,0 +1,92 @@
+[
+  {
+    "subject": {
+      "name": "CSP (密碼服務提供模組)",
+      "type": "tool"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "Windows 作業系統",
+      "type": "system"
+    },
+    "reasoning": "文本明確提到『密碼服務提供模組 (CSP)... 提供密碼模組掛載在 Windows 作業系統』，因此 CSP 作為工具部署於 Windows 系統中，符合 (tool, deployed_in, system) 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "CryptoAPI",
+      "type": "tool"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "Windows 作業系統",
+      "type": "system"
+    },
+    "reasoning": "CryptoAPI 是 Microsoft 定義的介面且與 Windows 作業系統緊密結合提供服務，可視為系統的一部分，符合 (tool, is_part_of, system) 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "PKCS#11",
+      "type": "feature"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "金鑰物件",
+      "type": "data"
+    },
+    "reasoning": "文本描述 PKCS#11 的組織包含資料、金鑰與憑證物件，這表示該標準介面（特徵）定義並使用了這些資料實體，符合 (feature, uses, data) 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "廠商",
+      "type": "user"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "FIPS 140",
+      "type": "policy"
+    },
+    "reasoning": "文本提到『密碼模組產品廠商依據廠商需求，開發製作其密碼模組』且需『遵守 FIPS 140 製定規範需求』，這代表廠商（使用者/實體）實作了該規範（政策），符合 (user, implements, policy) 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "檢測實驗室",
+      "type": "securityTeam"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "密碼模組產品",
+      "type": "app"
+    },
+    "reasoning": "文本指出『檢測實驗室依據測試者需求，測試送來檢驗』，這表示安全團隊對密碼模組產品（應用程式/軟體）進行分析與測試，符合 (securityTeam, can_analyze, app) 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "FIPS 140",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "密碼模組風險",
+      "type": "risk"
+    },
+    "reasoning": "FIPS 140 作為密碼模組的檢測規範，其核心目的是透過標準化要求來降低密碼模組在實作時可能產生的安全風險，符合 (policy, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 6
+  }
+]

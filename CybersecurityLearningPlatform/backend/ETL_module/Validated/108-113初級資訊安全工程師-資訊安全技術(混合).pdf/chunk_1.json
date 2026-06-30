@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "osi模型",
+      "type": "system",
+      "display_name": "OSI模型"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "網路層",
+      "type": "system",
+      "display_name": "網路層"
+    },
+    "reasoning": "文本第一題提到 IP 傳輸屬於 OSI 模型的網路層。OSI 模型作為一個整體架構被定義為 system，而其分層（網路層）是其組成屬性，因此定義為 feature，關係為 has_a。",
+    "source_id": "chunk_1",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "OSI模型是一個系統（system），網路層是系統的一個特徵（feature），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體和受體的類別均為 'system'，沒有違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，且主體和受體的類別均為 'system'，因此不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "OSI模型與網路層之間的關係是網路層是OSI模型的一部分，屬於廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，OSI模型和網路層之間的關係是廣義/狹義從屬，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OSI模型",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "網路層",
+        "type": "feature"
+      },
+      "reasoning": "文本第一題提到 IP 傳輸屬於 OSI 模型的網路層。OSI 模型作為一個整體架構被定義為 system，而其分層（網路層）是其組成屬性，因此定義為 feature，關係為 has_a。",
+      "source_id": "chunk_1",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "社交工程",
+      "type": "technique",
+      "display_name": "社交工程"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "主機安全機制",
+      "type": "system",
+      "display_name": "主機安全機制"
+    },
+    "reasoning": "文本第二題指出社交工程可用來繞過實體和邏輯主機安全機制。繞過安全機制在本質上是對系統防禦能力的破壞，因此將社交工程定義為 attack，安全機制定義為 system，關係使用 can_harm。",
+    "source_id": "chunk_1",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "社交工程 (social engineering) 是一種攻擊手法，屬於 'attack' 類別；主機安全機制 (host security mechanism) 屬於 'system' 類別，兩者名稱與類別對齊合理。",
+        "response": "correct",
+        "reason": "社交工程攻擊可以對主機安全機制造成傷害，三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_harm'，發現無直接相關規則限制此三元組的組合。",
+        "response": "correct",
+        "reason": "三元組中的主體 '社交工程' 與關係 'can_harm'、受體 '主機安全機制' 的組合，未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "社交工程與社會工程學為同義詞，主機安全機制與osi模型、網路層無直接關聯",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "社交工程與社會工程學雖為同義詞，但受體主機安全機制不涉及同義詞重複，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "社交工程",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "主機安全機制",
+        "type": "system"
+      },
+      "reasoning": "文本第二題指出社交工程可用來繞過實體和邏輯主機安全機制。繞過安全機制在本質上是對系統防禦能力的破壞，因此將社交工程定義為 attack，安全機制定義為 system，關係使用 can_harm。",
+      "source_id": "chunk_1",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "smurf attack",
+      "type": "attack",
+      "display_name": "SMURF Attack"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "icmp",
+      "type": "feature",
+      "display_name": "ICMP"
+    },
+    "reasoning": "文本第三題明確指出 SMURF Attack 是利用 ICMP 協定進行攻擊。此處將 ICMP 視為實現攻擊的工具/手段，符合 attack depends_on tool。",
+    "source_id": "chunk_1",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SMURF Attack 是 'attack' 的合理實例，ICMP 是 'tool' 的合理實例，且 'depends_on' 關係在資安領域中是合理的，表示 SMURF Attack 依賴於 ICMP 進行攻擊。",
+        "response": "correct",
+        "reason": "SMURF Attack、ICMP 和 'depends_on' 關係完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是攻擊（attack），而攻擊可以具有依賴關係（depends_on）。",
+        "response": "correct",
+        "reason": "三元組（SMURF Attack depends_on ICMP）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SMURF Attack 是一種攻擊，與 Ldr 中的資源不完全匹配，但 SMURF Attack 可以被視為是一種 DoS 攻擊的子類型，且 Ldr 中有 'dos攻擊' 的記錄；ICMP 是一種網路協議，完全匹配 Ldr 中的 'icmp'。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "SMURF Attack 與 Ldr 中的 'dos攻擊' 有關聯，但不完全等價；ICMP 完全匹配 Ldr 中的 'icmp'，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SMURF Attack",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "ICMP",
+        "type": "tool"
+      },
+      "reasoning": "文本第三題明確指出 SMURF Attack 是利用 ICMP 協定進行攻擊。此處將 ICMP 視為實現攻擊的工具/手段，符合 attack depends_on tool。",
+      "source_id": "chunk_1",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "對外網站",
+      "type": "app",
+      "display_name": "對外網站"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "dmz",
+      "type": "system",
+      "display_name": "DMZ"
+    },
+    "reasoning": "文本第四題明確詢問公司對外網站放置於何處，答案為 DMZ。網站是具體的應用服務 (app)，DMZ 是網路基礎設施區域 (system)，符合 deployed_in 關係。",
+    "source_id": "chunk_1",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "對外網站 (app) 可以部署在 DMZ (system) 中，這是資安領域中常見的實踐，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊和同義詞寬容原則也得到滿足。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，主體為 app，關係為 deployed_in，受體為 DMZ，且 DMZ 的類別是 system，因此不觸發違規。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，且無其他規則被違反，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '對外網站' 與 Ldr 中的 '網站' 類別相同，且相似度高；受體 'DMZ' 與 Ldr 中的 'dmz' 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定和廣義/狹義一律保留原則，主體和受體不需要標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "對外網站",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "DMZ",
+        "type": "system"
+      },
+      "reasoning": "文本第四題明確詢問公司對外網站放置於何處，答案為 DMZ。網站是具體的應用服務 (app)，DMZ 是網路基礎設施區域 (system)，符合 deployed_in 關係。",
+      "source_id": "chunk_1",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "ip 協定",
+      "type": "system",
+      "display_name": "IP 協定"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "icmp",
+      "type": "feature",
+      "display_name": "ICMP"
+    },
+    "reasoning": "文本第五題提到 IP 封包標頭中的協定欄位值為 1 代表 ICMP。這表示 ICMP 是 IP 協定組中的一種協定特徵，因此將 IP 協定視為 system，ICMP 視為 feature。",
+    "source_id": "chunk_1",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IP 協定是一個系統（system），ICMP 是一個特徵（feature），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為關係不是 'uses'。檢查規則6：無關，因為關係不是 'deployed_in'。檢查規則7：無關，因為關係不是 'generates'。檢查規則8：無關，因為關係不是 'controls'。檢查完所有規則，發現三元組 'IP 協定 (類別: system) - has_a - ICMP (類別: feature)' 沒有觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組 'IP 協定 (類別: system) - has_a - ICMP (類別: feature)' 沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 IP 協定與 Ldr 中的資源 'tcp/ip 協定組' 類別相同，但名稱不完全匹配，受體 ICMP 與 Ldr 中的 'icmp' 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "icmp",
+        "reason": "根據同義詞判定，受體 ICMP 與 Ldr 中的 'icmp' 完全匹配，但主體 IP 協定與 Ldr 中的 'tcp/ip 協定組' 不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IP 協定",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "ICMP",
+        "type": "feature"
+      },
+      "reasoning": "文本第五題提到 IP 封包標頭中的協定欄位值為 1 代表 ICMP。這表示 ICMP 是 IP 協定組中的一種協定特徵，因此將 IP 協定視為 system，ICMP 視為 feature。",
+      "source_id": "chunk_1",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "阻斷服務攻擊",
+      "type": "attack",
+      "display_name": "阻斷服務攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標主機系統",
+      "type": "system",
+      "display_name": "目標主機系統"
+    },
+    "reasoning": "文本第六題描述阻斷服務攻擊 (DoS) 會使目標主機系統超出負荷甚至癱瘓。這直接符合 attack 對 system 造成損害的定義，因此使用 can_harm。",
+    "source_id": "chunk_1",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '阻斷服務攻擊' 是 'attack' 的合理實例，'目標主機系統' 是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統影響的適當關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 '阻斷服務攻擊' 的類別 'attack' 與受體 '目標主機系統' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 與主體、受體的類別組合在給定的語義限制清單中沒有被明確限制或違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「阻斷服務攻擊」與 Ldr 中的「阻斷服務攻擊」完全等價同義詞，受體「目標主機系統」與 Ldr 中的「目標系統」或「目標主機」相關但非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體與 Ldr 中的資源完全匹配，但受體與 Ldr 中的資源不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "阻斷服務攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "目標主機系統",
+        "type": "system"
+      },
+      "reasoning": "文本第六題描述阻斷服務攻擊 (DoS) 會使目標主機系統超出負荷甚至癱瘓。這直接符合 attack 對 system 造成損害的定義，因此使用 can_harm。",
+      "source_id": "chunk_1",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  }
+]

@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "雲端運算服務",
+      "type": "system",
+      "display_name": "雲端運算服務"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "文本提到雲端運算服務是透過網際網路提供，因此兩者之間存在網路連接關係。根據 Schema，('system', 'connects_to', 'system') 是合法的。",
+    "source_id": "chunk_1",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雲端運算服務與網際網路皆為 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "雲端運算服務與網際網路之間的 'connects_to' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 connects_to，不是 uses。檢查規則6：不適用，因為關係為 connects_to，不是 deployed_in。檢查規則7：不適用，因為關係為 connects_to，不是 generates。檢查規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（雲端運算服務）和受體（網際網路）之間的關係（connects_to）沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "網際網路是主體雲端運算服務的運行環境，兩者之間存在著廣義/狹義從屬關係，但根據給定的資源清單，網際網路是最相似的資源，且兩者都歸類為system類別，然而根據判斷準則，若一個實體是另一個的子類型，判定為correct，禁止合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，雲端運算服務和網際網路之間的關係不需要進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端運算服務",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到雲端運算服務是透過網際網路提供，因此兩者之間存在網路連接關係。根據 Schema，('system', 'connects_to', 'system') 是合法的。",
+      "source_id": "chunk_1",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端服務提供業者",
+      "type": "securityTeam",
+      "display_name": "雲端服務提供業者"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "雲端運算服務",
+      "type": "system",
+      "display_name": "雲端運算服務"
+    },
+    "reasoning": "雲端業者負責提供、維護及管理整個雲端基礎設施。將業者視為安全管理團隊 (securityTeam)，根據 Schema，('securityTeam', 'controls', 'system') 是合法的。",
+    "source_id": "chunk_1",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雲端服務提供業者 可被視為 securityTeam 的合理實例，雲端運算服務 可被視為 system 的合理實例。",
+        "response": "correct",
+        "reason": "雲端服務提供業者控制雲端運算服務的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 securityTeam，具有主動執行能力，符合規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（雲端服務提供業者）為 securityTeam，關係為 controls，受體為雲端運算服務，符合規則8的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端運算服務為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端服務提供業者",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "雲端運算服務",
+        "type": "system"
+      },
+      "reasoning": "雲端業者負責提供、維護及管理整個雲端基礎設施。將業者視為安全管理團隊 (securityTeam)，根據 Schema，('securityTeam', 'controls', 'system') 是合法的。",
+      "source_id": "chunk_1",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "用戶",
+      "type": "user",
+      "display_name": "用戶"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "雲端運算服務",
+      "type": "system",
+      "display_name": "雲端運算服務"
+    },
+    "reasoning": "文本明確指出用戶可以使用雲端業者提供的服務與資源。根據 Schema，('user', 'uses', 'system') 是合法的。",
+    "source_id": "chunk_1",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "用戶 (user) 是 'user' 類別的合理實例，雲端運算服務 (system) 是 'system' 類別的合理實例，且 'uses' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為關係是uses且主體類別是user，不是data，但這裡的主體是用戶，不違反規則5的限制。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是用戶，關係是uses，受體是雲端運算服務，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「用戶」與 Ldr 中的「用戶」完全等價同義詞，受體「雲端運算服務」與 Ldr 中的「雲端運算服務」完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，主體與 Ldr 中某資源的 name 字串完全相同，且受體也完全匹配，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "用戶",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "雲端運算服務",
+        "type": "system"
+      },
+      "reasoning": "文本明確指出用戶可以使用雲端業者提供的服務與資源。根據 Schema，('user', 'uses', 'system') 是合法的。",
+      "source_id": "chunk_1",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端運算服務",
+      "type": "system",
+      "display_name": "雲端運算服務"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "虛擬化",
+      "type": "tool",
+      "display_name": "虛擬化"
+    },
+    "reasoning": "文本提到虛擬化是雲端運算的一個關鍵技術。為了符合 Schema 中 system 與技術/工具的關聯，將虛擬化定義為 tool，使用 ('system', 'has_a', 'tool')。",
+    "source_id": "chunk_1",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雲端運算服務 (cloud computing service) 可被視為系統 (system) 的一種實例，虛擬化 (virtualization) 是工具 (tool) 的一種合理實例，'has_a' 關係在此語境下合理，因為雲端運算服務通常具備虛擬化功能。",
+        "response": "correct",
+        "reason": "雲端運算服務與虛擬化之間的 'has_a' 關係在資安領域中是合理且語意對齊的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'has_a'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在給定的語義限制清單中被明確限制，因此不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端運算服務與虛擬化之間的關係是相關但不完全等價的概念，虛擬化是雲端運算服務的一種技術手段，但兩者並非完全同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，雲端運算服務和虛擬化之間的關係不構成同義詞重複或廣義/狹義從屬，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端運算服務",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "虛擬化",
+        "type": "tool"
+      },
+      "reasoning": "文本提到虛擬化是雲端運算的一個關鍵技術。為了符合 Schema 中 system 與技術/工具的關聯，將虛擬化定義為 tool，使用 ('system', 'has_a', 'tool')。",
+      "source_id": "chunk_1",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "儲存服務",
+      "type": "app",
+      "display_name": "儲存服務"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "雲端運算服務",
+      "type": "system",
+      "display_name": "雲端運算服務"
+    },
+    "reasoning": "儲存服務是雲端運算服務所提供的具體功能應用。根據 Schema，('app', 'is_part_of', 'system') 是合法的。",
+    "source_id": "chunk_1",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "儲存服務是 app 的合理實例，雲端運算服務是 system 的合理實例。",
+        "response": "correct",
+        "reason": "儲存服務與雲端運算服務的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為關係不是 'uses'。檢查規則6：無關，因為關係不是 'deployed_in'。檢查規則7：無關，因為關係不是 'generates'。檢查規則8：無關，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 不在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資源 '雲端運算服務' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "儲存服務",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "雲端運算服務",
+        "type": "system"
+      },
+      "reasoning": "儲存服務是雲端運算服務所提供的具體功能應用。根據 Schema，('app', 'is_part_of', 'system') 是合法的。",
+      "source_id": "chunk_1",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "虛擬化",
+      "type": "tool",
+      "display_name": "虛擬化"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "電腦伺服器",
+      "type": "system",
+      "display_name": "電腦伺服器"
+    },
+    "reasoning": "文本提到虛擬化將實體資源（如伺服器）加以抽象化轉換並動態調配，這是一種控制行為。根據 Schema，('tool', 'controls', 'system') 是合法的。",
+    "source_id": "chunk_1",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "虛擬化是工具（tool）的合理實例，電腦伺服器是系統（system）的合理實例，且 'controls' 是描述工具與系統之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "虛擬化控制電腦伺服器的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體 (Subject) 是 tool，具有主動執行能力，符合規則8的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體是 tool，關係是 controls，受體是電腦伺服器，符合規則8的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "虛擬化與虛擬化完全相同，電腦伺服器與伺服器相似，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "虛擬化與虛擬化完全匹配，電腦伺服器與伺服器雖相似但不完全等價，根據規則3，判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "虛擬化",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "電腦伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本提到虛擬化將實體資源（如伺服器）加以抽象化轉換並動態調配，這是一種控制行為。根據 Schema，('tool', 'controls', 'system') 是合法的。",
+      "source_id": "chunk_1",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端運算服務",
+      "type": "system",
+      "display_name": "雲端運算服務"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "運算資源",
+      "type": "feature",
+      "display_name": "運算資源"
+    },
+    "reasoning": "運算資源（如計算能力、儲存容量）是雲端系統的組成屬性。根據 Schema，('system', 'has_a', 'feature') 是合法的。",
+    "source_id": "chunk_1",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雲端運算服務是 system 的合理實例，運算資源是 feature 的合理實例。",
+        "response": "correct",
+        "reason": "雲端運算服務與運算資源的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係 'has_a' 沒有在給定的語義限制清單中被明確限制或定義，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雲端運算服務與運算資源之間沒有直接的同義詞關係，且無法確認為子類型或廣義/狹義從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端運算服務",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "運算資源",
+        "type": "feature"
+      },
+      "reasoning": "運算資源（如計算能力、儲存容量）是雲端系統的組成屬性。根據 Schema，('system', 'has_a', 'feature') 是合法的。",
+      "source_id": "chunk_1",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "虛擬化",
+      "type": "tool",
+      "display_name": "虛擬化"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資源管理",
+      "type": "function",
+      "display_name": "資源管理"
+    },
+    "reasoning": "文本明確定義「虛擬化是一種資源管理的技術」。將虛擬化視為 tool，資源管理視為其執行的 function。根據 Schema，('tool', 'has_a', 'function') 是合法的。",
+    "source_id": "chunk_1",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "虛擬化是工具（tool）的合理實例，資源管理是功能（function）的合理實例。",
+        "response": "correct",
+        "reason": "虛擬化工具具有資源管理功能，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查規則，發現沒有直接相關的規則被觸發，尤其是 'has_a' 關係在給定的規則中沒有明確的限制。",
+        "response": "correct",
+        "reason": "由於給定的三元組（虛擬化 has_a 資源管理）沒有明確違反語義限制清單中的任何規則，且無法直接匹配到任何一條規則中，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "虛擬化與資源管理無直接同義詞關係，且虛擬化是工具，資源管理是功能，兩者概念不同，但虛擬化可能涉及資源管理的功能",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "虛擬化和資源管理是不同類別的實體，無同義詞關係，且虛擬化可能涉及資源管理的功能，但不完全等價。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "虛擬化",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資源管理",
+        "type": "function"
+      },
+      "reasoning": "文本明確定義「虛擬化是一種資源管理的技術」。將虛擬化視為 tool，資源管理視為其執行的 function。根據 Schema，('tool', 'has_a', 'function') 是合法的。",
+      "source_id": "chunk_1",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 8
+    }
+  }
+]

@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "廠商",
+      "type": "user",
+      "display_name": "廠商"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "fips 140",
+      "type": "policy",
+      "display_name": "FIPS 140"
+    },
+    "reasoning": "文本提到廠商依據需求開發密碼模組並遵照 FIPS 140 規範，因此將廠商視為實作該規範的個體 (user)，FIPS 140 為資安規範 (policy)。",
+    "source_id": "chunk_2",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "廠商 (user) 實施 FIPS 140 (policy) 的情境下，'user' 與 'policy' 的名稱與類別合理對齊，'implements' 關係也合理描述了這種關係。",
+        "response": "correct",
+        "reason": "廠商實施 FIPS 140 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用，因為 implements 不是 mitigates。規則3：不適用，因為主體類別是 user，不是 vulnerability。規則4：不適用，因為關係是 implements，不是 violates。規則5：不適用，因為關係是 implements，不是 uses。規則6：不適用，因為關係是 implements，不是 deployed_in。規則7：不適用，因為關係是 implements，不是 generates。規則8：不適用，因為關係是 implements，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是廠商（類別：user），關係是 implements，受體是 FIPS 140（類別：policy），這不觸發語義限制清單中的任何規則。因此，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "廠商",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "FIPS 140",
+        "type": "policy"
+      },
+      "reasoning": "文本提到廠商依據需求開發密碼模組並遵照 FIPS 140 規範，因此將廠商視為實作該規範的個體 (user)，FIPS 140 為資安規範 (policy)。",
+      "source_id": "chunk_2",
+      "source_file": "ch17_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "檢測實驗室",
+      "type": "securityTeam",
+      "display_name": "檢測實驗室"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "密碼模組產品",
+      "type": "app",
+      "display_name": "密碼模組產品"
+    },
+    "reasoning": "檢測實驗室負責測試送驗的密碼模組產品，這是一種分析行為。將實驗室歸類為安全團隊 (securityTeam)，密碼模組產品歸類為應用程式 (app)。",
+    "source_id": "chunk_2",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'app' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "檢測實驗室 (securityTeam) 與 密碼模組產品 (app) 的名稱與其類別合理對齊，考慮同義詞寬容原則後仍然合理。",
+        "response": "correct",
+        "reason": "檢測實驗室可以分析密碼模組產品，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為主體是檢測實驗室，類別是securityTeam，沒有同時具有攻擊者與安全團隊的身分。檢查規則2：不適用，因為主體不是policy、technique或tool。檢查規則3：不適用，因為主體類別不是vulnerability。檢查規則4：不適用，因為關係不是violates，且主體不是principle。檢查規則5：不適用，因為關係不是uses。檢查規則6：不適用，因為關係不是deployed_in。檢查規則7：不適用，因為關係不是generates。檢查規則8：不適用，因為關係不是controls，但檢查到主體是securityTeam，類別是具有主動執行能力的角色，符合can_analyze的主動行為條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（檢測實驗室）與關係（can_analyze）以及受體（密碼模組產品）之間的關係沒有違反任何語義限制清單中的規則，特別是主體的類別securityTeam具有主動執行can_analyze的能力。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "檢測實驗室",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "密碼模組產品",
+        "type": "app"
+      },
+      "reasoning": "檢測實驗室負責測試送驗的密碼模組產品，這是一種分析行為。將實驗室歸類為安全團隊 (securityTeam)，密碼模組產品歸類為應用程式 (app)。",
+      "source_id": "chunk_2",
+      "source_file": "ch17_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "檢測實驗室",
+      "type": "securityTeam",
+      "display_name": "檢測實驗室"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "fips 符合性測試",
+      "type": "tool",
+      "display_name": "FIPS 符合性測試"
+    },
+    "reasoning": "實驗室使用 FIPS 符合性測試來產出結果。將測試手段視為工具 (tool)，安全團隊 (securityTeam) 使用工具 (tool) 符合 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "檢測實驗室 (securityTeam) 使用 FIPS 符合性測試 (tool) 的情境下，'檢測實驗室' 是 'securityTeam' 的合理實例，'FIPS 符合性測試' 是 'tool' 的合理實例，兩者之間的 'uses' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "檢測實驗室使用 FIPS 符合性測試的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 securityTeam，不是 data，故不違反。規則6：不適用（關係不是 deployed_in）。規則7：不適用（關係不是 generates）。規則8：不適用（關係不是 controls）",
+        "response": "correct",
+        "reason": "三元組中的主體為檢測實驗室（類別：securityTeam），關係為 uses，受體為 FIPS 符合性測試（類別：tool），未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "檢測實驗室與 Ldr 中的檢測實驗室完全相同，FIPS 符合性測試無同義詞重複",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全相同，無同義詞重複，依據判斷準則 1 直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "檢測實驗室",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "FIPS 符合性測試",
+        "type": "tool"
+      },
+      "reasoning": "實驗室使用 FIPS 符合性測試來產出結果。將測試手段視為工具 (tool)，安全團隊 (securityTeam) 使用工具 (tool) 符合 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "ch17_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "fips 符合性測試",
+      "type": "tool",
+      "display_name": "FIPS 符合性測試"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "測試報告",
+      "type": "data",
+      "display_name": "測試報告"
+    },
+    "reasoning": "文本明確指出依據測試結果產出測試報告。工具 (tool) 產生資料 (data) 符合 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "FIPS 符合性測試是一種工具（tool），測試報告是一種數據（data），'generates' 關係在此語境下合理，因為測試工具可以生成測試報告。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為動作是generates，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為主體類別是tool，而非principle。規則5不適用，因為關係是generates，而非uses。規則6不適用，因為關係是generates，而非deployed_in。規則7適用，且三元組符合規則所允許的條件，因為受體的類別是data。規則8不適用，因為關係是generates，而非controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中之資源名稱相符，但無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "依據【前提確認】與【廣義/狹義一律保留】原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "FIPS 符合性測試",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "測試報告",
+        "type": "data"
+      },
+      "reasoning": "文本明確指出依據測試結果產出測試報告。工具 (tool) 產生資料 (data) 符合 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "ch17_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "nist",
+      "type": "securityTeam",
+      "display_name": "NIST"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "測試報告",
+      "type": "data",
+      "display_name": "測試報告"
+    },
+    "reasoning": "NIST 負責審核與審驗測試報告，這屬於分析資料的行為。NIST 為權威安全機構 (securityTeam)，報告為資料 (data)。",
+    "source_id": "chunk_2",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "NIST 是一支安全團隊（securityTeam），測試報告是數據（data），因此名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為NIST只被描述為securityTeam；規則2不適用，因為動作不是mitigates；規則3不適用，因為主體不是vulnerability；規則4不適用，因為關係不是violates且主體不是principle；規則5不適用，因為關係不是uses；規則6不適用，因為關係不是deployed_in；規則7不適用，因為關係不是generates；規則8不適用，因為關係不是controls，但can_analyze的主體是securityTeam，符合主動執行能力的角色，無明確違反規則。",
+        "response": "correct",
+        "reason": "三元組中的主體NIST是一個securityTeam，具有can_analyze的能力，且受體是測試報告，屬於data類別，無法觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"測試報告\" 與 Ldr 中的 \"測試報告\" 完全相同，主體 \"NIST\" 與 Ldr 中的 \"檢測實驗室\" 類別不同，但無法直接判定為同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "NIST",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "測試報告",
+        "type": "data"
+      },
+      "reasoning": "NIST 負責審核與審驗測試報告，這屬於分析資料的行為。NIST 為權威安全機構 (securityTeam)，報告為資料 (data)。",
+      "source_id": "chunk_2",
+      "source_file": "ch17_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "fips 符合性測試",
+      "type": "tool",
+      "display_name": "FIPS 符合性測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "密碼模組產品",
+      "type": "app",
+      "display_name": "密碼模組產品"
+    },
+    "reasoning": "符合性測試工具是用來分析密碼模組產品是否達標的，符合工具 (tool) 分析應用程式 (app) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'app' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "FIPS 符合性測試 可被視為 'tool' 的實例，密碼模組產品 可被視為 'app' 的實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "FIPS 符合性測試 與 密碼模組產品 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為 tool，關係為 can_analyze，受體為 app，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "FIPS 符合性測試",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "密碼模組產品",
+        "type": "app"
+      },
+      "reasoning": "符合性測試工具是用來分析密碼模組產品是否達標的，符合工具 (tool) 分析應用程式 (app) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "ch17_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "nist",
+      "type": "securityTeam",
+      "display_name": "NIST"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "fips 140",
+      "type": "policy",
+      "display_name": "FIPS 140"
+    },
+    "reasoning": "NIST 作為 FIPS 140 的制定與審核者，是該規範的執行與維護實體 (securityTeam implements policy)。",
+    "source_id": "chunk_2",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "NIST 是一支安全團隊（securityTeam），FIPS 140 是一項政策（policy），'implements' 關係在此語境下合理，因為 NIST 可能實施 FIPS 140 政策。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為主體是安全團隊(securityTeam)而非攻擊者(attacker)。規則2：不適用，因為動作是 implements 而非 mitigates。規則3：不適用，因為主體類別是安全團隊(securityTeam)而非漏洞(vulnerability)。規則4：不適用，因為關係是 implements 而非違反(violates)，且主體是安全團隊(securityTeam)而非資安原則(principle)。規則5：不適用，因為關係是 implements 而非 uses。規則6：不適用，因為關係是 implements 而非 deployed_in。規則7：不適用，因為關係是 implements 而非 generates。規則8：不適用，因為關係是 implements 而非 controls，但主體是具有主動執行能力的安全團隊(securityTeam)，這符合規則8的前提，但不直接相關於 implements 動作的合法性。",
+        "response": "correct",
+        "reason": "三元組中的主體（NIST）是安全團隊（securityTeam），它實施（implements）了一項政策（FIPS 140），這符合一般的資安實踐邏輯，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 NIST 與 Ldr 中的 \"nist\" 完全等價同義詞，受體 FIPS 140 與 Ldr 中的 \"fips 140\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "NIST",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "FIPS 140",
+        "type": "policy"
+      },
+      "reasoning": "NIST 作為 FIPS 140 的制定與審核者，是該規範的執行與維護實體 (securityTeam implements policy)。",
+      "source_id": "chunk_2",
+      "source_file": "ch17_習題解答.pdf",
+      "source_index": 6
+    }
+  }
+]

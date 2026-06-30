@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "linux",
+      "type": "system",
+      "display_name": "Linux"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "/var/log/lastlog",
+      "type": "data",
+      "display_name": "/var/log/lastlog"
+    },
+    "reasoning": "文本提到 /var/log/lastlog 是 Linux 系統中記錄用戶登錄時間的日誌，因此 Linux 系統產生該資料。",
+    "source_id": "chunk_120",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Linux 是一個 'system'，/var/log/lastlog 是 'data'，這些名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "Linux 生成 /var/log/lastlog 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為主體的類別不是data。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的受體類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Linux 與 Ldr 中的 'linux' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Linux",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "/var/log/lastlog",
+        "type": "data"
+      },
+      "reasoning": "文本提到 /var/log/lastlog 是 Linux 系統中記錄用戶登錄時間的日誌，因此 Linux 系統產生該資料。",
+      "source_id": "chunk_120",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "linux",
+      "type": "system",
+      "display_name": "Linux"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "/var/log/dmesg",
+      "type": "data",
+      "display_name": "/var/log/dmesg"
+    },
+    "reasoning": "文本提到 /var/log/dmesg 記錄內核自我檢查資訊，屬於 Linux 系統產生的資料。",
+    "source_id": "chunk_120",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Linux 是一個 'system'，/var/log/dmesg 是 'data'，而 'generates' 能夠描述 Linux 生成日誌檔的行為，符合語意對齊。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為三元組中沒有提到principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的受體類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Linux 與 Ldr 中的 linux 完全等價同義詞，受體 /var/log/dmesg 與 Ldr 中的 /var/log/lastlog 和 /var/log/cron 不相關，但都屬於 data 類別",
+        "response": "correct",
+        "standard_subject": "linux",
+        "standard_object": "",
+        "reason": "主體 Linux 與 Ldr 中的 linux 完全等價同義詞，受體 /var/log/dmesg 與 Ldr 中的其他 data 類別資源不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Linux",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "/var/log/dmesg",
+        "type": "data"
+      },
+      "reasoning": "文本提到 /var/log/dmesg 記錄內核自我檢查資訊，屬於 Linux 系統產生的資料。",
+      "source_id": "chunk_120",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "linux",
+      "type": "system",
+      "display_name": "Linux"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "/var/log/cron",
+      "type": "data",
+      "display_name": "/var/log/cron"
+    },
+    "reasoning": "文本提到 /var/log/cron 記錄與系統設定任務相關的日誌，屬於 Linux 系統產生的資料。",
+    "source_id": "chunk_120",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Linux 是一個 'system'，/var/log/cron 是 'data'，這些名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Linux 與 Ldr 中的 linux 完全等價同義詞，受體 /var/log/cron 與 Ldr 中的 /var/log/lastlog 不相關，但皆屬 data 類別",
+        "response": "correct",
+        "standard_subject": "linux",
+        "standard_object": "",
+        "reason": "主體 Linux 與 Ldr 中的 linux 完全匹配，受體 /var/log/cron 與 Ldr 中的資源不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Linux",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "/var/log/cron",
+        "type": "data"
+      },
+      "reasoning": "文本提到 /var/log/cron 記錄與系統設定任務相關的日誌，屬於 Linux 系統產生的資料。",
+      "source_id": "chunk_120",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "lastlog 命令",
+      "type": "tool",
+      "display_name": "lastlog 命令"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "/var/log/lastlog",
+      "type": "data",
+      "display_name": "/var/log/lastlog"
+    },
+    "reasoning": "文本指出 /var/log/lastlog 需搭配使用 lastlog 命令進行查閱，即該工具可用於分析此日誌資料。",
+    "source_id": "chunk_120",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "lastlog 命令是工具（tool）的合理實例，/var/log/lastlog 是資料（data）的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "lastlog 命令與 /var/log/lastlog 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_analyze' 不在限制清單中明確定義為違規，且主體 'lastlog 命令' 屬於工具（tool），受體 '/var/log/lastlog' 屬於資料（data），符合一般的語義期待。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係 'can_analyze' 沒有明確違反語義限制清單中的任何規則，且主體為工具、受體為資料的組合在此關係下是合理的。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "lastlog 命令與 /var/log/lastlog 之間的關係是主體與受體的對應關係，而非同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "lastlog 命令",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "/var/log/lastlog",
+        "type": "data"
+      },
+      "reasoning": "文本指出 /var/log/lastlog 需搭配使用 lastlog 命令進行查閱，即該工具可用於分析此日誌資料。",
+      "source_id": "chunk_120",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "linux",
+      "type": "system",
+      "display_name": "Linux"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "/var/log/secure",
+      "type": "data",
+      "display_name": "/var/log/secure"
+    },
+    "reasoning": "文本提到 /var/log/secure 記錄郵件資訊的日誌，屬於 Linux 系統產生的資料。",
+    "source_id": "chunk_120",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Linux 是一個 'system'，/var/log/secure 是 'data'，這些名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "Linux 生成 /var/log/secure 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為三元組中沒有提到principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Linux 與 Ldr 中的 linux 完全等價同義詞，受體 /var/log/secure 與 Ldr 中的 /var/log/lastlog、/var/log/cron、/var/log/dmesg 屬於同一類型 data 但非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "linux",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體 Linux 與 Ldr 中的 linux 完全等價同義詞，但受體 /var/log/secure 與 Ldr 中的其他 data 資源非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Linux",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "/var/log/secure",
+        "type": "data"
+      },
+      "reasoning": "文本提到 /var/log/secure 記錄郵件資訊的日誌，屬於 Linux 系統產生的資料。",
+      "source_id": "chunk_120",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "dmesg 命令",
+      "type": "tool",
+      "display_name": "dmesg 命令"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "/var/log/dmesg",
+      "type": "data",
+      "display_name": "/var/log/dmesg"
+    },
+    "reasoning": "文本指出可以使用 dmesg 命令直接查看內核自檢資訊（/var/log/dmesg），即該工具可用於分析此日誌資料。",
+    "source_id": "chunk_120",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "dmesg 命令是一種工具（tool），/var/log/dmesg 是一種資料（data），而 'can_analyze' 關係在資安領域中是合理的，因為 dmesg 命令可以用來分析系統記錄檔中的內容，包括 /var/log/dmesg。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別是 tool，而不是 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組（dmesg 命令 can_analyze /var/log/dmesg）不觸發任何語義限制清單中的規則，且 dmesg 命令作為工具可以分析日誌檔案，符合邏輯預期。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 /var/log/dmesg 與 Ldr 中的 /var/log/dmesg 完全相同，主體 dmesg 命令 與 Ldr 中的 lastlog 命令 皆屬於 tool 類別，但無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，受體 /var/log/dmesg 與 Ldr 中的 /var/log/dmesg 完全相同，且無同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "dmesg 命令",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "/var/log/dmesg",
+        "type": "data"
+      },
+      "reasoning": "文本指出可以使用 dmesg 命令直接查看內核自檢資訊（/var/log/dmesg），即該工具可用於分析此日誌資料。",
+      "source_id": "chunk_120",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "windows",
+      "type": "system",
+      "display_name": "Windows"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "windows event log",
+      "type": "data",
+      "display_name": "Windows Event Log"
+    },
+    "reasoning": "Windows Event Log 是 Windows 系統產生的記錄檔。",
+    "source_id": "chunk_120",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Windows 是一個系統（system）的合理實例，Windows Event Log 是數據（data）的合理實例，'generates' 關係在系統生成數據的語境下是合理的。",
+        "response": "correct",
+        "reason": "主體、受體和關係都符合預先定義的類別和屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：觸發，關係為 generates，受體的類別是 data，符合規則。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組符合規則7的條件，主體Windows的類別是system，關係是generates，受體Windows Event Log的類別是data，完全符合規則7的描述。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Windows) 與 Ldr 中的 'windows' 完全等價同義詞，受體 (Windows Event Log) 與 Ldr 中的資源不直接匹配，但無法確定其為同義詞或子類型",
+        "response": "correct",
+        "standard_subject": "windows",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體為同義詞重複，受體無法確定同義詞關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Windows",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "Windows Event Log",
+        "type": "data"
+      },
+      "reasoning": "Windows Event Log 是 Windows 系統產生的記錄檔。",
+      "source_id": "chunk_120",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "資安鑑識",
+      "type": "technique",
+      "display_name": "資安鑑識"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "windows event log",
+      "type": "data",
+      "display_name": "Windows Event Log"
+    },
+    "reasoning": "文本明確提到 Windows Event Log 是重要的資安鑑識記錄檔，意味著資安鑑識技術會分析此類資料。",
+    "source_id": "chunk_120",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安鑑識是 technique 的合理實例，Windows Event Log 是 data 的合理實例。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是can_analyze，而非mitigates。規則3不適用，因為主體類別是technique，而非vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安鑑識）是一種technique，與受體（Windows Event Log）是一種data，通過can_analyze關係是合理的，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資安鑑識' 與 Ldr 中的 '安全探測' 類似，但非完全等價同義詞；受體 'Windows Event Log' 與 Ldr 中的 'windows event log' 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "windows event log",
+        "reason": "受體 'Windows Event Log' 是 Ldr 中 'windows event log' 的同義詞重複，主體 '資安鑑識' 與 Ldr 中的 '安全探測' 類似但不完全等價。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安鑑識",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "Windows Event Log",
+        "type": "data"
+      },
+      "reasoning": "文本明確提到 Windows Event Log 是重要的資安鑑識記錄檔，意味著資安鑑識技術會分析此類資料。",
+      "source_id": "chunk_120",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "apache",
+      "type": "app",
+      "display_name": "Apache"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "記錄",
+      "type": "data",
+      "display_name": "Apache 記錄"
+    },
+    "reasoning": "文本提到 Apache 記錄，指 Apache 應用程式在運作時產生的日誌資料。",
+    "source_id": "chunk_120",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Apache 是一種應用程式（app），而 'Apache 記錄' 可以被視為資料（data），因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Apache 記錄與記錄之間的關係是同義詞重複，因為 Apache 記錄是一種特定應用程式的記錄，而記錄是更廣義的術語，涵蓋了各種類型的記錄，包括 Apache 記錄。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "記錄",
+        "reason": "根據同義詞判定準則，Apache 記錄與記錄之間的關係是同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Apache",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "Apache 記錄",
+        "type": "data"
+      },
+      "reasoning": "文本提到 Apache 記錄，指 Apache 應用程式在運作時產生的日誌資料。",
+      "source_id": "chunk_120",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

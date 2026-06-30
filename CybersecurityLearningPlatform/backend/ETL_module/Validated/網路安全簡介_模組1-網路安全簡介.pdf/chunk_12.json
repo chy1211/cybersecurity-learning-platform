@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "有組織的駭客",
+      "type": "attacker",
+      "display_name": "有組織的駭客"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "網路犯罪",
+      "type": "attack",
+      "display_name": "網路犯罪"
+    },
+    "reasoning": "文本提到有組織的駭客包括網路犯罪份子並提供網路犯罪服務，因此將其定義為攻擊者執行攻擊行為。",
+    "source_id": "chunk_12",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，受體類別 'attack' 也存在於 Lc,p 的 'Classes' 中，關係 'implements' 存在於 Lc,p 的 'Properties' 中。",
+        "step_2_alignment_check": "有組織的駭客 (attacker) 是 'attacker' 的合理實例，網路犯罪 (attack) 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：未違反，因為三元組中沒有同時具有攻擊者與安全團隊的身分。檢查規則2：不適用，因為動作不是 mitigates。檢查規則3：不適用，因為主體類別不是 vulnerability。檢查規則4：不適用，因為關係不是 violates 且主體不是 principle。檢查規則5：不適用，因為關係不是 uses 或主體類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但 implements 關係下，主體是具有主動執行能力的角色（attacker），因此合法。",
+        "response": "correct",
+        "reason": "三元組中的主體（有組織的駭客）與關係（implements）以及受體（網路犯罪）之間的關係在給定的規則中沒有明確違反的項目，尤其是 implements 關係下，attacker 是具有主動執行能力的角色。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"網路犯罪\" 與 Ldr 中的 \"網路犯罪\" 完全相同，主體 \"有組織的駭客\" 與 Ldr 中的 \"駭客\" 類別相同但非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1 和 3，受體為完全匹配，主體為不同實體但同一類別，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "有組織的駭客",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "網路犯罪",
+        "type": "attack"
+      },
+      "reasoning": "文本提到有組織的駭客包括網路犯罪份子並提供網路犯罪服務，因此將其定義為攻擊者執行攻擊行為。",
+      "source_id": "chunk_12",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "員工"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "機密資料",
+      "type": "data",
+      "display_name": "機密資料"
+    },
+    "reasoning": "文本提到內部威脅包括員工對機密資料處理不當，顯示使用者與資料之間的使用關係。",
+    "source_id": "chunk_12",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "員工 (user) 使用機密資料 (data) 的情境下，'員工' 是 'user' 的合理實例，'機密資料' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "員工使用機密資料的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為三元組中的主體類別不是vulnerability。規則4不適用，因為三元組中的關係不是violates，且主體不是principle。規則5觸發，因為關係為uses，且主體的類別是user，但這裡的主體類別是user，受體類別是data，符合規則5的例外情況，不違反。規則6、7、8不適用，因為三元組中的關係不是deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是員工（類別：user），關係是uses，受體是機密資料（類別：data），這符合規則5的例外情況，且未觸發其他規則的違反條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「員工」與 Ldr 中的「員工」完全相同，受體「機密資料」與 Ldr 中的「機密資料」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "員工",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "機密資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到內部威脅包括員工對機密資料處理不當，顯示使用者與資料之間的使用關係。",
+      "source_id": "chunk_12",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "有組織的駭客",
+      "type": "attacker",
+      "display_name": "國家支持的攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "國家支持攻擊"
+    },
+    "reasoning": "文本明確指出國家支持的攻擊者代表政府進行情報收集或破壞，這屬於一種特定的攻擊實作。",
+    "source_id": "chunk_12",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '國家支持的攻擊者' 的類別 'attacker' 合理對齊，受體 '國家支持攻擊' 的類別 'attack' 也合理對齊，考慮到同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：未違反，因為三元組中主體是國家支持的攻擊者，沒有同時具有攻擊者和安全團隊的身分。檢查規則2：不適用，因為動作是implements，而規則2是針對mitigates。檢查規則3：不適用，因為主體類別是攻擊者，而規則3是針對漏洞。檢查規則4：不適用，因為關係是implements，而規則4是針對violates。檢查規則5：不適用，因為關係是implements，而規則5是針對uses。檢查規則6：不適用，因為關係是implements，而規則6是針對deployed_in。檢查規則7：不適用，因為關係是implements，而規則7是針對generates。檢查規則8：不適用，因為關係是implements，而規則8是針對controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（國家支持的攻擊者）和關係（implements）以及受體（國家支持攻擊）之間的關係在給定的語義限制清單中沒有明確的違反規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "國家支持的攻擊者與有組織的駭客之間存在同義詞關係，國家支持攻擊與攻擊之間存在同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "有組織的駭客",
+        "standard_object": "攻擊",
+        "reason": "根據同義詞判定準則，國家支持的攻擊者與有組織的駭客、國家支持攻擊與攻擊分別為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "國家支持的攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "國家支持攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出國家支持的攻擊者代表政府進行情報收集或破壞，這屬於一種特定的攻擊實作。",
+      "source_id": "chunk_12",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "員工"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到員工透過連接受感染的 USB 或點擊惡意連結來促進攻擊，這在資安本體論中屬於使用者行為導致系統暴露於弱點或風險之中。",
+    "source_id": "chunk_12",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "員工 (user) 是 'user' 的合理實例，弱點 (vulnerability) 是 'vulnerability' 的合理實例，'can_expose' 的語意也合理地描述了員工與弱點之間的關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係是can_expose，而不是mitigates。規則3適用，但三元組中的主體類別是user，而不是vulnerability，因此不違反規則3。規則4不適用，因為三元組中的關係是can_expose，而不是violates。規則5不適用，因為三元組中的關係是can_expose，而不是uses。規則6不適用，因為三元組中的關係是can_expose，而不是deployed_in。規則7不適用，因為三元組中的關係是can_expose，而不是generates。規則8不適用，因為三元組中的關係是can_expose，而不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體類別是user，關係是can_expose，受體類別是vulnerability，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "員工與員工、人員、組織員工、雇主等為同義詞或廣義/狹義從屬關係；弱點與系統弱點、協定弱點、偽造弱點、安全性弱點、認證弱點等為同義詞或廣義/狹義從屬關係，但員工與弱點之間無直接同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，員工與弱點之間無直接同義詞或從屬關係，且無法確定為 duplicate，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "員工",
+        "type": "user"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到員工透過連接受感染的 USB 或點擊惡意連結來促進攻擊，這在資安本體論中屬於使用者行為導致系統暴露於弱點或風險之中。",
+      "source_id": "chunk_12",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "外部攻擊者",
+      "type": "attacker",
+      "display_name": "外部攻擊者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "社會工程學",
+      "type": "technique",
+      "display_name": "社會工程學"
+    },
+    "reasoning": "文本提到攻擊者使用社會工程學來獲得存取權，社會工程學是一種達到目的的方法，故定義為 technique。",
+    "source_id": "chunk_12",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'technique' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "外部攻擊者 (attacker) 使用社會工程學 (technique) 是語意上合理的，社會工程學是攻擊者常用的手法。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發，主體類別為attacker，使用uses關係，合法。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為外部攻擊者，使用uses關係，與社會工程學為受體，符合規則允許的條件，無明確違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "外部攻擊者與Ldr中的外部攻擊者完全相同，社會工程學與Ldr中的社交工程相似，但非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體外部攻擊者與Ldr中的外部攻擊者完全相同，無需進一步判定；受體社會工程學與Ldr中的社交工程相似，但非完全等價同義詞，根據不確定時預設保留原則，判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "外部攻擊者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "社會工程學",
+        "type": "technique"
+      },
+      "reasoning": "文本提到攻擊者使用社會工程學來獲得存取權，社會工程學是一種達到目的的方法，故定義為 technique。",
+      "source_id": "chunk_12",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "社交工程",
+      "type": "technique",
+      "display_name": "社會工程學"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "組織資料"
+    },
+    "reasoning": "社會工程學被用來獲取對組織資料的未經授權存取，在 Schema 中，technique 對 data 的獲取/分析可用 can_analyze 表示。",
+    "source_id": "chunk_12",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "社會工程學 (technique) 可以分析組織資料 (data)，這符合資安領域的常見實踐與語意對齊。",
+        "response": "correct",
+        "reason": "社會工程學可以分析組織資料，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 technique，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查關係 can_analyze：根據提供的規則，沒有明確限制 technique 類別的主體不能與 can_analyze 關係結合。",
+        "response": "correct",
+        "reason": "由於沒有發現明確且直接的違反項目，且三元組符合一般的語義邏輯，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "社交工程與社會工程學為同義詞，資料與組織資料在資安領域中可視為同一概念的不同表達",
+        "response": "duplicate",
+        "standard_subject": "社交工程",
+        "standard_object": "資料",
+        "reason": "根據同義詞判定，社會工程學與社交工程、組織資料與資料在資安領域中指稱同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "社會工程學",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "組織資料",
+        "type": "data"
+      },
+      "reasoning": "社會工程學被用來獲取對組織資料的未經授權存取，在 Schema 中，technique 對 data 的獲取/分析可用 can_analyze 表示。",
+      "source_id": "chunk_12",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "外部攻擊者",
+      "type": "attacker",
+      "display_name": "外部攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本明確提到外部攻擊者可以「利用網路中的漏洞」，符合 attacker -> can_exploit -> vulnerability 的定義。",
+    "source_id": "chunk_12",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "外部攻擊者 (attacker) 是 'attacker' 的合理實例，漏洞 (vulnerability) 是 'vulnerability' 的合理實例，且 'can_exploit' 是描述攻擊者與漏洞之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中主體是外部攻擊者，沒有同時具有攻擊者和安全團隊的身分。規則2：不適用，因為三元組中關係是can_exploit，不是mitigates。規則3：不適用，因為三元組中主體類別是attacker，不是vulnerability。規則4：不適用，因為三元組中關係是can_exploit，不是violates。規則5：不適用，因為三元組中關係是can_exploit，不是uses。規則6：不適用，因為三元組中關係是can_exploit，不是deployed_in。規則7：不適用，因為三元組中關係是can_exploit，不是generates。規則8：不適用，因為三元組中關係是can_exploit，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是外部攻擊者，關係是can_exploit，受體是漏洞，沒有違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞出現在 Ldr 中，主體 '外部攻擊者' 可以被視為 '攻擊者' 的同義詞，受體 '漏洞' 直接出現在 Ldr 中且有多個同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體和受體皆有對應的同義詞，但考慮到廣義/狹義一律保留的原則，且無法確定為完全相同的實體，因此預設為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "外部攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確提到外部攻擊者可以「利用網路中的漏洞」，符合 attacker -> can_exploit -> vulnerability 的定義。",
+      "source_id": "chunk_12",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "外部攻擊者",
+      "type": "attacker",
+      "display_name": "外部攻擊者"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "電腦設備",
+      "type": "system",
+      "display_name": "電腦設備"
+    },
+    "reasoning": "文本提到「未經授權存取電腦設備」，在資安情境下，未經授權的存取通常意味著獲取了控制權。",
+    "source_id": "chunk_12",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 均在 Lc,p 中。",
+        "step_2_alignment_check": "外部攻擊者 (attacker) 控制電腦設備 (system) 的情境是合理的，'attacker' 和 'system' 的名稱與其類別對齊，且 'controls' 關係在資安領域中是常見的描述手法。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為外部攻擊者，具有主動執行能力，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（外部攻擊者）具有主動執行能力，符合規則8的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"外部攻擊者\" 與 Ldr 中的 \"攻擊者\" 和 \"網路攻擊者\" 類似，但 \"外部攻擊者\" 是一個更具體的類型，受體 \"電腦設備\" 與 Ldr 中的 \"電腦設備\" 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，主體和受體不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "外部攻擊者",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "電腦設備",
+        "type": "system"
+      },
+      "reasoning": "文本提到「未經授權存取電腦設備」，在資安情境下，未經授權的存取通常意味著獲取了控制權。",
+      "source_id": "chunk_12",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "stuxnet 攻擊",
+      "type": "attack",
+      "display_name": "Stuxnet 攻擊"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "國家支持攻擊",
+      "type": "attack",
+      "display_name": "國家支持攻擊"
+    },
+    "reasoning": "文本明確指出 Stuxnet 惡意軟體是「國家支持攻擊的一個例子」，因此 Stuxnet 攻擊屬於國家支持攻擊的一種。",
+    "source_id": "chunk_12",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Stuxnet 攻擊與國家支持攻擊皆為 'attack' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "Stuxnet 攻擊與國家支持攻擊的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'is_part_of'，發現無直接相關規則限制此類別組合。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與給定的語義限制清單中沒有直接衝突，且無明確規則限制 'is_part_of' 關係在此類別組合上。"
+      },
+      "step_2": {
+        "granularity_analysis": "Stuxnet 攻擊與國家支持攻擊皆屬於攻擊類別，但兩者具體內容不同，Stuxnet 攻擊是一種特定的惡意軟體攻擊，國家支持攻擊則是一種更廣泛的攻擊類型，兩者之間存在廣義/狹義從屬關係，但不完全等價。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，Stuxnet 攻擊與國家支持攻擊之間存在廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Stuxnet 攻擊",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "國家支持攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出 Stuxnet 惡意軟體是「國家支持攻擊的一個例子」，因此 Stuxnet 攻擊屬於國家支持攻擊的一種。",
+      "source_id": "chunk_12",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "stuxnet 攻擊",
+      "type": "attack",
+      "display_name": "Stuxnet 攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標電腦",
+      "type": "system",
+      "display_name": "目標電腦"
+    },
+    "reasoning": "文本提到 Stuxnet 旨在劫持目標電腦，這是一種對系統的危害行為。",
+    "source_id": "chunk_12",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Stuxnet 攻擊是 'attack' 的合理實例，目標電腦是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "Stuxnet 攻擊與目標電腦的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 'Stuxnet 攻擊' 的類別 'attack' 與受體 '目標電腦' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 與主體、受體的類別組合在給定的語義限制清單中沒有被明確限制或禁止，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "Stuxnet 攻擊與 Ldr 中的「stuxnet 攻擊」完全相同，且「目標電腦」與 Ldr 中的「目標主機」或「目標伺服器」具有相似的概念，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，Stuxnet 攻擊與 Ldr 中的「stuxnet 攻擊」完全相同，但受體「目標電腦」與 Ldr 中的資源不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Stuxnet 攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "目標電腦",
+        "type": "system"
+      },
+      "reasoning": "文本提到 Stuxnet 旨在劫持目標電腦，這是一種對系統的危害行為。",
+      "source_id": "chunk_12",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "stuxnet 攻擊",
+      "type": "attack",
+      "display_name": "Stuxnet 攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "電腦控制的設備",
+      "type": "system",
+      "display_name": "電腦控制的設備"
+    },
+    "reasoning": "文本提到 Stuxnet 對電腦控制的設備造成實體損壞，符合 attack -> can_harm -> system 的定義。",
+    "source_id": "chunk_12",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Stuxnet 攻擊是 'attack' 的合理實例，電腦控制的設備是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "Stuxnet 攻擊與電腦控制的設備之間的 'can_harm' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 'Stuxnet 攻擊' 的類別 'attack' 與受體 '電腦控制的設備' 的類別 'system' 在給定的規則中沒有直接的違反。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 與主體、受體的類別組合在給定的語義限制清單中沒有被明確限制或違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "Stuxnet 攻擊與 Ldr 中的 'stuxnet 攻擊' 完全等價同義詞，電腦控制的設備與 Ldr 中的 '電腦設備' 或 '受控制電腦' 有相似之處，但不完全等價，'電腦控制的設備' 可視為 '電腦設備' 的子集或相關概念，但不完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，Stuxnet 攻擊與 'stuxnet 攻擊' 完全等價，但由於 '電腦控制的設備' 與 '電腦設備' 或 '受控制電腦' 不完全相同，且無法確定為同義詞或完全等價，故預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Stuxnet 攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "電腦控制的設備",
+        "type": "system"
+      },
+      "reasoning": "文本提到 Stuxnet 對電腦控制的設備造成實體損壞，符合 attack -> can_harm -> system 的定義。",
+      "source_id": "chunk_12",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 11
+    }
+  }
+]

@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "電腦系統",
+      "type": "system",
+      "display_name": "電腦系統"
+    },
+    "reasoning": "文本提到電腦系統架構包含作業系統層，因此作業系統屬於電腦系統的一部分。",
+    "source_id": "chunk_1",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "作業系統和電腦系統都是系統的合理實例，符合語意對齊，且 'is_part_of' 關係在資安領域中是合理的，描述作業系統是電腦系統的一部分。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 不在語義限制清單中被明確限制，且主體和受體的類別均為 'system'，因此不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「作業系統」與 Ldr 中的「作業系統」完全等價同義詞，受體「電腦系統」與 Ldr 中的「電腦系統」完全等價同義詞，但兩者之間存在廣義/狹義從屬關係，「作業系統」是「電腦系統」的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "電腦系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到電腦系統架構包含作業系統層，因此作業系統屬於電腦系統的一部分。",
+      "source_id": "chunk_1",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "硬體",
+      "type": "system",
+      "display_name": "硬體"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "電腦系統",
+      "type": "system",
+      "display_name": "電腦系統"
+    },
+    "reasoning": "文本明確提到電腦系統架構包含硬體層，因此硬體作為一個實體設備系統，屬於電腦系統的一部分。",
+    "source_id": "chunk_1",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '硬體' 和 '電腦系統' 均為 'system' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為關係不是 uses。檢查規則6：無關，因為關係不是 deployed_in。檢查規則7：無關，因為關係不是 generates。檢查規則8：無關，因為關係不是 controls。檢查是否有其他規則觸發違規：沒有。",
+        "response": "correct",
+        "reason": "三元組（硬體 is_part_of 電腦系統）沒有觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體（硬體）與受體（電腦系統）皆為 system 類別，且 Ldr 中有相似的資源，例如「硬體資產」和「電腦系統」",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，硬體和電腦系統是不同的子類型，故不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "硬體",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "電腦系統",
+        "type": "system"
+      },
+      "reasoning": "文本明確提到電腦系統架構包含硬體層，因此硬體作為一個實體設備系統，屬於電腦系統的一部分。",
+      "source_id": "chunk_1",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "應用軟體",
+      "type": "app",
+      "display_name": "應用軟體"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "電腦系統",
+      "type": "system",
+      "display_name": "電腦系統"
+    },
+    "reasoning": "文本提到電腦系統架構包含應用軟體層，符合 Schema 中 app is_part_of system 的定義。",
+    "source_id": "chunk_1",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '應用軟體' 是 'app' 的合理實例，'電腦系統' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查是否有其他明確違反規則的情況：沒有。",
+        "response": "correct",
+        "reason": "三元組中的主體（應用軟體）和受體（電腦系統）通過 'is_part_of' 關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"應用軟體\" 與 Ldr 中的 \"軟體程式\"、\"應用程式\" 等具有高相似度，但非完全等價同義詞；受體 \"電腦系統\" 與 Ldr 中的 \"電腦系統\" 完全匹配，為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "電腦系統",
+        "reason": "受體 \"電腦系統\" 與 Ldr 中的 \"電腦系統\" 完全匹配，判定為同義詞重複，但根據規則 3，主體不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用軟體",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "電腦系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到電腦系統架構包含應用軟體層，符合 Schema 中 app is_part_of system 的定義。",
+      "source_id": "chunk_1",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "驅動程式",
+      "type": "feature",
+      "display_name": "驅動程式"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "電腦系統",
+      "type": "system",
+      "display_name": "電腦系統"
+    },
+    "reasoning": "驅動程式被描述為連結硬體與軟體的介面，屬於電腦系統架構的四個層次之一，將其歸類為 tool 並定義為系統的一部分。",
+    "source_id": "chunk_1",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "驅動程式是工具的合理實例，電腦系統是系統的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（驅動程式）和受體（電腦系統）之間的關係（is_part_of）沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「驅動程式」與 Ldr 中的「驅動程式」完全匹配，受體「電腦系統」與 Ldr 中的「電腦系統」完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源完全匹配，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "驅動程式",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "電腦系統",
+        "type": "system"
+      },
+      "reasoning": "驅動程式被描述為連結硬體與軟體的介面，屬於電腦系統架構的四個層次之一，將其歸類為 tool 並定義為系統的一部分。",
+      "source_id": "chunk_1",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資源管理",
+      "type": "function",
+      "display_name": "資源管理"
+    },
+    "reasoning": "文本提到作業系統層負責『各項資源的管理』。為了符合 Schema 中 tool has_a function 的邊界，將作業系統視為管理工具，資源管理視為其功能。",
+    "source_id": "chunk_1",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "作業系統 (tool) 和資源管理 (function) 的名稱與其類別合理對齊，資源管理是作業系統的一個功能，符合語意對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 has_a，不是 uses。檢查規則6：不適用，因為關係為 has_a，不是 deployed_in。檢查規則7：不適用，因為關係為 has_a，不是 generates。檢查規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（作業系統 has_a 資源管理）不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全等價，受體 \"資源管理\" 與 Ldr 中的 \"資源管理\" 完全等價，兩者均為完全匹配的同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資源管理",
+        "type": "function"
+      },
+      "reasoning": "文本提到作業系統層負責『各項資源的管理』。為了符合 Schema 中 tool has_a function 的邊界，將作業系統視為管理工具，資源管理視為其功能。",
+      "source_id": "chunk_1",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "應用軟體",
+      "type": "app",
+      "display_name": "應用軟體"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "reasoning": "文本指出應用軟體層『可透過作業系統的輔助』來執行指令，這表示應用軟體在執行上依賴於作業系統。",
+    "source_id": "chunk_1",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '應用軟體' 是 'app' 的合理實例，'作業系統' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查完所有規則，沒有發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組中的主體（應用軟體）和受體（作業系統）通過 depends_on 關係，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "應用軟體與現有近似資源清單中的「應用軟體」完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "應用軟體",
+        "standard_object": "",
+        "reason": "根據同義詞判定，應用軟體與現有近似資源清單中的「應用軟體」為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用軟體",
+        "type": "app"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "reasoning": "文本指出應用軟體層『可透過作業系統的輔助』來執行指令，這表示應用軟體在執行上依賴於作業系統。",
+      "source_id": "chunk_1",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "安全政策",
+      "type": "policy",
+      "display_name": "安全政策"
+    },
+    "reasoning": "文本提到管理層面需具備安全政策並『落實在日常的管理工作中』，這隱含了安全團隊（資安人員）必須執行並實作這些政策。",
+    "source_id": "chunk_1",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實施安全政策 (policy) 是語意上合理的，'securityTeam' 和 'policy' 的名稱與其類別對齊，且符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。規則2：不適用，因為動作是 implements，而非 mitigates。規則3：不適用，因為主體類別是 securityTeam，而非 vulnerability。規則4：不適用，因為主體是 securityTeam，而非 principle。規則5：不適用，因為關係是 implements，而非 uses。規則6：不適用，因為關係是 implements，而非 deployed_in。規則7：不適用，因為關係是 implements，而非 generates。規則8：不適用，因為關係是 implements，而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安人員）和關係（implements）以及受體（安全政策）之間的關係沒有違反任何語義限制清單中的規則。因此，根據無罪推定原則，該三元組被判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有近似資源清單中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "安全政策",
+        "type": "policy"
+      },
+      "reasoning": "文本提到管理層面需具備安全政策並『落實在日常的管理工作中』，這隱含了安全團隊（資安人員）必須執行並實作這些政策。",
+      "source_id": "chunk_1",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "外部網路設施",
+      "type": "system",
+      "display_name": "外部網路設施"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "電腦系統",
+      "type": "system",
+      "display_name": "電腦系統"
+    },
+    "reasoning": "文本將外部網路設施納入技術層面的安全防護範圍，視其為整體電腦安全系統的一部分。",
+    "source_id": "chunk_1",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "外部網路設施與電腦系統皆為 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊與同義詞寬容原則均通過。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與規則清單中沒有直接相關的限制，因此不觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體（外部網路設施）與受體（電腦系統）皆為 system 類別，但兩者在資安領域中代表不同的概念，主體更接近於「網路系統」，而非完全等價同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體之間的同義詞或從屬關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "外部網路設施",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "電腦系統",
+        "type": "system"
+      },
+      "reasoning": "文本將外部網路設施納入技術層面的安全防護範圍，視其為整體電腦安全系統的一部分。",
+      "source_id": "chunk_1",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "機房",
+      "type": "system",
+      "display_name": "機房"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "電腦系統",
+      "type": "system",
+      "display_name": "電腦系統"
+    },
+    "reasoning": "文本將機房安全納入實體層面的探討，機房作為存放設備的基礎設施系統，屬於整體電腦系統環境的一部分。",
+    "source_id": "chunk_1",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "機房和電腦系統都是系統（system）的合理實例，符合語意對齊，且 'is_part_of' 關係在資安領域中是合理的用法。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查後發現，給定的三元組（機房 is_part_of 電腦系統）沒有明確違反任何一條規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與給定的關係之間的關聯沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體（機房）與受體（電腦系統）在資安領域中代表不同的概念，前者指的是一個物理空間，後者指的是一種系統，兩者之間沒有直接的同義詞關係或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體和受體之間沒有同義詞關係或從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "機房",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "電腦系統",
+        "type": "system"
+      },
+      "reasoning": "文本將機房安全納入實體層面的探討，機房作為存放設備的基礎設施系統，屬於整體電腦系統環境的一部分。",
+      "source_id": "chunk_1",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

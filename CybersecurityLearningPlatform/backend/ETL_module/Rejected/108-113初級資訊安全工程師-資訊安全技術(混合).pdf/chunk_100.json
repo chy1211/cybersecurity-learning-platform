@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "程式原碼檢測",
+      "type": "technique",
+      "display_name": "程式原碼檢測"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "內存泄漏",
+      "type": "vulnerability",
+      "display_name": "內存泄漏"
+    },
+    "reasoning": "文本提到 Code review 可以查找內存泄漏，內存泄漏屬於系統漏洞/弱點。符合 Schema: (technique, can_analyze, vulnerability)。",
+    "source_id": "chunk_100",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "程式原碼檢測 (technique) 可以分析內存泄漏 (vulnerability)，這是資安領域中合理的語意對齊，符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "程式原碼檢測與內存泄漏之間的 'can_analyze' 關係在資安領域中是合理且正確的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該規則被觸發，因為主體是內存泄漏（vulnerability），而關係是 can_analyze，屬於主動行為。",
+        "response": "violation",
+        "reason": "三元組違反規則3，因為內存泄漏（vulnerability）作為主體，發起了 can_analyze 的主動行為。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組違反規則3，因為內存泄漏（vulnerability）作為主體，發起了 can_analyze 的主動行為。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "程式原碼檢測",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "內存泄漏",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到 Code review 可以查找內存泄漏，內存泄漏屬於系統漏洞/弱點。符合 Schema: (technique, can_analyze, vulnerability)。",
+      "source_id": "chunk_100",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  }
+]

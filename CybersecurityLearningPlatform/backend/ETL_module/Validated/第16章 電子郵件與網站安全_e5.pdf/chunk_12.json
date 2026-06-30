@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL 注入"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "reasoning": "文本提到網站遭受 SQL 注入攻擊，這是一種惡意行為對應用程式造成的損害，符合 (attack, can_harm, app) 的 Schema。",
+    "source_id": "chunk_12",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SQL 注入 是 'attack' 的合理實例，網站 是 'app' 的合理實例，且 'can_harm' 是描述攻擊對應用程式的合理關係。",
+        "response": "correct",
+        "reason": "SQL 注入攻擊可以對網站造成傷害，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體 'SQL 注入' 屬於攻擊類別，具有主動執行能力，符合 'can_harm' 關係的使用條件。",
+        "response": "correct",
+        "reason": "三元組 'SQL 注入'、'can_harm'、'網站' 沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "SQL 注入與 sql injection 為完全等價同義詞，網站為完全匹配的資源",
+        "response": "duplicate",
+        "standard_subject": "sql injection",
+        "standard_object": "網站",
+        "reason": "根據同義詞對照表，SQL 注入與 sql injection 為同義詞，網站為完全匹配的資源。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL 注入",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網站",
+        "type": "app"
+      },
+      "reasoning": "文本提到網站遭受 SQL 注入攻擊，這是一種惡意行為對應用程式造成的損害，符合 (attack, can_harm, app) 的 Schema。",
+      "source_id": "chunk_12",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "隱碼攻擊",
+      "type": "attack",
+      "display_name": "隱碼攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "reasoning": "文本將隱碼攻擊列為網站遭受的攻擊類型，符合 (attack, can_harm, app) 的 Schema。",
+    "source_id": "chunk_12",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "隱碼攻擊是 'attack' 的合理實例，網站是 'app' 的合理實例，且 'can_harm' 的語意與攻擊對網站的影響相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是隱碼攻擊（類別：attack），關係是can_harm，受體是網站（類別：app），這不涉及控制關係，故不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"隱碼攻擊\" 與 Ldr 中的 \"資料隱碼攻擊\" 關係為同義詞，受體 \"網站\" 與 Ldr 中的 \"網站\" 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，隱碼攻擊與資料隱碼攻擊為同義詞，但根據廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "隱碼攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網站",
+        "type": "app"
+      },
+      "reasoning": "文本將隱碼攻擊列為網站遭受的攻擊類型，符合 (attack, can_harm, app) 的 Schema。",
+      "source_id": "chunk_12",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "網站設計疏忽",
+      "type": "vulnerability",
+      "display_name": "網站設計疏忽"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本提到『防止網站設計疏忽所造成的漏洞』，暗示設計疏忽（漏洞）會導致潛在的風險，符合 (vulnerability, can_expose, risk) 的 Schema。",
+    "source_id": "chunk_12",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網站設計疏忽是 'vulnerability' 的合理實例，風險是 'risk' 的合理實例，'can_expose' 關係在資安領域中合理適用於此類別之間的關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但 'can_expose' (暴露) 動作是特例允許的。因此，三元組（網站設計疏忽，can_expose，風險）觸發了規則3的特例允許，代表合法。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，網站設計疏忽（vulnerability）可以發起 'can_expose' 動作。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網站設計疏忽與風險之間的關係是廣義/狹義從屬，網站設計疏忽是一種風險的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則3，若一個實體是另一個的子類型，判定為correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站設計疏忽",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『防止網站設計疏忽所造成的漏洞』，暗示設計疏忽（漏洞）會導致潛在的風險，符合 (vulnerability, can_expose, risk) 的 Schema。",
+      "source_id": "chunk_12",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL 注入"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本明確指出 SQL 注入攻擊會導致『資料被竊取』，符合 (attack, can_harm, data) 的 Schema。",
+    "source_id": "chunk_12",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SQL 注入 是 'attack' 的合理實例，資料 是 'data' 的合理實例，'can_harm' 的語意也與攻擊對資料的影響相符。",
+        "response": "correct",
+        "reason": "SQL 注入攻擊對資料的影響是合理的，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體是攻擊類別，具有主動執行能力，符合規則8的條件，關係為can_harm，受體為資料，未違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（SQL 注入）與受體（資料）之間的關係（can_harm）在給定的語義限制清單中沒有被明確禁止，且主體具有攻擊的能力，符合相關規則的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "SQL 注入與 sql injection 為完全等價同義詞，資料與資料為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "sql injection",
+        "standard_object": "資料",
+        "reason": "根據同義詞對照表，SQL 注入與 sql injection 是同義詞，資料也與資料是完全相同的名稱。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL 注入",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本明確指出 SQL 注入攻擊會導致『資料被竊取』，符合 (attack, can_harm, data) 的 Schema。",
+      "source_id": "chunk_12",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "網站安全檢測",
+      "type": "technique",
+      "display_name": "網站安全檢測"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "定期進行安全檢測是一種技術手段，目的是分析並發現系統中的漏洞，符合 (technique, can_analyze, vulnerability) 的 Schema。",
+    "source_id": "chunk_12",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網站安全檢測是 technique 的合理實例，漏洞是 vulnerability 的合理實例，且 'can_analyze' 是一個合理的關係，因為網站安全檢測可以分析漏洞。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該三元組的主體是 '網站安全檢測'，類別為 'technique'，不符合規則3的限制條件；規則3針對的是漏洞類別的主體，與此三元組無關。因此，該三元組不觸發規則3的違規。",
+        "response": "correct",
+        "reason": "三元組的主體是 '網站安全檢測'，類別為 'technique'，可以執行 'can_analyze' 動作，且未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "網站安全檢測與安全探測、安全測試等相似，但非完全等價同義詞；漏洞為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據同義詞判定，漏洞為完全等價同義詞，主體不需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站安全檢測",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "定期進行安全檢測是一種技術手段，目的是分析並發現系統中的漏洞，符合 (technique, can_analyze, vulnerability) 的 Schema。",
+      "source_id": "chunk_12",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "瀏覽器",
+      "type": "app",
+      "display_name": "使用者瀏覽器"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "reasoning": "文本描述『使用者瀏覽器與網站連線』，描述了兩個實體間的網路通訊，符合 (app, connects_to, system) 的 Schema。",
+    "source_id": "chunk_12",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "使用者瀏覽器 (app) 與 網站 (system) 的名稱與其類別合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於三元組中的關係是 connects_to，且主體和受體的類別均為 app，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別均為 app，且關係為 connects_to，未觸發語義限制清單中的任何規則。因此，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「使用者瀏覽器」與 Ldr 中的「瀏覽器」為同義詞，受體「網站」與 Ldr 中的「網站」完全匹配",
+        "response": "correct",
+        "standard_subject": "瀏覽器",
+        "standard_object": "網站",
+        "reason": "根據同義詞判定，主體與 Ldr 中的瀏覽器為同義詞，受體與 Ldr 中的網站完全匹配。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者瀏覽器",
+        "type": "app"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "網站",
+        "type": "system"
+      },
+      "reasoning": "文本描述『使用者瀏覽器與網站連線』，描述了兩個實體間的網路通訊，符合 (app, connects_to, system) 的 Schema。",
+      "source_id": "chunk_12",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "ssl/tls",
+      "type": "tool",
+      "display_name": "SSL/TLS"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "攻擊"
+    },
+    "reasoning": "SSL/TLS 提供加密保護以防止資料在傳輸過程中被竊聽或竄改（攻擊），符合 (tool, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_12",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SSL/TLS 是一種工具（tool），可用於緩解（mitigates）攻擊（attack），因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "SSL/TLS、'mitigates' 與 'attack' 三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體 SSL/TLS 屬於 tool 類別，符合規則2的條件。其他規則與三元組無直接關聯。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SSL/TLS 是一種工具，與 Ldr 中的 'ssl/tls' 完全等價，受體 '攻擊' 與 Ldr 中的 '攻擊' 完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSL/TLS",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "SSL/TLS 提供加密保護以防止資料在傳輸過程中被竊聽或竄改（攻擊），符合 (tool, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_12",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "網站伺服器",
+      "type": "system",
+      "display_name": "網站伺服器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ssl/tls",
+      "type": "tool",
+      "display_name": "SSL/TLS"
+    },
+    "reasoning": "網站伺服器部署並具有 SSL/TLS 加密功能，將其視為系統的一個特徵，符合 (system, has_a, feature) 的 Schema。",
+    "source_id": "chunk_12",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網站伺服器是 system 的合理實例，SSL/TLS 是 feature 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "網站伺服器具有 SSL/TLS 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '網站伺服器' 和受體 'SSL/TLS' 之間的關聯，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「網站伺服器」與 Ldr 中的「網站伺服器」完全匹配，受體「SSL/TLS」與 Ldr 中的「ssl/tls」完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站伺服器",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "SSL/TLS",
+        "type": "feature"
+      },
+      "reasoning": "網站伺服器部署並具有 SSL/TLS 加密功能，將其視為系統的一個特徵，符合 (system, has_a, feature) 的 Schema。",
+      "source_id": "chunk_12",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "員工"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資訊安全教育與訓練",
+      "type": "policy",
+      "display_name": "資訊安全教育與訓練"
+    },
+    "reasoning": "文本提到對員工進行資安教育與訓練以提升觀念，這屬於執行資安規範/計畫，符合 (user, implements, policy) 的 Schema。",
+    "source_id": "chunk_12",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "員工 (user) 實施 (implements) 資訊安全教育與訓練 (policy) 是語意上合理的，因為員工可以實施公司的資安政策，且 'user' 和 'policy' 的名稱與其類別對齊。",
+        "response": "correct",
+        "reason": "員工實施資訊安全教育與訓練的三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'implements'，且主體是 '員工'（類別：user），受體是 '資訊安全教育與訓練'（類別：policy），未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的關係和實體類別組合未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「員工」與 Ldr 中的「員工」完全相同，受體「資訊安全教育與訓練」與 Ldr 中的「教育訓練」具有相似性，但不完全相同，兩者皆無同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體和受體不需要進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "員工",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資訊安全教育與訓練",
+        "type": "policy"
+      },
+      "reasoning": "文本提到對員工進行資安教育與訓練以提升觀念，這屬於執行資安規範/計畫，符合 (user, implements, policy) 的 Schema。",
+      "source_id": "chunk_12",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

@@ -1,0 +1,94 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "辨識資訊",
+      "type": "data",
+      "display_name": "可識別資訊"
+    },
+    "reasoning": "文本提到『使用者必須提供可識別的資訊給系統』，因此使用者使用了（提供）這類資料。符合 Schema: (\"user\", \"uses\", \"data\")",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "使用者 (user) 可以使用可識別資訊 (data)，這是資安領域中常見的語意對齊，'uses' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發違規，因為主體的類別是user，使用uses關係，受體是data，符合規則5的違反條件。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "violation",
+        "reason": "三元組違反規則5，因為主體的類別是user，使用uses關係，受體是data。這違反了規則5的條件，規定當關係為uses時，如果主體的類別是data，則為違反，但此處主體是user，受體是data，仍觸發了規則5的違反。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組違反規則5，因為主體的類別是user，使用uses關係，受體是data。這違反了規則5的條件，規定當關係為uses時，如果主體的類別是data，則為違反，但此處主體是user，受體是data，仍觸發了規則5的違反。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "可識別資訊",
+        "type": "data"
+      },
+      "reasoning": "文本提到『使用者必須提供可識別的資訊給系統』，因此使用者使用了（提供）這類資料。符合 Schema: (\"user\", \"uses\", \"data\")",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "憑證機構",
+      "type": "tool",
+      "display_name": "憑證機構"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "數位憑證",
+      "type": "tool",
+      "display_name": "數位憑證"
+    },
+    "reasoning": "憑證機構 (CA) 的核心功能是產生並簽發數位憑證。符合 Schema: (\"tool\", \"generates\", \"data\")",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "憑證機構 (tool) 可生成數位憑證 (data)，符合語意對齊，且 '憑證機構' 與 'tool'、'數位憑證' 與 'data' 的對齊是合理的。",
+        "response": "correct",
+        "reason": "憑證機構生成數位憑證的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)，但本三元組的受體是數位憑證 (類別: tool)，因此觸發違規。",
+        "response": "violation",
+        "reason": "三元組中的關係 'generates' 須與 data 類別的受體配對，但實際上受體是 tool 類別的數位憑證，違反了規則7。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組中的關係 'generates' 須與 data 類別的受體配對，但實際上受體是 tool 類別的數位憑證，違反了規則7。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "憑證機構",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "數位憑證",
+        "type": "data"
+      },
+      "reasoning": "憑證機構 (CA) 的核心功能是產生並簽發數位憑證。符合 Schema: (\"tool\", \"generates\", \"data\")",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  }
+]

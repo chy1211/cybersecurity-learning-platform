@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "siem",
+      "type": "tool",
+      "display_name": "SIEM"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "文本提到『SIEM 側重於日誌的集中式管理和審計』，審計 (Audit) 涉及對資料的分析，因此選擇 can_analyze，符合 Schema 中的 ('tool', 'can_analyze', 'data')。",
+    "source_id": "chunk_133",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SIEM 是一種安全資訊與事件管理工具，可以分析日誌，故其名稱與類別 'tool' 對齊，日誌是資料的一種形式，故其名稱與類別 'data' 對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但主體是 tool，符合 can_analyze 的主體類型要求。",
+        "response": "correct",
+        "reason": "三元組中的主體是 SIEM（類別：tool），關係是 can_analyze，受體是日誌（類別：data），這符合一般的資安分析工具可以分析日誌的邏輯，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (SIEM) 與 Ldr 中的 'siem' 完全等價同義詞，受體 (日誌) 與 Ldr 中的 '日誌' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SIEM",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "文本提到『SIEM 側重於日誌的集中式管理和審計』，審計 (Audit) 涉及對資料的分析，因此選擇 can_analyze，符合 Schema 中的 ('tool', 'can_analyze', 'data')。",
+      "source_id": "chunk_133",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "siem",
+      "type": "tool",
+      "display_name": "SIEM"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "攻擊",
+      "type": "technique",
+      "display_name": "攻擊"
+    },
+    "reasoning": "文本明確提到『SIEM 用途包含偵測攻擊』，因此將 SIEM 定義為 tool，攻擊定義為 attack，關係為 can_detect，符合 Schema 中的 ('tool', 'can_detect', 'attack')。",
+    "source_id": "chunk_133",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SIEM 是一種安全資訊與事件管理工具，可以用來偵測攻擊，故其名稱與類別 'tool' 對齊，同時 '攻擊' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_detect，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（SIEM, can_detect, 攻擊）不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SIEM 與 siem 完全等價同義詞，攻擊與 攻擊 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "siem",
+        "standard_object": "攻擊",
+        "reason": "根據同義詞判定，SIEM 與 siem、攻擊與 攻擊 分別為同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SIEM",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到『SIEM 用途包含偵測攻擊』，因此將 SIEM 定義為 tool，攻擊定義為 attack，關係為 can_detect，符合 Schema 中的 ('tool', 'can_detect', 'attack')。",
+      "source_id": "chunk_133",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "siem",
+      "type": "tool",
+      "display_name": "SIEM"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "事件管理",
+      "type": "function",
+      "display_name": "事件管理"
+    },
+    "reasoning": "文本指出『SIEM 結合了安全相關的資訊管理及事件管理』，事件管理是 SIEM 具備的核心能力/功能，符合 Schema 中的 ('tool', 'has_a', 'function')。",
+    "source_id": "chunk_133",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SIEM 是一種安全資訊與事件管理工具，'事件管理' 是其功能之一，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "SIEM 與 '事件管理' 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（SIEM has_a 事件管理）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SIEM 與 siem 完全等價同義詞，事件管理與管理具有廣義/狹義從屬關係，但根據規則 3，廣義/狹義一律保留，不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 1 和 3，SIEM 與 siem 雖同義，但事件管理與管理之間的關係是廣義/狹義從屬，故不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SIEM",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "事件管理",
+        "type": "function"
+      },
+      "reasoning": "文本指出『SIEM 結合了安全相關的資訊管理及事件管理』，事件管理是 SIEM 具備的核心能力/功能，符合 Schema 中的 ('tool', 'has_a', 'function')。",
+      "source_id": "chunk_133",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "siem",
+      "type": "tool",
+      "display_name": "SIEM"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資訊管理",
+      "type": "function",
+      "display_name": "資訊管理"
+    },
+    "reasoning": "文本指出『SIEM 結合了安全相關的資訊管理及事件管理』，資訊管理是 SIEM 具備的核心能力/功能，符合 Schema 中的 ('tool', 'has_a', 'function')。",
+    "source_id": "chunk_133",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SIEM 是一種安全資訊與事件管理工具，'tool' 是其合理類別；'資訊管理' 可被視為 'function' 的實例，因為它描述了一種功能或過程，尤其是在資安領域中。",
+        "response": "correct",
+        "reason": "SIEM 和 '資訊管理' 的類別與屬性完全符合預先定義的清單 Lc,p，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 'SIEM' 和受體 '資訊管理' 並不直接違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SIEM 是資安領域中的一種工具，與 Ldr 中的 'siem' 完全等價同義詞；'資訊管理' 與 Ldr 中的 '管理' 類別相似，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】和【同義詞判定】，SIEM 與 'siem' 完全匹配，但 '資訊管理' 與 '管理' 並非完全同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SIEM",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資訊管理",
+        "type": "function"
+      },
+      "reasoning": "文本指出『SIEM 結合了安全相關的資訊管理及事件管理』，資訊管理是 SIEM 具備的核心能力/功能，符合 Schema 中的 ('tool', 'has_a', 'function')。",
+      "source_id": "chunk_133",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "官網",
+      "type": "app",
+      "display_name": "官網"
+    },
+    "reasoning": "文本提到『公司的官網受到駭客入侵』，入侵行為對應用程式造成損害，符合 Schema 中的 ('attacker', 'can_harm', 'app')。",
+    "source_id": "chunk_133",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'app' 與關係 'can_harm' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，官網 (app) 是應用程式的合理實例，'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未觸發，因為駭客不具有安全團隊的身分。規則2：不適用，因為動作不是 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為關係不是 violates。規則5：不適用，因為關係不是 uses。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。由於沒有觸發任何違規條件，",
+        "response": "correct",
+        "reason": "三元組（駭客 can_harm 官網）未違反任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "駭客與惡意駭客、有組織的駭客等是同一類別的不同表述，但官網與網站、網頁等是同一類別的不同表述，兩者之間沒有直接的同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，駭客和官網之間沒有直接的同義詞關係，且沒有廣義/狹義一律保留的情況，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "官網",
+        "type": "app"
+      },
+      "reasoning": "文本提到『公司的官網受到駭客入侵』，入侵行為對應用程式造成損害，符合 Schema 中的 ('attacker', 'can_harm', 'app')。",
+      "source_id": "chunk_133",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "iis",
+      "type": "app",
+      "display_name": "IIS"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "IIS Log File"
+    },
+    "reasoning": "文本提到『從官網 IIS Log File 來追蹤』，且後續描述 IIS 的日誌路徑與格式，顯示 IIS 應用程式會產生日誌資料，符合 Schema 中的 ('app', 'generates', 'data')。",
+    "source_id": "chunk_133",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IIS 是 'app' 的合理實例，IIS Log File 是 'data' 的合理實例，'generates' 的語意也與 IIS 生成日誌檔的概念相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：觸發，關係為 generates，受體 IIS Log File 的類別是 data，符合規則。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 generates 與受體 IIS Log File 的類別 data 符合規則7，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "IIS Log File 與 日誌 之間的關係是同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "日誌",
+        "reason": "根據同義詞對照範例，IIS Log File 可以被視為日誌的同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IIS",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "IIS Log File",
+        "type": "data"
+      },
+      "reasoning": "文本提到『從官網 IIS Log File 來追蹤』，且後續描述 IIS 的日誌路徑與格式，顯示 IIS 應用程式會產生日誌資料，符合 Schema 中的 ('app', 'generates', 'data')。",
+      "source_id": "chunk_133",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "入侵",
+      "type": "attack",
+      "display_name": "入侵"
+    },
+    "reasoning": "『駭客入侵』表示攻擊者執行了入侵這一惡意行為，符合 Schema 中的 ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_133",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，受體類別 'attack' 也存在於 Lc,p 的 'Classes' 中，關係 'implements' 存在於 Lc,p 的 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，入侵 (attack) 是攻擊的合理實例，兩者之間的 'implements' 關係在資安領域中是合理的，因為駭客可以實施攻擊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：駭客（attacker）與入侵（attack）不涉及同一實體具有攻擊者與安全團隊的身分，因此不觸發規則1。檢查規則2：不涉及mitigates動作，因此不觸發規則2。檢查規則3：駭客（attacker）不是漏洞（vulnerability），因此不觸發規則3。檢查規則4：不涉及principle（資安原則）作為發起動作的主體，因此不觸發規則4。檢查規則5：關係為implements，不是uses，因此不觸發規則5。檢查規則6：關係為implements，不是deployed_in，因此不觸發規則6。檢查規則7：關係為implements，不是generates，因此不觸發規則7。檢查規則8：主體是駭客（attacker），具有主動執行能力，關係為implements，不是controls，因此不觸發規則8。",
+        "response": "correct",
+        "reason": "三元組（駭客，implements，入侵）不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (駭客) 與 Ldr 中的 \"駭客\" 完全等價同義詞，受體 (入侵) 與 Ldr 中的 \"入侵\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "入侵",
+        "type": "attack"
+      },
+      "reasoning": "『駭客入侵』表示攻擊者執行了入侵這一惡意行為，符合 Schema 中的 ('attacker', 'implements', 'attack')。",
+      "source_id": "chunk_133",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  }
+]

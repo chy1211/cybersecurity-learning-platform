@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "rootkit",
+      "type": "attack",
+      "display_name": "Rootkit"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "操作系統"
+    },
+    "reasoning": "文本提到 Rootkit 用於隱藏攻擊者對操作系統的控制權，因此將 Rootkit 視為惡意工具 (tool)，其對操作系統 (system) 具有控制關係。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Rootkit 是 'tool' 的合理實例，操作系統是 'system' 的合理實例，且 'controls' 是描述工具對系統控制的合理關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "根據規則8，當關係為 controls 時，主體必須是具有主動執行能力的角色或工具。三元組中的主體是 Rootkit，類別為 attack，符合規則8的條件，因為 Rootkit 可以被視為是一種具有主動執行能力的攻擊工具。因此，三元組不觸發規則8的違規。",
+        "response": "correct",
+        "reason": "三元組中的主體 Rootkit 是一種攻擊工具，具有主動執行能力，符合規則8的條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Rootkit) 與 Ldr 中的 'rootkit' 完全等價同義詞，受體 (操作系統) 與 Ldr 中的 '作業系統' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "rootkit",
+        "standard_object": "作業系統",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Rootkit",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "操作系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到 Rootkit 用於隱藏攻擊者對操作系統的控制權，因此將 Rootkit 視為惡意工具 (tool)，其對操作系統 (system) 具有控制關係。",
+      "source_id": "chunk_127",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "bootkit",
+      "type": "attack",
+      "display_name": "Bootkit"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "rootkit",
+      "type": "attack",
+      "display_name": "Rootkit"
+    },
+    "reasoning": "文本指出 Bootkit 與 Rootkit 類似且功能重疊（隱藏存在），在資安概念中 Bootkit 是 Rootkit 的一種特殊形式，因此使用 is_part_of 且兩者皆定義為 attack。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Bootkit 與 Rootkit 均為合理的 'attack' 實例，符合資安領域的常見名稱與類別對齊，且接受同義詞寬容原則。",
+        "response": "correct",
+        "reason": "Bootkit 與 Rootkit 的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，且主體和受體皆為攻擊類別，未觸發任何語義限制清單中的規則。",
+        "response": "correct",
+        "reason": "三元組不違反任何語義限制清單中的規則，且 Bootkit 是 Rootkit 的一部分，符合邏輯關係。"
+      },
+      "step_2": {
+        "granularity_analysis": "Bootkit 與 Rootkit 皆屬於攻擊類型，但 Bootkit 是一種特定類型的 Rootkit，兩者在資安領域中有著不同的涵義，前者著重於引導程式的攻擊，後者則是對系統核心的隱藏攻擊，因此兩者之間存在著廣義與狹義的關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則中的第三點，若一個實體是另一個的子類型，則判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Bootkit",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Rootkit",
+        "type": "attack"
+      },
+      "reasoning": "文本指出 Bootkit 與 Rootkit 類似且功能重疊（隱藏存在），在資安概念中 Bootkit 是 Rootkit 的一種特殊形式，因此使用 is_part_of 且兩者皆定義為 attack。",
+      "source_id": "chunk_127",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "bootkit",
+      "type": "tool",
+      "display_name": "Bootkit"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "引導區塊",
+      "type": "system",
+      "display_name": "引導區塊"
+    },
+    "reasoning": "文本明確提到 Bootkit 安裝在操作系統的引導 (boot) 區塊，因此將 Bootkit 視為工具 (tool)，引導區塊視為系統組成部分 (system)。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Bootkit 是一種工具（tool），引導區塊（boot sector）是系統（system）的一部分，'deployed_in' 關係在資安領域中合理適用於工具與系統之間的關係。",
+        "response": "correct",
+        "reason": "Bootkit、引導區塊與 'deployed_in' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。此三元組的關係是 deployed_in，受體是引導區塊，類別是 system，符合規則6的要求。",
+        "response": "correct",
+        "reason": "三元組的主體、關係和受體之間的關係符合語義限制清單中的規則，尤其是規則6，沒有發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "Bootkit 是一種工具，與作業系統無直接同義詞關係，但可能與系統安全有關，受體「引導區塊」與系統相關，但無直接同義詞對應於現有清單中的「作業系統」",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法直接匹配同義詞或廣義/狹義關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Bootkit",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "引導區塊",
+        "type": "system"
+      },
+      "reasoning": "文本明確提到 Bootkit 安裝在操作系統的引導 (boot) 區塊，因此將 Bootkit 視為工具 (tool)，引導區塊視為系統組成部分 (system)。",
+      "source_id": "chunk_127",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "政府組態基準 (gcb)",
+      "type": "policy",
+      "display_name": "政府組態基準 (GCB)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "系統風險",
+      "type": "risk",
+      "display_name": "系統風險"
+    },
+    "reasoning": "文本提到導入 GCB 用於強化作業系統安全，強化安全即是緩解 (mitigates) 潛在的風險 (risk)。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '政府組態基準 (GCB)' 合理對齊其類別 'policy'，而 '系統風險' 也合理對齊其類別 'risk'。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，待檢查三元組的主體是政府組態基準 (GCB)，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "因為主體為 policy，符合規則2的允許條件，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源，但無直接同義詞關係，受體「系統風險」與「風險」、「作業系統風險」等屬於廣義/狹義從屬關係，但無法直接判定為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定同義詞關係，且實體間存在廣義/狹義從屬關係，依據規則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "政府組態基準 (GCB)",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "系統風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到導入 GCB 用於強化作業系統安全，強化安全即是緩解 (mitigates) 潛在的風險 (risk)。",
+      "source_id": "chunk_127",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "提升權限弱點"
+    },
+    "reasoning": "文本描述攻擊者會利用已知的提升權限弱點來取得 root 或 Administrator 權限，符合 attacker can_exploit vulnerability 的定義。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，提升權限弱點 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是描述攻擊者與弱點之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。規則2：不適用，因為三元組中沒有mitigates動作。規則3：不適用，因為三元組中的主體類別是attacker，而不是vulnerability。規則4：不適用，因為三元組中沒有principle作為主體。規則5：不適用，因為三元組中的關係不是uses。規則6：不適用，因為三元組中的關係不是deployed_in。規則7：不適用，因為三元組中的關係不是generates。規則8：不適用，因為三元組中的關係不是controls，但can_exploit與controls有相似之處，需進一步分析。進一步分析後，發現can_exploit與controls的主體限制相似，皆需要主動執行能力的角色或工具，attacker屬於此類別，故不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體是attacker，關係是can_exploit，受體是提升權限弱點，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全等價同義詞，受體 \"提升權限弱點\" 與 \"漏洞\"、\"弱點\"、\"脆弱性\" 皆指同一概念，屬於同義詞重複。",
+        "response": "duplicate",
+        "standard_subject": "攻擊者",
+        "standard_object": "漏洞",
+        "reason": "根據同義詞判定準則，主體與 Ldr 中的資源為完全等價同義詞，受體與已知同義詞對照範例中 \"漏洞\"、\"弱點\"、\"脆弱性\" 皆指同一概念，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "提升權限弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本描述攻擊者會利用已知的提升權限弱點來取得 root 或 Administrator 權限，符合 attacker can_exploit vulnerability 的定義。",
+      "source_id": "chunk_127",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "dirty cow",
+      "type": "vulnerability",
+      "display_name": "Dirty COW"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "權限提升風險",
+      "type": "risk",
+      "display_name": "權限提升風險"
+    },
+    "reasoning": "Dirty COW 被列為提升權限的弱點，弱點 (vulnerability) 會導致特定的風險 (risk) 暴露。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Dirty COW 是一種 'vulnerability'，而 'can_expose' 權限提升風險是 'risk' 的合理實例，語意對齊且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "Dirty COW 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體為vulnerability，關係為can_expose，符合規則3的特例允許，未觸發其他規則的違規條件。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，且未違反其他規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"權限提升風險\" 與 Ldr 中的 \"安全風險\" 關係為廣義/狹義從屬，權限提升風險是安全風險的一種子類型，但兩者並非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Dirty COW",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "權限提升風險",
+        "type": "risk"
+      },
+      "reasoning": "Dirty COW 被列為提升權限的弱點，弱點 (vulnerability) 會導致特定的風險 (risk) 暴露。",
+      "source_id": "chunk_127",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "setuid",
+      "type": "feature",
+      "display_name": "SetUID"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "提升權限弱點"
+    },
+    "reasoning": "SetUID 是 Linux 的一個系統特徵 (feature)，但若設定不當會成為提升權限的弱點，符合 feature can_expose vulnerability。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SetUID 是 'feature' 的合理實例，提升權限弱點是 'vulnerability' 的合理實例，'can_expose' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "SetUID 與提升權限弱點的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但主體類別為 feature，受體類別為 vulnerability，符合特例允許的 'can_expose' 動作。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 SetUID 屬於 feature 類別，與受體 '提升權限弱點' 屬於 vulnerability 類別之間的 'can_expose' 關係，符合語義限制清單中規則3的特例允許，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與現有近似資源清單中的「漏洞」為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據資安領域已知同義詞對照範例，「提升權限弱點」與「漏洞」為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SetUID",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "提升權限弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "SetUID 是 Linux 的一個系統特徵 (feature)，但若設定不當會成為提升權限的弱點，符合 feature can_expose vulnerability。",
+      "source_id": "chunk_127",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "juicy potato",
+      "type": "vulnerability",
+      "display_name": "Juicy Potato"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "權限提升風險",
+      "type": "risk",
+      "display_name": "權限提升風險"
+    },
+    "reasoning": "Juicy Potato 同樣被列為提升權限的弱點，因此其類型為 vulnerability 且可導致 risk。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Juicy Potato 是一種 'vulnerability'，而 '權限提升風險' 是 'risk' 的合理實例，'can_expose' 關係在資安領域中合理適用於此類別之間的關係。",
+        "response": "correct",
+        "reason": "Juicy Potato 和 權限提升風險 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體為vulnerability，關係為can_expose，符合規則3的特例允許，因此不觸發違規。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，vulnerability可以發起'can_expose'動作。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"權限提升風險\" 與 Ldr 中的 \"權限提升風險\" 完全相同，屬於同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Juicy Potato",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "權限提升風險",
+        "type": "risk"
+      },
+      "reasoning": "Juicy Potato 同樣被列為提升權限的弱點，因此其類型為 vulnerability 且可導致 risk。",
+      "source_id": "chunk_127",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "網路芳鄰",
+      "type": "app",
+      "display_name": "網路芳鄰"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "tcp 445",
+      "type": "feature",
+      "display_name": "TCP 445"
+    },
+    "reasoning": "網路芳鄰是一個應用服務 (app)，它使用 TCP 445 連接埠，連接埠屬於網路特徵 (feature)。",
+    "source_id": "chunk_127",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網路芳鄰 (app) 與 TCP 445 (feature) 的名稱與其被賦予的類別合理對齊，網路芳鄰是一種應用程式 (app)，而 TCP 445 是一種功能 (feature)。",
+        "response": "correct",
+        "reason": "網路芳鄰與 TCP 445 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關；規則2：無關；規則3：無關；規則4：無關；規則5：無關；規則6：無關；規則7：無關；規則8：無關。三元組「網路芳鄰 (類別: app) - has_a - TCP 445 (類別: feature)」不觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組不違反任何語義限制清單中的規則，且無明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路芳鄰與微軟網路芳鄰為同義詞，TCP 445為特定通訊協定端口號，不在同義詞對照範例中",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，網路芳鄰與微軟網路芳鄰不完全匹配，且TCP 445不在同義詞對照範例中，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路芳鄰",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "TCP 445",
+        "type": "feature"
+      },
+      "reasoning": "網路芳鄰是一個應用服務 (app)，它使用 TCP 445 連接埠，連接埠屬於網路特徵 (feature)。",
+      "source_id": "chunk_127",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

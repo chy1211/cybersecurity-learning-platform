@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "api",
+      "type": "feature",
+      "display_name": "API"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全性差的 api",
+      "type": "vulnerability",
+      "display_name": "安全性差的 API"
+    },
+    "reasoning": "文本提到『安全性差的 API』會導致安全問題，這代表 API 這種應用程式(app)可能會暴露(can_expose)出安全性不足的漏洞(vulnerability)。",
+    "source_id": "chunk_135",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "API 可以被視為 'app' 的合理實例，'安全性差的 API' 可以被視為 'vulnerability' 的合理實例，'can_expose' 的關係在資安領域中是合理的，因為 API 可以暴露安全漏洞。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3指出，主體類別若為vulnerability，原則上不可發起主動行為，但特例允許'can_expose'動作。因此，三元組（API，can_expose，安全性差的API）不觸發規則3的違規。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 API 與 Ldr 中的 api 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "api",
+        "standard_object": "",
+        "reason": "主體 API 與 Ldr 中的 api 名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "API",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全性差的 API",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『安全性差的 API』會導致安全問題，這代表 API 這種應用程式(app)可能會暴露(can_expose)出安全性不足的漏洞(vulnerability)。",
+      "source_id": "chunk_135",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資料外洩",
+      "type": "risk",
+      "display_name": "資料外洩"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "雲端運算",
+      "type": "system",
+      "display_name": "雲端運算"
+    },
+    "reasoning": "文本提到『資料外洩是雲端運算安全的重大威脅』，因此將資料外洩視為一種攻擊行為(attack)，其可危害(can_harm)雲端運算系統(system)。",
+    "source_id": "chunk_135",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資料外洩 (Data Breach) 是 'attack' 的合理實例，雲端運算 (Cloud Computing) 是 'system' 的合理實例，'can_harm' 關係在資安領域中合理適用於此類別組合。",
+        "response": "correct",
+        "reason": "此三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查後發現，三元組中的關係 'can_harm' 不在任何規則中被明確限制或定義，且主體 '資料外洩' 的類別 'risk' 和受體 '雲端運算' 的類別 'system' 在給定的規則中沒有直接的限制或違反。",
+        "response": "correct",
+        "reason": "由於三元組不觸發語義限制清單中的任何規則，且無法找到明確的違反項目，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「資料外洩」與 Ldr 中的「資料外洩」完全相同，受體「雲端運算」與 Ldr 中的「雲端運算」完全相同，兩者皆無需進行同義詞判定或廣義/狹義一律保留的檢查。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全相同，無需進行同義詞或廣義/狹義的判定。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料外洩",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "雲端運算",
+        "type": "system"
+      },
+      "reasoning": "文本提到『資料外洩是雲端運算安全的重大威脅』，因此將資料外洩視為一種攻擊行為(attack)，其可危害(can_harm)雲端運算系統(system)。",
+      "source_id": "chunk_135",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "api 攻擊",
+      "type": "attack",
+      "display_name": "API 攻擊"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "機密性",
+      "type": "principle",
+      "display_name": "機密性"
+    },
+    "reasoning": "文本指出安全性差的 API 會面臨機密性等安全問題，這意味著針對 API 的攻擊(attack)會違反(violates)資安原則中的機密性(principle)。",
+    "source_id": "chunk_135",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "API 攻擊是 'attack' 的合理實例，機密性是 'principle' 的合理實例，'violates' 是描述攻擊違反原則的合理關係。",
+        "response": "correct",
+        "reason": "API 攻擊違反機密性完全符合預先定義的類別與屬性清單，語意對齊且合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是violates，而非mitigates。規則3不適用，因為主體類別是attack，而非vulnerability。規則4適用，且三元組中的principle僅作為被違反的受體，符合規則。規則5、6、7、8不適用，因為三元組中的關係是violates，與這些規則無關。",
+        "response": "correct",
+        "reason": "三元組中的principle僅作為被違反的受體，符合規則4，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 API 攻擊與 Ldr 中的攻擊、駭客攻擊、入侵攻擊等相關資源存在廣義/狹義從屬關係，但無完全等價同義詞；受體機密性在 Ldr 中有完全匹配的資源",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "機密性",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源存在廣義/狹義從屬關係，受體與 Ldr 中的資源完全匹配，但無需合併主體。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "API 攻擊",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "機密性",
+        "type": "principle"
+      },
+      "reasoning": "文本指出安全性差的 API 會面臨機密性等安全問題，這意味著針對 API 的攻擊(attack)會違反(violates)資安原則中的機密性(principle)。",
+      "source_id": "chunk_135",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "api 攻擊",
+      "type": "attack",
+      "display_name": "API 攻擊"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "同上，針對 API 的攻擊(attack)會違反(violates)資安原則中的可用性(principle)。",
+    "source_id": "chunk_135",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "API 攻擊是 'attack' 的合理實例，可用性是 'principle' 的合理實例，且 'violates' 是描述攻擊對原則的影響的合理關係。",
+        "response": "correct",
+        "reason": "API 攻擊對可用性的違反是資安領域中的一個合理且常見的關係，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4適用，主體為API攻擊（類別：attack），關係為violates，受體為可用性（類別：principle），這符合規則4的描述，principle僅能作為被違反的受體。規則5、6、7、8不適用，因為三元組中的關係不是uses、deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（API攻擊）與受體（可用性）之間的violates關係，符合語義限制清單中的規則，尤其是規則4，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (API 攻擊) 與 Ldr 中的 'api 攻擊' 完全等價同義詞，受體 (可用性) 與 Ldr 中的 '可用性' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "API 攻擊",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "同上，針對 API 的攻擊(attack)會違反(violates)資安原則中的可用性(principle)。",
+      "source_id": "chunk_135",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "api 攻擊",
+      "type": "attack",
+      "display_name": "API 攻擊"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "同上，針對 API 的攻擊(attack)會違反(violates)資安原則中的完整性(principle)。",
+    "source_id": "chunk_135",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "API 攻擊是 'attack' 的合理實例，完整性是 'principle' 的合理實例，且 'violates' 能夠描述攻擊對原則的違反關係。",
+        "response": "correct",
+        "reason": "API 攻擊對完整性的違反完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4適用，主體為attack，關係為violates，受體為principle，符合規則允許的條件。規則5、6、7、8不適用，因為關係不匹配。",
+        "response": "correct",
+        "reason": "三元組符合規則4的允許條件，且未發現其他規則的違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 API 攻擊與 Ldr 中的 api 攻擊為完全等價同義詞，受體 完整性與 Ldr 中的完整性為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "api 攻擊",
+        "standard_object": "完整性",
+        "reason": "根據同義詞判定準則，API 攻擊與 api 攻擊為同義詞，完整性為完全匹配的資源。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "API 攻擊",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "同上，針對 API 的攻擊(attack)會違反(violates)資安原則中的完整性(principle)。",
+      "source_id": "chunk_135",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "行動裝置",
+      "type": "system",
+      "display_name": "行動裝置"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "藍芽",
+      "type": "feature",
+      "display_name": "藍芽"
+    },
+    "reasoning": "藍芽是行動裝置系統(system)內建的一項功能/特徵(feature)，符合 has_a 關係。",
+    "source_id": "chunk_135",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "行動裝置 (system) 可以具有藍芽 (feature) 的功能，符合語意對齊，且 'has_a' 關係合理描述了系統與其特徵之間的關係。",
+        "response": "correct",
+        "reason": "行動裝置具有藍芽功能的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '行動裝置' 和受體 '藍芽' 的類別組合，沒有觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "行動裝置與 Ldr 中的行動裝置完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的某資源 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "行動裝置",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "藍芽",
+        "type": "feature"
+      },
+      "reasoning": "藍芽是行動裝置系統(system)內建的一項功能/特徵(feature)，符合 has_a 關係。",
+      "source_id": "chunk_135",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端服務",
+      "type": "system",
+      "display_name": "雲端服務"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "行動裝置",
+      "type": "system",
+      "display_name": "行動裝置"
+    },
+    "reasoning": "文本提到使用行動裝置雲端服務將資料傳送到雲端，表示雲端應用程式(app)與行動裝置系統(system)之間存在連接(connects_to)。",
+    "source_id": "chunk_135",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雲端服務 (app) 與 行動裝置 (system) 的名稱與其類別合理對齊，符合語意與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "雲端服務與行動裝置的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 connects_to，不是 deployed_in。規則7：不適用，因為關係為 connects_to，不是 generates。規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（雲端服務）和受體（行動裝置）都屬於 system 類別，且關係為 connects_to，未觸發任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端服務與行動裝置在資安領域中是兩個不同的概念，前者指的是基於網際網路的服務，後者指的是行動通訊設備。兩者之間沒有直接的同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雲端服務和行動裝置是兩個不同的資安概念，無同義詞或從屬關係，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端服務",
+        "type": "app"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "行動裝置",
+        "type": "system"
+      },
+      "reasoning": "文本提到使用行動裝置雲端服務將資料傳送到雲端，表示雲端應用程式(app)與行動裝置系統(system)之間存在連接(connects_to)。",
+      "source_id": "chunk_135",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "行動裝置",
+      "type": "system",
+      "display_name": "行動裝置"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "藍芽",
+      "type": "feature",
+      "display_name": "NFC"
+    },
+    "reasoning": "NFC 是行動裝置系統(system)內建的一項功能/特徵(feature)，符合 has_a 關係。",
+    "source_id": "chunk_135",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "行動裝置 (system) 可以具有 NFC (feature) 的功能，兩者之間的關係 'has_a' 合理，且名稱與類別對齊。",
+        "response": "correct",
+        "reason": "行動裝置具有 NFC 功能的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別是 system，而非 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是行動裝置（類別：system），關係是 has_a，受體是 NFC（類別：feature），這不觸發語義限制清單中的任何規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "行動裝置與 Ldr 中的行動裝置完全等價同義詞，NFC 與 Ldr 中的藍芽為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "藍芽",
+        "reason": "根據資安領域已知同義詞對照範例，NFC 與藍芽為同義詞，但主體行動裝置不需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "行動裝置",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "NFC",
+        "type": "feature"
+      },
+      "reasoning": "NFC 是行動裝置系統(system)內建的一項功能/特徵(feature)，符合 has_a 關係。",
+      "source_id": "chunk_135",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "偽造的 apps",
+      "type": "tool",
+      "display_name": "偽造的 Apps"
+    },
+    "reasoning": "文本描述透過偽造的 Apps 騙取密碼，這代表攻擊者(attacker)使用(uses)偽造的 App 作為攻擊工具(tool)。",
+    "source_id": "chunk_135",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "攻擊者使用偽造的 Apps 是資安領域中常見的場景，'attacker' 與 'tool' 的名稱與類別合理對齊，且 'uses' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。規則2：不適用，因為三元組中的動作是uses，不是mitigates。規則3：不適用，因為三元組中的主體類別是attacker，不是vulnerability。規則4：不適用，因為三元組中的關係不是violates。規則5：觸發違規，因為主體的類別不是data，但這裡的主體是attacker，使用的是uses關係，受體是tool，符合規則允許的條件，不是違規。規則6：不適用，因為三元組中的關係不是deployed_in。規則7：不適用，因為三元組中的關係不是generates。規則8：不適用，因為三元組中的關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是attacker，使用的是uses關係，受體是tool，沒有明確違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "偽造的 Apps",
+        "type": "tool"
+      },
+      "reasoning": "文本描述透過偽造的 Apps 騙取密碼，這代表攻擊者(attacker)使用(uses)偽造的 App 作為攻擊工具(tool)。",
+      "source_id": "chunk_135",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "icloud",
+      "type": "app",
+      "display_name": "iCloud"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "雲端運算",
+      "type": "system",
+      "display_name": "雲端運算"
+    },
+    "reasoning": "iCloud 作為一個具體的雲端應用程式(app)，是雲端運算基礎設施系統(system)的一部分。",
+    "source_id": "chunk_135",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "iCloud 是 'app' 的合理實例，雲端運算是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "iCloud 與雲端運算的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查是否有其他規則適用：沒有。",
+        "response": "correct",
+        "reason": "三元組 'iCloud is_part_of 雲端運算' 沒有觸發任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 雲端運算與 Ldr 中的資源 '雲端運算' 完全等價同義詞，主體 (Subject) iCloud 與 Ldr 中的資源無直接同義詞關係，但無需進一步分析因為受體已確定為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "雲端運算",
+        "reason": "受體 '雲端運算' 是 Ldr 中 '雲端運算' 的完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "iCloud",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "雲端運算",
+        "type": "system"
+      },
+      "reasoning": "iCloud 作為一個具體的雲端應用程式(app)，是雲端運算基礎設施系統(system)的一部分。",
+      "source_id": "chunk_135",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "密碼",
+      "type": "data",
+      "display_name": "密碼"
+    },
+    "reasoning": "攻擊者透過欺騙手段獲取使用者的密碼，這是一種對認證資料(data)的侵害行為，故使用 can_harm。",
+    "source_id": "chunk_135",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，密碼 (data) 是 'data' 的合理實例，'can_harm' 是描述攻擊者對資料可能造成傷害的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有同時具有攻擊者(attacker)與安全團隊(securityTeam)的身分。檢查規則2：不適用，因為三元組中沒有出現 mitigates 動作。檢查規則3：不適用，因為三元組中主體類別不是 vulnerability。檢查規則4：不適用，因為三元組中沒有出現 principle 作為主體。檢查規則5：不適用，因為三元組中關係不是 uses。檢查規則6：不適用，因為三元組中關係不是 deployed_in。檢查規則7：不適用，因為三元組中關係不是 generates。檢查規則8：不適用，因為三元組中關係不是 controls，但檢查到 can_harm 關係，需要進一步分析。進一步分析發現，攻擊者可以對密碼造成傷害，因此這個三元組不違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的攻擊者可以對密碼造成傷害，符合語義限制清單中的規則。沒有發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「攻擊者」與 Ldr 中的「攻擊者」完全匹配，受體「密碼」與 Ldr 中的「密碼」完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源完全相同，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "密碼",
+        "type": "data"
+      },
+      "reasoning": "攻擊者透過欺騙手段獲取使用者的密碼，這是一種對認證資料(data)的侵害行為，故使用 can_harm。",
+      "source_id": "chunk_135",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  }
+]

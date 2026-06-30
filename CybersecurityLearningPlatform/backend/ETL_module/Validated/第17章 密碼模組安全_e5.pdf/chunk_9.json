@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "硬體密碼模組",
+      "type": "tool",
+      "display_name": "硬體密碼模組"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "攻擊"
+    },
+    "reasoning": "文本提到硬體密碼模組使用主要原因是『可增加攻擊的成本』，這在資安本體論中等同於緩解或增加攻擊難度，因此選擇 tool -> mitigates -> attack。",
+    "source_id": "chunk_9",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "硬體密碼模組 (tool) 是一種安全工具，攻擊 (attack) 是一種常見的安全威脅，'mitigates' 關係描述了工具對攻擊的緩解作用，語意對齊合理。",
+        "response": "correct",
+        "reason": "硬體密碼模組、攻擊與緩解關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是硬體密碼模組（類別：tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（硬體密碼模組）是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞或近似詞彙存在於 Ldr 中，但無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體無直接同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "硬體密碼模組",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到硬體密碼模組使用主要原因是『可增加攻擊的成本』，這在資安本體論中等同於緩解或增加攻擊難度，因此選擇 tool -> mitigates -> attack。",
+      "source_id": "chunk_9",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "fips 140-3",
+      "type": "policy",
+      "display_name": "FIPS 140-3"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "攻擊"
+    },
+    "reasoning": "FIPS 140-3 是一個安全標準（policy），其檢測領域包含『降低其他攻擊方式之設計』，旨在透過規範來緩解攻擊風險，符合 policy -> mitigates -> attack。",
+    "source_id": "chunk_9",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "FIPS 140-3 是一項安全政策（policy），'攻擊'（attack）是攻擊的意思，'mitigates' 關係表示減輕或緩解，語意上 FIPS 140-3 減輕攻擊的風險是合理的。",
+        "response": "correct",
+        "reason": "FIPS 140-3、'攻擊' 與 'mitigates' 三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 FIPS 140-3 屬於 policy 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 FIPS 140-3 屬於 policy 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "FIPS 140-3 是 FIPS 140 的一個特定版本，攻擊是受體的直接匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，FIPS 140-3 是 FIPS 140 的子類型，且攻擊是直接匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "FIPS 140-3",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "FIPS 140-3 是一個安全標準（policy），其檢測領域包含『降低其他攻擊方式之設計』，旨在透過規範來緩解攻擊風險，符合 policy -> mitigates -> attack。",
+      "source_id": "chunk_9",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼模組",
+      "type": "tool",
+      "display_name": "密碼模組"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "自我檢測功能",
+      "type": "function",
+      "display_name": "自我檢測功能"
+    },
+    "reasoning": "文本將『自我檢測功能』列為 FIPS 140-3 密碼模組檢測的領域之一，屬於該工具具備的功能，符合 tool -> has_a -> function。",
+    "source_id": "chunk_9",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "密碼模組 (tool) 與自我檢測功能 (function) 的名稱與其類別合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'has_a'，而這個關係在給定的規則中沒有被明確限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被定義為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「密碼模組」與 Ldr 中的「密碼模組」完全相同，受體「自我檢測功能」與 Ldr 中的「自我檢測功能」完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼模組",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "自我檢測功能",
+        "type": "function"
+      },
+      "reasoning": "文本將『自我檢測功能』列為 FIPS 140-3 密碼模組檢測的領域之一，屬於該工具具備的功能，符合 tool -> has_a -> function。",
+      "source_id": "chunk_9",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼模組",
+      "type": "tool",
+      "display_name": "密碼模組"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "敏感安全參數管理",
+      "type": "function",
+      "display_name": "敏感安全參數管理"
+    },
+    "reasoning": "『敏感安全參數管理』是密碼模組必須實作的管理能力，屬於功能性質，符合 tool -> has_a -> function。",
+    "source_id": "chunk_9",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "密碼模組 (tool) 與 敏感安全參數管理 (function) 的名稱與其類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊與同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為主體類別不是 data。檢查規則6：無關，因為關係不是 deployed_in。檢查規則7：無關，因為關係不是 generates。檢查規則8：無關，因為關係不是 controls。檢查規則，發現沒有直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（密碼模組）和關係（has_a）以及受體（敏感安全參數管理）之間的關係，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「密碼模組」與 Ldr 中的「密碼模組」完全相同，受體「敏感安全參數管理」與 Ldr 中無直接對應關係，但無法確定其為同義詞或子類型關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認與判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼模組",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "敏感安全參數管理",
+        "type": "function"
+      },
+      "reasoning": "『敏感安全參數管理』是密碼模組必須實作的管理能力，屬於功能性質，符合 tool -> has_a -> function。",
+      "source_id": "chunk_9",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼模組",
+      "type": "tool",
+      "display_name": "密碼模組"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "密碼模組介面",
+      "type": "feature",
+      "display_name": "密碼模組介面"
+    },
+    "reasoning": "『密碼模組介面』是系統的組成部分/屬性，符合 tool -> has_a -> feature。",
+    "source_id": "chunk_9",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "密碼模組可以被視為工具（tool），而密碼模組介面可以被視為特徵（feature），因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與規則清單中沒有直接相關的限制，因此無法觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「密碼模組」與 Ldr 中的「密碼模組」完全相同，受體「密碼模組介面」與 Ldr 中的「密碼模組進出埠與存取介面」相似，但不完全相同，兩者皆無同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，主體與 Ldr 中的資源完全相同，且無同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼模組",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "密碼模組介面",
+        "type": "feature"
+      },
+      "reasoning": "『密碼模組介面』是系統的組成部分/屬性，符合 tool -> has_a -> feature。",
+      "source_id": "chunk_9",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼模組",
+      "type": "tool",
+      "display_name": "密碼模組"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "實體安全",
+      "type": "feature",
+      "display_name": "實體安全"
+    },
+    "reasoning": "『實體安全』描述的是模組的物理屬性或防護特徵，符合 tool -> has_a -> feature。",
+    "source_id": "chunk_9",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "密碼模組 (tool) 和 實體安全 (feature) 的名稱與其類別合理對齊，符合資安領域的常見用語和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'has_a'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合沒有違反任何給定的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中明確定義的實體，且無直接同義詞關係，但可觀察到主體「密碼模組」與受體「實體安全」之間的關聯性，然而兩者屬於不同類別，分別為工具與特徵，無直接從屬或等價關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩實體無同義詞關係，且屬於不同類別，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼模組",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "實體安全",
+        "type": "feature"
+      },
+      "reasoning": "『實體安全』描述的是模組的物理屬性或防護特徵，符合 tool -> has_a -> feature。",
+      "source_id": "chunk_9",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼模組",
+      "type": "tool",
+      "display_name": "密碼模組"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "軟體/韌體安全",
+      "type": "feature",
+      "display_name": "軟體/韌體安全"
+    },
+    "reasoning": "『軟體/韌體安全』屬於模組的組成屬性，符合 tool -> has_a -> feature。",
+    "source_id": "chunk_9",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "密碼模組 (tool) 與 軟體/韌體安全 (feature) 的名稱與其類別合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中關係為 'has_a'，且主體為 'tool'，受體為 'feature'，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 'tool'、受體 'feature' 的組合未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "密碼模組與軟體/韌體安全之間沒有直接的同義詞關係，但密碼模組是工具，軟體/韌體安全是特徵，兩者之間存在著密切的關聯，密碼模組可以用於軟體/韌體安全的實現。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，密碼模組和軟體/韌體安全之間的關係是正確的，不需要進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼模組",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "軟體/韌體安全",
+        "type": "feature"
+      },
+      "reasoning": "『軟體/韌體安全』屬於模組的組成屬性，符合 tool -> has_a -> feature。",
+      "source_id": "chunk_9",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼模組",
+      "type": "tool",
+      "display_name": "密碼模組"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "演算法",
+      "type": "function",
+      "display_name": "演算法"
+    },
+    "reasoning": "文本提到密碼模組實作時可選用 NIST 或 ISO 的演算法，演算法是執行加密/雜湊等動作的功能單元，符合 tool -> has_a -> function。",
+    "source_id": "chunk_9",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "密碼模組 (tool) 與演算法 (function) 的名稱與其類別合理對齊，符合語意與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組（密碼模組 has_a 演算法）不觸發語義限制清單中的任何規則，且無明確違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「密碼模組」與 Ldr 中的「密碼模組」完全匹配，受體「演算法」與 Ldr 中的「安全程序演算法」或「特定演算法」不完全匹配，但無法確定為同義詞重複或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體或受體為同義詞重複或廣義/狹義從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼模組",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "演算法",
+        "type": "function"
+      },
+      "reasoning": "文本提到密碼模組實作時可選用 NIST 或 ISO 的演算法，演算法是執行加密/雜湊等動作的功能單元，符合 tool -> has_a -> function。",
+      "source_id": "chunk_9",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

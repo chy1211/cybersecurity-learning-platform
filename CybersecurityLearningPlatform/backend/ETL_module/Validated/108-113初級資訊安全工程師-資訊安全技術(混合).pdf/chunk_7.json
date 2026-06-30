@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "使用者電腦",
+      "type": "system",
+      "display_name": "使用者電腦"
+    },
+    "reasoning": "文本提到『遭受到惡意程式的攻擊狀況』以及電腦系統變慢等現象，顯示惡意程式（attack）會對使用者電腦（system）造成損害。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "惡意程式是 'attack' 的合理實例，使用者電腦是 'system' 的合理實例，關係 'can_harm' 在資安領域中是合理的描述。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是惡意程式，關係是can_harm，受體是使用者電腦，沒有違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「惡意程式」與 Ldr 中的「惡意程式」完全相同，受體「使用者電腦」與 Ldr 中的「用戶電腦」或「使用者的電腦」相似，但不完全相同，兩者皆無同義詞重複關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體和受體無同義詞重複關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "使用者電腦",
+        "type": "system"
+      },
+      "reasoning": "文本提到『遭受到惡意程式的攻擊狀況』以及電腦系統變慢等現象，顯示惡意程式（attack）會對使用者電腦（system）造成損害。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "防毒軟體",
+      "type": "tool",
+      "display_name": "防毒軟體"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "文本提到防毒軟體提供『即時防禦』，在資安邏輯中，防毒軟體（tool）的功能是偵測並防禦惡意程式（attack）。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防毒軟體是 tool 的合理實例，惡意程式是 attack 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，但注意到 'can_detect' 關係下，主體 '防毒軟體' 屬於 tool 類別，受體 '惡意程式' 屬於 attack 類別，符合一般語義期待，未觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組 '防毒軟體 can_detect 惡意程式' 未違反任何語義限制清單中的規則，且符合一般語義期待。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中，惡意程式為受體的完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，且惡意程式為受體的完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防毒軟體",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "文本提到防毒軟體提供『即時防禦』，在資安邏輯中，防毒軟體（tool）的功能是偵測並防禦惡意程式（attack）。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "個人資料",
+      "type": "data",
+      "display_name": "個人資料之電子檔案"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "個人電腦",
+      "type": "system",
+      "display_name": "個人電腦"
+    },
+    "reasoning": "文本討論個人資料檔案存放於個人電腦、公用資料夾等位置，因此個人資料（data）被部署/存放於個人電腦（system）中。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "個人資料之電子檔案可以被視為 'data' 的合理實例，個人電腦可以被視為 'system' 的合理實例，'deployed_in' 的關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "個人資料之電子檔案被部署在個人電腦上，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用；規則2：不適用；規則3：不適用；規則4：不適用；規則5：不適用；規則6：觸發，檢查通過，因為受體的類別是 system；規則7：不適用；規則8：不適用",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，受體的類別是 system，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "個人資料之電子檔案與個人資料為同義詞，個人電腦為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "個人資料",
+        "standard_object": "個人電腦",
+        "reason": "根據同義詞判定，個人資料之電子檔案與個人資料為同義詞，個人電腦為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人資料之電子檔案",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "個人電腦",
+        "type": "system"
+      },
+      "reasoning": "文本討論個人資料檔案存放於個人電腦、公用資料夾等位置，因此個人資料（data）被部署/存放於個人電腦（system）中。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "個人資料電子檔案管理",
+      "type": "policy",
+      "display_name": "個人資料電子檔案管理"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "文本描述關於個人資料檔案的存放限制、刪除期限與加密要求，這屬於管理規範（policy），其目的是為了緩解個資外洩（risk）的風險。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "個人資料電子檔案管理 是 policy 的合理實例，個資外洩 是 risk 的合理實例，且 'mitigates' 是描述 policy 對 risk 的關係的合理屬性。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是個人資料電子檔案管理，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係符合規則2的允許條件，且未發現其他明確違反的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩與資料外洩、資料洩露等為同義詞或相關概念，但個資外洩更為具體，指涉個人資料的外洩，屬於狹義的一種。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，個資外洩是資料外洩的一種子類型，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人資料電子檔案管理",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本描述關於個人資料檔案的存放限制、刪除期限與加密要求，這屬於管理規範（policy），其目的是為了緩解個資外洩（risk）的風險。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "營運持續計畫",
+      "type": "policy",
+      "display_name": "持續營運計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "災害",
+      "type": "risk",
+      "display_name": "災害"
+    },
+    "reasoning": "文本提到 RPO 是持續營運計畫（policy）中的考量項目，且與災害發生後的恢復相關，該計畫旨在緩解災害（risk）對組織的影響。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "持續營運計畫 是 policy 的合理實例，災害 是 risk 的合理實例，關係 'mitigates' 在資安領域中指的是減輕風險的意思，與持續營運計畫與災害的關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '持續營運計畫' 屬於類別 'policy'，因此符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '持續營運計畫' 屬於類別 'policy'，符合規則2的條件，且未發現其他明確且直接的違反項目。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似資源，但無直接同義詞關係，主體「持續營運計畫」與「營運持續計畫」為同義詞，受體「災害」直接匹配",
+        "response": "correct",
+        "standard_subject": "營運持續計畫",
+        "standard_object": "災害",
+        "reason": "根據同義詞判定，主體與現有資源有同義詞關係，受體直接匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "持續營運計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "災害",
+        "type": "risk"
+      },
+      "reasoning": "文本提到 RPO 是持續營運計畫（policy）中的考量項目，且與災害發生後的恢復相關，該計畫旨在緩解災害（risk）對組織的影響。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "完全備份",
+      "type": "technique",
+      "display_name": "完全備份"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "備份工具",
+      "type": "tool",
+      "display_name": "備份工具"
+    },
+    "reasoning": "完全備份（technique）是一種資料備份的方法，在實作上必須依賴特定的備份軟體或硬體工具（tool）才能執行。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '完全備份' 的名稱與其類別 'technique' 合理對齊，實體 '備份工具' 的名稱與其類別 'tool' 也合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的項目。",
+        "response": "correct",
+        "reason": "三元組中的主體 '完全備份' 類別為 'technique'，關係為 'depends_on'，受體為 '備份工具' 類別為 'tool'，這不觸發語義限制清單中的任何規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"完全備份\" 與 Ldr 中的 \"完整備份\" 關係為同義詞，受體 \"備份工具\" 與 Ldr 中的 \"備份工具\" 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "完全備份",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "備份工具",
+        "type": "tool"
+      },
+      "reasoning": "完全備份（technique）是一種資料備份的方法，在實作上必須依賴特定的備份軟體或硬體工具（tool）才能執行。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  }
+]

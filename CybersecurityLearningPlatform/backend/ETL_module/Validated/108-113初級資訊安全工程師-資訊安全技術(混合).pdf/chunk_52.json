@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "黑箱測試",
+      "type": "technique",
+      "display_name": "黑箱測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "軟體",
+      "type": "system",
+      "display_name": "軟體"
+    },
+    "reasoning": "黑箱測試是一種測試技術，用於分析軟體部署後的問題或功能，而不考慮內部結構，因此選擇 technique -> can_analyze -> app。",
+    "source_id": "chunk_52",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'app' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "黑箱測試 (Black Box Testing) 是一種測試技術 (technique)，軟體 (app) 是一個合理的受體類別實例，'can_analyze' 關係在資安領域中指的是某一技術可以分析某一軟體，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用，因為主體類別是 technique，不是 vulnerability。規則4：不適用。規則5：不適用，因為關係不是 uses。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組（黑箱測試 can_analyze 軟體）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆在 Ldr 中找到完全匹配的資源，且無同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆為完全匹配的資源，無需進行同義詞判定或合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "黑箱測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "軟體",
+        "type": "app"
+      },
+      "reasoning": "黑箱測試是一種測試技術，用於分析軟體部署後的問題或功能，而不考慮內部結構，因此選擇 technique -> can_analyze -> app。",
+      "source_id": "chunk_52",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "tcp syn flood 攻擊",
+      "type": "attack",
+      "display_name": "SYN Flood 攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標系統",
+      "type": "system",
+      "display_name": "目標系統"
+    },
+    "reasoning": "文本描述『由於目標持續等待 SYN封包導致資源耗盡』，這是典型的 SYN Flood 攻擊行為，導致系統資源耗盡，因此選擇 attack -> can_harm -> system。",
+    "source_id": "chunk_52",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SYN Flood 攻擊是 'attack' 的合理實例，目標系統是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "SYN Flood 攻擊與目標系統的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 'SYN Flood 攻擊' 的類別 'attack' 與受體 '目標系統' 的類別 'system' 在給定的規則中沒有直接的違反。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係 'can_harm' 沒有在語義限制清單中被明確限制為違反，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SYN Flood 攻擊與 Ldr 中的 \"tcp syn flood 攻擊\" 和 \"syn 洪水攻擊\" 關係為同義詞重複，且 \"目標系統\" 與 Ldr 中的 \"目標系統\" 完全匹配",
+        "response": "duplicate",
+        "standard_subject": "tcp syn flood 攻擊",
+        "standard_object": "目標系統",
+        "reason": "根據同義詞判定，SYN Flood 攻擊與 \"tcp syn flood 攻擊\" 和 \"syn 洪水攻擊\" 指稱同一概念，且 \"目標系統\" 完全匹配 Ldr 中的 \"目標系統\"。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SYN Flood 攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "目標系統",
+        "type": "system"
+      },
+      "reasoning": "文本描述『由於目標持續等待 SYN封包導致資源耗盡』，這是典型的 SYN Flood 攻擊行為，導致系統資源耗盡，因此選擇 attack -> can_harm -> system。",
+      "source_id": "chunk_52",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "captcha",
+      "type": "tool",
+      "display_name": "CAPTCHA"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "跨站請求偽造攻擊（csrf）",
+      "type": "attack",
+      "display_name": "跨網站偽造請求 (CSRF)"
+    },
+    "reasoning": "文本明確指出 CAPTCHA 較能防護（mitigates）跨網站偽造請求（CSRF）攻擊，因此選擇 tool -> mitigates -> attack。",
+    "source_id": "chunk_52",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "CAPTCHA 是 'tool' 的合理實例，跨網站偽造請求 (CSRF) 是 'attack' 的合理實例，且 'mitigates' 關係在資安領域中合理適用於此類別與實例之間。",
+        "response": "correct",
+        "reason": "CAPTCHA 與跨網站偽造請求 (CSRF) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，該三元組的主體是 CAPTCHA 且類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 CAPTCHA 屬於 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "跨網站偽造請求 (CSRF) 與 跨站請求偽造攻擊（csrf）為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "跨站請求偽造攻擊（csrf）",
+        "reason": "根據同義詞對照表，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CAPTCHA",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "跨網站偽造請求 (CSRF)",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出 CAPTCHA 較能防護（mitigates）跨網站偽造請求（CSRF）攻擊，因此選擇 tool -> mitigates -> attack。",
+      "source_id": "chunk_52",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵偵測系統 (IDS)"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "攻擊事件",
+      "type": "attack",
+      "display_name": "攻擊事件"
+    },
+    "reasoning": "IDS 的核心功能是偵測（detect）網路中的惡意行為或攻擊，因此選擇 tool -> can_detect -> attack。",
+    "source_id": "chunk_52",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統 (IDS) 是工具 (tool) 的合理實例，攻擊事件 (attack) 是攻擊 (attack) 的合理實例，'can_detect' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "入侵偵測系統 (IDS) 的類別、攻擊事件的類別與 'can_detect' 關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需要注意的是，'can_detect' 關係並未在規則中明確定義為違反或合法，然而根據 '無罪推定' 原則，若無明確違反規則，則應判定為合法。",
+        "response": "correct",
+        "reason": "三元組 '入侵偵測系統 (IDS) can_detect 攻擊事件' 未觸發語義限制清單中的任何規則，且根據 '無罪推定' 原則，未發現明確且直接的違反項目，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統 (IDS) 與入侵偵測系統 (ids) 為完全等價同義詞，攻擊事件與攻擊事件為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，實體名稱與 Ldr 中某資源的 name 字串完全相同或為同義詞，但根據廣義/狹義一律保留原則，保留原有實體。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "攻擊事件",
+        "type": "attack"
+      },
+      "reasoning": "IDS 的核心功能是偵測（detect）網路中的惡意行為或攻擊，因此選擇 tool -> can_detect -> attack。",
+      "source_id": "chunk_52",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵偵測系統 (IDS)"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "邊界路由",
+      "type": "system",
+      "display_name": "邊界路由"
+    },
+    "reasoning": "文本提到 IDS 可以『透過邊界路由以偵測模式部署』，描述了工具的部署位置，因此選擇 tool -> deployed_in -> system。",
+    "source_id": "chunk_52",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統 (IDS) 是工具 (tool) 的合理實例，邊界路由是系統 (system) 的合理實例，符合語意對齊。",
+        "response": "correct",
+        "reason": "入侵偵測系統 (IDS) 部署在邊界路由上，完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，因為受體 '邊界路由' 的類別是 system。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，且無其他規則被違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統 (IDS) 與入侵偵測系統 (ids) 是完全等價同義詞，邊界路由不在近似資源清單中，但無法確定其與目標系統或軟體的關係",
+        "response": "correct",
+        "standard_subject": "入侵偵測系統 (ids)",
+        "standard_object": "",
+        "reason": "根據同義詞判定，入侵偵測系統 (IDS) 與入侵偵測系統 (ids) 是同義詞，但邊界路由不在近似資源清單中，無法確定其與目標系統或軟體的關係，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "邊界路由",
+        "type": "system"
+      },
+      "reasoning": "文本提到 IDS 可以『透過邊界路由以偵測模式部署』，描述了工具的部署位置，因此選擇 tool -> deployed_in -> system。",
+      "source_id": "chunk_52",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "管理者",
+      "type": "user",
+      "display_name": "管理員"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "系統設定錯誤",
+      "type": "vulnerability",
+      "display_name": "系統設定錯誤"
+    },
+    "reasoning": "文本提到管理員將備份存放在 WEB 目錄下導致攻擊，這是一種設定錯誤（漏洞），由使用者行為引起，因此選擇 user -> can_expose -> vulnerability。",
+    "source_id": "chunk_52",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '管理員' 是 'user' 的合理實例，'系統設定錯誤' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：允許 vulnerability 發起 'can_expose' 動作，符合此規則。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 vulnerability，關係為 can_expose，受體為系統設定錯誤，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "系統設定錯誤與錯誤設定、安全設定錯誤為同義詞，但管理員與管理者為同義詞",
+        "response": "correct",
+        "standard_subject": "管理者",
+        "standard_object": "系統設定錯誤",
+        "reason": "根據同義詞判定，管理員與管理者為同義詞，系統設定錯誤為原有的資源，不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理員",
+        "type": "user"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "系統設定錯誤",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到管理員將備份存放在 WEB 目錄下導致攻擊，這是一種設定錯誤（漏洞），由使用者行為引起，因此選擇 user -> can_expose -> vulnerability。",
+      "source_id": "chunk_52",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "系統設定錯誤",
+      "type": "vulnerability",
+      "display_name": "系統設定錯誤"
+    },
+    "reasoning": "管理員造成的備份文件暴露（漏洞）被利用導致了攻擊，這符合攻擊者利用漏洞的邏輯，因此選擇 attacker -> can_exploit -> vulnerability。",
+    "source_id": "chunk_52",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，系統設定錯誤 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是攻擊者與漏洞之間的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用，因為主體是攻擊者，而不是漏洞。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，因為關係是 can_exploit，而不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（攻擊者）與關係（can_exploit）以及受體（系統設定錯誤）之間的關係在給定的語義限制清單中沒有明確的違反規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "系統設定錯誤",
+        "type": "vulnerability"
+      },
+      "reasoning": "管理員造成的備份文件暴露（漏洞）被利用導致了攻擊，這符合攻擊者利用漏洞的邏輯，因此選擇 attacker -> can_exploit -> vulnerability。",
+      "source_id": "chunk_52",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "web目錄",
+      "type": "system",
+      "display_name": "WEB目錄"
+    },
+    "reasoning": "網站（應用程式）被部署在 WEB 目錄（基礎設施/系統路徑）中，因此選擇 app -> deployed_in -> system。",
+    "source_id": "chunk_52",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網站 (app) 和 WEB目錄 (system) 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用語和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，通過類別與屬性檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。此三元組的關係為 deployed_in，受體的類別為 system，符合規則6的條件，代表合法。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，且無其他規則被違反，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "網站與網頁、官網等為同義詞或相關概念，但根據規則，廣義/狹義一律保留，不進行合併。WEB目錄與目標系統無直接同義詞關係，但皆屬系統類別，惟無明確指出WEB目錄為目標系統的子類型或同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則以及無法確定同義詞或子類型關係，判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "WEB目錄",
+        "type": "system"
+      },
+      "reasoning": "網站（應用程式）被部署在 WEB 目錄（基礎設施/系統路徑）中，因此選擇 app -> deployed_in -> system。",
+      "source_id": "chunk_52",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

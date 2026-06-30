@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "防禦主機",
+      "type": "tool",
+      "display_name": "防禦主機"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "dmz",
+      "type": "system",
+      "display_name": "DMZ"
+    },
+    "reasoning": "文本提到 DMZ 區域受到防禦主機之保護，在資安架構中，保護/管控區域的工具可定義為 controls system。",
+    "source_id": "chunk_6",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防禦主機 (tool) 和 DMZ (system) 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用語和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "防禦主機作為工具控制DMZ系統的場景在資安領域中是合理的，且完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 tool，符合規則允許的條件，代表合法。",
+        "response": "correct",
+        "reason": "三元組中的主體是 tool，關係是 controls，受體是 DMZ，符合規則8的允許條件，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「防禦主機」與 Ldr 中的「防禦主機」完全相同，受體「DMZ」與 Ldr 中的「dmz」同義",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全相同，受體與 Ldr 中的資源同義，但根據判斷準則 3，廣義/狹義一律保留，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防禦主機",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "DMZ",
+        "type": "system"
+      },
+      "reasoning": "文本提到 DMZ 區域受到防禦主機之保護，在資安架構中，保護/管控區域的工具可定義為 controls system。",
+      "source_id": "chunk_6",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "外部網路",
+      "type": "system",
+      "display_name": "外部網路"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "dmz",
+      "type": "system",
+      "display_name": "DMZ"
+    },
+    "reasoning": "文本明確指出『外部網路只可以連接到 DMZ 區域』，符合 system connects_to system 的定義。",
+    "source_id": "chunk_6",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "外部網路 (External Network) 和 DMZ (Demilitarized Zone) 都是 'system' 的合理實例，符合資安領域的常見用語和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊和同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 connects_to，不是 deployed_in。檢查規則7：不適用，因為關係為 connects_to，不是 generates。檢查規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（外部網路 connects_to DMZ）未觸發語義限制清單中的任何規則，且符合一般的語義理解。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "外部網路",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "DMZ",
+        "type": "system"
+      },
+      "reasoning": "文本明確指出『外部網路只可以連接到 DMZ 區域』，符合 system connects_to system 的定義。",
+      "source_id": "chunk_6",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "屏障式子網路防火牆",
+      "type": "system",
+      "display_name": "屏障式子網路防火牆"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "過濾路由器",
+      "type": "tool",
+      "display_name": "過濾路由器"
+    },
+    "reasoning": "文本提到屏障式子網路防火牆在前後各設置過濾路由器，因此該技術包含（has_a）過濾路由器這一工具。",
+    "source_id": "chunk_6",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "屏障式子網路防火牆 是 'technique' 的合理實例，過濾路由器 是 'tool' 的合理實例，且 'has_a' 關係在資安領域中合理適用於描述屏障式子網路防火牆與過濾路由器之間的關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與規則清單中沒有直接相關的限制，因此無法觸發任何違規條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中不同類型的實體，無直接同義詞關係，但可觀察到主體「屏障式子網路防火牆」與現有資源「屏障式子網路防火牆」完全匹配，受體「過濾路由器」與現有資源「過濾路由器」完全匹配，兩者皆無同義詞重複關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有資源完全匹配，無同義詞重複關係，依據【前提確認】判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "屏障式子網路防火牆",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "過濾路由器",
+        "type": "tool"
+      },
+      "reasoning": "文本提到屏障式子網路防火牆在前後各設置過濾路由器，因此該技術包含（has_a）過濾路由器這一工具。",
+      "source_id": "chunk_6",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "過濾路由器",
+      "type": "tool",
+      "display_name": "過濾路由器"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "dmz",
+      "type": "system",
+      "display_name": "DMZ"
+    },
+    "reasoning": "文本提到 DMZ 區域受到過濾路由器之保護，因此過濾路由器對 DMZ 具有控制/保護關係。",
+    "source_id": "chunk_6",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "過濾路由器 (tool) 與 DMZ (system) 的名稱與其類別合理對齊，過濾路由器可以控制 DMZ 的安全設定，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "過濾路由器控制 DMZ 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 tool，符合 controls 關係的主體類別要求。",
+        "response": "correct",
+        "reason": "三元組中的主體是 tool，符合規則8中關於 controls 關係的主體類別要求，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "過濾路由器與防火牆是同義詞，DMZ是獨立的系統概念",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "過濾路由器和DMZ分別對應tool和system類別，無同義詞關係，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "過濾路由器",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "DMZ",
+        "type": "system"
+      },
+      "reasoning": "文本提到 DMZ 區域受到過濾路由器之保護，因此過濾路由器對 DMZ 具有控制/保護關係。",
+      "source_id": "chunk_6",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "ftp伺服器",
+      "type": "app",
+      "display_name": "FTP 伺服器"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "dmz",
+      "type": "system",
+      "display_name": "DMZ"
+    },
+    "reasoning": "文本指出將 FTP 伺服器安置於 DMZ 區域，符合 app deployed_in system 的定義。",
+    "source_id": "chunk_6",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "FTP 伺服器是 'app' 的合理實例，DMZ 是 'system' 的合理實例，且 'deployed_in' 適合描述 app 與 system 之間的關係。",
+        "response": "correct",
+        "reason": "FTP 伺服器被部署在 DMZ 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，主體為 FTP 伺服器，關係為 deployed_in，受體為 DMZ，且 DMZ 的類別為 system，符合規則6的要求。",
+        "response": "correct",
+        "reason": "三元組中的受體 DMZ 的類別為 system，符合規則6的要求，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 'FTP 伺服器' 與 Ldr 中 'ftp伺服器' 關係為完全等價同義詞，受體 'DMZ' 與 Ldr 中 'dmz' 關係為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "ftp伺服器",
+        "standard_object": "dmz",
+        "reason": "根據同義詞判定準則，'FTP 伺服器' 與 'ftp伺服器'、'DMZ' 與 'dmz' 分別為同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "FTP 伺服器",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "DMZ",
+        "type": "system"
+      },
+      "reasoning": "文本指出將 FTP 伺服器安置於 DMZ 區域，符合 app deployed_in system 的定義。",
+      "source_id": "chunk_6",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "www伺服器",
+      "type": "app",
+      "display_name": "WWW 伺服器"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "dmz",
+      "type": "system",
+      "display_name": "DMZ"
+    },
+    "reasoning": "文本指出將 WWW 伺服器安置於 DMZ 區域，符合 app deployed_in system 的定義。",
+    "source_id": "chunk_6",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "WWW 伺服器是 'app' 的合理實例，DMZ 是 'system' 的合理實例，且符合資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "WWW 伺服器部署在 DMZ 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，主體為 WWW 伺服器 (類別: app)，關係為 deployed_in，受體為 DMZ (類別: system)，因此不觸發違規。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，受體的類別是 system，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "WWW 伺服器與 www伺服器為完全等價同義詞，DMZ與 dmz為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "www伺服器",
+        "standard_object": "dmz",
+        "reason": "根據同義詞判定，WWW 伺服器與 www伺服器、DMZ與 dmz分別為同義詞，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WWW 伺服器",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "DMZ",
+        "type": "system"
+      },
+      "reasoning": "文本指出將 WWW 伺服器安置於 DMZ 區域，符合 app deployed_in system 的定義。",
+      "source_id": "chunk_6",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "安全機房",
+      "type": "system",
+      "display_name": "安全機房"
+    },
+    "reasoning": "文本明確提到『防火牆建置於安全機房之內』，符合 tool deployed_in system 的定義。",
+    "source_id": "chunk_6",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "防火牆 (Firewall) 是一種安全工具，合理對齊 'tool' 類別；安全機房 (Security Room) 可被視為系統的一部分，合理對齊 'system' 類別。",
+        "response": "correct",
+        "reason": "防火牆部署在安全機房的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：觸發，檢查關係為 deployed_in 時，受體的類別是否為 system，結果為正確，受體的類別是 system。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係為 deployed_in，受體的類別是 system，符合規則6的要求。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "防火牆與網路層防火牆、防禦主機防火牆、應用層防火牆、代理型防火牆、過濾型防火牆等都是防火牆的不同類型或實現方式，屬於廣義/狹義從屬關係，但根據給定的同義詞對照範例，防火牆 ≡ 網路防火牆，直接判定為同義詞重複。",
+        "response": "duplicate",
+        "standard_subject": "防火牆",
+        "standard_object": "",
+        "reason": "根據同義詞對照範例，防火牆直接判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "安全機房",
+        "type": "system"
+      },
+      "reasoning": "文本明確提到『防火牆建置於安全機房之內』，符合 tool deployed_in system 的定義。",
+      "source_id": "chunk_6",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "防火牆管理規範",
+      "type": "policy",
+      "display_name": "防火牆管理規範"
+    },
+    "reasoning": "文本提到需要『制定防火牆管理規範與管理辦法』，這屬於安全團隊（securityTeam）執行（implements）規範（policy）的行為。",
+    "source_id": "chunk_6",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實施防火牆管理規範 (policy) 的情境下，'implements' 關係合理，且名稱與類別對齊。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的規定，且語意對齊，故此三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者身份。檢查規則2：不適用，因為動作是 implements，而非 mitigates。檢查規則3：不適用，因為主體類別是 securityTeam，而非 vulnerability。檢查規則4：不適用，因為主體類別是 securityTeam，而非 principle。檢查規則5：不適用，因為關係是 implements，而非 uses。檢查規則6：不適用，因為關係是 implements，而非 deployed_in。檢查規則7：不適用，因為關係是 implements，而非 generates。檢查規則8：不適用，因為關係是 implements，而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安人員）和受體（防火牆管理規範）之間的 implements 關係，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與現有資源 '資安人員' 完全等價，受體 '防火牆管理規範' 與 '機房管理辦法' 不完全等價，但 '防火牆' 可能與 '網路防火牆' 相關，然而 '防火牆管理規範' 與 '機房管理辦法' 並不完全相同，且無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與現有資源完全等價，但受體與現有資源不完全等價，且無直接同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "防火牆管理規範",
+        "type": "policy"
+      },
+      "reasoning": "文本提到需要『制定防火牆管理規範與管理辦法』，這屬於安全團隊（securityTeam）執行（implements）規範（policy）的行為。",
+      "source_id": "chunk_6",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

@@ -1,0 +1,626 @@
+[
+  {
+    "subject": {
+      "name": "mirai",
+      "type": "tool",
+      "display_name": "Mirai"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "殭屍網路",
+      "type": "system",
+      "display_name": "殭屍網路"
+    },
+    "reasoning": "文本提到 Mirai 是一款物聯網惡意軟體，可使設備成為被操控的殭屍並形成殭屍網路，因此 Mirai (tool) 控制了 殭屍網路 (system)。符合 Schema: ('tool', 'controls', 'system')",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Mirai 是一種工具（tool），而 'tool' 是其合理的類別；'殭屍網路' 可譯為 'botnet'，是一種系統（system），因此其類別也是合理的。",
+        "response": "correct",
+        "reason": "Mirai 和 '殭屍網路' 的類別與屬性完全符合預先定義的清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體 (Mirai) 的類別是 tool，符合規則8的條件，代表合法。",
+        "response": "correct",
+        "reason": "三元組中的主體 (Mirai) 是 tool，符合規則8的要求，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Mirai 是一種工具，殭屍網路是一種系統，兩者之間沒有直接的同義詞關係，但 Mirai 可能與殭屍網路相關，因為 Mirai 是一種惡意程式，可以用來控制殭屍網路。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定兩者之間的直接同義詞關係，且一個是工具，另一個是系統，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Mirai",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "殭屍網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到 Mirai 是一款物聯網惡意軟體，可使設備成為被操控的殭屍並形成殭屍網路，因此 Mirai (tool) 控制了 殭屍網路 (system)。符合 Schema: ('tool', 'controls', 'system')",
+      "source_id": "chunk_4",
+      "source_file": "ch20_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "殭屍網路",
+      "type": "system",
+      "display_name": "殭屍網路"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "linux系統設備",
+      "type": "system",
+      "display_name": "Linux系統設備"
+    },
+    "reasoning": "文本指出採用 Linux 作業系統的設備被入侵做為殭屍網路的跳板，意即殭屍網路包含這些設備。符合 Schema: ('system', 'has_a', 'system')",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "殭屍網路與 Linux 系統設備皆為 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "殭屍網路與 Linux 系統設備的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 'has_a'，而非 'deployed_in'。規則7：不適用，因為關係為 'has_a'，而非 'generates'。規則8：不適用，因為關係為 'has_a'，而非 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與受體 'Linux系統設備' 並不直接違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為系統類別，但名稱不同，需進一步判定同義詞或子類型關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體雖同為系統類別，但無直接同義詞關係，且無明確子類型從屬關係，依據規則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "殭屍網路",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Linux系統設備",
+        "type": "system"
+      },
+      "reasoning": "文本指出採用 Linux 作業系統的設備被入侵做為殭屍網路的跳板，意即殭屍網路包含這些設備。符合 Schema: ('system', 'has_a', 'system')",
+      "source_id": "chunk_4",
+      "source_file": "ch20_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "ddos",
+      "type": "attack",
+      "display_name": "DDoS"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "reasoning": "文本明確提到 DDoS 攻擊導致一些網站無法正常營運，即對網站造成危害。符合 Schema: ('attack', 'can_harm', 'app')",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "DDoS 是 'attack' 的合理實例，網站是 'app' 的合理實例，且 'can_harm' 的語意與 DDoS 對網站的影響相符。",
+        "response": "correct",
+        "reason": "DDoS 對網站的 'can_harm' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_harm'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 沒有在語義限制清單中被明確限制，且主體 'DDoS' 的類別 'attack' 與受體 '網站' 的類別 'app' 在給定的規則中沒有違反任何語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "DDoS 是阻斷服務攻擊的同義詞，網站與電子商務網站、www 之間存在廣義/狹義從屬關係，但根據判斷準則，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，DDoS 可以被視為阻斷服務攻擊的同義詞，但網站與其他相關資源之間的關係不構成同義詞重複，且廣義/狹義一律保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DDoS",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網站",
+        "type": "app"
+      },
+      "reasoning": "文本明確提到 DDoS 攻擊導致一些網站無法正常營運，即對網站造成危害。符合 Schema: ('attack', 'can_harm', 'app')",
+      "source_id": "chunk_4",
+      "source_file": "ch20_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "網路管理者",
+      "type": "securityTeam",
+      "display_name": "網路管理者"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "雲端介面",
+      "type": "app",
+      "display_name": "雲端介面"
+    },
+    "reasoning": "文本提到網路管理者應檢查雲端介面是否存在安全漏洞，這是一種分析行為。符合 Schema: ('securityTeam', 'can_analyze', 'app')",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'app' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網路管理者是 securityTeam 的合理實例，雲端介面是 app 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為 securityTeam，具有主動執行能力，符合 controls 的主體條件，但本三元組的關係為 can_analyze，不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體（網路管理者）和關係（can_analyze）以及受體（雲端介面）之間的關係，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路管理者與雲端介面之間無直接同義詞關係，且雲端介面與網站同屬 app 類別，但非完全等價同義詞，屬於廣義/狹義從屬關係不明確，兩者概念不同，無直接從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定兩實體間的同義詞或從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路管理者",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "雲端介面",
+        "type": "app"
+      },
+      "reasoning": "文本提到網路管理者應檢查雲端介面是否存在安全漏洞，這是一種分析行為。符合 Schema: ('securityTeam', 'can_analyze', 'app')",
+      "source_id": "chunk_4",
+      "source_file": "ch20_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "ddos",
+      "type": "attack",
+      "display_name": "DDoS"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網路攻擊",
+      "type": "attack",
+      "display_name": "網路攻擊"
+    },
+    "reasoning": "DDoS 是透過殭屍網路進行的一種具體網路攻擊形式。符合 Schema: ('attack', 'is_part_of', 'attack')",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "DDoS 是 'attack' 的合理實例，網路攻擊也是 'attack' 的合理實例，兩者名稱與類別對齊合理。",
+        "response": "correct",
+        "reason": "DDoS 和網路攻擊的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則，發現規則1、2、3、4、5、6、7、8都不直接適用於此三元組，因為它們的條件不符合此三元組的主體、關係、受體類別。特別是，規則5、6、7、8涉及的關係（uses、deployed_in、generates、controls）都不符合此三元組的關係（is_part_of）",
+        "response": "correct",
+        "reason": "此三元組不觸發語義限制清單中的任何規則，故判定為正確。三元組中的主體（DDoS）和受體（網路攻擊）之間的關係（is_part_of）在給定的規則中沒有被明確限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "DDoS 是一種網路攻擊的子類型，兩者在資安領域中有明確的從屬關係，但根據規則 3，廣義/狹義一律保留，不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 3，DDoS 是網路攻擊的子類型，兩者之間存在廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DDoS",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "網路攻擊",
+        "type": "attack"
+      },
+      "reasoning": "DDoS 是透過殭屍網路進行的一種具體網路攻擊形式。符合 Schema: ('attack', 'is_part_of', 'attack')",
+      "source_id": "chunk_4",
+      "source_file": "ch20_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端介面",
+      "type": "app",
+      "display_name": "雲端介面"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "xss",
+      "type": "vulnerability",
+      "display_name": "XSS"
+    },
+    "reasoning": "文本提到檢查雲端介面是否能通過 XSS 等漏洞測試，表示雲端介面可能暴露 XSS 漏洞。符合 Schema: ('app', 'can_expose', 'vulnerability')",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雲端介面 (app) 可能暴露 XSS (vulnerability) 的情況下，'雲端介面' 是 'app' 的合理實例，'XSS' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "雲端介面可以暴露XSS漏洞，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體為vulnerability類別的XSS，關係為can_expose，符合規則3的特例允許。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端介面與網站是不同類型的app，XSS是一種特定的漏洞類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，雲端介面和XSS不符合同義詞或廣義/狹義從屬關係，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端介面",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "XSS",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到檢查雲端介面是否能通過 XSS 等漏洞測試，表示雲端介面可能暴露 XSS 漏洞。符合 Schema: ('app', 'can_expose', 'vulnerability')",
+      "source_id": "chunk_4",
+      "source_file": "ch20_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端介面",
+      "type": "app",
+      "display_name": "雲端介面"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL injection"
+    },
+    "reasoning": "同上，雲端介面可能暴露 SQL injection 漏洞。符合 Schema: ('app', 'can_expose', 'vulnerability')",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雲端介面 (app) 可能暴露 SQL injection (vulnerability) 的情況是資安領域中常見的場景，實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "雲端介面可以暴露SQL injection漏洞，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：主體類別為 app，不是 vulnerability，故不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於三元組中的關係 can_expose 與規則3 中的特例允許 'can_expose' (暴露) 動作相關，但主體類別為 app，不是 vulnerability，故不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，且主體類別為 app，不是漏洞，故不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 的 \"SQL injection\" 與 Ldr 中的 \"sql injection\" 關係為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "sql injection",
+        "reason": "根據資安領域已知同義詞對照範例，SQL Injection ≡ SQL注入 ≡ SQL注入攻擊，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端介面",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "SQL injection",
+        "type": "vulnerability"
+      },
+      "reasoning": "同上，雲端介面可能暴露 SQL injection 漏洞。符合 Schema: ('app', 'can_expose', 'vulnerability')",
+      "source_id": "chunk_4",
+      "source_file": "ch20_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "xss 攻擊腳本",
+      "type": "tool",
+      "display_name": "XSS 攻擊腳本"
+    },
+    "reasoning": "在 XSS 攻擊步驟中，第一步是攻擊者貼上（使用）XSS 攻擊腳本。符合 Schema: ('attacker', 'uses', 'tool')",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 使用 XSS 攻擊腳本 (tool) 是語意上合理的，'attacker' 和 'tool' 的名稱與其類別對齊，且 'XSS 攻擊腳本' 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "攻擊者使用 XSS 攻擊腳本的三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 attacker，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，使用 XSS 攻擊腳本，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與現有近似資源清單中的「攻擊者」完全匹配，受體「XSS 攻擊腳本」與「tool」類別相關但非完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，主體與現有近似資源清單中的「攻擊者」完全匹配，且無法根據給定的同義詞對照表或資安教材中的可互換使用概念判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "XSS 攻擊腳本",
+        "type": "tool"
+      },
+      "reasoning": "在 XSS 攻擊步驟中，第一步是攻擊者貼上（使用）XSS 攻擊腳本。符合 Schema: ('attacker', 'uses', 'tool')",
+      "source_id": "chunk_4",
+      "source_file": "ch20_習題解答.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "受害者",
+      "type": "user",
+      "display_name": "受害者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "受害網站"
+    },
+    "reasoning": "XSS 步驟中提到受害者瀏覽受害網站的網頁，即使用者使用該應用程式。符合 Schema: ('user', 'uses', 'app')",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "受害者 (user) 使用受害網站 (app) 的情境下，'user' 和 'app' 的名稱與其類別是合理對齊的，符合資安領域的常見用法和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊和同義詞寬容原則也得到滿足。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體類別為 'user'，不違反規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 'user'，關係為 'uses'，受體為 'app'，不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受害網站與網站之間的關係是同義詞重複，因為兩者都指的是相同的概念，即一個網站或應用程式",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "網站",
+        "reason": "根據同義詞判定準則，受害網站與網站是同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "受害者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "受害網站",
+        "type": "app"
+      },
+      "reasoning": "XSS 步驟中提到受害者瀏覽受害網站的網頁，即使用者使用該應用程式。符合 Schema: ('user', 'uses', 'app')",
+      "source_id": "chunk_4",
+      "source_file": "ch20_習題解答.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端介面",
+      "type": "app",
+      "display_name": "雲端介面"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "csrf",
+      "type": "vulnerability",
+      "display_name": "CSRF"
+    },
+    "reasoning": "同上，雲端介面可能暴露 CSRF 漏洞。符合 Schema: ('app', 'can_expose', 'vulnerability')",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雲端介面 (app) 可能暴露 CSRF (vulnerability) 的情況下，'雲端介面' 是 'app' 的合理實例，'CSRF' 是 'vulnerability' 的合理實例，且 'can_expose' 在資安領域中是合理的關係描述。",
+        "response": "correct",
+        "reason": "雲端介面與 CSRF 之間的 'can_expose' 關係在資安領域中是合理且存在於預先定義的類別與屬性清單中。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但三元組中的主體類別為 app，受體類別為 vulnerability，且關係為 can_expose，符合規則3的特例允許。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體類別為 app，受體類別為 vulnerability，且關係為 can_expose，符合規則3的特例允許，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 CSRF 與現有近似資源清單中的 xss 皆屬於漏洞類別，但 CSRF 指的是跨站請求偽造，而 xss 指的是跨站腳本攻擊，兩者雖然都是網路攻擊的類型，但不是完全等價的同義詞，且 CSRF 不是 xss 的子類型，兩者之間存在著明確的區別。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，CSRF 與 xss 不是同義詞，且不具有廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端介面",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "CSRF",
+        "type": "vulnerability"
+      },
+      "reasoning": "同上，雲端介面可能暴露 CSRF 漏洞。符合 Schema: ('app', 'can_expose', 'vulnerability')",
+      "source_id": "chunk_4",
+      "source_file": "ch20_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "雙因子認證",
+      "type": "technique",
+      "display_name": "雙因子認證"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "otp",
+      "type": "tool",
+      "display_name": "OTP"
+    },
+    "reasoning": "文本提到在實作上將 OTP 與傳統密碼結合做為雙因子認證，表示雙因子認證技術依賴於 OTP 這一工具/機制。符合 Schema: ('technique', 'depends_on', 'tool')",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雙因子認證是一種合理的 'technique' 實例，OTP 是一種合理的 'tool' 實例，且 'depends_on' 關係在資安領域中是合理的，因為雙因子認證可能依賴於 OTP 等工具。",
+        "response": "correct",
+        "reason": "雙因子認證、OTP 和 'depends_on' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 'depends_on'，不涉及 'controls' 關係。另外，根據給定的三元組，主體是 '雙因子認證'，類別是 'technique'，關係是 'depends_on'，受體是 'OTP'，類別是 'tool'。這個三元組描述的是雙因子認證依賴於OTP的關係，沒有明顯違反給定的語義限制清單中的任何規則。",
+        "response": "correct",
+        "reason": "三元組描述的是雙因子認證依賴於OTP的關係，沒有明顯違反給定的語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "雙因子認證與 OTP 之間的關係是不同的安全技術和工具，雙因子認證是一種技術，OTP 是一種工具實現該技術的一種方式，但在給定的 Ldr 中沒有直接相關的資源，因此無法直接判定為同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定雙因子認證和 OTP 之間的直接同義詞或從屬關係，根據不確定時預設保留的原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雙因子認證",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "OTP",
+        "type": "tool"
+      },
+      "reasoning": "文本提到在實作上將 OTP 與傳統密碼結合做為雙因子認證，表示雙因子認證技術依賴於 OTP 這一工具/機制。符合 Schema: ('technique', 'depends_on', 'tool')",
+      "source_id": "chunk_4",
+      "source_file": "ch20_習題解答.pdf",
+      "source_index": 12
+    }
+  },
+  {
+    "subject": {
+      "name": "xss",
+      "type": "vulnerability",
+      "display_name": "XSS"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "重要資訊",
+      "type": "data",
+      "display_name": "重要資訊"
+    },
+    "reasoning": "XSS 攻擊的最終步驟是將受害者的重要資訊傳送給攻擊者，這對資料造成了危害（外洩）。符合 Schema: ('attack', 'can_harm', 'data')",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "XSS 是 'attack' 的合理實例，'重要資訊' 是 'data' 的合理實例，且 'can_harm' 是描述攻擊對資料可能造成傷害的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該三元組中，主體為 XSS (類別: vulnerability)，關係為 can_harm，違反了規則3中關於漏洞不可發起主動行為的原則，但 'can_harm' 不在明確禁止的行為列表中，且沒有特例允許的行為與 'can_harm' 相符。然而，根據無罪推定原則，若未發現明確且直接的違反項目，應判定為 correct。",
+        "response": "correct",
+        "reason": "雖然規則3限制了漏洞的主動行為，但 'can_harm' 不在明確禁止的行為列表中，且無法直接匹配到規則3的特例允許，因此根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有近似資源清單中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "XSS",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "重要資訊",
+        "type": "data"
+      },
+      "reasoning": "XSS 攻擊的最終步驟是將受害者的重要資訊傳送給攻擊者，這對資料造成了危害（外洩）。符合 Schema: ('attack', 'can_harm', 'data')",
+      "source_id": "chunk_4",
+      "source_file": "ch20_習題解答.pdf",
+      "source_index": 11
+    }
+  }
+]

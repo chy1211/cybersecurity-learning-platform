@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "錯誤訊息",
+      "type": "data",
+      "display_name": "錯誤訊息"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "底層元件的弱點",
+      "type": "vulnerability",
+      "display_name": "底層元件的弱點"
+    },
+    "reasoning": "文本指出顯示錯誤訊息將可能導致底層元件的弱點被發現，符合 ('data', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_115",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "錯誤訊息 (data) 可能與底層元件的弱點 (vulnerability) 相關，'can_expose' 關係在資安領域中合理，表示錯誤訊息可能揭露底層元件的弱點。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體類別為data，關係為can_expose，受體為vulnerability，未觸發其他規則的違規條件。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，且未違反其他規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與現有近似資源清單中的資源無直接關係，但主體與現有近似資源清單中的資源完全匹配",
+        "response": "correct",
+        "standard_subject": "錯誤訊息",
+        "standard_object": "",
+        "reason": "根據前提確認，主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "錯誤訊息",
+        "type": "data"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "底層元件的弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出顯示錯誤訊息將可能導致底層元件的弱點被發現，符合 ('data', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_115",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "網站應用程式伺服器",
+      "type": "app",
+      "display_name": "網站應用程式伺服器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "錯誤訊息",
+      "type": "data",
+      "display_name": "錯誤訊息"
+    },
+    "reasoning": "文本提到伺服器允許顯示錯誤訊息（如 Stack traces），這符合 app 產生 data 的邏輯，且符合 Schema 中的 ('app', 'generates', 'data')。",
+    "source_id": "chunk_115",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "網站應用程式伺服器是 'app' 的合理實例，錯誤訊息是 'data' 的合理實例，'generates' 的語意與網站應用程式伺服器產生錯誤訊息的關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組符合規則：當關係為generates時，受體的類別必須是data，三元組中的錯誤訊息屬於data類別。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的條件，且未發現其他明確且直接的違反項目，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體分別與 Ldr 中的資源進行比對，發現主體 '網站應用程式伺服器' 與 'web 應用程式' 類似，但非完全相同；受體 '錯誤訊息' 與 '錯誤訊息' 完全相同，屬於同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "錯誤訊息",
+        "reason": "受體 '錯誤訊息' 與 Ldr 中的 '錯誤訊息' 完全相同，屬於同義詞重複，但主體不完全匹配，根據規則 4 預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站應用程式伺服器",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "錯誤訊息",
+        "type": "data"
+      },
+      "reasoning": "文本提到伺服器允許顯示錯誤訊息（如 Stack traces），這符合 app 產生 data 的邏輯，且符合 Schema 中的 ('app', 'generates', 'data')。",
+      "source_id": "chunk_115",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "安全設定錯誤",
+      "type": "vulnerability",
+      "display_name": "安全設定錯誤"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "敏感資訊外洩",
+      "type": "risk",
+      "display_name": "機敏資訊外洩"
+    },
+    "reasoning": "文本將此缺陷描述為『安全設定錯誤』(Security Misconfiguration)，且該缺陷會導致機敏資訊外洩的風險，符合 ('vulnerability', 'can_expose', 'risk')。",
+    "source_id": "chunk_115",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全設定錯誤 是 'vulnerability' 的合理實例，機敏資訊外洩 是 'risk' 的合理實例，'can_expose' 的語意與安全設定錯誤 導致 機敏資訊外洩 的情境相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但 'can_expose' (暴露) 動作是特例允許的。因此，三元組（安全設定錯誤，can_expose，機敏資訊外洩）符合規則3的特例允許，未觸發違規。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，未發現明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"安全設定錯誤\" 與 Ldr 中的 \"錯誤設定\" 和 \"系統設定錯誤\" 類似，但非完全等價同義詞；受體 \"機敏資訊外洩\" 與 Ldr 中的 \"資訊外洩\" 和 \"敏感資訊外洩\" 類似，但 \"機敏資訊外洩\" 可視為 \"敏感資訊外洩\" 的同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "敏感資訊外洩",
+        "reason": "根據同義詞判定，受體 \"機敏資訊外洩\" 可視為 \"敏感資訊外洩\" 的同義詞，但主體 \"安全設定錯誤\" 與 Ldr 中的資源不完全匹配，故保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全設定錯誤",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "機敏資訊外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本將此缺陷描述為『安全設定錯誤』(Security Misconfiguration)，且該缺陷會導致機敏資訊外洩的風險，符合 ('vulnerability', 'can_expose', 'risk')。",
+      "source_id": "chunk_115",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "源碼掃描",
+      "type": "technique",
+      "display_name": "源碼掃描"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "後門程式",
+      "type": "tool",
+      "display_name": "後門程式"
+    },
+    "reasoning": "文本提到源碼掃描可有效檢查是否遭植入惡意程式碼（如後門程式），後門程式在此視為一種攻擊手段，符合 ('technique', 'can_detect', 'attack')。",
+    "source_id": "chunk_115",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 均在 Lc,p 中。",
+        "step_2_alignment_check": "源碼掃描是 technique 的合理實例，後門程式是 attack 的合理實例，'can_detect' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "源碼掃描與後門程式的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為 'can_detect' 關係不在規則中明確限制，但根據規則8的邏輯，'can_detect' 可能涉及主動執行能力，然而這裡的主體是 'technique'，不明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的 'can_detect' 關係和主體 'technique'、受體 'tool' 的組合，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "源碼掃描與源碼檢測、原始碼檢測、程式原碼檢測之間存在語義上的相似性，但非完全等價同義詞；後門程式為完全匹配的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "後門程式",
+        "reason": "根據同義詞判定準則，後門程式為完全匹配的同義詞，但源碼掃描與其他相似名稱之間的關係不構成同義詞或廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "源碼掃描",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "後門程式",
+        "type": "attack"
+      },
+      "reasoning": "文本提到源碼掃描可有效檢查是否遭植入惡意程式碼（如後門程式），後門程式在此視為一種攻擊手段，符合 ('technique', 'can_detect', 'attack')。",
+      "source_id": "chunk_115",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "應用程式套件",
+      "type": "app",
+      "display_name": "應用程式套件"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "儲存庫",
+      "type": "system",
+      "display_name": "儲存庫"
+    },
+    "reasoning": "文本提到從儲存庫 (Repository) 取得應用程式套件，代表套件存放於儲存庫系統中，符合 ('app', 'deployed_in', 'system')。",
+    "source_id": "chunk_115",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '應用程式套件' 的名稱與其類別 'app' 合理對齊，實體 '儲存庫' 的名稱與其類別 'system' 合理對齊。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。此三元組的關係為 deployed_in，受體的類別為 system，符合規則6的條件。",
+        "response": "correct",
+        "reason": "三元組的關係和受體類別符合規則6的要求，沒有違反任何語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"應用程式套件\" 與 Ldr 中的 \"應用程式\"、\"應用軟體\"、\"軟體程式\" 等相關實體具有相似的概念，但非完全等價同義詞，且 \"應用程式套件\" 可視為 \"應用程式\" 的子類型或相關概念，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式套件",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "儲存庫",
+        "type": "system"
+      },
+      "reasoning": "文本提到從儲存庫 (Repository) 取得應用程式套件，代表套件存放於儲存庫系統中，符合 ('app', 'deployed_in', 'system')。",
+      "source_id": "chunk_115",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  }
+]

@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "潛在風險",
+      "type": "risk",
+      "display_name": "潛在風險"
+    },
+    "reasoning": "文本指出缺乏安全考量會導致潛在風險。在本體論中，vulnerability can_expose risk 是合法的路徑，用以描述缺陷導致的後果。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '弱點' 的類別 'vulnerability' 合理對齊，實體 '潛在風險' 的類別 'risk' 也合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許，因此不觸發違規。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，vulnerability可以發起'can_expose'動作。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞或相關概念，但無直接完全等價的同義詞關係，主體 '弱點' 可以被視為 '漏洞' 或 '脆弱性' 的同義詞，受體 '潛在風險' 則與 '風險' 有直接的同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，雖然 '弱點' 和 '風險' 有相關的同義詞，但無法直接判定為 duplicate，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "潛在風險",
+        "type": "risk"
+      },
+      "reasoning": "文本指出缺乏安全考量會導致潛在風險。在本體論中，vulnerability can_expose risk 是合法的路徑，用以描述缺陷導致的後果。",
+      "source_id": "chunk_10",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "分散式架構",
+      "type": "system",
+      "display_name": "分散式架構"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到分散式架構規模大且跨網域，若不考量安全議題則有潛在風險。根據 Schema，system 可透過 can_expose 關聯至 vulnerability，以此代表其潛在的安全缺陷。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "分散式架構 (system) 可能暴露弱點 (vulnerability) 的情況在資安領域中是合理的，'can_expose' 關係也合理地描述了這種情況。",
+        "response": "correct",
+        "reason": "分散式架構可能暴露弱點的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為主體不是policy、technique或tool。規則3適用，但三元組中的動作'can_expose'是對漏洞的特例允許。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是分散式架構，關係是can_expose，受體是弱點，符合規則3的特例允許，沒有違反任何規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，'漏洞'、'弱點'、'脆弱性' 均指 'vulnerability'，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "分散式架構",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到分散式架構規模大且跨網域，若不考量安全議題則有潛在風險。根據 Schema，system 可透過 can_expose 關聯至 vulnerability，以此代表其潛在的安全缺陷。",
+      "source_id": "chunk_10",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料隱私",
+      "type": "data",
+      "display_name": "資料隱私"
+    },
+    "reasoning": "文本明確指出植入惡意程式將導致資料隱私洩漏。將惡意程式視為 attack，資料隱私視為 data，符合 (attack, can_harm, data) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "惡意程式 (attack) 和 資料隱私 (data) 的名稱與其被賦予的類別合理對齊，惡意程式是攻擊的合理實例，資料隱私是資料的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為惡意程式，關係為can_harm，受體為資料隱私，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「惡意程式」完全等價，受體與 Ldr 中的「資料」相似，但非完全等價同義詞，兩者之間無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的「惡意程式」完全匹配，受體與 Ldr 中的「資料」不完全匹配，無法判定為同義詞或廣義/狹義從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資料隱私",
+        "type": "data"
+      },
+      "reasoning": "文本明確指出植入惡意程式將導致資料隱私洩漏。將惡意程式視為 attack，資料隱私視為 data，符合 (attack, can_harm, data) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "分散式架構",
+      "type": "system",
+      "display_name": "分散式架構"
+    },
+    "reasoning": "惡意程式被植入分散式架構並造成損害（如計算結果不正確），符合 (attack, can_harm, system) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "惡意程式是 'attack' 的合理實例，分散式架構是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 '惡意程式' 的類別 'attack' 與受體 '分散式架構' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 與主體、受體的類別組合在給定的語義限制清單中沒有被明確限制或禁止，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆不符合同義詞對照範例，且無廣義/狹義從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "分散式架構",
+        "type": "system"
+      },
+      "reasoning": "惡意程式被植入分散式架構並造成損害（如計算結果不正確），符合 (attack, can_harm, system) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "安全政策",
+      "type": "policy",
+      "display_name": "安全政策"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "潛在風險",
+      "type": "risk",
+      "display_name": "潛在風險"
+    },
+    "reasoning": "文本提到必須重新檢視安全政策以實現安全，意即透過政策來緩解風險，符合 (policy, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全政策 (policy) 是一種合理的政策實例，潛在風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中是合理的，表示安全政策可以減輕潛在風險。",
+        "response": "correct",
+        "reason": "主體、關係和受體的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是安全政策（policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "該三元組的主體是安全政策（policy），符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全政策",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "潛在風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到必須重新檢視安全政策以實現安全，意即透過政策來緩解風險，符合 (policy, mitigates, risk) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "中介軟體",
+      "type": "tool",
+      "display_name": "中介軟體"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "安全功能",
+      "type": "function",
+      "display_name": "安全功能"
+    },
+    "reasoning": "文本提到 NoSQL 資料庫須在中介軟體實現安全功能。將中介軟體視為 tool，安全功能視為 function，符合 (tool, has_a, function) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "中介軟體 (tool) 可能具有安全功能 (function)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組（中介軟體 has_a 安全功能）未觸發語義限制清單中的任何規則，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "中介軟體",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "安全功能",
+        "type": "function"
+      },
+      "reasoning": "文本提到 NoSQL 資料庫須在中介軟體實現安全功能。將中介軟體視為 tool，安全功能視為 function，符合 (tool, has_a, function) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "個人基本資料",
+      "type": "data",
+      "display_name": "個人人事資料"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本指出存取到個人人事資料是一種安全風險。根據 Schema，data can_expose vulnerability，代表敏感資料的不當存取暴露了系統的權限管理弱點。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "個人人事資料 (data) 可能會因為弱點 (vulnerability) 而導致資料外洩，'can_expose' 關係在此語境下是合理的，且 'data' 和 'vulnerability' 的名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "個人人事資料與弱點之間的 'can_expose' 關係在資安領域中是合理且語意對齊的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作不是mitigates。規則3適用，但三元組中的動作是can_expose，屬於特例允許。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的動作can_expose屬於規則3的特例允許，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「個人基本資料」為同義詞，受體與 Ldr 中的「弱點」為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "個人基本資料",
+        "standard_object": "弱點",
+        "reason": "根據同義詞判定，主體與 Ldr 中的「個人基本資料」為同義詞，受體與 Ldr 中的「弱點」為完全等價同義詞，但根據廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人人事資料",
+        "type": "data"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出存取到個人人事資料是一種安全風險。根據 Schema，data can_expose vulnerability，代表敏感資料的不當存取暴露了系統的權限管理弱點。",
+      "source_id": "chunk_10",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "nosql資料庫",
+      "type": "app",
+      "display_name": "NoSQL資料庫"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "雲端環境",
+      "type": "system",
+      "display_name": "雲端環境"
+    },
+    "reasoning": "文本提到在複雜的雲端環境中，NoSQL 資料庫面臨挑戰，顯示其部署於雲端環境中，符合 (app, deployed_in, system) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "NoSQL資料庫 可被視為 'app' 的合理實例，雲端環境 可被視為 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "NoSQL資料庫 與 雲端環境 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：觸發，檢查關係為 'deployed_in' 時，受體的類別是否為 'system'，結果為正確。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 'deployed_in' 與受體 '雲端環境' 的類別 'system' 符合規則6，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "NoSQL資料庫與雲端環境之間沒有直接的同義詞或從屬關係，兩者屬於不同類別的資源",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體之間沒有同義詞或從屬關係，因此判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "NoSQL資料庫",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "雲端環境",
+        "type": "system"
+      },
+      "reasoning": "文本提到在複雜的雲端環境中，NoSQL 資料庫面臨挑戰，顯示其部署於雲端環境中，符合 (app, deployed_in, system) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "nosql資料庫",
+      "type": "app",
+      "display_name": "NoSQL資料庫"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到 NoSQL 資料庫設計之初未設置安全功能模組，這本身就是一種設計缺陷（弱點），符合 (app, can_expose, vulnerability) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "NoSQL資料庫是一種應用程式（app），而弱點（vulnerability）是資安領域中常見的術語，'can_expose' 關係在此語境下合理，因為 NoSQL 資料庫可能會暴露弱點。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但三元組中的主體類別為 app，非 vulnerability，故不違反。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體類別為 app，關係為 can_expose，受體為弱點，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體（Object）與 Ldr 中的「弱點」完全等價同義詞，主體（Subject）無需標準化",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，「漏洞」、「弱點」、「脆弱性」均指 vulnerability，但主體無需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "NoSQL資料庫",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到 NoSQL 資料庫設計之初未設置安全功能模組，這本身就是一種設計缺陷（弱點），符合 (app, can_expose, vulnerability) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 10
+    }
+  }
+]

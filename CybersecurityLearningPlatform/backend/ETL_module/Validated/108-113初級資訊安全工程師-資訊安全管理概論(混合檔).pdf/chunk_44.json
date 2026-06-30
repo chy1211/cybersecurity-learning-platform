@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "應用系統",
+      "type": "app",
+      "display_name": "應用系統"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "憑證機構資訊系統",
+      "type": "system",
+      "display_name": "憑證機構資訊系統"
+    },
+    "reasoning": "文本提到『憑證機構資訊系統（含應用系統...）』，表示應用系統是該資訊系統的一部分。符合 Schema: (app, is_part_of, system)。",
+    "source_id": "chunk_44",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '應用系統' 的名稱與其類別 'app' 合理對齊，實體 '憑證機構資訊系統' 的名稱與其類別 'system' 也合理對齊，考慮到資安領域的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與規則中定義的關係不符，且主體和受體的類別在給定的規則中沒有明確的限制或違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"應用系統\" 與 Ldr 中的 \"應用系統\" 完全相同，受體 \"憑證機構資訊系統\" 與 Ldr 中的 \"資訊系統\" 類別相似但不完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的某資源完全相同，受體與 Ldr 中的資源類別相似但不完全相同，根據判斷準則 1 和 4，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用系統",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "憑證機構資訊系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到『憑證機構資訊系統（含應用系統...）』，表示應用系統是該資訊系統的一部分。符合 Schema: (app, is_part_of, system)。",
+      "source_id": "chunk_44",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "規範",
+      "type": "policy",
+      "display_name": "規範"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "安全風險",
+      "type": "risk",
+      "display_name": "安全風險"
+    },
+    "reasoning": "文本指出應遵照主管機關訂定之規範作業以確保安全性，意即透過政策規範來緩解安全風險。符合 Schema: (policy, mitigates, risk)。",
+    "source_id": "chunk_44",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '規範' 是 'policy' 的合理實例，'安全風險' 是 'risk' 的合理實例，關係 'mitigates' 在資安領域中指的是規範可以減輕安全風險，因此語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是規範（policy），符合規則2的條件，沒有違反任何規則。",
+        "response": "correct",
+        "reason": "三元組的主體是規範（policy），符合規則2的條件，沒有違反任何規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"規範\" 與 Ldr 中的 \"規範\" 完全等價，受體 \"安全風險\" 與 Ldr 中的 \"安全風險\" 完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "規範",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "安全風險",
+        "type": "risk"
+      },
+      "reasoning": "文本指出應遵照主管機關訂定之規範作業以確保安全性，意即透過政策規範來緩解安全風險。符合 Schema: (policy, mitigates, risk)。",
+      "source_id": "chunk_44",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼模組",
+      "type": "tool",
+      "display_name": "密碼模組"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "憑證機構資訊系統",
+      "type": "system",
+      "display_name": "憑證機構資訊系統"
+    },
+    "reasoning": "文本提到『憑證機構資訊系統（含...密碼模組等）』，密碼模組作為實現加密功能的工具，屬於該系統的一部分。符合 Schema: (tool, is_part_of, system)。",
+    "source_id": "chunk_44",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "密碼模組 (tool) 與 憑證機構資訊系統 (system) 的名稱與其類別合理對齊，符合語意與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，通過類別與屬性檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與規則清單中沒有直接相關的限制，因此不觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中明確定義的實體，且與近似資源清單中的項目有明確的對應關係，但無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體不符合同義詞判定或廣義/狹義一律保留的情況，且無法確定為重複，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼模組",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "憑證機構資訊系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到『憑證機構資訊系統（含...密碼模組等）』，密碼模組作為實現加密功能的工具，屬於該系統的一部分。符合 Schema: (tool, is_part_of, system)。",
+      "source_id": "chunk_44",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "加密系統",
+      "type": "system",
+      "display_name": "加密系統"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "明文",
+      "type": "data",
+      "display_name": "明文"
+    },
+    "reasoning": "加密系統在運作過程中需要處理明文資料。符合 Schema: (system, uses, data)。",
+    "source_id": "chunk_44",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "加密系統 (system) 使用明文 (data) 是語意上合理的，'uses' 關係也合理地連接了這兩個實體，考慮到資安領域的同義詞、縮寫與翻譯寬容原則。",
+        "response": "correct",
+        "reason": "加密系統使用明文的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，待檢查三元組中，主體是加密系統（類別：system），關係是uses，受體是明文（類別：data），因此不觸發規則5的違規條件。其他規則與此三元組無直接關聯。",
+        "response": "correct",
+        "reason": "三元組中的主體是加密系統，關係是uses，受體是明文，符合規則允許的條件，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「加密系統」與 Ldr 中的「加密系統」完全相同，受體「明文」與 Ldr 中的「明文」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加密系統",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "明文",
+        "type": "data"
+      },
+      "reasoning": "加密系統在運作過程中需要處理明文資料。符合 Schema: (system, uses, data)。",
+      "source_id": "chunk_44",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "加密系統",
+      "type": "system",
+      "display_name": "加密系統"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "密文",
+      "type": "data",
+      "display_name": "密文"
+    },
+    "reasoning": "加密系統的輸出或處理對象包含密文資料。符合 Schema: (system, uses, data)。",
+    "source_id": "chunk_44",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "加密系統 (system) 使用 密文 (data) 是語意上合理的，'uses' 關係也合理地描述了加密系統與密文之間的關係。",
+        "response": "correct",
+        "reason": "加密系統使用密文的三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體的類別是system，而關係是uses，受體是data，符合規則允許的條件。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是加密系統，關係是uses，受體是密文，符合規則5的允許條件，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「加密系統」與 Ldr 中的「加密系統」完全匹配，受體「密文」與 Ldr 中的「密文」完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源完全相同，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加密系統",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "密文",
+        "type": "data"
+      },
+      "reasoning": "加密系統的輸出或處理對象包含密文資料。符合 Schema: (system, uses, data)。",
+      "source_id": "chunk_44",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "加密系統",
+      "type": "system",
+      "display_name": "加密系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密演算法",
+      "type": "tool",
+      "display_name": "加密演算法"
+    },
+    "reasoning": "加密演算法是加密系統中用來執行加密功能的具體工具/機制。符合 Schema: (system, has_a, tool)。",
+    "source_id": "chunk_44",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "加密系統 (類別: system) 與加密演算法 (類別: tool) 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用法與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "加密系統與加密演算法的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，發現沒有直接觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '加密系統' 和受體 '加密演算法' 的類別組合，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中常見的術語，且主體「加密系統」與 Ldr 中的「加密系統」完全匹配，受體「加密演算法」與 Ldr 中的「加密演算法」完全匹配，兩者皆無需進一步的同義詞判定或廣義/狹義分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞或廣義/狹義關係，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加密系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密演算法",
+        "type": "tool"
+      },
+      "reasoning": "加密演算法是加密系統中用來執行加密功能的具體工具/機制。符合 Schema: (system, has_a, tool)。",
+      "source_id": "chunk_44",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "彩虹攻擊",
+      "type": "attack",
+      "display_name": "彩虹表攻擊"
+    },
+    "reasoning": "文本描述『駭客以彩虹表（Rainbow Table）攻擊法破解』，表示攻擊者執行了該攻擊行為。符合 Schema: (attacker, implements, attack)。",
+    "source_id": "chunk_44",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，但實際上應該是 'attacker' 的同義詞 'attacker' 在列表中被稱為 'attacker'，受體類別 'attack' 存在於 Lc,p 的 'Classes' 中，關係 'implements' 存在於 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是 'attacker' 的合理實例，彩虹表攻擊 (attack) 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "駭客實體與彩虹表攻擊實體的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：駭客（attacker）與彩虹表攻擊（attack）之間的關係implements不涉及攻擊者與安全團隊的身分衝突。檢查規則2：不適用，因為主體是駭客（attacker），不是policy、technique或tool。檢查規則3：不適用，因為主體是駭客（attacker），不是vulnerability。檢查規則4：不適用，因為關係是implements，受體是彩虹表攻擊（attack），不是principle。檢查規則5：不適用，因為關係是implements，不是uses。檢查規則6：不適用，因為關係是implements，不是deployed_in。檢查規則7：不適用，因為關係是implements，不是generates。檢查規則8：不適用，因為關係是implements，不是controls。",
+        "response": "correct",
+        "reason": "三元組（駭客 implements 彩虹表攻擊）不觸發語義限制清單中的任何規則，故判定為正確。駭客作為攻擊者實施彩虹表攻擊是一種合理的關聯。"
+      },
+      "step_2": {
+        "granularity_analysis": "彩虹表攻擊與彩虹攻擊為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "彩虹攻擊",
+        "reason": "根據資安領域已知同義詞對照範例，彩虹表攻擊與彩虹攻擊可視為同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "彩虹表攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本描述『駭客以彩虹表（Rainbow Table）攻擊法破解』，表示攻擊者執行了該攻擊行為。符合 Schema: (attacker, implements, attack)。",
+      "source_id": "chunk_44",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "加鹽的金鑰延伸函式",
+      "type": "technique",
+      "display_name": "加鹽的金鑰延伸函式"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "彩虹攻擊",
+      "type": "attack",
+      "display_name": "彩虹表攻擊"
+    },
+    "reasoning": "文本中將『使用加鹽的金鑰延伸函式』作為抵擋彩虹表攻擊的因應對策。符合 Schema: (technique, mitigates, attack)。",
+    "source_id": "chunk_44",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "加鹽的金鑰延伸函式 是 'technique' 的合理實例，彩虹表攻擊 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "加鹽的金鑰延伸函式與彩虹表攻擊的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是加鹽的金鑰延伸函式，類別為 technique，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "因為三元組的主體是加鹽的金鑰延伸函式，類別為 technique，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "彩虹表攻擊與彩虹攻擊為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "彩虹攻擊",
+        "reason": "根據資安領域已知同義詞對照範例，彩虹表攻擊與彩虹攻擊可視為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加鹽的金鑰延伸函式",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "彩虹表攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本中將『使用加鹽的金鑰延伸函式』作為抵擋彩虹表攻擊的因應對策。符合 Schema: (technique, mitigates, attack)。",
+      "source_id": "chunk_44",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "橢圓曲線密碼學",
+      "type": "technique",
+      "display_name": "橢圓曲線密碼學"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "非對稱式金鑰加密技術",
+      "type": "technique",
+      "display_name": "非對稱式金鑰加密技術"
+    },
+    "reasoning": "橢圓曲線密碼學 (ECC) 是非對稱式金鑰加密技術的一種具體實現方式。符合 Schema: (technique, is_part_of, technique)。",
+    "source_id": "chunk_44",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "橢圓曲線密碼學是 'technique' 的合理實例，非對稱式金鑰加密技術也是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的規定，且實體名稱與其類別語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組不觸發任何語義限制清單中的規則，且關係 'is_part_of' 在給定的類別下是合理的。"
+      },
+      "step_2": {
+        "granularity_analysis": "橢圓曲線密碼學與非對稱式金鑰加密技術在密碼學領域中是相關但不同的概念，非對稱式金鑰加密技術是一種更廣泛的類別，橢圓曲線密碼學是其下的特定實現方式之一。然而，根據給定的資安領域已知同義詞對照範例和判斷準則，兩者在此場合下不被視為同義詞或子類型關係，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "橢圓曲線密碼學和非對稱式金鑰加密技術是不同的密碼學技術，無法根據給定的同義詞對照表或廣義/狹義關係進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "橢圓曲線密碼學",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "非對稱式金鑰加密技術",
+        "type": "technique"
+      },
+      "reasoning": "橢圓曲線密碼學 (ECC) 是非對稱式金鑰加密技術的一種具體實現方式。符合 Schema: (technique, is_part_of, technique)。",
+      "source_id": "chunk_44",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "彩虹表攻擊",
+      "type": "attack",
+      "display_name": "彩虹表攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "密碼系統",
+      "type": "system",
+      "display_name": "密碼系統"
+    },
+    "reasoning": "彩虹表攻擊旨在破解密碼系統，對其安全性造成危害。符合 Schema: (attack, can_harm, system)。",
+    "source_id": "chunk_44",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "彩虹表攻擊 (Rainbow Table Attack) 是一種攻擊手法，屬於 'attack' 類別；密碼系統 (Password System) 是一種系統，屬於 'system' 類別。這些名稱與其類別之間的關係是合理的。",
+        "response": "correct",
+        "reason": "彩虹表攻擊與密碼系統之間的 'can_harm' 關係是合理的，且完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是攻擊（attack），關係是 can_harm，受體是系統（system），不涉及控制（controls）關係。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明顯違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "彩虹表攻擊與彩虹攻擊為同義詞，密碼系統與加密系統、公開金鑰密碼系統等為廣義/狹義從屬關係，但無直接完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，彩虹表攻擊與彩虹攻擊為同義詞，但考慮到廣義/狹義一律保留原則，且無直接完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "彩虹表攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "密碼系統",
+        "type": "system"
+      },
+      "reasoning": "彩虹表攻擊旨在破解密碼系統，對其安全性造成危害。符合 Schema: (attack, can_harm, system)。",
+      "source_id": "chunk_44",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  }
+]

@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "災難復原計畫",
+      "type": "policy",
+      "display_name": "災難復原計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "中斷風險",
+      "type": "risk",
+      "display_name": "中斷風險"
+    },
+    "reasoning": "文本提到『災難復原功能...可有效避免中斷風險』。將『災難復原功能』視為一種組織層級的策略(policy)，其目的在於緩解(mitigates)服務中斷的風險(risk)。符合 Schema: ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_93",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "災難復原計畫 (policy) 是一種合理的政策實例，中斷風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中是合理的，表示政策可以減輕風險。",
+        "response": "correct",
+        "reason": "災難復原計畫與中斷風險之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是災難復原計畫，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "由於三元組符合規則2的允許條件，且未發現其他明確違反的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「災難復原計畫」與 Ldr 中的「災害復原計畫」為同義詞，受體「中斷風險」與 Ldr 中的「業務中斷風險」為相關概念但非完全同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體與 Ldr 中的某資源為同義詞，但受體與 Ldr 中的資源不完全相同，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "災難復原計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "中斷風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『災難復原功能...可有效避免中斷風險』。將『災難復原功能』視為一種組織層級的策略(policy)，其目的在於緩解(mitigates)服務中斷的風險(risk)。符合 Schema: ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_93",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "多因子驗證機制",
+      "type": "tool",
+      "display_name": "多因子驗證機制"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "外洩風險",
+      "type": "risk",
+      "display_name": "外洩風險"
+    },
+    "reasoning": "文本指出『多因子驗證機制...可避免...外洩風險』。多因子驗證在此被視為一種安全工具(tool)，用以緩解(mitigates)資料外洩的風險(risk)。符合 Schema: ('tool', 'mitigates', 'risk')。",
+    "source_id": "chunk_93",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "多因子驗證機制是工具（tool）的合理實例，外洩風險是風險（risk）的合理實例，且 'mitigates' 關係在資安領域中是合理的，表示工具可以減輕風險。",
+        "response": "correct",
+        "reason": "多因子驗證機制（tool）與外洩風險（risk）之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是多因子驗證機制（類別：tool），符合規則2的條件，未觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（多因子驗證機制）是 tool 類別，符合規則2的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"多因子驗證機制\" 與 Ldr 中的 \"多因子驗證機制 (mfa)\" 關係為同義詞，受體 \"外洩風險\" 與 Ldr 中的 \"資料外洩風險\" 關係為廣義/狹義從屬，但根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "多因子驗證機制",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "外洩風險",
+        "type": "risk"
+      },
+      "reasoning": "文本指出『多因子驗證機制...可避免...外洩風險』。多因子驗證在此被視為一種安全工具(tool)，用以緩解(mitigates)資料外洩的風險(risk)。符合 Schema: ('tool', 'mitigates', 'risk')。",
+      "source_id": "chunk_93",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "雲服務",
+      "type": "system",
+      "display_name": "雲服務"
+    },
+    "reasoning": "文本提到『儲存於雲服務之資料』，表示資料(data)被部署/存放於(deployed_in)雲服務(system)中。符合 Schema: ('data', 'deployed_in', 'system')。",
+    "source_id": "chunk_93",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '資料' 的類別 'data' 合理對齊，實體 '雲服務' 的類別 'system' 也合理對齊，考慮到同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6適用，且三元組符合規則，受體的類別是system。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，受體的類別是system，且沒有違反其他規則。因此，三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「資料」與 Ldr 中的「資料」完全相同，受體「雲服務」與 Ldr 中的「雲服務」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "雲服務",
+        "type": "system"
+      },
+      "reasoning": "文本提到『儲存於雲服務之資料』，表示資料(data)被部署/存放於(deployed_in)雲服務(system)中。符合 Schema: ('data', 'deployed_in', 'system')。",
+      "source_id": "chunk_93",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "社交工程",
+      "type": "technique",
+      "display_name": "社交工程"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "行動裝置",
+      "type": "system",
+      "display_name": "行動裝置"
+    },
+    "reasoning": "文本第 48 題明確將『社交工程』定義為一種『對使用行動裝置的攻擊』。因此，社交工程(attack)可以危害(can_harm)行動裝置(system)。符合 Schema: ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_93",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "社交工程 (Social Engineering) 是一種攻擊手法，屬於 'attack' 類別；行動裝置 (Mobile Device) 是一種系統，屬於 'system' 類別。這些名稱與其類別之間的對齊是合理的。",
+        "response": "correct",
+        "reason": "社交工程攻擊可以對行動裝置造成傷害，三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_harm'，與規則無直接衝突。",
+        "response": "correct",
+        "reason": "三元組（社交工程 can_harm 行動裝置）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "社交工程與社會工程學為同義詞，行動裝置為系統的一種，與其他系統相關詞彙為廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "社交工程與行動裝置不構成同義詞重複，且無廣義/狹義從屬關係需要合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "社交工程",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "行動裝置",
+        "type": "system"
+      },
+      "reasoning": "文本第 48 題明確將『社交工程』定義為一種『對使用行動裝置的攻擊』。因此，社交工程(attack)可以危害(can_harm)行動裝置(system)。符合 Schema: ('attack', 'can_harm', 'system')。",
+      "source_id": "chunk_93",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "手機防毒軟體",
+      "type": "tool",
+      "display_name": "手機防毒軟體"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "technique",
+      "display_name": "攻擊"
+    },
+    "reasoning": "文本在討論強化行動裝置資料安全時提到『安裝手機防毒軟體』。防毒軟體作為工具(tool)，其目的是防禦或緩解(mitigates)惡意程式等攻擊(attack)。符合 Schema: ('tool', 'mitigates', 'attack')。",
+    "source_id": "chunk_93",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "手機防毒軟體是 tool 的合理實例，攻擊是 attack 的合理實例，且 'mitigates' 是描述 tool 與 attack 之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "手機防毒軟體、攻擊與 'mitigates' 三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是手機防毒軟體（類別：tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（手機防毒軟體）是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "手機防毒軟體與防毒軟體、防病毒軟體等為同義詞，攻擊與密碼攻擊、攻擊技術等為廣義/狹義從屬關係，但根據判斷準則，同義詞判定優先",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "手機防毒軟體與現有近似資源清單中的防毒軟體、防病毒軟體等為同義詞，但受體攻擊與主體手機防毒軟體之間的關係不構成同義詞或廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "手機防毒軟體",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本在討論強化行動裝置資料安全時提到『安裝手機防毒軟體』。防毒軟體作為工具(tool)，其目的是防禦或緩解(mitigates)惡意程式等攻擊(attack)。符合 Schema: ('tool', 'mitigates', 'attack')。",
+      "source_id": "chunk_93",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "wpa",
+      "type": "tool",
+      "display_name": "WPA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "tkip",
+      "type": "tool",
+      "display_name": "TKIP"
+    },
+    "reasoning": "文本提到『WPA 支援 TKIP 加密方式』。WPA 作為一種無線安全協定系統(system)，包含(has_a) TKIP 這種加密特徵/協定(feature)。符合 Schema: ('system', 'has_a', 'feature')。",
+    "source_id": "chunk_93",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "WPA 是一個無線網路安全協定的名稱，對應 'system' 類別合理；TKIP 是一個安全協定中的加密技術，對應 'feature' 類別合理。",
+        "response": "correct",
+        "reason": "WPA 和 TKIP 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 'WPA' 和受體 'TKIP' 均為工具，未觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，且關係 'has_a' 未被明確限制，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "WPA 和 TKIP 是兩個不同的工具，分別是一種無線網路安全協定和一種加密演算法，兩者之間沒有同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例和判斷準則，WPA 和 TKIP 沒有同義詞或廣義/狹義從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WPA",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "TKIP",
+        "type": "feature"
+      },
+      "reasoning": "文本提到『WPA 支援 TKIP 加密方式』。WPA 作為一種無線安全協定系統(system)，包含(has_a) TKIP 這種加密特徵/協定(feature)。符合 Schema: ('system', 'has_a', 'feature')。",
+      "source_id": "chunk_93",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "健身設備",
+      "type": "system",
+      "display_name": "健身設備"
+    },
+    "reasoning": "文本第 50 題提到『駭客入侵您的健身 [設備]』。入侵後通常意味著取得控制權，因此駭客(attacker)控制(controls)健身設備(system)。符合 Schema: ('attacker', 'controls', 'system')。",
+    "source_id": "chunk_93",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 與 健身設備 (system) 的名稱與其被賦予的類別合理對齊，駭客是攻擊者的合理實例，健身設備可以視為系統的一部分。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不觸發，因為駭客不具有安全團隊的身分。規則2：不觸發，因為動作是 controls，不是 mitigates。規則3：不觸發，因為主體類別是 attacker，不是 vulnerability。規則4：不觸發，因為主體不是 principle。規則5：不觸發，因為關係不是 uses。規則6：不觸發，因為關係不是 deployed_in。規則7：不觸發，因為關係不是 generates。規則8：觸發，因為主體是 attacker，具有主動執行能力，符合規則允許的條件，但需要進一步檢查是否違反其他規則。經過檢查，發現三元組符合規則8的允許條件，且未違反其他規則。",
+        "response": "correct",
+        "reason": "三元組符合規則8的允許條件，且未違反其他規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全相同，受體 \"健身設備\" 與 Ldr 中的 \"電腦設備\" 或 \"用戶設備\" 類似，但不完全相同，且 \"健身設備\" 不在同義詞對照範例中。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全相同，受體 \"健身設備\" 不是 Ldr 中的同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "健身設備",
+        "type": "system"
+      },
+      "reasoning": "文本第 50 題提到『駭客入侵您的健身 [設備]』。入侵後通常意味著取得控制權，因此駭客(attacker)控制(controls)健身設備(system)。符合 Schema: ('attacker', 'controls', 'system')。",
+      "source_id": "chunk_93",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  }
+]

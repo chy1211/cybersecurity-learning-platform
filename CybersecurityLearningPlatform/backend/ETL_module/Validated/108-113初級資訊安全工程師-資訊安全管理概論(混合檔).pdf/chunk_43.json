@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "操作行為記錄",
+      "type": "data",
+      "display_name": "操作行為記錄"
+    },
+    "reasoning": "文本提到『對於使用者的操作行為必須完整的記錄』，這意味著系統在運作時會產生日誌資料。符合 Schema: (\"system\", \"generates\", \"data\")",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "系統 (system) 可以生成操作行為記錄 (data)，這是資安領域中合理的語意對齊，'generates' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組符合規則所允許的條件，因為關係是generates，受體的類別是data。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且沒有違反其他規則。因此，三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "系統與系統運作、電腦系統等為廣義/狹義從屬關係，操作行為記錄與操作記錄、事件記錄等為同義詞或廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，系統與其子類型不進行合併，操作行為記錄與操作記錄等同義詞或子類型關係不合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "操作行為記錄",
+        "type": "data"
+      },
+      "reasoning": "文本提到『對於使用者的操作行為必須完整的記錄』，這意味著系統在運作時會產生日誌資料。符合 Schema: (\"system\", \"generates\", \"data\")",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "職能分立",
+      "type": "policy",
+      "display_name": "職務區隔"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "內部舞弊風險",
+      "type": "risk",
+      "display_name": "內部舞弊風險"
+    },
+    "reasoning": "職務區隔 (SoD) 是一種管理策略，透過將重要工作切分給多人執行來降低單一人員出錯或舞弊的風險。符合 Schema: (\"policy\", \"mitigates\", \"risk\")",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "職務區隔 (policy) 可以合理地與 'mitigates' 關係連接到內部舞弊風險 (risk)，因為政策可以減輕風險。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '職務區隔' 屬於類別 'policy'，因此符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '職務區隔' 屬於類別 'policy'，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "職務區隔與職能分立為同義詞",
+        "response": "duplicate",
+        "standard_subject": "職能分立",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，職務區隔與職能分立可視為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "職務區隔",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "內部舞弊風險",
+        "type": "risk"
+      },
+      "reasoning": "職務區隔 (SoD) 是一種管理策略，透過將重要工作切分給多人執行來降低單一人員出錯或舞弊的風險。符合 Schema: (\"policy\", \"mitigates\", \"risk\")",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "管理階層",
+      "type": "securityTeam",
+      "display_name": "管理階層"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到『應透過管理階層，核准委外廠商申請系統權限』，顯示管理階層對系統的存取權限具有控制權。符合 Schema: (\"securityTeam\", \"controls\", \"system\")",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '管理階層' 的類別 'securityTeam' 合理對齊，實體 '系統' 的類別 'system' 也合理對齊。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 securityTeam，符合 controls 關係的主體要求。",
+        "response": "correct",
+        "reason": "三元組中的主體（管理階層）是 securityTeam，符合規則8中關於 controls 關係的主體要求。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "管理階層與系統之間的關係是不同類別的實體，管理階層是一個安全團隊的類別，而系統是一個獨立的類別，兩者之間沒有直接的同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，管理階層和系統之間沒有同義詞或從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理階層",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到『應透過管理階層，核准委外廠商申請系統權限』，顯示管理階層對系統的存取權限具有控制權。符合 Schema: (\"securityTeam\", \"controls\", \"system\")",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "特權帳號使用紀錄",
+      "type": "data",
+      "display_name": "特權帳號使用紀錄"
+    },
+    "reasoning": "文本提到『應該定期審查特權帳號』，審查行為屬於分析帳號資料以確保安全。符合 Schema: (\"securityTeam\", \"can_analyze\", \"data\")",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 可以分析 (can_analyze) 特權帳號使用紀錄 (data)，這符合資安領域的常見實務和語意對齊，包含同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為 securityTeam，具有主動執行能力，符合 controls 的主體條件，但本三元組的關係為 can_analyze，不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安人員）和關係（can_analyze）以及受體（特權帳號使用紀錄）之間的關係沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資安人員' 與 Ldr 中的 '資安人員' 完全等價同義詞，受體 '特權帳號使用紀錄' 與 Ldr 中的 '操作行為記錄' 不完全匹配，但無法確定為同義詞或子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定 '特權帳號使用紀錄' 與 Ldr 中的資源為同義詞或子類型，依據不確定時預設保留原則，判定為 correct"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "特權帳號使用紀錄",
+        "type": "data"
+      },
+      "reasoning": "文本提到『應該定期審查特權帳號』，審查行為屬於分析帳號資料以確保安全。符合 Schema: (\"securityTeam\", \"can_analyze\", \"data\")",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "金鑰管理政策",
+      "type": "policy",
+      "display_name": "金鑰管理政策"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "金鑰遺失或銷毀",
+      "type": "risk",
+      "display_name": "金鑰遺失或銷毀"
+    },
+    "reasoning": "文本提到金鑰應受保護以避免『不當修改、不慎遺失或銷毀』，這是一種透過政策緩解風險的行為。符合 Schema: (\"policy\", \"mitigates\", \"risk\")",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "金鑰管理政策是 policy 的合理實例，金鑰遺失或銷毀是 risk 的合理實例，且 'mitigates' 是描述政策對風險影響的適當關係。",
+        "response": "correct",
+        "reason": "金鑰管理政策、金鑰遺失或銷毀與 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是金鑰管理政策（類別：policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆無完全等價同義詞，且無廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定實體間的同義詞或從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "金鑰管理政策",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "金鑰遺失或銷毀",
+        "type": "risk"
+      },
+      "reasoning": "文本提到金鑰應受保護以避免『不當修改、不慎遺失或銷毀』，這是一種透過政策緩解風險的行為。符合 Schema: (\"policy\", \"mitigates\", \"risk\")",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本多次提到使用者登入或存取系統，表示使用者使用該系統。符合 Schema: (\"user\", \"uses\", \"system\")",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '使用者' 的名稱與其類別 'user' 合理對齊，實體 '系統' 的名稱與其類別 'system' 也合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體類別是user，使用uses關係，但規則5指出當主體類別是data時才違反，user不等同於data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是使用者，關係是uses，受體是系統，這符合一般的使用情境，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「使用者」與 Ldr 中的「使用者」完全匹配，受體「系統」與 Ldr 中的「系統」完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本多次提到使用者登入或存取系統，表示使用者使用該系統。符合 Schema: (\"user\", \"uses\", \"system\")",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  }
+]

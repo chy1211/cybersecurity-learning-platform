@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "fraggle",
+      "type": "attack",
+      "display_name": "Fraggle"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "阻絕服務攻擊",
+      "type": "attack",
+      "display_name": "阻絕服務攻擊"
+    },
+    "reasoning": "文本明確指出 Fraggle 是一種『阻絕服務攻擊』，因此將 Fraggle 定義為 attack，並使用 is_part_of 關係指向其類別阻絕服務攻擊 (attack)。",
+    "source_id": "chunk_82",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Fraggle 與 阻絕服務攻擊 均為 'attack' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "Fraggle 與 阻絕服務攻擊 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。檢查規則2：不適用，因為三元組中沒有提到mitigates動作。檢查規則3：不適用，因為三元組中主體的類別不是vulnerability。檢查規則4：不適用，因為三元組中沒有提到principle。檢查規則5：不適用，因為三元組中關係不是uses。檢查規則6：不適用，因為三元組中關係不是deployed_in。檢查規則7：不適用，因為三元組中關係不是generates。檢查規則8：不適用，因為三元組中關係不是controls。由於沒有任何規則被觸發，三元組不違反任何語義限制。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體都屬於攻擊類別，且關係為is_part_of，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Fraggle 與受體 阻絕服務攻擊 之間的關係是：不相關，但受體 阻絕服務攻擊 可能是 Ldr 中的同義詞重複",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "阻絕服務攻擊",
+        "reason": "根據同義詞判定， 阻絕服務攻擊 與 阻斷服務攻擊 是同義詞，但主體 Fraggle 不是受體的同義詞或子類型。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Fraggle",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "阻絕服務攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出 Fraggle 是一種『阻絕服務攻擊』，因此將 Fraggle 定義為 attack，並使用 is_part_of 關係指向其類別阻絕服務攻擊 (attack)。",
+      "source_id": "chunk_82",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "fraggle",
+      "type": "attack",
+      "display_name": "Fraggle"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標網路",
+      "type": "system",
+      "display_name": "目標網路"
+    },
+    "reasoning": "文本提到 Fraggle 攻擊是送出封包至『目標網路』以產生流量效果，這是一種對系統的危害行為，符合 (attack, can_harm, system) 的 Schema。",
+    "source_id": "chunk_82",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Fraggle 是一種攻擊（attack）的合理實例，'目標網路' 是系統（system）的合理實例，'can_harm' 是攻擊對系統的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 'Fraggle' 的類別 'attack' 與受體 '目標網路' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 與主體、受體的類別組合在給定的語義限制清單中沒有明確的違反規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "目標網路與現有近似資源清單中的目標網路完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "目標網路",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Fraggle",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "目標網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到 Fraggle 攻擊是送出封包至『目標網路』以產生流量效果，這是一種對系統的危害行為，符合 (attack, can_harm, system) 的 Schema。",
+      "source_id": "chunk_82",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "fraggle",
+      "type": "attack",
+      "display_name": "Fraggle"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "阻絕服務攻擊 (DoS) 的核心目的就是破壞系統的可用性，符合 (attack, violates, principle) 的邏輯與 Schema。",
+    "source_id": "chunk_82",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Fraggle 是一種攻擊（attack）的合理實例，可用性（availability）是資安原則（principle）的一部分，'violates' 關係在攻擊違反原則的語境下是合理的。",
+        "response": "correct",
+        "reason": "Fraggle攻擊違反可用性原則的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：適用，但三元組中 principle 僅作為受體，符合規則。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 Fraggle 是攻擊者，與可用性（一項資安原則）之間的 'violates' 關係，符合語義限制清單中規則4的描述，且未違反其他規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Fraggle 是一種攻擊，與阻絕服務攻擊（DoS攻擊）相關，但 Fraggle 是一個特定的攻擊名稱，而阻絕服務攻擊是更廣義的攻擊類型；可用性是一個原則，與 Fraggle 無直接關係，但在資安領域中，Fraggle 攻擊會影響可用性原則。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，Fraggle 是一種特定的攻擊，與可用性原則相關但不完全等價，且無同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Fraggle",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "阻絕服務攻擊 (DoS) 的核心目的就是破壞系統的可用性，符合 (attack, violates, principle) 的邏輯與 Schema。",
+      "source_id": "chunk_82",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "radius",
+      "type": "tool",
+      "display_name": "RADIUS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "port 1812",
+      "type": "feature",
+      "display_name": "Port 1812"
+    },
+    "reasoning": "RADIUS 是一種驗證服務 (app)，而通訊埠 (Port) 是其屬性/特徵 (feature)，符合 (app, has_a, feature) 的 Schema。",
+    "source_id": "chunk_82",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "RADIUS 是一種網路驗證協定，Port 1812 是其使用的埠號，兩者之間的 'has_a' 關係在資安領域中是合理的，RADIUS 的實例可以有特定的埠號作為其特徵。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，並且語意對齊，符合資安領域的常見實踐。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查後發現，給定的三元組 'RADIUS has_a Port 1812' 沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組 'RADIUS has_a Port 1812' 沒有觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "RADIUS 與 radius 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "radius",
+        "standard_object": "",
+        "reason": "根據同義詞判定，RADIUS 與 radius 完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RADIUS",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Port 1812",
+        "type": "feature"
+      },
+      "reasoning": "RADIUS 是一種驗證服務 (app)，而通訊埠 (Port) 是其屬性/特徵 (feature)，符合 (app, has_a, feature) 的 Schema。",
+      "source_id": "chunk_82",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ip 位址協定",
+      "type": "feature",
+      "display_name": "IP 位址協定"
+    },
+    "reasoning": "網際網路作為一個基礎設施系統 (system)，其運作依賴於 IP 位址協定 (feature)，符合 (system, has_a, feature) 的 Schema。",
+    "source_id": "chunk_82",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網際網路是 system 的合理實例，IP 位址協定是 feature 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為網際網路確實包含或使用 IP 位址協定。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，沒有任何規則被觸發為違規。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "網際網路與現有近似資源清單中的「網際網路」完全相同，且IP位址協定與「ip協定」相似，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，網際網路為完全匹配，IP位址協定與「ip協定」非完全等價同義詞，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "IP 位址協定",
+        "type": "feature"
+      },
+      "reasoning": "網際網路作為一個基礎設施系統 (system)，其運作依賴於 IP 位址協定 (feature)，符合 (system, has_a, feature) 的 Schema。",
+      "source_id": "chunk_82",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "microsoft-ds smb 檔案分享",
+      "type": "app",
+      "display_name": "Microsoft-DS SMB 檔案分享"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "port 445",
+      "type": "feature",
+      "display_name": "Port 445"
+    },
+    "reasoning": "SMB 是一種應用服務 (app)，Port 445 是其對應的特徵 (feature)，符合 (app, has_a, feature) 的 Schema。",
+    "source_id": "chunk_82",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Microsoft-DS SMB 檔案分享 是 'app' 的合理實例，Port 445 是 'feature' 的合理實例，考慮到資安領域的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "Microsoft-DS SMB 檔案分享 與 Port 445 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為關係為 has_a，不是 uses。規則6：不適用，因為關係為 has_a，不是 deployed_in。規則7：不適用，因為關係為 has_a，不是 generates。規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 has_a 與受體 Port 445 的類別 feature 不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Port 445 是 tcp 445 的狹義從屬，兩者指涉相同的通訊埠",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，Port 445 是 tcp 445 的子類型，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Microsoft-DS SMB 檔案分享",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Port 445",
+        "type": "feature"
+      },
+      "reasoning": "SMB 是一種應用服務 (app)，Port 445 是其對應的特徵 (feature)，符合 (app, has_a, feature) 的 Schema。",
+      "source_id": "chunk_82",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "dns",
+      "type": "app",
+      "display_name": "DNS 域名解析服務"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "通訊埠 53",
+      "type": "feature",
+      "display_name": "Port 53"
+    },
+    "reasoning": "DNS 是一種應用服務 (app)，Port 53 是其對應的特徵 (feature)，符合 (app, has_a, feature) 的 Schema。",
+    "source_id": "chunk_82",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "DNS 域名解析服務是 'app' 的合理實例，Port 53 是 'feature' 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為 DNS 域名解析服務通常使用 Port 53。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的項目。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係沒有觸發語義限制清單中的任何規則，且無法直接對應到任何違規情況。"
+      },
+      "step_2": {
+        "granularity_analysis": "DNS 域名解析服務與 Ldr 中的 'dns' 和 'dns server' 皆為同一概念的不同表達，且 'Port 53' 與 '通訊埠 53' 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "dns",
+        "standard_object": "通訊埠 53",
+        "reason": "根據同義詞判定，DNS 域名解析服務與 'dns'/'dns server' 相同，Port 53 與 '通訊埠 53' 相同，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DNS 域名解析服務",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Port 53",
+        "type": "feature"
+      },
+      "reasoning": "DNS 是一種應用服務 (app)，Port 53 是其對應的特徵 (feature)，符合 (app, has_a, feature) 的 Schema。",
+      "source_id": "chunk_82",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "pop3 收發電子郵件加密傳輸",
+      "type": "app",
+      "display_name": "POP3 收發電子郵件加密傳輸"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "port 995",
+      "type": "feature",
+      "display_name": "Port 995"
+    },
+    "reasoning": "POP3 是一種應用服務 (app)，Port 995 是其對應的特徵 (feature)，符合 (app, has_a, feature) 的 Schema。",
+    "source_id": "chunk_82",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "POP3 收發電子郵件加密傳輸 可以被視為 'app' 的合理實例，Port 995 可以被視為 'feature' 的合理實例，尤其是在資安領域中，'feature' 可以指特定的功能或設定，如特定通訊埠的使用。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關。三元組中，主體為 POP3 收發電子郵件加密傳輸（類別：app），關係為 has_a，受體為 Port 995（類別：feature），未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係（has_a）未在語義限制清單中被明確限制或定義為違規，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 Port 995 與 Ldr 中的資源不完全匹配，但主體 POP3 收發電子郵件加密傳輸 可能涉及多個 port，包括 Port 995，然而這裡的主體和受體之間的關係是特指某一類應用（POP3）使用的特定 port（995），因此這是一種廣義和狹義的關係，但不直接對應到同義詞或子類型的直接等價關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，判定為 correct，因為 POP3 收發電子郵件加密傳輸 和 Port 995 之間的關係是特定應用使用特定 port，沒有直接的同義詞或子類型關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "POP3 收發電子郵件加密傳輸",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Port 995",
+        "type": "feature"
+      },
+      "reasoning": "POP3 是一種應用服務 (app)，Port 995 是其對應的特徵 (feature)，符合 (app, has_a, feature) 的 Schema。",
+      "source_id": "chunk_82",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  }
+]

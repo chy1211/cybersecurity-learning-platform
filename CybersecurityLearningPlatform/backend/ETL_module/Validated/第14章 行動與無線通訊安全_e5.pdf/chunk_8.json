@@ -1,0 +1,626 @@
+[
+  {
+    "subject": {
+      "name": "ieee 802.11",
+      "type": "tool",
+      "display_name": "IEEE 802.11"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "wep",
+      "type": "tool",
+      "display_name": "WEP"
+    },
+    "reasoning": "文本提到 WEP 是 IEEE 802.11 標準最早制定的資料保密演算法，因此 WEP 是該系統的一個特徵/組成部分。",
+    "source_id": "chunk_8",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IEEE 802.11 是一個無線網路通訊標準，合理對齊 'system' 類別；WEP（Wired Equivalent Privacy）是一種無線網路安全協定，合理對齊 'feature' 類別。",
+        "response": "correct",
+        "reason": "IEEE 802.11 與 WEP 的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體和受體的類別均為 'tool'，未觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別均為 'tool'，且關係 'has_a' 未在語義限制清單中被明確限制，故不觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "IEEE 802.11 和 WEP 分別與 Ldr 中的 'ieee 802.11' 和 'wep' 完全匹配，且均為資安領域中的工具類別，無同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認原則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IEEE 802.11",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "WEP",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 WEP 是 IEEE 802.11 標準最早制定的資料保密演算法，因此 WEP 是該系統的一個特徵/組成部分。",
+      "source_id": "chunk_8",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "wep",
+      "type": "tool",
+      "display_name": "WEP"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "vulnerability",
+      "type": "vulnerability",
+      "display_name": "安全弱點"
+    },
+    "reasoning": "文本明確指出 WEP '存有安全弱點，容易被破解'，符合 feature 可暴露 vulnerability 的定義。",
+    "source_id": "chunk_8",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "WEP 是一種安全功能（feature），而 'can_expose' 表示它可能暴露安全弱點（vulnerability），這在資安領域中是合理的。WEP 的名稱與其被賦予的類別 'feature' 合理對齊，同時 '安全弱點' 也是一種常見的資安領域術語，對齊 'vulnerability' 類別。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但允許 'can_expose' 動作。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 'WEP' 是工具，關係 'can_expose' 是允許的動作，受體 '安全弱點' 是漏洞，符合規則3的特例允許。因此，三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 WEP 與 Ldr 中的 'wep' 完全等價，受體 '安全弱點' 與 Ldr 中的 '安全漏洞'、'弱點' 等為同義詞",
+        "response": "correct",
+        "standard_subject": "wep",
+        "standard_object": "vulnerability",
+        "reason": "根據同義詞判定，受體 '安全弱點' 可以被視為 'vulnerability' 的同義詞，主體 WEP 完全等價於 'wep'。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WEP",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確指出 WEP '存有安全弱點，容易被破解'，符合 feature 可暴露 vulnerability 的定義。",
+      "source_id": "chunk_8",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "wpa",
+      "type": "tool",
+      "display_name": "WPA"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "wep 破解",
+      "type": "attack",
+      "display_name": "WEP 破解"
+    },
+    "reasoning": "文本提到 WPA 是為了 '改善安全問題' 而發展出的認證程序，旨在解決 WEP 容易被破解的問題，因此 WPA 緩解了 WEP 破解這一攻擊。",
+    "source_id": "chunk_8",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "WPA 是一種安全工具（tool），WEP 破解是一種攻擊（attack），且 'mitigates' 關係在資安領域中指的是減輕或緩解攻擊，故實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，該三元組的主體 WPA 屬於 tool 類別，符合規則2；其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的條件，且未發現其他明確違反的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "WPA 是一個特定的工具，Ldr 中的 wpa2 是其延伸版本，但不是完全等價的同義詞，wep 則是另一個不同的工具，與 WPA 無直接關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，WPA 與 wpa2 之間的關係是子類型關係，且無法直接判定為同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WPA",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "WEP 破解",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 WPA 是為了 '改善安全問題' 而發展出的認證程序，旨在解決 WEP 容易被破解的問題，因此 WPA 緩解了 WEP 破解這一攻擊。",
+      "source_id": "chunk_8",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "wpa2",
+      "type": "tool",
+      "display_name": "WPA2"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ccmp",
+      "type": "tool",
+      "display_name": "CCMP"
+    },
+    "reasoning": "文本提到 WPA2 定義了基於 AES 的全新加密協定 CCMP，因此 CCMP 是 WPA2 包含的工具。",
+    "source_id": "chunk_8",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "WPA2 和 CCMP 都是資安領域中合理的 'tool' 實例，WPA2 是一種安全協定，CCMP 是一種加密算法，兩者之間的 'has_a' 關係在語意上是合理的，因為 WPA2 通常使用 CCMP 進行加密。",
+        "response": "correct",
+        "reason": "WPA2 和 CCMP 的類別與屬性完全符合預先定義的清單，且在語意上是合理對齊的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體和受體的類別均為 'tool'，未觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體和受體的類別 'tool' 未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "WPA2 和 wpa2 完全等價同義詞，CCMP 與其他工具無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "wpa2",
+        "standard_object": "",
+        "reason": "主體 WPA2 與 Ldr 中的 wpa2 完全等價同義詞，受體 CCMP 無同義詞關係，依據判斷準則 1 和 2，主體為同義詞重複，受體不需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WPA2",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "CCMP",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 WPA2 定義了基於 AES 的全新加密協定 CCMP，因此 CCMP 是 WPA2 包含的工具。",
+      "source_id": "chunk_8",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "wpa",
+      "type": "tool",
+      "display_name": "WPA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "tkip",
+      "type": "tool",
+      "display_name": "TKIP"
+    },
+    "reasoning": "文本提到 WPA 使用 '臨時金鑰完整性協定 (TKIP)'，TKIP 是 WPA 實作中的一個協定工具。",
+    "source_id": "chunk_8",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "WPA 和 TKIP 都是資安領域中常見的工具，分別代表 Wi-Fi Protected Access 和 Temporal Key Integrity Protocol，與其被賦予的 'tool' 類別合理對齊。",
+        "response": "correct",
+        "reason": "WPA 和 TKIP 的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（WPA has_a TKIP）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "WPA 與 Ldr 中的 wpa 完全等價同義詞，TKIP 與 Ldr 中的資源無直接同義詞關係，但 TKIP 是 WPA 中使用的一種加密協定",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】與【同義詞判定】，WPA 與 wpa 是同義詞，但無法確認 TKIP 與 Ldr 中的資源有直接同義詞關係，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WPA",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "TKIP",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 WPA 使用 '臨時金鑰完整性協定 (TKIP)'，TKIP 是 WPA 實作中的一個協定工具。",
+      "source_id": "chunk_8",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "wpa",
+      "type": "tool",
+      "display_name": "WPA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "rc4 stream cipher",
+      "type": "tool",
+      "display_name": "RC4 Stream Cipher"
+    },
+    "reasoning": "文本指出 WPA 的資料加密是以 RC4 Stream Cipher 來做加密，RC4 作為加密演算法在此被視為 WPA 包含的工具。",
+    "source_id": "chunk_8",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "WPA 和 RC4 Stream Cipher 都是資安領域中常見的工具，分別是一種無線網路安全協定和一種加密演算法，與其被賦予的 'tool' 類別合理對齊。",
+        "response": "correct",
+        "reason": "WPA 和 RC4 Stream Cipher 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於三元組中的關係是 has_a，且主體和受體的類別均為 tool，未發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組中的關係和實體類別未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "WPA 是 Wi-Fi 保護存取的英文縮寫，與 WPA2 皆屬於 Wi-Fi 安全協定的不同版本，RC4 Stream Cipher 則是一種加密演算法，兩者在資安領域中代表不同的概念，WPA 與 WPA2 之間存在廣義/狹義的從屬關係，但 WPA 與 RC4 Stream Cipher 之間則不相關。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，WPA 與 WPA2 之間的關係不需要合併，且 WPA 與 RC4 Stream Cipher 代表不同的概念，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WPA",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "RC4 Stream Cipher",
+        "type": "tool"
+      },
+      "reasoning": "文本指出 WPA 的資料加密是以 RC4 Stream Cipher 來做加密，RC4 作為加密演算法在此被視為 WPA 包含的工具。",
+      "source_id": "chunk_8",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "wpa2",
+      "type": "tool",
+      "display_name": "WPA2"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "aes",
+      "type": "tool",
+      "display_name": "AES"
+    },
+    "reasoning": "文本指出 WPA2 使用 AES 取代 RC4 加密，AES 是 WPA2 採用的核心加密工具。",
+    "source_id": "chunk_8",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "WPA2 和 AES 都是資安領域中常見的工具，分別是一種無線網路安全協定和一種加密演算法，與其被賦予的 'tool' 類別合理對齊。",
+        "response": "correct",
+        "reason": "WPA2 和 AES 的類別與關係完全符合預先定義的類別與屬性清單，且名稱與類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組（WPA2 has_a AES）不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "WPA2 和 AES 是兩個不同的工具，WPA2 是一種無線網路安全協定，AES 是一種加密演算法，兩者之間沒有直接的同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，WPA2 和 AES 沒有同義詞或從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WPA2",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "AES",
+        "type": "tool"
+      },
+      "reasoning": "文本指出 WPA2 使用 AES 取代 RC4 加密，AES 是 WPA2 採用的核心加密工具。",
+      "source_id": "chunk_8",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "ccmp",
+      "type": "tool",
+      "display_name": "CCMP"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "cbc-mac",
+      "type": "feature",
+      "display_name": "CBC-MAC"
+    },
+    "reasoning": "文本指出 CCMP 使用 CBC-MAC 確保驗證性與完整性，CBC-MAC 是 CCMP 協定的組成特徵。",
+    "source_id": "chunk_8",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "CCMP 是一種工具（tool），CBC-MAC 是一種特徵（feature），因此實體名稱與其類別合理對齊，符合語意對齊原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是has_a，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為關係是has_a，而非violates。規則5不適用，因為關係是has_a，而非uses。規則6不適用，因為關係是has_a，而非deployed_in。規則7不適用，因為關係是has_a，而非generates。規則8不適用，因為關係是has_a，而非controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是CCMP（類別：tool），關係是has_a，受體是CBC-MAC（類別：feature），這符合一般工具具有特徵的邏輯，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "CCMP 是一個工具，與 Ldr 中的 'ccmp' 完全等價，CBC-MAC 是一個特徵，與 Ldr 中的 'ctr mode' 不直接相關，但 CBC-MAC 是一種特定類型的 MAC 演算法，與 'ctr mode' 皆為加密技術中的特徵，然而這裡的 CBC-MAC 與 'ctr mode' 不是同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "ccmp",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，CCMP 與 'ccmp' 完全等價，但 CBC-MAC 與 Ldr 中的資源不構成同義詞或廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CCMP",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "CBC-MAC",
+        "type": "feature"
+      },
+      "reasoning": "文本指出 CCMP 使用 CBC-MAC 確保驗證性與完整性，CBC-MAC 是 CCMP 協定的組成特徵。",
+      "source_id": "chunk_8",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "ccmp",
+      "type": "tool",
+      "display_name": "CCMP"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ctr mode",
+      "type": "feature",
+      "display_name": "CTR mode"
+    },
+    "reasoning": "文本指出 CCMP 使用 CTR mode 確保資料保密性，CTR mode 是 CCMP 協定的組成特徵。",
+    "source_id": "chunk_8",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "CCMP 是一種工具（tool），CTR mode 是一種功能（feature），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與規則清單中沒有直接相關的限制，因此無法觸發任何違規條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "CCMP 是一個工具，CTR mode 是其的一個功能，兩者之間存在著廣義/狹義的從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CCMP",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "CTR mode",
+        "type": "feature"
+      },
+      "reasoning": "文本指出 CCMP 使用 CTR mode 確保資料保密性，CTR mode 是 CCMP 協定的組成特徵。",
+      "source_id": "chunk_8",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "wpa2",
+      "type": "tool",
+      "display_name": "WPA2"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "ieee 802.11i",
+      "type": "system",
+      "display_name": "IEEE 802.11i"
+    },
+    "reasoning": "文本提到 WPA2 具備了 IEEE 802.11i 安全規格所有的功能，暗示 WPA2 是該標準系統的實作部分。",
+    "source_id": "chunk_8",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "WPA2 是一種安全協定，屬於 'tool' 類別；IEEE 802.11i 是一個無線網路安全標準，屬於 'system' 類別，兩者之間的 'is_part_of' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "WPA2 與 IEEE 802.11i 的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 is_part_of，不是 deployed_in。規則7：不適用，因為關係為 is_part_of，不是 generates。規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與主體 WPA2 (類別: tool) 和受體 IEEE 802.11i (類別: system) 不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "WPA2 是 IEEE 802.11i 的一部分，兩者在資安領域中有密切關係，但 WPA2 是一個特定的工具，而 IEEE 802.11i 是一個系統標準，兩者之間存在著廣義和狹義的關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，WPA2 和 IEEE 802.11i 之間的關係是廣義和狹義的關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WPA2",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "IEEE 802.11i",
+        "type": "system"
+      },
+      "reasoning": "文本提到 WPA2 具備了 IEEE 802.11i 安全規格所有的功能，暗示 WPA2 是該標準系統的實作部分。",
+      "source_id": "chunk_8",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "wi-fi 聯盟",
+      "type": "securityTeam",
+      "display_name": "Wi-Fi 聯盟"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "wpa3",
+      "type": "feature",
+      "display_name": "WPA3"
+    },
+    "reasoning": "文本提到 Wi-Fi 聯盟發布了 WPA3，作為標準制定與發布者，其對該安全工具具有控制/管理權。",
+    "source_id": "chunk_8",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'controls' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Wi-Fi 聯盟是一個安全團隊（securityTeam），WPA3是一種工具（tool），而 'controls' 關係在此語境下合理，因為 Wi-Fi 聯盟可能控制或管理 WPA3 的實施或標準。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體 (Subject) 是 securityTeam，具有主動執行能力，符合規則8的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體 (Wi-Fi 聯盟) 是 securityTeam，關係是 controls，受體是 WPA3，符合規則8的允許條件，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "WPA3 是一個特定的 Wi-Fi 安全功能，與 Ldr 中的 'wpa3' 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Wi-Fi 聯盟",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "WPA3",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 Wi-Fi 聯盟發布了 WPA3，作為標準制定與發布者，其對該安全工具具有控制/管理權。",
+      "source_id": "chunk_8",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "wep",
+      "type": "tool",
+      "display_name": "WEP"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資料保密",
+      "type": "function",
+      "display_name": "資料保密"
+    },
+    "reasoning": "文本將 WEP 描述為 '資料保密演算法'，因此 WEP 提供了資料保密的功能。",
+    "source_id": "chunk_8",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "WEP 是一種工具（tool），資料保密是功能（function），且 'has_a' 關係在此語境下合理，因為 WEP 可以提供資料保密的功能。",
+        "response": "correct",
+        "reason": "WEP 和資料保密的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 'WEP' 的類別 'tool' 與受體 '資料保密' 的類別 'function' 之間的關係 'has_a' 沒有違反任何給定的規則。",
+        "response": "correct",
+        "reason": "三元組不觸發任何規則中的違規條件，且關係 'has_a' 沒有被語義限制清單中任何規則所限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "WEP 是一種工具，與 Ldr 中的 'wep' 完全相符；'資料保密' 是一種功能，與 Ldr 中的 '資料保密' 完全相符，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全相符，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WEP",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資料保密",
+        "type": "function"
+      },
+      "reasoning": "文本將 WEP 描述為 '資料保密演算法'，因此 WEP 提供了資料保密的功能。",
+      "source_id": "chunk_8",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 12
+    }
+  }
+]

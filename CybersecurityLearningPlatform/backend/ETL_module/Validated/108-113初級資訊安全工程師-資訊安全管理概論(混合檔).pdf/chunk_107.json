@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "災害復原計畫",
+      "type": "policy",
+      "display_name": "災害復原計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "系統中斷",
+      "type": "risk",
+      "display_name": "系統中斷"
+    },
+    "reasoning": "文本提到 X 公司為電子郵件系統設定可用性目標（不得中斷超過一天）並制定災害復原計畫，這表示該計畫旨在緩解系統中斷的風險。符合 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_107",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "災害復原計畫 是 policy 的合理實例，系統中斷 是 risk 的合理實例，且 'mitigates' 的語意與其名稱相符。",
+        "response": "correct",
+        "reason": "災害復原計畫與系統中斷的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是災害復原計畫，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "由於三元組符合規則2的允許條件，且未發現其他明確違反的規則，因此判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似資源，但無直接同義詞關係，主體「災害復原計畫」與「災難復原計畫」相似，受體「系統中斷」與「系統故障」、「系統崩潰」等相似，但皆無完全等價同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無直接同義詞關係，且無廣義/狹義從屬關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "災害復原計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "系統中斷",
+        "type": "risk"
+      },
+      "reasoning": "文本提到 X 公司為電子郵件系統設定可用性目標（不得中斷超過一天）並制定災害復原計畫，這表示該計畫旨在緩解系統中斷的風險。符合 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_107",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "iso 27001",
+      "type": "policy",
+      "display_name": "ISO 27001"
+    },
+    "reasoning": "文本提到建立資訊安全管理系統必須以 ISO 27001 為架構，這暗示了負責建立系統的資安團隊在實作此規範。符合 ('securityTeam', 'implements', 'policy')。",
+    "source_id": "chunk_107",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實施 (implements) ISO 27001 (policy) 是合理的，因為資安人員可能會實施安全政策，如 ISO 27001。",
+        "response": "correct",
+        "reason": "主體、受體和關係都符合預先定義的類別和屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。規則2：不適用，因為動作是 implements，而非 mitigates。規則3：不適用，因為主體類別是 securityTeam，而非 vulnerability。規則4：不適用，因為關係是 implements，而非 violates。規則5：不適用，因為關係是 implements，而非 uses。規則6：不適用，因為關係是 implements，而非 deployed_in。規則7：不適用，因為關係是 implements，而非 generates。規則8：不適用，因為關係是 implements，而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安人員）與受體（ISO 27001）之間的 implements 關係，沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資安人員' 與 Ldr 中的 '資安人員' 完全等價同義詞，受體 'ISO 27001' 與 Ldr 中的 'iso/iec 27001' 亦為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體與受體皆與 Ldr 中的資源完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "ISO 27001",
+        "type": "policy"
+      },
+      "reasoning": "文本提到建立資訊安全管理系統必須以 ISO 27001 為架構，這暗示了負責建立系統的資安團隊在實作此規範。符合 ('securityTeam', 'implements', 'policy')。",
+      "source_id": "chunk_107",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "檔案加密機制",
+      "type": "tool",
+      "display_name": "檔案加密"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "機密資料外洩",
+      "type": "risk",
+      "display_name": "機密性外洩"
+    },
+    "reasoning": "文本指出使用加密功能的主要目的是增加機密性，這意味著加密工具可用於緩解機密資訊外洩的風險。符合 ('tool', 'mitigates', 'risk')。",
+    "source_id": "chunk_107",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "檔案加密是工具（tool）的合理實例，機密性外洩是風險（risk）的合理實例，'mitigates' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "檔案加密（tool）可以減輕機密性外洩（risk）的風險，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體 '檔案加密' 屬於 tool 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '檔案加密' 屬於 tool 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「檔案加密」與 Ldr 中的「檔案加密機制」為同義詞，受體「機密性外洩」與 Ldr 中的「機密資料外洩」為同義詞",
+        "response": "duplicate",
+        "standard_subject": "檔案加密機制",
+        "standard_object": "機密資料外洩",
+        "reason": "根據同義詞對照表和資安教材，檔案加密與檔案加密機制、機密性外洩與機密資料外洩為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "檔案加密",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "機密性外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本指出使用加密功能的主要目的是增加機密性，這意味著加密工具可用於緩解機密資訊外洩的風險。符合 ('tool', 'mitigates', 'risk')。",
+      "source_id": "chunk_107",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "機密性外洩",
+      "type": "risk",
+      "display_name": "機密性外洩"
+    },
+    "reasoning": "文本將建立防火牆列為確保資訊安全機密性的方法之一，即透過防火牆緩解導致機密性受損的風險。符合 ('tool', 'mitigates', 'risk')。",
+    "source_id": "chunk_107",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，機密性外洩是風險（risk）的合理實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是防火牆（tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（防火牆）是 tool，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「防火牆」與 Ldr 中的「防火牆」完全相同，受體「機密性外洩」與 Ldr 中的「機密資料外洩」具有高相似度，但非完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體「防火牆」直接判定 correct；受體「機密性外洩」雖與「機密資料外洩」相似，但非完全相同，且無直接同義詞對照，故預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "機密性外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本將建立防火牆列為確保資訊安全機密性的方法之一，即透過防火牆緩解導致機密性受損的風險。符合 ('tool', 'mitigates', 'risk')。",
+      "source_id": "chunk_107",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "多因素身份驗證",
+      "type": "technique",
+      "display_name": "多因素身份驗證"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權存取",
+      "type": "attack",
+      "display_name": "未經授權存取"
+    },
+    "reasoning": "多因素身份驗證被列為確保機密性的方法，其核心是防止攻擊者透過盜用帳密進行未經授權的存取攻擊。符合 ('technique', 'mitigates', 'attack')。",
+    "source_id": "chunk_107",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "多因素身份驗證是 technique 的合理實例，未經授權存取是 attack 的合理實例，且 'mitigates' 的語意與多因素身份驗證對未經授權存取的關係相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '多因素身份驗證' 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '多因素身份驗證' 屬於 technique 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與現有近似資源清單中的「未經授權存取」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "多因素身份驗證",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "未經授權存取",
+        "type": "attack"
+      },
+      "reasoning": "多因素身份驗證被列為確保機密性的方法，其核心是防止攻擊者透過盜用帳密進行未經授權的存取攻擊。符合 ('technique', 'mitigates', 'attack')。",
+      "source_id": "chunk_107",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "更新修補程式",
+      "type": "technique",
+      "display_name": "更新修補程式"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "漏洞利用攻擊",
+      "type": "attack",
+      "display_name": "漏洞利用攻擊"
+    },
+    "reasoning": "定期更新修補程式是為了修復漏洞，從而緩解攻擊者利用漏洞發起攻擊的風險。符合 ('technique', 'mitigates', 'attack')。",
+    "source_id": "chunk_107",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "更新修補程式 (technique) 可以合理地減輕 (mitigates) 漏洞利用攻擊 (attack)，因為更新修補程式是一種技術手段，常用於減輕攻擊的風險。",
+        "response": "correct",
+        "reason": "更新修補程式與漏洞利用攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體是更新修補程式（technique），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（更新修補程式）是technique，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域已知實體，且受體為攻擊類別，與現有近似資源清單中的「漏洞利用攻擊」完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，主體與受體皆不需要標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "更新修補程式",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "漏洞利用攻擊",
+        "type": "attack"
+      },
+      "reasoning": "定期更新修補程式是為了修復漏洞，從而緩解攻擊者利用漏洞發起攻擊的風險。符合 ('technique', 'mitigates', 'attack')。",
+      "source_id": "chunk_107",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "限制資料存取權限",
+      "type": "technique",
+      "display_name": "限制資料存取權限"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權存取",
+      "type": "attack",
+      "display_name": "未經授權存取"
+    },
+    "reasoning": "限制存取權限是確保機密性的技術手段，旨在防止未經授權的存取行為。符合 ('technique', 'mitigates', 'attack')。",
+    "source_id": "chunk_107",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '限制資料存取權限' 是 'technique' 的合理實例，受體 '未經授權存取' 是 'attack' 的合理實例，且 'mitigates' 的語意與此三元組的意義相符。",
+        "response": "correct",
+        "reason": "此三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '限制資料存取權限'，類別為 'technique'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '限制資料存取權限' 屬於 'technique' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「未經授權存取」完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "未經授權存取",
+        "reason": "根據同義詞判定，受體與 Ldr 中的「未經授權存取」為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "限制資料存取權限",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "未經授權存取",
+        "type": "attack"
+      },
+      "reasoning": "限制存取權限是確保機密性的技術手段，旨在防止未經授權的存取行為。符合 ('technique', 'mitigates', 'attack')。",
+      "source_id": "chunk_107",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "電子郵件系統",
+      "type": "system",
+      "display_name": "電子郵件系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "可用性目標",
+      "type": "feature",
+      "display_name": "可用性目標"
+    },
+    "reasoning": "文本提到電子郵件系統設定了可用性目標（屬性），將此目標視為該系統配置的一項特徵。符合 ('app', 'has_a', 'feature')。",
+    "source_id": "chunk_107",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "電子郵件系統 (app) 與可用性目標 (feature) 的名稱與其類別合理對齊，電子郵件系統可以有可用性目標這一特性。",
+        "response": "correct",
+        "reason": "電子郵件系統與可用性目標的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組的關係是 'has_a'，且主體是 '電子郵件系統'，受體是 '可用性目標'，這不觸發任何語義限制清單中的規則。",
+        "response": "correct",
+        "reason": "三元組不違反任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "電子郵件系統與可用性目標無直接同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子郵件系統",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "可用性目標",
+        "type": "feature"
+      },
+      "reasoning": "文本提到電子郵件系統設定了可用性目標（屬性），將此目標視為該系統配置的一項特徵。符合 ('app', 'has_a', 'feature')。",
+      "source_id": "chunk_107",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "更新病毒碼",
+      "type": "technique",
+      "display_name": "更新病毒碼"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "防毒軟體",
+      "type": "tool",
+      "display_name": "防毒軟體"
+    },
+    "reasoning": "文本提到更新病毒碼，這是一種維護防禦能力的技術流程，而該流程必須依賴於防毒軟體等工具才能執行。符合 ('technique', 'depends_on', 'tool')。",
+    "source_id": "chunk_107",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "更新病毒碼是 technique 的合理實例，防毒軟體是 tool 的合理實例，且 'depends_on' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "更新病毒碼與防毒軟體的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體是 tool，具有主動執行能力，關係是 depends_on，不是 controls，因此不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體（更新病毒碼）和受體（防毒軟體）之間的關係（depends_on）在給定的語義限制清單中沒有被明確禁止或限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 防毒軟體與 Ldr 中的防毒軟體、防毒解毒軟體、防病毒軟體等實體存在同義詞關係，但主體 (Subject) 更新病毒碼與 Ldr 中的更新修補程式存在廣義/狹義從屬關係，兩者皆不構成完全等價同義詞或重複關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同或同義詞關係不構成重複，且廣義/狹義從屬關係下保留原實體。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "更新病毒碼",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "防毒軟體",
+        "type": "tool"
+      },
+      "reasoning": "文本提到更新病毒碼，這是一種維護防禦能力的技術流程，而該流程必須依賴於防毒軟體等工具才能執行。符合 ('technique', 'depends_on', 'tool')。",
+      "source_id": "chunk_107",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 9
+    }
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "員工"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "營業秘密",
+      "type": "data",
+      "display_name": "營業秘密"
+    },
+    "reasoning": "文本提到員工在職期間或離職後可能會運用/利用營業秘密（如顧客、來源等機密），因此將員工定義為 user，營業秘密定義為 data，關係為 uses。",
+    "source_id": "chunk_4",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "員工 (user) 使用 營業秘密 (data) 的情境是合理的，'員工' 是 'user' 的合理實例，'營業秘密' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發違規，因為主體的類別是user，使用關係是uses，受體的類別是data。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "violation",
+        "reason": "三元組違反規則5，因為主體的類別是user，使用關係是uses，受體的類別是data，且data出現在受體位置是允許的，但主體類別為data時使用uses關係是違反。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組違反規則5，因為主體的類別是user，使用關係是uses，受體的類別是data，且data出現在受體位置是允許的，但主體類別為data時使用uses關係是違反。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "員工",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "營業秘密",
+        "type": "data"
+      },
+      "reasoning": "文本提到員工在職期間或離職後可能會運用/利用營業秘密（如顧客、來源等機密），因此將員工定義為 user，營業秘密定義為 data，關係為 uses。",
+      "source_id": "chunk_4",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 1
+    }
+  }
+]

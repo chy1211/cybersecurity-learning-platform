@@ -1,0 +1,152 @@
+[
+  {
+    "subject": {
+      "name": "病毒",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意軟體",
+      "type": "attack"
+    },
+    "reasoning": "文本明確將病毒列為『惡意軟體的類型』，因此病毒是惡意軟體的一種，符合 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "特洛伊木馬",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意軟體",
+      "type": "attack"
+    },
+    "reasoning": "文本將特洛伊木馬列為惡意軟體的一種，符合 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "蠕蟲",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意軟體",
+      "type": "attack"
+    },
+    "reasoning": "文本將蠕蟲列為惡意軟體的一種，符合 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "紅色代碼(Code Red)",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "蠕蟲",
+      "type": "attack"
+    },
+    "reasoning": "文本提到『紅色代碼(Code Red)蠕蟲』，說明紅色代碼是蠕蟲攻擊的一個具體實例，符合 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "病毒",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料",
+      "type": "data"
+    },
+    "reasoning": "文本提到病毒可能具有破壞性，例如『修改或刪除資料』，符合 ('attack', 'can_harm', 'data')。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "蠕蟲",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "電腦系統",
+      "type": "system"
+    },
+    "reasoning": "文本提到蠕蟲包含惡意程式碼以『對電腦系統或網路造成損害』，符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "蠕蟲",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "伺服器",
+      "type": "system"
+    },
+    "reasoning": "文本舉例紅色代碼蠕蟲『感染了超過30萬台伺服器』，感染行為對伺服器造成損害，符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "系統漏洞",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到蠕蟲『利用系統漏洞』。雖然主體是蠕蟲，但根據 Schema，利用漏洞的行為應由攻擊者 (attacker) 發起，蠕蟲是其使用的工具，因此萃取為 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "使用者權限",
+      "type": "feature"
+    },
+    "reasoning": "文本提到特洛伊木馬會『利用你的使用者權限』。權限是系統的屬性 (feature)，而利用權限的實體是背後的攻擊者，符合 ('attacker', 'uses', 'feature')。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "最終用戶",
+      "type": "user"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到『大多數病毒需要最終用戶互動才能啟動』，這意味著使用者的不當操作會暴露系統弱點導致感染，符合 ('user', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 10
+  }
+]

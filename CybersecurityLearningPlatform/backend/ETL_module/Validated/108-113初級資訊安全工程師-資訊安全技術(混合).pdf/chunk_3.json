@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "雙因子認證",
+      "type": "technique",
+      "display_name": "雙因認證"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "中間人攻擊",
+      "type": "attack",
+      "display_name": "中間人攻擊"
+    },
+    "reasoning": "文本第 14 題指出雙因認證可以防止中間人攻擊，這是一種防禦技術緩解特定攻擊，符合 ('technique', 'mitigates', 'attack')。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雙因認證是 'technique' 的合理實例，中間人攻擊是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "雙因認證與中間人攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '雙因認證' 屬於類別 'technique'，因此符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '雙因認證' 屬於類別 'technique'，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "雙因認證與雙因子認證為同義詞，中間人攻擊為完全匹配",
+        "response": "correct",
+        "standard_subject": "雙因子認證",
+        "standard_object": "中間人攻擊",
+        "reason": "根據同義詞判定，雙因認證與雙因子認證為同義詞，中間人攻擊為完全匹配。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雙因認證",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "中間人攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本第 14 題指出雙因認證可以防止中間人攻擊，這是一種防禦技術緩解特定攻擊，符合 ('technique', 'mitigates', 'attack')。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "cat指令",
+      "type": "tool",
+      "display_name": "cat指令"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": ".bash_history",
+      "type": "data",
+      "display_name": ".bash_history"
+    },
+    "reasoning": "文本第 15 題描述使用 cat 指令來列出（讀取/分析）.bash_history 檔案內容，符合 ('tool', 'can_analyze', 'data')。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "cat指令是一種工具（tool），可以分析檔案，如 .bash_history，因此是工具的合理實例；.bash_history 是一種資料（data），符合語意對齊。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但可以檢查是否符合 can_analyze 的語義限制，發現 tool 可以執行 can_analyze 動作，且受體是 data，符合語義。",
+        "response": "correct",
+        "reason": "三元組中的主體是 tool，關係是 can_analyze，受體是 data，符合語義限制，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "cat指令",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": ".bash_history",
+        "type": "data"
+      },
+      "reasoning": "文本第 15 題描述使用 cat 指令來列出（讀取/分析）.bash_history 檔案內容，符合 ('tool', 'can_analyze', 'data')。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "系統防火牆"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "technique",
+      "display_name": "攻擊"
+    },
+    "reasoning": "文本第 16 題提到啟用預設拒絕政策的系統防火牆可用於強化保護並降低被攻擊風險，符合 ('tool', 'mitigates', 'attack')。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "系統防火牆是工具的一個合理實例，攻擊是攻擊類別的一個合理實例，'mitigates' 的語意也與工具減輕攻擊的概念相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是系統防火牆（類別：tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（系統防火牆）是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "系統防火牆與防火牆為同義詞，攻擊與攻擊為完全相同",
+        "response": "duplicate",
+        "standard_subject": "防火牆",
+        "standard_object": "攻擊",
+        "reason": "系統防火牆與防火牆為同義詞，攻擊為完全相同的實體名稱"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統防火牆",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本第 16 題提到啟用預設拒絕政策的系統防火牆可用於強化保護並降低被攻擊風險，符合 ('tool', 'mitigates', 'attack')。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "蠕蟲",
+      "type": "attack",
+      "display_name": "蠕蟲"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "主機",
+      "type": "system",
+      "display_name": "主機"
+    },
+    "reasoning": "文本提到蠕蟲會利用網路感染其他主機，這是一種攻擊行為對系統造成的危害，符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "蠕蟲是一種合理的 'attack' 實例，主機是一種合理的 'system' 實例，'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者(attacker)與安全團隊(securityTeam)的身分。檢查規則2：不適用，因為三元組中的關係是can_harm，不是mitigates。檢查規則3：不適用，因為三元組中的主體類別是attack，不是vulnerability。檢查規則4：不適用，因為三元組中的關係是can_harm，不是violates。檢查規則5：不適用，因為三元組中的關係是can_harm，不是uses。檢查規則6：不適用，因為三元組中的關係是can_harm，不是deployed_in。檢查規則7：不適用，因為三元組中的關係是can_harm，不是generates。檢查規則8：不適用，因為三元組中的關係是can_harm，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是蠕蟲，關係是can_harm，受體是主機，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"蠕蟲\" 與 Ldr 中的 \"電腦蠕蟲\" 關係為同義詞或廣義/狹義從屬，但 \"蠕蟲\" 本身已在 Ldr 中出現，且受體 \"主機\" 與 Ldr 中的 \"電腦主機\" 關係為同義詞或廣義/狹義從屬。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct；且廣義/狹義一律保留，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "蠕蟲",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "主機",
+        "type": "system"
+      },
+      "reasoning": "文本提到蠕蟲會利用網路感染其他主機，這是一種攻擊行為對系統造成的危害，符合 ('attack', 'can_harm', 'system')。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "防毒軟體",
+      "type": "tool",
+      "display_name": "防毒軟體"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "文本第 16、17 題提到安裝並更新防毒軟體作為安全預防機制，旨在防禦惡意程式攻擊，符合 ('tool', 'mitigates', 'attack')。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防毒軟體是 tool 的合理實例，惡意程式是 attack 的合理實例，且 'mitigates' 是描述 tool 對 attack 的關係的合理屬性。",
+        "response": "correct",
+        "reason": "防毒軟體與惡意程式的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是防毒軟體（類別：tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（防毒軟體）是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，根據無罪推定原則，判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「防毒軟體」與 Ldr 中的「防毒軟體」完全相同，受體「惡意程式」與 Ldr 中的「惡意程式」完全相同，且無同義詞重複關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全相同，無同義詞重複關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防毒軟體",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "文本第 16、17 題提到安裝並更新防毒軟體作為安全預防機制，旨在防禦惡意程式攻擊，符合 ('tool', 'mitigates', 'attack')。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼原則",
+      "type": "policy",
+      "display_name": "密碼原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本第 17 題將實施密碼原則列為作業系統安全預防機制，旨在降低安全風險，符合 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "密碼原則 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 的語意也合理地描述了政策對風險的減輕作用。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是密碼原則（policy），符合規則2的條件，沒有觸發違規。",
+        "response": "correct",
+        "reason": "三元組的主體是密碼原則（policy），符合規則2的條件，沒有違反語義限制清單中的任何規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本第 17 題將實施密碼原則列為作業系統安全預防機制，旨在降低安全風險，符合 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "安全記錄檔",
+      "type": "data",
+      "display_name": "安全記錄檔"
+    },
+    "reasoning": "文本第 17 題提到檢視安全記錄檔 (Log)，這類日誌是由作業系統在運作過程中產生的，符合 ('system', 'generates', 'data')。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "作業系統 (system) 可以生成安全記錄檔 (data)，這是語意上合理的對齊，符合資安領域的常見實踐。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為三元組中沒有提到principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全等價，受體 \"安全記錄檔\" 與 Ldr 中的 \"系統安全日誌\" 可能是同義詞或相關概念，但不完全等價。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全匹配，無需標準化；受體 \"安全記錄檔\" 與 Ldr 中的 \"系統安全日誌\" 雖然相關，但不完全等價，保留原狀。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "安全記錄檔",
+        "type": "data"
+      },
+      "reasoning": "文本第 17 題提到檢視安全記錄檔 (Log)，這類日誌是由作業系統在運作過程中產生的，符合 ('system', 'generates', 'data')。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "黑帽駭客",
+      "type": "attacker",
+      "display_name": "黑帽駭客"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "nslookup",
+      "type": "tool",
+      "display_name": "nslookup"
+    },
+    "reasoning": "文本第 18 題明確指出黑帽駭客在收集資訊時常用 nslookup 指令，符合 ('attacker', 'uses', 'tool')。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "黑帽駭客 (attacker) 使用 nslookup (tool) 是資安領域中常見的場景，實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "黑帽駭客使用 nslookup 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別是attacker，不是data。規則6：不適用。規則7：不適用。規則8：不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是黑帽駭客（attacker），關係是uses，受體是nslookup（tool），這符合一般的資安知識圖譜邏輯，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "黑帽駭客與Ldr中的黑帽駭客完全等價同義詞，nslookup與Ldr中的nslookup完全匹配，但nslookup不在給定的同義詞對照範例中，且nslookup不屬於黑帽駭客的子類型或父類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，實體名稱與Ldr中某資源的name字串完全相同，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "黑帽駭客",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "nslookup",
+        "type": "tool"
+      },
+      "reasoning": "文本第 18 題明確指出黑帽駭客在收集資訊時常用 nslookup 指令，符合 ('attacker', 'uses', 'tool')。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "電腦病毒",
+      "type": "attack",
+      "display_name": "電腦病毒"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到電腦病毒具有破壞等特性，這意味著它能對系統造成損害，符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "電腦病毒是 'attack' 的合理實例，系統是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統的影響的合理關係。",
+        "response": "correct",
+        "reason": "電腦病毒對系統的影響三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。檢查規則2：不適用，因為三元組中的關係不是 mitigates。檢查規則3：不適用，因為三元組中的主體類別不是 vulnerability。檢查規則4：不適用，因為三元組中的關係不是 violates，且主體不是 principle。檢查規則5：不適用，因為三元組中的關係不是 uses。檢查規則6：不適用，因為三元組中的關係不是 deployed_in。檢查規則7：不適用，因為三元組中的關係不是 generates。檢查規則8：不適用，因為三元組中的關係不是 controls。由於沒有任何規則被觸發，三元組不違反任何語義限制。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反語義限制清單中的任何規則。因此，根據無罪推定原則，該三元組被判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「電腦病毒」與 Ldr 中的「電腦病毒」完全相同，受體「系統」與 Ldr 中的「系統」完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體皆與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電腦病毒",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到電腦病毒具有破壞等特性，這意味著它能對系統造成損害，符合 ('attack', 'can_harm', 'system')。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

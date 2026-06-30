@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "入侵偵測設備",
+      "type": "tool",
+      "display_name": "入侵偵測設備"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "入侵",
+      "type": "attack",
+      "display_name": "入侵"
+    },
+    "reasoning": "文本提到入侵偵測設備利用多種原理來偵測入侵訊息，因此將設備定義為 tool，入侵定義為 attack，關係為 can_detect。",
+    "source_id": "chunk_12",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 均在 Lc,p 中。",
+        "step_2_alignment_check": "入侵偵測設備 (tool) 可以偵測入侵 (attack)，符合語意對齊，且 '入侵偵測設備' 與 '入侵' 的名稱與其類別 'tool' 和 'attack' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_detect，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（入侵偵測設備 can_detect 入侵）未觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測設備與入侵偵測系統為同義詞，入侵與入侵行為、入侵企圖、入侵攻擊等為同義詞或廣義/狹義從屬關係，但根據判斷準則，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，廣義/狹義一律保留，入侵偵測設備與入侵偵測系統雖然相似，但不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測設備",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "入侵",
+        "type": "attack"
+      },
+      "reasoning": "文本提到入侵偵測設備利用多種原理來偵測入侵訊息，因此將設備定義為 tool，入侵定義為 attack，關係為 can_detect。",
+      "source_id": "chunk_12",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "敏感金屬薄片",
+      "type": "feature",
+      "display_name": "敏感金屬薄片"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "入侵偵測設備",
+      "type": "tool",
+      "display_name": "入侵偵測設備"
+    },
+    "reasoning": "敏感金屬薄片是入侵偵測設備中實現『阻斷和產生電流』原理的組成部分，因此定義為 feature 並使用 is_part_of。",
+    "source_id": "chunk_12",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'tool' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "敏感金屬薄片 可以被視為 'feature' 的合理實例，入侵偵測設備 可以被視為 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為關係不是 'uses'。檢查規則6：無關，因為關係不是 'deployed_in'。檢查規則7：無關，因為關係不是 'generates'。檢查規則8：無關，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 與給定的語義限制清單中沒有直接相關的規則，因此不觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測設備與入侵偵測系統、網路型入侵偵測系統等相關，但非完全等價同義詞，屬於廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則3，若一個實體是另一個的子類型，判定為correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "敏感金屬薄片",
+        "type": "feature"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "入侵偵測設備",
+        "type": "tool"
+      },
+      "reasoning": "敏感金屬薄片是入侵偵測設備中實現『阻斷和產生電流』原理的組成部分，因此定義為 feature 並使用 is_part_of。",
+      "source_id": "chunk_12",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "敏感性麥克風",
+      "type": "feature",
+      "display_name": "敏感性麥克風"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "入侵偵測設備",
+      "type": "tool",
+      "display_name": "入侵偵測設備"
+    },
+    "reasoning": "敏感性麥克風是入侵偵測設備中實現『偵測聲音』原理的組成部分，因此定義為 feature 並使用 is_part_of。",
+    "source_id": "chunk_12",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'tool' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "敏感性麥克風可以被視為 'feature' 的合理實例，入侵偵測設備可以被視為 'tool' 的合理實例，且 'is_part_of' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "敏感性麥克風作為入侵偵測設備的一部分，完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則，發現規則1、2、3、4、5、6、7、8皆不直接適用於此三元組，因為三元組中的關係是 'is_part_of'，而規則中沒有直接提到這種關係的限制。",
+        "response": "correct",
+        "reason": "由於沒有發現明確且直接的違反項目，且三元組中的關係和實體類別沒有觸發任何規則中的限制，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆不直接出現在近似資源清單中，但可透過分析進行判斷",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法直接匹配同義詞或子類型關係，依據規則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "敏感性麥克風",
+        "type": "feature"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "入侵偵測設備",
+        "type": "tool"
+      },
+      "reasoning": "敏感性麥克風是入侵偵測設備中實現『偵測聲音』原理的組成部分，因此定義為 feature 並使用 is_part_of。",
+      "source_id": "chunk_12",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "光學設施",
+      "type": "feature",
+      "display_name": "光學設施"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "入侵偵測設備",
+      "type": "tool",
+      "display_name": "入侵偵測設備"
+    },
+    "reasoning": "光學設施是入侵偵測設備中實現『中斷光線』原理的組成部分，因此定義為 feature 並使用 is_part_of。",
+    "source_id": "chunk_12",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'tool' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "光學設施可以被視為 'feature' 的合理實例，入侵偵測設備可以被視為 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關。檢查規則6：無關。檢查規則7：無關。檢查規則8：無關，因為 'is_part_of' 關係不在規則8的限制範圍內。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 不在語義限制清單中被明確限制的關係類型中，且主體和受體的類別組合未觸發任何規則的違反條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測設備是資安領域中特指用於偵測入侵行為的工具，與其他相關工具如入侵偵測系統、網路型入侵偵測系統等，都是資安工具的不同類型或具體實現，無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，入侵偵測設備與其他工具之間沒有直接同義詞關係，且無法確認為子類型或廣義狹義關係，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "光學設施",
+        "type": "feature"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "入侵偵測設備",
+        "type": "tool"
+      },
+      "reasoning": "光學設施是入侵偵測設備中實現『中斷光線』原理的組成部分，因此定義為 feature 並使用 is_part_of。",
+      "source_id": "chunk_12",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "警衛",
+      "type": "securityTeam",
+      "display_name": "警衛"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "警報系統",
+      "type": "tool",
+      "display_name": "警報系統"
+    },
+    "reasoning": "文本提到警衛需要『留意警報系統』，因此警衛為 securityTeam，警報系統為 tool，關係為 uses。",
+    "source_id": "chunk_12",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "警衛 (securityTeam) 使用警報系統 (tool) 是合理的，警衛是安全團隊的一部分，使用警報系統來執行任務是常見的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 securityTeam，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：主體為 securityTeam，具有主動執行能力，關係為 uses，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（警衛）和關係（uses）以及受體（警報系統）之間的關係，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中之資源完全匹配，無需進一步分析同義詞或廣義/狹義關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆直接與現有近似資源清單中之資源完全匹配，故無需進行同義詞或廣義/狹義判定。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "警衛",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "警報系統",
+        "type": "tool"
+      },
+      "reasoning": "文本提到警衛需要『留意警報系統』，因此警衛為 securityTeam，警報系統為 tool，關係為 uses。",
+      "source_id": "chunk_12",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "警衛",
+      "type": "securityTeam",
+      "display_name": "警衛"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "閉路電視監視器",
+      "type": "tool",
+      "display_name": "監視器"
+    },
+    "reasoning": "文本提到警衛的工作包含『監看閉路電視的監視器』，因此警衛為 securityTeam，監視器為 tool，關係為 uses。",
+    "source_id": "chunk_12",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "警衛 (securityTeam) 與 監視器 (tool) 的名稱與其類別合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。規則2：不適用，因為動作不是 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為關係不是 violates 且 principle 不是主體。規則5：觸發檢查，因為關係是 uses，但主體類別是 securityTeam，不是 data，因此不違反。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是警衛（securityTeam），關係是 uses，受體是監視器（tool），這符合規則允許的條件，沒有明確違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "監視器與閉路電視監視器（cctv）是同一概念的不同表達，屬於同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "閉路電視監視器",
+        "reason": "根據同義詞判定準則，監視器與閉路電視監視器被判定為同義詞，屬於重複資源。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "警衛",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "監視器",
+        "type": "tool"
+      },
+      "reasoning": "文本提到警衛的工作包含『監看閉路電視的監視器』，因此警衛為 securityTeam，監視器為 tool，關係為 uses。",
+      "source_id": "chunk_12",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "備份資料"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "資料檔案保險櫃",
+      "type": "system",
+      "display_name": "資料檔案保險櫃"
+    },
+    "reasoning": "文本明確指出『重要的備份資料需要儲存於資料檔案保險櫃』，符合 (data, deployed_in, system) 的 Schema。",
+    "source_id": "chunk_12",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "備份資料是 'data' 的合理實例，資料檔案保險櫃是 'system' 的合理實例，且 'deployed_in' 的語意與實體之間的關係合理對齊。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為 data 是主體，但 uses 關係未出現。規則6：觸發，關係為 deployed_in，受體的類別是 system，符合規則。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 deployed_in 與受體的類別 system 符合規則6，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"備份資料\" 與 Ldr 中的 \"資料\" 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "資料",
+        "standard_object": "",
+        "reason": "根據同義詞判定，\"備份資料\" 與 \"資料\" 可視為同義詞，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "備份資料",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "資料檔案保險櫃",
+        "type": "system"
+      },
+      "reasoning": "文本明確指出『重要的備份資料需要儲存於資料檔案保險櫃』，符合 (data, deployed_in, system) 的 Schema。",
+      "source_id": "chunk_12",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "警衛",
+      "type": "securityTeam",
+      "display_name": "警衛"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "管制人員出入",
+      "type": "function",
+      "display_name": "人員出入管制"
+    },
+    "reasoning": "文本提到警衛可以『管制人員出入』，這是一種安全管理功能，因此定義為 function，關係為 implements。",
+    "source_id": "chunk_12",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "警衛 (securityTeam) 實施人員出入管制 (function) 是語意上合理的，警衛團隊可以實施出入管制功能。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：未觸發，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：未觸發，因為動作是implements，不是mitigates。檢查規則3：未觸發，因為主體類別是securityTeam，不是vulnerability。檢查規則4：未觸發，因為關係是implements，不是violates，且主體不是principle。檢查規則5：未觸發，因為主體類別不是data。檢查規則6：未觸發，因為關係不是deployed_in。檢查規則7：未觸發，因為關係不是generates。檢查規則8：未觸發，因為主體是securityTeam，具有主動執行能力，但這裡的關係是implements，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（警衛）和關係（implements）以及受體（人員出入管制）之間的關係沒有明確違反任何一條語義限制規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"人員出入管制\" 與 Ldr 中的 \"管制人員出入\" 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "管制人員出入",
+        "reason": "根據同義詞判定，受體 \"人員出入管制\" 與 \"管制人員出入\" 指稱同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "警衛",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "人員出入管制",
+        "type": "function"
+      },
+      "reasoning": "文本提到警衛可以『管制人員出入』，這是一種安全管理功能，因此定義為 function，關係為 implements。",
+      "source_id": "chunk_12",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "防火措施",
+      "type": "feature",
+      "display_name": "防火措施"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "資料檔案保險櫃",
+      "type": "tool",
+      "display_name": "資料檔案保險櫃"
+    },
+    "reasoning": "防火、防盜、防爆是保險櫃的安全需求/屬性，將其定義為 feature，保險櫃在此視為 tool (安全工具)，關係為 is_part_of。",
+    "source_id": "chunk_12",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'tool' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防火措施是 feature 的合理實例，資料檔案保險櫃是 tool 的合理實例，且 'is_part_of' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "防火措施與資料檔案保險櫃的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則，發現規則1、2、3、4、5、6、7、8均不直接適用於此三元組，因為此三元組的關係是is_part_of，且主體和受體的類別分別是feature和tool，與規則中描述的關係和類別不符。",
+        "response": "correct",
+        "reason": "由於三元組中的關係和實體類別不符合任何規則中的違反條件，且無法直接推斷出違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "防火措施與現有近似資源清單中無直接同義詞，但與資安領域已知同義詞對照範例中無直接相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定同義詞或從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火措施",
+        "type": "feature"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "資料檔案保險櫃",
+        "type": "tool"
+      },
+      "reasoning": "防火、防盜、防爆是保險櫃的安全需求/屬性，將其定義為 feature，保險櫃在此視為 tool (安全工具)，關係為 is_part_of。",
+      "source_id": "chunk_12",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 10
+    }
+  }
+]

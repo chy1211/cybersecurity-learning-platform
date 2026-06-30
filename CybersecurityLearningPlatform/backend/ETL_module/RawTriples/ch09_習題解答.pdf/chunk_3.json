@@ -1,0 +1,137 @@
+[
+  {
+    "subject": {
+      "name": "管理者",
+      "type": "securityTeam"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "權限管理",
+      "type": "function"
+    },
+    "reasoning": "文本提到管理者可以依照需求給予權限，且系統存取控制的工作包含權限管理，因此管理者實作了權限管理功能。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "管理者",
+      "type": "securityTeam"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "帳號管理",
+      "type": "function"
+    },
+    "reasoning": "文本在回答系統存取控制的三項工作時提到帳號管理，而這些工作由管理者執行，因此選擇 securityTeam implements function。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "管理者",
+      "type": "securityTeam"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "活動追蹤",
+      "type": "function"
+    },
+    "reasoning": "同上，活動追蹤是系統存取控制的核心工作，由資安管理角色（管理者）執行。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "最小權限原則",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "安全管理風險",
+      "type": "risk"
+    },
+    "reasoning": "文本明確指出『多給予使用者權限，增加安全管理的風險』，反之，實施最小權限原則可緩解此風險。符合 (policy, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本提到集中式存取控制會是『駭客攻擊的目標』，由此推論駭客發起（實作）攻擊行為。符合 (attacker, implements, attack) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "駭客攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "集中式存取控制系統",
+      "type": "system"
+    },
+    "reasoning": "文本指出集中式存取控制若發生問題（被攻擊），則整個系統無法執行任務，表示攻擊會危害該系統。符合 (attack, can_harm, system) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "駭客攻擊",
+      "type": "attack"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle"
+    },
+    "reasoning": "文本提到『如果這一個點發生問題，則整個系統無法執行任務』，這直接破壞了資安三要素中的可用性 (Availability)。符合 (attack, violates, principle) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "管理者",
+      "type": "securityTeam"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "強制型存取控制",
+      "type": "technique"
+    },
+    "reasoning": "強制型存取控制 (MAC) 是一種存取控制技術，由管理者或系統設定來執行。符合 (securityTeam, uses, technique) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "管理者",
+      "type": "securityTeam"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "必要知道原則",
+      "type": "policy"
+    },
+    "reasoning": "必要知道原則是 MAC 環境中的一項規範，由管理端強制執行以確保資料安全。符合 (securityTeam, implements, policy) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 9
+  }
+]

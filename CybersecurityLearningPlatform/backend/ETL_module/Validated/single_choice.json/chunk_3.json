@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "nmap",
+      "type": "tool",
+      "display_name": "Nmap"
+    },
+    "reasoning": "文本提到在滲透測試期間執行 Nmap 掃描，因此滲透測試這項技術包含或使用了 Nmap 這個工具。符合 ('technique', 'has_a', 'tool')。",
+    "source_id": "chunk_3",
+    "source_file": "single_choice.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試 (technique) 與 Nmap (tool) 的名稱與其類別合理對齊，滲透測試是一種技術，Nmap是一種工具，且 'has_a' 關係在資安領域中常見，表示某技術使用某工具。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組（滲透測試 has_a Nmap）不觸發語義限制清單中的任何規則，且關係 'has_a' 沒有在清單中被明確限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "滲透測試與 penetration testing 是同義詞，Nmap 是一個獨立的工具",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，滲透測試與 penetration testing 是同義詞，但與 Nmap 無關，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Nmap",
+        "type": "tool"
+      },
+      "reasoning": "文本提到在滲透測試期間執行 Nmap 掃描，因此滲透測試這項技術包含或使用了 Nmap 這個工具。符合 ('technique', 'has_a', 'tool')。",
+      "source_id": "chunk_3",
+      "source_file": "single_choice.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "nmap",
+      "type": "tool",
+      "display_name": "Nmap"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "連接埠掃描",
+      "type": "technique",
+      "display_name": "連接埠掃描"
+    },
+    "reasoning": "文本明確指出使用 Nmap 執行連接埠掃描。Nmap 是工具，連接埠掃描是其執行的技術手段。符合 ('tool', 'uses', 'technique')。",
+    "source_id": "chunk_3",
+    "source_file": "single_choice.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Nmap 是一種網路掃描工具，'tool' 是其合理類別；'連接埠掃描' 是一種網路攻擊技術，'technique' 是其合理類別。關係 'uses' 也合理，因為 Nmap 可以用於連接埠掃描。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 tool，不是 data，因此不觸發違規。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 Nmap，類別為 tool，關係為 uses，受體為 連接埠掃描，類別為 technique，沒有觸發任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Nmap 與 Ldr 中的 nmap 完全等價同義詞，受體 連接埠掃描 與 Ldr 中的 連接埠掃描 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Nmap",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "連接埠掃描",
+        "type": "technique"
+      },
+      "reasoning": "文本明確指出使用 Nmap 執行連接埠掃描。Nmap 是工具，連接埠掃描是其執行的技術手段。符合 ('tool', 'uses', 'technique')。",
+      "source_id": "chunk_3",
+      "source_file": "single_choice.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "連接埠掃描",
+      "type": "technique",
+      "display_name": "連接埠掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "lan",
+      "type": "system",
+      "display_name": "LAN"
+    },
+    "reasoning": "文本描述在 LAN 上執行掃描以確定裝置類型，這是一種對系統（區域網路）的分析行為。符合 ('technique', 'can_analyze', 'system')。",
+    "source_id": "chunk_3",
+    "source_file": "single_choice.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "連接埠掃描 (Port Scanning) 是一種合理的 'technique' 實例，LAN (Local Area Network) 是一種合理的 'system' 實例，'can_analyze' 關係在資安領域中是合理的，因為連接埠掃描可以用來分析 LAN 中的系統和服務。",
+        "response": "correct",
+        "reason": "連接埠掃描與 LAN 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。無直接相關規則違反。",
+        "response": "correct",
+        "reason": "三元組中的主體（連接埠掃描）與受體（LAN）之間的關係（can_analyze）未在語義限制清單中找到直接違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆在 Ldr 中找到完全匹配的資源，且無需進一步同義詞判定或廣義/狹義分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 '連接埠掃描' 與受體 'LAN' 分別與 Ldr 中的 '連接埠掃描' 和 'lan' 完全匹配，無同義詞或廣義/狹義關係需要考慮。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "連接埠掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "LAN",
+        "type": "system"
+      },
+      "reasoning": "文本描述在 LAN 上執行掃描以確定裝置類型，這是一種對系統（區域網路）的分析行為。符合 ('technique', 'can_analyze', 'system')。",
+      "source_id": "chunk_3",
+      "source_file": "single_choice.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊保證",
+      "type": "technique",
+      "display_name": "資訊保證"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "PII資料"
+    },
+    "reasoning": "資訊保證 (Information Assurance) 用於驗證 PII 資料的可用性、準確性與機密性，屬於對資料的分析與驗證。符合 ('technique', 'can_analyze', 'data')。",
+    "source_id": "chunk_3",
+    "source_file": "single_choice.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資訊保證 (technique) 可以分析 PII資料 (data)，這符合資安領域的常見實踐和語意對齊，'can_analyze' 關係在這裡是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的主體是「資訊保證」（technique），關係是「can_analyze」，受體是「PII資料」（data），這不觸發任何明確的語義限制違規。",
+        "response": "correct",
+        "reason": "三元組不違反任何語義限制規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊保證與滲透測試、連接埠掃描無直接關聯，PII資料與資料具有同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "資料",
+        "reason": "根據同義詞判定，PII資料與資料為同義詞，但資訊保證與現有近似資源清單中無直接同義詞關聯。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊保證",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "PII資料",
+        "type": "data"
+      },
+      "reasoning": "資訊保證 (Information Assurance) 用於驗證 PII 資料的可用性、準確性與機密性，屬於對資料的分析與驗證。符合 ('technique', 'can_analyze', 'data')。",
+      "source_id": "chunk_3",
+      "source_file": "single_choice.json",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "蜂蜜罐",
+      "type": "tool",
+      "display_name": "蜂蜜罐"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "惡意流量",
+      "type": "data",
+      "display_name": "惡意流量"
+    },
+    "reasoning": "文本指出蜂蜜罐透過充當誘餌將惡意流量轉移，從而保護重要系統，這是一種緩解攻擊的手段。符合 ('tool', 'mitigates', 'attack')。",
+    "source_id": "chunk_3",
+    "source_file": "single_choice.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "蜂蜜罐 (tool) 可以合理地與 'tool' 類別對齊，惡意流量 (attack) 也可以合理地與 'attack' 類別對齊，關係 'mitigates' 在資安領域中是合理的用法。",
+        "response": "correct",
+        "reason": "蜂蜜罐作為一種工具，可以用來緩解惡意流量的攻擊，三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體 '蜂蜜罐' 類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '蜂蜜罐' 類別為 tool，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"蜂蜜罐\" 與 Ldr 中的 \"蜜罐\" 關係為同義詞，受體 \"惡意流量\" 與 Ldr 中的 \"惡意流量\" 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則， \"蜂蜜罐\" 和 \"蜜罐\" 可能是同義詞，但 \"蜂蜜罐\" 不在已知同義詞對照範例中，因此預設保留； \"惡意流量\" 與 Ldr 中的 \"惡意流量\" 完全匹配，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "蜂蜜罐",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "惡意流量",
+        "type": "attack"
+      },
+      "reasoning": "文本指出蜂蜜罐透過充當誘餌將惡意流量轉移，從而保護重要系統，這是一種緩解攻擊的手段。符合 ('tool', 'mitigates', 'attack')。",
+      "source_id": "chunk_3",
+      "source_file": "single_choice.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "nmap",
+      "type": "tool",
+      "display_name": "Nmap"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "連接埠",
+      "type": "feature",
+      "display_name": "連接埠"
+    },
+    "reasoning": "Nmap 的功能是確定開啟的連接埠，連接埠屬於系統的特徵 (feature)。符合 ('tool', 'can_analyze', 'feature')。",
+    "source_id": "chunk_3",
+    "source_file": "single_choice.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Nmap 是一種網路掃描工具，可以分析連接埠，故其名稱與類別 'tool' 對齊，連接埠是網路功能的一部分，故其名稱與類別 'feature' 對齊。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的規定，且名稱與類別對齊，故無違反。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需注意 'can_analyze' 關係下，主體 'Nmap' 的類別為 'tool'，受體 '連接埠' 的類別為 'feature'，此關係在給定的規則中沒有明確的限制或違反。",
+        "response": "correct",
+        "reason": "三元組中，'Nmap' 作為工具可以分析 '連接埠'，這在給定的語義限制清單中沒有明確的違反規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Nmap 與 Ldr 中的 nmap 完全等價同義詞，受體 連接埠 與 Ldr 中的 連接埠 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Nmap",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "連接埠",
+        "type": "feature"
+      },
+      "reasoning": "Nmap 的功能是確定開啟的連接埠，連接埠屬於系統的特徵 (feature)。符合 ('tool', 'can_analyze', 'feature')。",
+      "source_id": "chunk_3",
+      "source_file": "single_choice.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "誤判為假",
+      "type": "vulnerability",
+      "display_name": "誤判為假"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "未檢測到的惡意探索",
+      "type": "risk",
+      "display_name": "未檢測到的惡意探索"
+    },
+    "reasoning": "文本提到「誤判為假 (False Negative)」代表了未檢測到的惡意探索，這是一種安全缺陷導致的風險暴露。符合 ('vulnerability', 'can_expose', 'risk')。",
+    "source_id": "chunk_3",
+    "source_file": "single_choice.json",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "誤判為假 可以被視為是一種 'vulnerability'，而未檢測到的惡意探索可以被視為是一種 'risk'，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單 Lc,p，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許，因此不觸發違規。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，主體為vulnerability且關係為can_expose，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單無直接完全匹配關係，但需進一步同義詞判定",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體 '誤判為假' 與 '個資外洩' 類別不同，且無直接同義詞關係，受體 '未檢測到的惡意探索' 亦無直接同義詞對應，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "誤判為假",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "未檢測到的惡意探索",
+        "type": "risk"
+      },
+      "reasoning": "文本提到「誤判為假 (False Negative)」代表了未檢測到的惡意探索，這是一種安全缺陷導致的風險暴露。符合 ('vulnerability', 'can_expose', 'risk')。",
+      "source_id": "chunk_3",
+      "source_file": "single_choice.json",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊保證",
+      "type": "policy",
+      "display_name": "資訊保證"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "資訊保證作為一種安全框架/策略，其目的在於確保機密性，從而降低個資外洩的風險。符合 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_3",
+    "source_file": "single_choice.json",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates'皆在 Lc,p 中。",
+        "step_2_alignment_check": "資訊保證 (policy) 是一種合理的保安政策實例，個資外洩 (risk) 是一種合理的風險實例，'mitigates' 的語意也與資安領域的常見用法相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '資訊保證'，類別為 'policy'，符合規則2的允許條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '資訊保證' 屬於 'policy' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩與 Ldr 中的個資外洩完全相同，屬於完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊保證",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "資訊保證作為一種安全框架/策略，其目的在於確保機密性，從而降低個資外洩的風險。符合 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_3",
+      "source_file": "single_choice.json",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "無線路由器",
+      "type": "tool",
+      "display_name": "家庭路由器"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網路",
+      "type": "system",
+      "display_name": "家庭網路"
+    },
+    "reasoning": "路由器是家庭網路基礎設施中的一個硬體工具/元件。符合 ('tool', 'is_part_of', 'system')。",
+    "source_id": "chunk_3",
+    "source_file": "single_choice.json",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "家庭路由器 (tool) 與 家庭網路 (system) 的名稱與其類別合理對齊，符合語意與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "家庭路由器與家庭網路的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：當關係為 deployed_in 時，受體的類別必須是 system，然而給定的關係是 is_part_of，不是 deployed_in，因此不適用。檢查規則7：不適用。檢查規則8：不適用。給定的三元組（家庭路由器 is_part_of 家庭網路）沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與主體、受體的類別組合（tool 與 system）在給定的語義限制清單中沒有被明確禁止或限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "家庭路由器與無線路由器為同義詞，家庭網路與網路為同義詞",
+        "response": "duplicate",
+        "standard_subject": "無線路由器",
+        "standard_object": "網路",
+        "reason": "根據同義詞對照表，家庭路由器與無線路由器、家庭網路與網路為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "家庭路由器",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "家庭網路",
+        "type": "system"
+      },
+      "reasoning": "路由器是家庭網路基礎設施中的一個硬體工具/元件。符合 ('tool', 'is_part_of', 'system')。",
+      "source_id": "chunk_3",
+      "source_file": "single_choice.json",
+      "source_index": 9
+    }
+  }
+]

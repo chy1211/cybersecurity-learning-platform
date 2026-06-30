@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "vpn",
+      "type": "tool",
+      "display_name": "VPN"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "通道技術",
+      "type": "technique",
+      "display_name": "通道技術"
+    },
+    "reasoning": "文本明確提到 VPN 是利用通道（Tunnel）技術來建立安全通訊連線。根據 Schema，('tool', 'uses', 'technique') 是合法的關聯。",
+    "source_id": "chunk_48",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "VPN 是 'tool' 的合理實例，'通道技術' 是 'technique' 的合理實例，且 'uses' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "VPN 使用通道技術的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5觸發，因為主體類別是tool，但使用uses關係，受體是technique，符合規則允許的條件，不違反。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是VPN（工具），使用uses關係，受體是通道技術（技術），這符合規則5的允許條件，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "VPN 是一個工具，與 Ldr 中的 'vpn' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "VPN",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "通道技術",
+        "type": "technique"
+      },
+      "reasoning": "文本明確提到 VPN 是利用通道（Tunnel）技術來建立安全通訊連線。根據 Schema，('tool', 'uses', 'technique') 是合法的關聯。",
+      "source_id": "chunk_48",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "app",
+      "type": "app",
+      "display_name": "App"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "web service",
+      "type": "feature",
+      "display_name": "Web Service"
+    },
+    "reasoning": "文本提到在 App 設計中透過 Web Service 做資料交換，將 Web Service 視為 App 的一個功能特徵。根據 Schema，('app', 'has_a', 'feature') 是合法的關聯。",
+    "source_id": "chunk_48",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "App 可以被視為一個具有 Web Service 的實例，'app' 和 'feature' 的名稱與其類別對齊，且 'has_a' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與規則清單中沒有直接相關的限制，因此不觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (App) 與 Ldr 中的 'app' 完全等價同義詞，受體 (Web Service) 與 Ldr 中的 'http' 不完全匹配，但 'Web Service' 可被視為 '網路應用程式' 的子集或相關概念，然而根據給定的規則，若一個實體是另一個的子類型，判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，若一個實體是另一個的子類型，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "App",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Web Service",
+        "type": "feature"
+      },
+      "reasoning": "文本提到在 App 設計中透過 Web Service 做資料交換，將 Web Service 視為 App 的一個功能特徵。根據 Schema，('app', 'has_a', 'feature') 是合法的關聯。",
+      "source_id": "chunk_48",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "tcp",
+      "type": "system",
+      "display_name": "TCP"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "三向交握",
+      "type": "feature",
+      "display_name": "三向交握"
+    },
+    "reasoning": "文本描述 TCP 的連接狀態以及三向交握（Three-way Handshake）的完成過程。將 TCP 視為通訊系統，三向交握為其運作特徵。根據 Schema，('system', 'has_a', 'feature') 是合法的關聯。",
+    "source_id": "chunk_48",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'system' 和受體的類別 'feature' 都存在於 Lc,p 的 'Classes' 中，關係 'has_a' 也存在於 'Properties' 中。",
+        "step_2_alignment_check": "TCP 是一個系統（system），三向交握（三向握手）是 TCP 的一個特徵（feature），因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "TCP 和三向交握的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'has_a'，未在規則中明確限制此類關係與主體 'TCP' 和受體 '三向交握' 的組合。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有近似資源清單中之資源完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "TCP",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "三向交握",
+        "type": "feature"
+      },
+      "reasoning": "文本描述 TCP 的連接狀態以及三向交握（Three-way Handshake）的完成過程。將 TCP 視為通訊系統，三向交握為其運作特徵。根據 Schema，('system', 'has_a', 'feature') 是合法的關聯。",
+      "source_id": "chunk_48",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "app",
+      "type": "app",
+      "display_name": "App"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "https",
+      "type": "app",
+      "display_name": "HTTPS"
+    },
+    "reasoning": "文本建議使用 HTTPS 取代 HTTP，HTTPS 作為一種安全傳輸協定（特徵）被應用於 App 中。根據 Schema，('app', 'has_a', 'feature') 是合法的關聯。",
+    "source_id": "chunk_48",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "App 可以被視為一個具有 HTTPS 功能的實例，HTTPS 是一種安全通訊協定，合理對齊於 'feature' 類別。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別為 'app'，關係為 'has_a'，未觸發語義限制清單中的任何規則。因此，該三元組不違反任何語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (App) 與受體 (HTTPS) 分別與 Ldr 中的 'app' 和 'https' 完全匹配，且兩者皆為資安領域中的獨立概念，非同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體和受體皆不符合同義詞重複的條件，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "App",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "HTTPS",
+        "type": "feature"
+      },
+      "reasoning": "文本建議使用 HTTPS 取代 HTTP，HTTPS 作為一種安全傳輸協定（特徵）被應用於 App 中。根據 Schema，('app', 'has_a', 'feature') 是合法的關聯。",
+      "source_id": "chunk_48",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "木馬後門程式",
+      "type": "attack",
+      "display_name": "木馬後門程式"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "木馬後門程式是一種惡意攻擊行為，其目的在於侵害目標系統。根據 Schema，('attack', 'can_harm', 'system') 是合法的關聯。",
+    "source_id": "chunk_48",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "木馬後門程式是 'attack' 的合理實例，系統是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統的影響的適當關係。",
+        "response": "correct",
+        "reason": "木馬後門程式、系統和 'can_harm' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'can_harm' 不在明確限制的關係中，且主體 '木馬後門程式' 的類別 'attack' 與受體 '系統' 的類別 'system' 在給定的規則中沒有直接的違反。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"木馬後門程式\" 與 Ldr 中的 \"木馬程式\" 關係為廣義/狹義從屬，受體 \"系統\" 與 Ldr 中的 \"系統\" 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "系統",
+        "reason": "根據判斷準則 3，主體為狹義從屬關係，受體為完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "木馬後門程式",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "木馬後門程式是一種惡意攻擊行為，其目的在於侵害目標系統。根據 Schema，('attack', 'can_harm', 'system') 是合法的關聯。",
+      "source_id": "chunk_48",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "木馬後門程式",
+      "type": "tool",
+      "display_name": "木馬後門程式"
+    },
+    "reasoning": "文本提到木馬後門程式偽裝成免費軟體吸引使用者，這暗示了攻擊者使用此工具來發動攻擊。根據 Schema，('attacker', 'uses', 'tool') 是合法的關聯。",
+    "source_id": "chunk_48",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 使用木馬後門程式 (tool) 是資安領域中合理的語意對齊，駭客使用工具是常見的行為。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為attacker，不是data，故不違反。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體（駭客）使用木馬後門程式，符合使用工具的邏輯，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全等價同義詞，受體 \"木馬後門程式\" 與 Ldr 中的 \"後門程式\" 可能是同一概念的不同表達，但無法確認完全等價，需要進一步分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全匹配，受體 \"木馬後門程式\" 與 \"後門程式\" 可能是同一概念，但無法確認完全等價，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "木馬後門程式",
+        "type": "tool"
+      },
+      "reasoning": "文本提到木馬後門程式偽裝成免費軟體吸引使用者，這暗示了攻擊者使用此工具來發動攻擊。根據 Schema，('attacker', 'uses', 'tool') 是合法的關聯。",
+      "source_id": "chunk_48",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  }
+]

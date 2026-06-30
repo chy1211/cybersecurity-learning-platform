@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "法規遵循",
+      "type": "policy",
+      "display_name": "法規遵循"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "合規風險",
+      "type": "risk",
+      "display_name": "合規風險"
+    },
+    "reasoning": "文本提到 R3 關於法規適用性與歐盟資料儲存要求，這屬於透過政策(policy)來緩解(mitigates)法律不一致所帶來的風險(risk)。",
+    "source_id": "chunk_6",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "法規遵循 (policy) 是一種合理的政策實例，合規風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕風險，與政策減輕合規風險的語意相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是法規遵循（類別：policy），符合規則2的允許條件，代表合法。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「法規遵循」與 Ldr 中的「規範」相似，但非完全等價同義詞；受體「合規風險」與 Ldr 中的「法規風險」相似，且兩者在資安領域中可視為同一概念的不同表達方式",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體在資安教材中可互換使用、指稱同一概念，但非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "法規遵循",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "合規風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到 R3 關於法規適用性與歐盟資料儲存要求，這屬於透過政策(policy)來緩解(mitigates)法律不一致所帶來的風險(risk)。",
+      "source_id": "chunk_6",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端服務環境",
+      "type": "system",
+      "display_name": "雲端服務環境"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "用戶資訊",
+      "type": "data",
+      "display_name": "用戶資訊"
+    },
+    "reasoning": "文本 R5 提到服務供應商（及其運作的系統）會存取用戶擁有的資訊，因此系統(system)使用(uses)資料(data)。",
+    "source_id": "chunk_6",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雲端服務環境 (system) 使用用戶資訊 (data) 是合理的，符合資安領域的常見實踐和語意對齊。",
+        "response": "correct",
+        "reason": "雲端服務環境使用用戶資訊的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體的類別是system，但使用了'uses'關係，且受體是data，然而這裡的主體是system，受體是data，符合規則5的第二部分，認為是合法。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是雲端服務環境（system），使用'uses'關係，且受體是用戶資訊（data），這符合規則5的第二部分，認為是合法。因此，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"雲端服務環境\" 與 Ldr 中的 \"雲端服務環境\" 完全匹配，受體 \"用戶資訊\" 與 Ldr 中的 \"用戶資訊\" 完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端服務環境",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "用戶資訊",
+        "type": "data"
+      },
+      "reasoning": "文本 R5 提到服務供應商（及其運作的系統）會存取用戶擁有的資訊，因此系統(system)使用(uses)資料(data)。",
+      "source_id": "chunk_6",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "企業",
+      "type": "user",
+      "display_name": "企業"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "雲端服務環境",
+      "type": "system",
+      "display_name": "雲端服務環境"
+    },
+    "reasoning": "文本 R4 提到企業在雲端服務環境中不再擁有基礎設施而必須依賴供應商，因此企業(user)使用(uses)雲端服務環境(system)。",
+    "source_id": "chunk_6",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "企業是 'user' 的合理實例，雲端服務環境是 'system' 的合理實例，'uses' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "企業使用雲端服務環境的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體類別為 'user'，不違反規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 '企業'，類別為 'user'，關係為 'uses'，受體為 '雲端服務環境'，類別為 'system'，不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「企業」與 Ldr 中的「企業」完全匹配，受體「雲端服務環境」與 Ldr 中的「雲端服務」和「雲端環境」相似，但無法確定為完全同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法確定主體和受體為同義詞重複，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "企業",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "雲端服務環境",
+        "type": "system"
+      },
+      "reasoning": "文本 R4 提到企業在雲端服務環境中不再擁有基礎設施而必須依賴供應商，因此企業(user)使用(uses)雲端服務環境(system)。",
+      "source_id": "chunk_6",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端服務環境",
+      "type": "system",
+      "display_name": "雲端服務環境"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資訊基礎設施",
+      "type": "system",
+      "display_name": "資訊基礎設施"
+    },
+    "reasoning": "雲端服務環境(system)本質上包含並提供資訊基礎設施(system)，符合 system has_a system 的定義。",
+    "source_id": "chunk_6",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雲端服務環境 與 資訊基礎設施 均為 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "雲端服務環境與資訊基礎設施的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查關係 'has_a'，發現沒有直接相關的規則限制此類別組合。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係 'has_a' 組合，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端服務環境與雲端服務、雲端環境等資源具有高相似度，但考慮到實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端服務環境",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資訊基礎設施",
+        "type": "system"
+      },
+      "reasoning": "雲端服務環境(system)本質上包含並提供資訊基礎設施(system)，符合 system has_a system 的定義。",
+      "source_id": "chunk_6",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "未經授權的資料存取",
+      "type": "attack",
+      "display_name": "未經授權的資料存取"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "用戶資訊",
+      "type": "data",
+      "display_name": "用戶資訊"
+    },
+    "reasoning": "文本 R5 描述供應商存取用戶資訊並販賣給行銷業者，這是一種惡意行為(attack)，會危害(can_harm)到資料(data)的安全性。",
+    "source_id": "chunk_6",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "未經授權的資料存取 是 'attack' 的合理實例，用戶資訊 是 'data' 的合理實例，且 'can_harm' 是描述攻擊對資料可能造成傷害的合理關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中未提及攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。由於三元組中的關係是can_harm，且主體是未經授權的資料存取（類別：attack），受體是用戶資訊（類別：data），這符合一般的資安知識圖譜邏輯，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的關係和實體類別符合一般的資安知識圖譜邏輯，沒有明確違反任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"用戶資訊\" 與 Ldr 中的 \"用戶資訊\" 完全等價同義詞，且 \"用戶資訊\" 與 \"用戶資料\"、\"使用者資料\"、\"個人資訊\"、\"個人資料\"、\"資訊\" 皆為相關但不同程度的同義詞或廣義/狹義從屬關係，但根據判斷準則 2，若兩個實體在資安教材中可互換使用、指稱同一概念，則判定為 duplicate。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "未經授權的資料存取",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "用戶資訊",
+        "type": "data"
+      },
+      "reasoning": "文本 R5 描述供應商存取用戶資訊並販賣給行銷業者，這是一種惡意行為(attack)，會危害(can_harm)到資料(data)的安全性。",
+      "source_id": "chunk_6",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "未經授權的資料存取",
+      "type": "attack",
+      "display_name": "未經授權的資料存取"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "隱私權",
+      "type": "principle",
+      "display_name": "用戶隱私"
+    },
+    "reasoning": "文本 R5 明確指出存取用戶資訊的行為會對用戶隱私造成侵害，隱私屬於資安原則(principle)，攻擊行為(attack)違反(violates)該原則。",
+    "source_id": "chunk_6",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "未經授權的資料存取 是 'attack' 的合理實例，用戶隱私 是 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中未提及攻擊者與安全團隊的身分。規則2不適用，因為三元組中的關係是violates，而非mitigates。規則3不適用，因為三元組中的主體類別是attack，而非vulnerability。規則4適用，且三元組中的受體是principle，符合規則允許的條件。規則5、6、7、8不適用，因為三元組中的關係是violates，與這些規則無關。",
+        "response": "correct",
+        "reason": "三元組中的受體是principle，符合規則4的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"用戶隱私\" 與 Ldr 中的 \"隱私權\" 關係為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "隱私權",
+        "reason": "根據資安領域已知同義詞對照範例，判定 \"用戶隱私\" 與 \"隱私權\" 為同義詞，但根據【廣義/狹義一律保留】準則，仍判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "未經授權的資料存取",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "用戶隱私",
+        "type": "principle"
+      },
+      "reasoning": "文本 R5 明確指出存取用戶資訊的行為會對用戶隱私造成侵害，隱私屬於資安原則(principle)，攻擊行為(attack)違反(violates)該原則。",
+      "source_id": "chunk_6",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "服務條約",
+      "type": "policy",
+      "display_name": "服務條款"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "法規風險",
+      "type": "risk",
+      "display_name": "法律風險"
+    },
+    "reasoning": "文本提到業者提供服務條款以保障自身權利，條款屬於政策(policy)，旨在緩解(mitigates)供應商面臨的法律風險(risk)。",
+    "source_id": "chunk_6",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "服務條款 (policy) 是一種合理的政策實例，法律風險 (risk) 是一種合理的風險實例，'mitigates' 關係在此語境下是合理的，因為服務條款可以減輕法律風險。",
+        "response": "correct",
+        "reason": "服務條款與法律風險之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是服務條款（類別：policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "該三元組的主體（服務條款）符合規則2的條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "服務條款與服務條約為同義詞，法律風險與法規風險為同義詞",
+        "response": "duplicate",
+        "standard_subject": "服務條約",
+        "standard_object": "法規風險",
+        "reason": "根據同義詞判定，服務條款與服務條約、法律風險與法規風險分別為同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "服務條款",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "法律風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到業者提供服務條款以保障自身權利，條款屬於政策(policy)，旨在緩解(mitigates)供應商面臨的法律風險(risk)。",
+      "source_id": "chunk_6",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "資料分級",
+      "type": "technique",
+      "display_name": "資料分級"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本 R6 提到企業依資料重要性做分級，分級是一種技術手段(technique)，用來分析(can_analyze)資料(data)的屬性。",
+    "source_id": "chunk_6",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '資料分級' 的名稱與其類別 'technique' 合理對齊，實體 '資料' 的名稱與其類別 'data' 也合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的主體是「資料分級」(類別: technique)，關係是「can_analyze」，受體是「資料」(類別: data)，這不直接違反任何一條規則。",
+        "response": "correct",
+        "reason": "三元組不直接違反語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「資料分級」與 Ldr 中的「資料分級」完全匹配，受體「資料」與 Ldr 中的「資料」完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體和受體名稱與 Ldr 中的資源名稱完全相同，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料分級",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本 R6 提到企業依資料重要性做分級，分級是一種技術手段(technique)，用來分析(can_analyze)資料(data)的屬性。",
+      "source_id": "chunk_6",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "資料保護措施",
+      "type": "policy",
+      "display_name": "資料保護措施"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料外洩",
+      "type": "risk",
+      "display_name": "資料外洩風險"
+    },
+    "reasoning": "文本 R6 提到建置資料保護措施以確保安全，保護措施屬於政策/規範(policy)，用以緩解(mitigates)風險(risk)。",
+    "source_id": "chunk_6",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 中。",
+        "step_2_alignment_check": "資料保護措施 (policy) 是一種合理的政策實例，資料外洩風險 (risk) 是一種合理的風險實例，'mitigates' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "主體、關係、受體皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '資料保護措施'，類別為 'policy'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '資料保護措施' 屬於 'policy' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資料外洩風險與資料外洩之間存在同義詞關係，兩者指涉同一概念",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資料外洩",
+        "reason": "根據同義詞判定準則，資料外洩風險與資料外洩為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料保護措施",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料外洩風險",
+        "type": "risk"
+      },
+      "reasoning": "文本 R6 提到建置資料保護措施以確保安全，保護措施屬於政策/規範(policy)，用以緩解(mitigates)風險(risk)。",
+      "source_id": "chunk_6",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端服務環境",
+      "type": "system",
+      "display_name": "雲端服務環境"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "共享資源(cpu/ram/網路)",
+      "type": "feature",
+      "display_name": "共享資源(CPU/RAM/網路)"
+    },
+    "reasoning": "文本 R7 提到用戶共享 CPU、RAM、網路等資源，這些資源是雲端系統(system)的組成特徵(feature)。",
+    "source_id": "chunk_6",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雲端服務環境是 system 的合理實例，共享資源（CPU/RAM/網路）是 feature 的合理實例。",
+        "response": "correct",
+        "reason": "雲端服務環境與共享資源之間的 'has_a' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係 'has_a' 沒有在給定的語義限制清單中被明確限制或定義為違規，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端服務環境與雲端環境、雲端服務、雲端運算服務、雲端運算、雲端基礎設施等相關概念存在廣義/狹義從屬關係，但無完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，雲端服務環境與其他相關概念之間的關係不構成同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端服務環境",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "共享資源(CPU/RAM/網路)",
+        "type": "feature"
+      },
+      "reasoning": "文本 R7 提到用戶共享 CPU、RAM、網路等資源，這些資源是雲端系統(system)的組成特徵(feature)。",
+      "source_id": "chunk_6",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "邏輯隔離",
+      "type": "technique",
+      "display_name": "邏輯隔離"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "多重租賃攻擊",
+      "type": "attack",
+      "display_name": "多重租賃攻擊"
+    },
+    "reasoning": "文本 R7 提到必須有適當的邏輯隔離與控管，邏輯隔離是一種技術(technique)，用來緩解(mitigates)多重租賃環境下可能的攻擊(attack)。",
+    "source_id": "chunk_6",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "邏輯隔離是 technique 的合理實例，多重租賃攻擊是 attack 的合理實例。",
+        "response": "correct",
+        "reason": "邏輯隔離作為一種技術，能夠減輕多重租賃攻擊的風險，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '邏輯隔離' 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '邏輯隔離' 屬於 technique 類別，符合規則2的條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「邏輯隔離」與現有近似資源清單中無直接相關的實體；受體「多重租賃攻擊」與列表中「攻擊」相關，但非完全等價同義詞或廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體或受體與列表中資源的直接同義詞或從屬關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "邏輯隔離",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "多重租賃攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本 R7 提到必須有適當的邏輯隔離與控管，邏輯隔離是一種技術(technique)，用來緩解(mitigates)多重租賃環境下可能的攻擊(attack)。",
+      "source_id": "chunk_6",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 11
+    }
+  }
+]

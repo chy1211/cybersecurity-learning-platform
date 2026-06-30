@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "中毒",
+      "type": "attack",
+      "display_name": "中毒"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "檔案",
+      "type": "data",
+      "display_name": "檔案"
+    },
+    "reasoning": "文本提到中毒徵狀包含『檔案無故遭加密』，這說明攻擊行為直接危害了資料實體，符合 (attack, can_harm, data)。",
+    "source_id": "chunk_4",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "中毒 (attack) 和 檔案 (data) 的名稱與其類別合理對齊，符合資安領域的常見用語和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 attack，而非 data。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係是 can_harm，而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是中毒（類別：attack），關係是 can_harm，受體是檔案（類別：data），這不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"中毒\" 與 Ldr 中的 \"中毒\" 完全相同，受體 \"檔案\" 與 Ldr 中的 \"檔案\" 完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全相同，無需進行同義詞判定或廣義/狹義一律保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "中毒",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "檔案",
+        "type": "data"
+      },
+      "reasoning": "文本提到中毒徵狀包含『檔案無故遭加密』，這說明攻擊行為直接危害了資料實體，符合 (attack, can_harm, data)。",
+      "source_id": "chunk_4",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "中毒",
+      "type": "attack",
+      "display_name": "中毒"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "reasoning": "文本討論作業系統中毒的徵狀（如上網變慢、對話框無法關閉），這表示中毒（惡意程式攻擊）會對作業系統造成損害，符合 (attack, can_harm, system)。",
+    "source_id": "chunk_4",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "中毒 (attack) 與作業系統 (system) 的名稱與其類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，通過類別與屬性檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 '中毒' 的類別 'attack' 與受體 '作業系統' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"中毒\" 與 Ldr 中的 \"系統中毒\" 關係為同義詞重複，受體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體皆不完全符合同義詞對照範例，且無法確認為子類型關係，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "中毒",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "reasoning": "文本討論作業系統中毒的徵狀（如上網變慢、對話框無法關閉），這表示中毒（惡意程式攻擊）會對作業系統造成損害，符合 (attack, can_harm, system)。",
+      "source_id": "chunk_4",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "未對使用者輸入進行過濾與檢查"
+    },
+    "reasoning": "文本指出 SQL Injection 發生原因是開發者未對輸入進行過濾（這是一個典型的漏洞），而此漏洞被駭客利用，符合 (attacker, can_exploit, vulnerability)。",
+    "source_id": "chunk_4",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，但實際上應該是 'attacker' 的同義詞 'attacker' 在列表中被稱為 'attacker'，受體類別 'vulnerability' 也存在於 'Classes' 中，關係 'can_exploit' 存在於 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是 'attacker' 的合理實例，未對使用者輸入進行過濾與檢查 (vulnerability) 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未觸發，因為駭客不具有安全團隊的身分。規則2：未觸發，因為主體不是 policy, technique 或 tool。規則3：未觸發，因為主體類別是 attacker，而不是 vulnerability。規則4：未觸發，因為關係不是 violates。規則5：未觸發，因為關係不是 uses。規則6：未觸發，因為關係不是 deployed_in。規則7：未觸發，因為關係不是 generates。規則8：未觸發，因為關係不是 controls，但需要注意規則3 的特例允許，然而這裡的主體是 attacker，不受規則3 的限制。",
+        "response": "correct",
+        "reason": "三元組中的主體是駭客，關係是 can_exploit，受體是未對使用者輸入進行過濾與檢查的漏洞，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與現有近似資源清單中的「漏洞」為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據資安領域已知同義詞對照範例，「未對使用者輸入進行過濾與檢查」可被視為「漏洞」的同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "未對使用者輸入進行過濾與檢查",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出 SQL Injection 發生原因是開發者未對輸入進行過濾（這是一個典型的漏洞），而此漏洞被駭客利用，符合 (attacker, can_exploit, vulnerability)。",
+      "source_id": "chunk_4",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "黑帽駭客",
+      "type": "attacker",
+      "display_name": "黑帽駭客"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "nslookup",
+      "type": "tool",
+      "display_name": "nslookup"
+    },
+    "reasoning": "文本提到黑帽駭客在入侵前收集資訊時常用 nslookup 指令，因此將黑帽駭客定義為 attacker，nslookup 定義為 tool，關係為 uses。",
+    "source_id": "chunk_4",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "黑帽駭客是 attacker 的合理實例，nslookup 是 tool 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未觸發，因為三元組中黑帽駭客不具有安全團隊的身分。規則2：不適用，因為動作不是 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為關係不是 violates 且主體不是 principle。規則5：觸發，因為主體的類別是 attacker 且關係是 uses，但這不代表違反，因為規則5 指出當主體類別是 data 時才為違反。規則6、7、8：不適用，因為關係不是 deployed_in、generates 或 controls。",
+        "response": "correct",
+        "reason": "三元組中的黑帽駭客使用 nslookup 工具，沒有明確違反任何語義限制清單中的規則。根據規則5，當主體類別不是 data 且關係是 uses 時，不構成違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "黑帽駭客與駭客、黑帽攻擊者、惡意駭客等為同義詞或相關概念，但nslookup為獨立工具",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，黑帽駭客與nslookup不構成同義詞重複，且nslookup為獨立工具，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "黑帽駭客",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "nslookup",
+        "type": "tool"
+      },
+      "reasoning": "文本提到黑帽駭客在入侵前收集資訊時常用 nslookup 指令，因此將黑帽駭客定義為 attacker，nslookup 定義為 tool，關係為 uses。",
+      "source_id": "chunk_4",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資料庫稽核",
+      "type": "technique",
+      "display_name": "資料庫稽核"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "異常存取資安事件",
+      "type": "attack",
+      "display_name": "異常存取資安事件"
+    },
+    "reasoning": "文本提到導入資料庫稽核是用於『及時發現』以及『事後分析追查』異常存取事件，因此將資料庫稽核視為 technique，異常存取事件視為 attack，關係為 can_detect。",
+    "source_id": "chunk_4",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資料庫稽核 (Database Auditing) 是一種技術 (technique)，異常存取資安事件 (Abnormal Access Security Event) 是一種攻擊 (attack)，兩者之間的 'can_detect' 關係在資安領域中是合理的，因為資料庫稽核可以用來偵測異常存取行為。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是資料庫稽核（technique），而關係是can_detect，受體是異常存取資安事件（attack），這不涉及控制的動作。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"資料庫稽核\" 與 Ldr 中的 \"資料庫安全稽核\" 關係為同義詞，受體 \"異常存取資安事件\" 與 Ldr 中的 \"資安事件\" 關係為廣義/狹義從屬",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料庫稽核",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "異常存取資安事件",
+        "type": "attack"
+      },
+      "reasoning": "文本提到導入資料庫稽核是用於『及時發現』以及『事後分析追查』異常存取事件，因此將資料庫稽核視為 technique，異常存取事件視為 attack，關係為 can_detect。",
+      "source_id": "chunk_4",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "安全的系統發展生命週期 (ssdlc)",
+      "type": "policy",
+      "display_name": "安全的系統發展生命週期 (SSDLC)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "SSDLC 是一套發展安全系統的順序/規範，其目的是開發完善安全的系統以降低安全風險，符合 (policy, mitigates, risk)。",
+    "source_id": "chunk_4",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '安全的系統發展生命週期 (SSDLC)' 是 'policy' 的合理實例，受體 '風險' 是 'risk' 的合理實例，且 'mitigates' 是描述政策對風險的減輕作用的適當關係。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，並且語意對齊，故此三元組完全符合規則。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '安全的系統發展生命週期 (SSDLC)' 屬於類別 'policy'，因此符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '安全的系統發展生命週期 (SSDLC)' 屬於類別 'policy'，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"風險\" 與 Ldr 中的 \"風險\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全的系統發展生命週期 (SSDLC)",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "SSDLC 是一套發展安全系統的順序/規範，其目的是開發完善安全的系統以降低安全風險，符合 (policy, mitigates, risk)。",
+      "source_id": "chunk_4",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  }
+]

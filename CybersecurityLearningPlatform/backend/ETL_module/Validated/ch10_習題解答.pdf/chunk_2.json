@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "安全管理政策",
+      "type": "policy",
+      "display_name": "資訊安全政策"
+    },
+    "reasoning": "文本提到資訊安全政策包含目的、範圍、目標等，這類政策是由資安團隊或組織負責實作與執行的。符合 ('securityTeam', 'implements', 'policy')。",
+    "source_id": "chunk_2",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實現 (implements) 資訊安全政策 (policy) 是語意上合理的，'securityTeam' 是 'securityTeam' 的合理實例，'policy' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有攻擊者身份。規則2：不適用，因為動作是 implements，而非 mitigates。規則3：不適用，因為主體類別是 securityTeam，而非 vulnerability。規則4：不適用，因為關係是 implements，而非 violates。規則5：不適用，因為關係是 implements，而非 uses。規則6：不適用，因為關係是 implements，而非 deployed_in。規則7：不適用，因為關係是 implements，而非 generates。規則8：不適用，因為關係是 implements，而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安人員）和受體（資訊安全政策）之間的 implements 關係，沒有明確違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安人員與資安人員完全等價，資訊安全政策與安全管理政策同義詞",
+        "response": "duplicate",
+        "standard_subject": "資安人員",
+        "standard_object": "安全管理政策",
+        "reason": "根據同義詞對照表，資訊安全政策與安全管理政策為同義詞，且資安人員與資安人員完全匹配。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資訊安全政策",
+        "type": "policy"
+      },
+      "reasoning": "文本提到資訊安全政策包含目的、範圍、目標等，這類政策是由資安團隊或組織負責實作與執行的。符合 ('securityTeam', 'implements', 'policy')。",
+      "source_id": "chunk_2",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "計畫",
+      "type": "technique",
+      "display_name": "計畫"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "pdca 管理模式",
+      "type": "technique",
+      "display_name": "PDCA 管理模式"
+    },
+    "reasoning": "文本明確指出 PDCA 管理模式包含計畫、執行、檢查、行動四個程序。將 PDCA 及其階段均視為管理技術。符合 ('technique', 'is_part_of', 'technique')。",
+    "source_id": "chunk_2",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "計畫與 PDCA 管理模式皆為合理的 'technique' 實例，語意對齊且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊。檢查規則2：不適用，因為三元組中的關係不是 mitigates。檢查規則3：不適用，因為主體的類別不是 vulnerability。檢查規則4：不適用，因為關係不是 violates 且主體不是 principle。檢查規則5：不適用，因為關係不是 uses 或主體的類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於沒有任何規則被觸發，三元組不違反任何語義限制。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係是 is_part_of，且主體的類別是 technique，受體的類別也是 technique，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "計畫與事件通報程序無直接同義詞關係，且計畫和PDCA管理模式皆為管理技術，無明顯子類型關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定計畫和PDCA管理模式之間的直接同義詞或子類型關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "計畫",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "PDCA 管理模式",
+        "type": "technique"
+      },
+      "reasoning": "文本明確指出 PDCA 管理模式包含計畫、執行、檢查、行動四個程序。將 PDCA 及其階段均視為管理技術。符合 ('technique', 'is_part_of', 'technique')。",
+      "source_id": "chunk_2",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "執行",
+      "type": "technique",
+      "display_name": "執行"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "pdca 管理模式",
+      "type": "technique",
+      "display_name": "PDCA 管理模式"
+    },
+    "reasoning": "執行是 PDCA 管理模式中的第二個階段。符合 ('technique', 'is_part_of', 'technique')。",
+    "source_id": "chunk_2",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "執行與 PDCA 管理模式都是合理的 'technique' 實例，語意對齊且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "執行與 PDCA 管理模式的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在給定的規則中被明確限制，且主體和受體的類別與給定的規則不衝突。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "pdca 管理模式與 PDCA 管理模式為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "pdca 管理模式",
+        "reason": "根據同義詞判定準則，pdca 管理模式與 PDCA 管理模式為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "執行",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "PDCA 管理模式",
+        "type": "technique"
+      },
+      "reasoning": "執行是 PDCA 管理模式中的第二個階段。符合 ('technique', 'is_part_of', 'technique')。",
+      "source_id": "chunk_2",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "風險管理",
+      "type": "function",
+      "display_name": "風險管理"
+    },
+    "reasoning": "風險管理被列為資訊安全政策的主要內容項目，屬於資安管理的一項核心功能。符合 ('securityTeam', 'implements', 'function')。",
+    "source_id": "chunk_2",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實施風險管理 (function) 是語意合理的，風險管理是資安人員工作職責的一部分。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，但需注意 implements 關係的主體和受體類別是否合理。根據給定的三元組，主體是 'securityTeam'，關係是 'implements'，受體是 '風險管理'，這裡的 'implements' 關係表示安全團隊實施風險管理，符合邏輯。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別以及關係符合邏輯且未違反任何語義限制規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安人員與現有近似資源清單中的「資安人員」完全相同，受體風險管理與資安領域已知同義詞對照範例中無直接對應關係，但無法確定為同義詞或子類型關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "風險管理",
+        "type": "function"
+      },
+      "reasoning": "風險管理被列為資訊安全政策的主要內容項目，屬於資安管理的一項核心功能。符合 ('securityTeam', 'implements', 'function')。",
+      "source_id": "chunk_2",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "事件通報程序",
+      "type": "technique",
+      "display_name": "事件通報程序"
+    },
+    "reasoning": "事件通報程序是一種標準化的工作流程（技術），由資安團隊在應對事件時使用。符合 ('securityTeam', 'uses', 'technique')。",
+    "source_id": "chunk_2",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 使用 事件通報程序 (technique) 是語意上合理的，'securityTeam' 和 'technique' 的名稱與其類別對齊，且符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊和同義詞寬容原則均通過。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體類別為 'securityTeam'，不違反規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '資安人員' 類別為 'securityTeam'，與 'uses' 關係搭配 '事件通報程序' 類別為 'technique' 的受體，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安人員與現有近似資源清單中的資安人員完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "事件通報程序",
+        "type": "technique"
+      },
+      "reasoning": "事件通報程序是一種標準化的工作流程（技術），由資安團隊在應對事件時使用。符合 ('securityTeam', 'uses', 'technique')。",
+      "source_id": "chunk_2",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "檢查",
+      "type": "technique",
+      "display_name": "檢查"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "pdca 管理模式",
+      "type": "technique",
+      "display_name": "PDCA 管理模式"
+    },
+    "reasoning": "檢查是 PDCA 管理模式中的第三個階段。符合 ('technique', 'is_part_of', 'technique')。",
+    "source_id": "chunk_2",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "主體 '檢查' 和受體 'PDCA 管理模式' 的名稱與其被賦予的類別 'technique' 合理對齊，因為 '檢查' 可以被視為一種技術或方法，'PDCA 管理模式' 是一種管理技術或方法。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查三元組與語義限制清單的匹配結果：\n- 規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。\n- 規則2：不適用，因為三元組中的關係不是 mitigates。\n- 規則3：不適用，因為三元組中的主體類別不是 vulnerability。\n- 規則4：不適用，因為三元組中的關係不是 violates，且主體不是 principle。\n- 規則5：不適用，因為三元組中的關係不是 uses。\n- 規則6：不適用，因為三元組中的關係不是 deployed_in。\n- 規則7：不適用，因為三元組中的關係不是 generates。\n- 規則8：不適用，因為三元組中的關係不是 controls。\n- 規則9：無相關規則直接限制 is_part_of 關係的使用。\n因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的 is_part_of 關係在給定的語義限制清單中沒有被明確限制或禁止。"
+      },
+      "step_2": {
+        "granularity_analysis": "檢查與憑證查核、驗證等資源比較，發現檢查與 PDCA 管理模式無直接同義詞關係，但檢查與憑證查核、驗證有相似的概念，然而 PDCA 管理模式是一種特定的管理技術，與檢查無直接等價關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，檢查與 PDCA 管理模式無同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "檢查",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "PDCA 管理模式",
+        "type": "technique"
+      },
+      "reasoning": "檢查是 PDCA 管理模式中的第三個階段。符合 ('technique', 'is_part_of', 'technique')。",
+      "source_id": "chunk_2",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "iso/iec 27001:2022",
+      "type": "policy",
+      "display_name": "ISO/IEC 27001:2022"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "ISO/IEC 27001 是資訊安全管理系統標準，其核心目的在於透過管理手段來緩解組織面臨的資安風險。符合 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_2",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "ISO/IEC 27001:2022 是一項安全政策，風險是安全領域中的常見術語，'mitigates' 的語意與風險降低相符，符合語意對齊原則。",
+        "response": "correct",
+        "reason": "ISO/IEC 27001:2022 的類別與風險的類別以及 'mitigates' 關係都符合預先定義的類別與屬性清單，且語意對齊，故無違反。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 ISO/IEC 27001:2022 屬於 policy 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 ISO/IEC 27001:2022 屬於 policy 類別，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 ISO/IEC 27001:2022 與 Ldr 中的 iso/iec 27001 類別相同，且名稱相似，受體 風險 與 Ldr 中的 風險 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1，實體名稱與 Ldr 中某資源的 name 字串不完全相同，但類別相同，且無同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ISO/IEC 27001:2022",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "ISO/IEC 27001 是資訊安全管理系統標準，其核心目的在於透過管理手段來緩解組織面臨的資安風險。符合 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_2",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "行動",
+      "type": "technique",
+      "display_name": "行動"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "pdca 管理模式",
+      "type": "technique",
+      "display_name": "PDCA 管理模式"
+    },
+    "reasoning": "行動是 PDCA 管理模式中的第四個階段。符合 ('technique', 'is_part_of', 'technique')。",
+    "source_id": "chunk_2",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "行動 (technique) 可被視為 PDCA 管理模式 (technique) 的一部分，兩者名稱與類別合理對齊，且 'is_part_of' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "行動與 PDCA 管理模式的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在給定的語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被定義為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "行動與 PDCA 管理模式之間沒有直接的同義詞關係或廣義/狹義從屬關係，兩者概念不同，行動是一種類別，PDCA 管理模式是一種管理技術",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體之間沒有同義詞關係或廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "行動",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "PDCA 管理模式",
+        "type": "technique"
+      },
+      "reasoning": "行動是 PDCA 管理模式中的第四個階段。符合 ('technique', 'is_part_of', 'technique')。",
+      "source_id": "chunk_2",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 7
+    }
+  }
+]

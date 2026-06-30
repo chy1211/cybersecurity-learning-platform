@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "全球網站",
+      "type": "app",
+      "display_name": "全球網站"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "dmz區",
+      "type": "system",
+      "display_name": "DMZ區"
+    },
+    "reasoning": "文本明確提到『將公司對外全球網站放置於 DMZ區』，全球網站為應用程式 (app)，DMZ區為基礎設施系統 (system)，符合 ('app', 'deployed_in', 'system') 的 Schema。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "全球網站是 'app' 的合理實例，DMZ區是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "全球網站作為 'app' 部署在 DMZ區的 'system' 上，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：觸發，檢查關係為 deployed_in 時，受體的類別是否為 system，結果為符合規則。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係為 deployed_in，受體的類別為 system，符合規則6的要求。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"全球網站\" 與 Ldr 中的 \"網站\" 關係為同義詞，受體 \"DMZ區\" 與 Ldr 中的 \"dmz\" 或 \"隔離區 (dmz)\" 關係為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體和受體皆與 Ldr 中的資源有同義詞關係，但根據廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "全球網站",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "DMZ區",
+        "type": "system"
+      },
+      "reasoning": "文本明確提到『將公司對外全球網站放置於 DMZ區』，全球網站為應用程式 (app)，DMZ區為基礎設施系統 (system)，符合 ('app', 'deployed_in', 'system') 的 Schema。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "內外網路",
+      "type": "system",
+      "display_name": "內外網路"
+    },
+    "reasoning": "文本提到『使用防火牆區隔內外網路』，防火牆作為安全工具 (tool) 用於控制與管理網路系統 (system) 的流量，符合 ('tool', 'controls', 'system') 的 Schema。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，內外網路是系統（system）的合理實例，且 'controls' 是描述工具對系統控制的合理關係。",
+        "response": "correct",
+        "reason": "防火牆作為工具控制內外網路的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 tool，具有主動執行能力，符合規則。",
+        "response": "correct",
+        "reason": "三元組中的主體是防火牆（tool），關係是控制（controls），受體是內外網路（system），這符合規則8的描述，表示防火牆可以控制內外網路，沒有違反任何語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "防火牆與網路防火牆為同義詞，內外網路可被視為網路的廣義稱謂，但在此處內外網路與外部網路、內部網路等為同一概念的不同表達方式",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，防火牆與網路防火牆為同義詞，但內外網路與其他網路類型的同義詞關係不明確，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "內外網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到『使用防火牆區隔內外網路』，防火牆作為安全工具 (tool) 用於控制與管理網路系統 (system) 的流量，符合 ('tool', 'controls', 'system') 的 Schema。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "dmz區",
+      "type": "system",
+      "display_name": "DMZ區"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "連接埠",
+      "type": "feature",
+      "display_name": "連接埠"
+    },
+    "reasoning": "文本提到在 DMZ 區『關閉非必要的連接埠』，連接埠是網路系統的組成屬性 (feature)，符合 ('system', 'has_a', 'feature') 的 Schema。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "DMZ區是一個系統（system）的合理實例，連接埠是一個功能（feature）的合理實例，且 'has_a' 關係在系統與其功能之間是合理的。",
+        "response": "correct",
+        "reason": "DMZ區與連接埠的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查規則沒有直接觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 'DMZ區' 和受體 '連接埠' 的類別組合，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 'DMZ區' 與 Ldr 中的 'dmz區' 完全等價同義詞，受體 '連接埠' 與 Ldr 中的 '連接埠' 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆在 Ldr 中找到完全匹配的資源，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DMZ區",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "連接埠",
+        "type": "feature"
+      },
+      "reasoning": "文本提到在 DMZ 區『關閉非必要的連接埠』，連接埠是網路系統的組成屬性 (feature)，符合 ('system', 'has_a', 'feature') 的 Schema。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "暴力攻擊",
+      "type": "attack",
+      "display_name": "暴力攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "密碼",
+      "type": "data",
+      "display_name": "密碼"
+    },
+    "reasoning": "文本描述使用暴力攻擊來『破解』密碼，破解密碼會導致認證資訊外洩，屬於對資料 (data) 的危害，符合 ('attack', 'can_harm', 'data') 的 Schema。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "暴力攻擊 (attack) 可能對密碼 (data) 造成傷害，實體名稱與其類別合理對齊，符合資安領域的常見用法。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 attack，而不是 data。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係是 can_harm，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（暴力攻擊 can_harm 密碼）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「暴力攻擊」與 Ldr 中的「暴力攻擊」完全相同，受體「密碼」與 Ldr 中的「密碼」完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "暴力攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "密碼",
+        "type": "data"
+      },
+      "reasoning": "文本描述使用暴力攻擊來『破解』密碼，破解密碼會導致認證資訊外洩，屬於對資料 (data) 的危害，符合 ('attack', 'can_harm', 'data') 的 Schema。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "生理特徵設備",
+      "type": "tool",
+      "display_name": "生理特徵設備"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "錯誤接受率 (far)",
+      "type": "risk",
+      "display_name": "錯誤接受率 (FAR)"
+    },
+    "reasoning": "錯誤接受率 (FAR) 是生理特徵設備（生物辨識工具）的一個性能指標或屬性，符合 ('tool', 'has_a', 'feature') 的 Schema。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "生理特徵設備 (tool) 與 錯誤接受率 (feature) 的名稱與其類別合理對齊，'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，但關係 'has_a' 不在任何規則中被明確限制或允許，且主體 '生理特徵設備' 的類別 'tool' 與受體 '錯誤接受率 (FAR)' 的類別 'risk' 之間的關係 'has_a' 在給定的規則中沒有被明確禁止或限制。",
+        "response": "correct",
+        "reason": "由於沒有發現三元組明確違反語義限制清單中的任何規則，且根據無罪推定原則，若未發現明確且直接的違反項目，則應判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"生理特徵設備\" 與 Ldr 中的 \"生理特徵認證設備\" 類似，但非完全等價同義詞；受體 \"錯誤接受率 (FAR)\" 與 Ldr 中的 \"錯誤接受率 (far)\" 完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "錯誤接受率 (far)",
+        "reason": "根據判斷準則 1，受體 \"錯誤接受率 (FAR)\" 與 Ldr 中的 \"錯誤接受率 (far)\" 完全相同，但主體 \"生理特徵設備\" 與 Ldr 中的 \"生理特徵認證設備\" 類似，但非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "生理特徵設備",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "錯誤接受率 (FAR)",
+        "type": "feature"
+      },
+      "reasoning": "錯誤接受率 (FAR) 是生理特徵設備（生物辨識工具）的一個性能指標或屬性，符合 ('tool', 'has_a', 'feature') 的 Schema。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "生理特徵設備",
+      "type": "tool",
+      "display_name": "生理特徵設備"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "錯誤拒絕率 (frr)",
+      "type": "risk",
+      "display_name": "錯誤拒絕率 (FRR)"
+    },
+    "reasoning": "錯誤拒絕率 (FRR) 是生理特徵設備（生物辨識工具）的一個性能指標或屬性，符合 ('tool', 'has_a', 'feature') 的 Schema。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "生理特徵設備 (tool) 與 錯誤拒絕率 (feature) 的名稱與其類別合理對齊，'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'has_a'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被定義為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"生理特徵設備\" 與 Ldr 中的 \"生理特徵認證設備\" 類似，但非完全等價同義詞；受體 \"錯誤拒絕率 (FRR)\" 與 Ldr 中的 \"錯誤拒絕率 (frr)\" 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "錯誤拒絕率 (frr)",
+        "reason": "根據同義詞判定，錯誤拒絕率 (FRR) 與 錯誤拒絕率 (frr) 為同義詞，但主體 \"生理特徵設備\" 與 Ldr 中的 \"生理特徵認證設備\" 類似，但非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "生理特徵設備",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "錯誤拒絕率 (FRR)",
+        "type": "feature"
+      },
+      "reasoning": "錯誤拒絕率 (FRR) 是生理特徵設備（生物辨識工具）的一個性能指標或屬性，符合 ('tool', 'has_a', 'feature') 的 Schema。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "網段區隔技術",
+      "type": "technique",
+      "display_name": "網段區隔技術"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "technique",
+      "display_name": "攻擊"
+    },
+    "reasoning": "文本提到使用網段區隔技術來『隔離敏感系統』，其目的是為了防止攻擊者在網路中橫向移動，從而緩解攻擊風險，符合 ('technique', 'mitigates', 'attack') 的 Schema。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網段區隔技術是 technique 的合理實例，攻擊是 attack 的合理實例，且 'mitigates' 是描述 technique 與 attack 之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '網段區隔技術' 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '網段區隔技術' 屬於 technique 類別，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "網段區隔技術與攻擊之間沒有直接的同義詞關係，且網段區隔技術是一種技術，攻擊是一種攻擊手法，兩者之間沒有明顯的廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，網段區隔技術與攻擊之間沒有直接的同義詞關係，且無法確定兩者之間的從屬關係，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網段區隔技術",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到使用網段區隔技術來『隔離敏感系統』，其目的是為了防止攻擊者在網路中橫向移動，從而緩解攻擊風險，符合 ('technique', 'mitigates', 'attack') 的 Schema。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  }
+]

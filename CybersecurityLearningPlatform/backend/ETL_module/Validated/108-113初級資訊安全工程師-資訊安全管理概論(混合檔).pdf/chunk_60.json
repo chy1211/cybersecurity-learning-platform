@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "社交工程攻擊",
+      "type": "attack",
+      "display_name": "社交工程攻擊"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "機密性",
+      "type": "principle",
+      "display_name": "機密性"
+    },
+    "reasoning": "文本情境中機密檔案被傳輸出去，導致機密性被破壞。符合 ('attack', 'violates', 'principle')。",
+    "source_id": "chunk_60",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "社交工程攻擊 (attack) 是攻擊的合理實例，機密性 (principle) 是原則的合理實例，且 'violates' 能夠描述攻擊對原則的違反關係。",
+        "response": "correct",
+        "reason": "社交工程攻擊對機密性的違反完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：觸發，principle 僅能作為被違反的受體，但此三元組中 principle 是受體，符合規則。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的社交工程攻擊（attack）違反機密性（principle），這符合規則4的描述，且無其他規則被觸發違規。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "社交工程攻擊與網路攻擊、攻擊等相關概念在資安領域中有所重疊，但社交工程攻擊是一種特定類型的攻擊，與機密性相關的資源在列表中有直接匹配的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "機密性",
+        "reason": "社交工程攻擊是一種特定類型的攻擊，與機密性相關的資源在列表中有直接匹配的同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "社交工程攻擊",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "機密性",
+        "type": "principle"
+      },
+      "reasoning": "文本情境中機密檔案被傳輸出去，導致機密性被破壞。符合 ('attack', 'violates', 'principle')。",
+      "source_id": "chunk_60",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "文本提到『駭客植入惡意程式』，駭客作為攻擊者使用了惡意程式這個工具來達成目的。符合 ('attacker', 'uses', 'tool')。",
+    "source_id": "chunk_60",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 與惡意程式 (tool) 的名稱與其被賦予的類別合理對齊，駭客使用惡意程式是資安領域中的常見情境。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體的類別是 'attacker'，不違反規則5。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 'attacker' 使用 'uses' 關係與 'attack' 的受體相關聯，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (駭客) 與 Ldr 中的資源 '駭客' 完全等價同義詞，受體 (惡意程式) 與 Ldr 中的資源 '惡意程式' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "惡意程式",
+        "type": "tool"
+      },
+      "reasoning": "文本提到『駭客植入惡意程式』，駭客作為攻擊者使用了惡意程式這個工具來達成目的。符合 ('attacker', 'uses', 'tool')。",
+      "source_id": "chunk_60",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "社交工程攻擊",
+      "type": "attack",
+      "display_name": "社交工程攻擊"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "文本情境中檔案被刪除，導致使用者無法再存取該資料，破壞了可用性。符合 ('attack', 'violates', 'principle')。",
+    "source_id": "chunk_60",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "社交工程攻擊 (attack) 是攻擊類別的合理實例，違反 (violates) 關係在攻擊與原則之間是合理的，且可用性 (principle) 是原則類別的合理實例。",
+        "response": "correct",
+        "reason": "社交工程攻擊違反可用性原則的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：觸發，principle 僅能作為被違反的受體，但此三元組中 principle 是受體，符合規則。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的社交工程攻擊（attack）違反可用性（principle），這符合規則4的描述，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "社交工程攻擊與現有近似資源清單中的「社交工程攻擊」完全相同，且「可用性」與清單中的「可用性」完全相同，兩者皆無需進行標準化。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有資源完全匹配，無需進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "社交工程攻擊",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "文本情境中檔案被刪除，導致使用者無法再存取該資料，破壞了可用性。符合 ('attack', 'violates', 'principle')。",
+      "source_id": "chunk_60",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "公司人員",
+      "type": "user",
+      "display_name": "公司人員"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "公司人員開啟社交工程信件是一種人為弱點的暴露，導致系統被入侵。符合 ('user', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_60",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "公司人員 (user) 可以暴露弱點 (vulnerability) 的情況下，'can_expose' 關係在資安領域中是合理的，尤其是考慮到人員可能意外或故意泄露敏感資訊或系統弱點。",
+        "response": "correct",
+        "reason": "公司人員可以暴露弱點的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係是can_expose，而不是mitigates。規則3允許vulnerability發起'can_expose'動作，因此不違反。規則4不適用，因為三元組中的主體不是principle。規則5不適用，因為三元組中的關係不是uses。規則6不適用，因為三元組中的關係不是deployed_in。規則7不適用，因為三元組中的關係不是generates。規則8不適用，因為三元組中的關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是公司人員，關係是can_expose，受體是弱點，符合規則3的特例允許，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"公司人員\" 與 Ldr 中的 \"員工\" 和 \"人員\" 類似，但非完全等價同義詞；受體 \"弱點\" 與 Ldr 中的 \"弱點\"、\"漏洞\"、\"脆弱性\" 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據同義詞判定，受體 \"弱點\" 與 Ldr 中的 \"弱點\" 完全等價同義詞，但主體 \"公司人員\" 與 Ldr 中的資源不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "公司人員",
+        "type": "user"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "公司人員開啟社交工程信件是一種人為弱點的暴露，導致系統被入侵。符合 ('user', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_60",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "公司電腦",
+      "type": "system",
+      "display_name": "公司電腦"
+    },
+    "reasoning": "駭客能植入程式並傳輸、刪除檔案，代表其已取得對該電腦系統的控制權。符合 ('attacker', 'controls', 'system')。",
+    "source_id": "chunk_60",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 與 公司電腦 (system) 的名稱與其被賦予的類別合理對齊，駭客是攻擊者的合理實例，公司電腦是系統的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為駭客（attacker），具有主動執行能力，符合規則所允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（駭客）具有主動執行能力，符合規則8的要求，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全等價同義詞，受體 \"公司電腦\" 與 Ldr 中的 \"公司網路\" 或 \"使用者電腦\" 等相關但非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全匹配，受體 \"公司電腦\" 與 Ldr 中的相關資源不完全匹配，依據判斷準則 1 和 3，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "公司電腦",
+        "type": "system"
+      },
+      "reasoning": "駭客能植入程式並傳輸、刪除檔案，代表其已取得對該電腦系統的控制權。符合 ('attacker', 'controls', 'system')。",
+      "source_id": "chunk_60",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊安全管理系統",
+      "type": "system",
+      "display_name": "資訊安全管理系統"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊事件",
+      "type": "attack",
+      "display_name": "攻擊事件"
+    },
+    "reasoning": "文本提到導入 ISMS 可以保護組織資訊資產的安全，即透過管理策略來緩解攻擊風險。符合 ('policy', 'mitigates', 'attack')。",
+    "source_id": "chunk_60",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資訊安全管理系統是 policy 的合理實例，攻擊事件是 attack 的合理實例，且 'mitigates' 的語意與資安領域的常見用法相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 system 時，不在規則2的限制範圍內，故不違反；其他規則與給定的三元組無直接關聯。",
+        "response": "correct",
+        "reason": "三元組中的主體（資訊安全管理系統）與關係（mitigates）及受體（攻擊事件）之間的關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「資訊安全管理系統」與 Ldr 中的「資訊安全管理系統」完全相同，受體「攻擊事件」與 Ldr 中的「攻擊事件」完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全管理系統",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊事件",
+        "type": "attack"
+      },
+      "reasoning": "文本提到導入 ISMS 可以保護組織資訊資產的安全，即透過管理策略來緩解攻擊風險。符合 ('policy', 'mitigates', 'attack')。",
+      "source_id": "chunk_60",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "機密檔案",
+      "type": "data",
+      "display_name": "機密檔案"
+    },
+    "reasoning": "文本提到駭客將機密檔案傳輸出去並刪除，這對資料造成了損害。符合 ('attacker', 'can_harm', 'data')。",
+    "source_id": "chunk_60",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，受體類別 'data' 也存在於 Lc,p 的 'Classes' 中，關係 'can_harm' 存在於 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是 'attacker' 的合理實例，機密檔案 (data) 是 'data' 的合理實例，關係 'can_harm' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：駭客（attacker）與機密檔案（data）之間的關係can_harm不涉及攻擊者與安全團隊的身分衝突。檢查規則2：不適用，因為動作不是mitigates。檢查規則3：不適用，因為主體不是vulnerability。檢查規則4：不適用，因為關係不是violates且主體不是principle。檢查規則5：不適用，因為關係不是uses且主體不是data。檢查規則6：不適用，因為關係不是deployed_in。檢查規則7：不適用，因為關係不是generates。檢查規則8：不適用，因為關係不是controls，但can_harm的主體是具有主動執行能力的角色（attacker），符合一般的語義期待。",
+        "response": "correct",
+        "reason": "三元組中的駭客（attacker）可以對機密檔案（data）執行can_harm動作，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全相同，受體 \"機密檔案\" 與 Ldr 中的 \"機密文件\" 類似，但非完全相同，兩者皆無同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全相同，受體與 Ldr 中的資源非完全相同，無同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "機密檔案",
+        "type": "data"
+      },
+      "reasoning": "文本提到駭客將機密檔案傳輸出去並刪除，這對資料造成了損害。符合 ('attacker', 'can_harm', 'data')。",
+      "source_id": "chunk_60",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "iso/iec 27018",
+      "type": "policy",
+      "display_name": "ISO/IEC 27018"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "ISO/IEC 27018 是針對雲端服務個人隱私資料保護的標準，其目的是降低個資外洩的風險。符合 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_60",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "ISO/IEC 27018 是一項與資訊安全政策相關的標準，個資外洩是一種風險，'mitigates' 關係在此語境下合理，因為 ISO/IEC 27018 的政策可以減輕個資外洩的風險。",
+        "response": "correct",
+        "reason": "ISO/IEC 27018 與個資外洩的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 ISO/IEC 27018 屬於 policy 類別，符合規則2的條件。其他規則與三元組無直接關聯。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確違反的規則，因此判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩與個人資料洩漏、資料外洩等為同義詞或廣義/狹義從屬關係，但依據規則3，若一個實體是另一個的子類型，判定為 correct，禁止合併。因此，個資外洩與其他相似實體之間的關係是同義詞或從屬關係，但不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則3，個資外洩與其他相似實體之間的關係是同義詞或從屬關係，但不進行合併，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ISO/IEC 27018",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "ISO/IEC 27018 是針對雲端服務個人隱私資料保護的標準，其目的是降低個資外洩的風險。符合 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_60",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "檔案毀損",
+      "type": "attack",
+      "display_name": "檔案毀損"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "題目 4 提到檔案遭毀損導致完整性受影響，將毀損行為視為一種攻擊/事件。符合 ('attack', 'violates', 'principle')。",
+    "source_id": "chunk_60",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "檔案毀損是 'attack' 的合理實例，完整性是 'principle' 的合理實例，且 'violates' 是描述攻擊對原則的違反行為的適當關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：適用，但三元組中 principle 僅作為受體，符合規則。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '檔案毀損' 類別為 'attack'，與 'violates' 關係和 '完整性' 類別為 'principle' 的受體組合，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「檔案毀損」與 Ldr 中的「毀損」相似，但非完全等價同義詞；受體「完整性」與 Ldr 中的「完整性」完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源不完全匹配，受體完全匹配，但由於主體不完全等價，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "檔案毀損",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "題目 4 提到檔案遭毀損導致完整性受影響，將毀損行為視為一種攻擊/事件。符合 ('attack', 'violates', 'principle')。",
+      "source_id": "chunk_60",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 9
+    }
+  }
+]

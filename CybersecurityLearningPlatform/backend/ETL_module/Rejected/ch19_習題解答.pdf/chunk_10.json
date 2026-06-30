@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "稅務趨勢分析系統",
+      "type": "app",
+      "display_name": "稅務趨勢分析系統"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "個人基本資料",
+      "type": "data",
+      "display_name": "個人人事資料"
+    },
+    "reasoning": "文本舉例該系統存取個人人事資料，這是一種使用行為，符合 (app, uses, data) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "稅務趨勢分析系統可以被視為 'app' 的合理實例，個人人事資料可以被視為 'data' 的合理實例，'uses' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "稅務趨勢分析系統使用個人人事資料的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發違規，因為主體的類別是app，而關係是uses，且受體的類別是data。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "violation",
+        "reason": "三元組違反規則5，因為主體的類別是app，而關係是uses，且受體的類別是data。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組違反規則5，因為主體的類別是app，而關係是uses，且受體的類別是data。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "稅務趨勢分析系統",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "個人人事資料",
+        "type": "data"
+      },
+      "reasoning": "文本舉例該系統存取個人人事資料，這是一種使用行為，符合 (app, uses, data) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 6
+    }
+  }
+]

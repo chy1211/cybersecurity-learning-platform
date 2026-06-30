@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "apt",
+      "type": "attack",
+      "display_name": "APT"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "客製化惡意軟體",
+      "type": "tool",
+      "display_name": "客製化惡意軟體"
+    },
+    "reasoning": "文本提到 APT 的主要目的是部署客製化的惡意軟體，這表示該攻擊手段依賴於特定的工具來達成目的。符合 ('attack', 'depends_on', 'tool')。",
+    "source_id": "chunk_9",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "APT 是 'attack' 的合理實例，客製化惡意軟體是 'tool' 的合理實例，兩者之間的 'depends_on' 關係在資安領域中是合理的，因為攻擊（APT）可能依賴特定的工具（客製化惡意軟體）來實施。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體 'APT' 的類別是 'attack'，受體 '客製化惡意軟體' 的類別是 'tool'，關係 'depends_on' 不在規則8的限制中，但 'APT' 可能涉及主動執行能力，需進一步分析。然而，根據給定的三元組和規則，沒有明確的違反規則的證據。",
+        "response": "correct",
+        "reason": "由於沒有發現明確且直接的違反項目，根據無罪推定原則，判定為正確。給定的三元組沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資源為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "客製化惡意軟體與惡意軟體在資安領域中可視為同一概念，但基於廣義/狹義一律保留的原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "APT",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "客製化惡意軟體",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 APT 的主要目的是部署客製化的惡意軟體，這表示該攻擊手段依賴於特定的工具來達成目的。符合 ('attack', 'depends_on', 'tool')。",
+      "source_id": "chunk_9",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "apt",
+      "type": "attack",
+      "display_name": "APT"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標系統",
+      "type": "system",
+      "display_name": "目標系統"
+    },
+    "reasoning": "文本指出 APT 針對組織或國家，在目標系統上部署惡意軟體，這是一種對系統的危害行為。符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_9",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "APT 是 'attack' 的合理實例，'目標系統' 是 'system' 的合理實例，兩者之間的 'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "APT 對目標系統的 'can_harm' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是攻擊者（APT），具有主動執行能力，但這裡的關係是 can_harm，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（APT, can_harm, 目標系統）不違反任何語義限制清單中的規則，因為它描述了一個攻擊者（APT）對目標系統的潛在傷害，這是一種合理的關係。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (APT) 與現有近似資源清單中的 'apt' 類別相同，且受體 (目標系統) 與現有近似資源清單中的 '目標系統' 類別完全匹配，兩者均無同義詞重複情況，但 '系統' 可視為 '目標系統' 的廣義概念，然而根據規則 3，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 3，廣義/狹義一律保留，故不合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "APT",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "目標系統",
+        "type": "system"
+      },
+      "reasoning": "文本指出 APT 針對組織或國家，在目標系統上部署惡意軟體，這是一種對系統的危害行為。符合 ('attack', 'can_harm', 'system')。",
+      "source_id": "chunk_9",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "rowhammer",
+      "type": "vulnerability",
+      "display_name": "Rowhammer"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料損壞",
+      "type": "risk",
+      "display_name": "資料損壞"
+    },
+    "reasoning": "文本提到 Rowhammer 漏洞會觸發電氣干擾，最終損壞 RAM 中儲存的資料，這是一種負面後果（風險）。符合 ('vulnerability', 'can_expose', 'risk')。",
+    "source_id": "chunk_9",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Rowhammer 是一種 'vulnerability'，而 'can_expose' 資料損壞（'risk'）在資安領域中是合理的，資料損壞也是一種 'risk'，因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別是合理對齊的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組符合此規則，其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體為vulnerability，關係為can_expose，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"資料損壞\" 與 Ldr 中的 \"資料丟失\" 類似，但非完全等價同義詞，兩者皆指資料的異常狀態，但 \"資料損壞\" 強調資料的破壞或變質，而 \"資料丟失\" 則強調資料的消失或遺失，兩者在資安領域中有所不同，無法直接判定為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定 \"資料損壞\" 與 Ldr 中的資源為同義詞，且兩者在資安領域中有所不同，依據判斷準則 4 項，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Rowhammer",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "資料損壞",
+        "type": "risk"
+      },
+      "reasoning": "文本提到 Rowhammer 漏洞會觸發電氣干擾，最終損壞 RAM 中儲存的資料，這是一種負面後果（風險）。符合 ('vulnerability', 'can_expose', 'risk')。",
+      "source_id": "chunk_9",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "ram",
+      "type": "feature",
+      "display_name": "RAM"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "rowhammer",
+      "type": "vulnerability",
+      "display_name": "Rowhammer"
+    },
+    "reasoning": "文本說明 RAM 的設計缺陷（電容器過近）創建了一個名為 Rowhammer 的漏洞。符合 ('system', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_9",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "RAM 是 'system' 的合理實例，Rowhammer 是 'vulnerability' 的合理實例，且 'can_expose' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體為vulnerability，關係為can_expose，符合規則3的特例允許，因此不觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體為vulnerability，關係為can_expose，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "RAM 與 Ldr 中的 'ram' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 'RAM' 與 Ldr 中的 'ram' 名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RAM",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "Rowhammer",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本說明 RAM 的設計缺陷（電容器過近）創建了一個名為 Rowhammer 的漏洞。符合 ('system', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_9",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "cpu",
+      "type": "tool",
+      "display_name": "CPU"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "meltdown",
+      "type": "vulnerability",
+      "display_name": "Meltdown"
+    },
+    "reasoning": "文本指出 Meltdown 是影響幾乎所有 CPU 的硬體漏洞。符合 ('system', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_9",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "CPU 是 'system' 的合理實例，Meltdown 是 'vulnerability' 的合理實例，'can_expose' 關係在資安領域中是合理的，因為 CPU 的設計缺陷可能會暴露（expose）Meltdown 這類漏洞。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：允許 vulnerability 發起 'can_expose' 動作，符合此規則。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 CPU (類別: tool) 與受體 Meltdown (類別: vulnerability) 透過 'can_expose' 關係，符合規則3的特例允許，且未違反其他規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "CPU 與 Ldr 中的 \"cpu\" 完全等價同義詞，Meltdown 與 Ldr 中的 \"rowhammer\" 不相關，但 Meltdown 是一種漏洞，與 Ldr 中的 \"vulnerability\" 類別相關",
+        "response": "correct",
+        "standard_subject": "cpu",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，CPU 是 Ldr 中 \"cpu\" 的完全等價同義詞，Meltdown 不是 Ldr 中任何資源的同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CPU",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "Meltdown",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出 Meltdown 是影響幾乎所有 CPU 的硬體漏洞。符合 ('system', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_9",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "meltdown",
+      "type": "vulnerability",
+      "display_name": "Meltdown"
+    },
+    "reasoning": "文本明確提到「利用這些漏洞的攻擊者」，指攻擊者可以利用 Meltdown 漏洞讀取記憶體。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_9",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，Meltdown 是 'vulnerability' 的合理實例，'can_exploit' 的語意也與攻擊者對漏洞的利用行為相符。",
+        "response": "correct",
+        "reason": "攻擊者 (attacker) 對 Meltdown 進行 'can_exploit' 的三元組完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用，因為主體是攻擊者，而不是漏洞。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，因為關係是 can_exploit，而不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的攻擊者可以利用 Meltdown 這個漏洞，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「攻擊者」與 Ldr 中的「攻擊者」完全等價同義詞，受體「Meltdown」與 Ldr 中的「meltdown」為同一概念的不同寫法",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "meltdown",
+        "reason": "根據同義詞判定，受體「Meltdown」與 Ldr 中的「meltdown」為同一概念的不同寫法，故不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "Meltdown",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確提到「利用這些漏洞的攻擊者」，指攻擊者可以利用 Meltdown 漏洞讀取記憶體。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+      "source_id": "chunk_9",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "cpu",
+      "type": "tool",
+      "display_name": "CPU"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "spectre",
+      "type": "vulnerability",
+      "display_name": "Spectre"
+    },
+    "reasoning": "文本指出 Spectre 是影響幾乎所有 CPU 的硬體漏洞。符合 ('system', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_9",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "CPU 是 'system' 的合理實例，Spectre 是 'vulnerability' 的合理實例，'can_expose' 關係在資安領域中是合理的，尤其是在 CPU 可能暴露 Spectre 漏洞的語境下。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是can_expose，而非mitigates。規則3適用，但三元組中的can_expose動作是允許的特例。規則4、5、6、7、8不適用，因為三元組中的關係和類別不符合這些規則的條件。",
+        "response": "correct",
+        "reason": "三元組中的CPU（tool）可以暴露Spectre（vulnerability），這符合規則3中的特例允許。因此，三元組不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "CPU 與 Ldr 中的 \"cpu\" 完全等價同義詞，Spectre 與 Ldr 中的 \"rowhammer\" 或 \"meltdown\" 屬於同一類別（vulnerability），但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，CPU 與 cpu 完全匹配，但 Spectre 不是 Ldr 中已有資源的同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CPU",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "Spectre",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出 Spectre 是影響幾乎所有 CPU 的硬體漏洞。符合 ('system', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_9",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "spectre",
+      "type": "vulnerability",
+      "display_name": "Spectre"
+    },
+    "reasoning": "文本明確提到「利用這些漏洞的攻擊者」，指攻擊者可以利用 Spectre 漏洞讀取應用程式處理的資料。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_9",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，Spectre 是 'vulnerability' 的合理實例，'can_exploit' 是攻擊者與漏洞之間的合理關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者與安全團隊的身分。規則2：不適用，因為三元組中的動作是 can_exploit，不是 mitigates。規則3：不適用，因為三元組中的主體是攻擊者，而規則3是針對漏洞的。規則4：不適用，因為三元組中的關係是 can_exploit，不是 violates。規則5：不適用，因為三元組中的關係是 can_exploit，不是 uses。規則6：不適用，因為三元組中的關係是 can_exploit，不是 deployed_in。規則7：不適用，因為三元組中的關係是 can_exploit，不是 generates。規則8：不適用，因為三元組中的關係是 can_exploit，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的攻擊者可以利用 Spectre 這個漏洞，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全等價同義詞，受體 \"Spectre\" 與 Ldr 中的 \"spectre\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "Spectre",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確提到「利用這些漏洞的攻擊者」，指攻擊者可以利用 Spectre 漏洞讀取應用程式處理的資料。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+      "source_id": "chunk_9",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "meltdown",
+      "type": "vulnerability",
+      "display_name": "Meltdown"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "側通道攻擊",
+      "type": "attack",
+      "display_name": "側通道攻擊"
+    },
+    "reasoning": "文本提到 Meltdown 和 Spectre 的漏洞利用是指側通道攻擊。在此將其漏洞利用行為視為 attack，屬於側通道攻擊這一大類。符合 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_9",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Meltdown 是一種攻擊（attack）的合理實例，側通道攻擊也是攻擊（attack）的合理實例，且 'is_part_of' 關係在資安領域中常用於描述攻擊之間的關係。",
+        "response": "correct",
+        "reason": "Meltdown 和側通道攻擊都屬於攻擊類別，且 'is_part_of' 關係在此語境中合理，故此三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：主體類別為 vulnerability，關係為 is_part_of，未發起主動行為，合法。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 Meltdown（類別：vulnerability），關係為 is_part_of，受體為 側通道攻擊（類別：attack），未違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Meltdown 是一種漏洞，側通道攻擊是一種攻擊，兩者之間沒有直接的同義詞關係，但 Meltdown 可能與側通道攻擊相關聯，因為它是一種可以被利用來進行側通道攻擊的漏洞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Meltdown 和側通道攻擊之間沒有直接的同義詞關係，且 Meltdown 是一種漏洞，側通道攻擊是一種攻擊，兩者之間的關係是因果關係，而不是同義詞關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Meltdown",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "側通道攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 Meltdown 和 Spectre 的漏洞利用是指側通道攻擊。在此將其漏洞利用行為視為 attack，屬於側通道攻擊這一大類。符合 ('attack', 'is_part_of', 'attack')。",
+      "source_id": "chunk_9",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "spectre",
+      "type": "vulnerability",
+      "display_name": "Spectre"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "側通道攻擊",
+      "type": "attack",
+      "display_name": "側通道攻擊"
+    },
+    "reasoning": "文本提到 Meltdown 和 Spectre 的漏洞利用是指側通道攻擊。在此將其漏洞利用行為視為 attack，屬於側通道攻擊這一大類。符合 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_9",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Spectre 與 側通道攻擊 都是 'attack' 的合理實例，符合資安領域的常見命名與分類。",
+        "response": "correct",
+        "reason": "Spectre 是一種攻擊，側通道攻擊也是攻擊的一種，'is_part_of' 關係在此合理適用，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：主體為 vulnerability，關係為 is_part_of，不涉及主動行為，合法。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 vulnerability，關係為 is_part_of，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Spectre 是一種漏洞，與現有近似資源清單中的 'spectre' 完全等價；'側通道攻擊' 是 '攻擊' 的子類型，但與 '攻擊' 不完全等價，兩者之間存在廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Spectre",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "側通道攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 Meltdown 和 Spectre 的漏洞利用是指側通道攻擊。在此將其漏洞利用行為視為 attack，屬於側通道攻擊這一大類。符合 ('attack', 'is_part_of', 'attack')。",
+      "source_id": "chunk_9",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "側通道攻擊",
+      "type": "attack",
+      "display_name": "側通道攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "記憶體資料",
+      "type": "data",
+      "display_name": "記憶體資料"
+    },
+    "reasoning": "文本提到側通道攻擊（Meltdown/Spectre）可能會破壞大量記憶體資料。符合 ('attack', 'can_harm', 'data')。",
+    "source_id": "chunk_9",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "側通道攻擊 (attack) 是攻擊的一種合理實例，記憶體資料 (data) 是資料的一種合理實例，'can_harm' 關係在資安領域中是合理的，描述攻擊對資料的潛在危害。",
+        "response": "correct",
+        "reason": "側通道攻擊對記憶體資料的危害描述符合資安領域的合理實例和關係定義。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_harm'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 沒有在給定的語義限制清單中被明確限制，因此不被視為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "側通道攻擊與攻擊之間存在廣義/狹義從屬關係，記憶體資料與儲存資料之間存在同義詞或相關概念的關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，側通道攻擊是攻擊的子類型，記憶體資料與儲存資料雖然相關但不完全等價，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "側通道攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "記憶體資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到側通道攻擊（Meltdown/Spectre）可能會破壞大量記憶體資料。符合 ('attack', 'can_harm', 'data')。",
+      "source_id": "chunk_9",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 11
+    }
+  }
+]

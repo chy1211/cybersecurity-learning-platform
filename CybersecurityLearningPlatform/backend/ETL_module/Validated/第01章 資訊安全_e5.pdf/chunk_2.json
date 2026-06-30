@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "內部人員",
+      "type": "user",
+      "display_name": "內部人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "內部威脅",
+      "type": "attack",
+      "display_name": "內部威脅"
+    },
+    "reasoning": "文本提到內部人員（包含授權與非授權）是內部威脅 (insider threats) 的來源，因此將內部人員定義為 attacker，其執行的惡意行為為 attack。",
+    "source_id": "chunk_2",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '內部人員' 的名稱與其類別 'attacker' 合理對齊，實體 '內部威脅' 的名稱與其類別 'attack' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查後發現，給定的三元組（內部人員 implements 內部威脅）與規則列表中沒有直接的違反關係。",
+        "response": "correct",
+        "reason": "由於三元組不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "內部人員與內部人員完全等價，內部威脅與內部授權人員威脅/內部非授權人員威脅具有廣義/狹義從屬關係，但根據判斷準則，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留的判斷準則，內部人員與內部威脅不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部人員",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "內部威脅",
+        "type": "attack"
+      },
+      "reasoning": "文本提到內部人員（包含授權與非授權）是內部威脅 (insider threats) 的來源，因此將內部人員定義為 attacker，其執行的惡意行為為 attack。",
+      "source_id": "chunk_2",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "內部威脅",
+      "type": "attack",
+      "display_name": "內部威脅"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "文本指出內部威脅是『所有攻擊類型中首位』，顯示內部威脅是攻擊 (attack) 這一大類中的一種，符合 attack is_part_of attack 的定義。",
+    "source_id": "chunk_2",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "內部威脅和駭客攻擊都是攻擊的合理實例，符合資安領域的語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊和同義詞寬容原則也得到滿足。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關",
+        "response": "correct",
+        "reason": "三元組（內部威脅 is_part_of 駭客攻擊）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為攻擊類別，且受體「駭客攻擊」與 Ldr 中的「駭客攻擊」完全匹配，主體「內部威脅」與 Ldr 中的「內部威脅」完全匹配，但兩者概念不同，無同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體無同義詞關係，且非廣義/狹義從屬，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部威脅",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本指出內部威脅是『所有攻擊類型中首位』，顯示內部威脅是攻擊 (attack) 這一大類中的一種，符合 attack is_part_of attack 的定義。",
+      "source_id": "chunk_2",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本明確提到『有些作業系統存在許多的弱點』，符合 system can_expose vulnerability 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '作業系統' 是 'system' 的合理實例，'弱點' 是 'vulnerability' 的合理實例，且 'can_expose' 是描述系統可能暴露弱點的合理關係。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：允許 vulnerability 發起 'can_expose' 動作，符合此規則。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '作業系統' 類別為 system，關係 'can_expose'，受體 '弱點' 類別為 vulnerability，符合規則3的特例允許，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確提到『有些作業系統存在許多的弱點』，符合 system can_expose vulnerability 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本提到『系統存在弱點，導致風險提高』，符合 vulnerability can_expose risk 的邏輯。",
+    "source_id": "chunk_2",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '弱點' 對應類別 'vulnerability' 合理，'風險' 對應類別 'risk' 也合理，關係 'can_expose' 在資安領域中指弱點可能暴露風險，符合語意對齊。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但三元組中的關係 'can_expose' 屬於特例允許，故不違反。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_expose' 屬於規則3的特例允許，故不違反語義限制清單中的任何規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞，但無直接完全等價同義詞關係，主體 '弱點' 與 '漏洞'、'脆弱性' 關係密切，受體 '風險' 則無直接同義詞於給定列表中，但兩者皆屬資安領域基本概念，無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無直接同義詞關係，且無廣義/狹義從屬關係，依據規則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『系統存在弱點，導致風險提高』，符合 vulnerability can_expose risk 的邏輯。",
+      "source_id": "chunk_2",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資料竄改",
+      "type": "attack",
+      "display_name": "資料竄改"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "文本定義完整性是確保資料不被非授權人員竄改，因此『資料竄改』行為會違反 (violates) 完整性原則。",
+    "source_id": "chunk_2",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資料竄改 (attack) 是攻擊的一種形式，完整性 (principle) 是資安原則之一，'violates' 關係在此語境下合理，表示攻擊違反了資安原則。",
+        "response": "correct",
+        "reason": "主體、關係、受體皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：觸發，主體為 attack，受體為 principle，符合規則允許的條件。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體（資料竄改）與受體（完整性）之間的關係（violates）符合語義限制清單中的規則，特別是規則4允許principle作為被違反的受體。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"資料竄改\" 與 Ldr 中的 \"資料篡改\" 關係為同義詞重複，受體 \"完整性\" 與 Ldr 中的 \"完整性\" 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，資料竄改與資料篡改為同義詞，但由於已知同義詞對照範例中沒有明確指出這兩個詞為同義詞，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料竄改",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "文本定義完整性是確保資料不被非授權人員竄改，因此『資料竄改』行為會違反 (violates) 完整性原則。",
+      "source_id": "chunk_2",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "服務中斷",
+      "type": "attack",
+      "display_name": "服務中斷"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "文本定義可用性是確保系統能持續正常提供服務，因此導致服務無法獲得回應的攻擊（如服務中斷）會違反 (violates) 可用性原則。",
+    "source_id": "chunk_2",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "服務中斷 (attack) 是攻擊的合理實例，可用性 (principle) 是原則的合理實例，且 'violates' 是描述攻擊違反原則的合理關係。",
+        "response": "correct",
+        "reason": "服務中斷 (attack) 違反可用性 (principle) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4適用，主體類別為attack，關係為violates，受體類別為principle，符合規則允許的條件。規則5、6、7、8不適用，因為三元組中沒有提到uses、deployed_in、generates或controls關係。",
+        "response": "correct",
+        "reason": "三元組中的主體（服務中斷）與受體（可用性）之間的violates關係，符合語義限制清單中的規則，尤其是規則4允許principle作為被違反的受體。因此，該三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "服務中斷與現有資源清單中沒有完全匹配的同義詞，但可用性是資安領域中的基本原則之一，與完整性同屬一類",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "服務中斷與可用性之間的關係不構成同義詞重複，兩者皆保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "服務中斷",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "文本定義可用性是確保系統能持續正常提供服務，因此導致服務無法獲得回應的攻擊（如服務中斷）會違反 (violates) 可用性原則。",
+      "source_id": "chunk_2",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "病毒",
+      "type": "attack",
+      "display_name": "病毒"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "reasoning": "文本提到『某些病毒針對這些弱點以感染系統』，感染系統即為造成損害，符合 attack can_harm system。",
+    "source_id": "chunk_2",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "病毒是 'attack' 的合理實例，作業系統是 'system' 的合理實例，且 'can_harm' 是描述病毒對作業系統影響的適當關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_harm'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體 '病毒'、關係 'can_harm' 和受體 '作業系統' 沒有違反任何給定的語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"病毒\" 與 Ldr 中的 \"電腦病毒\" 關係為同義詞，受體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體皆不完全符合同義詞對照範例，且無法確定為 duplicate，因此預設保留為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "病毒",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到『某些病毒針對這些弱點以感染系統』，感染系統即為造成損害，符合 attack can_harm system。",
+      "source_id": "chunk_2",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 5
+    }
+  }
+]

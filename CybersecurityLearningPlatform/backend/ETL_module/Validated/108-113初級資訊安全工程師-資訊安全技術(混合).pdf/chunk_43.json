@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "syslog",
+      "type": "tool",
+      "display_name": "Syslog"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "竄改風險",
+      "type": "risk",
+      "display_name": "竄改風險"
+    },
+    "reasoning": "文本提到透過 Syslog 等日誌傳送協議即時儲存可降低竄改風險。在 Schema 中，tool 可以 mitigates risk。",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Syslog 是一種工具（tool），'竄改風險' 是一種風險（risk），'mitigates' 是一種合理的關係，因為工具可以減輕風險。",
+        "response": "correct",
+        "reason": "Syslog、'竄改風險' 和 'mitigates' 三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 Syslog，類別是 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Syslog 與 Ldr 中的 'syslog' 完全等價，竄改風險與 Ldr 中的 '竄改風險' 完全等價，兩者均為完全匹配的同義詞",
+        "response": "correct",
+        "standard_subject": "syslog",
+        "standard_object": "竄改風險",
+        "reason": "Syslog 和竄改風險分別與 Ldr 中的 'syslog' 和 '竄改風險' 完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Syslog",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "竄改風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到透過 Syslog 等日誌傳送協議即時儲存可降低竄改風險。在 Schema 中，tool 可以 mitigates risk。",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "電腦",
+      "type": "tool",
+      "display_name": "電腦"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "事件紀錄檔",
+      "type": "data",
+      "display_name": "事件紀錄檔"
+    },
+    "reasoning": "文本明確提到事件紀錄檔是用於蒐集『電腦生成的事件紀錄檔消息』，符合 system generates data 的關係。",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "電腦 (computer) 是系統 (system) 的合理實例，事件紀錄檔 (event log) 是資料 (data) 的合理實例。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是generates，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為關係是generates，而非violates。規則5不適用，因為關係是generates，而非uses。規則6不適用，因為關係是generates，而非deployed_in。規則7適用，且三元組符合規則所允許的條件，因為受體的類別是data。規則8不適用，因為關係是generates，而非controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且未發現其他規則的違反。因此，根據無罪推定原則，判定為correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「電腦」與 Ldr 中的「電腦」完全相同，受體「事件紀錄檔」與 Ldr 中的「事件稽核紀錄」或「事件資料庫」相似，但非完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體「電腦」與 Ldr 中的「電腦」完全相同，無需進一步判定；受體「事件紀錄檔」雖與 Ldr 中的某些資源相似，但非完全相同，且無法確定為同義詞，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電腦",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "事件紀錄檔",
+        "type": "data"
+      },
+      "reasoning": "文本明確提到事件紀錄檔是用於蒐集『電腦生成的事件紀錄檔消息』，符合 system generates data 的關係。",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "登入資訊",
+      "type": "data",
+      "display_name": "登入資訊"
+    },
+    "reasoning": "選項 (A) 提到事件記錄包含伺服器登入資訊，邏輯上是伺服器系統產生了登入資訊資料。",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "伺服器 (server) 是系統 (system) 的合理實例，登入資訊 (login information) 是資料 (data) 的合理實例，'generates' 的關係在資安領域中是合理的，因為伺服器可以生成登入資訊。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：觸發，檢查關係 'generates' 的受體類別是否為 'data'，結果為 true，符合規則。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 'generates' 與受體 '登入資訊' 的類別 'data' 符合規則7，且未發現其他違規情況。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"伺服器\" 與 Ldr 中的 \"伺服器\" 完全等價同義詞，受體 \"登入資訊\" 與 Ldr 中的 \"認證資訊\" 可能是同一概念的不同表達，但無法確認為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認 \"登入資訊\" 與 \"認證資訊\" 為完全等價同義詞，依據判斷準則 4.【不確定時預設保留】，預設為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "登入資訊",
+        "type": "data"
+      },
+      "reasoning": "選項 (A) 提到事件記錄包含伺服器登入資訊，邏輯上是伺服器系統產生了登入資訊資料。",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端運算",
+      "type": "system",
+      "display_name": "雲端運算"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "saas",
+      "type": "system",
+      "display_name": "SaaS"
+    },
+    "reasoning": "SaaS 是雲端運算的一種服務形式，符合 system has_a system 的層級關係。",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'system' 和受體的類別 'system' 都存在於 Lc,p 的 'Classes' 中，關係 'has_a' 存在於 'Properties' 中。",
+        "step_2_alignment_check": "雲端運算是系統（system）的合理實例，SaaS 也是系統（system）的合理實例，兩者之間的 'has_a' 關係在語意上是合理的，因為雲端運算可以包含 SaaS。",
+        "response": "correct",
+        "reason": "雲端運算和 SaaS 的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組（雲端運算 has_a SaaS）未觸發語義限制清單中的任何規則，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端運算與雲端運算服務、雲端環境等為廣義/狹義從屬關係，但SaaS為雲端運算的一種特定服務模式，兩者在資安領域中可視為相關但不同概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，雲端運算和SaaS雖然相關，但不完全等價，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端運算",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "SaaS",
+        "type": "system"
+      },
+      "reasoning": "SaaS 是雲端運算的一種服務形式，符合 system has_a system 的層級關係。",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端運算",
+      "type": "system",
+      "display_name": "雲端運算"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "paas",
+      "type": "system",
+      "display_name": "PaaS"
+    },
+    "reasoning": "PaaS 是雲端運算的一種服務形式，符合 system has_a system 的層級關係。",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雲端運算 (cloud computing) 是系統 (system) 的合理實例，PaaS (Platform as a Service) 也是系統 (system) 的合理實例，兩者皆符合其類別的語意對齊。",
+        "response": "correct",
+        "reason": "雲端運算與 PaaS 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組（雲端運算 has_a PaaS）不觸發語義限制清單中的任何規則，且雲端運算和PaaS皆屬於system類別，'has_a'關係在此語境下合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中的系統類別，且受體 PaaS 是雲端運算的一種子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，PaaS 是雲端運算的一種子類型，故不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端運算",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "PaaS",
+        "type": "system"
+      },
+      "reasoning": "PaaS 是雲端運算的一種服務形式，符合 system has_a system 的層級關係。",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端運算",
+      "type": "system",
+      "display_name": "雲端運算"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "iaas",
+      "type": "system",
+      "display_name": "IaaS"
+    },
+    "reasoning": "IaaS 是雲端運算的一種服務形式，符合 system has_a system 的層級關係。",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雲端運算 (cloud computing) 是系統 (system) 的合理實例，IaaS (基礎設施即服務) 也是系統 (system) 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為雲端運算可以包含 IaaS。",
+        "response": "correct",
+        "reason": "雲端運算與 IaaS 之間的 'has_a' 關係符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體和受體的類別均為 'system'，未觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '雲端運算' 和受體 'IaaS' 的類別組合，未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端運算與IaaS之間存在著廣義/狹義從屬關係，IaaS是雲端運算的一種實現方式",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，雲端運算與IaaS之間的關係不需要合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端運算",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "IaaS",
+        "type": "system"
+      },
+      "reasoning": "IaaS 是雲端運算的一種服務形式，符合 system has_a system 的層級關係。",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "raid",
+      "type": "tool",
+      "display_name": "RAID"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "雲端平台",
+      "type": "system",
+      "display_name": "雲端平台"
+    },
+    "reasoning": "文本提到在雲端平台建置過程中會使用 RAID 當作儲存空間，RAID 作為一種技術工具屬於雲端平台系統的一部分。",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "RAID 是一種工具（tool），雲端平台是系統（system），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則，發現規則6指出當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，而給定的三元組中，關係是 is_part_of，主體是 RAID (類別: tool)，受體是 雲端平台 (類別: system)，不直接觸發規則6的限制，但需要注意其他規則。規則5、7、8不適用，因為三元組的關係不是 uses、generates 或 controls。規則1、2、3、4也不適用，因為三元組的主體類別是 tool，且不涉及攻擊者、安全團隊、漏洞、原則等。",
+        "response": "correct",
+        "reason": "給定的三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"雲端平台\" 與 Ldr 中的 \"雲端服務\"、\"雲端環境\"、\"雲端基礎設施\" 等相關資源存在廣義/狹義從屬關係，但無完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RAID",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "雲端平台",
+        "type": "system"
+      },
+      "reasoning": "文本提到在雲端平台建置過程中會使用 RAID 當作儲存空間，RAID 作為一種技術工具屬於雲端平台系統的一部分。",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "蜜罐",
+      "type": "tool",
+      "display_name": "蜜罐"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "蜜罐的目的是誘使駭客攻擊以進行偵測，符合 tool can_detect attack 的關係。",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'tool' 和受體的類別 'attack' 都存在於 Lc,p 的 'Classes' 中，關係 'can_detect' 也存在於 'Properties' 中。",
+        "step_2_alignment_check": "蜜罐 (Honeypot) 是一種工具 (tool)，用於偵測駭客攻擊 (attack)，因此名稱與類別對齊，符合語意。",
+        "response": "correct",
+        "reason": "蜜罐 (Honeypot) 的類別與屬性完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為 tool，具有主動執行能力，關係為 can_detect，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體為 tool，關係為 can_detect，受體為駭客攻擊，符合語義限制清單中的規則，未發現明確且直接的違反項目。因此，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "蜜罐與Ldr中的資源無直接同義詞關係，駭客攻擊與Ldr中的資源有完全等價同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，蜜罐與Ldr中的資源無直接同義詞關係，駭客攻擊與Ldr中的資源有完全等價同義詞關係，但根據【廣義/狹義一律保留】準則，禁止合併，因此判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "蜜罐",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "蜜罐的目的是誘使駭客攻擊以進行偵測，符合 tool can_detect attack 的關係。",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "蜜罐",
+      "type": "tool",
+      "display_name": "蜜罐"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "電腦病毒樣本",
+      "type": "data",
+      "display_name": "電腦病毒樣本"
+    },
+    "reasoning": "文本提到蜜罐可用來取得電腦病毒樣本，取得後通常用於分析，符合 tool can_analyze data 的關係。",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'tool'、受體的類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "蜜罐 (Honeypot) 是一種安全工具，電腦病毒樣本是數據，'can_analyze' 關係在資安領域中合理，蜜罐可以分析電腦病毒樣本。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的主體是工具（tool），關係是 can_analyze，受體是電腦病毒樣本（data），這符合一般的分析邏輯，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係是合理的，沒有違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "蜜罐與現有近似資源清單中的\"蜜罐\"完全匹配，電腦病毒樣本與現有近似資源清單中沒有完全匹配的項目，但無法確定其是否為同義詞或子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，蜜罐與現有近似資源清單中的\"蜜罐\"完全匹配，且無法確定電腦病毒樣本與現有近似資源清單中的項目是否為同義詞或子類型，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "蜜罐",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "電腦病毒樣本",
+        "type": "data"
+      },
+      "reasoning": "文本提到蜜罐可用來取得電腦病毒樣本，取得後通常用於分析，符合 tool can_analyze data 的關係。",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "偽裝系統",
+      "type": "system",
+      "display_name": "偽裝系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "蜜罐會偽裝成系統並『設置漏洞』，這在 Schema 中對應為 system can_expose vulnerability。",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '偽裝系統' 可被視為 'system' 的實例，'漏洞' 是 'vulnerability' 的合理實例，且 'can_expose' 在資安領域中指系統可能暴露漏洞的關係，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊與同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：允許 'can_expose' 動作，符合規則。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '偽裝系統' 與關係 'can_expose'、受體 '漏洞' 符合規則3的特例允許，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的某些資源具有完全等價同義詞關係，例如 \"漏洞\"、\"安全漏洞\"、\"程式漏洞\" 等都指稱同一概念 \"vulnerability\"。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據資安領域已知同義詞對照範例，\"漏洞\"、\"弱點\"、\"脆弱性\" 均指 \"vulnerability\"，因此受體為同義詞重複，標準化為 \"漏洞\"。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "偽裝系統",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "蜜罐會偽裝成系統並『設置漏洞』，這在 Schema 中對應為 system can_expose vulnerability。",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本提到設置漏洞以『誘使駭客攻擊』，攻擊的行為即為利用漏洞，符合 attacker can_exploit vulnerability。",
+    "source_id": "chunk_43",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，漏洞 (vulnerability) 是弱點的合理實例，'can_exploit' 關係在資安領域中是合理的，描述攻擊者可以利用弱點。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為駭客與安全團隊的身分沒有同時出現。規則2：不適用，因為動作是 can_exploit，不是 mitigates。規則3：不適用，因為主體是駭客，不是漏洞。規則4：不適用，因為關係不是 violates，且主體不是 principle。規則5：不適用，因為關係不是 uses。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls，但可以注意到 can_exploit 關係下，駭客是具有主動執行能力的角色，符合邏輯。",
+        "response": "correct",
+        "reason": "三元組中的駭客可以利用漏洞，這符合資安知識圖譜的邏輯，沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中之實體完全匹配，且無需進一步同義詞判定或廣義/狹義一律保留的考量。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆直接與現有近似資源清單中之實體完全匹配，故無需進一步處理。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到設置漏洞以『誘使駭客攻擊』，攻擊的行為即為利用漏洞，符合 attacker can_exploit vulnerability。",
+      "source_id": "chunk_43",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 11
+    }
+  }
+]

@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "風險處理措施",
+      "type": "policy",
+      "display_name": "風險處理措施"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本第 25 題定義殘餘風險為執行風險處理措施後仍殘留的風險，這表示風險處理措施的目的在於緩解（mitigates）風險。將其定義為 policy 是因為處理措施通常屬於組織的管理方針。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "風險處理措施 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中是合理的，表示風險處理措施可以減輕風險。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是風險處理措施（類別：policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（風險處理措施）是 policy 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "風險處理措施與風險控制措施、風險處理策略等為同義詞或廣義/狹義從屬關係，但根據判斷準則，若一個實體是另一個的子類型，判定為 correct，禁止合併。風險與各類風險相關術語為同義詞或廣義/狹義從屬關係，但根據判斷準則，若一個實體是另一個的子類型，判定為 correct，禁止合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險處理措施",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本第 25 題定義殘餘風險為執行風險處理措施後仍殘留的風險，這表示風險處理措施的目的在於緩解（mitigates）風險。將其定義為 policy 是因為處理措施通常屬於組織的管理方針。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "門鎖",
+      "type": "tool",
+      "display_name": "門鎖"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "設備被竊取風險",
+      "type": "risk",
+      "display_name": "設備被竊取風險"
+    },
+    "reasoning": "文本第 26 題提到無人看守設備存在被竊取風險，而加裝門鎖是其對應的保護措施。根據 Schema，tool 可以 mitigates risk。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "門鎖 (tool) 是一種合理的工具實例，設備被竊取風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中是合理的，表示門鎖可以減輕設備被竊取的風險。",
+        "response": "correct",
+        "reason": "門鎖 (tool) 減輕設備被竊取風險 (risk) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是門鎖（tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體門鎖（tool）符合規則2的條件，允許執行 mitigates 動作。未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "門鎖與鎖之間存在同義詞關係，設備被竊取風險與物聯網設備風險、iot安全風險、安全風險、實體安全風險等存在廣義/狹義從屬關係，但無法確定完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，門鎖與鎖之間的同義詞關係不直接適用於本案例，設備被竊取風險與其他風險之間的廣義/狹義從屬關係不直接影響判定結果，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "門鎖",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "設備被竊取風險",
+        "type": "risk"
+      },
+      "reasoning": "文本第 26 題提到無人看守設備存在被竊取風險，而加裝門鎖是其對應的保護措施。根據 Schema，tool 可以 mitigates risk。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "監視器",
+      "type": "tool",
+      "display_name": "監視器"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "設備被竊取風險",
+      "type": "risk",
+      "display_name": "設備被竊取風險"
+    },
+    "reasoning": "文本第 26 題提到在開放場所加裝監視器以監控設備，旨在降低被竊取或錯誤使用的風險。根據 Schema，tool 可以 mitigates risk。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "監視器 (tool) 是一種合理的工具類別實例，設備被竊取風險 (risk) 是一種合理的風險類別實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊。",
+        "response": "correct",
+        "reason": "監視器作為一種工具，可以減輕設備被竊取的風險，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。由於主體 '監視器' 的類別是 'tool'，因此符合規則2的條件，代表合法。",
+        "response": "correct",
+        "reason": "三元組符合規則2的條件，且未發現其他明確且直接的違反項目，因此判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "監視器與監視工具、閉路電視監視器等為同義詞或相關概念，但設備被竊取風險為獨立風險類別",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，監視器與設備被竊取風險不構成同義詞或廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "監視器",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "設備被竊取風險",
+        "type": "risk"
+      },
+      "reasoning": "文本第 26 題提到在開放場所加裝監視器以監控設備，旨在降低被竊取或錯誤使用的風險。根據 Schema，tool 可以 mitigates risk。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "erp系統",
+      "type": "app",
+      "display_name": "ERP系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "權限管理",
+      "type": "function",
+      "display_name": "權限管理"
+    },
+    "reasoning": "文本第 27 題提到 ERP 系統針對不同職務功能給予不同權限，這說明權限管理是該應用程式 (app) 的一個特徵/屬性 (feature)。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "ERP系統是 'app' 的合理實例，權限管理是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查規則，發現沒有直接觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係沒有明確違反語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "ERP系統與erp系統完全等價同義詞，權限管理與權限管理完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "erp系統",
+        "standard_object": "權限管理",
+        "reason": "主體與受體皆與Ldr中資源的name完全相同，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ERP系統",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "權限管理",
+        "type": "feature"
+      },
+      "reasoning": "文本第 27 題提到 ERP 系統針對不同職務功能給予不同權限，這說明權限管理是該應用程式 (app) 的一個特徵/屬性 (feature)。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "實體出入控制",
+      "type": "technique",
+      "display_name": "實體出入控制"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "門禁卡",
+      "type": "tool",
+      "display_name": "門禁卡"
+    },
+    "reasoning": "文本第 28 題提到門禁卡用於控制實體出入。實體出入控制是一種防禦技術 (technique)，而它依賴於門禁卡這個工具 (tool) 來實現。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'technique' 和受體的類別 'tool' 都存在於 Lc,p 的 'Classes' 中，關係 'depends_on' 存在於 'Properties' 中。",
+        "step_2_alignment_check": "實體出入控制是一種技術（technique），門禁卡是一種工具（tool），這些名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別是合理對齊的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為 'depends_on' 關係不在規則8的限制範圍內。另外，'technique' 類別的實體出入控制與 'tool' 類別的門禁卡之間的 'depends_on' 關係在給定的規則中沒有明確的限制或違反。",
+        "response": "correct",
+        "reason": "三元組中的 'depends_on' 關係不在語義限制清單中被明確限制或定義為違反，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體出入控制與門禁卡之間的關係是門禁卡是一種工具，實體出入控制是一種技術，兩者之間沒有直接的同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體出入控制和門禁卡之間沒有同義詞或從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體出入控制",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "門禁卡",
+        "type": "tool"
+      },
+      "reasoning": "文本第 28 題提到門禁卡用於控制實體出入。實體出入控制是一種防禦技術 (technique)，而它依賴於門禁卡這個工具 (tool) 來實現。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "雙授權管理機制",
+      "type": "technique",
+      "display_name": "雙授權管理機制"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "特權帳號管理",
+      "type": "policy",
+      "display_name": "特權帳號管理"
+    },
+    "reasoning": "文本第 29 題提到在特權帳號管理與控制中，可以使用雙授權的管理機制。雙授權是特權帳號管理這一大類技術中的一個具體子技術。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雙授權管理機制和特權帳號管理都是資安領域中與 'technique' 類別相關的合理實例，且 'is_part_of' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "雙授權管理機制和特權帳號管理的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則，發現規則1、2、3、4、5、6、7、8均不直接適用於此三元組，因為它們的條件不符合此三元組的主體、關係、受體類別與內容。",
+        "response": "correct",
+        "reason": "此三元組不觸發語義限制清單中的任何規則，故判定為正確。雙授權管理機制作為一種技術（technique）被包含在特權帳號管理（policy）中，沒有違反任何已定義的語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"特權帳號管理\" 與 Ldr 中的 \"特權帳號管理\" 完全相同，主體 \"雙授權管理機制\" 與 Ldr 中的資源無直接同義詞關係，但無法確定其是否為子類型或同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法確定主體與受體之間的同義詞或子類型關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雙授權管理機制",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "特權帳號管理",
+        "type": "technique"
+      },
+      "reasoning": "文本第 29 題提到在特權帳號管理與控制中，可以使用雙授權的管理機制。雙授權是特權帳號管理這一大類技術中的一個具體子技術。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "特權帳號管理",
+      "type": "policy",
+      "display_name": "特權帳號管理"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "稽核工具",
+      "type": "tool",
+      "display_name": "稽核工具"
+    },
+    "reasoning": "文本第 29 題提到特權帳號管理需要進行盤點與稽核。稽核的執行需要依賴工具，因此特權帳號管理 (technique) 包含/具有 (has_a) 稽核工具 (tool)。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "特權帳號管理是 technique 的合理實例，稽核工具是 tool 的合理實例，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為關係不是 'uses'。檢查規則6：無關，因為關係不是 'deployed_in'。檢查規則7：無關，因為關係不是 'generates'。檢查規則8：無關，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"特權帳號管理\" 與 Ldr 中的 \"特權帳號管理\" 完全匹配，受體 \"稽核工具\" 與 Ldr 中的 \"工具\" 類別相關但不完全匹配，兩者之間無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體和受體均不符合重複條件，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "特權帳號管理",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "稽核工具",
+        "type": "tool"
+      },
+      "reasoning": "文本第 29 題提到特權帳號管理需要進行盤點與稽核。稽核的執行需要依賴工具，因此特權帳號管理 (technique) 包含/具有 (has_a) 稽核工具 (tool)。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "實體出入控制",
+      "type": "technique",
+      "display_name": "實體出入控制"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "密碼",
+      "type": "data",
+      "display_name": "密碼"
+    },
+    "reasoning": "文本第 28 題提到機房進出需要特定密碼控制。實體出入控制 (technique) 依賴於密碼 (tool) 這一驗證手段。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'technique'、受體的類別 'tool' 與關係 'depends_on' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體出入控制是 technique 的合理實例，密碼是 tool 的合理實例，兩者之間的 'depends_on' 關係在資安領域中是合理的，因為出入控制可能依賴於密碼等安全機制。",
+        "response": "correct",
+        "reason": "主體、受體的類別與關係都符合預先定義的清單，並且實體名稱與其類別之間具有語意對齊性。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 technique，而不是 data。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係是 depends_on，而不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是實體出入控制（technique），關係是 depends_on，受體是密碼（data），這不觸發語義限制清單中的任何規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"密碼\" 與 Ldr 中的 \"密碼\" 完全相同，主體 \"實體出入控制\" 與 Ldr 中的 \"實體出入控制\" 完全相同，但受體與主體之間的關係不涉及同義詞或廣義/狹義從屬",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全相同，但無同義詞或從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體出入控制",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "密碼",
+        "type": "tool"
+      },
+      "reasoning": "文本第 28 題提到機房進出需要特定密碼控制。實體出入控制 (technique) 依賴於密碼 (tool) 這一驗證手段。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  }
+]

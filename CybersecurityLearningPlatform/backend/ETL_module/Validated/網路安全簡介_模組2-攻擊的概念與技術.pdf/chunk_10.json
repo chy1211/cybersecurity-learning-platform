@@ -1,0 +1,678 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "SYNful Knock 漏洞"
+    },
+    "reasoning": "文本指出 SYNful Knock 漏洞使攻擊者能夠控制路由器，這代表攻擊者利用了該漏洞，符合 attacker -> can_exploit -> vulnerability。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，SYNful Knock 漏洞 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是攻擊者與漏洞之間的合理關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者與安全團隊的身分。規則2：不適用，因為三元組中沒有提到mitigates動作。規則3：不適用，因為三元組中的主體類別是attacker，而不是vulnerability。規則4：不適用，因為三元組中沒有提到principle。規則5：不適用，因為三元組中的關係不是uses。規則6：不適用，因為三元組中的關係不是deployed_in。規則7：不適用，因為三元組中的關係不是generates。規則8：不適用，因為三元組中的關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，關係是can_exploit，受體是SYNful Knock漏洞，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "攻擊者與網路攻擊者、外部攻擊者、灰帽攻擊者、黑帽攻擊者之間存在廣義/狹義從屬關係，但攻擊者與漏洞之間不相關；SYNful Knock 漏洞與漏洞之間存在同義詞關係，均指資安領域中的弱點或脆弱性",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據同義詞判定，SYNful Knock 漏洞與漏洞為同義詞，但攻擊者與其他類型的攻擊者之間存在廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "SYNful Knock 漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出 SYNful Knock 漏洞使攻擊者能夠控制路由器，這代表攻擊者利用了該漏洞，符合 attacker -> can_exploit -> vulnerability。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "軟體漏洞"
+    },
+    "reasoning": "文本提到『作業系統...程式碼中的錯誤通常會引入軟體漏洞』，符合 system -> can_expose -> vulnerability 的定義。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "作業系統 (system) 可能會暴露 (expose) 軟體漏洞 (vulnerability)，這是資安領域中常見的關係，且名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但特例允許 'can_expose' 動作，然而三元組中主體類別為 system，不是 vulnerability，因此不觸發此規則的特例。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。另外，根據規則3的描述，vulnerability 可以發起 'can_expose' 動作，但這裡的主體是 system，而不是 vulnerability，因此不直接違反規則3，但也沒有明確的規則允許 system 執行 'can_expose' 動作對 vulnerability。然而，沒有規則明確禁止這種情況，因此根據 '無罪推定' 原則，應該認為是合法的。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係組合沒有明確違反語義限制清單中的任何規則，同時也沒有規則明確禁止這種組合，因此根據 '無罪推定' 原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全等價，受體 \"軟體漏洞\" 與 Ldr 中的 \"漏洞\" 為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據同義詞對照表，\"軟體漏洞\" 與 \"漏洞\" 為同義詞，但主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全等價，故不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "軟體漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『作業系統...程式碼中的錯誤通常會引入軟體漏洞』，符合 system -> can_expose -> vulnerability 的定義。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "企業級路由器",
+      "type": "system",
+      "display_name": "企業級路由器"
+    },
+    "reasoning": "文本明確提到漏洞使攻擊者『能夠控制企業級路由器』，符合 attacker -> controls -> system。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，企業級路由器 (system) 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為攻擊者，具有主動執行能力，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（攻擊者）與關係（controls）以及受體（企業級路由器）之間的關係，符合規則8的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全等價同義詞，受體 \"企業級路由器\" 與 Ldr 中的 \"路由器\" 可視為廣義/狹義從屬關係，但不完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1 和 3，主體與 Ldr 中的資源完全匹配，但受體雖然相關卻不完全等同，故保留原狀。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "企業級路由器",
+        "type": "system"
+      },
+      "reasoning": "文本明確提到漏洞使攻擊者『能夠控制企業級路由器』，符合 attacker -> controls -> system。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "軟體漏洞"
+    },
+    "reasoning": "文本提到『應用程式程式碼中的錯誤通常會引入軟體漏洞』，符合 app -> can_expose -> vulnerability 的定義。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '應用程式' 的類別 'app' 合理對齊，實體 '軟體漏洞' 的類別 'vulnerability' 也合理對齊，關係 'can_expose' 在資安領域中指應用程式可能暴露的漏洞，符合語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3提到主體類別若為vulnerability，原則上不可發起主動行為，但特例允許'can_expose'動作。因此，三元組（應用程式 can_expose 軟體漏洞）不觸發規則3的違規。其他規則不適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組不違反任何語義限制清單中的規則，特別是規則3中的特例允許vulnerability發起'can_expose'動作。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"應用程式\" 與 Ldr 中的 \"應用程式\" 完全等價同義詞，受體 \"軟體漏洞\" 與 Ldr 中的 \"漏洞\" 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "應用程式",
+        "standard_object": "漏洞",
+        "reason": "主體與受體均找到完全等價同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "軟體漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『應用程式程式碼中的錯誤通常會引入軟體漏洞』，符合 app -> can_expose -> vulnerability 的定義。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網路設備",
+      "type": "system",
+      "display_name": "網路設備"
+    },
+    "reasoning": "文本提到攻擊者可以『感染其他網路設備』，感染行為對系統造成損害，符合 attacker -> can_harm -> system。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，網路設備 (system) 是 'system' 的合理實例，且 'can_harm' 是描述攻擊者對系統可能造成傷害的合理關係。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體是攻擊者，具有主動執行能力，符合規則8的條件，但這裡的關係是can_harm，不是controls，故不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的關係can_harm不在語義限制清單中被明確限制，且主體攻擊者與受體網路設備的類別組合在給定的規則中沒有被明確禁止。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全等價同義詞，受體 \"網路設備\" 與 Ldr 中的 \"物聯網設備\"、\"電腦設備\" 等為廣義/狹義從屬關係，但無法確定 \"網路設備\" 是 \"物聯網設備\" 或 \"電腦設備\" 的子類型或父類型，因此預設保留。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定 \"網路設備\" 與 Ldr 中的 \"物聯網設備\"、\"電腦設備\" 等之間的從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網路設備",
+        "type": "system"
+      },
+      "reasoning": "文本提到攻擊者可以『感染其他網路設備』，感染行為對系統造成損害，符合 attacker -> can_harm -> system。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "ios 版本",
+      "type": "app",
+      "display_name": "IOS 版本"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "SYNful Knock 漏洞"
+    },
+    "reasoning": "文本提到『當路由器上安裝已變更的 IOS 版本時，此漏洞就會引入系統』，表示特定的軟體版本暴露了漏洞，符合 app -> can_expose -> vulnerability。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IOS 版本 是 'app' 的合理實例，SYNful Knock 漏洞 是 'vulnerability' 的合理實例，'can_expose' 關係在資安領域中合理適用於此類別組合。",
+        "response": "correct",
+        "reason": "IOS 版本 與 SYNful Knock 漏洞 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體為IOS版本（類別：app），關係為can_expose，受體為SYNful Knock漏洞（類別：vulnerability），因此未觸發違規。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 SYNful Knock 漏洞 屬於漏洞類別，與 Ldr 中的 '漏洞' 實體為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "受體 SYNful Knock 漏洞 屬於漏洞類別，與 Ldr 中的 '漏洞' 實體為同義詞，但根據【廣義/狹義一律保留】原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IOS 版本",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "SYNful Knock 漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『當路由器上安裝已變更的 IOS 版本時，此漏洞就會引入系統』，表示特定的軟體版本暴露了漏洞，符合 app -> can_expose -> vulnerability。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "驗證",
+      "type": "technique",
+      "display_name": "驗證完整性"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "ios 映像",
+      "type": "data",
+      "display_name": "IOS 映像"
+    },
+    "reasoning": "驗證完整性是一種技術手段，用來分析 IOS 映像檔（資料）是否被篡改，符合 technique -> can_analyze -> data。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "驗證完整性 (technique) 與 IOS 映像 (data) 的名稱與其類別合理對齊，考慮到資安領域的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 technique，而非 data。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係是 can_analyze，而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是驗證完整性（technique），關係是 can_analyze，受體是 IOS 映像（data），這符合一般的資安分析邏輯，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "驗證完整性與驗證之間的關係是同義詞",
+        "response": "duplicate",
+        "standard_subject": "驗證",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，驗證完整性與驗證是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "驗證完整性",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "IOS 映像",
+        "type": "data"
+      },
+      "reasoning": "驗證完整性是一種技術手段，用來分析 IOS 映像檔（資料）是否被篡改，符合 technique -> can_analyze -> data。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "限制存取權限",
+      "type": "policy",
+      "display_name": "實體存取權限限制"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "漏洞利用",
+      "type": "risk",
+      "display_name": "漏洞利用"
+    },
+    "reasoning": "限制實體存取權限是一種安全策略，旨在防止未授權人員利用漏洞，符合 policy -> mitigates -> risk。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體存取權限限制 (policy) 與 漏洞利用 (risk) 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊與同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是實體存取權限限制（類別：policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體是實體存取權限限制（類別：policy），符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體存取權限限制與限制存取權限為同義詞，漏洞利用與資訊外洩不完全匹配，但無法確定為同義詞或子類型",
+        "response": "correct",
+        "standard_subject": "限制存取權限",
+        "standard_object": "",
+        "reason": "根據同義詞判定，實體存取權限限制與限制存取權限為同義詞，故主體為同義詞重複；受體無明確同義詞關係，保留原狀。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體存取權限限制",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "漏洞利用",
+        "type": "risk"
+      },
+      "reasoning": "限制實體存取權限是一種安全策略，旨在防止未授權人員利用漏洞，符合 policy -> mitigates -> risk。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "緩衝區溢位",
+      "type": "attack",
+      "display_name": "緩衝區溢位"
+    },
+    "reasoning": "文本提到『當寫入資料超出緩衝區限制時，就會出現漏洞』，表示輸入的資料觸發/暴露了緩衝區溢位漏洞，符合 data -> can_expose -> vulnerability。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '資料' 是 'data' 的合理實例，'緩衝區溢位' 是 'vulnerability' 的合理實例，關係 'can_expose' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：適用，但主體類別為 data，不是 vulnerability，因此不觸發。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是資料（data），關係是 can_expose，受體是緩衝區溢位（attack），這不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Subject) 資料與 Ldr 中的 \"資料\" 完全等價，受體 (Object) 緩衝區溢位與 Ldr 中的 \"緩衝區溢位\" 完全等價，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料",
+        "type": "data"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "緩衝區溢位",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『當寫入資料超出緩衝區限制時，就會出現漏洞』，表示輸入的資料觸發/暴露了緩衝區溢位漏洞，符合 data -> can_expose -> vulnerability。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "緩衝區溢位",
+      "type": "attack",
+      "display_name": "緩衝區溢位"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "系統崩潰",
+      "type": "risk",
+      "display_name": "系統崩潰"
+    },
+    "reasoning": "文本提到緩衝區溢位『可能會導致系統崩潰』，符合 vulnerability -> can_expose -> risk。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "緩衝區溢位是 'vulnerability' 的合理實例，系統崩潰是 'risk' 的合理實例，'can_expose' 關係在資安領域中是合理的，表示漏洞可以暴露風險。",
+        "response": "correct",
+        "reason": "緩衝區溢位與系統崩潰的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：主體類別為 attack，觸發 'can_expose' 動作，合法。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '緩衝區溢位' 屬於攻擊類別，與 'can_expose' 關係相符，且未觸發任何語義限制清單中的規則，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"緩衝區溢位\" 與 Ldr 中的 \"緩衝區溢位\" 完全相同，受體 \"系統崩潰\" 與 Ldr 中的 \"系統故障\" 類似，但非完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體 \"緩衝區溢位\" 與 Ldr 中的 \"緩衝區溢位\" 完全相同，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "緩衝區溢位",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "系統崩潰",
+        "type": "risk"
+      },
+      "reasoning": "文本提到緩衝區溢位『可能會導致系統崩潰』，符合 vulnerability -> can_expose -> risk。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "緩衝區溢位",
+      "type": "attack",
+      "display_name": "緩衝區溢位"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料外洩",
+      "type": "risk",
+      "display_name": "資料外洩"
+    },
+    "reasoning": "文本提到緩衝區溢位『可能會導致...資料外洩』，符合 vulnerability -> can_expose -> risk。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "緩衝區溢位 (Buffer Overflow) 是 'vulnerability' 的合理實例，資料外洩 (Data Breach) 是 'risk' 的合理實例，'can_expose' 關係在資安領域中合理地描述了漏洞可能導致風險的關聯。",
+        "response": "correct",
+        "reason": "緩衝區溢位與資料外洩之間的 'can_expose' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：主體類別為 attack，觸發 'can_expose' 動作，合法。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '緩衝區溢位' 屬於攻擊類別，與 'can_expose' 關係和 '資料外洩' 受體之間的關聯在語義上是合理的，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中，但無需合併",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 '緩衝區溢位' 與 Ldr 中的 '緩衝區溢位' 完全匹配，受體 '資料外洩' 亦與 Ldr 中的 '資料外洩' 完全匹配，無需進行同義詞合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "緩衝區溢位",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "資料外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本提到緩衝區溢位『可能會導致...資料外洩』，符合 vulnerability -> can_expose -> risk。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "未經驗證的輸入",
+      "type": "vulnerability",
+      "display_name": "未經驗證的輸入"
+    },
+    "reasoning": "文本提到『傳入的資料可能包含惡意內容』導致程式運行異常，這屬於未經驗證輸入的漏洞，符合 data -> can_expose -> vulnerability。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'vulnerability' 與關係 'can_expose' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "主體 '資料' 的類別 'data' 合理對齊，受體 '未經驗證的輸入' 的類別 'vulnerability' 也合理對齊，因為 '未經驗證的輸入' 可被視為一種安全漏洞（vulnerability）",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"資料\" 與 Ldr 中的 \"資料\" 完全等價，受體 \"未經驗證的輸入\" 與 Ldr 中的 \"漏洞\" 可能相關，但無直接同義詞對應關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1，主體 \"資料\" 與 Ldr 中的 \"資料\" 完全匹配，且無同義詞對應關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料",
+        "type": "data"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "未經驗證的輸入",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『傳入的資料可能包含惡意內容』導致程式運行異常，這屬於未經驗證輸入的漏洞，符合 data -> can_expose -> vulnerability。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 12
+    }
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "競爭條件"
+    },
+    "reasoning": "競爭條件是系統在處理有序或定時事件時的缺陷，符合 system -> can_expose -> vulnerability。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 13,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "系統 (system) 可以暴露 (can_expose) 競爭條件 (vulnerability)，這是一種合理的語意對齊，因為系統可能存在漏洞，從而暴露其弱點。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但三元組中的主體類別為 system，不是 vulnerability，因此不違反。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體類別為 system，關係為 can_expose，受體為競爭條件，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "競爭條件與漏洞為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據資安領域已知同義詞對照範例，競爭條件與漏洞為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "競爭條件",
+        "type": "vulnerability"
+      },
+      "reasoning": "競爭條件是系統在處理有序或定時事件時的缺陷，符合 system -> can_expose -> vulnerability。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 13
+    }
+  }
+]

@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "網路型入侵偵測系統 (nids)",
+      "type": "tool",
+      "display_name": "網路型入侵偵測系統 (NIDS)"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "攻擊",
+      "type": "technique",
+      "display_name": "攻擊"
+    },
+    "reasoning": "文本提到 NIDS 的功能包含『攻擊偵測』，因此 NIDS 作為工具 (tool) 可以偵測 (can_detect) 攻擊 (attack)。",
+    "source_id": "chunk_59",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網路型入侵偵測系統 (NIDS) 是工具 (tool) 的合理實例，攻擊 (attack) 是攻擊 (attack) 的合理實例，'can_detect' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_detect，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（網路型入侵偵測系統）和關係（can_detect）以及受體（攻擊）之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路型入侵偵測系統 (NIDS) 與網路型入侵偵測系統 (nids) 是完全等價同義詞，攻擊與攻擊是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，網路型入侵偵測系統 (NIDS) 與網路型入侵偵測系統 (nids) 是同義詞，攻擊與攻擊是同義詞，但根據廣義/狹義一律保留原則，不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路型入侵偵測系統 (NIDS)",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 NIDS 的功能包含『攻擊偵測』，因此 NIDS 作為工具 (tool) 可以偵測 (can_detect) 攻擊 (attack)。",
+      "source_id": "chunk_59",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "網路型入侵偵測系統 (nids)",
+      "type": "tool",
+      "display_name": "網路型入侵偵測系統 (NIDS)"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "流量 (traffic)",
+      "type": "data",
+      "display_name": "流量 (Traffic)"
+    },
+    "reasoning": "文本提到流量太高會影響 NIDS 的偵測準確度，暗示 NIDS 必須分析流量才能運作，因此選擇 tool can_analyze data。",
+    "source_id": "chunk_59",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網路型入侵偵測系統 (NIDS) 是 'tool' 的合理實例，流量 (Traffic) 是 'data' 的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別是 tool，而不是 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。唯一可能相關的規則是沒有明確限制 tool 類別主體與 can_analyze 關係的組合，因此不觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（網路型入侵偵測系統）與關係（can_analyze）以及受體（流量）之間的組合，沒有違反任何一條語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 \"網路型入侵偵測系統 (nids)\" 完全等價同義詞，受體與 Ldr 中的 \"流量\" 不完全匹配，但 \"流量\" 與 \"網路流量\" 關係密切，可能是廣義/狹義從屬關係，但根據給定的同義詞對照範例和判斷準則，兩者之間沒有明確的同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體和受體與 Ldr 中的資源沒有完全匹配的同義詞關係，且無法確定為同義詞或子類型關係，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路型入侵偵測系統 (NIDS)",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "流量 (Traffic)",
+        "type": "data"
+      },
+      "reasoning": "文本提到流量太高會影響 NIDS 的偵測準確度，暗示 NIDS 必須分析流量才能運作，因此選擇 tool can_analyze data。",
+      "source_id": "chunk_59",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "udp 封包攻擊",
+      "type": "attack",
+      "display_name": "UDP 封包攻擊"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "分散式阻斷服務 (ddos) 攻擊",
+      "type": "attack",
+      "display_name": "分散式阻斷服務 (DDoS) 攻擊"
+    },
+    "reasoning": "題目詢問何者被採用來執行 DDoS 攻擊，UDP 封包攻擊是 DDoS 的一種具體形式，因此符合 attack is_part_of attack。",
+    "source_id": "chunk_59",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "UDP 封包攻擊是 'attack' 的合理實例，分散式阻斷服務 (DDoS) 攻擊也是 'attack' 的合理實例，且 'is_part_of' 關係在資安領域中合理適用於描述攻擊手法與攻擊類型之間的關係。",
+        "response": "correct",
+        "reason": "UDP 封包攻擊與分散式阻斷服務 (DDoS) 攻擊之間的 'is_part_of' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關。檢查規則6：無關。檢查規則7：無關。檢查規則8：無關。關係 'is_part_of' 不在規則中明確限制，且主體和受體的類別均為 'attack'，未發現明確違反規則的內容。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體均為攻擊類別，且關係 'is_part_of' 未在語義限制清單中被明確限制，故無法判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (UDP 封包攻擊) 與受體 (分散式阻斷服務 (DDoS) 攻擊) 分別與 Ldr 中的資源 'udp 泛洪攻擊' 和 '分散式阻斷服務 (ddos)' 最相似，且兩者皆與 DDoS 攻擊相關，受體明確為 DDoS 攻擊的別稱，主體則可視為 DDoS 攻擊的一種實現方式，但兩者在資安領域中代表不同的概念，前者是攻擊的方法，後者是攻擊的類型。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，UDP 封包攻擊是 DDoS 攻擊的一種實現方式，但兩者代表不同的概念，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "UDP 封包攻擊",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "分散式阻斷服務 (DDoS) 攻擊",
+        "type": "attack"
+      },
+      "reasoning": "題目詢問何者被採用來執行 DDoS 攻擊，UDP 封包攻擊是 DDoS 的一種具體形式，因此符合 attack is_part_of attack。",
+      "source_id": "chunk_59",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "網路型入侵偵測系統 (nids)",
+      "type": "tool",
+      "display_name": "網路型入侵偵測系統 (NIDS)"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "紀錄 (log)",
+      "type": "data",
+      "display_name": "紀錄 (Log)"
+    },
+    "reasoning": "選項 (C) 提到 NIDS 的資料來源包含紀錄 (Log)，這表示 NIDS 工具會分析這些資料，符合 tool can_analyze data。",
+    "source_id": "chunk_59",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網路型入侵偵測系統 (NIDS) 是 'tool' 的合理實例，紀錄 (Log) 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而非 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則，發現無直接違反規則的情況。",
+        "response": "correct",
+        "reason": "三元組中的主體是網路型入侵偵測系統 (NIDS)，是一種工具，與關係 can_analyze 和受體 紀錄 (Log) 組合，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路型入侵偵測系統 (NIDS) 與 Ldr 中的 '網路型入侵偵測系統 (nids)' 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "網路型入侵偵測系統 (nids)",
+        "standard_object": "",
+        "reason": "根據同義詞判定，網路型入侵偵測系統 (NIDS) 與 '網路型入侵偵測系統 (nids)' 是同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路型入侵偵測系統 (NIDS)",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "紀錄 (Log)",
+        "type": "data"
+      },
+      "reasoning": "選項 (C) 提到 NIDS 的資料來源包含紀錄 (Log)，這表示 NIDS 工具會分析這些資料，符合 tool can_analyze data。",
+      "source_id": "chunk_59",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "tcp 封包攻擊",
+      "type": "attack",
+      "display_name": "TCP 封包攻擊"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "分散式阻斷服務 (ddos) 攻擊",
+      "type": "attack",
+      "display_name": "分散式阻斷服務 (DDoS) 攻擊"
+    },
+    "reasoning": "TCP 封包攻擊是執行 DDoS 攻擊的一種方式，屬於攻擊類型的層級關係，符合 attack is_part_of attack。",
+    "source_id": "chunk_59",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "TCP 封包攻擊與分散式阻斷服務 (DDoS) 攻擊皆為 'attack' 的合理實例，語意對齊且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "TCP 封包攻擊與分散式阻斷服務 (DDoS) 攻擊的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而非規則中明確限制的關係，且主體和受體的類別均為 'attack'，因此未發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組中的關係和實體類別未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「分散式阻斷服務 (ddos) 攻擊」完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "分散式阻斷服務 (ddos) 攻擊",
+        "reason": "根據資安領域已知同義詞對照範例，受體與 Ldr 中的資源為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "TCP 封包攻擊",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "分散式阻斷服務 (DDoS) 攻擊",
+        "type": "attack"
+      },
+      "reasoning": "TCP 封包攻擊是執行 DDoS 攻擊的一種方式，屬於攻擊類型的層級關係，符合 attack is_part_of attack。",
+      "source_id": "chunk_59",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "封包過濾型防火牆",
+      "type": "tool",
+      "display_name": "封包過濾型防火牆"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "technique",
+      "display_name": "攻擊"
+    },
+    "reasoning": "文本明確提到封包過濾型防火牆是用來『防禦』特定層級之攻擊，因此符合 tool mitigates attack。",
+    "source_id": "chunk_59",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "封包過濾型防火牆是 tool 的合理實例，攻擊是 attack 的合理實例，且 'mitigates' 是描述 tool 與 attack 之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "封包過濾型防火牆與攻擊之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，該三元組的主體是封包過濾型防火牆，類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（封包過濾型防火牆）是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「封包過濾型防火牆」與 Ldr 中的「過濾型防火牆」和「防火牆」相關，但非完全等價同義詞；受體「攻擊」與 Ldr 中的「攻擊」完全匹配，為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "攻擊",
+        "reason": "根據同義詞判定，受體「攻擊」為同義詞重複，主體「封包過濾型防火牆」與現有資源不完全匹配，保留原狀。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "封包過濾型防火牆",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到封包過濾型防火牆是用來『防禦』特定層級之攻擊，因此符合 tool mitigates attack。",
+      "source_id": "chunk_59",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "封包過濾防火牆",
+      "type": "tool",
+      "display_name": "封包過濾型防火牆"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "埠號 (port)",
+      "type": "feature",
+      "display_name": "埠號 (port)"
+    },
+    "reasoning": "文本提到防火牆是透過『判別』埠號來運作，判別即為分析，埠號為網路特徵，符合 tool can_analyze feature。",
+    "source_id": "chunk_59",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "封包過濾型防火牆 是 'tool' 的合理實例，埠號 是 'feature' 的合理實例，且 'can_analyze' 是描述工具與特徵之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "封包過濾型防火牆 (tool) 可以分析埠號 (feature) 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，但注意到 'can_analyze' 關係，主體為 tool，受體為 feature，未直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體為 tool，關係為 can_analyze，受體為 feature，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "封包過濾型防火牆與現有近似資源清單中的「封包過濾防火牆」完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "封包過濾防火牆",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，封包過濾型防火牆與封包過濾防火牆為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "封包過濾型防火牆",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "埠號 (port)",
+        "type": "feature"
+      },
+      "reasoning": "文本提到防火牆是透過『判別』埠號來運作，判別即為分析，埠號為網路特徵，符合 tool can_analyze feature。",
+      "source_id": "chunk_59",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "captcha",
+      "type": "tool",
+      "display_name": "CAPTCHA"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "驗證資訊",
+      "type": "data",
+      "display_name": "驗證資訊"
+    },
+    "reasoning": "CAPTCHA 機制要求使用者輸入驗證資訊以區分人類與電腦，這表示該工具會分析輸入的資料，符合 tool can_analyze data。",
+    "source_id": "chunk_59",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "CAPTCHA 是一種工具（tool），驗證資訊是資料（data），這些名稱與其類別之間的對齊是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但可以分析 (can_analyze) 是 tool 的合法動作。",
+        "response": "correct",
+        "reason": "三元組中的主體是 CAPTCHA，類別為 tool，與關係 can_analyze 和受體 驗證資訊 的組合沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (CAPTCHA) 與 Ldr 中的 'captcha' 完全等價同義詞，受體 (驗證資訊) 與 Ldr 中的 '認證資訊' 關係密切，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "captcha",
+        "standard_object": "",
+        "reason": "根據同義詞判定，主體 CAPTCHA 與 Ldr 中的 'captcha' 完全等價同義詞，受體驗證資訊與認證資訊雖相關但不完全等價，依據【廣義/狹義一律保留】原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CAPTCHA",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "驗證資訊",
+        "type": "data"
+      },
+      "reasoning": "CAPTCHA 機制要求使用者輸入驗證資訊以區分人類與電腦，這表示該工具會分析輸入的資料，符合 tool can_analyze data。",
+      "source_id": "chunk_59",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "http 封包攻擊",
+      "type": "attack",
+      "display_name": "HTTP 封包攻擊"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "分散式阻斷服務 (ddos) 攻擊",
+      "type": "attack",
+      "display_name": "分散式阻斷服務 (DDoS) 攻擊"
+    },
+    "reasoning": "HTTP 封包攻擊是執行 DDoS 攻擊的一種方式，屬於攻擊類型的層級關係，符合 attack is_part_of attack。",
+    "source_id": "chunk_59",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "HTTP 封包攻擊與分散式阻斷服務 (DDoS) 攻擊皆為 'attack' 的合理實例，語意對齊且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "HTTP 封包攻擊與分散式阻斷服務 (DDoS) 攻擊的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中主體為 HTTP 封包攻擊，類別為 attack，關係為 is_part_of，受體為分散式阻斷服務 (DDoS) 攻擊，類別為 attack，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體皆為攻擊類別，且關係為 is_part_of，未違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (HTTP 封包攻擊) 與受體 (分散式阻斷服務 (DDoS) 攻擊) 分別與 Ldr 中的資源進行比對，發現受體與 Ldr 中的「分散式阻斷服務 (ddos) 攻擊」完全匹配，且主體與 Ldr 中的「udp 封包攻擊」或「tcp 封包攻擊」相似，但不完全匹配，兩者皆屬於攻擊類別，但不構成同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "分散式阻斷服務 (ddos) 攻擊",
+        "reason": "受體為完全匹配的同義詞重複，主體與 Ldr 中的資源不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "HTTP 封包攻擊",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "分散式阻斷服務 (DDoS) 攻擊",
+        "type": "attack"
+      },
+      "reasoning": "HTTP 封包攻擊是執行 DDoS 攻擊的一種方式，屬於攻擊類型的層級關係，符合 attack is_part_of attack。",
+      "source_id": "chunk_59",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  }
+]

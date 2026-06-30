@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "alice",
+      "type": "user",
+      "display_name": "Alice"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "檔案系統",
+      "type": "system",
+      "display_name": "檔案系統"
+    },
+    "reasoning": "文本提到 Alice 可以讀取、寫入、修改與刪除檔案系統，因此 Alice (user) 使用 (uses) 檔案系統 (system)。",
+    "source_id": "chunk_5",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 'Alice' 是 'user' 的合理實例，'檔案系統' 是 'system' 的合理實例，考慮到同義詞寬容原則，'檔案系統' 可被視為系統的一部分。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係是uses，而規則2是針對mitigates動作。規則3不適用，因為三元組中的主體類別是user，而規則3是針對vulnerability。規則4不適用，因為三元組中的關係是uses，而規則4是針對violates。規則5觸發，因為主體的類別是user，而不是data，但這裡的uses關係是合法的，因為主體是user。規則6不適用，因為三元組中的關係是uses，而規則6是針對deployed_in。規則7不適用，因為三元組中的關係是uses，而規則7是針對generates。規則8不適用，因為三元組中的關係是uses，而規則8是針對controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是user，關係是uses，受體是檔案系統，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 name 完全相同，受體無直接同義詞對應關係",
+        "response": "correct",
+        "standard_subject": "alice",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Alice",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "檔案系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到 Alice 可以讀取、寫入、修改與刪除檔案系統，因此 Alice (user) 使用 (uses) 檔案系統 (system)。",
+      "source_id": "chunk_5",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "業務人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "rbac",
+      "type": "policy",
+      "display_name": "RBAC"
+    },
+    "reasoning": "文本描述將業務人員指定角色並依角色分派權限的方法稱為 RBAC，這是一種權限管理策略，因此業務人員 (user) 實作/遵循 (implements) RBAC (policy)。",
+    "source_id": "chunk_5",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "業務人員 (user) 實現 RBAC (policy) 的情境下，'業務人員' 是 'user' 的合理實例，'RBAC' 是 'policy' 的合理實例，兩者之間的 'implements' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "業務人員實現 RBAC 政策的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為業務人員，關係為implements，受體為RBAC，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "業務人員與員工之間存在同義詞關係，兩者均指user類別下的實體",
+        "response": "duplicate",
+        "standard_subject": "員工",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，業務人員與員工是同義詞，因此判定為duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "業務人員",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "RBAC",
+        "type": "policy"
+      },
+      "reasoning": "文本描述將業務人員指定角色並依角色分派權限的方法稱為 RBAC，這是一種權限管理策略，因此業務人員 (user) 實作/遵循 (implements) RBAC (policy)。",
+      "source_id": "chunk_5",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "rbac",
+      "type": "policy",
+      "display_name": "RBAC"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "安全疑慮",
+      "type": "risk",
+      "display_name": "安全疑慮"
+    },
+    "reasoning": "文本指出使用 ACL 方法操作複雜且有安全疑慮，而 RBAC 是作為一種更佳的替代方案，因此 RBAC (policy) 緩解 (mitigates) 了 ACL 帶來的安全疑慮 (risk)。",
+    "source_id": "chunk_5",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "RBAC 是一種 'policy'，而 'policy' 的名稱與其類別合理對齊；'安全疑慮' 可被視為 'risk' 的同義詞或翻譯，與其類別 'risk' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 RBAC 類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 RBAC 與 Ldr 中的 'rbac' 完全等價，受體 '安全疑慮' 與 Ldr 中的 '安全威脅' 或 '實體安全風險' 可能相關但不完全等價",
+        "response": "correct",
+        "standard_subject": "rbac",
+        "standard_object": "",
+        "reason": "根據前提確認，主體 RBAC 完全匹配 Ldr 中的 'rbac'，而受體 '安全疑慮' 雖然與 '安全威脅' 或 '實體安全風險' 相關，但不完全等價，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RBAC",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "安全疑慮",
+        "type": "risk"
+      },
+      "reasoning": "文本指出使用 ACL 方法操作複雜且有安全疑慮，而 RBAC 是作為一種更佳的替代方案，因此 RBAC (policy) 緩解 (mitigates) 了 ACL 帶來的安全疑慮 (risk)。",
+      "source_id": "chunk_5",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "windows",
+      "type": "system",
+      "display_name": "Windows"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "acl",
+      "type": "technique",
+      "display_name": "ACL"
+    },
+    "reasoning": "文本提到 'Windows ACL 設定'，將 ACL 視為 Windows 系統中用來實作存取控制的工具/機制，符合 (system, has_a, tool) 的 Schema。",
+    "source_id": "chunk_5",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Windows 是一個 'system' 的合理實例，ACL (Access Control List) 是一個 'tool' 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為系統可以具有存取控制清單 (ACL)。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，並且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'has_a'，與規則無直接衝突。",
+        "response": "correct",
+        "reason": "三元組（Windows, has_a, ACL）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Windows) 與 Ldr 中的 'windows' 完全等價同義詞，受體 (ACL) 與 Ldr 中的 'acl' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "windows",
+        "standard_object": "acl",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複需要合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Windows",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "ACL",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 'Windows ACL 設定'，將 ACL 視為 Windows 系統中用來實作存取控制的工具/機制，符合 (system, has_a, tool) 的 Schema。",
+      "source_id": "chunk_5",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "alice",
+      "type": "user",
+      "display_name": "Alice"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料庫",
+      "type": "app",
+      "display_name": "資料庫"
+    },
+    "reasoning": "文本提到 Alice 擁有資料庫之存取權限，因此 Alice (user) 使用 (uses) 資料庫 (app)。",
+    "source_id": "chunk_5",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 'Alice' 是 'user' 的合理實例，'資料庫' 是 'app' 的合理實例，考慮到同義詞寬容原則，'資料庫' 可被視為 'app' 的一種實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體的類別是 'user'，不違反此規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 'user'，關係是 'uses'，受體是 '資料庫'，這符合一般使用資料庫的邏輯，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "alice",
+        "standard_object": "資料庫",
+        "reason": "主體與受體名稱與現有近似資源清單中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Alice",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資料庫",
+        "type": "app"
+      },
+      "reasoning": "文本提到 Alice 擁有資料庫之存取權限，因此 Alice (user) 使用 (uses) 資料庫 (app)。",
+      "source_id": "chunk_5",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "alice",
+      "type": "user",
+      "display_name": "Alice"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "主體功能存取控制",
+      "type": "policy",
+      "display_name": "主體功能存取控制"
+    },
+    "reasoning": "文本將 '主體功能存取控制' 描述為一種控管主體存取客體的機制/方法，Alice 作為該機制下的主體，符合 (user, implements, policy) 的 Schema。",
+    "source_id": "chunk_5",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 'Alice' 是 'user' 的合理實例，'主體功能存取控制' 是 'policy' 的合理實例，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。實體 'Alice' 的類別為 'user'，與 'implements' 關係和 '主體功能存取控制' 的類別 'policy' 組成的三元組，未直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中，'Alice' 作為主體，'implements' 關係，'主體功能存取控制' 作為受體，未發現明確且直接違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 'Alice' 與 Ldr 中的 'alice' 完全等價同義詞，受體 '主體功能存取控制' 與 Ldr 中的 'rbac' 或 '存取控制' 可能是同義詞或相關概念，但 '主體功能存取控制' 更接近 'rbac' 的概念",
+        "response": "correct",
+        "standard_subject": "alice",
+        "standard_object": "",
+        "reason": "根據同義詞判定，'Alice' 與 'alice' 是同義詞，但 '主體功能存取控制' 與 'rbac' 或 '存取控制' 之間的關係需要進一步分析，根據廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Alice",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "主體功能存取控制",
+        "type": "policy"
+      },
+      "reasoning": "文本將 '主體功能存取控制' 描述為一種控管主體存取客體的機制/方法，Alice 作為該機制下的主體，符合 (user, implements, policy) 的 Schema。",
+      "source_id": "chunk_5",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

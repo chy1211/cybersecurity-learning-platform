@@ -1,0 +1,626 @@
+[
+  {
+    "subject": {
+      "name": "安全探測",
+      "type": "technique",
+      "display_name": "安全探測"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "目標系統",
+      "type": "system",
+      "display_name": "目標系統"
+    },
+    "reasoning": "文本提到對目標系統進行安全探測，安全探測是一種方法(technique)，目標系統是基礎設施(system)，符合 Schema 中 ('technique', 'can_analyze', 'system') 的定義。",
+    "source_id": "chunk_7",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全探測 (technique) 可以分析目標系統 (system)，這符合資安領域的常見語意對齊，且 'can_analyze' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的主體是「安全探測 (類別: technique)」，關係是「can_analyze」，受體是「目標系統 (類別: system)」，這些元素在給定的規則中沒有直接觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組不違反任何語義限制清單中的規則，故判定為正確。沒有發現明確且直接的違反項目，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中項目有相似性，但需進一步判定同義詞或廣義/狹義關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "目標系統",
+        "reason": "受體「目標系統」與現有近似資源清單中的「目標系統」完全匹配，故判定為正確；主體「安全探測」與「安全測試」相似但不完全等價，依據規則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全探測",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "目標系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到對目標系統進行安全探測，安全探測是一種方法(technique)，目標系統是基礎設施(system)，符合 Schema 中 ('technique', 'can_analyze', 'system') 的定義。",
+      "source_id": "chunk_7",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "安全探測",
+      "type": "technique",
+      "display_name": "安全探測"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本指出安全探測的目的在於找出弱點。安全探測為技術(technique)，弱點為漏洞(vulnerability)，符合 Schema 中 ('technique', 'can_analyze', 'vulnerability') 的定義。",
+    "source_id": "chunk_7",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全探測 (technique) 可以分析弱點 (vulnerability)，這是資安領域中合理的語意對齊，符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。由於三元組中的主體是 '安全探測' (類別: technique)，而非 '漏洞'，因此不觸發規則3的違規。其他規則均不適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '安全探測' 屬於 'technique' 類別，與規則3中提到的 'vulnerability' 類別不符，且其他規則不適用於此三元組。因此，三元組不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源存在於 Ldr 中，但需進一步判定同義詞關係與子類型關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，受體 '弱點' 與 Ldr 中的 '弱點' 完全匹配，且主體 '安全探測' 與 Ldr 中的 '安全測試' 雖有相似性，但不構成同義詞關係或子類型關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全探測",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出安全探測的目的在於找出弱點。安全探測為技術(technique)，弱點為漏洞(vulnerability)，符合 Schema 中 ('technique', 'can_analyze', 'vulnerability') 的定義。",
+      "source_id": "chunk_7",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "驗證",
+      "type": "technique",
+      "display_name": "驗證"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到驗證(verification)是用來檢驗所開發的程式或系統是否符合規格。驗證是一種技術流程(technique)，系統為(system)，符合 Schema 中 ('technique', 'can_analyze', 'system') 的定義。",
+    "source_id": "chunk_7",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "驗證 (technique) 與 系統 (system) 的名稱與其類別合理對齊，且 'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_analyze' 不在任何規則中被明確限制或定義，且主體 '驗證' 的類別 'technique' 與受體 '系統' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「驗證」與 Ldr 中的「驗證」完全相同，受體「系統」與 Ldr 中的「系統」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認原則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "驗證",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到驗證(verification)是用來檢驗所開發的程式或系統是否符合規格。驗證是一種技術流程(technique)，系統為(system)，符合 Schema 中 ('technique', 'can_analyze', 'system') 的定義。",
+      "source_id": "chunk_7",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "驗證",
+      "type": "technique",
+      "display_name": "確認"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到確認(validation)是用來確定所開發的程式或系統是否符合客戶需求。確認是一種技術流程(technique)，系統為(system)，符合 Schema 中 ('technique', 'can_analyze', 'system') 的定義。",
+    "source_id": "chunk_7",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "確認 'technique' 的名稱與其類別合理對齊，'system' 的名稱與其類別也合理對齊，且 'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用，因為主體類別是 technique，不是 vulnerability。規則4：不適用。規則5：不適用，因為關係不是 uses。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是確認 (類別: technique)，關係是 can_analyze，受體是系統 (類別: system)，這不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"確認\" 與 Ldr 中的 \"驗證\" 類別相同，且為同義詞；受體 \"系統\" 與 Ldr 中的 \"系統\" 類別相同，且為完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "驗證",
+        "standard_object": "系統",
+        "reason": "根據同義詞對照表，確認與驗證為同義詞，系統為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "確認",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到確認(validation)是用來確定所開發的程式或系統是否符合客戶需求。確認是一種技術流程(technique)，系統為(system)，符合 Schema 中 ('technique', 'can_analyze', 'system') 的定義。",
+      "source_id": "chunk_7",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊系統",
+      "type": "system",
+      "display_name": "資訊系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "外圍層",
+      "type": "feature",
+      "display_name": "外圍層"
+    },
+    "reasoning": "文本將資訊系統的範疇分為六個層次，外圍層是其組成部分(feature)，符合 Schema 中 ('system', 'has_a', 'feature') 的定義。",
+    "source_id": "chunk_7",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資訊系統 (system) 可以有外圍層 (feature)，這是語意上合理的對齊，接受資安領域常見的同義詞、縮寫與翻譯後，仍然是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查規則沒有直接觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '資訊系統' 和受體 '外圍層' 的類別組合，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「資訊系統」與 Ldr 中的「資訊系統」完全等價同義詞，受體「外圍層」與 Ldr 中的「外圍層」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "外圍層",
+        "type": "feature"
+      },
+      "reasoning": "文本將資訊系統的範疇分為六個層次，外圍層是其組成部分(feature)，符合 Schema 中 ('system', 'has_a', 'feature') 的定義。",
+      "source_id": "chunk_7",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊系統",
+      "type": "system",
+      "display_name": "資訊系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "外部層",
+      "type": "feature",
+      "display_name": "外部層"
+    },
+    "reasoning": "外部層是資訊系統範疇的組成部分(feature)，符合 Schema 中 ('system', 'has_a', 'feature') 的定義。",
+    "source_id": "chunk_7",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資訊系統可以被合理地視為具有外部層的實例，'has_a' 關係在此語境下是合理的，尤其是在資安領域中，系統通常具有各種特徵或功能，如外部層。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 '資訊系統' 的類別是 'system'，受體 '外部層' 的類別是 'feature'，這不觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資訊系統' 與 Ldr 中的 '資訊系統' 完全等價同義詞，受體 '外部層' 與 Ldr 中的 '外部層' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "外部層",
+        "type": "feature"
+      },
+      "reasoning": "外部層是資訊系統範疇的組成部分(feature)，符合 Schema 中 ('system', 'has_a', 'feature') 的定義。",
+      "source_id": "chunk_7",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊安全管理作業程序",
+      "type": "policy",
+      "display_name": "資訊安全管理作業程序"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本提到遵照作業程序並使用對策以降低風險。作業程序屬於規範(policy)，風險屬於風險(risk)，符合 Schema 中 ('policy', 'mitigates', 'risk') 的定義。",
+    "source_id": "chunk_7",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資訊安全管理作業程序 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中是合理的，表示政策可以減輕風險。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是資訊安全管理作業程序（類別：policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"風險\" 與 Ldr 中的 \"風險\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全管理作業程序",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到遵照作業程序並使用對策以降低風險。作業程序屬於規範(policy)，風險屬於風險(risk)，符合 Schema 中 ('policy', 'mitigates', 'risk') 的定義。",
+      "source_id": "chunk_7",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊系統",
+      "type": "system",
+      "display_name": "資訊系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "中心層",
+      "type": "feature",
+      "display_name": "中心層"
+    },
+    "reasoning": "中心層是資訊系統範疇的組成部分(feature)，符合 Schema 中 ('system', 'has_a', 'feature') 的定義。",
+    "source_id": "chunk_7",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資訊系統 (system) 可以有中心層 (feature)，這是語意上合理的對齊，接受資安領域常見的同義詞、縮寫與翻譯後，仍然認為這是合理的。",
+        "response": "correct",
+        "reason": "主體、關係、受體的類別與屬性完全符合預先定義的清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係沒有觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資訊系統' 與 Ldr 中的 '資訊系統' 完全等價同義詞，受體 '中心層' 與 Ldr 中的 '中心層' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源 name 完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "中心層",
+        "type": "feature"
+      },
+      "reasoning": "中心層是資訊系統範疇的組成部分(feature)，符合 Schema 中 ('system', 'has_a', 'feature') 的定義。",
+      "source_id": "chunk_7",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊系統",
+      "type": "system",
+      "display_name": "資訊系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "分析層",
+      "type": "feature",
+      "display_name": "分析層"
+    },
+    "reasoning": "分析層是資訊系統範疇的組成部分(feature)，符合 Schema 中 ('system', 'has_a', 'feature') 的定義。",
+    "source_id": "chunk_7",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊系統可以被視為具有分析層的合理實例，且 'has_a' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '資訊系統' 和受體 '分析層' 的類別組合，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊系統與Ldr中的資訊系統完全匹配，分析層與Ldr中的分析層完全匹配，兩者之間沒有廣義或狹義的從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體都與Ldr中的資源完全匹配，無同義詞重複或從屬關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "分析層",
+        "type": "feature"
+      },
+      "reasoning": "分析層是資訊系統範疇的組成部分(feature)，符合 Schema 中 ('system', 'has_a', 'feature') 的定義。",
+      "source_id": "chunk_7",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊系統",
+      "type": "system",
+      "display_name": "資訊系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "內部層",
+      "type": "feature",
+      "display_name": "內部層"
+    },
+    "reasoning": "內部層是資訊系統範疇的組成部分(feature)，符合 Schema 中 ('system', 'has_a', 'feature') 的定義。",
+    "source_id": "chunk_7",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資訊系統可以被視為一個系統（system），內部層可以被視為系統的一個特徵（feature），因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與給定的語義限制清單中沒有直接相關的規則，因此無法判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊系統與Ldr中的資訊系統完全等價同義詞，內部層與Ldr中的內部層完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與Ldr中的資源名稱完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "內部層",
+        "type": "feature"
+      },
+      "reasoning": "內部層是資訊系統範疇的組成部分(feature)，符合 Schema 中 ('system', 'has_a', 'feature') 的定義。",
+      "source_id": "chunk_7",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊系統",
+      "type": "system",
+      "display_name": "資訊系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "法律層",
+      "type": "feature",
+      "display_name": "法律層"
+    },
+    "reasoning": "法律層是資訊系統範疇的組成部分(feature)，符合 Schema 中 ('system', 'has_a', 'feature') 的定義。",
+    "source_id": "chunk_7",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊系統可以被視為一個系統（system），而法律層可以被視為系統的一個特徵（feature），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與受體 '法律層' 的類別 'feature' 不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊系統與資訊系統架構、資訊安全系統等為廣義/狹義從屬關係，但與法律層無直接關聯；法律層與外圍層、外部層等為同義詞重複的可能性，但無直接證據支持",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體或受體為同義詞重複，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "法律層",
+        "type": "feature"
+      },
+      "reasoning": "法律層是資訊系統範疇的組成部分(feature)，符合 Schema 中 ('system', 'has_a', 'feature') 的定義。",
+      "source_id": "chunk_7",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "安全管理政策",
+      "type": "policy",
+      "display_name": "安全管理政策"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本提到管理層面包含訂立安全管理政策以作為防範對策，其目的在於降低風險。政策(policy)緩解風險(risk)，符合 Schema 中 ('policy', 'mitigates', 'risk') 的定義。",
+    "source_id": "chunk_7",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "安全管理政策 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，與安全管理政策的目的相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是安全管理政策（policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確違反的規則。因此，根據驗證邏輯，該三元組被判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "安全管理政策與安全政策之間存在同義詞關係，風險與各類風險相關實體之間存在廣義/狹義從屬關係，但根據判斷準則，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，廣義/狹義一律保留，且無法確定同義詞關係，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全管理政策",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到管理層面包含訂立安全管理政策以作為防範對策，其目的在於降低風險。政策(policy)緩解風險(risk)，符合 Schema 中 ('policy', 'mitigates', 'risk') 的定義。",
+      "source_id": "chunk_7",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 12
+    }
+  }
+]

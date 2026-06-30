@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "憑證",
+      "type": "data",
+      "display_name": "憑證"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "公開金鑰",
+      "type": "feature",
+      "display_name": "公開金鑰"
+    },
+    "reasoning": "憑證內包含公開金鑰，將憑證視為一種身分驗證工具 (tool)，公開金鑰為其組成屬性 (feature)，符合 (tool, has_a, feature) 的 Schema。",
+    "source_id": "chunk_18",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'tool' 和受體的類別 'feature' 都存在於 Lc,p 的 'Classes' 中，關係 'has_a' 也存在於 'Properties' 中。",
+        "step_2_alignment_check": "憑證是一種工具（tool），公開金鑰是一種功能或特徵（feature），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "憑證與公開金鑰的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規，因為主體的類別是 data，且關係為 has_a，不在允許的例外中。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "violation",
+        "reason": "三元組違反規則5，因為主體的類別是 data，且關係為 has_a，與規則5中所述的 data 不能作為主體的限制相衝突。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組違反規則5，因為主體的類別是 data，且關係為 has_a，與規則5中所述的 data 不能作為主體的限制相衝突。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "憑證",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "公開金鑰",
+        "type": "feature"
+      },
+      "reasoning": "憑證內包含公開金鑰，將憑證視為一種身分驗證工具 (tool)，公開金鑰為其組成屬性 (feature)，符合 (tool, has_a, feature) 的 Schema。",
+      "source_id": "chunk_18",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 2
+    }
+  }
+]

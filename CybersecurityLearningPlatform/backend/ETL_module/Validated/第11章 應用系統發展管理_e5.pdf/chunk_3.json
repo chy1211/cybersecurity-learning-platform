@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "microsoft sdl",
+      "type": "policy",
+      "display_name": "Microsoft SDL"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "惡意軟體之攻擊",
+      "type": "attack",
+      "display_name": "惡意軟體之攻擊"
+    },
+    "reasoning": "文本明確提到微軟公司為了『預防惡意軟體之攻擊』而提出 Microsoft SDL，因此 SDL 作為一種政策/流程可緩解該攻擊。",
+    "source_id": "chunk_3",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Microsoft SDL 是一種安全開發生命週期政策（policy），'惡意軟體之攻擊' 可被視為攻擊（attack）的實例，'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，語意對齊合理。",
+        "response": "correct",
+        "reason": "Microsoft SDL 的類別、'惡意軟體之攻擊' 的類別與 'mitigates' 關係皆符合 Lc,p 的定義，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，Microsoft SDL 的類別是 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "Microsoft SDL 是一種 policy，根據規則2，policy 可以執行 mitigates 動作，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"惡意軟體之攻擊\" 與 Ldr 中的 \"惡意軟體之攻擊\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Microsoft SDL",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "惡意軟體之攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到微軟公司為了『預防惡意軟體之攻擊』而提出 Microsoft SDL，因此 SDL 作為一種政策/流程可緩解該攻擊。",
+      "source_id": "chunk_3",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "安全培訓",
+      "type": "technique",
+      "display_name": "安全培訓"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "microsoft sdl",
+      "type": "policy",
+      "display_name": "Microsoft SDL"
+    },
+    "reasoning": "文本將『安全培訓』列為 Microsoft SDL 流程模式組成 7 個部分之一。在此將 SDL 視為一種開發技術/方法論 (technique)，符合 technique is_part_of technique 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全培訓 (Security Training) 是一種合理的 'technique' 實例，Microsoft SDL (Security Development Lifecycle) 也是 'technique' 的合理實例，兩者之間的 'is_part_of' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的定義，且語意對齊，安全培訓與 Microsoft SDL 之間的 'is_part_of' 關係在資安領域中是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在給定的規則中被明確限制，且主體和受體的類別組合在規則中沒有被指出為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 '資訊安全觀念培訓' 實體具有高相似度，但非完全等價同義詞；受體 'Microsoft SDL' 完全匹配 Ldr 中的 'microsoft sdl'，且為同一概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，主體與 Ldr 中的實體具有高相似度，但非完全等價同義詞，且受體完全匹配 Ldr 中的實體，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全培訓",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Microsoft SDL",
+        "type": "technique"
+      },
+      "reasoning": "文本將『安全培訓』列為 Microsoft SDL 流程模式組成 7 個部分之一。在此將 SDL 視為一種開發技術/方法論 (technique)，符合 technique is_part_of technique 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "microsoft sdl",
+      "type": "policy",
+      "display_name": "Microsoft SDL"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "惡意軟體之攻擊",
+      "type": "attack",
+      "display_name": "惡意軟體之攻擊"
+    },
+    "reasoning": "除了作為政策，SDL 本身也是一種安全性軟體開發的流程模式 (technique)，旨在防禦惡意軟體攻擊。",
+    "source_id": "chunk_3",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Microsoft SDL 是一種安全開發生命週期的技術（technique），而 '惡意軟體之攻擊' 是一種攻擊（attack）的合理實例，且 'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的風險，因此語意對齊。",
+        "response": "correct",
+        "reason": "Microsoft SDL 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，Microsoft SDL 的類別是 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "Microsoft SDL 的類別是 policy，符合規則2的條件，且未發現其他明確且直接的違反項目。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"惡意軟體之攻擊\" 與 Ldr 中的 \"惡意軟體之攻擊\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Microsoft SDL",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "惡意軟體之攻擊",
+        "type": "attack"
+      },
+      "reasoning": "除了作為政策，SDL 本身也是一種安全性軟體開發的流程模式 (technique)，旨在防禦惡意軟體攻擊。",
+      "source_id": "chunk_3",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "起始階段",
+      "type": "technique",
+      "display_name": "起始階段"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "rational rup",
+      "type": "technique",
+      "display_name": "Rational RUP"
+    },
+    "reasoning": "文本提到 RUP 流程模式分為四個階段，其中包含『起始階段』。將 RUP 與其階段均視為開發技術/流程 (technique)。",
+    "source_id": "chunk_3",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '起始階段' 和 'Rational RUP' 的名稱與其被賦予的 'technique' 類別合理對齊，考慮到資安領域的同義詞和專業術語。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且實體名稱與類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組的關係是 'is_part_of'，且主體和受體的類別分別是 'technique'，因此沒有直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組的組成和關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為獨立的技術類別，無直接同義詞關係或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法確定同義詞或從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "起始階段",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Rational RUP",
+        "type": "technique"
+      },
+      "reasoning": "文本提到 RUP 流程模式分為四個階段，其中包含『起始階段』。將 RUP 與其階段均視為開發技術/流程 (technique)。",
+      "source_id": "chunk_3",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "微軟公司",
+      "type": "securityTeam",
+      "display_name": "微軟公司"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "microsoft sdl",
+      "type": "policy",
+      "display_name": "Microsoft SDL"
+    },
+    "reasoning": "文本指出微軟公司將 SDL 推展作為『全公司實行的政策』，符合 securityTeam implements policy 的定義。",
+    "source_id": "chunk_3",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "微軟公司 (Microsoft) 是一家知名公司，具有安全團隊 (securityTeam)，Microsoft SDL (Security Development Lifecycle) 是一項安全開發流程 (policy)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "微軟公司的安全團隊實施 Microsoft SDL 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為主體是安全團隊(securityTeam)而非攻擊者(attacker)。規則2：不適用，因為動作是implements而非mitigates。規則3：不適用，因為主體類別是securityTeam而非vulnerability。規則4：不適用，因為關係是implements而非violates，且主體類別是securityTeam而非principle。規則5：不適用，因為關係是implements而非uses。規則6：不適用，因為關係是implements而非deployed_in。規則7：不適用，因為關係是implements而非generates。規則8：不適用，因為關係是implements而非controls，但securityTeam具有主動執行能力，符合規則8的前提，但不直接適用於implements關係。",
+        "response": "correct",
+        "reason": "三元組中的主體（微軟公司）是安全團隊（securityTeam），它實施（implements）Microsoft SDL（一種政策），這符合一般的安全實踐邏輯，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "microsoft sdl",
+        "reason": "根據資安領域已知同義詞對照範例，Microsoft SDL 與 microsoft sdl 是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "微軟公司",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "Microsoft SDL",
+        "type": "policy"
+      },
+      "reasoning": "文本指出微軟公司將 SDL 推展作為『全公司實行的政策』，符合 securityTeam implements policy 的定義。",
+      "source_id": "chunk_3",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "精細規劃階段",
+      "type": "technique",
+      "display_name": "精細規劃階段"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "rational rup",
+      "type": "technique",
+      "display_name": "Rational RUP"
+    },
+    "reasoning": "『精細規劃階段』是 RUP 流程模式的組成部分。",
+    "source_id": "chunk_3",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "精細規劃階段 (精緻規劃階段) 與 Rational RUP 均為 'technique' 的合理實例，考慮到同義詞寬容原則，'精細規劃階段' 可被視為 'technique' 的一種具體實現，Rational RUP 是一種軟件開發方法論，同樣屬於 'technique'。",
+        "response": "correct",
+        "reason": "主體、關係、受體皆符合 Lc,p 的定義，且實體名稱與其類別合理對齊，滿足資安領域的同義詞寬容原則。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關。由於三元組中 '精細規劃階段' 是 'technique' 類別，'is_part_of' 關係指向 'Rational RUP'，也是一個 'technique'，這符合一般的技術分類和包含關係，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體都屬於 'technique' 類別，'is_part_of' 關係在此.context 下是合理的，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"精細規劃階段\" 與 Ldr 中的 \"設計階段\" 類似，但非完全等價同義詞；受體 \"Rational RUP\" 與 Ldr 中的 \"rational rup\" 完全匹配，為同一概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "rational rup",
+        "reason": "受體 \"Rational RUP\" 與 Ldr 中的 \"rational rup\" 完全匹配，判定為同一概念，但主體 \"精細規劃階段\" 與 Ldr 中的資源不完全匹配，保留原狀。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "精細規劃階段",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Rational RUP",
+        "type": "technique"
+      },
+      "reasoning": "『精細規劃階段』是 RUP 流程模式的組成部分。",
+      "source_id": "chunk_3",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "建構階段",
+      "type": "technique",
+      "display_name": "建構階段"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "rational rup",
+      "type": "technique",
+      "display_name": "Rational RUP"
+    },
+    "reasoning": "『建構階段』是 RUP 流程模式的組成部分。",
+    "source_id": "chunk_3",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '建構階段' 與受體 'Rational RUP' 均為 'technique' 的合理實例，考慮到同義詞寬容原則，'建構階段' 可被視為軟體開發技術的一部分，而 'Rational RUP' 是一種軟體開發方法論，兩者皆屬於 'technique' 類別。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的定義，且實體名稱與其類別合理對齊，滿足語意對齊與同義詞寬容原則。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，因此被判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為特定技術類別，且受體 'Rational RUP' 與 Ldr 中 'rational rup' 完全匹配，屬於完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "rational rup",
+        "reason": "根據前提確認與同義詞判定，受體 'Rational RUP' 與 Ldr 中 'rational rup' 完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "建構階段",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Rational RUP",
+        "type": "technique"
+      },
+      "reasoning": "『建構階段』是 RUP 流程模式的組成部分。",
+      "source_id": "chunk_3",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "移轉階段",
+      "type": "technique",
+      "display_name": "移轉階段"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "rational rup",
+      "type": "technique",
+      "display_name": "Rational RUP"
+    },
+    "reasoning": "『移轉階段』是 RUP 流程模式的組成部分。",
+    "source_id": "chunk_3",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "移轉階段 (technique) 和 Rational RUP (technique) 的名稱與其被賦予的類別 'technique' 合理對齊，考慮到資安領域的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "移轉階段和 Rational RUP 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被定義為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "移轉階段與起始階段、精細規劃階段、建構階段等均為Rational RUP的不同階段，但移轉階段與Rational RUP之間的關係是實體與實體的對應關係，非同義詞重複或廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "移轉階段與Rational RUP之間的關係是實體與實體的對應關係，非同義詞重複或廣義/狹義從屬關係，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "移轉階段",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Rational RUP",
+        "type": "technique"
+      },
+      "reasoning": "『移轉階段』是 RUP 流程模式的組成部分。",
+      "source_id": "chunk_3",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "rational rup",
+      "type": "technique",
+      "display_name": "瀑布式改良開發流程"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "rational rup",
+      "type": "technique",
+      "display_name": "Rational RUP"
+    },
+    "reasoning": "文本提到 RUP 流程模式『採用瀑布式改良開發流程』，表示該流程是 RUP 技術實作的核心部分。",
+    "source_id": "chunk_3",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "瀑布式改良開發流程與 Rational RUP 均為合理的 'technique' 實例，且 'is_part_of' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關。三元組中的關係 'is_part_of' 不在任何規則中被明確限制或定義，且主體和受體的類別均為 'technique'，未觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，且關係 'is_part_of' 在給定的規則中未被明確限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "瀑布式改良開發流程與Rational RUP為同一開發流程的不同名稱，屬於同義詞",
+        "response": "duplicate",
+        "standard_subject": "rational rup",
+        "standard_object": "",
+        "reason": "根據同義詞判定，瀑布式改良開發流程與Rational RUP為同一概念"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "瀑布式改良開發流程",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Rational RUP",
+        "type": "technique"
+      },
+      "reasoning": "文本提到 RUP 流程模式『採用瀑布式改良開發流程』，表示該流程是 RUP 技術實作的核心部分。",
+      "source_id": "chunk_3",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

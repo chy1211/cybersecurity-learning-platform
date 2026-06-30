@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "資訊安全管理系統 (isms)",
+      "type": "system",
+      "display_name": "資訊安全管理系統 (ISMS)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資訊資產分級",
+      "type": "technique",
+      "display_name": "資訊資產分級"
+    },
+    "reasoning": "文本提到在 ISMS 中定義並進行資訊資產分級，資產分級可視為該管理系統的一個組成屬性或特徵，符合 (system, has_a, feature)。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊安全管理系統 (ISMS) 是 system 的合理實例，資訊資產分級是 feature 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'has_a'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合沒有違反任何給定的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊資產分級與資訊資產分類、資產分類分級、資產分類與分級、資料分級之間存在廣義/狹義從屬關係，但無法確認完全等價同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，若一個實體是另一個的子類型，則判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全管理系統 (ISMS)",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資訊資產分級",
+        "type": "feature"
+      },
+      "reasoning": "文本提到在 ISMS 中定義並進行資訊資產分級，資產分級可視為該管理系統的一個組成屬性或特徵，符合 (system, has_a, feature)。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊資產分級",
+      "type": "technique",
+      "display_name": "資訊資產分級"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "technique",
+      "display_name": "攻擊"
+    },
+    "reasoning": "文本指出透過資產分級可讓資產受到適當程度的保護，這在資安邏輯上是用於緩解攻擊造成的損害，符合 (technique, mitigates, attack)。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊資產分級為 technique 的合理實例，攻擊為 attack 的合理實例，且 'mitigates' 的語意與資安領域中減輕攻擊的概念相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '資訊資產分級'，類別為 'technique'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '資訊資產分級' 屬於 'technique' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊資產分級與資訊資產分類、資產分類分級、資產分類與分級等為同一概念的不同表達，攻擊與密碼攻擊、攻擊技術、社交攻擊、即時偵測攻擊等為同一類別下的不同子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，資訊資產分級與攻擊之間的關係不構成同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產分級",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本指出透過資產分級可讓資產受到適當程度的保護，這在資安邏輯上是用於緩解攻擊造成的損害，符合 (technique, mitigates, attack)。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "通用漏洞評分系統 (cvss)",
+      "type": "tool",
+      "display_name": "通用漏洞評分系統 (CVSS)"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "CVSS 被定義為一個可衡量漏洞嚴重程度的標準，其核心功能是對漏洞進行分析評分，符合 (tool, can_analyze, vulnerability)。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "通用漏洞評分系統 (CVSS) 是一種工具，合理對齊 'tool' 類別；漏洞是資安領域中的常見實體，合理對齊 'vulnerability' 類別。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該規則未直接觸發，因為主體是 CVSS (類別: tool)，而非 vulnerability。其他規則均未直接觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體是 CVSS (類別: tool)，與規則中描述的限制不符，因此不觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資源 '漏洞' 完全等價為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據資安領域已知同義詞對照範例，'漏洞' 等同於 '弱點' 或 '脆弱性'，皆指 'vulnerability'，因此受體為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "通用漏洞評分系統 (CVSS)",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "CVSS 被定義為一個可衡量漏洞嚴重程度的標準，其核心功能是對漏洞進行分析評分，符合 (tool, can_analyze, vulnerability)。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "通用漏洞評分系統 (cvss)",
+      "type": "tool",
+      "display_name": "通用漏洞評分系統 (CVSS)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "攻擊途徑",
+      "type": "feature",
+      "display_name": "攻擊途徑"
+    },
+    "reasoning": "攻擊途徑是 CVSS 基本指標群中的考量因素，是該評分工具定義的特徵之一，符合 (tool, has_a, feature)。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "通用漏洞評分系統 (CVSS) 是一種工具 (tool)，攻擊途徑 (attack path) 可被視為一種特徵 (feature)，且 'has_a' 關係在此語境下合理，表示 CVSS 有攻擊途徑這一特徵。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（CVSS has_a 攻擊途徑）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與現有近似資源清單中的「通用漏洞評分系統 (cvss)」完全相同，受體與現有近似資源清單中的資源無直接同義詞關係，但無法確定其是否為廣義或狹義的從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若無法確定，預設保留，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "通用漏洞評分系統 (CVSS)",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "攻擊途徑",
+        "type": "feature"
+      },
+      "reasoning": "攻擊途徑是 CVSS 基本指標群中的考量因素，是該評分工具定義的特徵之一，符合 (tool, has_a, feature)。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "通用漏洞評分系統 (cvss)",
+      "type": "tool",
+      "display_name": "通用漏洞評分系統 (CVSS)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "基本指標群",
+      "type": "feature",
+      "display_name": "基本指標群"
+    },
+    "reasoning": "基本指標群是 CVSSv3 構成其判斷標準的三個群組之一，屬於該工具的組成特徵，符合 (tool, has_a, feature)。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "通用漏洞評分系統 (CVSS) 是一種工具 (tool)，基本指標群是其特徵 (feature)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'has_a'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合沒有違反任何給定的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "通用漏洞評分系統 (CVSS) 與基本指標群之間沒有直接的同義詞關係，且 CVSS 是一個特定的工具，基本指標群是其特徵之一，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "通用漏洞評分系統 (CVSS)",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "基本指標群",
+        "type": "feature"
+      },
+      "reasoning": "基本指標群是 CVSSv3 構成其判斷標準的三個群組之一，屬於該工具的組成特徵，符合 (tool, has_a, feature)。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "通用漏洞評分系統 (cvss)",
+      "type": "tool",
+      "display_name": "通用漏洞評分系統 (CVSS)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "攻擊複雜度",
+      "type": "feature",
+      "display_name": "攻擊複雜度"
+    },
+    "reasoning": "攻擊複雜度是 CVSS 基本指標群中的考量因素，是該評分工具定義的特徵之一，符合 (tool, has_a, feature)。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "通用漏洞評分系統 (CVSS) 是一種工具 (tool)，攻擊複雜度是其特徵 (feature) 的一個合理實例，符合語意對齊。",
+        "response": "correct",
+        "reason": "通用漏洞評分系統 (CVSS) 與攻擊複雜度之間的 'has_a' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'has_a'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合沒有違反任何給定的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「通用漏洞評分系統 (CVSS)」與 Ldr 中的「通用漏洞評分系統 (cvss)」完全等價同義詞，受體「攻擊複雜度」與 Ldr 中的「基本指標群」或「攻擊途徑」無直接同義詞關係，但考慮到 CVSS 中的攻擊複雜度是一個特定的指標，與「基本指標群」或「攻擊途徑」無直接等價關係。",
+        "response": "correct",
+        "standard_subject": "通用漏洞評分系統 (cvss)",
+        "standard_object": "",
+        "reason": "主體為同義詞重複，受體無同義詞關係，依據判斷準則 1 和 2，主體判定為同義詞重複，受體無需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "通用漏洞評分系統 (CVSS)",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "攻擊複雜度",
+        "type": "feature"
+      },
+      "reasoning": "攻擊複雜度是 CVSS 基本指標群中的考量因素，是該評分工具定義的特徵之一，符合 (tool, has_a, feature)。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "文本提到日誌應記錄使用者活動，這意味著系統在運作過程中會產生日誌資料，符合 (system, generates, data)。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'system' 和受體的類別 'data' 都存在於 Lc,p 的 'Classes' 中，關係 'generates' 存在於 'Properties' 中。",
+        "step_2_alignment_check": "系統可以生成日誌，這是資安領域中常見的實例，'system' 和 'data' 的名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "主體、關係和受體都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組符合規則：當關係為generates時，受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的條件，且沒有違反其他規則。因此，三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"系統\" 與 Ldr 中的 \"系統\" 完全等價同義詞，受體 \"日誌\" 與 Ldr 中的 \"日誌\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "文本提到日誌應記錄使用者活動，這意味著系統在運作過程中會產生日誌資料，符合 (system, generates, data)。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  }
+]

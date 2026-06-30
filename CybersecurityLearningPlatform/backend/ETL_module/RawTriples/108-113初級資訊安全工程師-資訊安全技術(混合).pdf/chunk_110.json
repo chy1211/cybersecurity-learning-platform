@@ -1,0 +1,137 @@
+[
+  {
+    "subject": {
+      "name": "nmap",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ping",
+      "type": "function"
+    },
+    "reasoning": "文本提到 nmap 會透過 ping 來確認目標伺服器是否連線，因此將 ping 視為 nmap 具備的一項功能 (function)。符合 Schema: (tool, has_a, function)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "nmap",
+      "type": "tool"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "目標伺服器",
+      "type": "system"
+    },
+    "reasoning": "nmap 用於網路探勘並確認伺服器狀態，屬於對系統的分析行為。符合 Schema: (tool, can_analyze, system)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "中間人攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "流量",
+      "type": "data"
+    },
+    "reasoning": "文本明確指出中間人攻擊是用來竊聽、竄改流量的行為，這對資料（流量）造成了危害。符合 Schema: (attack, can_harm, data)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "靜態ARP",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "中間人攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本提到將 ARP 設定為靜態是為了避免 ARP 污染，進而防範中間人攻擊。符合 Schema: (technique, mitigates, attack)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "HTTPS/SMTPS",
+      "type": "app"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "SSLv2",
+      "type": "feature"
+    },
+    "reasoning": "HTTPS/SMTPS 應用程式使用 SSLv2 協定來保護傳輸，協定在此被視為應用程式的特徵/組成部分。符合 Schema: (app, has_a, feature)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "SSLv2",
+      "type": "feature"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到 SSLv2 協定已被驗證有明顯的弱點。符合 Schema: (feature, can_expose, vulnerability)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "DNSSEC",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "假冒網域名稱",
+      "type": "attack"
+    },
+    "reasoning": "DNSSEC 用於驗證 DNS 安全性，以避免存取假冒的網域名稱（一種攻擊行為）。符合 Schema: (technique, mitigates, attack)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "VPN",
+      "type": "tool"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "網路環境",
+      "type": "system"
+    },
+    "reasoning": "文本提到使用 VPN 可確保網路環境在掌控範圍之內，即對網路環境系統進行控制。符合 Schema: (tool, controls, system)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "行程隔離",
+      "type": "feature"
+    },
+    "reasoning": "文本提到作業系統的安全架構中希望達到行程隔離，這被視為系統的一項安全特徵。符合 Schema: (system, has_a, feature)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9
+  }
+]

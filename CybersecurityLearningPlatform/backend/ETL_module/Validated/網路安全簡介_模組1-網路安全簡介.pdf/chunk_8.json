@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "攝影機",
+      "type": "system",
+      "display_name": "攝影機"
+    },
+    "reasoning": "文本提到攝影機被劫持，這意味著攻擊者取得了對這些設備的控制權。符合 Schema: ('attacker', 'controls', 'system')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 和 攝影機 (system) 的名稱與其被賦予的類別合理對齊，攻擊者是 attacker 的合理實例，攝影機是 system 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為攻擊者，具有主動執行能力，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（攻擊者）具有主動執行能力，符合規則8的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「攻擊者」與 Ldr 中的「攻擊者」完全等價同義詞，受體「攝影機」與 Ldr 中的「ip 攝影機」不完全匹配，但「攝影機」可視為「ip 攝影機」的廣義概念",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】和【廣義/狹義一律保留】判斷，主體和受體不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "攝影機",
+        "type": "system"
+      },
+      "reasoning": "文本提到攝影機被劫持，這意味著攻擊者取得了對這些設備的控制權。符合 Schema: ('attacker', 'controls', 'system')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "ddos 攻擊",
+      "type": "attack",
+      "display_name": "DDoS 攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標系統",
+      "type": "system",
+      "display_name": "目標系統"
+    },
+    "reasoning": "文本描述 DDoS 攻擊會淹沒目標系統的資源，造成損害。符合 Schema: ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "DDoS 攻擊是 'attack' 的合理實例，目標系統是 'system' 的合理實例，關係 'can_harm' 在資安領域中是合理的描述。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是DDoS攻擊，關係是can_harm，受體是目標系統，與規則8無關。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "DDoS 攻擊與 Ldr 中的 'ddos' 和 'ddos 攻擊' 皆為同義詞，且 'ddos 攻擊' 與 'ddos' 皆指同一概念；目標系統與 Ldr 中的 '目標系統' 完全匹配，且 '系統' 是 '目標系統' 的廣義概念，但不會合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，DDoS 攻擊與 'ddos'/'ddos 攻擊' 皆為同一概念，但依據規則 3，廣義/狹義一律保留，故不進行合併；目標系統與 '目標系統' 完全匹配，無需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DDoS 攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "目標系統",
+        "type": "system"
+      },
+      "reasoning": "文本描述 DDoS 攻擊會淹沒目標系統的資源，造成損害。符合 Schema: ('attack', 'can_harm', 'system')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "網路應用軟體",
+      "type": "app",
+      "display_name": "網路應用軟體"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本提到攻擊者利用網路應用軟體中的漏洞，說明該應用程式暴露了漏洞。符合 Schema: ('app', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網路應用軟體 (app) 可能暴露 (can_expose) 漏洞 (vulnerability) 是語意上合理的，符合資安領域的常見描述。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為主體不是policy、technique或tool。規則3適用，但三元組中的關係是can_expose，屬於特例允許。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係can_expose屬於規則3的特例允許，且其他規則不適用，因此不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「網路應用軟體」與 Ldr 中的「應用軟體」、「網路應用程式」等相關資源具有高相似度，但非完全等價同義詞；受體「漏洞」為完全等價同義詞，與 Ldr 中的「漏洞」、「安全漏洞」等相關資源具有相同含義。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據同義詞判定準則，受體「漏洞」為完全等價同義詞，應標準化為「漏洞」；主體「網路應用軟體」與相關資源具有高相似度，但非完全等價同義詞，故不進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路應用軟體",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到攻擊者利用網路應用軟體中的漏洞，說明該應用程式暴露了漏洞。符合 Schema: ('app', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "ddos 攻擊",
+      "type": "attack",
+      "display_name": "DDoS 攻擊"
+    },
+    "reasoning": "文本明確指出劫持的攝影機被用於實施 DDoS 攻擊。符合 Schema: ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 實施 (implements) DDoS 攻擊 (attack) 在語意上是合理的，因為攻擊者可能會使用 DDoS 攻擊手法。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：同一實體不能同時具有攻擊者(attacker)與安全團隊(securityTeam)的身分，該三元組不觸發此規則。檢查規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作，該三元組不觸發此規則。檢查規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，該三元組不觸發此規則。檢查規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)，該三元組不觸發此規則。檢查規則5：當關係為 uses 時，如果主體 (Subject) 的類別是 data，則為違反；但如果 data 僅是出現在受體 (Object) 位置，則屬合法，該三元組不觸發此規則。檢查規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，該三元組不觸發此規則。檢查規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)，該三元組不觸發此規則。檢查規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具，該三元組不觸發此規則，但攻擊者實施攻擊的行為是合理的。",
+        "response": "correct",
+        "reason": "該三元組不觸發任何語義限制清單中的規則，且攻擊者實施攻擊的行為是合理的。"
+      },
+      "step_2": {
+        "granularity_analysis": "DDoS 攻擊與 Ldr 中的 'ddos' 是同義詞，且 '攻擊者' 與 Ldr 中的 '攻擊者' 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，DDoS 攻擊與 'ddos' 是同義詞，但根據廣義/狹義一律保留原則，不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "DDoS 攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出劫持的攝影機被用於實施 DDoS 攻擊。符合 Schema: ('attacker', 'implements', 'attack')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "敏感個人資料",
+      "type": "data",
+      "display_name": "敏感個人資料"
+    },
+    "reasoning": "攻擊者透過漏洞獲取敏感個人資料，這對資料的機密性造成危害。符合 Schema: ('attacker', 'can_harm', 'data')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 類別的合理實例，敏感個人資料 (data) 是 'data' 類別的合理實例，'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需要注意的是，'can_harm' 關係中，主體 'attacker' 的類別是 attacker，受體 '敏感個人資料' 的類別是 data，根據給定的規則，沒有明確的規則直接禁止這種關係。",
+        "response": "correct",
+        "reason": "由於沒有發現明確且直接的違反項目，根據無罪推定原則，該三元組不被視為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全等價，受體 \"敏感個人資料\" 與 Ldr 中的 \"敏感資料\"、\"敏感資訊\" 等相關但非完全等價同義詞，然而 \"敏感個人資料\" 可被視為 \"敏感資料\" 的子類型或相關概念，但基於規則 3，若一個實體是另一個的子類型，判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "基於規則 3，若一個實體是另一個的子類型，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "敏感個人資料",
+        "type": "data"
+      },
+      "reasoning": "攻擊者透過漏洞獲取敏感個人資料，這對資料的機密性造成危害。符合 Schema: ('attacker', 'can_harm', 'data')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本明確指出攻擊者能夠利用（exploit）應用軟體中的漏洞。符合 Schema: ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，漏洞 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是描述攻擊者與漏洞之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者與安全團隊的身分。規則2：不適用，因為三元組中沒有提到mitigates動作。規則3：不適用，因為三元組中主體類別為攻擊者，而非漏洞。規則4：不適用，因為三元組中沒有提到principle。規則5：不適用，因為三元組中沒有uses關係。規則6：不適用，因為三元組中沒有deployed_in關係。規則7：不適用，因為三元組中沒有generates關係。規則8：不適用，因為三元組中沒有controls關係，但can_exploit關係涉及主動行為，主體為攻擊者，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中，攻擊者可以利用漏洞，符合語義限制清單中沒有明確禁止的規則，且主體為攻擊者，具有主動執行能力，符合can_exploit關係的要求。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，主體與受體皆無需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確指出攻擊者能夠利用（exploit）應用軟體中的漏洞。符合 Schema: ('attacker', 'can_exploit', 'vulnerability')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "網路犯罪份子",
+      "type": "attacker",
+      "display_name": "網路犯罪份子"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "未經授權的網站",
+      "type": "tool",
+      "display_name": "未經授權的網站"
+    },
+    "reasoning": "網路犯罪份子創建並使用相似名稱的虛假網站來誘騙客戶。此類釣魚網站在此情境下被視為攻擊工具。符合 Schema: ('attacker', 'uses', 'tool')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網路犯罪份子是 attacker 的合理實例，未經授權的網站是 tool 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體類別為 'attacker'，不違反此規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 'attacker'，關係為 'uses'，受體為 'tool'，此組合在給定的規則中沒有明確的違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路犯罪份子與網路攻擊者為同義詞，兩者均指 attacker 類別下的實體，但網路犯罪份子與攻擊者之間的關係更為直接相關，攻擊者涵蓋更廣泛的含義，包括網路攻擊者、物理攻擊者等，而網路犯罪份子則特指從事網路犯罪的個體，故網路犯罪份子與網路攻擊者可視為同義詞，然而考慮到實體名稱與 Ldr 中某資源的 name 字串完全相同的判定，網路犯罪份子直接判定 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "網路犯罪份子與 Ldr 中的網路犯罪份子完全匹配，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路犯罪份子",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "未經授權的網站",
+        "type": "tool"
+      },
+      "reasoning": "網路犯罪份子創建並使用相似名稱的虛假網站來誘騙客戶。此類釣魚網站在此情境下被視為攻擊工具。符合 Schema: ('attacker', 'uses', 'tool')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "客戶",
+      "type": "user",
+      "display_name": "客戶"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "專門的網站",
+      "type": "app",
+      "display_name": "專門的網站"
+    },
+    "reasoning": "Equifax 建立網站讓客戶使用以確定資訊是否洩露。符合 Schema: ('user', 'uses', 'app')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '客戶' 是 'user' 的合理實例，'專門的網站' 是 'app' 的合理實例，關係 'uses' 在此語境下是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5適用，但因為主體類別是user而不是data，所以不違反。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是客戶，關係是uses，受體是專門的網站，沒有違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"客戶\" 與 Ldr 中的 \"客戶\" 完全相同，受體 \"專門的網站\" 與 Ldr 中的 \"網站\" 類別相同，但名稱不完全相同，可能是廣義或狹義的關係，但根據給定的資訊，\"專門的網站\" 可能是 \"網站\" 的子類型或特定類型，兩者之間的關係需要進一步分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】的判斷準則，若一個實體是另一個的子類型，則判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "客戶",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "專門的網站",
+        "type": "app"
+      },
+      "reasoning": "Equifax 建立網站讓客戶使用以確定資訊是否洩露。符合 Schema: ('user', 'uses', 'app')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "組織的網站",
+      "type": "app",
+      "display_name": "組織的網站"
+    },
+    "reasoning": "文本提到駭客可能會透過發布不真實資訊來破壞組織的網站。符合 Schema: ('attacker', 'can_harm', 'app')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，受體類別 'app' 也存在於 Lc,p 的 'Classes' 中，關係 'can_harm' 存在於 Lc,p 的 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是 'attacker' 的合理實例，組織的網站 (app) 是 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。檢查規則2：不適用，因為三元組中沒有mitigates動作。檢查規則3：不適用，因為三元組中主體類別不是vulnerability。檢查規則4：不適用，因為三元組中沒有principle。檢查規則5：不適用，因為三元組中關係不是uses。檢查規則6：不適用，因為三元組中關係不是deployed_in。檢查規則7：不適用，因為三元組中關係不是generates。檢查規則8：不適用，因為三元組中關係不是controls。檢查完成，沒有發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全等價同義詞，受體 \"組織的網站\" 與 Ldr 中的 \"網站\" 可視為廣義/狹義從屬關係，但根據規則 3，若一個實體是另一個的子類型，判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 3，若一個實體是另一個的子類型，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "組織的網站",
+        "type": "app"
+      },
+      "reasoning": "文本提到駭客可能會透過發布不真實資訊來破壞組織的網站。符合 Schema: ('attacker', 'can_harm', 'app')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 9
+    }
+  }
+]

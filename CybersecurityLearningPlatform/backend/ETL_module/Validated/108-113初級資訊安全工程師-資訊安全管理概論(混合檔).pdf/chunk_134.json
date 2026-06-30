@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "異地備援",
+      "type": "system",
+      "display_name": "異地備援"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "事故",
+      "type": "risk",
+      "display_name": "事故"
+    },
+    "reasoning": "文本 50(A) 提到當一地發生事故時，另一地能持續接手運轉。這說明『異地備援』這種工具/技術能緩解 (mitigates) 事故 (risk) 造成的影響。",
+    "source_id": "chunk_134",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "異地備援是工具（tool）的合理實例，事故是風險（risk）的合理實例，'mitigates' 的語意也與工具減輕風險的概念相符。",
+        "response": "correct",
+        "reason": "異地備援（tool）與事故（risk）之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。待檢查三元組的主體是異地備援，類別是 system，不符合規則2的明確條件，但規則2中沒有明確排除system類別的主體執行mitigates動作。因此，無法根據規則2判定為違規。其他規則與待檢查三元組不直接相關。",
+        "response": "correct",
+        "reason": "由於沒有發現明確且直接的違反項目，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "異地備援與Ldr中的異地備援完全相同，事故與Ldr中的意外事件相似但不完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體異地備援與Ldr中的異地備援完全相同，因此判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "異地備援",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "事故",
+        "type": "risk"
+      },
+      "reasoning": "文本 50(A) 提到當一地發生事故時，另一地能持續接手運轉。這說明『異地備援』這種工具/技術能緩解 (mitigates) 事故 (risk) 造成的影響。",
+      "source_id": "chunk_134",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "熱備援",
+      "type": "technique",
+      "display_name": "熱備援"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "最快恢復時間",
+      "type": "feature",
+      "display_name": "最快恢復時間"
+    },
+    "reasoning": "文本中問題 49 詢問何種備援方案提供最快恢復時間，選項 (A) 熱備援為正確答案。因此將『熱備援』視為一種工具 (tool)，而『最快恢復時間』是其具備的特徵 (feature)。",
+    "source_id": "chunk_134",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "熱備援 (tool) 與最快恢復時間 (feature) 的名稱與其類別合理對齊，熱備援是一種工具，可能具有最快恢復時間這個特徵。",
+        "response": "correct",
+        "reason": "熱備援與最快恢復時間的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係 'has_a' 不在任何規則中被明確限制，且主體 '熱備援' 的類別 'technique' 與受體 '最快恢復時間' 的類別 'feature' 之間的關係 'has_a' 在給定的規則中沒有被明確禁止或限制。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。熱備援與最快恢復時間之間的 'has_a' 關係在給定的規則中沒有被明確限制或禁止。"
+      },
+      "step_2": {
+        "granularity_analysis": "熱備援與Ldr中的熱備援完全相同，受體最快恢復時間與Ldr中的故障復原時間相似，但非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，熱備援與Ldr中的熱備援完全相同，且無法確定最快恢復時間與故障復原時間為同義詞，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "熱備援",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "最快恢復時間",
+        "type": "feature"
+      },
+      "reasoning": "文本中問題 49 詢問何種備援方案提供最快恢復時間，選項 (A) 熱備援為正確答案。因此將『熱備援』視為一種工具 (tool)，而『最快恢復時間』是其具備的特徵 (feature)。",
+      "source_id": "chunk_134",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "機關",
+      "type": "securityTeam",
+      "display_name": "機關"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "復原時間目標 (rto)",
+      "type": "policy",
+      "display_name": "回復時間目標"
+    },
+    "reasoning": "文本提到機關對於回復產品或服務之時間性目標（即 RTO）作為衡量營運持續能力的標準。機關在此扮演管理資安與營運的角色 (securityTeam)，而時間性目標是一種管理規範或策略 (policy)。",
+    "source_id": "chunk_134",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "機關 (securityTeam) 實現回復時間目標 (policy) 的情境下，'securityTeam' 和 'policy' 的名稱與其類別是合理對齊的，且 'implements' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊和同義詞寬容原則也得到滿足。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需注意 implements 關係的主體和受體類別是否合理。",
+        "response": "correct",
+        "reason": "三元組中的主體（機關）類別為 securityTeam，與受體（回復時間目標）類別為 policy，implements 關係在此情境下是合理的，因為安全團隊可以實施政策。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"回復時間目標\" 與 Ldr 中的 \"復原時間目標 (rto)\" 關係：同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "復原時間目標 (rto)",
+        "reason": "根據同義詞判定，\"回復時間目標\" 與 \"復原時間目標\" 指稱同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "機關",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "回復時間目標",
+        "type": "policy"
+      },
+      "reasoning": "文本提到機關對於回復產品或服務之時間性目標（即 RTO）作為衡量營運持續能力的標準。機關在此扮演管理資安與營運的角色 (securityTeam)，而時間性目標是一種管理規範或策略 (policy)。",
+      "source_id": "chunk_134",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  }
+]

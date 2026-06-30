@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "pci dss",
+      "type": "policy",
+      "display_name": "PCI DSS"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "文本提到 PCI DSS 是為了保障信用卡持卡人的資料安全而制定的標準，其目的在於降低資料外洩的風險，因此選擇 policy -> mitigates -> risk。",
+    "source_id": "chunk_61",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "PCI DSS 是一種安全政策（policy），個資外洩是一種風險（risk），'mitigates' 關係在資安領域中指的是減輕風險，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 PCI DSS，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩與個人資料洩漏、資料外洩等為同義詞或相關概念，但依據規則3，若一個實體是另一個的子類型或無法確定，則預設保留。因此，個資外洩與其他相關概念之間的關係是同義詞或相關概念，但不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則2，個資外洩與其他相關概念如個人資料洩漏、資料外洩等雖然相關，但無法直接判定為完全相同的同義詞；根據規則3，若一個實體是另一個的子類型或無法確定，則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "PCI DSS",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本提到 PCI DSS 是為了保障信用卡持卡人的資料安全而制定的標準，其目的在於降低資料外洩的風險，因此選擇 policy -> mitigates -> risk。",
+      "source_id": "chunk_61",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "gdpr",
+      "type": "policy",
+      "display_name": "GDPR"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "GDPR 為歐盟一般資料保護法規，要求實施安全控制以防止個人資料遺失，符合 policy -> mitigates -> risk 的邏輯。",
+    "source_id": "chunk_61",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "GDPR 是一種政策（policy），個資外洩是一種風險（risk），且 'mitigates' 的語意與 GDPR 減輕個資外洩風險的概念相符，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "GDPR、個資外洩與 'mitigates' 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 GDPR，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "因為三元組的主體是 GDPR，類別為 policy，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (GDPR) 與 Ldr 中的 'gdpr' 完全等價同義詞，受體 (個資外洩) 與 Ldr 中的 '個資外洩' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "GDPR",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "GDPR 為歐盟一般資料保護法規，要求實施安全控制以防止個人資料遺失，符合 policy -> mitigates -> risk 的邏輯。",
+      "source_id": "chunk_61",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "明文儲存密碼",
+      "type": "vulnerability",
+      "display_name": "密碼明文存放"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "密碼以明文存放是一種系統設定缺陷（漏洞），會導致認證資訊外洩的風險，符合 vulnerability -> can_expose -> risk。",
+    "source_id": "chunk_61",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '密碼明文存放' 是 'vulnerability' 的合理實例，受體 '個資外洩' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但 'can_expose' (暴露) 動作是特例允許的。因此，三元組（密碼明文存放，can_expose，個資外洩）觸發了規則3的特例允許，代表不違反規則3。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"密碼明文存放\" 與 Ldr 中的 \"明文儲存密碼\" 關係為同義詞，受體 \"個資外洩\" 與 Ldr 中的 \"個資外洩\" 關係為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "明文儲存密碼",
+        "standard_object": "個資外洩",
+        "reason": "根據同義詞對照表和資安教材，主體和受體均為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼明文存放",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "密碼以明文存放是一種系統設定缺陷（漏洞），會導致認證資訊外洩的風險，符合 vulnerability -> can_expose -> risk。",
+      "source_id": "chunk_61",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "iso/iec 27001",
+      "type": "policy",
+      "display_name": "ISO/IEC 27001"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "ISO/IEC 27001 是資訊安全管理系統的國際標準（規範），旨在透過管理手段緩解資安風險，符合 policy -> mitigates -> risk。",
+    "source_id": "chunk_61",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "ISO/IEC 27001 是一種資訊安全政策（policy），個資外洩是一種風險（risk），且 'mitigates' 的語意與資安領域中減輕風險的概念相符。",
+        "response": "correct",
+        "reason": "ISO/IEC 27001 作為一種資訊安全政策，能夠減輕個資外洩風險，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的 ISO/IEC 27001 屬於 policy 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 ISO/IEC 27001 與 Ldr 中的 iso/iec 27001 完全等價同義詞，受體 個資外洩 與 Ldr 中的 個資外洩 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ISO/IEC 27001",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "ISO/IEC 27001 是資訊安全管理系統的國際標準（規範），旨在透過管理手段緩解資安風險，符合 policy -> mitigates -> risk。",
+      "source_id": "chunk_61",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "個人資料保護法",
+      "type": "policy",
+      "display_name": "個人資料保護法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "個人資料保護法是法律規範，旨在保護個資並降低外洩風險，符合 policy -> mitigates -> risk。",
+    "source_id": "chunk_61",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "個人資料保護法是政策（policy）的合理實例，個資外洩是風險（risk）的合理實例，'mitigates' 的語意與政策減輕風險的概念相符。",
+        "response": "correct",
+        "reason": "個人資料保護法（policy）與個資外洩（risk）之間的 'mitigates' 關係，完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是個人資料保護法，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "個人資料保護法與電腦處理個人資料保護法、個人資料保護法施行細則等為廣義/狹義從屬關係，而個資外洩與機密性外洩、資訊外洩等為同義詞重複",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "個人資料保護法與個資外洩之間的關係不構成同義詞重複或廣義/狹義從屬，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人資料保護法",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "個人資料保護法是法律規範，旨在保護個資並降低外洩風險，符合 policy -> mitigates -> risk。",
+      "source_id": "chunk_61",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "安全控制措施",
+      "type": "policy",
+      "display_name": "安全控制措施"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊事件",
+      "type": "attack",
+      "display_name": "攻擊事件"
+    },
+    "reasoning": "文本提到 GDPR 要求實施適切的安全控制措施以防止資料遺失，這些措施屬於防禦技術，用以緩解攻擊，符合 technique -> mitigates -> attack。",
+    "source_id": "chunk_61",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全控制措施 (technique) 是一種合理的技術或方法，攻擊事件 (attack) 是一種合理的攻擊行為，'mitigates' 關係描述了安全控制措施對攻擊事件的減輕作用，語意對齊合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是安全控制措施（policy），符合規則2的條件，沒有觸發違規。",
+        "response": "correct",
+        "reason": "三元組的主體是安全控制措施（policy），符合規則2的條件，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"安全控制措施\" 與 Ldr 中的 \"安全控制措施\" 完全匹配，受體 \"攻擊事件\" 與 Ldr 中的 \"攻擊事件\" 完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全控制措施",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊事件",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 GDPR 要求實施適切的安全控制措施以防止資料遺失，這些措施屬於防禦技術，用以緩解攻擊，符合 technique -> mitigates -> attack。",
+      "source_id": "chunk_61",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  }
+]

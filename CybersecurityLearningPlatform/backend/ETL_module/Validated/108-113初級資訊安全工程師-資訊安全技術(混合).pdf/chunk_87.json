@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "存取控制失效",
+      "type": "vulnerability",
+      "display_name": "存取控制失效"
+    },
+    "reasoning": "文本第 24 題描述攻擊者透過修改參數存取資訊，這被定義為『存取控制失效』的缺陷。根據 Schema，攻擊者可以利用 (can_exploit) 漏洞 (vulnerability)。",
+    "source_id": "chunk_87",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，存取控制失效 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是描述攻擊者與漏洞之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。規則2：不適用，因為三元組中沒有mitigates動作。規則3：不適用，因為三元組中的主體類別是attacker，而不是vulnerability。規則4：不適用，因為三元組中沒有principle作為主體。規則5：不適用，因為三元組中的關係不是uses。規則6：不適用，因為三元組中的關係不是deployed_in。規則7：不適用，因為三元組中的關係不是generates。規則8：不適用，因為三元組中的關係不是controls，但可以_exploit是允許的動作，且attacker具有主動執行能力。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，關係是can_exploit，受體是存取控制失效，符合語義限制清單中的規則，沒有明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「攻擊者」與 Ldr 中的「攻擊者」完全等價同義詞，受體「存取控制失效」與 Ldr 中的「存取控制不足」或「不當的存取控制」相關但非完全等價同義詞，兩者皆無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體皆無完全等價同義詞或廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "存取控制失效",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本第 24 題描述攻擊者透過修改參數存取資訊，這被定義為『存取控制失效』的缺陷。根據 Schema，攻擊者可以利用 (can_exploit) 漏洞 (vulnerability)。",
+      "source_id": "chunk_87",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "驗證碼",
+      "type": "tool",
+      "display_name": "驗證碼"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "跨站請求偽造攻擊",
+      "type": "attack",
+      "display_name": "跨站請求偽造"
+    },
+    "reasoning": "文本第 26 題指出使用驗證碼 (CAPTCHA) 是防禦跨站請求偽造 (CSRF) 攻擊的方式。驗證碼在此作為一種工具 (tool) 來緩解/防禦 (mitigates) 攻擊 (attack)。",
+    "source_id": "chunk_87",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "驗證碼 (tool) 可以合理地與 'tool' 類別對齊，跨站請求偽造 (attack) 也與 'attack' 類別對齊，且 'mitigates' 關係在資安領域中是合理的，表示工具可以減輕攻擊的影響。",
+        "response": "correct",
+        "reason": "驗證碼作為一種工具，可以減輕跨站請求偽造攻擊的風險，符合資安領域的常見邏輯與定義。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是驗證碼（類別：tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（驗證碼）是工具（tool），符合規則2的要求，允許執行 mitigates 動作。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "驗證碼與行動碼不完全等價，但驗證碼與行動碼無直接關係，跨站請求偽造攻擊與跨站請求偽造同義",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "跨站請求偽造攻擊",
+        "reason": "根據同義詞判定，跨站請求偽造攻擊與跨站請求偽造為同義詞，驗證碼與行動碼無直接關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "驗證碼",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "跨站請求偽造",
+        "type": "attack"
+      },
+      "reasoning": "文本第 26 題指出使用驗證碼 (CAPTCHA) 是防禦跨站請求偽造 (CSRF) 攻擊的方式。驗證碼在此作為一種工具 (tool) 來緩解/防禦 (mitigates) 攻擊 (attack)。",
+      "source_id": "chunk_87",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "安全性測試人員",
+      "type": "securityTeam",
+      "display_name": "安全性測試人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "除錯器",
+      "type": "tool",
+      "display_name": "除錯器"
+    },
+    "reasoning": "文本第 27 題提到安全性測試人員使用除錯器。安全性測試人員屬於安全團隊 (securityTeam)，除錯器是工具 (tool)。",
+    "source_id": "chunk_87",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "安全性測試人員 (securityTeam) 使用 除錯器 (tool) 是合理的，符合實體名稱與其類別的對齊，且 'uses' 關係在此語境下是適當的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 securityTeam，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：主體為 securityTeam，具有主動執行能力，關係為 uses，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體為安全性測試人員（securityTeam），關係為 uses，受體為除錯器（tool），此組合未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有近似資源清單中之資源完全匹配，無需進行同義詞判定或廣義/狹義一律保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全性測試人員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "除錯器",
+        "type": "tool"
+      },
+      "reasoning": "文本第 27 題提到安全性測試人員使用除錯器。安全性測試人員屬於安全團隊 (securityTeam)，除錯器是工具 (tool)。",
+      "source_id": "chunk_87",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "安全性測試人員",
+      "type": "securityTeam",
+      "display_name": "安全性測試人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "反編譯器",
+      "type": "tool",
+      "display_name": "反編譯器"
+    },
+    "reasoning": "文本第 27 題提到安全性測試人員使用反編譯器。安全性測試人員屬於安全團隊 (securityTeam)，反編譯器是工具 (tool)。",
+    "source_id": "chunk_87",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "安全性測試人員是 securityTeam 的合理實例，反編譯器是 tool 的合理實例，且 'uses' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體類別為 'securityTeam'，不違反規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 'securityTeam'，關係為 'uses'，受體為 '反編譯器'，此組合未違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全性測試人員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "反編譯器",
+        "type": "tool"
+      },
+      "reasoning": "文本第 27 題提到安全性測試人員使用反編譯器。安全性測試人員屬於安全團隊 (securityTeam)，反編譯器是工具 (tool)。",
+      "source_id": "chunk_87",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "安全性測試人員",
+      "type": "securityTeam",
+      "display_name": "安全性測試人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "反組譯器",
+      "type": "tool",
+      "display_name": "反組譯器"
+    },
+    "reasoning": "文本第 27 題提到安全性測試人員使用反組譯器。安全性測試人員屬於安全團隊 (securityTeam)，反組譯器是工具 (tool)。",
+    "source_id": "chunk_87",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "安全性測試人員 (securityTeam) 使用反組譯器 (tool) 是合理的，反組譯器是安全性測試人員可能使用的工具之一。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。規則2：不適用，因為動作不是 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為關係不是 violates 且 principle 不是主體。規則5：觸發，因為關係為 uses 且主體類別不是 data，但主體類別是 securityTeam，與規則5的限制不符。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "雖然規則5提到當關係為 uses 時，如果主體的類別是 data 則為違反，但在這個三元組中，主體是安全性測試人員（securityTeam），使用反組譯器（tool），這不違反規則5的限制。因此，根據無罪推定原則，該三元組不被判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資安人員、滲透測試人員等實體具有相似的概念，但非完全等價同義詞；受體為完全匹配的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "反組譯器",
+        "reason": "根據判斷準則，主體與 Ldr 中的實體具有相似的概念，但非完全等價同義詞，受體為完全匹配的同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全性測試人員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "反組譯器",
+        "type": "tool"
+      },
+      "reasoning": "文本第 27 題提到安全性測試人員使用反組譯器。安全性測試人員屬於安全團隊 (securityTeam)，反組譯器是工具 (tool)。",
+      "source_id": "chunk_87",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "反組譯器",
+      "type": "tool",
+      "display_name": "反組譯器"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "缺乏逆向工程保護",
+      "type": "vulnerability",
+      "display_name": "缺乏逆向工程保護"
+    },
+    "reasoning": "文本第 27 題指出使用反組譯器等工具來判斷是否存在『缺乏逆向工程保護』的弱點。工具 (tool) 可以分析 (can_analyze) 漏洞 (vulnerability)。",
+    "source_id": "chunk_87",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "反組譯器 (tool) 可分析缺乏逆向工程保護 (vulnerability) 的情況下，名稱與類別的對齊是合理的，反組譯器是一種工具，可以用於分析漏洞，包括缺乏逆向工程保護的漏洞。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且名稱與類別的對齊是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是can_analyze，而非mitigates。規則3不適用，因為主體是tool，而非vulnerability。規則4不適用，因為關係不是violates，且principle未出現在三元組中。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體是反組譯器（tool），關係是can_analyze，受體是缺乏逆向工程保護（vulnerability），這符合語義限制清單中沒有明確禁止的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆在 Ldr 中找到完全匹配的實體，分別為 \"反組譯器\" 與 \"缺乏逆向工程保護\"，且無同義詞關係需要考慮。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認原則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "反組譯器",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "缺乏逆向工程保護",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本第 27 題指出使用反組譯器等工具來判斷是否存在『缺乏逆向工程保護』的弱點。工具 (tool) 可以分析 (can_analyze) 漏洞 (vulnerability)。",
+      "source_id": "chunk_87",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "跨站指令碼攻擊",
+      "type": "attack",
+      "display_name": "跨站指令碼攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "reasoning": "文本第 25 題將 XSS 列為開發過程中未留意程式安全造成的問題，這類攻擊會對應用程式 (app) 造成危害 (can_harm)。",
+    "source_id": "chunk_87",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "跨站指令碼攻擊 (XSS) 是 'attack' 的合理實例，應用程式 (app) 是 'app' 的合理實例，'can_harm' 關係在資安領域中是合理的，因為攻擊可以對應用程式造成傷害。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。檢查規則2：不適用，因為三元組中的關係是 can_harm，不是 mitigates。檢查規則3：不適用，因為主體類別是 attack，不是 vulnerability。檢查規則4：不適用，因為關係是 can_harm，不是 violates，且主體不是 principle。檢查規則5：不適用，因為關係是 can_harm，不是 uses。檢查規則6：不適用，因為關係是 can_harm，不是 deployed_in。檢查規則7：不適用，因為關係是 can_harm，不是 generates。檢查規則8：不適用，因為關係是 can_harm，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係在給定的語義限制清單中沒有明確的違反規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "跨站指令碼攻擊與跨站腳本攻擊、跨網站腳本攻擊為同義詞，且與應用程式無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，跨站指令碼攻擊與跨站腳本攻擊、跨網站腳本攻擊為同義詞，但與應用程式無直接同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "跨站指令碼攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "reasoning": "文本第 25 題將 XSS 列為開發過程中未留意程式安全造成的問題，這類攻擊會對應用程式 (app) 造成危害 (can_harm)。",
+      "source_id": "chunk_87",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "sql資料隱碼攻擊",
+      "type": "attack",
+      "display_name": "SQL 資料隱碼攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "reasoning": "文本第 25 題將 SQL Injection 列為開發過程中未留意程式安全造成的問題，這類攻擊會對應用程式 (app) 造成危害 (can_harm)。",
+    "source_id": "chunk_87",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SQL 資料隱碼攻擊是 'attack' 的合理實例，應用程式是 'app' 的合理實例，'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是攻擊類別，關係是 can_harm，受體是應用程式，沒有明顯違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明顯違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SQL 資料隱碼攻擊與 Ldr 中的 \"sql資料隱碼攻擊\" 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "sql資料隱碼攻擊",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，SQL 資料隱碼攻擊與 sql資料隱碼攻擊為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL 資料隱碼攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "reasoning": "文本第 25 題將 SQL Injection 列為開發過程中未留意程式安全造成的問題，這類攻擊會對應用程式 (app) 造成危害 (can_harm)。",
+      "source_id": "chunk_87",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "跨站請求偽造",
+      "type": "attack",
+      "display_name": "跨站請求偽造"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "reasoning": "文本第 25 題將 CSRF 列為開發過程中未留意程式安全造成的問題，這類攻擊會對應用程式 (app) 造成危害 (can_harm)。",
+    "source_id": "chunk_87",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "跨站請求偽造 (CSRF) 是一種網路攻擊，屬於 'attack' 類別；應用程式 (app) 是一個軟體系統，屬於 'app' 類別。這些名稱與其類別之間的對齊是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關。檢查規則6：無關。檢查規則7：無關。檢查規則8：主體為攻擊類別，具有主動執行能力，符合 controls 的前置條件，但關係為 can_harm，不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係不直接違反任何一條語義限制清單中的規則，尤其是規則8中雖然提到控制的主體必須是具有主動執行能力的角色或工具，但本例中關係為 can_harm，不在規則8的限制範圍內。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似資源，但主體為攻擊類別，受體為應用程式類別，兩者無直接同義詞關係，且無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體之間的同義詞或從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "跨站請求偽造",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "reasoning": "文本第 25 題將 CSRF 列為開發過程中未留意程式安全造成的問題，這類攻擊會對應用程式 (app) 造成危害 (can_harm)。",
+      "source_id": "chunk_87",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

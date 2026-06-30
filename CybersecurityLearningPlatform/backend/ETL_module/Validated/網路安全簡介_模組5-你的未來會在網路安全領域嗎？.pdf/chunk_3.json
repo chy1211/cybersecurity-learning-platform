@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "惡意駭客",
+      "type": "attacker",
+      "display_name": "惡意駭客"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本描述使用工具來『尋找目標系統中的弱點和漏洞』，在資安本體論中，攻擊者尋找並利用漏洞的行為對應為 can_exploit。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "惡意駭客 (attacker) 是 'attacker' 的合理實例，漏洞 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是駭客與漏洞之間的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用，因為主體是惡意駭客，而不是漏洞。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，因為關係是 can_exploit，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（惡意駭客）與關係（can_exploit）以及受體（漏洞）之間的關係在給定的語義限制清單中沒有明確的違反規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞出現在 Ldr 中，但主體 '惡意駭客' 與 '駭客' 關係密切，受體 '漏洞' 則直接出現在 Ldr 中，且為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定與廣義/狹義一律保留原則，主體與受體不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意駭客",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本描述使用工具來『尋找目標系統中的弱點和漏洞』，在資安本體論中，攻擊者尋找並利用漏洞的行為對應為 can_exploit。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "惡意駭客",
+      "type": "attacker",
+      "display_name": "惡意駭客"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "工具",
+      "type": "tool",
+      "display_name": "工具"
+    },
+    "reasoning": "文本提到 CEH 測試對使用與『惡意駭客相同的知識和工具』的理解，因此可以推論惡意駭客使用工具。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "惡意駭客 (attacker) 使用工具 (tool) 是資安領域中常見的語意對齊，且 'attacker' 和 'tool' 的名稱與其類別相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。規則2：不適用，因為動作不是 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為關係不是 violates 且 principle 不在三元組中。規則5：觸發，因為主體的類別是 attacker 且關係是 uses，但規則5 指出當主體的類別是 data 時才違反，attacker 不是 data，因此不違反。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls，但主體是 attacker，符合具有主動執行能力的角色，然而這裡的關係是 uses，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是惡意駭客（attacker），關係是 uses，受體是工具（tool），這符合規則允許的條件，沒有明確違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"惡意駭客\" 與 Ldr 中的 \"駭客\" 關係為同義詞，受體 \"工具\" 與 Ldr 中的 \"工具\" 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體與受體皆不需要標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意駭客",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "工具",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 CEH 測試對使用與『惡意駭客相同的知識和工具』的理解，因此可以推論惡意駭客使用工具。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "惡意駭客",
+      "type": "attacker",
+      "display_name": "惡意駭客"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標系統",
+      "type": "system",
+      "display_name": "目標系統"
+    },
+    "reasoning": "惡意駭客針對目標系統尋找漏洞的目的通常是為了造成損害，符合 attacker can_harm system 的邏輯。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'can_harm' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "惡意駭客 (attacker) 與目標系統 (system) 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不觸發，因為主體僅具有攻擊者(attacker)的身分。規則2：不觸發，因為關係為can_harm，不是mitigates。規則3：不觸發，因為主體類別為attacker，不是vulnerability。規則4：不觸發，因為關係為can_harm，不是violates。規則5：不觸發，因為主體類別不是data。規則6：不觸發，因為關係不是deployed_in。規則7：不觸發，因為關係不是generates。規則8：不觸發，因為主體是attacker，具有主動執行能力。",
+        "response": "correct",
+        "reason": "三元組不觸發任何規則的違規條件，且主體和受體的類別與關係符合語義限制清單的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「惡意駭客」與 Ldr 中的「惡意駭客」完全相同，受體「目標系統」與 Ldr 中的「目標系統」完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體皆與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意駭客",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "目標系統",
+        "type": "system"
+      },
+      "reasoning": "惡意駭客針對目標系統尋找漏洞的目的通常是為了造成損害，符合 attacker can_harm system 的邏輯。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "道德駭客技術",
+      "type": "technique",
+      "display_name": "道德駭客技術"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "工具",
+      "type": "tool",
+      "display_name": "工具"
+    },
+    "reasoning": "文本指出尋找漏洞需要使用『知識和工具』，因此該技術依賴於工具的執行。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "道德駭客技術 (technique) 與工具 (tool) 的名稱與其類別合理對齊，且 'depends_on' 關係在資安領域中是合理的，表示道德駭客技術可能依賴於特定的工具。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'depends_on' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"工具\" 與 Ldr 中的 \"工具\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "工具",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "道德駭客技術",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "工具",
+        "type": "tool"
+      },
+      "reasoning": "文本指出尋找漏洞需要使用『知識和工具』，因此該技術依賴於工具的執行。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "目標系統",
+      "type": "system",
+      "display_name": "目標系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本提到在『目標系統中』尋找弱點和漏洞，意味著系統本身可能暴露漏洞。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "主體 '目標系統' 的類別 'system' 合理對齊，受體 '漏洞' 的類別 'vulnerability' 也合理對齊，關係 'can_expose' 在資安領域中指系統可能暴露的漏洞，符合語意。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「目標系統」與 Ldr 中的「目標系統」完全相同，受體「漏洞」與 Ldr 中的「漏洞」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全相同，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "目標系統",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到在『目標系統中』尋找弱點和漏洞，意味著系統本身可能暴露漏洞。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "資安分析師",
+      "type": "securityTeam",
+      "display_name": "資安分析師"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "安全營運",
+      "type": "function",
+      "display_name": "安全營運"
+    },
+    "reasoning": "文本提到思科認證驗證了在『安全營運中心 (SOC)』內分析師所需的技能，安全營運在此被視為一種功能/流程 (function)。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安分析師是 securityTeam 的合理實例，安全營運是 function 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：不適用，因為關係不是 mitigates。檢查規則3：不適用，因為主體類別不是 vulnerability。檢查規則4：不適用，因為關係不是 violates 且主體不是 principle。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但 implements 關係中，主體 securityTeam 是具有主動執行能力的角色，受體安全營運(function) 可以被實施，符合邏輯。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安分析師）和受體（安全營運）之間的 implements 關係，沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安分析師與安全營運之間沒有直接的同義詞關係，且安全營運不在提供的近似資源清單中，但根據給定的資訊，安全營運可以被視為安全功能的一部分，然而這裡的安全營運與資安分析師的關係需要根據實際的資安教材或知識圖譜進行判斷。然而，根據給定的判斷準則，若無法確定，預設為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定資安分析師與安全營運之間的直接同義詞或從屬關係，根據不確定時預設保留的原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安分析師",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "安全營運",
+        "type": "function"
+      },
+      "reasoning": "文本提到思科認證驗證了在『安全營運中心 (SOC)』內分析師所需的技能，安全營運在此被視為一種功能/流程 (function)。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "資安分析師",
+      "type": "securityTeam",
+      "display_name": "資安分析師"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "美國國防部指令 8570.01-m",
+      "type": "policy",
+      "display_name": "美國國防部指令 8570.01-M"
+    },
+    "reasoning": "文本提到 CompTIA Security+ 符合該指令要求，且是聯邦政府 IT 安全工作者的必備項目，意味著該角色需執行/遵守此政策。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安分析師是 securityTeam 的合理實例，美國國防部指令 8570.01-M 是 policy 的合理實例，實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用，因為動作是 implements，而非 mitigates。檢查規則3：不適用，因為主體類別是 securityTeam，而非 vulnerability。檢查規則4：不適用，因為主體類別是 securityTeam，而非 principle。檢查規則5：不適用，因為關係是 implements，而非 uses。檢查規則6：不適用，因為關係是 implements，而非 deployed_in。檢查規則7：不適用，因為關係是 implements，而非 generates。檢查規則8：不適用，因為關係是 implements，而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安分析師）與受體（美國國防部指令 8570.01-M）之間的 implements 關係，沒有明確違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安分析師與現有近似資源清單中的資安分析師完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安分析師",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "美國國防部指令 8570.01-M",
+        "type": "policy"
+      },
+      "reasoning": "文本提到 CompTIA Security+ 符合該指令要求，且是聯邦政府 IT 安全工作者的必備項目，意味著該角色需執行/遵守此政策。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 7
+    }
+  }
+]

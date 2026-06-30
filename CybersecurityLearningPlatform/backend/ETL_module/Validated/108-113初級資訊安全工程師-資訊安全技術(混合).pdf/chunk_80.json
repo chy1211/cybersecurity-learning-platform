@@ -1,0 +1,626 @@
+[
+  {
+    "subject": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "第七層攻擊",
+      "type": "attack",
+      "display_name": "第七層攻擊"
+    },
+    "reasoning": "題目將 SQL Injection 列為第七層攻擊的選項之一，表示它屬於這一類攻擊，符合 (attack, is_part_of, attack)。",
+    "source_id": "chunk_80",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SQL Injection 是 'attack' 的合理實例，第七層攻擊也可以被視為 'attack' 的實例，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "SQL Injection 和第七層攻擊的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查後發現，給定的三元組（SQL Injection is_part_of 第七層攻擊）與規則列表中沒有直接的違反關係，因為這些規則主要針對特定類別或關係的限制，而給定的三元組不觸發任何明確的違規條件。",
+        "response": "correct",
+        "reason": "三元組不違反語義限制清單中的任何規則，故判定為正確。給定的三元組描述了一種攻擊之間的關係，這在給定的規則列表中沒有被明確禁止。"
+      },
+      "step_2": {
+        "granularity_analysis": "SQL Injection 和 第七層攻擊 在資安領域中，第七層攻擊通常指的是應用層攻擊，SQL Injection 是一種常見的應用層攻擊手法，因此它們之間存在著廣義和狹義的關係，但根據給定的同義詞對照範例和判斷準則，SQL Injection 的中文名稱有多種，但第七層攻擊並不直接等同於 SQL Injection 的同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】的判斷準則，SQL Injection 是一種特定的攻擊手法，而第七層攻擊是一個更廣泛的攻擊類型，因此不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "第七層攻擊",
+        "type": "attack"
+      },
+      "reasoning": "題目將 SQL Injection 列為第七層攻擊的選項之一，表示它屬於這一類攻擊，符合 (attack, is_part_of, attack)。",
+      "source_id": "chunk_80",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "防毒軟體",
+      "type": "tool",
+      "display_name": "防毒軟體"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "病毒碼",
+      "type": "feature",
+      "display_name": "病毒碼"
+    },
+    "reasoning": "文本提到安裝防毒軟體並更新病毒碼，病毒碼是防毒軟體用來辨識惡意程式的特徵屬性，符合 (tool, has_a, feature)。",
+    "source_id": "chunk_80",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防毒軟體是 tool 的合理實例，病毒碼是 feature 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查關係 'has_a'，此關係未在規則中明確限制主體或受體的類別，且三元組中主體為 'tool'，受體為 'feature'，未違反任何明確規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係 'has_a' 未在語義限制清單中被明確限制或禁止，且無法直接對應到任何一條規則中作為違反的依據。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「防毒軟體」與 Ldr 中的「防毒軟體」完全相同，受體「病毒碼」不在 Ldr 中，但無法直接判定與 Ldr 中的資源有直接關聯。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防毒軟體",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "病毒碼",
+        "type": "feature"
+      },
+      "reasoning": "文本提到安裝防毒軟體並更新病毒碼，病毒碼是防毒軟體用來辨識惡意程式的特徵屬性，符合 (tool, has_a, feature)。",
+      "source_id": "chunk_80",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "cmd injection",
+      "type": "attack",
+      "display_name": "Command Injection"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "第七層攻擊",
+      "type": "attack",
+      "display_name": "第七層攻擊"
+    },
+    "reasoning": "題目將 Command Injection 列為第七層攻擊的選項之一，符合 (attack, is_part_of, attack)。",
+    "source_id": "chunk_80",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Command Injection 與第七層攻擊皆為攻擊類別的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在給定的語義限制清單中被明確限制，因此不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Command Injection 與第七層攻擊為同義詞，兩者皆指攻擊類型中的命令執行攻擊",
+        "response": "duplicate",
+        "standard_subject": "cmd injection",
+        "standard_object": "第七層攻擊",
+        "reason": "根據同義詞判定，Command Injection 與 cmd injection 為同義詞，且第七層攻擊與 SQL Injection 不同，但與 Command Injection 相關，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Command Injection",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "第七層攻擊",
+        "type": "attack"
+      },
+      "reasoning": "題目將 Command Injection 列為第七層攻擊的選項之一，符合 (attack, is_part_of, attack)。",
+      "source_id": "chunk_80",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "cross-site scripting",
+      "type": "attack",
+      "display_name": "Cross Site Scripting"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "第七層攻擊",
+      "type": "attack",
+      "display_name": "第七層攻擊"
+    },
+    "reasoning": "題目將 Cross Site Scripting (XSS) 列為第七層攻擊的選項之一，符合 (attack, is_part_of, attack)。",
+    "source_id": "chunk_80",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Cross Site Scripting 是 'attack' 的合理實例，第七層攻擊也可以被視為 'attack' 的實例，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的規定，且實體名稱與其類別語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。檢查規則2：不適用，因為三元組中的關係不是 mitigates。檢查規則3：不適用，因為主體的類別不是 vulnerability。檢查規則4：不適用，因為關係不是 violates 且主體不是 principle。檢查規則5：不適用，因為關係不是 uses 或主體的類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於三元組中的主體和受體都是攻擊類別，且關係是 is_part_of，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體都是攻擊類別，且關係是 is_part_of，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Cross Site Scripting 與 cross-site scripting 為完全等價同義詞，第七層攻擊 與 第七層攻擊 為完全相同",
+        "response": "duplicate",
+        "standard_subject": "cross-site scripting",
+        "standard_object": "第七層攻擊",
+        "reason": "根據同義詞判定，Cross Site Scripting 是 cross-site scripting 的同義詞，且第七層攻擊與第七層攻擊完全相同。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Cross Site Scripting",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "第七層攻擊",
+        "type": "attack"
+      },
+      "reasoning": "題目將 Cross Site Scripting (XSS) 列為第七層攻擊的選項之一，符合 (attack, is_part_of, attack)。",
+      "source_id": "chunk_80",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "ssh",
+      "type": "tool",
+      "display_name": "SSH"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "對稱加密",
+      "type": "technique",
+      "display_name": "對稱加密"
+    },
+    "reasoning": "文本提到 SSH 使用對稱加密技術，加密方式在此視為該應用程式的安全特徵，符合 (app, has_a, feature)。",
+    "source_id": "chunk_80",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SSH 是一種應用程式（app），而 '對稱加密' 是一種功能（feature），這些名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "SSH 與對稱加密的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的項目。",
+        "response": "correct",
+        "reason": "三元組中的主體 'SSH' 是一種工具，關係 'has_a' 表示它具有某種技術或屬性，在這裡是 '對稱加密'，這種關係在給定的語義限制清單中沒有被明確禁止。因此，根據 '無罪推定' 原則，該三元組被判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 SSH 與 Ldr 中的 ssh 完全等價同義詞，受體 對稱加密 與 Ldr 中的 對稱加密 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有近似資源清單中之資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSH",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "對稱加密",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 SSH 使用對稱加密技術，加密方式在此視為該應用程式的安全特徵，符合 (app, has_a, feature)。",
+      "source_id": "chunk_80",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "ssh",
+      "type": "tool",
+      "display_name": "SSH"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "非對稱加密"
+    },
+    "reasoning": "文本提到 SSH 使用非對稱加密技術，符合 (app, has_a, feature)。",
+    "source_id": "chunk_80",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SSH 是一種安全的遠端登入協議，'非對稱加密' 是其的一個特性，兩者之間的關係 'has_a' 合理，且 'app' 和 'feature' 的類別與實體名稱對齊，包含同義詞寬容原則。",
+        "response": "correct",
+        "reason": "SSH 的類別為 'app'、受體 '非對稱加密' 的類別為 'feature'，且關係 'has_a' 存在於 Lc,p 中，同時實體名稱與類別對齊，滿足所有檢查條件。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 has_a，不是 uses。檢查規則6：不適用，因為關係為 has_a，不是 deployed_in。檢查規則7：不適用，因為關係為 has_a，不是 generates。檢查規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（SSH has_a 非對稱加密）未觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 SSH 與 Ldr 中的 ssh 完全等價同義詞，受體 非對稱加密 與 Ldr 中的 加密 關係為同義詞",
+        "response": "correct",
+        "standard_subject": "ssh",
+        "standard_object": "加密",
+        "reason": "根據同義詞判定，SSH 等價於 ssh，非對稱加密 等價於 加密，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSH",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "非對稱加密",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 SSH 使用非對稱加密技術，符合 (app, has_a, feature)。",
+      "source_id": "chunk_80",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "ssh",
+      "type": "tool",
+      "display_name": "SSH"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "金鑰雜湊訊息鑑別碼",
+      "type": "feature",
+      "display_name": "金鑰雜湊訊息鑑別碼"
+    },
+    "reasoning": "文本提到 SSH 使用 HMAC 技術，符合 (app, has_a, feature)。",
+    "source_id": "chunk_80",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SSH 是一種安全的遠端登入協定，'app' 是其合理的類別；金鑰雜湊訊息鑑別碼是 SSH 中的一個安全功能，'feature' 是其合理的類別。",
+        "response": "correct",
+        "reason": "SSH 的類別為 'app'、金鑰雜湊訊息鑑別碼的類別為 'feature'，且 'has_a' 關係存在於 Lc,p 中，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則，發現沒有直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組（SSH, has_a, 金鑰雜湊訊息鑑別碼）沒有明確違反語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 SSH 與 Ldr 中的 ssh 完全等價同義詞，受體 金鑰雜湊訊息鑑別碼 與 Ldr 中的 feature 類別無直接對應關係，但無法確認是否為同義詞重複或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "ssh",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，主體 SSH 可以與 Ldr 中的 ssh 對齊，但受體無法確認同義詞重複或從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSH",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "金鑰雜湊訊息鑑別碼",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 SSH 使用 HMAC 技術，符合 (app, has_a, feature)。",
+      "source_id": "chunk_80",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵檢測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵檢測系統 (IDS)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "特徵碼",
+      "type": "feature",
+      "display_name": "特徵碼"
+    },
+    "reasoning": "文本提到 IDS 需定期更新特徵碼，特徵碼是 IDS 運作的組成部分，符合 (tool, has_a, feature)。",
+    "source_id": "chunk_80",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "入侵檢測系統 (IDS) 是 'tool' 的合理實例，特徵碼是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'has_a'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，因此不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵檢測系統 (IDS) 與入侵偵測系統 (ids) 是完全等價的同義詞，特徵碼與流量特徵碼或病毒碼在概念上相關但不完全等同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，入侵檢測系統 (IDS) 可以視為入侵偵測系統 (ids) 的同義詞，但由於題目要求嚴格區分主體和受體的類別和名稱，且特徵碼不完全等同於流量特徵碼或病毒碼，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵檢測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "特徵碼",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 IDS 需定期更新特徵碼，特徵碼是 IDS 運作的組成部分，符合 (tool, has_a, feature)。",
+      "source_id": "chunk_80",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵檢測系統 (IDS)"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "偽裝攻擊",
+      "type": "attack",
+      "display_name": "偽造 IP 之攻擊"
+    },
+    "reasoning": "文本討論 IDS 是否可阻擋/偵測偽造 IP 之攻擊，符合 (tool, can_detect, attack)。",
+    "source_id": "chunk_80",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "入侵檢測系統 (IDS) 是工具 (tool) 的合理實例，偽造 IP 之攻擊是攻擊 (attack) 的合理實例，'can_detect' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需要注意 'can_detect' 關係是否符合工具的行為特性，根據給定的類別和關係，入侵檢測系統 (IDS) 可以檢測攻擊，因此這個三元組是合法的。",
+        "response": "correct",
+        "reason": "三元組中的主體 '入侵檢測系統 (IDS)' 與關係 'can_detect' 和受體 '偽造 IP 之攻擊' 之間的關係是合理的，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵檢測系統 (IDS) 與入侵偵測系統 (ids) 是完全等價同義詞，偽造 IP 之攻擊與偽裝攻擊在資安領域中可視為同一概念的不同表達方式",
+        "response": "duplicate",
+        "standard_subject": "入侵偵測系統 (ids)",
+        "standard_object": "偽裝攻擊",
+        "reason": "根據同義詞判定準則，入侵檢測系統 (IDS) 與入侵偵測系統 (ids) 是同義詞，偽造 IP 之攻擊與偽裝攻擊在資安領域中指稱同一概念"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵檢測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "偽造 IP 之攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本討論 IDS 是否可阻擋/偵測偽造 IP 之攻擊，符合 (tool, can_detect, attack)。",
+      "source_id": "chunk_80",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "連線劫持",
+      "type": "attack",
+      "display_name": "連線劫持"
+    },
+    "reasoning": "文本描述攻擊者繞過驗證機制直接劫持 Session，即執行連線劫持攻擊，符合 (attacker, implements, attack)。",
+    "source_id": "chunk_80",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 實現 (implements) 連線劫持 (attack) 的語意是合理的，因為攻擊者可能會使用某種攻擊手法，如連線劫持，來達成其目的。",
+        "response": "correct",
+        "reason": "攻擊者實現連線劫持的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。檢查規則2：不適用，因為三元組中的關係是implements，不是mitigates。檢查規則3：不適用，因為主體類別是attacker，不是vulnerability。檢查規則4：不適用，因為關係是implements，不是violates。檢查規則5：不適用，因為關係是implements，不是uses。檢查規則6：不適用，因為關係是implements，不是deployed_in。檢查規則7：不適用，因為關係是implements，不是generates。檢查規則8：不適用，因為關係是implements，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，關係是implements，受體是連線劫持，沒有違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全等價同義詞，受體 \"連線劫持\" 與 Ldr 中的 \"連線劫持\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "連線劫持",
+        "type": "attack"
+      },
+      "reasoning": "文本描述攻擊者繞過驗證機制直接劫持 Session，即執行連線劫持攻擊，符合 (attacker, implements, attack)。",
+      "source_id": "chunk_80",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "連線劫持",
+      "type": "attack",
+      "display_name": "連線劫持"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本提到連線劫持可導致資料竄改，這對資料造成了損害，符合 (attack, can_harm, data)。",
+    "source_id": "chunk_80",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "連線劫持 (attack) 可以對資料 (data) 造成傷害，符合語意對齊，且 '連線劫持' 是 'attack' 的合理實例，'資料' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "連線劫持對資料的傷害符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 attack，而非 data。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係是 can_harm，而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是 連線劫持 (類別: attack)，關係是 can_harm，受體是 資料 (類別: data)，這不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "連線劫持與Ldr中的連線劫持完全相同，資料與Ldr中的資料完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與Ldr中的資源完全相同，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "連線劫持",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到連線劫持可導致資料竄改，這對資料造成了損害，符合 (attack, can_harm, data)。",
+      "source_id": "chunk_80",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "中間人攻擊 (mitm)",
+      "type": "attack",
+      "display_name": "中間人攻擊 (MITM)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網路竊聽",
+      "type": "attack",
+      "display_name": "網路竊聽"
+    },
+    "reasoning": "文本明確指出中間人攻擊屬於網路竊聽分類的一種攻擊形式，符合 (attack, is_part_of, attack)。",
+    "source_id": "chunk_80",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "中間人攻擊 (MITM) 和網路竊聽都是 'attack' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，通過類別與屬性檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關。檢查規則6：無關。檢查規則7：無關。檢查規則8：無關。",
+        "response": "correct",
+        "reason": "三元組（中間人攻擊 is_part_of 網路竊聽）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "中間人攻擊 (MITM) 與網路竊聽在資安領域中是相關但不同的攻擊類型，兩者皆屬於攻擊的子類型，但非完全等價同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，中間人攻擊 (MITM) 和網路竊聽不完全相同，且無法確定為同義詞或子類型關係，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "中間人攻擊 (MITM)",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "網路竊聽",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出中間人攻擊屬於網路竊聽分類的一種攻擊形式，符合 (attack, is_part_of, attack)。",
+      "source_id": "chunk_80",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 12
+    }
+  }
+]

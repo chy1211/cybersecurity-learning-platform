@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "雜湊函數",
+      "type": "function",
+      "display_name": "雜湊函數"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "訊息摘要",
+      "type": "data",
+      "display_name": "訊息摘要"
+    },
+    "reasoning": "文本提到『將原始文件，以雜湊函數處理後，產生訊息摘要』，雜湊函數在此作為執行特定功能的工具，產出了訊息摘要這項資料。",
+    "source_id": "chunk_4",
+    "source_file": "ch04_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "雜湊函數 (Hash Function) 是工具 (tool) 的合理實例，訊息摘要 (Message Digest) 是數據 (data) 的合理實例，'generates' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "雜湊函數作為工具生成訊息摘要的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組符合規則：當關係為generates時，受體的類別必須是data，且主體的類別為function，符合規則允許的條件。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雜湊函數與訊息摘要之間沒有同義詞關係，且無法確認為子類型或廣義/狹義從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雜湊函數",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "訊息摘要",
+        "type": "data"
+      },
+      "reasoning": "文本提到『將原始文件，以雜湊函數處理後，產生訊息摘要』，雜湊函數在此作為執行特定功能的工具，產出了訊息摘要這項資料。",
+      "source_id": "chunk_4",
+      "source_file": "ch04_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "數位簽章驗證",
+      "type": "technique",
+      "display_name": "數位簽章驗證"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料篡改",
+      "type": "attack",
+      "display_name": "資料篡改"
+    },
+    "reasoning": "文本描述比對訊息摘要若符合，則表示『沒有被修改過』。這意味著數位簽章驗證這項技術可以用來緩解或防禦資料被惡意修改（資料篡改）的攻擊。",
+    "source_id": "chunk_4",
+    "source_file": "ch04_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "數位簽章驗證是 technique 的合理實例，資料篡改是 attack 的合理實例，且 'mitigates' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "數位簽章驗證與資料篡改的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體是數位簽章驗證（類別：technique），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係符合規則2的允許條件，且未發現其他明確違反的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "數位簽章驗證與驗證之間的關係是廣義/狹義從屬，數位簽章驗證是一種特定的驗證技術",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則3，若一個實體是另一個的子類型，判定為correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位簽章驗證",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料篡改",
+        "type": "attack"
+      },
+      "reasoning": "文本描述比對訊息摘要若符合，則表示『沒有被修改過』。這意味著數位簽章驗證這項技術可以用來緩解或防禦資料被惡意修改（資料篡改）的攻擊。",
+      "source_id": "chunk_4",
+      "source_file": "ch04_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "公開金鑰簽章演算法",
+      "type": "technique",
+      "display_name": "公開金鑰簽章演算法"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "reasoning": "文本提到利用『公開金鑰簽章演算法』對『數位簽章』進行解密（解簽章），這是一種分析數位簽章資料以還原訊息摘要的技術過程。",
+    "source_id": "chunk_4",
+    "source_file": "ch04_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "公開金鑰簽章演算法 是 technique 的合理實例，數位簽章 是 data 的合理實例。",
+        "response": "correct",
+        "reason": "公開金鑰簽章演算法 與 數位簽章 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 technique，而非 data。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係是 can_analyze，而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是公開金鑰簽章演算法（類別：technique），關係是 can_analyze，受體是數位簽章（類別：data），這不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "公開金鑰簽章演算法與數位簽章之間的關係是技術與資料的對應關係，前者是一種技術，後者是其產出的資料，兩者之間存在著廣義/狹義的從屬關係，但非同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，公開金鑰簽章演算法與數位簽章之間的關係不構成同義詞重複，且前者是後者的產生技術，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "公開金鑰簽章演算法",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "數位簽章",
+        "type": "data"
+      },
+      "reasoning": "文本提到利用『公開金鑰簽章演算法』對『數位簽章』進行解密（解簽章），這是一種分析數位簽章資料以還原訊息摘要的技術過程。",
+      "source_id": "chunk_4",
+      "source_file": "ch04_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資料篡改",
+      "type": "attack",
+      "display_name": "資料篡改"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "『沒有被修改過』對應到資安核心原則中的『完整性 (Integrity)』。因此，修改文件的攻擊行為（資料篡改）直接違反了完整性原則。",
+    "source_id": "chunk_4",
+    "source_file": "ch04_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資料篡改 是 'attack' 的合理實例，完整性 是 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用，因為 principle 是受體。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是資料篡改（attack），關係是違反（violates），受體是完整性（principle），這符合規則4的描述，且沒有觸發其他規則的違規條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "資料篡改與現有近似資源清單中的名稱完全相同，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料篡改",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "『沒有被修改過』對應到資安核心原則中的『完整性 (Integrity)』。因此，修改文件的攻擊行為（資料篡改）直接違反了完整性原則。",
+      "source_id": "chunk_4",
+      "source_file": "ch04_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "歐盟通用資料保護規範",
+      "type": "policy",
+      "display_name": "歐盟通用資料保護規範"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "GDPR 是一項法律規範（policy），其定義個人資料及保護範圍的目的在於降低個人敏感資訊被非法獲取或洩露的風險（個資外洩）。",
+    "source_id": "chunk_4",
+    "source_file": "ch04_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "歐盟通用資料保護規範是 'policy' 的合理實例，個資外洩是 'risk' 的合理實例，'mitigates' 的語意與實體之間的關係相符。",
+        "response": "correct",
+        "reason": "歐盟通用資料保護規範與個資外洩的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是歐盟通用資料保護規範，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體是歐盟通用資料保護規範，類別為 policy，符合規則2的條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "歐盟通用資料保護規範",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "GDPR 是一項法律規範（policy），其定義個人資料及保護範圍的目的在於降低個人敏感資訊被非法獲取或洩露的風險（個資外洩）。",
+      "source_id": "chunk_4",
+      "source_file": "ch04_習題解答.pdf",
+      "source_index": 5
+    }
+  }
+]

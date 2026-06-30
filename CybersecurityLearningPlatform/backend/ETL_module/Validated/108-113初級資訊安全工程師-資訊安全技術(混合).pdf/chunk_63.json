@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "密碼潑灑",
+      "type": "attack",
+      "display_name": "密碼潑灑"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到密碼潑灑（Password Spraying）是嘗試登入系統的攻擊行為，因此將其定義為 attack，其目標系統為 system，關係為 can_harm。",
+    "source_id": "chunk_63",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '密碼潑灑' 是 'attack' 的合理實例，'系統' 是 'system' 的合理實例，關係 'can_harm' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。檢查規則2：不適用，因為三元組中的關係不是 mitigates。檢查規則3：不適用，因為三元組中的主體類別不是 vulnerability。檢查規則4：不適用，因為三元組中的關係不是 violates，且主體不是 principle。檢查規則5：不適用，因為三元組中的關係不是 uses。檢查規則6：不適用，因為三元組中的關係不是 deployed_in。檢查規則7：不適用，因為三元組中的關係不是 generates。檢查規則8：不適用，因為三元組中的關係不是 controls。由於三元組中的主體是攻擊類別，關係是 can_harm，受體是系統類別，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「密碼潑灑」與 Ldr 中的「密碼潑灑」完全相同，受體「系統」與 Ldr 中的「系統」完全相同，兩者皆無需進一步分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全相同，無需進行同義詞判定或廣義/狹義分析。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼潑灑",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到密碼潑灑（Password Spraying）是嘗試登入系統的攻擊行為，因此將其定義為 attack，其目標系統為 system，關係為 can_harm。",
+      "source_id": "chunk_63",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "跨站指令碼攻擊",
+      "type": "attack",
+      "display_name": "跨網站指令碼攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網頁瀏覽器",
+      "type": "system",
+      "display_name": "網頁瀏覽器"
+    },
+    "reasoning": "文本描述 XSS 是讓使用者在瀏覽網頁時執行惡意指令，這直接影響瀏覽器（app）的執行環境，因此選擇 attack can_harm app。",
+    "source_id": "chunk_63",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "跨網站指令碼攻擊是 'attack' 的合理實例，網頁瀏覽器是 'app' 的合理實例，'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 '跨網站指令碼攻擊' 屬於 'attack' 類別，受體 '網頁瀏覽器' 屬於 'system' 類別，符合一般的攻擊與系統之間的關係邏輯。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係、受體之間的關係沒有明確違反語義限制清單中的任何規則，且邏輯上一個攻擊可以對系統造成傷害。"
+      },
+      "step_2": {
+        "granularity_analysis": "跨網站指令碼攻擊與跨站指令碼攻擊、跨網站腳本攻擊為同義詞，網頁瀏覽器為完全匹配",
+        "response": "correct",
+        "standard_subject": "跨站指令碼攻擊",
+        "standard_object": "網頁瀏覽器",
+        "reason": "根據同義詞判定，跨網站指令碼攻擊與跨站指令碼攻擊為同義詞，網頁瀏覽器為完全匹配。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "跨網站指令碼攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網頁瀏覽器",
+        "type": "app"
+      },
+      "reasoning": "文本描述 XSS 是讓使用者在瀏覽網頁時執行惡意指令，這直接影響瀏覽器（app）的執行環境，因此選擇 attack can_harm app。",
+      "source_id": "chunk_63",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "注入攻擊",
+      "type": "attack",
+      "display_name": "注入攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "注入攻擊（Injection Flaws）是常見的安全性弱點利用攻擊，會對目標系統造成損害，符合 attack can_harm system。",
+    "source_id": "chunk_63",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "注入攻擊 (attack) 是攻擊類別的合理實例，系統 (system) 是系統類別的合理實例，且 'can_harm' 是描述攻擊對系統影響的合理關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是攻擊（attack），關係是 can_harm，受體是系統（system），這不涉及控制（controls）關係。",
+        "response": "correct",
+        "reason": "三元組（注入攻擊 can_harm 系統）不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"注入攻擊\" 與 Ldr 中的 \"注入攻擊\" 完全等價同義詞，受體 \"系統\" 與 Ldr 中的 \"系統\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "注入攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "注入攻擊（Injection Flaws）是常見的安全性弱點利用攻擊，會對目標系統造成損害，符合 attack can_harm system。",
+      "source_id": "chunk_63",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "輸入及輸出的檢查",
+      "type": "technique",
+      "display_name": "輸入及輸出的檢查"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "跨站指令碼攻擊",
+      "type": "attack",
+      "display_name": "跨網站指令碼攻擊"
+    },
+    "reasoning": "文本指出為了防範 XSS，應採用網頁程式中做好輸入及輸出的檢查工作，這是一種防禦技術，符合 technique mitigates attack。",
+    "source_id": "chunk_63",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "輸入及輸出的檢查 是 technique 的合理實例，跨網站指令碼攻擊 是 attack 的合理實例。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是 '輸入及輸出的檢查'，類別為 technique，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "因為三元組的主體是 technique，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"輸入及輸出的檢查\" 與 Ldr 中的 \"輸入查驗\" 類似，但非完全等價同義詞；受體 \"跨網站指令碼攻擊\" 與 Ldr 中的 \"跨站指令碼攻擊\" 或 \"跨網站腳本攻擊\" 類似，屬於同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "跨站指令碼攻擊",
+        "reason": "受體 \"跨網站指令碼攻擊\" 與 Ldr 中的 \"跨站指令碼攻擊\" 屬於同義詞重複，但主體 \"輸入及輸出的檢查\" 與 Ldr 中的 \"輸入查驗\" 類似，但非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "輸入及輸出的檢查",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "跨網站指令碼攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本指出為了防範 XSS，應採用網頁程式中做好輸入及輸出的檢查工作，這是一種防禦技術，符合 technique mitigates attack。",
+      "source_id": "chunk_63",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "輸入及輸出的檢查",
+      "type": "technique",
+      "display_name": "輸入及輸出的檢查"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "注入攻擊",
+      "type": "attack",
+      "display_name": "注入攻擊"
+    },
+    "reasoning": "同上，輸入及輸出的檢查也被列為防範注入攻擊（Injection Flaws）的策略，符合 technique mitigates attack。",
+    "source_id": "chunk_63",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "輸入及輸出的檢查 是 technique 的合理實例，注入攻擊 是 attack 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '輸入及輸出的檢查' 屬於類別 'technique'，因此符合規則2。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '輸入及輸出的檢查' 屬於類別 'technique'，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與現有近似資源清單中的「輸入查驗」相似，但不完全相同；受體與現有近似資源清單中的「注入攻擊」完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "注入攻擊",
+        "reason": "根據同義詞判定，受體「注入攻擊」與現有近似資源清單中的「注入攻擊」完全相同，但主體不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "輸入及輸出的檢查",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "注入攻擊",
+        "type": "attack"
+      },
+      "reasoning": "同上，輸入及輸出的檢查也被列為防範注入攻擊（Injection Flaws）的策略，符合 technique mitigates attack。",
+      "source_id": "chunk_63",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "參數化語句",
+      "type": "technique",
+      "display_name": "參數化語句"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料隱碼攻擊",
+      "type": "attack",
+      "display_name": "資料隱碼攻擊"
+    },
+    "reasoning": "文本提到使用參數化語句是對資料隱碼攻擊有效的防禦手段，符合 technique mitigates attack。",
+    "source_id": "chunk_63",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "參數化語句 可被視為一種 'technique'，資料隱碼攻擊 可被視為一種 'attack'，且 'mitigates' 關係在資安領域中是合理的，表示某一技術可以減輕特定攻擊的影響。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是參數化語句（類別：technique），符合規則2的條件。",
+        "response": "correct",
+        "reason": "三元組的主體是參數化語句（類別：technique），符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "參數化語句與輸入及輸出的檢查無直接關係，但參數化語句可能與資料隱碼攻擊相關，資料隱碼攻擊是攻擊的一種，兩者之間存在著廣義/狹義的關係，但無法確認完全等價同義詞或子類型關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認完全等價同義詞或子類型關係，且兩者之間的關係不明確，因此預設保留"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "參數化語句",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料隱碼攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到使用參數化語句是對資料隱碼攻擊有效的防禦手段，符合 technique mitigates attack。",
+      "source_id": "chunk_63",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "輸入值的驗證",
+      "type": "technique",
+      "display_name": "輸入值的驗證"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料隱碼攻擊",
+      "type": "attack",
+      "display_name": "資料隱碼攻擊"
+    },
+    "reasoning": "文本提到強化對輸入值的驗證可防禦資料隱碼攻擊，符合 technique mitigates attack。",
+    "source_id": "chunk_63",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "輸入值的驗證是 'technique' 的合理實例，資料隱碼攻擊是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是 '輸入值的驗證'，類別是 'technique'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '輸入值的驗證' 屬於 'technique' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與現有近似資源清單中的「輸入查驗」具有高相似度，受體與現有近似資源清單中的「資料隱碼攻擊」完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體均不構成同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "輸入值的驗證",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料隱碼攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到強化對輸入值的驗證可防禦資料隱碼攻擊，符合 technique mitigates attack。",
+      "source_id": "chunk_63",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "資料隱碼攻擊",
+      "type": "attack",
+      "display_name": "資料隱碼攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料庫",
+      "type": "app",
+      "display_name": "資料庫"
+    },
+    "reasoning": "資料隱碼攻擊（SQL Injection）的核心目標是操縱資料庫，資料庫屬於 app，因此選擇 attack can_harm app。",
+    "source_id": "chunk_63",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資料隱碼攻擊 (attack) 是攻擊的一種合理實例，資料庫 (app) 是應用程式的一種合理實例，'can_harm' 關係在資安領域中是合理的，因為攻擊可以對應用程式造成傷害。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_harm，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 can_harm 不違反任何語義限制清單中的規則，且主體和受體的類別與關係之間的邏輯關係合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料隱碼攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資料庫",
+        "type": "app"
+      },
+      "reasoning": "資料隱碼攻擊（SQL Injection）的核心目標是操縱資料庫，資料庫屬於 app，因此選擇 attack can_harm app。",
+      "source_id": "chunk_63",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "安全的 api",
+      "type": "tool",
+      "display_name": "安全的 API"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料隱碼攻擊",
+      "type": "attack",
+      "display_name": "資料隱碼攻擊"
+    },
+    "reasoning": "使用安全的 API 被視為一種防禦工具/組件來緩解 SQL Injection，符合 tool mitigates attack。",
+    "source_id": "chunk_63",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全的 API 是 tool 的合理實例，資料隱碼攻擊是 attack 的合理實例，且 'mitigates' 是合理的關係描述。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是安全的 API (類別: tool)，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體是安全的 API (類別: tool)，符合規則2的條件，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆在 Ldr 中找到完全匹配的資源，分別為 \"安全的 api\" 與 \"資料隱碼攻擊\"，且兩者皆為完全等價同義詞或直接匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆直接在 Ldr 中找到完全匹配的資源，無需進行同義詞判定或廣義/狹義一律保留的處理。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全的 API",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料隱碼攻擊",
+        "type": "attack"
+      },
+      "reasoning": "使用安全的 API 被視為一種防禦工具/組件來緩解 SQL Injection，符合 tool mitigates attack。",
+      "source_id": "chunk_63",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "縱深防禦",
+      "type": "technique",
+      "display_name": "縱深防禦"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "technique",
+      "display_name": "攻擊"
+    },
+    "reasoning": "縱深防禦（Defense in Depth）是一種透過多層管控措施來降低攻擊風險的技術，符合 technique mitigates attack。",
+    "source_id": "chunk_63",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "縱深防禦 (technique) 與 攻擊 (attack) 的名稱與其類別合理對齊，且 'mitigates' 關係在資安領域中是合理的，表示某一技術可以減輕攻擊的影響。",
+        "response": "correct",
+        "reason": "縱深防禦與攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '縱深防禦' 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '縱深防禦' 屬於 technique 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "縱深防禦與攻擊之間的關係是不同的安全技術，縱深防禦是一種防禦策略，攻擊是一種攻擊手法，兩者之間沒有直接的同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，縱深防禦和攻擊之間沒有同義詞或從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "縱深防禦",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "縱深防禦（Defense in Depth）是一種透過多層管控措施來降低攻擊風險的技術，符合 technique mitigates attack。",
+      "source_id": "chunk_63",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  }
+]

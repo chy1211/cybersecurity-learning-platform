@@ -1,0 +1,152 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "分散式阻斷服務攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本提到由攻擊者電腦發動攻擊命令，實作了 DDoS 攻擊。符合 ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_8",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "分散式阻斷服務攻擊",
+      "type": "attack"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "僵屍程式",
+      "type": "tool"
+    },
+    "reasoning": "DDoS 攻擊需要透過安裝僵屍程式的機器（殭屍電腦）來執行。將僵屍程式視為攻擊工具。符合 ('attack', 'depends_on', 'tool')。",
+    "source_id": "chunk_8",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "受控電腦",
+      "type": "tool"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "殭屍電腦",
+      "type": "system"
+    },
+    "reasoning": "文本明確指出『受控電腦可以指揮殭屍電腦』。在此情境下，受控電腦扮演 C&C 伺服器的角色（工具），控制被感染的系統。符合 ('tool', 'controls', 'system')。",
+    "source_id": "chunk_8",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "分散式阻斷服務攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標伺服器",
+      "type": "system"
+    },
+    "reasoning": "文本提到殭屍電腦對目標伺服器發動攻擊，導致其耗盡資源。符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_8",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "分散式阻斷服務攻擊",
+      "type": "attack"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle"
+    },
+    "reasoning": "文本提到目標伺服器『無法提供正常服務』，這直接違反了資安三要素中的可用性 (Availability)。符合 ('attack', 'violates', 'principle')。",
+    "source_id": "chunk_8",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "Ping of death",
+      "type": "technique"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "Ping of death 攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本將 Ping of death 描述為一種『攻擊方式』，即一種達成攻擊目的的技術。符合 ('technique', 'implements', 'attack')。",
+    "source_id": "chunk_8",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "Ping of death 攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標伺服器",
+      "type": "system"
+    },
+    "reasoning": "文本提到發送超過最大封包大小的封包可以讓目標電腦當機。符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_8",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "TCP/IP 協定",
+      "type": "feature"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "協定弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到這是『專門針對一種協定弱點的簡單攻擊』，且早期系統無法處理特定大小封包，說明協定特徵暴露了漏洞。符合 ('feature', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_8",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "協定弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "攻擊者利用 TCP/IP 協定對封包大小處理的缺陷來發動 PoD 攻擊。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_8",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "泛洪攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標伺服器",
+      "type": "system"
+    },
+    "reasoning": "泛洪攻擊透過發送大量封包使目標伺服器癱瘓。符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_8",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 10
+  }
+]

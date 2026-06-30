@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "芳鄰",
+      "type": "app",
+      "display_name": "芳鄰"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "port 137/139/445",
+      "type": "feature",
+      "display_name": "Port 137/139/445"
+    },
+    "reasoning": "文本詢問芳鄰常見使用的 Port，Port（連接埠）是應用程式的組成屬性，因此將芳鄰視為 app，Port 視為 feature。",
+    "source_id": "chunk_12",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "主體 '芳鄰' 可被視為 'app' 的合理實例，受體 'Port 137/139/445' 可被視為 'feature' 的合理實例，尤其是在資安領域中，這些端口號碼與特定功能或漏洞相關聯。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為主體類別不是 data。檢查規則6：無關，因為關係不是 deployed_in。檢查規則7：無關，因為關係不是 generates。檢查規則8：無關，因為關係不是 controls。檢查規則沒有發現明確違反。",
+        "response": "correct",
+        "reason": "三元組沒有觸發任何語義限制清單中的規則，且無法直接判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '芳鄰' 與 Ldr 中的 '微軟網路芳鄰' 類似，但非完全等價同義詞，受體 'Port 137/139/445' 與 Ldr 中無直接相關資源。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】與【同義詞判定】，主體 '芳鄰' 與 '微軟網路芳鄰' 非完全匹配，且無同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "芳鄰",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Port 137/139/445",
+        "type": "feature"
+      },
+      "reasoning": "文本詢問芳鄰常見使用的 Port，Port（連接埠）是應用程式的組成屬性，因此將芳鄰視為 app，Port 視為 feature。",
+      "source_id": "chunk_12",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "死亡之ping",
+      "type": "attack",
+      "display_name": "死亡之Ping"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網路層",
+      "type": "system",
+      "display_name": "網路層"
+    },
+    "reasoning": "文本指出死亡之Ping (PoD) 是針對 OSI 模型網路層的攻擊。在 Schema 中，攻擊對層級架構的損害可對應至 (attack, can_harm, system)。",
+    "source_id": "chunk_12",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "死亡之Ping 是 'attack' 的合理實例，網路層是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統可能造成傷害的合理關係。",
+        "response": "correct",
+        "reason": "死亡之Ping 對網路層的 'can_harm' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_harm'，發現沒有直接相關的規則限制。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 與主體 '死亡之Ping' 的類別 'attack' 和受體 '網路層' 的類別 'system' 沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路層與網路、電腦網路、物聯網路等概念相關，但非完全等價同義詞，網路層是系統的一部分，屬於廣義/狹義從屬關係，不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，網路層與其他相關概念不完全相同，且屬於廣義/狹義從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "死亡之Ping",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網路層",
+        "type": "system"
+      },
+      "reasoning": "文本指出死亡之Ping (PoD) 是針對 OSI 模型網路層的攻擊。在 Schema 中，攻擊對層級架構的損害可對應至 (attack, can_harm, system)。",
+      "source_id": "chunk_12",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "tcp/ip 通訊協定",
+      "type": "system",
+      "display_name": "TCP/IP 通訊協定"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "應用層",
+      "type": "system",
+      "display_name": "應用層"
+    },
+    "reasoning": "文本提到 TCP/IP 通訊協定中的應用層，協定組為整體系統，其分層架構為其特徵，符合 (system, has_a, feature)。",
+    "source_id": "chunk_12",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "TCP/IP 通訊協定是一個系統（system），而 '應用層' 是其的一個特徵（feature），因此語意對齊。",
+        "response": "correct",
+        "reason": "TCP/IP 通訊協定與其應用層的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組（TCP/IP 通訊協定 has_a 應用層）不觸發語義限制清單中的任何規則，且符合一般的語義理解。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 'TCP/IP 通訊協定' 與 Ldr 中 'tcp/ip 協定組' 關係為同義詞，受體 '應用層' 與 Ldr 中 '應用層' 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體與 Ldr 中的 'tcp/ip 協定組' 關係為同義詞，但受體 '應用層' 已經是完全匹配的，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "TCP/IP 通訊協定",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "應用層",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 TCP/IP 通訊協定中的應用層，協定組為整體系統，其分層架構為其特徵，符合 (system, has_a, feature)。",
+      "source_id": "chunk_12",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "封包過濾防火牆",
+      "type": "tool",
+      "display_name": "封包過濾防火牆"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "封包",
+      "type": "data",
+      "display_name": "封包標頭"
+    },
+    "reasoning": "文本提到封包過濾防火牆『僅針對封包標頭進行檢查』，檢查即為分析，封包標頭屬於網路資料，符合 (tool, can_analyze, data) 的 Schema。",
+    "source_id": "chunk_12",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "封包過濾防火牆是 tool 的合理實例，封包標頭是 data 的合理實例，'can_analyze' 關係在資安領域中合理適用於工具與數據之間。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是can_analyze，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses，且主體類別是tool，而非data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（封包過濾防火牆）是tool類別，關係是can_analyze，受體是封包標頭，符合一般工具可以分析資料的邏輯，未發現明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "封包過濾防火牆與過濾型防火牆之間存在著廣義/狹義從屬關係，前者是後者的子類型；而封包標頭與封包之間存在著同義詞關係，兩者指稱同一概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "封包",
+        "reason": "根據廣義/狹義一律保留原則，封包過濾防火牆不進行合併；而封包標頭與封包之間的同義詞關係導致受體進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "封包過濾防火牆",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "封包標頭",
+        "type": "data"
+      },
+      "reasoning": "文本提到封包過濾防火牆『僅針對封包標頭進行檢查』，檢查即為分析，封包標頭屬於網路資料，符合 (tool, can_analyze, data) 的 Schema。",
+      "source_id": "chunk_12",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "電子郵件",
+      "type": "app",
+      "display_name": "電子郵件"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "tls",
+      "type": "feature",
+      "display_name": "TLS"
+    },
+    "reasoning": "文本提到為了電子郵件的通訊安全可以使用 TLS。TLS 作為一種加密協定/特徵被應用於電子郵件應用程式中，符合 (app, has_a, feature)。",
+    "source_id": "chunk_12",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "電子郵件是一種應用程式（app），TLS 是一種安全功能（feature），因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "電子郵件與 TLS 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '電子郵件' 和受體 'TLS' 的類別組合，未觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "電子郵件與電子郵件用戶端/電子郵件客戶端為同義詞，但TLS不在近似資源清單中，且無法與加密或其他feature直接關聯",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定電子郵件與TLS的直接關聯，且TLS不在近似資源清單中，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子郵件",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "TLS",
+        "type": "feature"
+      },
+      "reasoning": "文本提到為了電子郵件的通訊安全可以使用 TLS。TLS 作為一種加密協定/特徵被應用於電子郵件應用程式中，符合 (app, has_a, feature)。",
+      "source_id": "chunk_12",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "ipsec",
+      "type": "tool",
+      "display_name": "IPSec"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "傳輸模式",
+      "type": "feature",
+      "display_name": "傳輸模式"
+    },
+    "reasoning": "傳輸模式 (Transport Mode) 是 IPSec 這一安全工具/協定所提供的特定運作模式（特徵），符合 (tool, has_a, feature)。",
+    "source_id": "chunk_12",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IPSec 是一種工具（tool），'傳輸模式' 是其功能（feature）的一部分，符合語意對齊，且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "IPSec 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查後發現，三元組中的關係 'has_a' 與規則中沒有直接相關的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體 'IPSec'、關係 'has_a'、受體 '傳輸模式' 不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "IPSec 是一個特定的工具，與 Ldr 中的 'ipsec' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IPSec",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "傳輸模式",
+        "type": "feature"
+      },
+      "reasoning": "傳輸模式 (Transport Mode) 是 IPSec 這一安全工具/協定所提供的特定運作模式（特徵），符合 (tool, has_a, feature)。",
+      "source_id": "chunk_12",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "tcp",
+      "type": "system",
+      "display_name": "TCP"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "三向交握",
+      "type": "feature",
+      "display_name": "三向交握"
+    },
+    "reasoning": "三向交握是 TCP 協定運作的核心機制/特徵，符合 (system, has_a, feature)。",
+    "source_id": "chunk_12",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "TCP 是一個系統（system），三向交握（三向握手）是 TCP 的一個特徵（feature），因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "TCP 與三向交握的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係 'has_a' 不在任何規則中被明確限制，且主體 'TCP' 的類別是 'system'，受體 '三向交握' 的類別是 'feature'，這不觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有近似資源清單中之資源完全匹配，故無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "TCP",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "三向交握",
+        "type": "feature"
+      },
+      "reasoning": "三向交握是 TCP 協定運作的核心機制/特徵，符合 (system, has_a, feature)。",
+      "source_id": "chunk_12",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  }
+]

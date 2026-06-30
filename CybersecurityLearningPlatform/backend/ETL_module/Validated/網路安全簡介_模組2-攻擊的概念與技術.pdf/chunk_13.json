@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "網路犯罪分子",
+      "type": "attacker",
+      "display_name": "網路犯罪分子"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "惡意軟體",
+      "type": "tool",
+      "display_name": "惡意軟體"
+    },
+    "reasoning": "文本明確提到『網路犯罪分子使用許多不同類型的惡意軟體來進行活動』，符合 (attacker, uses, tool) 的 Schema。",
+    "source_id": "chunk_13",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網路犯罪分子是 attacker 的合理實例，惡意軟體是 tool 的合理實例，且 'uses' 是描述 attacker 與 tool 間關係的合理屬性。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。規則2：不適用，因為主體不是 policy, technique 或 tool。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為關係不是 violates。規則5：觸發，因為主體的類別是 attacker，而不是 data，但使用 uses 關係是允許的。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是網路犯罪分子（attacker），使用惡意軟體（tool），這符合規則5的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路犯罪分子",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "惡意軟體",
+        "type": "tool"
+      },
+      "reasoning": "文本明確提到『網路犯罪分子使用許多不同類型的惡意軟體來進行活動』，符合 (attacker, uses, tool) 的 Schema。",
+      "source_id": "chunk_13",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "惡意軟體攻擊",
+      "type": "attack",
+      "display_name": "惡意軟體攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本提到惡意軟體用於『竊取資料』，這對資料的機密性造成損害，符合 (attack, can_harm, data) 的 Schema。",
+    "source_id": "chunk_13",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "惡意軟體攻擊 (attack) 是 'attack' 的合理實例，資料 (data) 是 'data' 的合理實例，且 'can_harm' 是描述攻擊對資料可能造成傷害的合理關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是攻擊（attack），不是資料（data）。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係是 can_harm，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（惡意軟體攻擊 can_harm 資料）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「惡意軟體攻擊」與 Ldr 中的「惡意軟體攻擊」完全等價同義詞，受體「資料」與 Ldr 中的「資料」完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意軟體攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到惡意軟體用於『竊取資料』，這對資料的機密性造成損害，符合 (attack, can_harm, data) 的 Schema。",
+      "source_id": "chunk_13",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "惡意軟體攻擊",
+      "type": "attack",
+      "display_name": "惡意軟體攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到惡意軟體會『對系統造成損害或危害』，將惡意軟體的行為定義為 attack，符合 (attack, can_harm, system) 的 Schema。",
+    "source_id": "chunk_13",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "惡意軟體攻擊 (attack) 是 'attack' 的合理實例，系統 (system) 是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統的影響的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是惡意軟體攻擊，關係是can_harm，受體是系統，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"惡意軟體攻擊\" 與 Ldr 中的 \"惡意軟體攻擊\" 完全等價，受體 \"系統\" 與 Ldr 中的 \"系統\" 完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意軟體攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到惡意軟體會『對系統造成損害或危害』，將惡意軟體的行為定義為 attack，符合 (attack, can_harm, system) 的 Schema。",
+      "source_id": "chunk_13",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "社交工程",
+      "type": "technique",
+      "display_name": "社交工程"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本指出社交工程是為了『洩漏機密資訊』，洩漏資訊即是對資料的危害，符合 (attack, can_harm, data) 的 Schema。",
+    "source_id": "chunk_13",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "社交工程是 'attack' 的合理實例，資料是 'data' 的合理實例，'can_harm' 的語意也與攻擊對資料的影響相符。",
+        "response": "correct",
+        "reason": "社交工程攻擊可以對資料造成傷害，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 technique，而非 data。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組（社交工程 can_harm 資料）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "社交工程與社會工程學為同義詞，資料為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "社交工程與資料不構成同義詞或廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "社交工程",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本指出社交工程是為了『洩漏機密資訊』，洩漏資訊即是對資料的危害，符合 (attack, can_harm, data) 的 Schema。",
+      "source_id": "chunk_13",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "dos攻擊",
+      "type": "attack",
+      "display_name": "DoS攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "reasoning": "文本提到 DoS 攻擊會導致『應用程式的網路服務中斷』，這屬於對應用程式可用性的危害，符合 (attack, can_harm, app) 的 Schema。",
+    "source_id": "chunk_13",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "DoS攻擊 是 'attack' 的合理實例，應用程式 是 'app' 的合理實例，且 'can_harm' 是描述攻擊對應用程式可能造成傷害的合理關係。",
+        "response": "correct",
+        "reason": "DoS攻擊、can_harm 和應用程式的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是DoS攻擊（類別：attack），關係是can_harm，受體是應用程式（類別：app），這不違反任何規則。",
+        "response": "correct",
+        "reason": "三元組（DoS攻擊 can_harm 應用程式）不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "DoS攻擊與Ldr中的\"ddos 攻擊\"、\"阻斷服務攻擊\"具有同義詞關係，且\"應用程式\"與Ldr中的\"應用程式\"完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "DoS攻擊與ddos攻擊、阻斷服務攻擊為同義詞，但根據判斷準則2，若兩個實體在資安教材中可互換使用、指稱同一概念，則判定為duplicate；然而，根據判斷準則3，若一個實體是另一個的子類型，則判定為correct；因此，最終判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DoS攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "reasoning": "文本提到 DoS 攻擊會導致『應用程式的網路服務中斷』，這屬於對應用程式可用性的危害，符合 (attack, can_harm, app) 的 Schema。",
+      "source_id": "chunk_13",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "ddos攻擊",
+      "type": "attack",
+      "display_name": "DDoS攻擊"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "dos攻擊",
+      "type": "attack",
+      "display_name": "DoS攻擊"
+    },
+    "reasoning": "文本提到『DDoS 攻擊與 DoS 攻擊類似』且其本質是分散式的 DoS，因此 DDoS 是 DoS 攻擊的一種形式，符合 (attack, is_part_of, attack) 的 Schema。",
+    "source_id": "chunk_13",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "DDoS攻擊的類別為attack、DoS攻擊的類別為attack，且關係is_part_of都存在於Lc,p的Classes和Properties中。",
+        "step_2_alignment_check": "DDoS攻擊和DoS攻擊都是攻擊的合理實例，且is_part_of關係在資安領域中合理適用於描述攻擊之間的關係。",
+        "response": "correct",
+        "reason": "DDoS攻擊和DoS攻擊的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（DDoS攻擊 is_part_of DoS攻擊）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "DDoS攻擊與DoS攻擊在資安領域中，DoS攻擊是DDoS攻擊的廣義概念，DDoS攻擊是DoS攻擊的一種特定形式，即分布式阻斷服務攻擊。因此，兩者之間存在著廣義和狹義的關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，DDoS攻擊是DoS攻擊的一種子類型，兩者不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DDoS攻擊",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "DoS攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『DDoS 攻擊與 DoS 攻擊類似』且其本質是分散式的 DoS，因此 DDoS 是 DoS 攻擊的一種形式，符合 (attack, is_part_of, attack) 的 Schema。",
+      "source_id": "chunk_13",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "惡意個人或團體",
+      "type": "attacker",
+      "display_name": "惡意個人或團體"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "殭屍網路",
+      "type": "system",
+      "display_name": "殭屍網路"
+    },
+    "reasoning": "文本明確指出『殭屍網路是惡意個人或團體可以控制的』，符合 (attacker, controls, system) 的 Schema。",
+    "source_id": "chunk_13",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "惡意個人或團體是 'attacker' 的合理實例，殭屍網路是 'system' 的合理實例，關係 'controls' 在資安領域中指控制或操控的行為，與 'attacker' 控制 'system' 的情境相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未觸發，因為三元組中主體是惡意個人或團體，沒有同時具有攻擊者和安全團隊的身分。規則2：未觸發，因為三元組中關係是controls，不是mitigates。規則3：未觸發，因為三元組中主體類別是attacker，不是vulnerability。規則4：未觸發，因為三元組中主體不是principle。規則5：未觸發，因為三元組中關係是controls，不是uses。規則6：未觸發，因為三元組中關係是controls，不是deployed_in。規則7：未觸發，因為三元組中關係是controls，不是generates。規則8：觸發，因為三元組中主體是attacker，符合具有主動執行能力的角色或工具的描述，且關係是controls，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組符合規則8的允許條件，主體是attacker，具有主動執行能力，關係是controls，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體「殭屍網路」與 Ldr 中的「殭屍網路」完全相同，主體「惡意個人或團體」與 Ldr 中的「網路犯罪分子」概念相關但非完全等價同義詞，兩者皆無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，受體「殭屍網路」直接判定 correct；主體「惡意個人或團體」與 Ldr 中的「網路犯罪分子」雖相關但無直接同義詞關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意個人或團體",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "殭屍網路",
+        "type": "system"
+      },
+      "reasoning": "文本明確指出『殭屍網路是惡意個人或團體可以控制的』，符合 (attacker, controls, system) 的 Schema。",
+      "source_id": "chunk_13",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "機器人電腦",
+      "type": "system",
+      "display_name": "機器人電腦"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "殭屍網路",
+      "type": "system",
+      "display_name": "殭屍網路"
+    },
+    "reasoning": "根據資安常識與文本脈絡，機器人電腦 (Bot) 是組成殭屍網路 (Botnet) 的個體，符合 (system, is_part_of, system) 的 Schema。",
+    "source_id": "chunk_13",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "機器人電腦與殭屍網路皆可被視為 'system' 的合理實例，且 'is_part_of' 關係在資安領域中常用於描述系統之間的關聯，因此語意對齊合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：觸發檢查，但三元組中的受體（殭屍網路）類別是 system，符合規則6的要求。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 與規則6相關，且受體的類別是 system，符合規則6的要求。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體（機器人電腦）與 Ldr 中的個人電腦、受控制電腦等資源具有相似的概念，但非完全等價同義詞；受體（殭屍網路）在 Ldr 中具有完全匹配的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "殭屍網路",
+        "reason": "根據判斷準則，主體不完全匹配任何同義詞，受體具有完全匹配的同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "機器人電腦",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "殭屍網路",
+        "type": "system"
+      },
+      "reasoning": "根據資安常識與文本脈絡，機器人電腦 (Bot) 是組成殭屍網路 (Botnet) 的個體，符合 (system, is_part_of, system) 的 Schema。",
+      "source_id": "chunk_13",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "加密貨幣劫持",
+      "type": "attack",
+      "display_name": "加密貨幣劫持"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到在不知情下使用機器資源挖掘加密貨幣，這會導致 CPU 使用率增加並降低設備速度，是對系統效能的危害，符合 (attack, can_harm, system) 的 Schema。",
+    "source_id": "chunk_13",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "加密貨幣劫持是一種攻擊（attack），系統（system）是合理的受體類別，'can_harm' 關係在攻擊對系統的語意下是合理的。",
+        "response": "correct",
+        "reason": "加密貨幣劫持對系統的關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"加密貨幣劫持\" 與 Ldr 中的 \"加密劫持\" 類似，但非完全等價同義詞；受體 \"系統\" 與 Ldr 中的 \"系統\" 完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "系統",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源不完全匹配，受體與 Ldr 中的資源完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加密貨幣劫持",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到在不知情下使用機器資源挖掘加密貨幣，這會導致 CPU 使用率增加並降低設備速度，是對系統效能的危害，符合 (attack, can_harm, system) 的 Schema。",
+      "source_id": "chunk_13",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "網路犯罪分子",
+      "type": "attacker",
+      "display_name": "網路犯罪分子"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "社交工程",
+      "type": "technique",
+      "display_name": "社交工程"
+    },
+    "reasoning": "文本將社交工程描述為一種操縱人們的手段（技術），而網路犯罪分子是執行此類活動的主體，符合 (attacker, uses, technique) 的 Schema。",
+    "source_id": "chunk_13",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'technique' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網路犯罪分子是 attacker 的合理實例，社交工程是 technique 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 attacker，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為網路犯罪分子（attacker），關係為 uses，受體為社交工程（technique），此組合未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中，分別為 \"網路犯罪分子\" 與 \"社交工程\"。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路犯罪分子",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "社交工程",
+        "type": "technique"
+      },
+      "reasoning": "文本將社交工程描述為一種操縱人們的手段（技術），而網路犯罪分子是執行此類活動的主體，符合 (attacker, uses, technique) 的 Schema。",
+      "source_id": "chunk_13",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 10
+    }
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "subject": {
+      "name": "私密金鑰",
+      "type": "data"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "自然人憑證 IC 卡",
+      "type": "system"
+    },
+    "reasoning": "文本提到私密金鑰可以儲存在 IC 卡中，因此將私密金鑰視為資料 (data)，IC 卡視為存放它的系統 (system)，符合 (data, deployed_in, system) 的 Schema。",
+    "source_id": "chunk_18",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "憑證",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "公開金鑰",
+      "type": "feature"
+    },
+    "reasoning": "憑證內包含公開金鑰，將憑證視為一種身分驗證工具 (tool)，公開金鑰為其組成屬性 (feature)，符合 (tool, has_a, feature) 的 Schema。",
+    "source_id": "chunk_18",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "憑證機構",
+      "type": "securityTeam"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "憑證",
+      "type": "tool"
+    },
+    "reasoning": "憑證機構 (CA) 負責簽發與管理憑證，將 CA 視為安全團隊 (securityTeam)，憑證視為工具 (tool)，符合 (securityTeam, controls, tool) 的 Schema。",
+    "source_id": "chunk_18",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "敏感性資訊",
+      "type": "data"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "明文傳輸",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本指出若包含敏感性資訊（如身分證號）且以明文傳輸，會導致安全問題。將敏感資訊視為資料 (data)，明文傳輸視為系統缺陷/漏洞 (vulnerability)，符合 (data, can_expose, vulnerability) 的 Schema。",
+    "source_id": "chunk_18",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "SSL/TLS",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "明文截取",
+      "type": "attack"
+    },
+    "reasoning": "SSL/TLS 用於保護傳輸資料的私密性與完整性，以防止明文傳輸被截取。將 SSL/TLS 視為技術 (technique)，明文截取視為攻擊行為 (attack)，符合 (technique, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_18",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "網頁瀏覽器",
+      "type": "system"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "網頁伺服器",
+      "type": "system"
+    },
+    "reasoning": "文本描述網頁伺服器與瀏覽器之間的溝通，將兩者均視為基礎設施系統 (system)，符合 (system, connects_to, system) 的 Schema。",
+    "source_id": "chunk_18",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "數位信封",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未授權存取",
+      "type": "attack"
+    },
+    "reasoning": "文本提到若非憑證持有人無法解開數位信封，從而達到機密傳送目的，這緩解了未授權者獲取資料的攻擊。將數位信封視為技術 (technique)，未授權存取視為攻擊 (attack)，符合 (technique, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_18",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 7
+  }
+]

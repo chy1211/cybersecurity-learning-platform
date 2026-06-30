@@ -1,0 +1,81 @@
+[
+  {
+    "subject": {
+      "name": "特定非公務機關",
+      "type": "securityTeam",
+      "display_name": "特定非公務機關"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "第三級資通安全事件",
+      "type": "attack",
+      "display_name": "第三級資通安全事件"
+    },
+    "reasoning": "文本提到特定非公務機關在發生資通安全事件時需進行損害控制或復原，這代表該組織（安全團隊角色）負責緩解（mitigates）該攻擊事件（attack）。",
+    "source_id": "chunk_109",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "reject_reason": "Phase 1 (Schema Edge Violation): securityTeam -> mitigates -> attack",
+    "original_raw_triple": {
+      "subject": {
+        "name": "特定非公務機關",
+        "type": "securityTeam"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "第三級資通安全事件",
+        "type": "attack"
+      },
+      "reasoning": "文本提到特定非公務機關在發生資通安全事件時需進行損害控制或復原，這代表該組織（安全團隊角色）負責緩解（mitigates）該攻擊事件（attack）。",
+      "source_id": "chunk_109",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "cookie",
+      "type": "tool",
+      "display_name": "Cookie"
+    },
+    "reasoning": "文本提到網站記錄使用者資訊（Cookie），在技術上是應用程式（app）產生（generates）了特定的資料（data）。",
+    "source_id": "chunk_109",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "網站 (app) 可以生成 Cookie (data)，這是語意上合理的對齊，符合資安領域的常見實例與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。但在此三元組中，受體是 Cookie，類別是 tool，不符合規則7的要求。",
+        "response": "violation",
+        "reason": "三元組中的關係是 generates，受體的類別是 tool，違反了規則7中關係為 generates 時受體類別必須是 data 的要求。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組中的關係是 generates，受體的類別是 tool，違反了規則7中關係為 generates 時受體類別必須是 data 的要求。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "Cookie",
+        "type": "data"
+      },
+      "reasoning": "文本提到網站記錄使用者資訊（Cookie），在技術上是應用程式（app）產生（generates）了特定的資料（data）。",
+      "source_id": "chunk_109",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  }
+]

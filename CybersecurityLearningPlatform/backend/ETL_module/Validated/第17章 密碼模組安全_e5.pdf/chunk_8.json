@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "美國國家標準與技術局 (nist)",
+      "type": "securityTeam",
+      "display_name": "國家標準技術研究院 (NIST)"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "測試報告",
+      "type": "data",
+      "display_name": "測試報告"
+    },
+    "reasoning": "文本提到 NIST 負責『審驗文件』以及『報告 NIST 審核』，因此 NIST 作為安全團隊 (securityTeam) 具有分析測試報告 (data) 的能力。",
+    "source_id": "chunk_8",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "國家標準技術研究院 (NIST) 是 'securityTeam' 的合理實例，測試報告是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但關係為 can_analyze，主體為 securityTeam，符合一般安全團隊的分析能力。",
+        "response": "correct",
+        "reason": "三元組中的主體（國家標準技術研究院，NIST）為安全團隊（securityTeam），其與測試報告（data）之間的關係（can_analyze）在給定的語義限制清單中沒有被明確禁止，且符合一般安全團隊的分析能力。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 \"美國國家標準與技術局 (nist)\" 和 \"美國國家標準局 (nist)\" 皆為同一實體的不同名稱，受體 \"測試報告\" 與 Ldr 中的 \"測試報告\" 完全相同",
+        "response": "correct",
+        "standard_subject": "美國國家標準與技術局 (nist)",
+        "standard_object": "測試報告",
+        "reason": "根據同義詞判定和完全等價同義詞，主體與受體分別與 Ldr 中的資源相符"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "國家標準技術研究院 (NIST)",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "測試報告",
+        "type": "data"
+      },
+      "reasoning": "文本提到 NIST 負責『審驗文件』以及『報告 NIST 審核』，因此 NIST 作為安全團隊 (securityTeam) 具有分析測試報告 (data) 的能力。",
+      "source_id": "chunk_8",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "測試實驗室",
+      "type": "securityTeam",
+      "display_name": "測試實驗室"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "fips 符合性測試",
+      "type": "tool",
+      "display_name": "FIPS 符合性測試"
+    },
+    "reasoning": "文本描述測試實驗室執行『FIPS 符合性測試』，因此將測試實驗室視為安全團隊 (securityTeam)，而符合性測試是一種檢測技術 (technique)。",
+    "source_id": "chunk_8",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '測試實驗室' 的名稱與其類別 'securityTeam' 合理對齊，實體 'FIPS 符合性測試' 的名稱與其類別 'technique' 也合理對齊，考慮到同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 securityTeam，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：不適用，但 uses 關係下，securityTeam 使用 tool 是合理的。",
+        "response": "correct",
+        "reason": "三元組中的主體為 securityTeam，關係為 uses，受體為 FIPS 符合性測試，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體分別與 Ldr 中的資源有高相似度，但需進一步判定同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體 '測試實驗室' 與 Ldr 中的 '檢測實驗室' 類似，但不完全匹配；受體 'FIPS 符合性測試' 的相似度為 1.0，直接判定為正確，不進行同義詞合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "測試實驗室",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "FIPS 符合性測試",
+        "type": "technique"
+      },
+      "reasoning": "文本描述測試實驗室執行『FIPS 符合性測試』，因此將測試實驗室視為安全團隊 (securityTeam)，而符合性測試是一種檢測技術 (technique)。",
+      "source_id": "chunk_8",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "fips 符合性測試",
+      "type": "tool",
+      "display_name": "FIPS 符合性測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "密碼模組",
+      "type": "tool",
+      "display_name": "密碼模組"
+    },
+    "reasoning": "FIPS 符合性測試的目的在於檢測密碼模組是否符合標準，因此該技術 (technique) 可分析密碼模組 (system)。",
+    "source_id": "chunk_8",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "FIPS 符合性測試 可被視為 'technique' 的實例，密碼模組 可被視為 'system' 的實例，且 'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "FIPS 符合性測試 與 密碼模組 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別為 tool，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但可以檢查 can_analyze 關係的合法性，根據給定的三元組，tool 可以執行 can_analyze 動作，沒有明確的規則限制這種情況。",
+        "response": "correct",
+        "reason": "三元組中的主體（FIPS 符合性測試）和受體（密碼模組）之間的 can_analyze 關係沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "FIPS 符合性測試與密碼模組之間沒有直接的同義詞關係，且兩者在資安領域中代表不同的概念，前者是指一種測試標準，後者是指一種安全工具或技術。因此，兩者之間的關係是不同概念的實體。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體在資安教材中不可互換使用、指稱不同概念，且無同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "FIPS 符合性測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "密碼模組",
+        "type": "system"
+      },
+      "reasoning": "FIPS 符合性測試的目的在於檢測密碼模組是否符合標準，因此該技術 (technique) 可分析密碼模組 (system)。",
+      "source_id": "chunk_8",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "fips 140",
+      "type": "policy",
+      "display_name": "FIPS 140"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權之發佈",
+      "type": "attack",
+      "display_name": "未經授權之發佈"
+    },
+    "reasoning": "文本明確指出 FIPS 140 的目的之一是『防止未受保護的訊息被未經授權的發佈』，這屬於透過規範 (policy) 緩解/防禦攻擊行為 (attack)。",
+    "source_id": "chunk_8",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "FIPS 140 是一種安全政策（policy），'未經授權之發佈' 可被視為一種攻擊（attack），'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，語意上是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 FIPS 140，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體和關係符合規則2的允許條件，且未發現其他規則的明確違反。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "FIPS 140 與 Ldr 中的 \"fips 140\" 完全等價同義詞，未經授權之發佈與 Ldr 中的 \"未授權行為\" 類似但非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "fips 140",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，FIPS 140 與 \"fips 140\" 完全匹配，但未經授權之發佈與 \"未授權行為\" 不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "FIPS 140",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "未經授權之發佈",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出 FIPS 140 的目的之一是『防止未受保護的訊息被未經授權的發佈』，這屬於透過規範 (policy) 緩解/防禦攻擊行為 (attack)。",
+      "source_id": "chunk_8",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "fips 140",
+      "type": "policy",
+      "display_name": "FIPS 140"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "擅自更改可執行檔",
+      "type": "attack",
+      "display_name": "擅自更改可執行檔"
+    },
+    "reasoning": "文本提到 FIPS 140 旨在『防止擅自更改密碼模組的可執行檔』，符合規範 (policy) 緩解攻擊 (attack) 的邏輯。",
+    "source_id": "chunk_8",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "FIPS 140 是一種安全政策，'policy' 是其合理類別；'mitigates' 是一種合理的關係，描述了政策對攻擊的緩解作用；'擅自更改可執行檔' 是一種攻擊行為，'attack' 是其合理類別。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 FIPS 140，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 FIPS 140 屬於 policy 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "FIPS 140 與 Ldr 中的 fips 140 完全等價同義詞，受體與 Ldr 中的未經授權之發佈無直接關聯，但受體描述涉及攻擊行為，與資安領域已知同義詞對照範例無直接匹配",
+        "response": "correct",
+        "standard_subject": "fips 140",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，主體 FIPS 140 與 Ldr 中的 fips 140 完全匹配，受體無直接同義詞對應，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "FIPS 140",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "擅自更改可執行檔",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 FIPS 140 旨在『防止擅自更改密碼模組的可執行檔』，符合規範 (policy) 緩解攻擊 (attack) 的邏輯。",
+      "source_id": "chunk_8",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼模組",
+      "type": "tool",
+      "display_name": "密碼模組"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "邊界 (boundary)",
+      "type": "feature",
+      "display_name": "邊界 (boundary)"
+    },
+    "reasoning": "文本提到『需要定義密碼模組的邊界』，邊界是密碼模組這個系統的一個屬性或組成部分，因此定義為 feature。",
+    "source_id": "chunk_8",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "密碼模組 (password module) 可被視為系統 (system) 的一部分，邊界 (boundary) 是資安中的常見特徵 (feature)，因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "密碼模組與邊界的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體是 tool，具有主動執行能力，關係是 has_a，受體是邊界，沒有明確違反規則8或其他規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「密碼模組」與 Ldr 中的「密碼模組」完全相同，受體「邊界」不在 Ldr 中，但無需比對受體與 Ldr，因主體已確定為完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼模組",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "邊界 (boundary)",
+        "type": "feature"
+      },
+      "reasoning": "文本提到『需要定義密碼模組的邊界』，邊界是密碼模組這個系統的一個屬性或組成部分，因此定義為 feature。",
+      "source_id": "chunk_8",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "fips 140",
+      "type": "policy",
+      "display_name": "FIPS 140"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "秘密金鑰洩露",
+      "type": "attack",
+      "display_name": "秘密金鑰洩露"
+    },
+    "reasoning": "文本提到 FIPS 140 旨在『防止未經授權之洩露、修改和替換秘密金鑰』，將洩露行為視為攻擊 (attack)，由規範 (policy) 緩解。",
+    "source_id": "chunk_8",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "FIPS 140 是一種安全政策（policy），'mitigates' 是一種合理的關係，描述了政策對攻擊（attack）的緩解作用，'秘密金鑰洩露' 是一種攻擊（attack）的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 FIPS 140，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 FIPS 140 屬於 policy 類別，符合規則2 的允許條件，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "FIPS 140 是一種政策標準，與 Ldr 中的 'fips 140' 完全等價，受體 '秘密金鑰洩露' 與 '洩漏帳號密碼' 或 '企業機密外洩' 類似，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "fips 140",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體 FIPS 140 與 Ldr 中的 'fips 140' 完全等價，但受體 '秘密金鑰洩露' 與 Ldr 中的資源不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "FIPS 140",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "秘密金鑰洩露",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 FIPS 140 旨在『防止未經授權之洩露、修改和替換秘密金鑰』，將洩露行為視為攻擊 (attack)，由規範 (policy) 緩解。",
+      "source_id": "chunk_8",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼模組",
+      "type": "tool",
+      "display_name": "密碼模組"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "秘密金鑰 (secret key)",
+      "type": "data",
+      "display_name": "秘密金鑰 (secret key)"
+    },
+    "reasoning": "密碼模組在運作時必須使用秘密金鑰或私密金鑰來執行加密功能，因此系統 (system) 使用資料 (data)。",
+    "source_id": "chunk_8",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "密碼模組 (password module) 是系統 (system) 的合理實例，秘密金鑰 (secret key) 是數據 (data) 的合理實例，且 'uses' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "密碼模組使用秘密金鑰的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體的類別是 'tool'，不違反規則5。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 'tool'，關係是 'uses'，受體是 'secret key'，這符合規則5的允許條件，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"密碼模組\" 與 Ldr 中的 \"密碼模組\" 完全等價，受體 \"秘密金鑰\" 與 Ldr 中的 \"私密金鑰\" 或 \"加密金鑰\" 等相關但非完全等價同義詞，考慮到廣義/狹義一律保留原則，兩者皆不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體皆不符合同義詞判定或廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼模組",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "秘密金鑰 (secret key)",
+        "type": "data"
+      },
+      "reasoning": "密碼模組在運作時必須使用秘密金鑰或私密金鑰來執行加密功能，因此系統 (system) 使用資料 (data)。",
+      "source_id": "chunk_8",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "美國國家標準與技術局 (nist)",
+      "type": "securityTeam",
+      "display_name": "國家標準技術研究院 (NIST)"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "fips 140",
+      "type": "policy",
+      "display_name": "FIPS 140"
+    },
+    "reasoning": "NIST 作為標準制定與審核機構，負責執行並確保 FIPS 140 規範的落實，因此安全團隊 (securityTeam) 實作/執行規範 (policy)。",
+    "source_id": "chunk_8",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "國家標準技術研究院 (NIST) 是 'securityTeam' 的合理實例，FIPS 140 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未觸發，因為主體是安全團隊（securityTeam），不具有攻擊者（attacker）的身分。規則2：未觸發，因為主體是安全團隊（securityTeam），不是policy、technique或tool。規則3：未觸發，因為主體不是漏洞（vulnerability）。規則4：未觸發，因為關係不是violates，且主體不是principle。規則5：未觸發，因為關係不是uses。規則6：未觸發，因為關係不是deployed_in。規則7：未觸發，因為關係不是generates。規則8：未觸發，因為主體是安全團隊（securityTeam），具有主動執行能力，但關係是implements，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（國家標準技術研究院，NIST）是安全團隊（securityTeam），與受體（FIPS 140）之間的關係是implements，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 '美國國家標準與技術局 (nist)' 和 '美國國家標準局 (nist)' 皆為同一實體的不同名稱，受體 'FIPS 140' 與 Ldr 中的 'fips 140' 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "美國國家標準與技術局 (nist)",
+        "standard_object": "fips 140",
+        "reason": "主體和受體分別與 Ldr 中的資源為同義詞，依據同義詞判定準則，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "國家標準技術研究院 (NIST)",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "FIPS 140",
+        "type": "policy"
+      },
+      "reasoning": "NIST 作為標準制定與審核機構，負責執行並確保 FIPS 140 規範的落實，因此安全團隊 (securityTeam) 實作/執行規範 (policy)。",
+      "source_id": "chunk_8",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "apache",
+      "type": "app",
+      "display_name": "Apache 伺服器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "記錄",
+      "type": "data",
+      "display_name": "Apache 記錄"
+    },
+    "reasoning": "文本提到『關於此筆 Apache 記錄』，暗示 Apache 伺服器會產生日誌記錄。符合 Schema: (\"app\", \"generates\", \"data\")。",
+    "source_id": "chunk_121",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Apache 伺服器是 'app' 的合理實例，Apache 記錄是 'data' 的合理實例，'generates' 的語意與 Apache 伺服器生成 Apache 記錄的關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7適用，關係為generates，受體類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的條件，受體類別是data，且關係為generates，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "Apache 伺服器與 apache 完全等價同義詞，Apache 記錄與 記錄 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "apache",
+        "standard_object": "記錄",
+        "reason": "根據同義詞判定，Apache 伺服器與 apache、Apache 記錄與 記錄 為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Apache 伺服器",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "Apache 記錄",
+        "type": "data"
+      },
+      "reasoning": "文本提到『關於此筆 Apache 記錄』，暗示 Apache 伺服器會產生日誌記錄。符合 Schema: (\"app\", \"generates\", \"data\")。",
+      "source_id": "chunk_121",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "apache",
+      "type": "app",
+      "display_name": "Apache 伺服器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ip 位址",
+      "type": "feature",
+      "display_name": "IP 位址"
+    },
+    "reasoning": "選項 (A) 提到 218.19.140.242 是伺服器的 IP，IP 是系統/應用程式的網路特徵。符合 Schema: (\"app\", \"has_a\", \"feature\")。",
+    "source_id": "chunk_121",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Apache 伺服器是一種應用程式（app），IP 位址是一種特徵（feature），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組（Apache 伺服器 has_a IP 位址）不觸發語義限制清單中的任何規則，且無明確違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "Apache 伺服器與 Ldr 中的 apache 完全等價同義詞，IP 位址與 Ldr 中的 ip 位址完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "apache",
+        "standard_object": "ip 位址",
+        "reason": "根據同義詞判定，Apache 伺服器與 apache 是同義詞，IP 位址與 ip 位址是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Apache 伺服器",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "IP 位址",
+        "type": "feature"
+      },
+      "reasoning": "選項 (A) 提到 218.19.140.242 是伺服器的 IP，IP 是系統/應用程式的網路特徵。符合 Schema: (\"app\", \"has_a\", \"feature\")。",
+      "source_id": "chunk_121",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "siem",
+      "type": "tool",
+      "display_name": "SIEM"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資安威脅",
+      "type": "attack",
+      "display_name": "資安威脅"
+    },
+    "reasoning": "選項 (C) 提到 SIEM 的功能是達成降低資安威脅。將資安威脅視為 attack，SIEM 為 tool。符合 Schema: (\"tool\", \"mitigates\", \"attack\")。",
+    "source_id": "chunk_121",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SIEM 是一種安全資訊與事件管理工具，合理對齊 'tool' 類別；'資安威脅' 是 'attack' 的合理實例，兩者皆符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "SIEM、'mitigates' 和 '資安威脅' 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體 SIEM 類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "SIEM 與 usim、siem系統為同義詞，資安威脅與資訊安全威脅、網路安全威脅等為同義詞或廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定與廣義/狹義一律保留原則，SIEM 與資安威脅不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SIEM",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資安威脅",
+        "type": "attack"
+      },
+      "reasoning": "選項 (C) 提到 SIEM 的功能是達成降低資安威脅。將資安威脅視為 attack，SIEM 為 tool。符合 Schema: (\"tool\", \"mitigates\", \"attack\")。",
+      "source_id": "chunk_121",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "siem",
+      "type": "tool",
+      "display_name": "SIEM"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "日誌管理",
+      "type": "function",
+      "display_name": "日誌管理"
+    },
+    "reasoning": "文本將日誌管理與 SIEM 的功能聯繫在一起，SIEM 作為工具包含日誌管理功能。符合 Schema: (\"tool\", \"has_a\", \"function\")。",
+    "source_id": "chunk_121",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SIEM 是一種安全資訊與事件管理工具，日誌管理是其功能之一，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "SIEM 與日誌管理的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係沒有觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SIEM 與 siem系統、usim 均為同一類別 tool，但 siem系統、usim 與 SIEM 並非完全等價同義詞；日誌管理為 function 類別，與管理、帳號管理、行程管理 皆為同一類別 function，但日誌管理為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "日誌管理",
+        "reason": "根據同義詞判定，日誌管理為完全等價同義詞，故受體 standard_object 填入日誌管理；主體 SIEM 與 siem系統、usim 並非完全等價同義詞，故 standard_subject 留空。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SIEM",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "日誌管理",
+        "type": "function"
+      },
+      "reasoning": "文本將日誌管理與 SIEM 的功能聯繫在一起，SIEM 作為工具包含日誌管理功能。符合 Schema: (\"tool\", \"has_a\", \"function\")。",
+      "source_id": "chunk_121",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "選項 (B) 提到日誌可能被駭客或惡意破壞者刪除或修改，這屬於對資料的危害。符合 Schema: (\"attacker\", \"can_harm\", \"data\")。",
+    "source_id": "chunk_121",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，日誌 (data) 是資料的合理實例，'can_harm' 的語意與攻擊者對資料的危害行為相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需注意 'can_harm' 關係的主體 'attacker' 是具有主動執行能力的角色，符合一般的語義期待。",
+        "response": "correct",
+        "reason": "三元組中的 '駭客' (attacker) 透過 'can_harm' 關係對 '日誌' (data) 進行有害動作，沒有明確違反任何一條語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「駭客」與 Ldr 中的「駭客」完全等價同義詞，受體「日誌」與 Ldr 中的「日誌」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "選項 (B) 提到日誌可能被駭客或惡意破壞者刪除或修改，這屬於對資料的危害。符合 Schema: (\"attacker\", \"can_harm\", \"data\")。",
+      "source_id": "chunk_121",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "日誌管理系統",
+      "type": "tool",
+      "display_name": "日誌管理系統"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "選項 (D) 提到透過日誌管理系統統一分析。符合 Schema: (\"tool\", \"can_analyze\", \"data\")。",
+    "source_id": "chunk_121",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "日誌管理系統是 tool 的合理實例，日誌是 data 的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "日誌管理系統可以分析日誌的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別是 tool，而不是 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls，但 can_analyze 關係下，主體是 tool，受體是 data，符合一般工具分析資料的邏輯。",
+        "response": "correct",
+        "reason": "三元組中的主體（日誌管理系統）是 tool 類別，關係是 can_analyze，受體是日誌（data類別），這符合工具分析資料的邏輯，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "日誌管理系統與日誌管理方案為同義詞，日誌為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "日誌",
+        "reason": "根據資安領域已知同義詞對照範例，日誌管理系統與日誌管理方案雖然相似，但不完全相同，且日誌為完全等價同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "日誌管理系統",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "選項 (D) 提到透過日誌管理系統統一分析。符合 Schema: (\"tool\", \"can_analyze\", \"data\")。",
+      "source_id": "chunk_121",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "賦予超過實際所需的權限",
+      "type": "vulnerability",
+      "display_name": "賦予超過實際所需的權限"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全威脅",
+      "type": "risk",
+      "display_name": "安全威脅"
+    },
+    "reasoning": "題目 44 詢問『賦予超過實際所需的權限』屬於何種安全威脅，這是一種設定錯誤（漏洞）導致風險暴露。符合 Schema: (\"vulnerability\", \"can_expose\", \"risk\")。",
+    "source_id": "chunk_121",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '賦予超過實際所需的權限' 是 'vulnerability' 的合理實例，受體 '安全威脅' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但 'can_expose' (暴露) 動作是特例允許的。因此，三元組中的 'can_expose' 關係不觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的 'can_expose' 關係符合規則3的特例允許，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"賦予超過實際所需的權限\" 與 \"漏洞\" 同義，受體 \"安全威脅\" 與 \"安全風險\" 類似，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，主體與受體之間的關係不構成同義詞重複或廣義/狹義從屬，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "賦予超過實際所需的權限",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全威脅",
+        "type": "risk"
+      },
+      "reasoning": "題目 44 詢問『賦予超過實際所需的權限』屬於何種安全威脅，這是一種設定錯誤（漏洞）導致風險暴露。符合 Schema: (\"vulnerability\", \"can_expose\", \"risk\")。",
+      "source_id": "chunk_121",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "鑑識攻擊事件追蹤分析",
+      "type": "technique",
+      "display_name": "鑑識攻擊事件追蹤分析"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "攻擊事件",
+      "type": "attack",
+      "display_name": "攻擊事件"
+    },
+    "reasoning": "選項 (D) 提到使用分析技術來追蹤攻擊事件（事件記錄為 data）。符合 Schema: (\"technique\", \"can_analyze\", \"data\")。",
+    "source_id": "chunk_121",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "鑑識攻擊事件追蹤分析 是 technique 的合理實例，攻擊事件 是 data 的合理實例，且 'can_analyze' 是合理的關係。",
+        "response": "correct",
+        "reason": "鑑識攻擊事件追蹤分析 與 攻擊事件 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別是 technique，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於三元組中的關係是 can_analyze，且主體是 technique，受體是 attack，没有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係符合資安本體論的語義限制，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資源 '攻擊事件' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "攻擊事件",
+        "reason": "根據資安領域已知同義詞對照範例，'攻擊事件' 與 '攻擊' 可互換使用，指稱同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "鑑識攻擊事件追蹤分析",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "攻擊事件",
+        "type": "data"
+      },
+      "reasoning": "選項 (D) 提到使用分析技術來追蹤攻擊事件（事件記錄為 data）。符合 Schema: (\"technique\", \"can_analyze\", \"data\")。",
+      "source_id": "chunk_121",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  }
+]

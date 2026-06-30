@@ -1,0 +1,626 @@
+[
+  {
+    "subject": {
+      "name": "http cookie",
+      "type": "feature",
+      "display_name": "HTTP Cookie"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "session id",
+      "type": "data",
+      "display_name": "Session ID"
+    },
+    "reasoning": "文本提到 HTTP Cookie 的目的是在瀏覽器中儲存資訊（如：Session ID），Cookie 作為協定/系統的特徵 (feature)，使用 (uses) 認證資訊 (data)。",
+    "source_id": "chunk_39",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "HTTP Cookie 是 'feature' 的合理實例，Session ID 是 'data' 的合理實例，且 'uses' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體的類別是feature，而不是data，但這裡的主體是HTTP Cookie，類別是feature，使用uses關係，受體是Session ID，類別是data，符合規則5的描述，但因為主體不是data，所以不違反規則5。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體HTTP Cookie使用uses關係，受體是Session ID，沒有明確違反任何規則。根據無罪推定原則，若未發現明確且直接的違反項目，則判定為correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 HTTP Cookie 與 Ldr 中的 http cookie 完全等價同義詞，受體 Session ID 與 Ldr 中的 session id 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "http cookie",
+        "standard_object": "session id",
+        "reason": "根據同義詞判定，HTTP Cookie 與 http cookie、Session ID 與 session id 分別為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "HTTP Cookie",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "Session ID",
+        "type": "data"
+      },
+      "reasoning": "文本提到 HTTP Cookie 的目的是在瀏覽器中儲存資訊（如：Session ID），Cookie 作為協定/系統的特徵 (feature)，使用 (uses) 認證資訊 (data)。",
+      "source_id": "chunk_39",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "字串過濾",
+      "type": "technique",
+      "display_name": "字串過濾"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "reasoning": "文本指出對查詢字串進行字串過濾可用於防範 SQL Injection，這是一種防禦技術 (technique) 用於緩解 (mitigates) 攻擊 (attack)。",
+    "source_id": "chunk_39",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "字串過濾是 'technique' 的合理實例，SQL Injection 是 'attack' 的合理實例，且 'mitigates' 的語意與資安領域的常見用法相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '字串過濾' 屬於 'technique' 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '字串過濾' 屬於 'technique' 類別，符合規則2的條件，且未發現其他明確違反的規則。因此，根據 '無罪推定' 原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "SQL Injection 是 Ldr 中的完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "sql injection",
+        "reason": "根據同義詞對照表，SQL Injection 等同於 sql injection，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "字串過濾",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "reasoning": "文本指出對查詢字串進行字串過濾可用於防範 SQL Injection，這是一種防禦技術 (technique) 用於緩解 (mitigates) 攻擊 (attack)。",
+      "source_id": "chunk_39",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "prepare statement",
+      "type": "technique",
+      "display_name": "Prepare Statement"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "reasoning": "文本指出使用 Prepare Statement 可防範 SQL Injection，這是一種開發技術 (technique) 用於緩解 (mitigates) 攻擊 (attack)。",
+    "source_id": "chunk_39",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Prepare Statement 是一種合理的 'technique' 實例，SQL Injection 是一種合理的 'attack' 實例，且 'mitigates' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的定義，且語意對齊合理，故此三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是 Prepare Statement，類別為 technique，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 Prepare Statement 屬於 technique 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 的名稱 \"SQL Injection\" 與 Ldr 中的 \"sql injection\" 關係為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "sql injection",
+        "reason": "根據資安領域已知同義詞對照範例，SQL Injection 與 sql injection 為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Prepare Statement",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "reasoning": "文本指出使用 Prepare Statement 可防範 SQL Injection，這是一種開發技術 (technique) 用於緩解 (mitigates) 攻擊 (attack)。",
+      "source_id": "chunk_39",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "stored procedure",
+      "type": "technique",
+      "display_name": "Stored Procedure"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "reasoning": "文本指出使用 Stored Procedure 可防範 SQL Injection，這是一種開發技術 (technique) 用於緩解 (mitigates) 攻擊 (attack)。",
+    "source_id": "chunk_39",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Stored Procedure 是一種 'technique'，SQL Injection 是一種 'attack'，且 'mitigates' 關係在資安領域中合理，表示某一技術可以減輕特定攻擊的風險。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作， Stored Procedure 屬於 technique 類別，符合規則。",
+        "response": "correct",
+        "reason": "三元組中的主體 Stored Procedure 屬於 technique 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 的名稱 \"SQL Injection\" 與 Ldr 中的 \"sql injection\" 類別相同，且為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "sql injection",
+        "reason": "根據同義詞判定準則，SQL Injection 與 sql injection 為同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Stored Procedure",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "reasoning": "文本指出使用 Stored Procedure 可防範 SQL Injection，這是一種開發技術 (technique) 用於緩解 (mitigates) 攻擊 (attack)。",
+      "source_id": "chunk_39",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "xss",
+      "type": "vulnerability",
+      "display_name": "XSS"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網頁應用程式",
+      "type": "app",
+      "display_name": "網頁應用程式"
+    },
+    "reasoning": "XSS (跨站指令碼攻擊) 是開發過程中未留意程式安全造成的問題，其目標是危害 (can_harm) 應用程式 (app)。",
+    "source_id": "chunk_39",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "XSS 是 'attack' 的合理實例，網頁應用程式是 'app' 的合理實例，且 'can_harm' 的語意與攻擊對應的網頁應用程式的關係相符。",
+        "response": "correct",
+        "reason": "XSS攻擊對網頁應用程式的傷害是資安領域中常見的攻擊行為，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但 'can_harm' 關係代表的是漏洞對系統的影響，屬於被動缺陷的描述，不違反規則3。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的 'can_harm' 關係描述的是漏洞對網頁應用程式的影響，符合語義限制清單中對漏洞的描述，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (XSS) 與 Ldr 中的 'xss' 完全等價同義詞，受體 (網頁應用程式) 與 Ldr 中的 '網頁應用程式' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "XSS",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網頁應用程式",
+        "type": "app"
+      },
+      "reasoning": "XSS (跨站指令碼攻擊) 是開發過程中未留意程式安全造成的問題，其目標是危害 (can_harm) 應用程式 (app)。",
+      "source_id": "chunk_39",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網頁應用程式",
+      "type": "app",
+      "display_name": "網頁應用程式"
+    },
+    "reasoning": "SQL Injection 是針對程式安全（開發過程）造成的攻擊，其目標是危害 (can_harm) 應用程式 (app)。",
+    "source_id": "chunk_39",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SQL Injection 是 'attack' 的合理實例，網頁應用程式是 'app' 的合理實例，且 'can_harm' 是描述攻擊對應用程式的合理關係。",
+        "response": "correct",
+        "reason": "SQL Injection 對網頁應用程式的 'can_harm' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者(attacker)與安全團隊(securityTeam)的身分。檢查規則2：不適用，因為三元組中的關係是can_harm，不是mitigates。檢查規則3：不適用，因為三元組中的主體類別是attack，不是vulnerability。檢查規則4：不適用，因為三元組中的關係是can_harm，不是violates。檢查規則5：不適用，因為三元組中的關係是can_harm，不是uses。檢查規則6：不適用，因為三元組中的關係是can_harm，不是deployed_in。檢查規則7：不適用，因為三元組中的關係是can_harm，不是generates。檢查規則8：不適用，因為三元組中的關係是can_harm，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是SQL Injection，關係是can_harm，受體是網頁應用程式，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (SQL Injection) 與 Ldr 中的 'sql injection' 完全等價同義詞，受體 (網頁應用程式) 與 Ldr 中的 '網頁應用程式' 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "sql injection",
+        "standard_object": "網頁應用程式",
+        "reason": "根據同義詞對照表，SQL Injection 等同於 sql injection，網頁應用程式為完全匹配，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網頁應用程式",
+        "type": "app"
+      },
+      "reasoning": "SQL Injection 是針對程式安全（開發過程）造成的攻擊，其目標是危害 (can_harm) 應用程式 (app)。",
+      "source_id": "chunk_39",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "csrf",
+      "type": "vulnerability",
+      "display_name": "CSRF"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網頁應用程式",
+      "type": "app",
+      "display_name": "網頁應用程式"
+    },
+    "reasoning": "CSRF (跨站請求偽造) 是開發過程中未留意程式安全造成的問題，其目標是危害 (can_harm) 應用程式 (app)。",
+    "source_id": "chunk_39",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "CSRF 是 'attack' 的合理實例，網頁應用程式是 'app' 的合理實例，且 'can_harm' 的語意與攻擊對應的網頁應用程式的關係相符。",
+        "response": "correct",
+        "reason": "CSRF 對網頁應用程式的 'can_harm' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。由於三元組中的關係是 'can_harm'，不在規則3的明確限制或允許範圍內，但考慮到 'can_harm' 的性質與 'can_expose' 類似，皆涉及對他者的影響，因此不直接違反規則3。其他規則不直接適用此三元組。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 不直接違反語義限制清單中的任何規則，尤其是考慮到 'can_harm' 的性質與允許的 'can_expose' 類似。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (CSRF) 與 Ldr 中的 'csrf' 完全等價同義詞，受體 (網頁應用程式) 與 Ldr 中的 '網頁應用程式' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "csrf",
+        "standard_object": "網頁應用程式",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CSRF",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網頁應用程式",
+        "type": "app"
+      },
+      "reasoning": "CSRF (跨站請求偽造) 是開發過程中未留意程式安全造成的問題，其目標是危害 (can_harm) 應用程式 (app)。",
+      "source_id": "chunk_39",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "掃描工具",
+      "type": "tool",
+      "display_name": "掃描工具"
+    },
+    "reasoning": "文本提到資安人員利用掃描工具來發現漏洞，符合安全團隊 (securityTeam) 使用 (uses) 工具 (tool) 的定義。",
+    "source_id": "chunk_39",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 使用掃描工具 (tool) 是合理的，符合實例與類別的對齊，且 'uses' 關係在此語境下是適當的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 securityTeam，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：主體為 securityTeam，具有主動執行能力，關係為 uses，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體為 securityTeam，關係為 uses，受體為 tool，符合語義限制清單中規則的允許條件，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "掃描工具",
+        "type": "tool"
+      },
+      "reasoning": "文本提到資安人員利用掃描工具來發現漏洞，符合安全團隊 (securityTeam) 使用 (uses) 工具 (tool) 的定義。",
+      "source_id": "chunk_39",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "掃描工具",
+      "type": "tool",
+      "display_name": "掃描工具"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "掃描工具被用來發現並分析漏洞的程度與嚴重性，符合工具 (tool) 可分析 (can_analyze) 漏洞 (vulnerability) 的定義。",
+    "source_id": "chunk_39",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "掃描工具 (tool) 可以分析 (can_analyze) 漏洞 (vulnerability)，這是一種合理的語意對齊，符合資安領域的常見實踐。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該三元組中，主體為掃描工具（tool），不觸發規則3的限制；其他規則中沒有直接與主體為 tool 且關係為 can_analyze 的明確限制。",
+        "response": "correct",
+        "reason": "三元組中的主體是掃描工具（tool），與關係 can_analyze 配對，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"掃描工具\" 與 Ldr 中的 \"掃描工具\" 完全等價同義詞，受體 \"漏洞\" 與 Ldr 中的 \"漏洞\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "掃描工具",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "掃描工具被用來發現並分析漏洞的程度與嚴重性，符合工具 (tool) 可分析 (can_analyze) 漏洞 (vulnerability) 的定義。",
+      "source_id": "chunk_39",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "資安人員透過工具發現漏洞，符合安全團隊 (securityTeam) 可偵測 (can_detect) 漏洞 (vulnerability) 的定義。",
+    "source_id": "chunk_39",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'vulnerability' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 能夠偵測漏洞 (vulnerability) 是合理的，符合實體名稱與其類別的對齊，且 'can_detect' 關係在資安領域中是常見的用法。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。規則2：不適用，因為三元組中的關係是 can_detect，不是 mitigates。規則3：不適用，因為三元組中的主體類別是 securityTeam，不是 vulnerability。規則4：不適用，因為三元組中的關係是 can_detect，不是 violates。規則5：不適用，因為三元組中的關係是 can_detect，不是 uses。規則6：不適用，因為三元組中的關係是 can_detect，不是 deployed_in。規則7：不適用，因為三元組中的關係是 can_detect，不是 generates。規則8：不適用，因為三元組中的關係是 can_detect，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是資安人員（securityTeam），關係是 can_detect，受體是漏洞（vulnerability），這符合資安人員可以偵測漏洞的邏輯，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中之資源具有完全等價同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，主體與受體皆不具有直接同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "資安人員透過工具發現漏洞，符合安全團隊 (securityTeam) 可偵測 (can_detect) 漏洞 (vulnerability) 的定義。",
+      "source_id": "chunk_39",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "cookies",
+      "type": "feature",
+      "display_name": "Cookies"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全漏洞",
+      "type": "vulnerability",
+      "display_name": "安全漏洞"
+    },
+    "reasoning": "文本提到若 Cookies 未使用加密保護機制且儲存帳密，會造成安全漏洞，符合特徵 (feature) 可暴露 (can_expose) 漏洞 (vulnerability) 的定義。",
+    "source_id": "chunk_39",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Cookies 是 'feature' 的合理實例，安全漏洞是 'vulnerability' 的合理實例，'can_expose' 的語意也合理地描述了 Cookies 與安全漏洞之間的關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為feature，與規則3無直接關聯，但受體類別為vulnerability，符合規則3的特例允許，其他規則未發現明確違反。",
+        "response": "correct",
+        "reason": "由於三元組中的關係'can_expose'與受體'安全漏洞'（vulnerability）符合規則3的特例允許，且未發現其他規則的明確違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Cookies 與 Ldr 中的 http cookie 類別相同，且受體 安全漏洞 與 Ldr 中的 安全漏洞 類別相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Cookies",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到若 Cookies 未使用加密保護機制且儲存帳密，會造成安全漏洞，符合特徵 (feature) 可暴露 (can_expose) 漏洞 (vulnerability) 的定義。",
+      "source_id": "chunk_39",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "機敏資料",
+      "type": "data",
+      "display_name": "機敏資料"
+    },
+    "reasoning": "文本描述駭客利用網頁攻擊手法取得 Cookie 中的機敏資料，符合攻擊者 (attacker) 可危害 (can_harm) 資料 (data) 的定義。",
+    "source_id": "chunk_39",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，機敏資料 (data) 是資料的合理實例，'can_harm' 的語意與攻擊者對資料的危害行為相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：駭客（attacker）與機敏資料（data）之間的關係can_harm不涉及攻擊者與安全團隊的身分衝突。檢查規則2：不適用，因為主體不是policy、technique或tool。檢查規則3：不適用，因為主體不是vulnerability。檢查規則4：不適用，因為關係不是violates。檢查規則5：不適用，因為關係不是uses。檢查規則6：不適用，因為關係不是deployed_in。檢查規則7：不適用，因為關係不是generates。檢查規則8：駭客（attacker）具有主動執行能力，符合controls的主體要求，但此處的關係是can_harm，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的駭客（attacker）與機敏資料（data）之間的關係can_harm，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全等價同義詞，受體 \"機敏資料\" 與 Ldr 中的 \"資料\"、\"個人機敏資料\"、\"敏感性資料\"、\"敏感資料\"、\"機密資料\" 等相關，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全匹配，受體 \"機敏資料\" 雖然與 Ldr 中的某些資源相關，但無法確定為完全等價同義詞，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "機敏資料",
+        "type": "data"
+      },
+      "reasoning": "文本描述駭客利用網頁攻擊手法取得 Cookie 中的機敏資料，符合攻擊者 (attacker) 可危害 (can_harm) 資料 (data) 的定義。",
+      "source_id": "chunk_39",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 12
+    }
+  }
+]

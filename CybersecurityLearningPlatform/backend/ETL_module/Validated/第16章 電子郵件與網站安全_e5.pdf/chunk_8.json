@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "文本明確提到『網站（web site）是網際網路的應用』，因此將網站視為 app，網際網路視為 system，關係為 is_part_of。",
+    "source_id": "chunk_8",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網站是 app 的合理實例，網際網路是 system 的合理實例，且 'is_part_of' 關係在資安領域中是合理的，表示網站是網際網路的一部分。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查是否有其他相關規則：沒有相關規則被觸發。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 與主體 '網站' 和受體 '網際網路' 的類別組合，沒有觸發語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "網站與網際網路的關係是不同類別的實體，網站是一種app，而網際網路是一種system，兩者之間沒有直接的同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，網站和網際網路不具有同義詞或從屬關係，因此判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "文本明確提到『網站（web site）是網際網路的應用』，因此將網站視為 app，網際網路視為 system，關係為 is_part_of。",
+      "source_id": "chunk_8",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "html",
+      "type": "data",
+      "display_name": "HTML"
+    },
+    "reasoning": "文本提到網站使用 HTML 等工具來製作網頁，HTML 在此作為網站建構的技術特徵，符合 ('app', 'has_a', 'feature')。",
+    "source_id": "chunk_8",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網站 (app) 可以有 HTML (feature)，這是語意上合理的對齊，HTML 是網站的一個特徵或功能。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 app，而非 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則沒有發現明確違反。",
+        "response": "correct",
+        "reason": "三元組中的主體是網站（類別：app），關係是 has_a，受體是 HTML（類別：data），這不觸發語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「網站」與 Ldr 中的「網站」完全等價同義詞，受體「HTML」與 Ldr 中的「html」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "HTML",
+        "type": "feature"
+      },
+      "reasoning": "文本提到網站使用 HTML 等工具來製作網頁，HTML 在此作為網站建構的技術特徵，符合 ('app', 'has_a', 'feature')。",
+      "source_id": "chunk_8",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "瀏覽器",
+      "type": "app",
+      "display_name": "瀏覽器"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "html",
+      "type": "data",
+      "display_name": "HTML"
+    },
+    "reasoning": "文本提到『此語法內容可以為瀏覽器所解析』以及『由瀏覽器解析其內容 HTML』，瀏覽器使用 HTML 資料來呈現畫面，符合 ('app', 'uses', 'data')。",
+    "source_id": "chunk_8",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "瀏覽器 (Browser) 是 'app' 的合理實例，HTML 是 'data' 的合理實例，且 'uses' 關係在瀏覽器使用 HTML 的情境下是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，待檢查三元組中，主體瀏覽器的類別是app，受體HTML的類別是data，符合規則5的合法條件。",
+        "response": "correct",
+        "reason": "三元組中的主體瀏覽器是app類別，使用HTML資料，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "瀏覽器與網頁之間存在相似性，但非完全等價同義詞；html則是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "html",
+        "reason": "根據同義詞判定，html是完全等價同義詞，但瀏覽器與網頁之間的關係不完全符合同義詞判定準則，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "瀏覽器",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "HTML",
+        "type": "data"
+      },
+      "reasoning": "文本提到『此語法內容可以為瀏覽器所解析』以及『由瀏覽器解析其內容 HTML』，瀏覽器使用 HTML 資料來呈現畫面，符合 ('app', 'uses', 'data')。",
+      "source_id": "chunk_8",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "瀏覽器",
+      "type": "app",
+      "display_name": "瀏覽器"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "網站伺服器",
+      "type": "system",
+      "display_name": "網站伺服器"
+    },
+    "reasoning": "根據圖 16.14 及文本『瀏覽器向網站送出要求指令』，瀏覽器（app）與網站伺服器（system）之間存在網路連線，符合 ('app', 'connects_to', 'system')。",
+    "source_id": "chunk_8",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "瀏覽器 (Browser) 是 'app' 的合理實例，網站伺服器 (Web Server) 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別是 app，不是 data。規則6：不適用，因為關係是 connects_to，不是 deployed_in。規則7：不適用，因為關係是 connects_to，不是 generates。規則8：不適用，因為關係是 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（瀏覽器）和受體（網站伺服器）之間的關係（connects_to）沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "瀏覽器與網站伺服器分別與Ldr中的瀏覽器和網站伺服器完全匹配，且無同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與Ldr中某資源的name字串完全相同，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "瀏覽器",
+        "type": "app"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "網站伺服器",
+        "type": "system"
+      },
+      "reasoning": "根據圖 16.14 及文本『瀏覽器向網站送出要求指令』，瀏覽器（app）與網站伺服器（system）之間存在網路連線，符合 ('app', 'connects_to', 'system')。",
+      "source_id": "chunk_8",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "瀏覽器",
+      "type": "app",
+      "display_name": "瀏覽器"
+    },
+    "reasoning": "圖 16.14 顯示使用者透過電腦使用瀏覽器來存取網站，符合 ('user', 'uses', 'app')。",
+    "source_id": "chunk_8",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "使用者 (user) 可以使用瀏覽器 (app)，這是語意上合理的對齊，符合實例與類別的關係。",
+        "response": "correct",
+        "reason": "主體、關係、受體皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組沒有觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反任何語義限制清單中的規則。使用者使用瀏覽器是一種合法的行為，沒有違反任何安全原則或限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "瀏覽器",
+        "type": "app"
+      },
+      "reasoning": "圖 16.14 顯示使用者透過電腦使用瀏覽器來存取網站，符合 ('user', 'uses', 'app')。",
+      "source_id": "chunk_8",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "網站伺服器",
+      "type": "system",
+      "display_name": "網站伺服器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "html",
+      "type": "data",
+      "display_name": "HTML"
+    },
+    "reasoning": "文本提到『網站回應以網頁 HTML』，表示伺服器系統產生了 HTML 格式的資料回傳給客戶端，符合 ('system', 'generates', 'data')。",
+    "source_id": "chunk_8",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網站伺服器 (system) 可以生成 HTML (data)，這是語意上合理的對齊，符合資安領域的常見實例。",
+        "response": "correct",
+        "reason": "網站伺服器生成 HTML 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：觸發，檢查通過，因為受體的類別是 data。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 'generates' 與受體 'HTML' 的類別 'data' 符合規則7的要求，且未發現其他規則的違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞或近似資源，但無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體無直接同義詞關係，且無廣義/狹義從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站伺服器",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "HTML",
+        "type": "data"
+      },
+      "reasoning": "文本提到『網站回應以網頁 HTML』，表示伺服器系統產生了 HTML 格式的資料回傳給客戶端，符合 ('system', 'generates', 'data')。",
+      "source_id": "chunk_8",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "垃圾郵件",
+      "type": "attack",
+      "display_name": "垃圾郵件"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "個人資訊",
+      "type": "data",
+      "display_name": "個人資訊"
+    },
+    "reasoning": "文本提到『收到詢問個人資訊的電子郵件時，不要回覆』，暗示垃圾郵件（攻擊手段）旨在獲取或危害個人資訊（資料），符合 ('attack', 'can_harm', 'data')。",
+    "source_id": "chunk_8",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "垃圾郵件是 'attack' 的合理實例，個人資訊是 'data' 的合理實例，'can_harm' 的語意也合理地描述了垃圾郵件對個人資訊的潛在危害。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 attack，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是垃圾郵件（類別：attack），關係是 can_harm，受體是個人資訊（類別：data），這不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「垃圾郵件」與 Ldr 中的「垃圾郵件」完全相同，受體「個人資訊」與 Ldr 中的「個人資料」具有高相似度，但非完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體「垃圾郵件」與 Ldr 中的「垃圾郵件」完全相同，因此不需進行同義詞判定或其他步驟，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "垃圾郵件",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "個人資訊",
+        "type": "data"
+      },
+      "reasoning": "文本提到『收到詢問個人資訊的電子郵件時，不要回覆』，暗示垃圾郵件（攻擊手段）旨在獲取或危害個人資訊（資料），符合 ('attack', 'can_harm', 'data')。",
+      "source_id": "chunk_8",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "電子郵件安全原則",
+      "type": "policy",
+      "display_name": "電子郵件安全原則"
+    },
+    "reasoning": "文本開頭列舉了多項電子郵件使用建議（如：切勿回覆垃圾郵件、不要回覆個人資訊詢問），這些屬於安全操作規範，使用者應執行之，符合 ('user', 'implements', 'policy')。",
+    "source_id": "chunk_8",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "使用者 (user) 實現 (implements) 電子郵件安全原則 (policy) 是語意上合理的，使用者可以實施安全原則，電子郵件安全原則是政策的一種實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。實際上，給定的三元組（使用者 implements 電子郵件安全原則）並未明確違反任何一條規則，因為這些規則主要針對特定類別或關係的限制，而給定的三元組不直接觸發這些限制。",
+        "response": "correct",
+        "reason": "由於三元組中的主體（使用者）和關係（implements）以及受體（電子郵件安全原則）之間的關係在給定的規則中沒有明確的限制或違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "使用者與Ldr中的用戶、電腦使用者、網站用戶、企業用戶、資訊科技的使用者、無線網路使用者等均為同一類別下的不同稱謂，屬於同義詞或廣義/狹義從屬關係，但根據判斷準則3，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則3，廣義/狹義一律保留，故不合併使用者與其它同義詞或子類型。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "電子郵件安全原則",
+        "type": "policy"
+      },
+      "reasoning": "文本開頭列舉了多項電子郵件使用建議（如：切勿回覆垃圾郵件、不要回覆個人資訊詢問），這些屬於安全操作規範，使用者應執行之，符合 ('user', 'implements', 'policy')。",
+      "source_id": "chunk_8",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "語言編輯器",
+      "type": "tool",
+      "display_name": "語言編輯器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "html",
+      "type": "data",
+      "display_name": "HTML"
+    },
+    "reasoning": "文本提到『HTML 的撰寫，使用純文字模式的語言編輯器即可』，編輯器工具被用來產生 HTML 檔案資料，符合 ('tool', 'generates', 'data')。",
+    "source_id": "chunk_8",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "語言編輯器 (tool) 可以生成 HTML (data)，這是語言編輯器的合理功能，符合實體名稱與類別的對齊，包含同義詞寬容原則。",
+        "response": "correct",
+        "reason": "語言編輯器生成 HTML 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作是generates，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為關係是generates，而非violates。規則5不適用，因為主體類別是tool，而非data。規則6不適用，因為關係是generates，而非deployed_in。規則7適用，且三元組符合規則：主體是tool，關係是generates，受體是data。規則8不適用，因為關係是generates，而非controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的條件，且沒有違反其他規則。因此，三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '語言編輯器' 與 Ldr 中 '編輯工具' 類似，但非完全等價同義詞；受體 'HTML' 與 Ldr 中 'html' 完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "html",
+        "reason": "受體 'HTML' 與 Ldr 中 'html' 完全相同，但主體 '語言編輯器' 與 '編輯工具' 並非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "語言編輯器",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "HTML",
+        "type": "data"
+      },
+      "reasoning": "文本提到『HTML 的撰寫，使用純文字模式的語言編輯器即可』，編輯器工具被用來產生 HTML 檔案資料，符合 ('tool', 'generates', 'data')。",
+      "source_id": "chunk_8",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "網頁",
+      "type": "app",
+      "display_name": "網頁"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "網站伺服器",
+      "type": "system",
+      "display_name": "網站伺服器"
+    },
+    "reasoning": "文本提到網頁存成 .html 檔案並由網站伺服器回應，表示網頁資料部署在伺服器系統中，符合 ('data', 'deployed_in', 'system')。",
+    "source_id": "chunk_8",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網頁是 'data' 的合理實例，網站伺服器是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：觸發，檢查關係為 deployed_in 時，受體的類別是否為 system，結果為正確，受體為網站伺服器，類別為 system。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係為 deployed_in，受體的類別為 system，符合規則6的要求。因此，三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網頁與網站在某些情境下可能被視為同義詞，但根據給定的資源清單，網頁和網站伺服器分別對應到不同的類別，網頁歸類為 app，網站伺服器歸類為 system，兩者之間沒有直接的同義詞關係或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據給定的資源清單和判斷準則，網頁和網站伺服器之間沒有同義詞或從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網頁",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "網站伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本提到網頁存成 .html 檔案並由網站伺服器回應，表示網頁資料部署在伺服器系統中，符合 ('data', 'deployed_in', 'system')。",
+      "source_id": "chunk_8",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 10
+    }
+  }
+]

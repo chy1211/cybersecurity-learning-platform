@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "硬體資產",
+      "type": "system",
+      "display_name": "硬體資產"
+    },
+    "reasoning": "文本提到資訊資產可分為硬體資產等類別。將資訊資產視為整體系統，硬體資產為其組成之子系統，符合 ('system', 'has_a', 'system') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊資產與硬體資產皆為系統的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '資訊資產' 和受體 '硬體資產' 的類別組合，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊資產與硬體資產之間沒有直接的同義詞關係，也不屬於廣義或狹義的從屬關係，兩者在資安領域中代表不同的概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體在資安教材中不可以互換使用，且不屬於同義詞或從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "硬體資產",
+        "type": "system"
+      },
+      "reasoning": "文本提到資訊資產可分為硬體資產等類別。將資訊資產視為整體系統，硬體資產為其組成之子系統，符合 ('system', 'has_a', 'system') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "變更管理",
+      "type": "policy",
+      "display_name": "變更管理"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本指出變更管理的目的在於降低惡意或意外破壞機會（即降低風險），因此選擇 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_1",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "變更管理 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '變更管理' 屬於類別 'policy'，因此符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '變更管理' 屬於類別 'policy'，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體「風險」與 Ldr 中的「風險」完全相同，為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "風險",
+        "reason": "根據【前提確認】，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "變更管理",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本指出變更管理的目的在於降低惡意或意外破壞機會（即降低風險），因此選擇 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_1",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資產分級",
+      "type": "policy",
+      "display_name": "資產分級"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本明確提到資產分級可以降低風險，將資產分級視為一種管理策略 (policy)，符合 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_1",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資產分級 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是資產分級（類別：policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（資產分級）是 policy 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"風險\" 與 Ldr 中的 \"風險\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產分級",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本明確提到資產分級可以降低風險，將資產分級視為一種管理策略 (policy)，符合 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_1",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資產管理",
+      "type": "tool",
+      "display_name": "資產管理"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資產開發",
+      "type": "function",
+      "display_name": "資產開發"
+    },
+    "reasoning": "資產管理被描述為包含三個階段，其中第一階段為資產開發。將資產管理視為管理工具/流程 (tool)，其包含的功能 (function) 為資產開發，符合 ('tool', 'has_a', 'function')。",
+    "source_id": "chunk_1",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資產管理 (tool) 與資產開發 (function) 的名稱與其類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊與同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 不在語義限制清單中被明確限制，且主體和受體的類別組合未觸發任何規則的違反條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "資產管理與資產開發之間沒有直接的同義詞關係，也不屬於廣義或狹義的從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法確定兩個實體之間的直接關係，預設保留為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產管理",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資產開發",
+        "type": "function"
+      },
+      "reasoning": "資產管理被描述為包含三個階段，其中第一階段為資產開發。將資產管理視為管理工具/流程 (tool)，其包含的功能 (function) 為資產開發，符合 ('tool', 'has_a', 'function')。",
+      "source_id": "chunk_1",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資產管理",
+      "type": "tool",
+      "display_name": "資產管理"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "經營與維護",
+      "type": "function",
+      "display_name": "經營與維護"
+    },
+    "reasoning": "資產管理之第二階段為經營與維護，符合 ('tool', 'has_a', 'function')。",
+    "source_id": "chunk_1",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資產管理是工具（tool）的合理實例，經營與維護是功能（function）的合理實例，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與規則清單中沒有直接相關的限制，因此不觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "資產管理與資產開發之間沒有直接的同義詞關係，且資產管理是一種工具，資產開發是一種功能，兩者之間沒有廣義/狹義的從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法根據給定的同義詞對照表或資安教材中的可互換使用概念判定為同義詞，且兩者之間沒有廣義/狹義的從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產管理",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "經營與維護",
+        "type": "function"
+      },
+      "reasoning": "資產管理之第二階段為經營與維護，符合 ('tool', 'has_a', 'function')。",
+      "source_id": "chunk_1",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資產管理",
+      "type": "tool",
+      "display_name": "資產管理"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資產評估",
+      "type": "function",
+      "display_name": "資產評估"
+    },
+    "reasoning": "資產管理之第三階段為資產評估，符合 ('tool', 'has_a', 'function')。",
+    "source_id": "chunk_1",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資產管理 (tool) 與資產評估 (function) 的名稱與其類別合理對齊，資產管理可以被視為一個工具，資產評估可以被視為一個功能。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的項目。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與給定的語義限制清單中沒有直接相關的規則，因此無法判定為違規。根據無罪推定原則，應判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "資產管理與資產開發、經營與維護之間不具有直接同義詞或廣義/狹義從屬關係，但資產評估與資產管理之間可能存在業務邏輯上的相關性，然而根據給定的資安領域同義詞對照範例和判斷準則，兩者之間沒有明確的同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，資產管理和資產評估之間沒有直接的同義詞或從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產管理",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資產評估",
+        "type": "function"
+      },
+      "reasoning": "資產管理之第三階段為資產評估，符合 ('tool', 'has_a', 'function')。",
+      "source_id": "chunk_1",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "內部人員",
+      "type": "user",
+      "display_name": "內部人員"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到內部人員造成資安事件威脅的比例最高 (80%)，這意味著內部使用者可能導致系統弱點暴露或被利用，符合 ('user', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_1",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '內部人員' 是 'user' 的合理實例，'弱點' 是 'vulnerability' 的合理實例，關係 'can_expose' 在資安領域中指的是使用者可以暴露弱點的能力，這些名稱與其被賦予的類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2：不適用，因為三元組中的關係不是 mitigates。規則3：適用，但允許 vulnerability 發起 'can_expose' 動作，因此不違規。規則4：不適用，因為三元組中的關係不是 violates，且 principle 不是主體。規則5：不適用，因為三元組中的關係不是 uses。規則6：不適用，因為三元組中的關係不是 deployed_in。規則7：不適用，因為三元組中的關係不是 generates。規則8：不適用，因為三元組中的關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是內部人員，關係是 can_expose，受體是弱點，符合規則3的特例允許，因此不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，'漏洞'、'弱點'、'脆弱性' 均指 'vulnerability'，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部人員",
+        "type": "user"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到內部人員造成資安事件威脅的比例最高 (80%)，這意味著內部使用者可能導致系統弱點暴露或被利用，符合 ('user', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_1",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "聘用合約",
+      "type": "policy",
+      "display_name": "聘用合約"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "透過在合約中加入安全責任（如保密條款、法律責任）來降低人員管理上的風險，符合 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_1",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "聘用合約 (policy) 與 風險 (risk) 的名稱與其類別合理對齊，且 'mitigates' 關係在資安領域中常用於描述政策或措施如何減輕風險。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '聘用合約'，類別為 'policy'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '聘用合約' 屬於 'policy' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「風險」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "聘用合約",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "透過在合約中加入安全責任（如保密條款、法律責任）來降低人員管理上的風險，符合 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_1",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "人員管理",
+      "type": "tool",
+      "display_name": "人員管理"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "人力資源管理",
+      "type": "function",
+      "display_name": "人力資源管理"
+    },
+    "reasoning": "文本提到人員管理包含人力資源管理這項工作，將人員管理視為管理工具/流程 (tool)，其包含的功能 (function) 為人力資源管理，符合 ('tool', 'has_a', 'function')。",
+    "source_id": "chunk_1",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "人員管理 (tool) 和人力資源管理 (function) 的名稱與其類別合理對齊，人員管理可以被視為一種工具，人力資源管理可以被視為一種功能。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組（人員管理 has_a 人力資源管理）不觸發語義限制清單中的任何規則，且無法直接歸類為違反特定規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "人員管理與資產管理之間沒有直接的同義詞關係，但兩者皆為管理類別，然而人力資源管理與資產管理在某些情境下可能被視為同一概念的不同面向，尤其是在企業管理的層面上。然而，根據給定的規則，若無法確定，預設為正確（correct）",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定人員管理與人力資源管理之間的直接同義詞關係，且兩者在給定的列表中沒有完全匹配的同義詞，因此預設為正確（correct）"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "人員管理",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "人力資源管理",
+        "type": "function"
+      },
+      "reasoning": "文本提到人員管理包含人力資源管理這項工作，將人員管理視為管理工具/流程 (tool)，其包含的功能 (function) 為人力資源管理，符合 ('tool', 'has_a', 'function')。",
+      "source_id": "chunk_1",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "背景查核",
+      "type": "policy",
+      "display_name": "背景查核"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本提到在聘僱前必須查核過去經歷與背景以降低風險，將背景查核視為一種安全政策/規範 (policy)，符合 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_1",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "背景查核 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是背景查核（類別：policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體背景查核（類別：policy）符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體「風險」與 Ldr 中的「風險」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "背景查核",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到在聘僱前必須查核過去經歷與背景以降低風險，將背景查核視為一種安全政策/規範 (policy)，符合 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_1",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 10
+    }
+  }
+]

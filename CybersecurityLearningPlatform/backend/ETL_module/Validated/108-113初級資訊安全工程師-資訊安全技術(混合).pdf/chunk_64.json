@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵偵測系統 (IDS)"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "文本第 21 題將 IDS 歸類為偵測手段（Detection），根據 Schema，工具 (tool) 可以偵測攻擊 (attack)。",
+    "source_id": "chunk_64",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統 (IDS) 是工具 (tool) 的合理實例，駭客攻擊 (hacker attack) 是攻擊 (attack) 的合理實例，'can_detect' 關係在資安領域中是合理的，因為入侵偵測系統可以偵測駭客攻擊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為 'can_detect' 關係不在規則8的限制範圍內。其他規則均不適用。",
+        "response": "correct",
+        "reason": "三元組（入侵偵測系統 can_detect 駭客攻擊）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統 (IDS) 與入侵偵測系統 (ids) 完全等價同義詞，駭客攻擊為攻擊的子集，但根據規則 3，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 3，廣義/狹義一律保留，入侵偵測系統 (IDS) 與入侵偵測系統 (ids) 雖然同義，但駭客攻擊與其他攻擊類型之間的關係不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本第 21 題將 IDS 歸類為偵測手段（Detection），根據 Schema，工具 (tool) 可以偵測攻擊 (attack)。",
+      "source_id": "chunk_64",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "敵對者",
+      "type": "attacker",
+      "display_name": "敵對者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "無憑證檢查",
+      "type": "vulnerability",
+      "display_name": "無憑證檢查"
+    },
+    "reasoning": "文本第 22 題指出『無憑證檢查』是導致中間人攻擊 (MITM) 的主要問題（漏洞），因此攻擊者可以利用此漏洞。",
+    "source_id": "chunk_64",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "敵對者 (attacker) 是 'attacker' 的合理實例，而無憑證檢查 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：未違反，因為三元組中主體是攻擊者，而非同時具有攻擊者和安全團隊的身分。檢查規則2：不適用，因為三元組中的關係是can_exploit，而非mitigates。檢查規則3：不適用，因為三元組中的主體類別是攻擊者，而非漏洞。檢查規則4：不適用，因為三元組中的關係是can_exploit，而非violates。檢查規則5：不適用，因為三元組中的關係是can_exploit，而非uses。檢查規則6：不適用，因為三元組中的關係是can_exploit，而非deployed_in。檢查規則7：不適用，因為三元組中的關係是can_exploit，而非generates。檢查規則8：不適用，因為三元組中的關係是can_exploit，而非controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，關係是can_exploit，受體是無憑證檢查，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "敵對者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "無憑證檢查",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本第 22 題指出『無憑證檢查』是導致中間人攻擊 (MITM) 的主要問題（漏洞），因此攻擊者可以利用此漏洞。",
+      "source_id": "chunk_64",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "captcha",
+      "type": "tool",
+      "display_name": "CAPTCHA"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "跨站請求偽造攻擊（csrf）",
+      "type": "attack",
+      "display_name": "跨網站請求偽造攻擊 (CSRF)"
+    },
+    "reasoning": "文本第 23 題明確指出使用 CAPTCHA 是防禦 CSRF 攻擊較有效的方式，符合 tool mitigates attack 的定義。",
+    "source_id": "chunk_64",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "CAPTCHA 是一種工具，合理對齊 'tool' 類別；跨網站請求偽造攻擊 (CSRF) 是一種攻擊，合理對齊 'attack' 類別。",
+        "response": "correct",
+        "reason": "CAPTCHA 作為一種工具，能夠減輕跨網站請求偽造攻擊 (CSRF)，因此該三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，該三元組的主體是 CAPTCHA 且類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 CAPTCHA 屬於 tool 類別，符合規則2的要求，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "CAPTCHA 與 'captcha' 完全等價同義詞，跨網站請求偽造攻擊（CSRF）與 '跨站請求偽造攻擊（csrf）' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "captcha",
+        "standard_object": "跨站請求偽造攻擊（csrf）",
+        "reason": "根據同義詞判定，CAPTCHA 與 'captcha'、跨網站請求偽造攻擊（CSRF）與 '跨站請求偽造攻擊（csrf）' 分別為同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CAPTCHA",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "跨網站請求偽造攻擊 (CSRF)",
+        "type": "attack"
+      },
+      "reasoning": "文本第 23 題明確指出使用 CAPTCHA 是防禦 CSRF 攻擊較有效的方式，符合 tool mitigates attack 的定義。",
+      "source_id": "chunk_64",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "程式碼檢測",
+      "type": "technique",
+      "display_name": "Source Code Review"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "fortify",
+      "type": "tool",
+      "display_name": "FortifySCA"
+    },
+    "reasoning": "文本第 24 題將 FortifySCA 列為 Source Code Review 軟體，因此該技術包含此工具。",
+    "source_id": "chunk_64",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Source Code Review 是一種 'technique'，FortifySCA 是一種 'tool'，且 'has_a' 關係在此語境下合理，因為 Source Code Review 可能使用或包含 FortifySCA 等工具。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的主體 'Source Code Review' 類別為 'technique'，關係 'has_a' 與受體 'FortifySCA' 類別為 'tool'，未發現明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Source Code Review) 與 Ldr 中的 '程式碼檢測' 關係為同義詞，受體 (FortifySCA) 與 Ldr 中的 'fortify' 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "程式碼檢測",
+        "standard_object": "fortify",
+        "reason": "根據同義詞判定準則，Source Code Review 與 '程式碼檢測'、FortifySCA 與 'fortify' 分別為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Source Code Review",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "FortifySCA",
+        "type": "tool"
+      },
+      "reasoning": "文本第 24 題將 FortifySCA 列為 Source Code Review 軟體，因此該技術包含此工具。",
+      "source_id": "chunk_64",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "程式碼檢測",
+      "type": "technique",
+      "display_name": "Source Code Review"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "checkmarx",
+      "type": "tool",
+      "display_name": "Checkmarx"
+    },
+    "reasoning": "文本第 24 題將 Checkmarx 列為 Source Code Review 軟體，因此該技術包含此工具。",
+    "source_id": "chunk_64",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Source Code Review 是一種 'technique'，而 Checkmarx 是一種 'tool'，這些名稱與其類別是合理對齊的，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別是合理對齊的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查關係 'has_a'，此關係未在規則中明確限制，故不觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Source Code Review 與 '程式碼檢測' 是同義詞，Checkmarx 與 'checkmarx' 完全匹配",
+        "response": "correct",
+        "standard_subject": "程式碼檢測",
+        "standard_object": "checkmarx",
+        "reason": "根據同義詞判定，Source Code Review 等同於 '程式碼檢測'，而 Checkmarx 完全匹配 'checkmarx'，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Source Code Review",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Checkmarx",
+        "type": "tool"
+      },
+      "reasoning": "文本第 24 題將 Checkmarx 列為 Source Code Review 軟體，因此該技術包含此工具。",
+      "source_id": "chunk_64",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "程式碼檢測",
+      "type": "technique",
+      "display_name": "Source Code Review"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "sonarqube",
+      "type": "tool",
+      "display_name": "SonarQube"
+    },
+    "reasoning": "文本第 24 題將 SonarQube 列為 Source Code Review 軟體，因此該技術包含此工具。",
+    "source_id": "chunk_64",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Source Code Review 是一種 'technique'，SonarQube 是一種 'tool'，這些名稱與其類別之間的語意對齊是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查關係 'has_a'，此關係未在規則中明確限制，故不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 未在語義限制清單中被明確限制，且主體和受體的類別組合未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Source Code Review) 與 Ldr 中的 '程式碼檢測' 實體為同義詞，受體 (SonarQube) 與 Ldr 中的 'sonarqube' 實體完全匹配",
+        "response": "correct",
+        "standard_subject": "程式碼檢測",
+        "standard_object": "sonarqube",
+        "reason": "根據同義詞判定準則，Source Code Review 等同於 '程式碼檢測'，而 SonarQube 完全匹配 Ldr 中的 'sonarqube'，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Source Code Review",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "SonarQube",
+        "type": "tool"
+      },
+      "reasoning": "文本第 24 題將 SonarQube 列為 Source Code Review 軟體，因此該技術包含此工具。",
+      "source_id": "chunk_64",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "縱深防禦 (defense in depth)",
+      "type": "technique",
+      "display_name": "縱深防禦 (Defense in Depth)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "虛擬私有網路 (vpn)",
+      "type": "tool",
+      "display_name": "虛擬私有網路 (VPN)"
+    },
+    "reasoning": "文本第 21 題將 VPN 列為縱深防禦規劃中的管控措施（Controls），符合 technique has_a tool。",
+    "source_id": "chunk_64",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "縱深防禦 (Defense in Depth) 是一種安全技術 (technique)，虛擬私有網路 (VPN) 是一種工具 (tool)，且 'has_a' 關係在此語境下合理，因為縱深防禦可以包含或使用虛擬私有網路作為其中一層防禦手段。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與規則清單中沒有直接相關的限制，因此無法觸發任何違規條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "縱深防禦 (Defense in Depth) 與 Ldr 中的 '縱深防禦 (defense in depth)' 完全等價同義詞；虛擬私有網路 (VPN) 與 Ldr 中的 'vpn' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "縱深防禦與vpn在Ldr中已有對應的同義詞，但根據【廣義/狹義一律保留】原則，不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "縱深防禦 (Defense in Depth)",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "虛擬私有網路 (VPN)",
+        "type": "tool"
+      },
+      "reasoning": "文本第 21 題將 VPN 列為縱深防禦規劃中的管控措施（Controls），符合 technique has_a tool。",
+      "source_id": "chunk_64",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "縱深防禦 (defense in depth)",
+      "type": "technique",
+      "display_name": "縱深防禦 (Defense in Depth)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "防火牆 (firewall)",
+      "type": "tool",
+      "display_name": "防火牆 (Firewall)"
+    },
+    "reasoning": "文本第 21 題將防火牆列為縱深防禦規劃中的管控措施（Controls），符合 technique has_a tool。",
+    "source_id": "chunk_64",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "縱深防禦 (Defense in Depth) 是一種安全技術 (technique)，防火牆 (Firewall) 是一種安全工具 (tool)，且 'has_a' 關係在此語境下合理，因為縱深防禦可能包含或使用防火牆等工具。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 has_a 不在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違反。因此，根據無罪推定原則，該三元組被判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "縱深防禦與防火牆是資安領域中不同的概念，縱深防禦是一種策略，防火牆是一種工具，兩者之間沒有直接的同義詞關係，但防火牆可以是縱深防禦的一部分。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "縱深防禦和防火牆是不同的概念，縱深防禦是一種策略，防火牆是一種工具，無法判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "縱深防禦 (Defense in Depth)",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "防火牆 (Firewall)",
+        "type": "tool"
+      },
+      "reasoning": "文本第 21 題將防火牆列為縱深防禦規劃中的管控措施（Controls），符合 technique has_a tool。",
+      "source_id": "chunk_64",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "中間人攻擊 (mitm)",
+      "type": "attack",
+      "display_name": "中間人攻擊 (MITM)"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網路資料",
+      "type": "data",
+      "display_name": "網路資料"
+    },
+    "reasoning": "雖然文本未明寫危害對象，但根據資安常識，中間人攻擊 (MITM) 的目的是攔截或篡改傳輸中的資料，符合 attack can_harm data。",
+    "source_id": "chunk_64",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "中間人攻擊 (MITM) 是 'attack' 的合理實例，網路資料是 'data' 的合理實例，'can_harm' 的語意也與攻擊對資料的危害相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 '中間人攻擊 (MITM)' 的類別 'attack' 與受體 '網路資料' 的類別 'data' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "中間人攻擊（MITM）與網路資料在資安領域中是兩個不同的概念，前者是一種攻擊類型，後者是一種資料類型。根據給定的資源清單，中間人攻擊（MITM）與網路資料的名稱在清單中均有出現，但沒有直接的同義詞關係或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，中間人攻擊（MITM）和網路資料沒有同義詞關係或廣義/狹義從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "中間人攻擊 (MITM)",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網路資料",
+        "type": "data"
+      },
+      "reasoning": "雖然文本未明寫危害對象，但根據資安常識，中間人攻擊 (MITM) 的目的是攔截或篡改傳輸中的資料，符合 attack can_harm data。",
+      "source_id": "chunk_64",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

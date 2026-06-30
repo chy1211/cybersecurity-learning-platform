@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "https",
+      "type": "app",
+      "display_name": "HTTPS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "http",
+      "type": "feature",
+      "display_name": "HTTP"
+    },
+    "reasoning": "文本提到 HTTPS 結合了 HTTP，在此將 HTTP 視為 HTTPS 應用程式的一個組成特徵（協定），符合 ('app', 'has_a', 'feature')。",
+    "source_id": "chunk_62",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "HTTPS 是一種應用層協議（app），而 HTTP 是其的一個特徵（feature），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "HTTPS 與 HTTP 的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組 (HTTPS, has_a, HTTP) 不違反任何語義限制清單中的規則，因為 'has_a' 關係不在任何規則中被明確限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "HTTPS 與 https 完全等價同義詞，HTTP 與 http 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "https",
+        "standard_object": "http",
+        "reason": "主體與受體皆為完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "HTTPS",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "HTTP",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 HTTPS 結合了 HTTP，在此將 HTTP 視為 HTTPS 應用程式的一個組成特徵（協定），符合 ('app', 'has_a', 'feature')。",
+      "source_id": "chunk_62",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "瀏覽器",
+      "type": "app",
+      "display_name": "瀏覽器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ssl/tls",
+      "type": "tool",
+      "display_name": "TLS 3.0"
+    },
+    "reasoning": "文本提到瀏覽器支援 TLS 3.0，表示瀏覽器應用程式中包含此加密工具，符合 ('app', 'has_a', 'tool')。",
+    "source_id": "chunk_62",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "瀏覽器 (app) 和 TLS 3.0 (tool) 的名稱與其被賦予的類別合理對齊，瀏覽器是一種應用程式 (app)，TLS 3.0 是一種工具 (tool)。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組中的瀏覽器（app）與TLS 3.0（tool）之間的 'has_a' 關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "瀏覽器與Ldr中的瀏覽器完全等價，TLS 3.0與Ldr中的ssl/tls在資安領域中可視為同一概念的不同表達方式",
+        "response": "duplicate",
+        "standard_subject": "瀏覽器",
+        "standard_object": "ssl/tls",
+        "reason": "根據同義詞判定準則，瀏覽器與Ldr中的瀏覽器完全匹配，TLS 3.0與ssl/tls在資安領域中指稱同一概念"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "瀏覽器",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "TLS 3.0",
+        "type": "tool"
+      },
+      "reasoning": "文本提到瀏覽器支援 TLS 3.0，表示瀏覽器應用程式中包含此加密工具，符合 ('app', 'has_a', 'tool')。",
+      "source_id": "chunk_62",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "ssh",
+      "type": "tool",
+      "display_name": "SSH"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "known_hosts 檔案",
+      "type": "data",
+      "display_name": "known_hosts 檔案"
+    },
+    "reasoning": "根據題目描述，使用 ssh 命令連接後會更新 known_hosts 檔案，即該工具產生/更新此資料，符合 ('tool', 'generates', 'data')。",
+    "source_id": "chunk_62",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SSH 是一種工具（tool），known_hosts 檔案是資料（data），而 'generates' 關係在此語境下是合理的，因為 SSH 可以生成 known_hosts 檔案。",
+        "response": "correct",
+        "reason": "SSH 生成 known_hosts 檔案的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：適用，主體為 tool，關係為 generates，受體為 data，符合規則。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組符合規則7的條件，主體為 tool，關係為 generates，受體為 data，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "SSH 是 Ldr 中的 'ssh' 的完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 'SSH' 與 Ldr 中的 'ssh' 完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSH",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "known_hosts 檔案",
+        "type": "data"
+      },
+      "reasoning": "根據題目描述，使用 ssh 命令連接後會更新 known_hosts 檔案，即該工具產生/更新此資料，符合 ('tool', 'generates', 'data')。",
+      "source_id": "chunk_62",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "https",
+      "type": "app",
+      "display_name": "HTTPS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ssl/tls",
+      "type": "tool",
+      "display_name": "SSL/TLS"
+    },
+    "reasoning": "文本提到 HTTPS 結合了處理加密的 SSL/TLS，將 SSL/TLS 視為其內建的加密工具，符合 ('app', 'has_a', 'tool')。",
+    "source_id": "chunk_62",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "HTTPS 是一種應用層協議（app），而 SSL/TLS 是一種工具（tool），用於提供安全連接，兩者之間的 'has_a' 關係在語意上是合理的，因為 HTTPS 可以被視為使用 SSL/TLS 進行加密的應用。",
+        "response": "correct",
+        "reason": "HTTPS 和 SSL/TLS 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的項目。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係 'has_a' 沒有在給定的語義限制清單中被明確限制，因此無法判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "HTTPS 與 https 完全等價同義詞，SSL/TLS 與 ssl/tls 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "https",
+        "standard_object": "ssl/tls",
+        "reason": "主體與受體皆為完全等價同義詞，無需合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "HTTPS",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "SSL/TLS",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 HTTPS 結合了處理加密的 SSL/TLS，將 SSL/TLS 視為其內建的加密工具，符合 ('app', 'has_a', 'tool')。",
+      "source_id": "chunk_62",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "known_hosts 檔案",
+      "type": "data",
+      "display_name": "known_hosts 檔案"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "主機a",
+      "type": "system",
+      "display_name": "主機A"
+    },
+    "reasoning": "選項 (C) 明確指出 known_hosts 檔案位於主機A上，符合 ('data', 'deployed_in', 'system')。",
+    "source_id": "chunk_62",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "known_hosts 檔案可以被視為 'data' 的合理實例，主機A 可以被視為 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體是 data 但關係不是 uses。規則6：觸發，關係是 deployed_in，受體的類別是 system，符合規則。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，且未發現其他規則的違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "known_hosts 檔案與主機A 分別與 Ldr 中的 known_hosts 檔案和主機為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "known_hosts 檔案",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "主機A",
+        "type": "system"
+      },
+      "reasoning": "選項 (C) 明確指出 known_hosts 檔案位於主機A上，符合 ('data', 'deployed_in', 'system')。",
+      "source_id": "chunk_62",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "windows smb",
+      "type": "feature",
+      "display_name": "Windows SMB"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "永恆之藍 (eternalblue)",
+      "type": "vulnerability",
+      "display_name": "永恆之藍 (EternalBlue)"
+    },
+    "reasoning": "題目 14 指出永恆之藍弱點是基於 Windows SMB 機制產生的，即該特徵導致漏洞暴露，符合 ('feature', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_62",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Windows SMB 是一個 'feature'，永恆之藍 (EternalBlue) 是一個 'vulnerability'，這些名稱與其類別是合理對齊的，尤其是在資安領域中這些術語被廣泛使用和接受。",
+        "response": "correct",
+        "reason": "主體和受體的類別與關係都符合預先定義的清單，並且實體名稱與其類別是語意對齊的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但主體類別為 feature，不是 vulnerability，因此不受此規則限制。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 Windows SMB，類別為 feature，與受體永恆之藍 (EternalBlue) 的關係是 can_expose，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Windows SMB 與 http 皆為 feature 類別，但無直接同義詞關係，且永恆之藍 (EternalBlue) 為漏洞 (vulnerability) 類別，與 http 無直接關聯",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定同義詞或從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Windows SMB",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "永恆之藍 (EternalBlue)",
+        "type": "vulnerability"
+      },
+      "reasoning": "題目 14 指出永恆之藍弱點是基於 Windows SMB 機制產生的，即該特徵導致漏洞暴露，符合 ('feature', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_62",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "vpn 閘道器",
+      "type": "tool",
+      "display_name": "VPN 閘道器"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "安全傳輸網路",
+      "type": "system",
+      "display_name": "安全傳輸網路"
+    },
+    "reasoning": "文本提到使用 VPN 閘道器建立安全傳輸網路，閘道器對該網路的連線與流量具有控制權，符合 ('tool', 'controls', 'system')。",
+    "source_id": "chunk_62",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "VPN 閘道器 是 'tool' 的合理實例，安全傳輸網路 是 'system' 的合理實例，且 'controls' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體 (Subject) 是 tool，具有主動執行能力，符合規則。",
+        "response": "correct",
+        "reason": "三元組中的主體是 VPN 閘道器 (tool)，關係是 controls，受體是安全傳輸網路 (system)，符合規則8的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "VPN 閘道器與 Ldr 中的 'vpn' 實體具有高度相似性，但考慮到 'vpn' 可能是更廣義的工具類別，且 'VPN 閘道器' 是一個更具體的工具實例，因此判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，'VPN 閘道器' 是 'vpn' 的一個子類型，因此不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "VPN 閘道器",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "安全傳輸網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到使用 VPN 閘道器建立安全傳輸網路，閘道器對該網路的連線與流量具有控制權，符合 ('tool', 'controls', 'system')。",
+      "source_id": "chunk_62",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "scada",
+      "type": "app",
+      "display_name": "SCADA"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "自動化生產與控制系統設備",
+      "type": "system",
+      "display_name": "自動化生產與控制系統設備"
+    },
+    "reasoning": "文本提到 SCADA 系統連接自動化生產與控制系統設備，符合 ('app', 'connects_to', 'system')。",
+    "source_id": "chunk_62",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SCADA 是 'app' 的合理實例，因為 SCADA 是一種監控和控制系統的應用程式；自動化生產與控制系統設備是 'system' 的合理實例，因為它是一種自動化控制系統的設備。",
+        "response": "correct",
+        "reason": "SCADA 與自動化生產與控制系統設備之間的 'connects_to' 關係是合理的，因為 SCADA 可以連接到自動化生產與控制系統設備。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查關係 'connects_to'，未發現明確限制。",
+        "response": "correct",
+        "reason": "三元組中的關係 'connects_to' 未在語義限制清單中被明確限制，且主體和受體的類別組合未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "SCADA 是一種自動化生產與控制系統設備的類別，兩者之間存在著廣義/狹義的從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，則判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SCADA",
+        "type": "app"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "自動化生產與控制系統設備",
+        "type": "system"
+      },
+      "reasoning": "文本提到 SCADA 系統連接自動化生產與控制系統設備，符合 ('app', 'connects_to', 'system')。",
+      "source_id": "chunk_62",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "uac",
+      "type": "tool",
+      "display_name": "UAC"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "windows",
+      "type": "system",
+      "display_name": "Windows"
+    },
+    "reasoning": "UAC (使用者帳戶控制) 是 Windows 作業系統內建的安全機制/工具，符合 ('tool', 'is_part_of', 'system')。",
+    "source_id": "chunk_62",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "UAC 是一種工具（tool），Windows 是一個系統（system），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且實體名稱與其類別語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：當關係為 deployed_in 時，受體的類別必須是 system，然而給定的關係是 is_part_of，不是 deployed_in，因此不適用。規則7：不適用。規則8：不適用。給定的三元組 (UAC, is_part_of, Windows) 中，UAC 是 tool，Windows 是 system，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組 (UAC, is_part_of, Windows) 沒有觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 UAC 與 Ldr 中的資源沒有完全匹配的 name，但受體 Windows 與 Ldr 中的資源 'windows' 完全匹配，且 'windows' 的 similarity_score 最高，達 1.0，表示完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "windows",
+        "reason": "受體 Windows 與 Ldr 中的 'windows' 完全匹配，且為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "UAC",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Windows",
+        "type": "system"
+      },
+      "reasoning": "UAC (使用者帳戶控制) 是 Windows 作業系統內建的安全機制/工具，符合 ('tool', 'is_part_of', 'system')。",
+      "source_id": "chunk_62",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "uac",
+      "type": "tool",
+      "display_name": "UAC"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "惡意提權行為",
+      "type": "attack",
+      "display_name": "惡意提權行為"
+    },
+    "reasoning": "文本提到 UAC 保護管理員免受惡意提權行為，即緩解此類攻擊，符合 ('tool', 'mitigates', 'attack')。",
+    "source_id": "chunk_62",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "UAC 是一種工具（tool），惡意提權行為是攻擊（attack）的一種，'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，語意對齊合理。",
+        "response": "correct",
+        "reason": "主體、關係、受體的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體 UAC 屬於 tool 類別，符合規則2的條件，未觸發違規。",
+        "response": "correct",
+        "reason": "三元組的主體 UAC 屬於 tool 類別，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "UAC 是 Ldr 中的直接匹配，惡意提權行為與 Ldr 中的資源無直接匹配，但惡意提權行為可被視為攻擊的一種形式，然而根據給定的規則，若一個實體是另一個的子類型，則判定為 correct。",
+        "response": "correct",
+        "standard_subject": "uac",
+        "standard_object": "",
+        "reason": "主體 UAC 與 Ldr 中的 uac 完全匹配，受體惡意提權行為無直接同義詞匹配，根據規則 3，若一個實體是另一個的子類型，則判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "UAC",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "惡意提權行為",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 UAC 保護管理員免受惡意提權行為，即緩解此類攻擊，符合 ('tool', 'mitigates', 'attack')。",
+      "source_id": "chunk_62",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "uac",
+      "type": "tool",
+      "display_name": "UAC"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "系統層級",
+      "type": "system",
+      "display_name": "系統層級"
+    },
+    "reasoning": "文本提到 UAC 限制應用軟體對系統層級的存取，即對系統資源進行控制，符合 ('tool', 'controls', 'system')。",
+    "source_id": "chunk_62",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "UAC 是一種工具（tool），'系統層級' 是系統（system）的一部分，'controls' 關係在資安領域中指工具控制系統的某些層面是合理的。",
+        "response": "correct",
+        "reason": "主體、關係和受體都符合預先定義的類別和屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體 (Subject) 是 tool，具有主動執行能力，符合規則8的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體 (Subject) 是 tool，關係是 controls，受體 (Object) 是系統層級，符合規則8的允許條件，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 UAC 與 Ldr 中的 uac 完全等價同義詞，受體 系統層級 與 Ldr 中的 系統 等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "UAC",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "系統層級",
+        "type": "system"
+      },
+      "reasoning": "文本提到 UAC 限制應用軟體對系統層級的存取，即對系統資源進行控制，符合 ('tool', 'controls', 'system')。",
+      "source_id": "chunk_62",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 11
+    }
+  }
+]

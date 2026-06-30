@@ -1,0 +1,107 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "物聯網節點",
+      "type": "system"
+    },
+    "reasoning": "文本明確提到『攻擊者控制了物聯網其中一個節點』，符合 attacker controls system 的 Schema。",
+    "source_id": "chunk_45",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "黑洞攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本將『控制節點並丟棄封包』定義為『黑洞攻擊』，表示攻擊者執行了此攻擊手法，符合 attacker implements attack 的 Schema。",
+    "source_id": "chunk_45",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "黑洞攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "物聯網節點",
+      "type": "system"
+    },
+    "reasoning": "黑洞攻擊透過控制節點來破壞網路通訊，對該系統（物聯網節點）造成危害，符合 attack can_harm system 的 Schema。",
+    "source_id": "chunk_45",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "黑洞攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "封包",
+      "type": "data"
+    },
+    "reasoning": "黑洞攻擊的核心行為是『丟棄所有傳送至此節點的封包』，這對資料（封包）造成了損害（丟失），符合 attack can_harm data 的 Schema。",
+    "source_id": "chunk_45",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "封包過濾防火牆",
+      "type": "tool"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "封包",
+      "type": "data"
+    },
+    "reasoning": "封包過濾防火牆的功能是分析封包的來源/目的位址、協定與埠號來決定是否允許通過，符合 tool can_analyze data 的 Schema。",
+    "source_id": "chunk_45",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "封包過濾防火牆",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "協定",
+      "type": "feature"
+    },
+    "reasoning": "防火牆規則中包含對 TCP/UDP 等協定的定義，協定是其過濾功能的組成特徵，符合 tool has_a feature 的 Schema。",
+    "source_id": "chunk_45",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "封包過濾防火牆",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "連接埠",
+      "type": "feature"
+    },
+    "reasoning": "防火牆規則中包含對 80, 443, 53 等埠號的定義，連接埠是其過濾功能的組成特徵，符合 tool has_a feature 的 Schema。",
+    "source_id": "chunk_45",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7
+  }
+]

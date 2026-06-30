@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "目錄遊走",
+      "type": "attack",
+      "display_name": "目錄遊走"
+    },
+    "reasoning": "文本第 40 題描述攻擊者使用特定手法（dot-dot-slash）進行攻擊，該手法被定義為『目錄遊走（Directory Traversal）』，因此攻擊者實作了此項攻擊。",
+    "source_id": "chunk_20",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 實現目錄遊走 (attack) 的行為在資安領域中是合理的，實體名稱與其類別對齊，且符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有提到安全團隊(securityTeam)。規則2：不適用，因為三元組中的關係是implements，而不是mitigates。規則3：不適用，因為三元組中的主體類別是attacker，而不是vulnerability。規則4：不適用，因為三元組中的關係是implements，而不是violates。規則5：不適用，因為三元組中的關係是implements，而不是uses。規則6：不適用，因為三元組中的關係是implements，而不是deployed_in。規則7：不適用，因為三元組中的關係是implements，而不是generates。規則8：不適用，因為三元組中的關係是implements，而不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，關係是implements，受體是目錄遊走，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "攻擊者與網路攻擊者、外部攻擊者、灰帽攻擊者、黑帽攻擊者等都是攻擊者的子類型或相關類別，但攻擊者這個詞本身在資安領域中是一個通用術語，與目錄遊走（攻擊）之間的關係是攻擊者進行攻擊的行為，兩者之間的關係是主體與動作之間的關係，而非同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，攻擊者與目錄遊走之間的關係是主體與動作之間的關係，兩者不具有同義詞或廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "目錄遊走",
+        "type": "attack"
+      },
+      "reasoning": "文本第 40 題描述攻擊者使用特定手法（dot-dot-slash）進行攻擊，該手法被定義為『目錄遊走（Directory Traversal）』，因此攻擊者實作了此項攻擊。",
+      "source_id": "chunk_20",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "dot-dot-slash",
+      "type": "technique",
+      "display_name": "dot-dot-slash"
+    },
+    "reasoning": "文本提到攻擊者使用『dot-dot-slash (../)』排列來操縱變量，這是一種達成目錄遊走的具體技術手段。",
+    "source_id": "chunk_20",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 使用 dot-dot-slash (technique) 是語意上合理的，dot-dot-slash 是一種技術或攻擊手法，攻擊者使用它是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體的類別是 'attacker'，不違反此規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 'attacker'，關係是 'uses'，受體是 'dot-dot-slash'，這符合語義限制清單中沒有明確禁止的條件，尤其是規則5中提到的 'uses' 關係不適用於 'data' 類別的主體，但此處主體是 'attacker'，因此不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全等價同義詞，受體 \"dot-dot-slash\" 與 Ldr 中無直接相關資源。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1，主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全匹配，且無同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "dot-dot-slash",
+        "type": "technique"
+      },
+      "reasoning": "文本提到攻擊者使用『dot-dot-slash (../)』排列來操縱變量，這是一種達成目錄遊走的具體技術手段。",
+      "source_id": "chunk_20",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "網站服務",
+      "type": "app",
+      "display_name": "Web服務器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "web服務器日誌",
+      "type": "data",
+      "display_name": "Web服務器日誌"
+    },
+    "reasoning": "文本提到『在Web服務器日誌中』看到攻擊行為，隱含了 Web 服務器（應用程式）會產生日誌（資料）的邏輯。",
+    "source_id": "chunk_20",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Web服務器是 'app' 的合理實例，Web服務器日誌是 'data' 的合理實例，且 'generates' 在資安領域中是合理的關係描述。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：觸發，檢查關係 'generates' 的受體類別是否為 'data'，結果為正確，符合規則。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 'generates' 與受體 'Web服務器日誌' 的類別 'data' 符合規則7，且未發現其他違規情況。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Web服務器與網站服務為同義詞",
+        "response": "duplicate",
+        "standard_subject": "網站服務",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，Web服務器與網站服務可視為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Web服務器",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "Web服務器日誌",
+        "type": "data"
+      },
+      "reasoning": "文本提到『在Web服務器日誌中』看到攻擊行為，隱含了 Web 服務器（應用程式）會產生日誌（資料）的邏輯。",
+      "source_id": "chunk_20",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "linux系統",
+      "type": "system",
+      "display_name": "Linux系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "/var/log/secure",
+      "type": "data",
+      "display_name": "/var/log/secure"
+    },
+    "reasoning": "第 42 題指出分析 Linux 系統使用者登入紀錄應蒐集 /var/log/secure 檔案，說明該系統會產生此日誌檔案。",
+    "source_id": "chunk_20",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Linux系統是一個系統（system），/var/log/secure是一種資料（data），而 'generates' 這個關係在資安領域中是合理的，因為系統可以生成資料。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 'Linux系統' 與 Ldr 中的 'linux 系統' 類別相同且相似度高，受體 '/var/log/secure' 完全匹配 Ldr 中的資源",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源類別相同且相似度高，受體完全匹配，無同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Linux系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "/var/log/secure",
+        "type": "data"
+      },
+      "reasoning": "第 42 題指出分析 Linux 系統使用者登入紀錄應蒐集 /var/log/secure 檔案，說明該系統會產生此日誌檔案。",
+      "source_id": "chunk_20",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資安日誌分析",
+      "type": "technique",
+      "display_name": "資安日誌分析"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "/var/log/secure",
+      "type": "data",
+      "display_name": "/var/log/secure"
+    },
+    "reasoning": "第 42 題描述在進行資安日誌分析時，會分析 /var/log/secure 檔案以獲取登入歷史，符合 technique 可分析 data 的定義。",
+    "source_id": "chunk_20",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安日誌分析 (technique) 可以分析 /var/log/secure (data) 的內容，符合語意對齊，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別是 technique，而不是 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls，但可以分析 (can_analyze) 是合理的動作，尤其是當主體是 technique 時。",
+        "response": "correct",
+        "reason": "三元組中的主體是 '資安日誌分析'，是一種技術 (technique)，可以執行 'can_analyze' 動作來分析 '/var/log/secure' 這類的資料，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"資安日誌分析\" 與 Ldr 中的 \"日誌分析\" 關係為同義詞，受體 \"/var/log/secure\" 與 Ldr 中的 \"/var/log/secure\" 關係為完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源不完全相同，但受體完全匹配，且無同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安日誌分析",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "/var/log/secure",
+        "type": "data"
+      },
+      "reasoning": "第 42 題描述在進行資安日誌分析時，會分析 /var/log/secure 檔案以獲取登入歷史，符合 technique 可分析 data 的定義。",
+      "source_id": "chunk_20",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端運算",
+      "type": "system",
+      "display_name": "雲端運算"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "平台即服務 (paas)",
+      "type": "system",
+      "display_name": "平台即服務 (PaaS)"
+    },
+    "reasoning": "第 43 題將 PaaS 列為雲端運算的服務型式，屬於雲端運算系統的組成部分。",
+    "source_id": "chunk_20",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雲端運算與平台即服務 (PaaS) 均為系統 (system) 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "雲端運算與平台即服務 (PaaS) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 has_a，不是 deployed_in。規則7：不適用，因為關係為 has_a，不是 generates。規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（雲端運算 has_a 平台即服務）未觸發任何語義限制清單中的規則，且雲端運算和平台即服務都是 system 類別，has_a 關係在此.context 下合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端運算與雲端運算服務、雲端環境等為廣義/狹義從屬關係，但雲端運算與 PaaS 之間無直接同義詞或從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，雲端運算與 PaaS 之間無直接同義詞或從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端運算",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "平台即服務 (PaaS)",
+        "type": "system"
+      },
+      "reasoning": "第 43 題將 PaaS 列為雲端運算的服務型式，屬於雲端運算系統的組成部分。",
+      "source_id": "chunk_20",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端運算",
+      "type": "system",
+      "display_name": "雲端運算"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "軟體即服務 (saas)",
+      "type": "system",
+      "display_name": "軟體即服務 (SaaS)"
+    },
+    "reasoning": "第 43 題將 SaaS 列為雲端運算的服務型式，SaaS 作為一種雲端基礎設施/環境，屬於雲端運算系統的組成部分。",
+    "source_id": "chunk_20",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雲端運算與軟體即服務 (SaaS) 均為系統 (system) 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "雲端運算與軟體即服務 (SaaS) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 不在語義限制清單中被明確限制，且主體和受體的類別均為 'system'，因此不觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端運算與雲端運算服務、雲端環境、雲端服務等存在廣義/狹義從屬關係，但與軟體即服務（SaaS）無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，雲端運算與軟體即服務（SaaS）無同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端運算",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "軟體即服務 (SaaS)",
+        "type": "system"
+      },
+      "reasoning": "第 43 題將 SaaS 列為雲端運算的服務型式，SaaS 作為一種雲端基礎設施/環境，屬於雲端運算系統的組成部分。",
+      "source_id": "chunk_20",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端運算",
+      "type": "system",
+      "display_name": "雲端運算"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "基礎架構即服務 (iaas)",
+      "type": "system",
+      "display_name": "基礎架構即服務 (IaaS)"
+    },
+    "reasoning": "第 43 題將 IaaS 列為雲端運算的服務型式，屬於雲端運算系統的組成部分。",
+    "source_id": "chunk_20",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雲端運算與基礎架構即服務 (IaaS) 均為系統 (system) 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "雲端運算與基礎架構即服務 (IaaS) 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 has_a，不是 deployed_in。規則7：不適用，因為關係為 has_a，不是 generates。規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 has_a 與主體、受體的類別（system）不直接違反任何一條語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端運算與雲端運算服務、雲端環境等相關概念存在廣義/狹義從屬關係，但基礎架構即服務(IaaS)是雲端運算的一種特定類型，兩者之間存在著從屬關係，而非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "基於廣義/狹義一律保留原則，雲端運算與基礎架構即服務(IaaS)之間的關係不被視為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端運算",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "基礎架構即服務 (IaaS)",
+        "type": "system"
+      },
+      "reasoning": "第 43 題將 IaaS 列為雲端運算的服務型式，屬於雲端運算系統的組成部分。",
+      "source_id": "chunk_20",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  }
+]

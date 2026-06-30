@@ -1,0 +1,626 @@
+[
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵偵測系統 (IDS)"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "網路",
+      "type": "system",
+      "display_name": "網路"
+    },
+    "reasoning": "文本提到 IDS 是『部署在網路上』的安全措施，因此選擇 tool 部署於 system 的關係。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統 (IDS) 是工具 (tool) 的合理實例，網路 (network) 是系統 (system) 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "入侵偵測系統 (IDS) 部署於網路 (network) 的三元組完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，主體為 tool，受體為 system，無違反規則1、2、3、4、5、7、8的情況。",
+        "response": "correct",
+        "reason": "三元組符合規則6，且無其他規則被違反，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統 (IDS) 與網路型入侵偵測系統 (nids) 之間存在狹義關係，網路與網際網路、電腦網路等存在廣義/狹義從屬關係，但根據給定的資源清單和判斷準則，入侵偵測系統 (IDS) 和網路不構成同義詞或直接從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例和判斷準則，入侵偵測系統 (IDS) 和網路之間不構成直接同義詞或從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到 IDS 是『部署在網路上』的安全措施，因此選擇 tool 部署於 system 的關係。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵偵測系統 (IDS)"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "惡意活動",
+      "type": "attack",
+      "display_name": "惡意活動"
+    },
+    "reasoning": "文本明確指出 IDS 用於『偵測惡意活動』，符合 tool 可偵測 attack 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統 (IDS) 是 'tool' 的合理實例，惡意活動是 'attack' 的合理實例，'can_detect' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "入侵偵測系統 (IDS) 的類別、惡意活動的類別與 'can_detect' 關係都符合 Lc,p 的定義，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_detect，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（入侵偵測系統 can_detect 惡意活動）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統 (IDS) 與入侵偵測系統 (ids) 是完全等價同義詞，惡意活動與惡意活動是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "惡意活動",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出 IDS 用於『偵測惡意活動』，符合 tool 可偵測 attack 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵偵測系統 (IDS)"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本提到 IDS 『掃描資料，尋找惡意流量』，掃描行為在本體論中對應於分析資料的能力。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統 (IDS) 是 'tool' 的合理實例，資料是 'data' 的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但 can_analyze 關係下，主體是 tool，符合一般工具可以進行分析的邏輯。",
+        "response": "correct",
+        "reason": "三元組中的主體是入侵偵測系統 (IDS)，是一種工具，與 can_analyze 資料的關係是合理的，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統 (IDS) 與入侵偵測系統 (ids) 完全等價同義詞，資料與資料完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到 IDS 『掃描資料，尋找惡意流量』，掃描行為在本體論中對應於分析資料的能力。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵偵測系統 (IDS)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "windows",
+      "type": "system",
+      "display_name": "Windows"
+    },
+    "reasoning": "文本提到 IDS 可以是主機作業系統（例如 Windows）中的工具之一，符合 tool is_part_of system。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "入侵偵測系統 (IDS) 是 'tool' 的合理實例，Windows 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的規定，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：當關係為 deployed_in 時，受體的類別必須是 system，但此三元組的關係是 is_part_of，因此不適用。檢查規則7：不適用。檢查規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係是 is_part_of，主體是入侵偵測系統（IDS），受體是 Windows，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「入侵偵測系統 (IDS)」與 Ldr 中的「入侵偵測系統 (ids)」為完全等價同義詞；受體「Windows」與 Ldr 中的「windows」為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "入侵偵測系統 (ids)",
+        "standard_object": "windows",
+        "reason": "主體和受體均找到完全等價同義詞，無需合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Windows",
+        "type": "system"
+      },
+      "reasoning": "文本提到 IDS 可以是主機作業系統（例如 Windows）中的工具之一，符合 tool is_part_of system。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵偵測系統 (IDS)"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "警示訊號",
+      "type": "data",
+      "display_name": "警報"
+    },
+    "reasoning": "文本指出 IDS 偵測到匹配後會『建立警報』，警報屬於產出的資訊，故選擇 tool generates data。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統 (IDS) 是 'tool' 的合理實例，警報是 'data' 的合理實例，關係 'generates' 在此語境下合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，語意對齊且實體名稱合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是generates，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係是generates，而非uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組符合規則：主體是tool，關係是generates，受體是data。規則8不適用，因為關係是generates，而非controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且未發現其他規則的違反。因此，三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統 (IDS) 與入侵偵測系統 (ids) 是完全等價同義詞，警報與警示訊號在資安領域中可視為同義詞",
+        "response": "duplicate",
+        "standard_subject": "入侵偵測系統 (ids)",
+        "standard_object": "警示訊號",
+        "reason": "根據同義詞判定，入侵偵測系統 (IDS) 與入侵偵測系統 (ids) 是同義詞，警報與警示訊號也可視為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "警報",
+        "type": "data"
+      },
+      "reasoning": "文本指出 IDS 偵測到匹配後會『建立警報』，警報屬於產出的資訊，故選擇 tool generates data。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵偵測系統 (IDS)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "linux",
+      "type": "system",
+      "display_name": "Linux"
+    },
+    "reasoning": "文本提到 IDS 可以是主機作業系統（例如 Linux）中的工具之一，符合 tool is_part_of system。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統 (IDS) 是 'tool' 的合理實例，Linux 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查關係 is_part_of，根據給定的三元組，入侵偵測系統 (IDS) 是一種工具 (tool)，而 Linux 是一個系統 (system)，這符合一般的系統架構關係，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係 is_part_of 沒有違反語義限制清單中的任何規則。入侵偵測系統 (IDS) 屬於工具 (tool)，而 Linux 屬於系統 (system)，這是一種合理的系統架構關係。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統 (IDS) 與 Ldr 中的 '入侵偵測系統 (ids)' 完全等價同義詞，Linux 與 Ldr 中的 'linux' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Linux",
+        "type": "system"
+      },
+      "reasoning": "文本提到 IDS 可以是主機作業系統（例如 Linux）中的工具之一，符合 tool is_part_of system。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵防禦系統 (ips)",
+      "type": "tool",
+      "display_name": "入侵防禦系統 (IPS)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "惡意活動",
+      "type": "attack",
+      "display_name": "惡意活動"
+    },
+    "reasoning": "文本提到 IPS 用於『防止惡意活動』且能『封鎖或拒絕流量』，這屬於緩解/防禦攻擊的行為。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵防禦系統 (IPS) 是 'tool' 的合理實例，惡意活動是 'attack' 的合理實例，且 'mitigates' 的語意與資安領域的同義詞寬容原則相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是入侵防禦系統 (IPS)，類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 (入侵防禦系統, IPS) 屬於 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵防禦系統 (IPS) 與入侵偵測系統 (ids) 不是完全等價同義詞，但惡意活動的同義詞判定中，惡意活動、惡意行為、惡意事件均指同一概念",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "惡意活動",
+        "reason": "根據同義詞判定，惡意活動是主體的對應同義詞，但主體本身不需標準化；受體惡意活動與惡意行為、惡意事件為同義詞，選擇惡意活動作為標準化對象。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵防禦系統 (IPS)",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "惡意活動",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 IPS 用於『防止惡意活動』且能『封鎖或拒絕流量』，這屬於緩解/防禦攻擊的行為。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "snort",
+      "type": "tool",
+      "display_name": "Snort"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "入侵防禦系統 (ips)",
+      "type": "tool",
+      "display_name": "入侵防禦系統 (IPS)"
+    },
+    "reasoning": "文本指出 Snort 是最著名的 IPS/IDS 系統之一，將具體工具歸類為該類別工具的一部分。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Snort 是一種入侵偵測系統，屬於 'tool' 類別，入侵防禦系統 (IPS) 也是 'tool' 類別，且 'Snort' 可以被視為 'is_part_of' 入侵防禦系統 (IPS)，因此語意對齊。",
+        "response": "correct",
+        "reason": "Snort 和入侵防禦系統 (IPS) 的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'is_part_of' 不在任何規則中被明確限制，且主體和受體的類別均為 'tool'，未發現明確違反任何規則的跡象。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別均為 'tool'，且關係 'is_part_of' 未在語義限制清單中被明確限制，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「入侵防禦系統 (ips)」為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "入侵防禦系統 (ips)",
+        "reason": "根據同義詞判定，受體與 Ldr 中的「入侵防禦系統 (ips)」為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Snort",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "入侵防禦系統 (IPS)",
+        "type": "tool"
+      },
+      "reasoning": "文本指出 Snort 是最著名的 IPS/IDS 系統之一，將具體工具歸類為該類別工具的一部分。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "sourcefire",
+      "type": "tool",
+      "display_name": "Sourcefire"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "snort",
+      "type": "tool",
+      "display_name": "Snort"
+    },
+    "reasoning": "文本提到 Sourcefire 是 Snort 的商業版本，在工具層級上具有繼承或屬於關係。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Sourcefire 和 Snort 都是資安領域中合理的工具實例，符合 'tool' 類別的語意對齊，且 'is_part_of' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "Sourcefire 和 Snort 的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'is_part_of' 不在任何規則中被明確限制，且主體和受體的類別均為 'tool'，未觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 與主體和受體的類別 'tool' 未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Sourcefire 與 Snort 均為資安工具，且 Snort 是 Sourcefire 的一部分，但兩者在此處代表不同的工具實體，無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，Sourcefire 與 Snort 代表不同的工具實體，無需合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Sourcefire",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Snort",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 Sourcefire 是 Snort 的商業版本，在工具層級上具有繼承或屬於關係。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "sourcefire",
+      "type": "tool",
+      "display_name": "Sourcefire"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "連接埠分析",
+      "type": "function",
+      "display_name": "連接埠分析"
+    },
+    "reasoning": "文本提到 Sourcefire 可以執行『連接埠分析』，這是一種工具具備的功能。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Sourcefire 是一種安全工具，'連接埠分析' 可被視為其功能之一，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體為 Sourcefire（類別：tool），關係為 has_a，受體為 連接埠分析（類別：function），未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "Sourcefire 是一個特定的工具，與 Ldr 中的 \"sourcefire\" 完全相同，受體 \"連接埠分析\" 與 Ldr 中的資源不直接相關，但 \"連接埠分析\" 可能是 \"snort\" 的功能之一，然而根據規則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 1，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Sourcefire",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "連接埠分析",
+        "type": "function"
+      },
+      "reasoning": "文本提到 Sourcefire 可以執行『連接埠分析』，這是一種工具具備的功能。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "sourcefire",
+      "type": "tool",
+      "display_name": "Sourcefire"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "攻擊"
+    },
+    "reasoning": "文本明確提到 Sourcefire 可以『偵測探測和攻擊』。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Sourcefire 是一種網路安全工具，可以檢測攻擊，符合 'tool' 類別；'攻擊' 是一種網路安全威脅，符合 'attack' 類別。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體 'Sourcefire' 的類別是 'tool'，具有主動執行能力，符合 'controls' 的前提，但關係是 'can_detect'，不違反規則8。",
+        "response": "correct",
+        "reason": "三元組不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Sourcefire) 與 Ldr 中的 'sourcefire' 完全相同，受體 (攻擊) 與 Ldr 中的 '攻擊' 完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Sourcefire",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到 Sourcefire 可以『偵測探測和攻擊』。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "sourcefire",
+      "type": "tool",
+      "display_name": "Sourcefire"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "連接埠掃描",
+      "type": "technique",
+      "display_name": "連接埠掃描"
+    },
+    "reasoning": "文本提到 Sourcefire 可以『執行連接埠掃描』，掃描是一種偵測技術。",
+    "source_id": "chunk_4",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Sourcefire 是一種網路安全工具，使用連接埠掃描是一種合理的技術應用，符合語意對齊。",
+        "response": "correct",
+        "reason": "Sourcefire 使用連接埠掃描的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體的類別是 'tool'，不違反規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 'Sourcefire' 是一種工具（tool），使用 '連接埠掃描'（technique）不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Sourcefire 是一個特定的工具，連接埠掃描是一種技術，兩者之間沒有直接的同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，Sourcefire 和 連接埠掃描 之間沒有同義詞或從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Sourcefire",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "連接埠掃描",
+        "type": "technique"
+      },
+      "reasoning": "文本提到 Sourcefire 可以『執行連接埠掃描』，掃描是一種偵測技術。",
+      "source_id": "chunk_4",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 12
+    }
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "subject": {
+      "name": "Web 應用程式",
+      "type": "app"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "XSS 缺陷",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到 Web 應用程式在生成網頁時若不對輸入進行驗證或過濾，就會出現 XSS 缺陷。符合 ('app', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "XSS 缺陷",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本指出 XSS 允許攻擊者在受害者的瀏覽器中執行腳本，這意味著攻擊者利用了該缺陷。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "XSS 攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網頁瀏覽器",
+      "type": "app"
+    },
+    "reasoning": "文本提到 XSS 允許在受害者的瀏覽器中執行腳本以劫持對話或重導向，對瀏覽器端的操作造成危害。符合 ('attack', 'can_harm', 'app')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "不安全的反序列化",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "遠端程式執行",
+      "type": "risk"
+    },
+    "reasoning": "文本明確指出不安全的反序列化通常會導致遠端程式執行（RCE），將 RCE 視為一種風險後果。符合 ('vulnerability', 'can_expose', 'risk')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "不安全的反序列化",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到反序列化缺陷可以用來執行攻擊（如重送、注入），表示攻擊者可利用此漏洞。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "元件",
+      "type": "feature"
+    },
+    "reasoning": "文本提到元件包含函式庫、框架等，且應用程式使用這些元件，將元件視為應用程式的組成特徵。符合 ('app', 'has_a', 'feature')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "含有已知漏洞的元件",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料丟失",
+      "type": "risk"
+    },
+    "reasoning": "文本指出使用有漏洞的元件將可能造成嚴重的資料丟失。符合 ('vulnerability', 'can_expose', 'risk')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "日誌記錄和監測不足",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "持續攻擊系統",
+      "type": "risk"
+    },
+    "reasoning": "文本提到日誌記錄和監測不足允許攻擊者持續攻擊系統，這是一種由漏洞導致的風險狀態。符合 ('vulnerability', 'can_expose', 'risk')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "系統",
+      "type": "system"
+    },
+    "reasoning": "文本提到攻擊者可以持續攻擊系統或轉向更多系統，暗示了對系統的控制或滲透。符合 ('attacker', 'controls', 'system')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "注入攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料",
+      "type": "data"
+    },
+    "reasoning": "文本最後提到網站遭受注入或隱碼攻擊，導致資料（被竄改/損害）。符合 ('attack', 'can_harm', 'data')。",
+    "source_id": "chunk_11",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 10
+  }
+]

@@ -1,0 +1,81 @@
+[
+  {
+    "subject": {
+      "name": "資訊技術人員",
+      "type": "securityTeam",
+      "display_name": "資訊技術人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊安全技術問題",
+      "type": "vulnerability",
+      "display_name": "資訊安全技術問題"
+    },
+    "reasoning": "文本提到資訊技術人員負責『資訊安全技術相關問題之解決』。解決問題的前提是分析問題，因此將其定義為 securityTeam 對 vulnerability 的分析，符合 ('securityTeam', 'can_analyze', 'vulnerability') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 4,
+    "reject_reason": "Phase 1 (Schema Edge Violation): securityTeam -> can_analyze -> vulnerability",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊技術人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊安全技術問題",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到資訊技術人員負責『資訊安全技術相關問題之解決』。解決問題的前提是分析問題，因此將其定義為 securityTeam 對 vulnerability 的分析，符合 ('securityTeam', 'can_analyze', 'vulnerability') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "人員",
+      "type": "attacker",
+      "display_name": "人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料資產",
+      "type": "data",
+      "display_name": "資料資產"
+    },
+    "reasoning": "文本提到人員離職前應歸還『資料資產』，暗示人員在職期間使用這些資料。符合 ('user', 'uses', 'data') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "人員 (user) 使用資料資產 (data) 的情境是合理的，符合實體名稱與其類別的對齊，且 'uses' 關係在此語境下是適當的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊與同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規，因為主體的類別是attacker，但使用了'uses'關係，且受體是資料資產(data)。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "violation",
+        "reason": "三元組觸發了規則5的違規條件，因為當關係為'uses'時，主體的類別是attacker，受體是資料資產(data)，這不符合規則5的允許條件。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組觸發了規則5的違規條件，因為當關係為'uses'時，主體的類別是attacker，受體是資料資產(data)，這不符合規則5的允許條件。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "人員",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資料資產",
+        "type": "data"
+      },
+      "reasoning": "文本提到人員離職前應歸還『資料資產』，暗示人員在職期間使用這些資料。符合 ('user', 'uses', 'data') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "威脅行為者",
+      "type": "attacker",
+      "display_name": "威脅行為者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "公開漏洞資料庫",
+      "type": "tool",
+      "display_name": "公開漏洞資料庫"
+    },
+    "reasoning": "文本提到威脅行為者可以存取（使用）公開漏洞資料庫來了解如何改變威脅以避免偵測，因此將其定義為 attacker uses tool。",
+    "source_id": "chunk_4",
+    "source_file": "multiple_choice.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "威脅行為者 (attacker) 使用公開漏洞資料庫 (tool) 是語意上合理的，符合實體名稱與其類別的對齊，且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體的類別是 'attacker'，不違反此規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體（威脅行為者）使用公開漏洞資料庫，符合規則允許的條件，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有近似資源清單中之資源完全相符，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "威脅行為者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "公開漏洞資料庫",
+        "type": "tool"
+      },
+      "reasoning": "文本提到威脅行為者可以存取（使用）公開漏洞資料庫來了解如何改變威脅以避免偵測，因此將其定義為 attacker uses tool。",
+      "source_id": "chunk_4",
+      "source_file": "multiple_choice.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "漏洞掃描",
+      "type": "technique",
+      "display_name": "漏洞掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "安全性漏洞",
+      "type": "vulnerability",
+      "display_name": "安全性漏洞"
+    },
+    "reasoning": "文本描述透過檢閱漏洞掃描的輸出來回報安全性漏洞，漏洞掃描是一種用於分析漏洞的技術，符合 technique can_analyze vulnerability。",
+    "source_id": "chunk_4",
+    "source_file": "multiple_choice.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '漏洞掃描' 是 'technique' 的合理實例，'安全性漏洞' 是 'vulnerability' 的合理實例，關係 'can_analyze' 在資安領域中合理適用於 'technique' 與 'vulnerability' 之間。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。由於主體是 '漏洞掃描' (類別: technique)，而非 '漏洞'，因此不觸發規則3的限制。其他規則均不適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '漏洞掃描' 屬於 'technique' 類別，與規則3中提到的 'vulnerability' 類別不同，因此不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"漏洞掃描\" 與 Ldr 中的 \"漏洞掃描\" 完全相同，受體 \"安全性漏洞\" 與 Ldr 中的 \"安全漏洞\" 關係密切，兩者均指涉及資安漏洞的概念，但 \"安全性漏洞\" 可視為 \"安全漏洞\" 的廣義或同義詞表達。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，主體與 Ldr 中的某資源完全相同，受體與 Ldr 中的資源雖有關聯但不完全等價，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "漏洞掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "安全性漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本描述透過檢閱漏洞掃描的輸出來回報安全性漏洞，漏洞掃描是一種用於分析漏洞的技術，符合 technique can_analyze vulnerability。",
+      "source_id": "chunk_4",
+      "source_file": "multiple_choice.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "開放連接埠",
+      "type": "feature",
+      "display_name": "開啟的連接埠"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全漏洞",
+      "type": "vulnerability",
+      "display_name": "安全性漏洞"
+    },
+    "reasoning": "文本將『開啟的連接埠』列為潛在的安全性漏洞發現結果。連接埠是系統的特徵 (feature)，其開啟狀態可能導致漏洞暴露，符合 feature can_expose vulnerability。",
+    "source_id": "chunk_4",
+    "source_file": "multiple_choice.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "主體 '開啟的連接埠' 是 'feature' 的合理實例，受體 '安全性漏洞' 是 'vulnerability' 的合理實例，關係 'can_expose' 合理地連接這兩個實體。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體類別為feature，關係為can_expose，受體為vulnerability，未直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係、受體之間的關聯符合規則3的特例允許，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"安全性漏洞\" 與 Ldr 中的 \"安全漏洞\"、\"漏洞\"、\"程式漏洞\"、\"軟體漏洞\"、\"網站漏洞\"、\"硬體漏洞\"、\"藍牙安全漏洞\"、\"系統漏洞\"、\"安全隱患\"、\"作業系統漏洞\" 皆屬於同一概念的不同表達，且 \"安全性漏洞\" 與 \"安全漏洞\"、\"漏洞\" 具有最高的同義詞相似度；主體 \"開啟的連接埠\" 與 Ldr 中的 \"開放連接埠\"、\"連接埠\"、\"通訊埠\"、\"連接埠號碼\" 皆屬於同一概念的不同表達，且 \"開啟的連接埠\" 與 \"開放連接埠\" 具有最高的同義詞相似度。",
+        "response": "duplicate",
+        "standard_subject": "開放連接埠",
+        "standard_object": "安全漏洞",
+        "reason": "主體與受體皆可被判定為與 Ldr 中的某些資源具有同義詞關係，且受體 \"安全性漏洞\" 與主體 \"開啟的連接埠\" 分別與 Ldr 中的 \"安全漏洞\" 和 \"開放連接埠\" 具有最高的同義詞相似度。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "開啟的連接埠",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全性漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本將『開啟的連接埠』列為潛在的安全性漏洞發現結果。連接埠是系統的特徵 (feature)，其開啟狀態可能導致漏洞暴露，符合 feature can_expose vulnerability。",
+      "source_id": "chunk_4",
+      "source_file": "multiple_choice.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "停用的防火牆",
+      "type": "feature",
+      "display_name": "停用的防火牆"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全性漏洞",
+      "type": "vulnerability",
+      "display_name": "安全性漏洞"
+    },
+    "reasoning": "文本將『停用的防火牆』列為潛在的安全性漏洞發現結果。防火牆的啟用狀態屬於系統設定特徵 (feature)，停用狀態會暴露漏洞，符合 feature can_expose vulnerability。",
+    "source_id": "chunk_4",
+    "source_file": "multiple_choice.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "停用的防火牆可以被視為 'feature' 的實例，安全性漏洞可以被視為 'vulnerability' 的實例，'can_expose' 關係在資安領域中是合理的，因為停用的防火牆可能會暴露安全性漏洞。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但特例允許 'can_expose' 動作，且主體類別為 feature，不是 vulnerability，因此不違反。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是停用的防火牆，與規則3中提到的特例不符，但停用的防火牆可以暴露安全性漏洞，且未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"安全性漏洞\" 與 Ldr 中的 \"安全性漏洞\" 完全相同，且主體 \"停用的防火牆\" 與 Ldr 中的 \"開放連接埠\" 類別不同，但無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1，實體名稱與 Ldr 中某資源的 name 字串完全相同，但主體與受體無同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "停用的防火牆",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全性漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本將『停用的防火牆』列為潛在的安全性漏洞發現結果。防火牆的啟用狀態屬於系統設定特徵 (feature)，停用狀態會暴露漏洞，符合 feature can_expose vulnerability。",
+      "source_id": "chunk_4",
+      "source_file": "multiple_choice.json",
+      "source_index": 4
+    }
+  }
+]

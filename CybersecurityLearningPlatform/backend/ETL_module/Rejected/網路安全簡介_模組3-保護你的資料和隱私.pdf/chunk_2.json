@@ -1,0 +1,81 @@
+[
+  {
+    "subject": {
+      "name": "犯罪分子",
+      "type": "attacker",
+      "display_name": "犯罪分子"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "雲端儲存服務",
+      "type": "app",
+      "display_name": "雲端儲存服務"
+    },
+    "reasoning": "文本提到犯罪分子可能透過雲端儲存服務（如 iCloud, Google Drive）存取資料，符合 (attacker, uses, app) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 5,
+    "reject_reason": "Phase 1 (Schema Edge Violation): attacker -> uses -> app",
+    "original_raw_triple": {
+      "subject": {
+        "name": "犯罪分子",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "雲端儲存服務",
+        "type": "app"
+      },
+      "reasoning": "文本提到犯罪分子可能透過雲端儲存服務（如 iCloud, Google Drive）存取資料，符合 (attacker, uses, app) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼保護",
+      "type": "feature",
+      "display_name": "密碼保護"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權的存取",
+      "type": "attack",
+      "display_name": "未經授權的存取"
+    },
+    "reasoning": "文本提到『電腦設備都應受密碼保護，以防止未經授權的存取』，密碼保護在此視為一種安全策略，用以緩解未經授權存取的攻擊，符合 (policy, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "密碼保護是 policy 的合理實例，未經授權的存取是 attack 的合理實例，且 'mitigates' 的語意與密碼保護對未經授權存取的關係相符。",
+        "response": "correct",
+        "reason": "密碼保護（policy）與未經授權的存取（attack）之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 feature 時不可執行 mitigates 動作，觸發違規。",
+        "response": "violation",
+        "reason": "根據規則2，主體為 feature 的『密碼保護』不可執行 mitigates 動作，與規則不符。因此，該三元組違反了語義限制清單中的規則2。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 根據規則2，主體為 feature 的『密碼保護』不可執行 mitigates 動作，與規則不符。因此，該三元組違反了語義限制清單中的規則2。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼保護",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "未經授權的存取",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『電腦設備都應受密碼保護，以防止未經授權的存取』，密碼保護在此視為一種安全策略，用以緩解未經授權存取的攻擊，符合 (policy, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 4
+    }
+  }
+]

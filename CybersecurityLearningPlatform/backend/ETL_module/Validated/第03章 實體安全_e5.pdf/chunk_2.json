@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "內部人員",
+      "type": "user",
+      "display_name": "內部人員"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "文本提到安全威脅來自內部人員，其目的在於盜取有價值的資訊資產，將內部人員視為威脅行為者，符合 ('attacker', 'can_harm', 'data')。",
+    "source_id": "chunk_2",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "內部人員是 attacker 的合理實例，資訊資產是 data 的合理實例，'can_harm' 是描述 attacker 對 data 的關係的合理屬性。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為內部人員，具有主動執行能力，關係為can_harm，受體為資訊資產，未違反規則8。",
+        "response": "correct",
+        "reason": "三元組未違反任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中之實體完全匹配，無需進一步分析同義詞或廣義/狹義關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與現有近似資源清單中之實體完全相同，直接判定正確。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部人員",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資訊資產",
+        "type": "data"
+      },
+      "reasoning": "文本提到安全威脅來自內部人員，其目的在於盜取有價值的資訊資產，將內部人員視為威脅行為者，符合 ('attacker', 'can_harm', 'data')。",
+      "source_id": "chunk_2",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "恐怖攻擊",
+      "type": "attack",
+      "display_name": "恐怖攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本將恐怖攻擊列為政治因素引起的安全威脅，攻擊行為會對組織的系統或設施造成損害，符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_2",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '恐怖攻擊' 是 'attack' 的合理實例，'系統' 是 'system' 的合理實例，關係 'can_harm' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是攻擊（attack），關係是 can_harm，受體是系統（system），這不涉及控制（controls）關係。",
+        "response": "correct",
+        "reason": "三元組（主體：恐怖攻擊，關係：can_harm，受體：系統）不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中，但根據規則 3，廣義/狹義一律保留，不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 3，實體之間的廣義/狹義關係不進行合併，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "恐怖攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本將恐怖攻擊列為政治因素引起的安全威脅，攻擊行為會對組織的系統或設施造成損害，符合 ('attack', 'can_harm', 'system')。",
+      "source_id": "chunk_2",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "實體安全流程",
+      "type": "policy",
+      "display_name": "實體安全流程"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本提到設置實體安全流程是為了符合可接受程度的風險，即透過流程來緩解風險，符合 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_2",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體安全流程 (policy) 和 風險 (risk) 的名稱與其被賦予的類別合理對齊，且 'mitigates' 是資安領域中常見的關係描述。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是實體安全流程（類別：policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「風險」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體安全流程",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到設置實體安全流程是為了符合可接受程度的風險，即透過流程來緩解風險，符合 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_2",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "風險評估",
+      "type": "technique",
+      "display_name": "風險評估"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "風險評估是一種技術手段，用於分析系統環境以找出潛在風險，符合 ('technique', 'can_analyze', 'system')。",
+    "source_id": "chunk_2",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "風險評估 (Risk Assessment) 是一種合理的 'technique' 實例，系統 (System) 是 'system' 的合理實例，'can_analyze' 關係在資安領域中是合理的，因為風險評估可以分析系統。",
+        "response": "correct",
+        "reason": "風險評估與系統之間的 'can_analyze' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是can_analyze而非mitigates。規則3不適用，因為主體類別是technique而非vulnerability。規則4不適用，因為主體類別是technique而非principle。規則5不適用，因為關係是can_analyze而非uses。規則6不適用，因為關係是can_analyze而非deployed_in。規則7不適用，因為關係是can_analyze而非generates。規則8不適用，因為關係是can_analyze而非controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（風險評估）是一種technique，與系統（system）之間的can_analyze關係在給定的語義限制清單中沒有被明確禁止。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆在 Ldr 中找到完全匹配的資源，分別為 \"風險評估\" 與 \"系統\"，且兩者皆為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆在 Ldr 中找到完全匹配的資源，且無同義詞重複關係"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險評估",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "風險評估是一種技術手段，用於分析系統環境以找出潛在風險，符合 ('technique', 'can_analyze', 'system')。",
+      "source_id": "chunk_2",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "內部人員",
+      "type": "user",
+      "display_name": "內部人員"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "實體設施",
+      "type": "tool",
+      "display_name": "實體設施"
+    },
+    "reasoning": "文本描述內部人員對內部實體設施進行侵入，這是一種物理上的連接或進入行為，符合 ('attacker', 'connects_to', 'system')。",
+    "source_id": "chunk_2",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "內部人員是 attacker 的合理實例，實體設施是 system 的合理實例，且 'connects_to' 是描述 attacker 與 system 間關係的合理屬性。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於三元組中的關係是 connects_to，且主體是內部人員（類別：user），受體是實體設施（類別：tool），沒有直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體設施與設備、相關設備之間存在廣義/狹義從屬關係，但無法確定主體與受體之間的直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體設施與設備、相關設備之間的關係不構成同義詞重複，且無法確定主體與受體之間的直接同義詞關係，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部人員",
+        "type": "attacker"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "實體設施",
+        "type": "system"
+      },
+      "reasoning": "文本描述內部人員對內部實體設施進行侵入，這是一種物理上的連接或進入行為，符合 ('attacker', 'connects_to', 'system')。",
+      "source_id": "chunk_2",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "安全主管",
+      "type": "securityTeam",
+      "display_name": "安全主管"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "實體安全流程",
+      "type": "policy",
+      "display_name": "實體安全流程"
+    },
+    "reasoning": "文本明確指出安全主管需要設計並實施實體安全流程，流程在此屬於規範與策略，符合 ('securityTeam', 'implements', 'policy')。",
+    "source_id": "chunk_2",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "安全主管 (securityTeam) 實施 實體安全流程 (policy) 是語意合理的，'securityTeam' 是 'securityTeam' 的合理實例，'policy' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、關係、受體皆符合 Lc,p 的規定且語意對齊，故無違反。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用，因為動作是 implements，不是 mitigates。檢查規則3：不適用，因為主體類別是 securityTeam，不是 vulnerability。檢查規則4：不適用，因為關係是 implements，不是 violates。檢查規則5：不適用，因為關係是 implements，不是 uses。檢查規則6：不適用，因為關係是 implements，不是 deployed_in。檢查規則7：不適用，因為關係是 implements，不是 generates。檢查規則8：不適用，因為關係是 implements，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（安全主管）和關係（implements）以及受體（實體安全流程）之間的關係沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，Ldr為空，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全主管",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "實體安全流程",
+        "type": "policy"
+      },
+      "reasoning": "文本明確指出安全主管需要設計並實施實體安全流程，流程在此屬於規範與策略，符合 ('securityTeam', 'implements', 'policy')。",
+      "source_id": "chunk_2",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "運作故障",
+      "type": "vulnerability",
+      "display_name": "運作故障"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "財務損失",
+      "type": "risk",
+      "display_name": "財務損失"
+    },
+    "reasoning": "文本指出機房無法正常運作（弱點）會造成巨大的財務損失（風險），符合 ('vulnerability', 'can_expose', 'risk')。",
+    "source_id": "chunk_2",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "運作故障 是 'vulnerability' 的合理實例，財務損失 是 'risk' 的合理實例，'can_expose' 關係在資安領域中合理適用於此類別之間的關係。",
+        "response": "correct",
+        "reason": "運作故障與財務損失之間的 'can_expose' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但特例允許 'can_expose' (暴露) 動作。因此，三元組（運作故障 can_expose 財務損失）觸發了規則3的特例允許，代表合法。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，代表合法。未發現明確且直接的違反項目，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "運作故障與現有近似資源清單中的運作故障完全相同，財務損失與損失具有高相似度，但不完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，運作故障與現有資源完全匹配，但財務損失與損失雖然相似卻不完全相同，故保留原狀"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "運作故障",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "財務損失",
+        "type": "risk"
+      },
+      "reasoning": "文本指出機房無法正常運作（弱點）會造成巨大的財務損失（風險），符合 ('vulnerability', 'can_expose', 'risk')。",
+      "source_id": "chunk_2",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "機房",
+      "type": "system",
+      "display_name": "機房"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "運作故障",
+      "type": "vulnerability",
+      "display_name": "運作故障"
+    },
+    "reasoning": "文本提到機房如無法正常運作（這是一種系統缺陷或弱點），會導致後續損失，符合 ('system', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_2",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "機房 (system) 可能暴露運作故障 (vulnerability) 的情況是資安領域中合理的語意對齊，'can_expose' 關係在此語境下也是適當的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但主體類別為 system，不是 vulnerability，因此不違反。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是機房（類別：system），與規則3中提到的vulnerability無關，且關係can_expose在規則3中被明確允許對vulnerability使用，但此處主體非vulnerability，故不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '機房' 與 Ldr 中的 '機房' 完全相同，受體 '運作故障' 可能與 '漏洞' 同義詞對照表中的 '弱點' 或 '脆弱性' 互換使用，但 '運作故障' 不在同義詞對照範例中，且無法確認其與 '漏洞' 的直接關係，因此無法判定為 duplicate。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認 '運作故障' 與 '漏洞' 的直接關係，依據 '不確定時預設保留' 判斷準則，預設為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "機房",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "運作故障",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到機房如無法正常運作（這是一種系統缺陷或弱點），會導致後續損失，符合 ('system', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_2",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

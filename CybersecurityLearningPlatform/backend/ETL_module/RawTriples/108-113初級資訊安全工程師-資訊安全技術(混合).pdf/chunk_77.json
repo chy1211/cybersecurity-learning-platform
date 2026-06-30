@@ -1,0 +1,152 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "不安全的反序列化漏洞",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到『使用不安全的反序列化漏洞』來進行攻擊，這符合攻擊者利用漏洞的邏輯，對應 Schema 中的 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "注入攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網站 webA",
+      "type": "app"
+    },
+    "reasoning": "文本描述透過主機向網站 webA 發起請求並進行注入攻擊，攻擊的目的是損害目標應用程式，對應 Schema 中的 ('attack', 'can_harm', 'app')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "OWASP 指南",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "網頁攻擊",
+      "type": "attack"
+    },
+    "reasoning": "OWASP 指南提供撰寫安全程式碼的規範以防止漏洞與攻擊，屬於資安政策/規範，對應 Schema 中的 ('policy', 'mitigates', 'attack')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "稽核日誌",
+      "type": "data"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "日誌伺服器",
+      "type": "system"
+    },
+    "reasoning": "文本明確提到『將所有稽核日誌存放於另一台獨立的日誌伺服器』，對應 Schema 中的 ('data', 'deployed_in', 'system')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "系統管理員",
+      "type": "securityTeam"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "日誌伺服器",
+      "type": "system"
+    },
+    "reasoning": "系統管理員負責管理日誌伺服器，對應 Schema 中的 ('securityTeam', 'controls', 'system')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "SQL Injection",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網頁攻擊",
+      "type": "attack"
+    },
+    "reasoning": "題目 32 將 SQL Injection 列為網頁攻擊手法的一種，對應 Schema 中的 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "Cross-Site Request Forgery",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網頁攻擊",
+      "type": "attack"
+    },
+    "reasoning": "題目 32 將 CSRF 列為網頁攻擊手法的一種，對應 Schema 中的 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "Cross-Site Scripting",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網頁攻擊",
+      "type": "attack"
+    },
+    "reasoning": "題目 32 將 XSS 列為網頁攻擊手法的一種，對應 Schema 中的 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "白名單過濾輸入參數",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "Cross-Site Scripting",
+      "type": "attack"
+    },
+    "reasoning": "題目 33 指出以白名單過濾輸入參數是防禦 XSS 最有效的方法，對應 Schema 中的 ('technique', 'mitigates', 'attack')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "反組譯器",
+      "type": "tool"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system"
+    },
+    "reasoning": "反組譯器 (Disassemblers) 用於分析二進位檔案或系統指令，對應 Schema 中的 ('tool', 'can_analyze', 'system')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10
+  }
+]

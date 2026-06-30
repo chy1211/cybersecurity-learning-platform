@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "銷毀軟體或轉讓政策",
+      "type": "policy",
+      "display_name": "銷毀軟體或轉讓政策"
+    },
+    "reasoning": "文本第 47 題 (A) 選項提到『建立銷毀軟體或是轉讓給他人的政策』，這描述了使用者或組織實作一套管理規範，符合 ('user', 'implements', 'policy') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "使用者 (user) 實施 (implements) 銷毀軟體或轉讓政策 (policy) 的語意對齊是合理的，因為使用者可以實施政策。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為使用者，關係為implements，受體為銷毀軟體或轉讓政策，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "未發現三元組明確違反語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"使用者\" 與 Ldr 中的 \"使用者\" 完全相同，受體 \"銷毀軟體或轉讓政策\" 與 Ldr 中的 \"儲存媒體銷毀政策\" 類別相同但名稱不同，可能是廣義/狹義從屬關係，但無法確定為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定 \"銷毀軟體或轉讓政策\" 與 \"儲存媒體銷毀政策\" 之間的關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "銷毀軟體或轉讓政策",
+        "type": "policy"
+      },
+      "reasoning": "文本第 47 題 (A) 選項提到『建立銷毀軟體或是轉讓給他人的政策』，這描述了使用者或組織實作一套管理規範，符合 ('user', 'implements', 'policy') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "軟體",
+      "type": "system",
+      "display_name": "軟體"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "授權書和啓用碼",
+      "type": "data",
+      "display_name": "授權書和啓用碼"
+    },
+    "reasoning": "文本第 47 題 (D) 選項提到『保存軟體光碟的授權書和啓用碼』，授權書與啓用碼屬於認證資訊 (data)，且軟體在啟動時需要使用這些資料，符合 ('app', 'uses', 'data') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "軟體 (app) 使用 授權書和啓用碼 (data) 合理，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "軟體 (app) 使用 授權書和啓用碼 (data) 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，給定的三元組中，主體是軟體（類別：system），關係是uses，受體是授權書和啓用碼（類別：data），因此不觸發規則5的違規條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體是軟體（類別：system），使用授權書和啓用碼（類別：data），這符合規則5的允許條件，且未觸發其他規則的違規條件。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全匹配，受體與已知同義詞對照範例無直接對應關係，但無法確定其是否為同義詞或子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法確定實體與 Ldr 中資源的關係，預設保留"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "軟體",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "授權書和啓用碼",
+        "type": "data"
+      },
+      "reasoning": "文本第 47 題 (D) 選項提到『保存軟體光碟的授權書和啓用碼』，授權書與啓用碼屬於認證資訊 (data)，且軟體在啟動時需要使用這些資料，符合 ('app', 'uses', 'data') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "內部稽核人員",
+      "type": "securityTeam",
+      "display_name": "內部稽核人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "內部稽核與職業道德規範",
+      "type": "policy",
+      "display_name": "內部稽核與職業道德規範"
+    },
+    "reasoning": "文本第 48 題提到『內部稽核人員應遵守...內部稽核與職業道德規範』，內部稽核人員屬於資安/審計團隊 (securityTeam)，而規範屬於政策 (policy)，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "內部稽核人員是 securityTeam 的合理實例，內部稽核與職業道德規範是 policy 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需注意 implements 關係的主體與受體類別是否合理。根據給定的三元組，主體為 securityTeam，關係為 implements，受體為 policy，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體與關係、受體之間的關聯未違反語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與現有近似資源清單中的「資安人員」具有高相似度，受體與現有近似資源清單中的「銷毀軟體或轉讓政策」無直接關聯，但主體和受體的類別分別對應到 securityTeam 和 policy，且無同義詞重複",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體和受體無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部稽核人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "內部稽核與職業道德規範",
+        "type": "policy"
+      },
+      "reasoning": "文本第 48 題提到『內部稽核人員應遵守...內部稽核與職業道德規範』，內部稽核人員屬於資安/審計團隊 (securityTeam)，而規範屬於政策 (policy)，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "軟體",
+      "type": "system",
+      "display_name": "軟體"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "授權使用人數上限",
+      "type": "feature",
+      "display_name": "授權使用人數上限"
+    },
+    "reasoning": "文本第 47 題 (B) 選項提到『軟體授權內的使用人數上限』，這屬於軟體授權機制的一項屬性或特徵，符合 ('app', 'has_a', 'feature') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "軟體 (app) 可以有授權使用人數上限 (feature) 的屬性，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，沒有任何規則被觸發為違規。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，軟體與授權使用人數上限之間沒有直接的同義詞關係，且無法確認為子類型或廣義/狹義從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "軟體",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "授權使用人數上限",
+        "type": "feature"
+      },
+      "reasoning": "文本第 47 題 (B) 選項提到『軟體授權內的使用人數上限』，這屬於軟體授權機制的一項屬性或特徵，符合 ('app', 'has_a', 'feature') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "智慧財產權法",
+      "type": "policy",
+      "display_name": "智慧財產權法"
+    },
+    "reasoning": "文本第 45 題與 46 題討論智慧財產權（包含專利、著作權等），這些法律規範是使用者在社會與法律環境中必須遵守的政策，符合 ('user', 'implements', 'policy') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "使用者 (user) 可以實施 (implements) 智慧財產權法 (policy)，這在資安領域中是合理的，因為使用者可能需要遵守或實施特定的政策或法規。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為使用者，關係為implements，受體為智慧財產權法，無直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係未直接違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"使用者\" 與 Ldr 中的 \"使用者\" 完全等價同義詞，受體 \"智慧財產權法\" 與 Ldr 中的 \"資訊法律\" 不完全匹配，但無法確定為同義詞重複或廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定 \"智慧財產權法\" 與 \"資訊法律\" 的關係，預設保留"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "智慧財產權法",
+        "type": "policy"
+      },
+      "reasoning": "文本第 45 題與 46 題討論智慧財產權（包含專利、著作權等），這些法律規範是使用者在社會與法律環境中必須遵守的政策，符合 ('user', 'implements', 'policy') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  }
+]

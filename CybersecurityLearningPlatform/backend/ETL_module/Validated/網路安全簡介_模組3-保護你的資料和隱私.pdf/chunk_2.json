@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本明確提到『駭客總是試圖利用你的作業系統或網頁瀏覽器的漏洞』，符合 (attacker, can_exploit, vulnerability) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，漏洞 (vulnerability) 是弱點的合理實例，'can_exploit' 關係在資安領域中是合理的，駭客可以利用漏洞。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用，因為主體是攻擊者，而不是漏洞。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，因為關係是 can_exploit，而不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是駭客（attacker），關係是 can_exploit，受體是漏洞（vulnerability），這符合資安知識圖譜的常見邏輯，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域已知實體，且受體為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，漏洞為完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確提到『駭客總是試圖利用你的作業系統或網頁瀏覽器的漏洞』，符合 (attacker, can_exploit, vulnerability) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本指出作業系統中存在漏洞，因此作業系統會暴露漏洞，符合 (system, can_expose, vulnerability) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '作業系統' 是 'system' 的合理實例，'漏洞' 是 'vulnerability' 的合理實例，且 'can_expose' 在資安領域中是合理的關係描述。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為主體不是policy、technique或tool。規則3提到vulnerability可以發起'can_expose'動作，但這裡的主體是作業系統，而不是漏洞，因此不直接適用。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。由於沒有規則直接被觸發或違反，",
+        "response": "correct",
+        "reason": "三元組中的主體和關係沒有明確違反語義限制清單中的任何規則，尤其是規則3雖然提到vulnerability可以發起'can_expose'動作，但這裡的主體是作業系統，沒有直接觸發任何違規條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全相同，受體 \"漏洞\" 與 Ldr 中的 \"漏洞\" 完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出作業系統中存在漏洞，因此作業系統會暴露漏洞，符合 (system, can_expose, vulnerability) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "網頁瀏覽器",
+      "type": "system",
+      "display_name": "網頁瀏覽器"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本指出網頁瀏覽器中存在漏洞，因此瀏覽器會暴露漏洞，符合 (app, can_expose, vulnerability) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網頁瀏覽器 (app) 可能會暴露 (can_expose) 漏洞 (vulnerability)，這是一種合理的語意關係，因為瀏覽器可能會因為漏洞而暴露使用者的資料或系統資訊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3允許vulnerability發起'can_expose'動作，與三元組中的關係相符。規則4、5、6、7、8不適用，因為三元組中的關係和類別不符合這些規則的條件。",
+        "response": "correct",
+        "reason": "三元組中的關係'can_expose'被規則3允許vulnerability發起此動作，且其他規則不適用。因此，三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且為不同類別的實體，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網頁瀏覽器",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出網頁瀏覽器中存在漏洞，因此瀏覽器會暴露漏洞，符合 (app, can_expose, vulnerability) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "wi-fi 裝置",
+      "type": "system",
+      "display_name": "Wi-Fi 裝置"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "無線網路",
+      "type": "system",
+      "display_name": "無線網路"
+    },
+    "reasoning": "文本提到『無線網路允許支援 Wi-Fi 的裝置...連接到網路』，符合 (system, connects_to, system) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Wi-Fi 裝置 和 無線網路 都是 'system' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊和同義詞寬容原則也得到滿足。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別不是 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（Wi-Fi 裝置）和受體（無線網路）之間的關係（connects_to）沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，該三元組被判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "無線網路是 Wi-Fi 裝置的相關系統，但不是完全等價同義詞，兩者之間存在廣義/狹義從屬關係，Wi-Fi 裝置是一種無線網路的實現形式。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Wi-Fi 裝置",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "無線網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到『無線網路允許支援 Wi-Fi 的裝置...連接到網路』，符合 (system, connects_to, system) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "無線網路",
+      "type": "system",
+      "display_name": "無線網路"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ssid",
+      "type": "data",
+      "display_name": "SSID"
+    },
+    "reasoning": "SSID 是無線網路的一個識別特徵，符合 (system, has_a, feature) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "無線網路 (類別: system) 與 SSID (類別: feature) 的名稱與其被賦予的類別合理對齊，SSID 是無線網路的一個特徵。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無相關性。檢查規則2：無相關性。檢查規則3：無相關性。檢查規則4：無相關性。檢查規則5：無相關性，因為主體的類別是 system，而不是 data。檢查規則6：無相關性，因為關係不是 deployed_in。檢查規則7：無相關性，因為關係不是 generates。檢查規則8：無相關性，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（無線網路）和關係（has_a）以及受體（SSID）之間的關係沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "無線網路與 Ldr 中的無線網路完全相同，SSID 與 Ldr 中的 ssid 完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中的資源完全相同，無需進行同義詞判定或廣義/狹義一律保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "無線網路",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "SSID",
+        "type": "feature"
+      },
+      "reasoning": "SSID 是無線網路的一個識別特徵，符合 (system, has_a, feature) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "無線路由器",
+      "type": "tool",
+      "display_name": "無線路由器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "密碼功能",
+      "type": "function",
+      "display_name": "WPA2 加密功能"
+    },
+    "reasoning": "文本提到在無線路由器上啟用 WPA2 加密功能，加密在此視為路由器提供的一項功能，符合 (tool, has_a, function) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "無線路由器是 'tool' 的合理實例，WPA2 加密功能是 'function' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "無線路由器具有 WPA2 加密功能的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無相關性。檢查規則2：無相關性。檢查規則3：無相關性。檢查規則4：無相關性。檢查規則5：無相關性，因為主體類別不是 data。檢查規則6：無相關性，因為關係不是 deployed_in。檢查規則7：無相關性，因為關係不是 generates。檢查規則8：無相關性，因為關係不是 controls。檢查完所有規則，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（無線路由器）和受體（WPA2 加密功能）通過 has_a 關係，沒有違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "WPA2 加密功能與密碼功能在資安領域中可視為同一概念的不同表達方式，兩者皆指加密技術的應用",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "密碼功能",
+        "reason": "根據同義詞判定，WPA2 加密功能與密碼功能是同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "無線路由器",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "WPA2 加密功能",
+        "type": "function"
+      },
+      "reasoning": "文本提到在無線路由器上啟用 WPA2 加密功能，加密在此視為路由器提供的一項功能，符合 (tool, has_a, function) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "金鑰重新安裝攻擊 (krack)",
+      "type": "attack",
+      "display_name": "金鑰重新安裝攻擊 (KRACK)"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網路資料",
+      "type": "data",
+      "display_name": "網路資料"
+    },
+    "reasoning": "文本提到 KRACK 攻擊使入侵者能夠『存取網路資料』，這對資料的機密性造成危害，符合 (attack, can_harm, data) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "金鑰重新安裝攻擊 (KRACK) 是 'attack' 的合理實例，網路資料是 'data' 的合理實例，且 'can_harm' 在資安領域中是合理的關係描述。",
+        "response": "correct",
+        "reason": "金鑰重新安裝攻擊 (KRACK) 可以對網路資料造成傷害，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 '金鑰重新安裝攻擊 (KRACK)' 的類別 'attack' 與受體 '網路資料' 的類別 'data' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 與主體、受體的類別組合在給定的語義限制清單中沒有明確的違反規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路資料是實體名稱與 Ldr 中某資源的 name 字串完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "金鑰重新安裝攻擊 (KRACK)",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網路資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到 KRACK 攻擊使入侵者能夠『存取網路資料』，這對資料的機密性造成危害，符合 (attack, can_harm, data) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "wpa2 協定",
+      "type": "feature",
+      "display_name": "WPA2 協定"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全漏洞",
+      "type": "vulnerability",
+      "display_name": "安全漏洞"
+    },
+    "reasoning": "文本明確提到『2017 年發現 WPA2 協定存在安全漏洞』，符合 (feature, can_expose, vulnerability) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "WPA2 協定是一個安全協定，合理地被歸類為 'feature'，而 '安全漏洞' 是一個 'vulnerability' 的合理實例，'can_expose' 關係在資安領域中描述一個特性可能暴露某個漏洞的語意是合理的。",
+        "response": "correct",
+        "reason": "WPA2 協定與安全漏洞之間的 'can_expose' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但主體類別為 feature，不是 vulnerability，因此不觸發違規。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 WPA2 協定，類別為 feature，與規則3中提到的vulnerability無關，且關係can_expose在規則3中被允許對vulnerability進行，但此處主體非vulnerability，故無法直接違反規則3。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資源 '安全漏洞' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WPA2 協定",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確提到『2017 年發現 WPA2 協定存在安全漏洞』，符合 (feature, can_expose, vulnerability) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "金鑰重新安裝攻擊 (krack)",
+      "type": "attack",
+      "display_name": "金鑰重新安裝攻擊 (KRACK)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "KRACK 是一種具體的攻擊手段，屬於廣義的駭客攻擊，符合 (attack, is_part_of, attack) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "金鑰重新安裝攻擊 (KRACK) 和駭客攻擊都是合理的 'attack' 實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "金鑰重新安裝攻擊 (KRACK) 和駭客攻擊的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關。檢查規則6：無關。檢查規則7：無關。檢查規則8：無關。所有規則均無直接違反。",
+        "response": "correct",
+        "reason": "三元組（金鑰重新安裝攻擊 (KRACK) is_part_of 駭客攻擊）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "金鑰重新安裝攻擊 (KRACK) 與 駭客攻擊 之間的關係是不同類型的攻擊，KRACK 是一種特定的攻擊方式，而駭客攻擊是一個更廣泛的概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，KRACK 是一種特定的攻擊方式，不是駭客攻擊的同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "金鑰重新安裝攻擊 (KRACK)",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "KRACK 是一種具體的攻擊手段，屬於廣義的駭客攻擊，符合 (attack, is_part_of, attack) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "安全更新",
+      "type": "technique",
+      "display_name": "安全更新"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "金鑰重新安裝攻擊 (krack)",
+      "type": "attack",
+      "display_name": "金鑰重新安裝攻擊 (KRACK)"
+    },
+    "reasoning": "文本建議『一旦安全更新可用，請立即更新』以緩解 KRACK 漏洞影響，符合 (technique, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全更新 (technique) 和 金鑰重新安裝攻擊 (KRACK) (attack) 的名稱與其類別合理對齊，且 'mitigates' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體是安全更新（technique），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（安全更新）是 technique 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"安全更新\" 與 Ldr 中的 \"軟體更新\" 和 \"軟體系統更新\" 類似，但非完全等價同義詞；受體 \"金鑰重新安裝攻擊 (KRACK)\" 與 Ldr 中的 \"金鑰重新安裝攻擊 (krack)\" 完全匹配，為同一概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "金鑰重新安裝攻擊 (krack)",
+        "reason": "受體為完全匹配的同義詞，但主體不完全匹配，依據判斷準則 3 和 4，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全更新",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "金鑰重新安裝攻擊 (KRACK)",
+        "type": "attack"
+      },
+      "reasoning": "文本建議『一旦安全更新可用，請立即更新』以緩解 KRACK 漏洞影響，符合 (technique, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 12
+    }
+  },
+  {
+    "subject": {
+      "name": "vpn 服務",
+      "type": "tool",
+      "display_name": "VPN 服務"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "金鑰重新安裝攻擊 (krack)",
+      "type": "attack",
+      "display_name": "金鑰重新安裝攻擊 (KRACK)"
+    },
+    "reasoning": "文本建議使用受信任的 VPN 服務來緩解 KRACK 攻擊的風險，符合 (tool, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 13,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "VPN 服務是工具（tool）的合理實例，金鑰重新安裝攻擊（KRACK）是攻擊（attack）的合理實例。",
+        "response": "correct",
+        "reason": "VPN 服務與金鑰重新安裝攻擊（KRACK）之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是 VPN 服務，類別是 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "VPN 服務與無線路由器之間存在著廣義/狹義從屬關係，VPN 服務可以透過無線路由器實現，但兩者並非完全等價同義詞；金鑰重新安裝攻擊 (KRACK) 與駭客攻擊之間也存在著廣義/狹義從屬關係，KRACK 是一種特定的攻擊方式，但兩者並非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "VPN 服務",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "金鑰重新安裝攻擊 (KRACK)",
+        "type": "attack"
+      },
+      "reasoning": "文本建議使用受信任的 VPN 服務來緩解 KRACK 攻擊的風險，符合 (tool, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 13
+    }
+  }
+]

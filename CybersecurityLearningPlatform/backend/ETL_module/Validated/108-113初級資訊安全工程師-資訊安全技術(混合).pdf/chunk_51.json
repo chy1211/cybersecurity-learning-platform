@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "sshd",
+      "type": "app",
+      "display_name": "sshd"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌檔",
+      "type": "data",
+      "display_name": "日誌檔"
+    },
+    "reasoning": "文本開頭顯示了 sshd 產生的多筆登入失敗記錄（Invalid user admin），這屬於應用程式產生的日誌資料。",
+    "source_id": "chunk_51",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "sshd 是 'app' 的合理實例，日誌檔是 'data' 的合理實例，且 'generates' 在此語境下是合理的關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7適用，因為關係是generates，且受體類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"日誌檔\" 與 Ldr 中的 \"日誌檔\" 完全相同，屬於完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "sshd",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "日誌檔",
+        "type": "data"
+      },
+      "reasoning": "文本開頭顯示了 sshd 產生的多筆登入失敗記錄（Invalid user admin），這屬於應用程式產生的日誌資料。",
+      "source_id": "chunk_51",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "暴力攻擊",
+      "type": "attack",
+      "display_name": "暴力攻擊法"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "sshd",
+      "type": "app",
+      "display_name": "sshd"
+    },
+    "reasoning": "根據題目給出的日誌（嘗試多組密碼）以及正確答案 (B)，暴力攻擊法被用來嘗試破解 sshd 服務的認證。",
+    "source_id": "chunk_51",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "暴力攻擊法 (attack) 是攻擊類別的合理實例，sshd (app) 是應用程式類別的合理實例，且 'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是攻擊法，關係是 can_harm，受體是 sshd，沒有違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '暴力攻擊' 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "暴力攻擊",
+        "standard_object": "",
+        "reason": "根據同義詞對照表，'暴力攻擊法' 與 '暴力攻擊' 可判定為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "暴力攻擊法",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "sshd",
+        "type": "app"
+      },
+      "reasoning": "根據題目給出的日誌（嘗試多組密碼）以及正確答案 (B)，暴力攻擊法被用來嘗試破解 sshd 服務的認證。",
+      "source_id": "chunk_51",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "變造封包",
+      "type": "technique",
+      "display_name": "變造封包"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "ip spoofing",
+      "type": "attack",
+      "display_name": "IP 位址欺騙"
+    },
+    "reasoning": "題目 21 的正確選項 (B) 明確指出 IP 位址欺騙是透過『變造封包等手法』來實現的，因此變造封包是實作該攻擊的技術。",
+    "source_id": "chunk_51",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "變造封包 (technique) 實施 IP 位址欺騙 (attack) 的情境下，'變造封包' 是 'technique' 的合理實例，'IP 位址欺騙' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "變造封包 (technique) 實施 IP 位址欺騙 (attack) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別為 technique，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於 implements 關係涉及主體 technique 實施受體 attack，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的 implements 關係在給定的語義限制清單中沒有被明確禁止，且 technique 實施 attack 的邏輯在資安知識圖譜中是合理的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「變造封包」與 Ldr 中的「惡意格式化封包」相似，但非完全等價同義詞；受體「IP 位址欺騙」與 Ldr 中的「ip spoofing」為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "ip spoofing",
+        "reason": "受體「IP 位址欺騙」與 Ldr 中的「ip spoofing」為同義詞，但主體不完全匹配，依據規則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "變造封包",
+        "type": "technique"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "IP 位址欺騙",
+        "type": "attack"
+      },
+      "reasoning": "題目 21 的正確選項 (B) 明確指出 IP 位址欺騙是透過『變造封包等手法』來實現的，因此變造封包是實作該攻擊的技術。",
+      "source_id": "chunk_51",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "syn 洪水攻擊",
+      "type": "attack",
+      "display_name": "SYN 洪水攻擊"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "SYN 洪水攻擊導致資源耗盡，使得合法使用者無法使用系統，這直接違反了資安三要素中的『可用性 (Availability)』。",
+    "source_id": "chunk_51",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SYN 洪水攻擊是 'attack' 的合理實例，可用性是 'principle' 的合理實例，且 'violates' 能夠描述攻擊對可用性的影響。",
+        "response": "correct",
+        "reason": "SYN 洪水攻擊對可用性的違反完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：觸發，主體為攻擊類別，受體為原則類別，符合規則允許的條件。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體（SYN 洪水攻擊）與受體（可用性）之間的關係（violates）符合語義限制清單中的規則，尤其是規則4允許原則（principle）作為被違反的受體。因此，該三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "SYN 洪水攻擊與 Ldr 中的 'syn flooding'、'tcp syn flood 攻擊' 和 '泛洪攻擊' 皆指同一類型的攻擊，且 '可用性' 的受體與 Ldr 中的 '可用性' 完全匹配，屬於同義詞或完全等價的概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，SYN 洪水攻擊與 Ldr 中的攻擊類型雖有相似之處，但不完全等同，且受體 '可用性' 已在 Ldr 中有完全匹配的項目，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SYN 洪水攻擊",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "SYN 洪水攻擊導致資源耗盡，使得合法使用者無法使用系統，這直接違反了資安三要素中的『可用性 (Availability)』。",
+      "source_id": "chunk_51",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "syn flooding",
+      "type": "attack",
+      "display_name": "SYN 洪水攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "reasoning": "題目 22 描述 SYN 洪水攻擊會導致目標資源耗盡，目標通常為伺服器或網路系統，符合 attack can_harm system 的定義。",
+    "source_id": "chunk_51",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SYN 洪水攻擊 是 'attack' 的合理實例，'洪水攻擊' 是資安領域中常見的攻擊手法；'伺服器' 是 'system' 的合理實例，代表著計算機系統或伺服器。",
+        "response": "correct",
+        "reason": "SYN 洪水攻擊與伺服器之間的 'can_harm' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_harm'，發現與規則無直接衝突。",
+        "response": "correct",
+        "reason": "三元組中的主體 'SYN 洪水攻擊' 與關係 'can_harm'、受體 '伺服器' 不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "SYN 洪水攻擊與 Ldr 中的 \"syn flooding\"、\"tcp syn flood 攻擊\" 皆指同一概念，且 \"伺服器\" 與 Ldr 中的 \"伺服器\" 完全匹配",
+        "response": "duplicate",
+        "standard_subject": "syn flooding",
+        "standard_object": "伺服器",
+        "reason": "根據同義詞判定，SYN 洪水攻擊等同於 syn flooding，且伺服器為完全匹配。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SYN 洪水攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "reasoning": "題目 22 描述 SYN 洪水攻擊會導致目標資源耗盡，目標通常為伺服器或網路系統，符合 attack can_harm system 的定義。",
+      "source_id": "chunk_51",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  }
+]

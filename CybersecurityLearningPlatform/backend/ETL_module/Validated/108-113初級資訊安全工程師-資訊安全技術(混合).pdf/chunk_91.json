@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "去識別化",
+      "type": "technique",
+      "display_name": "去識別化"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "敏感資訊",
+      "type": "data",
+      "display_name": "敏感資訊"
+    },
+    "reasoning": "文本提到將敏感資訊進行處理（如姓名改成陳○○）稱為去識別化。去識別化是一種處理資料的技術，用於分析並修改敏感資料，符合 ('technique', 'can_analyze', 'data') 的 Schema。",
+    "source_id": "chunk_91",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '去識別化' 可被視為 'technique' 的實例，受體 '敏感資訊' 可被視為 'data' 的實例，且 'can_analyze' 的語意與這些實體的關係相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為去識別化（類別：technique），關係為can_analyze，受體為敏感資訊（類別：data），未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係未觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「去識別化」與 Ldr 中的「去識別化處理」相似，但非完全等價同義詞；受體「敏感資訊」與 Ldr 中的「敏感資訊」完全匹配，為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "敏感資訊",
+        "reason": "根據同義詞判定準則，受體「敏感資訊」與 Ldr 中的「敏感資訊」為同義詞重複，但主體「去識別化」與 Ldr 中的「去識別化處理」不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "去識別化",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "敏感資訊",
+        "type": "data"
+      },
+      "reasoning": "文本提到將敏感資訊進行處理（如姓名改成陳○○）稱為去識別化。去識別化是一種處理資料的技術，用於分析並修改敏感資料，符合 ('technique', 'can_analyze', 'data') 的 Schema。",
+      "source_id": "chunk_91",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "個人資料保護法",
+      "type": "policy",
+      "display_name": "個人資料保護法"
+    },
+    "reasoning": "文本指出『因應個人資料保護法之要求，許多公司...會將敏感資訊進行處理』，這表示公司（由資安人員執行）在實作該法律規範，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+    "source_id": "chunk_91",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實施 個人資料保護法 (policy) 合理對齊，'implements' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：不適用，因為主體是securityTeam，不是policy、technique或tool。檢查規則3：不適用，因為主體類別是securityTeam，不是vulnerability。檢查規則4：不適用，因為主體類別是securityTeam，不是principle。檢查規則5：不適用，因為關係不是uses。檢查規則6：不適用，因為關係不是deployed_in。檢查規則7：不適用，因為關係不是generates。檢查規則8：不適用，因為關係不是controls，但implements可能涉及主動執行能力，需要進一步分析。然而，根據規則，securityTeam可以implement政策，因此這裡不構成違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安人員）和關係（implements）以及受體（個人資料保護法）之間的關係在給定的規則中沒有明確的違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「資安人員」與 Ldr 中的「資安人員」完全相同，受體「個人資料保護法」與 Ldr 中的「個人資料保護法」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "個人資料保護法",
+        "type": "policy"
+      },
+      "reasoning": "文本指出『因應個人資料保護法之要求，許多公司...會將敏感資訊進行處理』，這表示公司（由資安人員執行）在實作該法律規範，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+      "source_id": "chunk_91",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "時間同步主機",
+      "type": "tool",
+      "display_name": "時間同步主機"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "時間同步",
+      "type": "technique",
+      "display_name": "時間同步"
+    },
+    "reasoning": "文本描述由單一主機對外部時間源校正後，其他設備與之同步。此主機作為執行同步功能的工具，使用了時間同步技術，符合 ('tool', 'uses', 'technique') 的 Schema。",
+    "source_id": "chunk_91",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "時間同步主機 (tool) 使用 時間同步 (technique) 是語意上合理的，時間同步主機可以被視為是一種工具，使用時間同步技術。",
+        "response": "correct",
+        "reason": "時間同步主機使用時間同步的三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體的類別是 'tool'，不違反規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 '時間同步主機'，類別為 'tool'，與 'uses' 關係和 '時間同步' 技術組合不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "時間同步主機與時間同步之間的關係是主體與受體的對應關係，時間同步主機是一種工具，時間同步是一種技術，兩者之間沒有直接的同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，時間同步主機和時間同步之間沒有同義詞或從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "時間同步主機",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "時間同步",
+        "type": "technique"
+      },
+      "reasoning": "文本描述由單一主機對外部時間源校正後，其他設備與之同步。此主機作為執行同步功能的工具，使用了時間同步技術，符合 ('tool', 'uses', 'technique') 的 Schema。",
+      "source_id": "chunk_91",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "時間同步主機",
+      "type": "system",
+      "display_name": "時間同步主機"
+    },
+    "reasoning": "文本提到所有系統、設備與該主機同步，這在網路層面上必須建立連線，符合 ('system', 'connects_to', 'system') 的 Schema。",
+    "source_id": "chunk_91",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '系統' 與 '時間同步主機' 均為 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 connects_to，不是 deployed_in。規則7：不適用，因為關係為 connects_to，不是 generates。規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體都是 system 類別，且關係為 connects_to，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為系統，且受體時間同步主機可視為系統的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，時間同步主機是系統的子類型，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "時間同步主機",
+        "type": "system"
+      },
+      "reasoning": "文本提到所有系統、設備與該主機同步，這在網路層面上必須建立連線，符合 ('system', 'connects_to', 'system') 的 Schema。",
+      "source_id": "chunk_91",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "操作紀錄",
+      "type": "data",
+      "display_name": "操作紀錄"
+    },
+    "reasoning": "存錄操作紀錄的目的在於確保管理者的特性（如可追溯性），這需要資安人員對日誌進行分析，符合 ('securityTeam', 'can_analyze', 'data') 的 Schema。",
+    "source_id": "chunk_91",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 可以分析操作紀錄 (data) 是合理的，'can_analyze' 關係在此語境下也是適當的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體類別是 securityTeam，而非 data。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係是 can_analyze，而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安人員）與關係（can_analyze）以及受體（操作紀錄）之間的關係沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資安人員' 與 Ldr 中的 '資安人員' 完全相同，受體 '操作紀錄' 與 Ldr 中的 '操作紀錄' 完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "操作紀錄",
+        "type": "data"
+      },
+      "reasoning": "存錄操作紀錄的目的在於確保管理者的特性（如可追溯性），這需要資安人員對日誌進行分析，符合 ('securityTeam', 'can_analyze', 'data') 的 Schema。",
+      "source_id": "chunk_91",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "操作紀錄",
+      "type": "data",
+      "display_name": "操作紀錄"
+    },
+    "reasoning": "文本提到『存錄系統管理者或操作者操作系統的紀錄』，這表示系統在運作時會產生操作日誌（資料），符合 ('system', 'generates', 'data') 的 Schema。",
+    "source_id": "chunk_91",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '系統' 是 'system' 的合理實例，'操作紀錄' 是 'data' 的合理實例，關係 'generates' 在資安領域中指系統產生資料的行為，符合語意對齊。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：觸發，檢查關係 'generates' 的受體是否為 'data'，結果為正確，符合規則。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 'generates' 與受體 '操作紀錄'（類別為 'data'）符合規則7的要求，且未違反其他規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "系統與系統運作、電腦系統等為廣義/狹義從屬關係，操作紀錄與記錄、事件記錄等為同義詞或廣義/狹義從屬關係，但無完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，系統與操作紀錄無完全等價同義詞，且為廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "操作紀錄",
+        "type": "data"
+      },
+      "reasoning": "文本提到『存錄系統管理者或操作者操作系統的紀錄』，這表示系統在運作時會產生操作日誌（資料），符合 ('system', 'generates', 'data') 的 Schema。",
+      "source_id": "chunk_91",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  }
+]

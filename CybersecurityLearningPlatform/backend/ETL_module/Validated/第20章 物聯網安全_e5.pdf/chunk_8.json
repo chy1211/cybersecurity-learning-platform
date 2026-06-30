@@ -1,0 +1,626 @@
+[
+  {
+    "subject": {
+      "name": "身分驗證",
+      "type": "function",
+      "display_name": "身分驗證"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全漏洞",
+      "type": "vulnerability",
+      "display_name": "安全漏洞"
+    },
+    "reasoning": "文本提到『身分驗證不夠嚴謹...存在安全漏洞』，表示身分驗證這一特徵若設定不當會暴露漏洞。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '身分驗證' 是 'feature' 的合理實例，'安全漏洞' 是 'vulnerability' 的合理實例，'can_expose' 的語意與 'feature' 和 'vulnerability' 的關係合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但特例允許 'can_expose' 動作。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '身分驗證' 類別為 function，與規則3無直接關聯，且關係 'can_expose' 在規則3中有特例允許，因此不觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "身分驗證",
+        "standard_object": "安全漏洞",
+        "reason": "根據已知同義詞對照範例，身分驗證與身份認證為同義詞，漏洞與安全漏洞為同義詞，故判定為正確。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "身分驗證",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『身分驗證不夠嚴謹...存在安全漏洞』，表示身分驗證這一特徵若設定不當會暴露漏洞。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "安全漏洞",
+      "type": "vulnerability",
+      "display_name": "安全漏洞"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全問題",
+      "type": "risk",
+      "display_name": "安全問題"
+    },
+    "reasoning": "文本指出『存在安全漏洞，可能造成使用時的安全問題』，符合漏洞導致風險的邏輯。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全漏洞 (vulnerability) 可以合理地與 'can_expose' 關係連接到安全問題 (risk)，因為安全漏洞可能會暴露安全問題，且這些名稱與其類別之間的對齊是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "安全漏洞與安全問題在資安領域中有不同的含義，前者指的是系統或程式中的弱點，後者則是指可能對安全造成的風險或威脅，兩者之間存在著廣義和狹義的關係，但在此案例中，兩個實體指的是不同的概念，安全漏洞是安全問題的原因之一，但不是同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則中的第三點，若一個實體是另一個的子類型，則判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全漏洞",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全問題",
+        "type": "risk"
+      },
+      "reasoning": "文本指出『存在安全漏洞，可能造成使用時的安全問題』，符合漏洞導致風險的邏輯。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "漏洞測試",
+      "type": "technique",
+      "display_name": "漏洞測試"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "xss",
+      "type": "vulnerability",
+      "display_name": "XSS"
+    },
+    "reasoning": "文本提到雲端介面需通過 XSS 等漏洞測試，表示使用漏洞測試技術來偵測 XSS 攻擊。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '漏洞測試' 可被視為 'technique' 的合理實例，'XSS' 是 'attack' 的典型例子，且 'can_detect' 在資安領域中是合理的關係描述。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體是technique。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係是can_detect，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是technique，關係是can_detect，受體是vulnerability，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"漏洞測試\" 與 Ldr 中的 \"安全測試\"、\"測試\"、\"驗收測試\"、\"漏洞掃描\"、\"軟體測試\"、\"黑箱測試\" 皆為相關但不同類型的測試，受體 \"XSS\" 完全等價於 Ldr 中的 \"xss\"。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "xss",
+        "reason": "根據同義詞判定，受體 \"XSS\" 與 Ldr 中的 \"xss\" 完全等價，但主體 \"漏洞測試\" 與 Ldr 中的資源不完全相同，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "漏洞測試",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "XSS",
+        "type": "attack"
+      },
+      "reasoning": "文本提到雲端介面需通過 XSS 等漏洞測試，表示使用漏洞測試技術來偵測 XSS 攻擊。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "漏洞測試",
+      "type": "technique",
+      "display_name": "漏洞測試"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL injection"
+    },
+    "reasoning": "文本提到雲端介面需通過 SQL injection 等漏洞測試，表示使用漏洞測試技術來偵測 SQL 注入攻擊。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '漏洞測試' 的名稱與其類別 'technique' 合理對齊，實體 'SQL injection' 的名稱與其類別 'attack' 也合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別是 technique，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查關係 can_detect：沒有明確的限制規則與之相違背。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"漏洞測試\" 與 Ldr 中的 \"漏洞測試\" 完全相同，受體 \"SQL injection\" 與 Ldr 中的 \"sql injection\" 完全相同，但考慮到類別不同，主體與受體不構成同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的某資源完全相同，但類別不同，無法判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "漏洞測試",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "SQL injection",
+        "type": "attack"
+      },
+      "reasoning": "文本提到雲端介面需通過 SQL injection 等漏洞測試，表示使用漏洞測試技術來偵測 SQL 注入攻擊。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "密碼原則",
+      "type": "policy",
+      "display_name": "密碼原則"
+    },
+    "reasoning": "文本提到要求使用者採用強密碼、限定期限等，這些屬於密碼原則(policy)，由使用者執行。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '使用者' 的名稱與其類別 'user' 合理對齊，實體 '密碼原則' 的名稱與其類別 'policy' 也合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則違反。",
+        "response": "correct",
+        "reason": "三元組中的主體（使用者）與受體（密碼原則）之間的 implements 關係，未在語義限制清單中找到直接相關的違規規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"使用者\" 與 Ldr 中的 \"使用者\" 完全等價同義詞，受體 \"密碼原則\" 與 Ldr 中的 \"密碼原則\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "密碼原則",
+        "type": "policy"
+      },
+      "reasoning": "文本提到要求使用者採用強密碼、限定期限等，這些屬於密碼原則(policy)，由使用者執行。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "漏洞測試",
+      "type": "technique",
+      "display_name": "漏洞測試"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "csrf",
+      "type": "vulnerability",
+      "display_name": "CSRF"
+    },
+    "reasoning": "文本提到雲端介面需通過 CSRF 等漏洞測試，表示使用漏洞測試技術來偵測 CSRF 攻擊。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '漏洞測試' 的名稱與其類別 'technique' 合理對齊，實體 'CSRF' 的名稱與其類別 'attack' 也合理對齊，考慮到同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體是technique。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係是can_detect，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是technique，關係是can_detect，受體是vulnerability，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全匹配的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 '漏洞測試' 與 Ldr 中 '漏洞測試' 完全匹配，受體 'CSRF' 與 Ldr 中 'csrf' 完全匹配，無同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "漏洞測試",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "CSRF",
+        "type": "attack"
+      },
+      "reasoning": "文本提到雲端介面需通過 CSRF 等漏洞測試，表示使用漏洞測試技術來偵測 CSRF 攻擊。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "行動裝置",
+      "type": "system",
+      "display_name": "行動裝置"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "帳戶鎖定機制",
+      "type": "feature",
+      "display_name": "帳戶鎖定機制"
+    },
+    "reasoning": "文本將帳戶鎖定機制列為行動裝置應提升的安全措施，視為系統的特徵。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "行動裝置 (system) 可以有帳戶鎖定機制 (feature)，這是合理的實例關係。",
+        "response": "correct",
+        "reason": "行動裝置具有帳戶鎖定機制的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 '行動裝置' 的類別 'system' 與受體 '帳戶鎖定機制' 的類別 'feature' 之間的關係 'has_a' 在給定的規則中沒有被明確禁止或限制。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體和受體的類別組合在給定的語義限制清單中沒有被明確禁止或限制，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "行動裝置與 Ldr 中的「行動裝置」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "行動裝置",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "帳戶鎖定機制",
+        "type": "feature"
+      },
+      "reasoning": "文本將帳戶鎖定機制列為行動裝置應提升的安全措施，視為系統的特徵。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "物聯網",
+      "type": "system",
+      "display_name": "物聯網"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "行動裝置",
+      "type": "system",
+      "display_name": "行動裝置"
+    },
+    "reasoning": "文本提到『物聯網使用行動裝置來做為終端存取裝置』，表示行動裝置是物聯網系統的一部分。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'system' 和受體的類別 'system' 都存在於 Lc,p 的 'Classes' 中，關係 'has_a' 存在於 'Properties' 中。",
+        "step_2_alignment_check": "物聯網和行動裝置都是系統的合理實例，符合語意對齊，且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "主體、關係和受體都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則沒有直接觸發違規。",
+        "response": "correct",
+        "reason": "三元組（物聯網 has_a 行動裝置）沒有明確違反語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"物聯網\" 與 Ldr 中的 \"物聯網\" 完全等價同義詞，受體 \"行動裝置\" 與 Ldr 中的 \"手機\" 或 \"行動電話\" 有相似性，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源完全匹配，但受體與 Ldr 中的資源不完全匹配，且無法確定為同義詞或子類型，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "物聯網",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "行動裝置",
+        "type": "system"
+      },
+      "reasoning": "文本提到『物聯網使用行動裝置來做為終端存取裝置』，表示行動裝置是物聯網系統的一部分。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "owasp top ten mobile risks",
+      "type": "technique",
+      "display_name": "OWASP Top Ten Mobile Risks"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "行動裝置",
+      "type": "system",
+      "display_name": "行動裝置"
+    },
+    "reasoning": "OWASP Top Ten 是一個分析弱點的框架/技術，用於分析行動裝置系統的風險。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "OWASP Top Ten Mobile Risks 是一種 'technique'，行動裝置是 'system'，兩者名稱與類別合理對齊，且 'can_analyze' 關係在資安領域中合理適用。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體 'OWASP Top Ten Mobile Risks' 的類別是 'technique'，可以執行 'can_analyze' 動作，受體 '行動裝置' 的類別是 'system'，符合一般的語義限制。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間的組合沒有明顯違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "行動裝置是受體的標準名稱，與主體無直接關係，但兩者皆在資安領域中有明確的定義和使用範圍",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，行動裝置與 OWASP Top Ten Mobile Risks 屬於不同類別且無同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OWASP Top Ten Mobile Risks",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "行動裝置",
+        "type": "system"
+      },
+      "reasoning": "OWASP Top Ten 是一個分析弱點的框架/技術，用於分析行動裝置系統的風險。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "otp app",
+      "type": "app",
+      "display_name": "OTP APP"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "手機",
+      "type": "system",
+      "display_name": "手機"
+    },
+    "reasoning": "文本明確提到『在手機安裝... OTP APP』。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "OTP APP 是 'app' 的合理實例，手機是 'system' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。此三元組的關係為 deployed_in，受體為手機，類別為 system，符合規則6的條件。",
+        "response": "correct",
+        "reason": "三元組的主體、關係和受體之間的關係符合語義限制清單中的規則6，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (OTP APP) 與 Ldr 中的 'otp app' 完全等價同義詞，受體 (手機) 與 Ldr 中的 '手機' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆在 Ldr 中找到完全匹配的資源，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OTP APP",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "手機",
+        "type": "system"
+      },
+      "reasoning": "文本明確提到『在手機安裝... OTP APP』。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "不安全的網路",
+      "type": "system",
+      "display_name": "不安全的網路"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "傳輸漏洞"
+    },
+    "reasoning": "文本提到透過不安全網路下載可能遭受中間人攻擊，這隱含了不安全網路系統暴露了傳輸層面的漏洞。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "不安全的網路可以被視為系統的一部分，且 'can_expose' 這個關係與系統可能暴露傳輸漏洞的概念相符，傳輸漏洞是一種合理的漏洞實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但三元組中的主體類別為 system，不是 vulnerability，因此不觸發此規則的限制。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 '不安全的網路'，類別為 system，與 '傳輸漏洞' 的關係是 'can_expose'，這不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '不安全的網路' 與 '網路' 關係為廣義/狹義從屬，受體 '傳輸漏洞' 與 '漏洞' 關係為同義詞重複",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據同義詞判定，傳輸漏洞與漏洞為同義詞重複，主體不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "不安全的網路",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "傳輸漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到透過不安全網路下載可能遭受中間人攻擊，這隱含了不安全網路系統暴露了傳輸層面的漏洞。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 12
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼強度設定",
+      "type": "technique",
+      "display_name": "密碼強度設定"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "密碼破解攻擊",
+      "type": "attack",
+      "display_name": "密碼破解攻擊"
+    },
+    "reasoning": "文本提到確保密碼足夠安全可提升抵擋猜測、字典、暴力破解等密碼破解攻擊的能力。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "密碼強度設定是 technique 的合理實例，密碼破解攻擊是 attack 的合理實例，且 'mitigates' 的語意對齊正確，表示密碼強度設定可以減輕密碼破解攻擊的風險。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊正確。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '密碼強度設定' 屬於 technique 類別，符合規則2的條件。其他規則與三元組無直接關聯。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確違反的規則，因此判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "密碼強度設定與基於密碼的攻擊之間的關係是廣義/狹義從屬，但實際上與密碼破解攻擊的關係更為直接相關，然而這裡的主體和受體之間的關係需要根據給定的資源進行分析。密碼破解攻擊是攻擊的一種，與給定的近似資源清單中的攻擊類型相關，但沒有完全匹配的同義詞或子類型關係。因此，需要根據給定的判斷準則進行判斷。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據給定的判斷準則，實體名稱與近似資源清單中的資源不完全相同，也沒有直接的同義詞關係，且廣義/狹義一律保留的原則使得我們傾向於保留原有的實體名稱。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼強度設定",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "密碼破解攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到確保密碼足夠安全可提升抵擋猜測、字典、暴力破解等密碼破解攻擊的能力。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 10
+    }
+  }
+]

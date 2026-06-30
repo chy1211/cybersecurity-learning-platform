@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "sql injection 攻擊",
+      "type": "attack",
+      "display_name": "SQL Injection 攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "個人機敏資料",
+      "type": "data",
+      "display_name": "個人機敏資料"
+    },
+    "reasoning": "文本提到該攻擊會造成個人機敏資料外洩，符合攻擊 (attack) 危害資料 (data) 的邏輯。",
+    "source_id": "chunk_23",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SQL Injection 攻擊是 'attack' 的合理實例，個人機敏資料是 'data' 的合理實例，且 'can_harm' 是描述攻擊對資料可能造成傷害的適當關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是攻擊（attack），不是資料（data）。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係是 can_harm，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（SQL Injection 攻擊 can_harm 個人機敏資料）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SQL Injection 攻擊與 Ldr 中的 \"sql injection 攻擊\" 完全等價同義詞，個人機敏資料與 Ldr 中的 \"個人資料\" 或 \"敏感個人資料\" 有相似之處，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "sql injection 攻擊",
+        "standard_object": "",
+        "reason": "根據同義詞判定，SQL Injection 攻擊為同義詞重複，個人機敏資料不完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL Injection 攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "個人機敏資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到該攻擊會造成個人機敏資料外洩，符合攻擊 (attack) 危害資料 (data) 的邏輯。",
+      "source_id": "chunk_23",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "sql injection 漏洞",
+      "type": "vulnerability",
+      "display_name": "SQL Injection 漏洞"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "文本提到 SQL Injection 攻擊會造成個人機敏資料外洩。在本體論中，漏洞 (vulnerability) 可以導致風險 (risk) 暴露。",
+    "source_id": "chunk_23",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SQL Injection 漏洞 是 'vulnerability' 的合理實例，個資外洩 是 'risk' 的合理實例，且 'can_expose' 合理描述了漏洞與風險之間的關係。",
+        "response": "correct",
+        "reason": "SQL Injection 漏洞與個資外洩之間的 'can_expose' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但 'can_expose' (暴露) 動作是特例允許的。因此，SQL Injection 漏洞 (類別: vulnerability) 與 'can_expose' 關係是允許的。",
+        "response": "correct",
+        "reason": "三元組中的 'can_expose' 關係是規則3中允許的特例，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (SQL Injection 漏洞) 與 Ldr 中的 'sql injection 漏洞' 完全等價同義詞，受體 (個資外洩) 與 Ldr 中的 '個資外洩' 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "sql injection 漏洞",
+        "standard_object": "個資外洩",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL Injection 漏洞",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本提到 SQL Injection 攻擊會造成個人機敏資料外洩。在本體論中，漏洞 (vulnerability) 可以導致風險 (risk) 暴露。",
+      "source_id": "chunk_23",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "sql injection 漏洞",
+      "type": "vulnerability",
+      "display_name": "SQL Injection 漏洞"
+    },
+    "reasoning": "文本明確指出 SQL Injection 是發生在應用程式之資料庫層的安全漏洞，因此應用程式 (app) 會暴露該漏洞 (vulnerability)。",
+    "source_id": "chunk_23",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '應用程式' 是 'app' 的合理實例，'SQL Injection 漏洞' 是 'vulnerability' 的合理實例，關係 'can_expose' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許。",
+        "response": "correct",
+        "reason": "三元組中的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"應用程式\" 與 Ldr 中的 \"應用程式\" 完全匹配，受體 \"SQL Injection 漏洞\" 與 Ldr 中的 \"sql injection 漏洞\" 同義詞匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "sql injection 漏洞",
+        "reason": "根據同義詞判定，受體 \"SQL Injection 漏洞\" 與 Ldr 中的 \"sql injection 漏洞\" 為同義詞，但主體 \"應用程式\" 與 Ldr 中的 \"應用程式\" 完全匹配，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "SQL Injection 漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確指出 SQL Injection 是發生在應用程式之資料庫層的安全漏洞，因此應用程式 (app) 會暴露該漏洞 (vulnerability)。",
+      "source_id": "chunk_23",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "sql injection 攻擊",
+      "type": "attack",
+      "display_name": "SQL Injection 攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料庫伺服器",
+      "type": "system",
+      "display_name": "資料庫伺服器"
+    },
+    "reasoning": "文本提到資料庫伺服器被攻擊且帳戶被竄改，符合攻擊 (attack) 危害系統 (system) 的邏輯。",
+    "source_id": "chunk_23",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SQL Injection 攻擊是 'attack' 的合理實例，資料庫伺服器是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統影響的適當關係。",
+        "response": "correct",
+        "reason": "SQL Injection 攻擊與資料庫伺服器的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。檢查規則2：不適用，因為三元組中的關係是 can_harm，不是 mitigates。檢查規則3：不適用，因為三元組中的主體類別是攻擊，不是漏洞。檢查規則4：不適用，因為三元組中的關係是 can_harm，不是違反。檢查規則5：不適用，因為三元組中的關係是 can_harm，不是 uses。檢查規則6：不適用，因為三元組中的關係是 can_harm，不是 deployed_in。檢查規則7：不適用，因為三元組中的關係是 can_harm，不是 generates。檢查規則8：不適用，因為三元組中的關係是 can_harm，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是 SQL Injection 攻擊，關係是 can_harm，受體是資料庫伺服器，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "sql injection 攻擊",
+        "standard_object": "資料庫伺服器",
+        "reason": "根據資安領域已知同義詞對照範例，SQL Injection ≡ SQL注入 ≡ SQL注入攻擊，且資料庫伺服器為完全匹配的系統名稱。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL Injection 攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資料庫伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本提到資料庫伺服器被攻擊且帳戶被竄改，符合攻擊 (attack) 危害系統 (system) 的邏輯。",
+      "source_id": "chunk_23",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "慢速post請求攻擊",
+      "type": "attack",
+      "display_name": "慢速POST請求攻擊"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "ddos",
+      "type": "attack",
+      "display_name": "DDoS"
+    },
+    "reasoning": "文本將慢速POST請求攻擊作為 DDoS 攻擊中的一種具體方法，因此定義為攻擊 (attack) 屬於另一種攻擊 (attack)。",
+    "source_id": "chunk_23",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "慢速POST請求攻擊與DDoS皆為攻擊類別的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關。三元組中，'慢速POST請求攻擊' 是 'DDoS' 的一部分，沒有明顯違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中，'慢速POST請求攻擊' 與 'DDoS' 的關係為 'is_part_of'，這不觸發語義限制清單中的任何規則。因此，該三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 DDoS 與 Ldr 中的資源 'ddos'、'ddos攻擊'、'分散式阻斷服務 (ddos)'、'ddos 攻擊' 皆指同一概念，屬於同義詞重複；主體 '慢速POST請求攻擊' 不在同義詞對照範例中，且非 DDoS 的子類型或廣義概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "ddos",
+        "reason": "根據同義詞判定準則，DDoS 與 'ddos' 等同義詞指同一概念，主體 '慢速POST請求攻擊' 與 DDoS 不同，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "慢速POST請求攻擊",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "DDoS",
+        "type": "attack"
+      },
+      "reasoning": "文本將慢速POST請求攻擊作為 DDoS 攻擊中的一種具體方法，因此定義為攻擊 (attack) 屬於另一種攻擊 (attack)。",
+      "source_id": "chunk_23",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "慢速post請求攻擊",
+      "type": "attack",
+      "display_name": "慢速POST請求攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網站伺服器",
+      "type": "system",
+      "display_name": "網站伺服器"
+    },
+    "reasoning": "文本提到此攻擊會耗盡網站伺服器的連接資源，符合攻擊 (attack) 危害系統 (system) 的邏輯。",
+    "source_id": "chunk_23",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '慢速POST請求攻擊' 的名稱與其類別 'attack' 合理對齊，實體 '網站伺服器' 的名稱與其類別 'system' 也合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體是攻擊者（attack），具有主動執行能力，符合規則8的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體是慢速POST請求攻擊，關係是can_harm，受體是網站伺服器，符合規則8的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與現有近似資源清單中的「網站伺服器」完全匹配，屬於完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆不涉及同義詞重複，且無廣義/狹義從屬關係，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "慢速POST請求攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網站伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本提到此攻擊會耗盡網站伺服器的連接資源，符合攻擊 (attack) 危害系統 (system) 的邏輯。",
+      "source_id": "chunk_23",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "固定 ip 並綁定mac",
+      "type": "technique",
+      "display_name": "固定 IP 並綁定MAC"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "arp 欺騙",
+      "type": "attack",
+      "display_name": "ARP 欺騙"
+    },
+    "reasoning": "文本將此方法列為防禦 ARP 欺騙的最佳方式，符合技術 (technique) 緩解攻擊 (attack) 的邏輯。",
+    "source_id": "chunk_23",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '固定 IP 並綁定MAC' 是 'technique' 的合理實例，受體 'ARP 欺騙' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是固定 IP 並綁定 MAC，類別為 technique，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體和關係符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆不直接出現在近似資源清單中，但可透過分析進行判斷",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法直接匹配到同義詞或子類型關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "固定 IP 並綁定MAC",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "ARP 欺騙",
+        "type": "attack"
+      },
+      "reasoning": "文本將此方法列為防禦 ARP 欺騙的最佳方式，符合技術 (technique) 緩解攻擊 (attack) 的邏輯。",
+      "source_id": "chunk_23",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "網路攻擊",
+      "type": "attack",
+      "display_name": "網路攻擊"
+    },
+    "reasoning": "文本將設置防火牆列為網路安全的防護方法，符合工具 (tool) 緩解攻擊 (attack) 的邏輯。",
+    "source_id": "chunk_23",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，網路攻擊是攻擊（attack）的合理實例，且 'mitigates' 的語意與防火牆減輕網路攻擊的概念相符。",
+        "response": "correct",
+        "reason": "防火牆、網路攻擊與 'mitigates' 的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的防火牆（類別：tool）符合此規則，無違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（防火牆）是 tool 類別，符合規則2的允許條件，且無其他規則被違反。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據已知同義詞對照範例，防火牆與網路防火牆為同義詞，但與網路攻擊無直接同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "網路攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本將設置防火牆列為網路安全的防護方法，符合工具 (tool) 緩解攻擊 (attack) 的邏輯。",
+      "source_id": "chunk_23",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆連線規則管理政策",
+      "type": "policy",
+      "display_name": "防火牆連線規則管理政策"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "網路攻擊",
+      "type": "attack",
+      "display_name": "網路攻擊"
+    },
+    "reasoning": "建立管理政策旨在減少不限制存取來源 IP 等風險，符合政策 (policy) 緩解攻擊 (attack) 的邏輯。",
+    "source_id": "chunk_23",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防火牆連線規則管理政策是 policy 的合理實例，網路攻擊是 attack 的合理實例，'mitigates' 的使用在此語境下是合理的。",
+        "response": "correct",
+        "reason": "防火牆連線規則管理政策與網路攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是防火牆連線規則管理政策，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體是防火牆連線規則管理政策，類別為 policy，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞或相似名稱在 Ldr 中，但無直接同義詞關係，主體為防火牆連線規則管理政策，受體為網路攻擊，兩者無直接同義詞關係，但皆有相似名稱在 Ldr 中",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無直接同義詞關係，且主體和受體皆無完全相同的名稱在 Ldr 中，依據判斷準則 4，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆連線規則管理政策",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "網路攻擊",
+        "type": "attack"
+      },
+      "reasoning": "建立管理政策旨在減少不限制存取來源 IP 等風險，符合政策 (policy) 緩解攻擊 (attack) 的邏輯。",
+      "source_id": "chunk_23",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "https",
+      "type": "app",
+      "display_name": "HTTPS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "加密傳送"
+    },
+    "reasoning": "文本將 HTTPS 描述為較安全的加密傳送協定，因此 HTTPS (app) 具有加密傳送 (feature) 的特徵。",
+    "source_id": "chunk_23",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "HTTPS 是一種應用（app），而 '加密傳送' 可被視為 'feature'，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses，或者data不是主體。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，沒有任何規則被觸發為違規。",
+        "response": "correct",
+        "reason": "三元組中的主體HTTPS（類別：app）與受體加密傳送（類別：feature）通過has_a關係，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (HTTPS) 與 Ldr 中的 'https' 完全等價同義詞，受體 (加密傳送) 與 Ldr 中的 '加密' 可視為同義詞關係，因為 '加密傳送' 可以被視為 '加密' 的一個特定應用場合。",
+        "response": "correct",
+        "standard_subject": "https",
+        "standard_object": "加密",
+        "reason": "根據同義詞判定準則，判定主體和受體與 Ldr 中的資源有同義詞關係，但根據廣義/狹義一律保留的原則，保留原有的實體名稱。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "HTTPS",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密傳送",
+        "type": "feature"
+      },
+      "reasoning": "文本將 HTTPS 描述為較安全的加密傳送協定，因此 HTTPS (app) 具有加密傳送 (feature) 的特徵。",
+      "source_id": "chunk_23",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  }
+]

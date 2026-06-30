@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "認證系統",
+      "type": "system",
+      "display_name": "認證系統"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "認知密碼",
+      "type": "data",
+      "display_name": "認知密碼"
+    },
+    "reasoning": "認知密碼是由一連串問題答案組成的認證資訊，由系統預先設定並驗證，因此認證系統 (system) 使用了認知密碼 (data)。",
+    "source_id": "chunk_1",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '認證系統' 是 'system' 的合理實例，'認知密碼' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發違規，因為主體的類別是system，但使用了'uses'關係，且受體是data。規則6、7、8不適用，因為三元組中的關係不是deployed_in、generates或controls。",
+        "response": "violation",
+        "reason": "三元組違反了規則5，因為主體的類別是system，但使用了'uses'關係，且受體是data。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組違反了規則5，因為主體的類別是system，但使用了'uses'關係，且受體是data。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "認證系統",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "認知密碼",
+        "type": "data"
+      },
+      "reasoning": "認知密碼是由一連串問題答案組成的認證資訊，由系統預先設定並驗證，因此認證系統 (system) 使用了認知密碼 (data)。",
+      "source_id": "chunk_1",
+      "source_file": "ch09_習題解答.pdf",
+      "source_index": 5
+    }
+  }
+]

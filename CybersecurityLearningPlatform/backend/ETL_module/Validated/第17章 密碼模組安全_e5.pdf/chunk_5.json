@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "對稱式密碼模組",
+      "type": "app",
+      "display_name": "對稱式密碼模組"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "私密金鑰",
+      "type": "data",
+      "display_name": "秘密金鑰"
+    },
+    "reasoning": "文本提到『秘密金鑰用於對稱式密碼模組的運算』，因此對稱式密碼模組（視為應用程式 app）使用了秘密金鑰（資料 data）。符合 Schema: (\"app\", \"uses\", \"data\")。",
+    "source_id": "chunk_5",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "對稱式密碼模組是 'app' 的合理實例，秘密金鑰是 'data' 的合理實例，且 'uses' 是描述 app 與 data 間關係的合理屬性。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規檢查，因為關係為 'uses'，但主體的類別是 'app'，不違反規則5的限制。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 '對稱式密碼模組'，類別為 'app'，與 'uses' 關係和 '秘密金鑰' 受體不直接違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"秘密金鑰\" 與 Ldr 中的 \"私密金鑰\"、\"金鑰\"、\"加密金鑰\" 等資源具有高度相似性，指涉同一概念的不同稱呼，屬於同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "私密金鑰",
+        "reason": "根據同義詞判定準則，秘密金鑰與私密金鑰等指稱同一概念，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "對稱式密碼模組",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "秘密金鑰",
+        "type": "data"
+      },
+      "reasoning": "文本提到『秘密金鑰用於對稱式密碼模組的運算』，因此對稱式密碼模組（視為應用程式 app）使用了秘密金鑰（資料 data）。符合 Schema: (\"app\", \"uses\", \"data\")。",
+      "source_id": "chunk_5",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "cryptoki",
+      "type": "system",
+      "display_name": "Cryptoki"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "插槽 (slot)",
+      "type": "feature",
+      "display_name": "插槽 (Slot)"
+    },
+    "reasoning": "Cryptoki (PKCS#11) 是一個架構系統，其組成部分包含插槽 (Slot)，因此將其定義為系統具有該特徵。符合 Schema: (\"system\", \"has_a\", \"feature\")。",
+    "source_id": "chunk_5",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Cryptoki 是一個系統 (system)，而 '插槽 (Slot)' 是一個特徵 (feature)，這些名稱與其類別是合理對齊的，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "Cryptoki 與 '插槽 (Slot)' 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體類別是 system，不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則，發現沒有直接觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Cryptoki) 與 Ldr 中的 'cryptoki' 完全等價，受體 (插槽) 與 Ldr 中的 '插槽 (socket)' 類似，但非完全等價同義詞，兩者皆無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "cryptoki",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，主體為完全等價同義詞，受體不完全匹配，無法判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Cryptoki",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "插槽 (Slot)",
+        "type": "feature"
+      },
+      "reasoning": "Cryptoki (PKCS#11) 是一個架構系統，其組成部分包含插槽 (Slot)，因此將其定義為系統具有該特徵。符合 Schema: (\"system\", \"has_a\", \"feature\")。",
+      "source_id": "chunk_5",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "java 虛擬機器 (jvm)",
+      "type": "system",
+      "display_name": "Java 虛擬機器 (JVM)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "reasoning": "根據執行架構圖，JVM 運行在作業系統之上，在知識圖譜中可視為 JVM 是作業系統環境的一部分或依附於其上。符合 Schema: (\"system\", \"is_part_of\", \"system\")。",
+    "source_id": "chunk_5",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Java 虛擬機器 (JVM) 可被視為系統 (system) 的一部分，作業系統也被歸類為系統 (system)，這些名稱與其類別之間的對齊是合理的。",
+        "response": "correct",
+        "reason": "Java 虛擬機器 (JVM) 和作業系統的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查關係 'is_part_of'，發現沒有直接相關的規則限制此關係與主體、受體的類別組合。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 與主體 'Java 虛擬機器 (JVM)' 和受體 '作業系統' 的組合，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Java 虛擬機器) 與受體 (作業系統) 之間沒有直接的同義詞關係，也不是廣義或狹義的從屬關係，兩者代表不同的系統概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體沒有同義詞關係或從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Java 虛擬機器 (JVM)",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "reasoning": "根據執行架構圖，JVM 運行在作業系統之上，在知識圖譜中可視為 JVM 是作業系統環境的一部分或依附於其上。符合 Schema: (\"system\", \"is_part_of\", \"system\")。",
+      "source_id": "chunk_5",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "cryptoki",
+      "type": "system",
+      "display_name": "Cryptoki"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "符記 (token)",
+      "type": "tool",
+      "display_name": "符記 (Token)"
+    },
+    "reasoning": "Cryptoki (PKCS#11) 架構中包含符記 (Token) 這一組成元件。符合 Schema: (\"system\", \"has_a\", \"feature\")。",
+    "source_id": "chunk_5",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Cryptoki 可被視為系統 (system)，符記 (Token) 可被視為特徵 (feature)，且 'has_a' 關係在資安領域中合理適用於系統與其特徵之間。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 'Cryptoki' 的類別是 'system'，受體 '符記 (Token)' 的類別是 'tool'，這種關係在給定的規則中沒有被明確禁止或限制。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制或禁止，且主體和受體的類別組合在給定的規則中沒有被認為是違規的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Cryptoki) 與 Ldr 中的 'cryptoki' 完全等價，受體 (符記) 與 Ldr 中的 '符記 (token)' 完全等價，兩者皆為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "cryptoki",
+        "standard_object": "符記 (token)",
+        "reason": "根據同義詞判定，主體與受體皆與 Ldr 中的資源完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Cryptoki",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "符記 (Token)",
+        "type": "feature"
+      },
+      "reasoning": "Cryptoki (PKCS#11) 架構中包含符記 (Token) 這一組成元件。符合 Schema: (\"system\", \"has_a\", \"feature\")。",
+      "source_id": "chunk_5",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "java 程式",
+      "type": "app",
+      "display_name": "Java 程式"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "java 虛擬機器 (jvm)",
+      "type": "system",
+      "display_name": "Java 虛擬機器 (JVM)"
+    },
+    "reasoning": "文本指出『程式就在 Java 虛擬機器 (JVM) 上執行』，表示 Java 程式部署於 JVM 系統中。符合 Schema: (\"app\", \"deployed_in\", \"system\")。",
+    "source_id": "chunk_5",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Java 程式是 'app' 的合理實例，Java 虛擬機器 (JVM) 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，因為受體 'Java 虛擬機器 (JVM)' 的類別是 system。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，且無其他規則被違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Java 程式與程式之間的關係是廣義/狹義從屬，Java 程式是一種程式的子類型；Java 虛擬機器 (JVM) 與清單中的資源不直接相關。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，Java 程式是程式的子類型，故不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Java 程式",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "Java 虛擬機器 (JVM)",
+        "type": "system"
+      },
+      "reasoning": "文本指出『程式就在 Java 虛擬機器 (JVM) 上執行』，表示 Java 程式部署於 JVM 系統中。符合 Schema: (\"app\", \"deployed_in\", \"system\")。",
+      "source_id": "chunk_5",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "java 開發工具包 (jdk)",
+      "type": "tool",
+      "display_name": "Java 開發工具包 (JDK)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "java 密碼架構 (jca)",
+      "type": "tool",
+      "display_name": "Java 密碼架構 (JCA)"
+    },
+    "reasoning": "文本提到業者可以使用 JDK 介接在 JCA 中，JDK 作為開發工具與 JCA 框架形成關聯。符合 Schema: (\"tool\", \"is_part_of\", \"tool\")。",
+    "source_id": "chunk_5",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Java 開發工具包 (JDK) 和 Java 密碼架構 (JCA) 都是 'tool' 的合理實例，且 'is_part_of' 關係在資安領域中是合理的，表示 JDK 是 JCA 的一部分。",
+        "response": "correct",
+        "reason": "Java 開發工具包 (JDK) 和 Java 密碼架構 (JCA) 的類別與關係完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為關係不是 'uses'。檢查規則6：無關，因為關係不是 'deployed_in'。檢查規則7：無關，因為關係不是 'generates'。檢查規則8：無關，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 與給定的語義限制清單中沒有直接相關的規則，因此無法判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "Java 密碼架構 (JCA) 與 java 密碼架構 (jca) 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "java 密碼架構 (jca)",
+        "reason": "根據同義詞對照表，Java 密碼架構 (JCA) 與 java 密碼架構 (jca) 被判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Java 開發工具包 (JDK)",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Java 密碼架構 (JCA)",
+        "type": "tool"
+      },
+      "reasoning": "文本提到業者可以使用 JDK 介接在 JCA 中，JDK 作為開發工具與 JCA 框架形成關聯。符合 Schema: (\"tool\", \"is_part_of\", \"tool\")。",
+      "source_id": "chunk_5",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "java 密碼架構 (jca)",
+      "type": "tool",
+      "display_name": "Java 密碼架構 (JCA)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "爪哇密碼延伸 (jce)",
+      "type": "tool",
+      "display_name": "爪哇密碼延伸 (JCE)"
+    },
+    "reasoning": "文本提到 JCE 是由業者發展的延伸功能並集合在 JCA 中，因此 JCA 包含 JCE。符合 Schema: (\"tool\", \"has_a\", \"tool\")。",
+    "source_id": "chunk_5",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Java 密碼架構 (JCA) 和 爪哇密碼延伸 (JCE) 都是資安領域中與 'tool' 類別相關的合理實例，'has_a' 關係在此語境下表明 JCA 擁有或包含 JCE 的功能或元件，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "Java 密碼架構 (JCA) 和 爪哇密碼延伸 (JCE) 的三元組完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體和受體的類別均為 'tool'，未觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體和受體的類別 'tool' 未違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Java 密碼架構 (JCA) 與 爪哇密碼延伸 (JCE) 是相關的資安工具，但 JCE 是 JCA 的延伸，因此是廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "JCA 與 JCE 之間的關係是廣義/狹義從屬，因此不進行合併，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Java 密碼架構 (JCA)",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "爪哇密碼延伸 (JCE)",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 JCE 是由業者發展的延伸功能並集合在 JCA 中，因此 JCA 包含 JCE。符合 Schema: (\"tool\", \"has_a\", \"tool\")。",
+      "source_id": "chunk_5",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "fips 140",
+      "type": "policy",
+      "display_name": "FIPS 140"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "密碼模組安全性風險",
+      "type": "risk",
+      "display_name": "密碼模組安全性風險"
+    },
+    "reasoning": "FIPS 140 是密碼模組產品的安全性檢測規範，其目的是透過標準化檢測來緩解模組不安全所帶來的風險。符合 Schema: (\"policy\", \"mitigates\", \"risk\")。",
+    "source_id": "chunk_5",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "FIPS 140 是一種安全政策（policy），'密碼模組安全性風險' 是一種風險（risk），'mitigates' 是一種合理的關係，因為安全政策可以減輕風險。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，並且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 FIPS 140，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 FIPS 140 與 Ldr 中的 'fips 140' 完全等價，受體 '密碼模組安全性風險' 與 Ldr 中的 '密碼模組風險' 可視為同義詞或相關概念，但不完全等價。",
+        "response": "correct",
+        "standard_subject": "fips 140",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體 FIPS 140 可以標準化為 'fips 140'，但受體 '密碼模組安全性風險' 與 '密碼模組風險' 雖相關但不完全等價，故不進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "FIPS 140",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "密碼模組安全性風險",
+        "type": "risk"
+      },
+      "reasoning": "FIPS 140 是密碼模組產品的安全性檢測規範，其目的是透過標準化檢測來緩解模組不安全所帶來的風險。符合 Schema: (\"policy\", \"mitigates\", \"risk\")。",
+      "source_id": "chunk_5",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

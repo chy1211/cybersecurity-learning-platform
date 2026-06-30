@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "radius",
+      "type": "tool",
+      "display_name": "RADIUS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "aaa",
+      "type": "function",
+      "display_name": "AAA"
+    },
+    "reasoning": "文本提到 RADIUS 是 AAA 三種服務的網路傳輸協議。在 Schema 中，工具 (tool) 可以具有某項功能 (function)，因此將 RADIUS 視為實作 AAA 的工具。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "RADIUS 是一種工具（tool），AAA 是一種功能（function），這些名稱與其類別是合理對齊的，且符合資安領域的常見用法。",
+        "response": "correct",
+        "reason": "RADIUS 和 AAA 的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'has_a'，無直接相關規則限制。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 'RADIUS' 和受體 'AAA' 的類別組合，未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "RADIUS 與 radius 完全等價同義詞，AAA 與 aaa 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "radius",
+        "standard_object": "aaa",
+        "reason": "根據同義詞判定，RADIUS 與 radius、AAA 與 aaa 分別為完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RADIUS",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "AAA",
+        "type": "function"
+      },
+      "reasoning": "文本提到 RADIUS 是 AAA 三種服務的網路傳輸協議。在 Schema 中，工具 (tool) 可以具有某項功能 (function)，因此將 RADIUS 視為實作 AAA 的工具。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "aaa",
+      "type": "function",
+      "display_name": "AAA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "authorization",
+      "type": "feature",
+      "display_name": "Authorization"
+    },
+    "reasoning": "AAA 包含授權 (Authorization)，將其定義為 AAA 功能下的組成特徵 (feature)。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 'AAA' 可以被視為 'function' 的合理實例，'Authorization' 也可以被視為 'feature' 的合理實例，考慮到資安領域的同義詞和上下文。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'，但 'has_a' 關係與規則無直接衝突。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 'AAA' 的類別 'function'、受體 'Authorization' 的類別 'feature' 沒有直接違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (AAA) 與 Ldr 中的 'aaa' 完全等價，受體 (Authorization) 與 Ldr 中的 'oauth' 不完全匹配，但 'Authorization' 可能與 '認證' 有關，然而 '認證' 在給定的同義詞對照範例中被視為 '身分驗證' 的同義詞，且 'Authorization' 在資安領域中常被譯為 '授權' 或 '認證'，因此受體與 '認證' 可能是同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，受體 'Authorization' 可能與 '認證' 同義，但無法完全確定為 duplicate，因此預設為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "AAA",
+        "type": "function"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Authorization",
+        "type": "feature"
+      },
+      "reasoning": "AAA 包含授權 (Authorization)，將其定義為 AAA 功能下的組成特徵 (feature)。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "aaa",
+      "type": "function",
+      "display_name": "AAA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "accounting",
+      "type": "function",
+      "display_name": "Accounting"
+    },
+    "reasoning": "AAA 包含計帳 (Accounting)，將其定義為 AAA 功能下的組成特徵 (feature)。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 'AAA' 可能是 'function' 的合理實例，實體 'Accounting' 是 'feature' 的合理實例，考慮到同義詞寬容原則，'AAA' 可能代表某種功能或特性，'Accounting' 明顯是會計或財務管理的特性或功能。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 'AAA' 和受體 'Accounting' 的類別 'function' 不直接違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (AAA) 與受體 (Accounting) 分別與 Ldr 中的 'aaa' 和 'accounting' 完全匹配，且均為 function 類別，屬於完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "AAA",
+        "type": "function"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Accounting",
+        "type": "feature"
+      },
+      "reasoning": "AAA 包含計帳 (Accounting)，將其定義為 AAA 功能下的組成特徵 (feature)。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "aaa",
+      "type": "function",
+      "display_name": "AAA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "認證",
+      "type": "feature",
+      "display_name": "Authentication"
+    },
+    "reasoning": "AAA 包含驗證 (Authentication)、授權 (Authorization) 與計帳 (Accounting)。根據 Schema，功能 (function) 可以具有特徵 (feature)。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 'AAA' 可被視為 'function' 的合理實例，實體 'Authentication' 可被視為 'feature' 的合理實例，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 'AAA' 的類別 'function' 和受體 'Authentication' 的類別 'feature' 沒有明顯違反任何規則。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (AAA) 與 Ldr 中的 'aaa' 完全等價同義詞，受體 (Authentication) 與 Ldr 中的 '認證' 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "aaa",
+        "standard_object": "認證",
+        "reason": "根據同義詞判定準則，AAA 等同於 'aaa'，Authentication 等同於 '認證'，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "AAA",
+        "type": "function"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Authentication",
+        "type": "feature"
+      },
+      "reasoning": "AAA 包含驗證 (Authentication)、授權 (Authorization) 與計帳 (Accounting)。根據 Schema，功能 (function) 可以具有特徵 (feature)。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "組織",
+      "type": "system",
+      "display_name": "組織"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "存取控制政策",
+      "type": "policy",
+      "display_name": "存取控制政策"
+    },
+    "reasoning": "文本提到『組織應制定政策規範』以進行存取控制的申請與審核。符合 securityTeam implements policy 的定義。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '組織' 對應類別 'securityTeam' 合理，'存取控制政策' 對應類別 'policy' 也合理，關係 'implements' 在此語境下是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作是implements，而非mitigates。規則3不適用，因為主體類別是system，而非vulnerability。規則4不適用，因為關係是implements，而非violates。規則5不適用，因為關係是implements，而非uses。規則6不適用，因為關係是implements，而非deployed_in。規則7不適用，因為關係是implements，而非generates。規則8不適用，因為關係是implements，而非controls。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體是組織，關係是implements，受體是存取控制政策，符合一般的系統實現政策的邏輯，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "組織",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "存取控制政策",
+        "type": "policy"
+      },
+      "reasoning": "文本提到『組織應制定政策規範』以進行存取控制的申請與審核。符合 securityTeam implements policy 的定義。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "最小權限原則",
+      "type": "policy",
+      "display_name": "最小權限原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "權限濫用",
+      "type": "risk",
+      "display_name": "權限濫用"
+    },
+    "reasoning": "文本指出最小權限原則 (PoLP) 可以避免被濫用或盜用時造成的破壞。雖然 PoLP 是原則 (principle)，但 Schema 中 principle 無法作為 mitigates 的主體，而 policy 可以，因此將其歸類為 policy 以符合 Schema。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '最小權限原則' 是 'policy' 的合理實例，受體 '權限濫用' 是 'risk' 的合理實例，關係 'mitigates' 合理描述了 'policy' 與 'risk' 之間的關係。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，並且語意對齊，故此三元組完全符合規則。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '最小權限原則' 屬於 policy 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '最小權限原則' 屬於 policy 類別，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "最小權限原則與最低權限之間存在語義上的相似性，但非完全等價同義詞，兩者皆屬於政策類別，然而最小權限原則與存取控制政策之間的關聯更為密切，皆與存取控制有關，但最小權限原則更為特指最小化授權原則",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "最小權限原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "權限濫用",
+        "type": "risk"
+      },
+      "reasoning": "文本指出最小權限原則 (PoLP) 可以避免被濫用或盜用時造成的破壞。雖然 PoLP 是原則 (principle)，但 Schema 中 principle 無法作為 mitigates 的主體，而 policy 可以，因此將其歸類為 policy 以符合 Schema。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "身分識別與存取管理",
+      "type": "system",
+      "display_name": "身分識別與存取管理"
+    },
+    "reasoning": "文本討論 IAM (身分識別與存取管理) 時提到使用者需輸入帳號密碼及保管 IC 卡，表示使用者在使用此系統。符合 user uses system 的定義。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "使用者 (user) 使用 身分識別與存取管理 (system) 的情境下，'使用者' 是 'user' 的合理實例，'身分識別與存取管理' 可被視為 'system' 的一種實例，關係 'uses' 在此語境下是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 user，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為使用者，關係為 uses，受體為身分識別與存取管理，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「使用者」與 Ldr 中的「使用者」完全相同，受體「身分識別與存取管理」與 Ldr 中的「組織」不直接相關，但無法確定是否為同義詞或子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定「身分識別與存取管理」與 Ldr 中的資源是否為同義詞或子類型，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "身分識別與存取管理",
+        "type": "system"
+      },
+      "reasoning": "文本討論 IAM (身分識別與存取管理) 時提到使用者需輸入帳號密碼及保管 IC 卡，表示使用者在使用此系統。符合 user uses system 的定義。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "授權",
+      "type": "function",
+      "display_name": "授權"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本提到『CEO可調閱資料是屬於 Authorization』，這表示授權功能決定了對資料的存取/分析權限。符合 function can_analyze data 的定義。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "授權是一個功能（function），資料是一種數據（data），而 'can_analyze' 這個關係在資安領域中是合理的，因為授權功能可以分析資料。",
+        "response": "correct",
+        "reason": "授權功能可以分析資料的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為主體是授權，不是policy、technique或tool。規則3不適用，因為主體類別是function，不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，沒有任何規則被觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的授權可以分析資料，這符合一般的資安邏輯，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "授權與 aaa、accounting 均為 function 類型，但無法確認是否為同義詞；資料與其他 data 類型的實體之間存在廣義/狹義從屬關係，但無法確認是否為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認授權與 aaa、accounting 是否為同義詞，且資料與其他 data 類型的實體之間存在廣義/狹義從屬關係，根據判斷準則 4，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "授權",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到『CEO可調閱資料是屬於 Authorization』，這表示授權功能決定了對資料的存取/分析權限。符合 function can_analyze data 的定義。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "驗證服務",
+      "type": "system",
+      "display_name": "驗證服務"
+    },
+    "reasoning": "文本提到使用者需進行身分鑑別（驗證），這涉及使用者與驗證系統的互動。符合 user uses system 的定義。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "使用者 (user) 是 'user' 類別的合理實例，驗證服務 (system) 是 'system' 類別的合理實例，'uses' 關係在此語境中合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 user，不是 data，因此不觸發違規。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為使用者，關係為 uses，受體為驗證服務，沒有觸發任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「使用者」與 Ldr 中的「使用者」完全匹配，受體「驗證服務」與 Ldr 中的「身分識別與存取管理」相關但不完全匹配，兩者皆無同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體和受體不需要進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "驗證服務",
+        "type": "system"
+      },
+      "reasoning": "文本提到使用者需進行身分鑑別（驗證），這涉及使用者與驗證系統的互動。符合 user uses system 的定義。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 9
+    }
+  }
+]

@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "靜態分析程式碼掃描工具",
+      "type": "tool",
+      "display_name": "原始碼檢測工具"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "程式漏洞"
+    },
+    "reasoning": "文本提到『利用原始碼檢測工具...儘早找出可能產生安全威脅的程式漏洞』，因此工具可以分析漏洞。",
+    "source_id": "chunk_5",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "原始碼檢測工具 (tool) 可以分析程式漏洞 (vulnerability)，這符合資安領域的常見實踐和語意對齊，'can_analyze' 關係在這裡是合理的。",
+        "response": "correct",
+        "reason": "原始碼檢測工具可以分析程式漏洞，完全符合預先定義的類別與屬性清單和語意對齊原則。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是can_analyze而非mitigates。規則3適用，因為主體類別是tool，但can_analyze動作是允許的。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是原始碼檢測工具（tool），其與can_analyze的關係是合法的，因為工具可以執行分析動作。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體分別與 Ldr 中的靜態分析程式碼掃描工具和漏洞具有高相似度，但主體與靜態分析程式碼掃描工具之間的關係是同義詞重複，受體與漏洞之間的關係是同義詞重複",
+        "response": "duplicate",
+        "standard_subject": "靜態分析程式碼掃描工具",
+        "standard_object": "漏洞",
+        "reason": "根據同義詞判定準則，原始碼檢測工具與靜態分析程式碼掃描工具為同義詞，程式漏洞與漏洞為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "原始碼檢測工具",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "程式漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『利用原始碼檢測工具...儘早找出可能產生安全威脅的程式漏洞』，因此工具可以分析漏洞。",
+      "source_id": "chunk_5",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "黑箱測試",
+      "type": "technique",
+      "display_name": "黑箱測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "reasoning": "文本將黑箱測試列為『驗證』手段，驗證通常是對應用程式進行分析以確認其安全性。",
+    "source_id": "chunk_5",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'app' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "黑箱測試是技術（technique）的一種合理實例，應用程式是 app 的合理實例，'can_analyze' 關係在資安領域中是合理的，表示某種技術可以分析某種應用程式。",
+        "response": "correct",
+        "reason": "黑箱測試與應用程式之間的 'can_analyze' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（黑箱測試 can_analyze 應用程式）未觸發語義限制清單中的任何規則，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆在 Ldr 中找到完全匹配的資源，分別為 { \"name\": \"黑箱測試\", \"type\": \"technique\" } 和 { \"name\": \"應用程式\", \"type\": \"app\" }，且無同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆為正確獨立實體，無同義詞或從屬關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "黑箱測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "reasoning": "文本將黑箱測試列為『驗證』手段，驗證通常是對應用程式進行分析以確認其安全性。",
+      "source_id": "chunk_5",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "白箱測試",
+      "type": "technique",
+      "display_name": "白箱測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "reasoning": "文本將白箱測試列為『驗證』手段，驗證通常是對應用程式進行分析以確認其安全性。",
+    "source_id": "chunk_5",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'app' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "白箱測試 (White-box testing) 是一種安全測試技術，合理對齊 'technique' 類別；應用程式 (App) 是一種軟體應用，合理對齊 'app' 類別。",
+        "response": "correct",
+        "reason": "白箱測試可以分析應用程式，三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（白箱測試 can_analyze 應用程式）未觸發語義限制清單中的任何規則，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "白箱測試與黑箱測試/白箱測試之間的關係是同義詞的變體，但白箱測試與應用程式之間沒有直接的同義詞關係或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，白箱測試和應用程式之間沒有同義詞或從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "白箱測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "reasoning": "文本將白箱測試列為『驗證』手段，驗證通常是對應用程式進行分析以確認其安全性。",
+      "source_id": "chunk_5",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網頁應用程式",
+      "type": "app",
+      "display_name": "網頁應用程式"
+    },
+    "reasoning": "SQL Injection 被列為輸入合法性相關的威脅類型，這是一種會危害應用程式的攻擊。",
+    "source_id": "chunk_5",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SQL Injection 是 'attack' 的合理實例，網頁應用程式是 'app' 的合理實例，且 'can_harm' 是描述攻擊對應用程式的合理關係。",
+        "response": "correct",
+        "reason": "SQL Injection 對網頁應用程式的 'can_harm' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是攻擊類別，關係是 can_harm，受體是網頁應用程式，沒有違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 'sql injection' 完全等價同義詞，受體與 Ldr 中的 '網路應用程式' 類別相似但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "sql injection",
+        "standard_object": "",
+        "reason": "根據同義詞判定，SQL Injection 是 'sql injection' 的同義詞，但受體 '網頁應用程式' 與 '網路應用程式' 類別相似但非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網頁應用程式",
+        "type": "app"
+      },
+      "reasoning": "SQL Injection 被列為輸入合法性相關的威脅類型，這是一種會危害應用程式的攻擊。",
+      "source_id": "chunk_5",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "原始碼檢測",
+      "type": "technique",
+      "display_name": "原始碼檢測"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "程式漏洞"
+    },
+    "reasoning": "原始碼檢測是一種技術手段，用於分析並找出程式中的漏洞。",
+    "source_id": "chunk_5",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "原始碼檢測是技術（technique）的合理實例，程式漏洞是漏洞（vulnerability）的合理實例，'can_analyze' 關係在資安領域中是合理的，因為技術可以分析漏洞。",
+        "response": "correct",
+        "reason": "原始碼檢測與程式漏洞的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 technique，則可以發起主動行為，如 can_analyze。因此，三元組（原始碼檢測，can_analyze，程式漏洞）不觸發規則3的違規。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體是原始碼檢測，屬於technique類別，可以發起can_analyze動作，且受體是程式漏洞，屬於vulnerability類別。因此，三元組不違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 程式漏洞 與 Ldr 中的資源 '漏洞' 和 '程式語言本身的漏洞' 皆屬於同一類別 'vulnerability'，且 '漏洞' 是 '程式漏洞' 的同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據資安領域已知同義詞對照範例，'漏洞' 和 '程式漏洞' 均指 'vulnerability'，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "原始碼檢測",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "程式漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "原始碼檢測是一種技術手段，用於分析並找出程式中的漏洞。",
+      "source_id": "chunk_5",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "cross-site scripting",
+      "type": "attack",
+      "display_name": "Cross-Site Scripting"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網頁應用程式",
+      "type": "app",
+      "display_name": "網頁應用程式"
+    },
+    "reasoning": "XSS 被列為輸入合法性相關的威脅類型，這是一種會危害應用程式的攻擊。",
+    "source_id": "chunk_5",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Cross-Site Scripting 是 'attack' 的合理實例，網頁應用程式是 'app' 的合理實例，且 'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是 Cross-Site Scripting 的類別是 attack，關係是 can_harm，受體是網頁應用程式的類別是 app，沒有違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「網頁應用程式」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆不涉及同義詞重複，且無廣義/狹義從屬關係，故直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Cross-Site Scripting",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網頁應用程式",
+        "type": "app"
+      },
+      "reasoning": "XSS 被列為輸入合法性相關的威脅類型，這是一種會危害應用程式的攻擊。",
+      "source_id": "chunk_5",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "misconfiguration",
+      "type": "vulnerability",
+      "display_name": "Misconfiguration"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全威脅",
+      "type": "risk",
+      "display_name": "安全威脅"
+    },
+    "reasoning": "文本將 Misconfiguration (設定錯誤) 列為環境參數類型的檢測項目，設定錯誤是一種漏洞，會導致安全風險暴露。",
+    "source_id": "chunk_5",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Misconfiguration 是 'vulnerability' 的合理實例，'can_expose' 關係也合理地連接 'vulnerability' 和 'risk'，因為配置錯誤可能會暴露安全威脅。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體為Misconfiguration（類別：vulnerability），關係為can_expose，符合規則3的特例允許，因此不觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體Misconfiguration（類別：vulnerability）發起'can_expose'動作，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Misconfiguration) 與 Ldr 中的資源 (漏洞) 皆屬於類別 vulnerability，但非完全等價同義詞，且無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與 Ldr 中資源的直接同義詞關係，且無廣義/狹義從屬關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Misconfiguration",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全威脅",
+        "type": "risk"
+      },
+      "reasoning": "文本將 Misconfiguration (設定錯誤) 列為環境參數類型的檢測項目，設定錯誤是一種漏洞，會導致安全風險暴露。",
+      "source_id": "chunk_5",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "microsoft sdl",
+      "type": "policy",
+      "display_name": "Microsoft SDL"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "Microsoft SDL 是一種軟體開發流程（規範/策略），其目的是加強安全性以緩解潛在的攻擊威脅。",
+    "source_id": "chunk_5",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Microsoft SDL 是一種安全開發生命週期政策，合理對齊 'policy' 類別；駭客攻擊是攻擊的常見稱呼，合理對齊 'attack' 類別；'mitigates' 關係描述了政策對攻擊的減輕作用，語意上合理。",
+        "response": "correct",
+        "reason": "Microsoft SDL 的類別、駭客攻擊的類別與 'mitigates' 關係都符合 Lc,p 的定義，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，Microsoft SDL 屬於 policy 類別，符合規則2；其他規則不直接適用此三元組。",
+        "response": "correct",
+        "reason": "Microsoft SDL 屬於 policy 類別，符合規則2 的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Microsoft SDL) 與 Ldr 中的 'microsoft sdl' 完全等價，受體 (駭客攻擊) 與 Ldr 中的 '駭客攻擊' 完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Microsoft SDL",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "Microsoft SDL 是一種軟體開發流程（規範/策略），其目的是加強安全性以緩解潛在的攻擊威脅。",
+      "source_id": "chunk_5",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "安全程式開發",
+      "type": "technique",
+      "display_name": "安全程式開發"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "安全程式開發是實作階段的技術手段，旨在減少漏洞以防禦駭客攻擊。",
+    "source_id": "chunk_5",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全程式開發是 technique 的合理實例，駭客攻擊是 attack 的合理實例，且 'mitigates' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組符合此規則。其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體是安全程式開發（類別：technique），它可以執行 mitigates 動作，且未發現其他明確違反語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 駭客攻擊與 Ldr 中的資源 '駭客攻擊' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全程式開發",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "安全程式開發是實作階段的技術手段，旨在減少漏洞以防禦駭客攻擊。",
+      "source_id": "chunk_5",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "reasoning": "文本提到安全部署需考量應用軟體與外部系統（如作業系統、伺服器）的溝通，因此兩者之間存在連接關係。",
+    "source_id": "chunk_5",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "作業系統與伺服器都是 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 connects_to，不是 uses。檢查規則6：不適用，因為關係為 connects_to，不是 deployed_in。檢查規則7：不適用，因為關係為 connects_to，不是 generates。檢查規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體皆為 system 類別，且關係為 connects_to，未觸發任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為系統類別，且受體「伺服器」與 Ldr 中的「伺服器」完全匹配，主體「作業系統」與 Ldr 中的「系統」具有相似性，但非完全匹配，兩者之間存在廣義/狹義關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，作業系統與伺服器之間存在廣義/狹義關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本提到安全部署需考量應用軟體與外部系統（如作業系統、伺服器）的溝通，因此兩者之間存在連接關係。",
+      "source_id": "chunk_5",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "定期更新與修補",
+      "type": "technique",
+      "display_name": "定期更新與修補"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "定期更新與修補是一種維運技術，用於修復漏洞以緩解被攻擊的風險。",
+    "source_id": "chunk_5",
+    "source_file": "ch11_習題解答.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "定期更新與修補 是 technique 的合理實例，駭客攻擊 是 attack 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是定期更新與修補，類別為 technique，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體和關係符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"駭客攻擊\" 與 Ldr 中的 \"駭客攻擊\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "定期更新與修補",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "定期更新與修補是一種維運技術，用於修復漏洞以緩解被攻擊的風險。",
+      "source_id": "chunk_5",
+      "source_file": "ch11_習題解答.pdf",
+      "source_index": 11
+    }
+  }
+]

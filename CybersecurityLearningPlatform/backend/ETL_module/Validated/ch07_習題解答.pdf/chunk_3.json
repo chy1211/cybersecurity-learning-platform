@@ -1,0 +1,678 @@
+[
+  {
+    "subject": {
+      "name": "外部人員",
+      "type": "attacker",
+      "display_name": "外部人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "文本提到外部人員需要透過網際網路來存取資源，符合 ('user', 'uses', 'system') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "外部人員 (user) 使用網際網路 (system) 是語意上合理的，符合實體名稱與類別的對齊，且 'uses' 關係在資安領域中常見，表示使用或存取的行為。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規檢查，因為主體的類別是attacker，而不是data，但這裡的主體類別是attacker，使用網際網路系統，與規則5的描述不符，實際上規則5是限制data類別的主體使用uses關係。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是外部人員（attacker），關係是uses，受體是網際網路（system），這不直接違反任何一條語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網際網路與網路資源之間存在廣義/狹義從屬關係，但根據給定的資安領域已知同義詞對照範例和判斷準則，兩者並不完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，網際網路和網路資源之間的關係不被視為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "外部人員",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到外部人員需要透過網際網路來存取資源，符合 ('user', 'uses', 'system') 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "各種攻擊",
+      "type": "attack",
+      "display_name": "各種攻擊"
+    },
+    "reasoning": "文本提到防火牆用來阻斷攻擊，雖然提到無法完全阻斷，但其功能屬性仍是緩解攻擊，符合 ('tool', 'mitigates', 'attack')。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，各種攻擊是攻擊（attack）的合理實例，且 'mitigates' 是描述工具對攻擊的減輕作用的合理關係。",
+        "response": "correct",
+        "reason": "防火牆（tool）與各種攻擊（attack）之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，該三元組的主體是防火牆（tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "該三元組的主體是防火牆（tool），符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的防火牆完全等價同義詞，受體與 Ldr 中的入侵攻擊不完全匹配，但可視為廣義的攻擊類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的防火牆完全等價同義詞，但受體不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "各種攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到防火牆用來阻斷攻擊，雖然提到無法完全阻斷，但其功能屬性仍是緩解攻擊，符合 ('tool', 'mitigates', 'attack')。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "三向交握弱點"
+    },
+    "reasoning": "TCP SYN Flood 攻擊是利用三向交握的弱點，主體為發起攻擊的駭客，符合 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，三向交握弱點 (vulnerability) 是弱點的合理實例，'can_exploit' 是攻擊者對弱點的合理關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為駭客不具有安全團隊的身分。規則2：不適用，因為主體不是 policy, technique 或 tool。規則3：不適用，因為主體類別是 attacker，不是 vulnerability。規則4：不適用，因為關係不是 violates。規則5：不適用，因為關係不是 uses。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。由於三元組中的關係是 can_exploit，且主體是 attacker，受體是三向交握弱點，符合資安知識圖譜的常見關係，未發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "未發現三元組違反任何語義限制清單中的規則，且關係 can_exploit 在資安知識圖譜中是 attacker 和 vulnerability 之間的一種合理關係。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與現有近似資源清單中的「弱點」為同義詞，主體「駭客」與清單中的「駭客」完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據同義詞判定，受體「三向交握弱點」與「弱點」為同義詞，且主體「駭客」與清單中的「駭客」完全匹配。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "三向交握弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "TCP SYN Flood 攻擊是利用三向交握的弱點，主體為發起攻擊的駭客，符合 ('attacker', 'can_exploit', 'vulnerability')。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "中間人攻擊(mitm)",
+      "type": "attack",
+      "display_name": "中間人攻擊(MITM)"
+    },
+    "reasoning": "文本描述攻擊者執行攔截通訊並偽裝的行為，即實作中間人攻擊，符合 ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 實施 (implements) 中間人攻擊 (MITM) 是資安領域中合理的語意對齊，'attacker' 與 'attack' 的名稱與其類別對齊，且 'implements' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "攻擊者實施中間人攻擊的三元組完全符合預先定義的類別與屬性清單，語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有同時具有攻擊者(attacker)與安全團隊(securityTeam)的身分。檢查規則2：不適用，因為三元組中的關係是implements，不是mitigates。檢查規則3：不適用，因為三元組中的主體類別是attacker，不是vulnerability。檢查規則4：不適用，因為三元組中的關係是implements，不是violates。檢查規則5：不適用，因為三元組中的關係是implements，不是uses。檢查規則6：不適用，因為三元組中的關係是implements，不是deployed_in。檢查規則7：不適用，因為三元組中的關係是implements，不是generates。檢查規則8：不適用，因為三元組中的關係是implements，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，關係是implements，受體是中間人攻擊，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "攻擊者與外部人員、駭客為同義詞，中間人攻擊(MITM)與各種攻擊為廣義/狹義從屬",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與Ldr中某資源的name字串不完全相同，且無法確定為同義詞或子類型，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "中間人攻擊(MITM)",
+        "type": "attack"
+      },
+      "reasoning": "文本描述攻擊者執行攔截通訊並偽裝的行為，即實作中間人攻擊，符合 ('attacker', 'implements', 'attack')。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "tcp syn flood 攻擊",
+      "type": "attack",
+      "display_name": "TCP SYN Flood 攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "reasoning": "文本提到此攻擊會使伺服器資源耗盡直至無法運作，符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "TCP SYN Flood 攻擊是 'attack' 的合理實例，伺服器是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_harm'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體 'TCP SYN Flood 攻擊' 與受體 '伺服器' 通過 'can_harm' 關係，沒有違反給定的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆不直接出現在近似資源清單中，但可透過資安領域已知同義詞對照範例進行判斷。主體「TCP SYN Flood 攻擊」是一種特定攻擊，受體「伺服器」是一種系統，兩者在資安領域中有明確的定義，且無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體不符合同義詞判定，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "TCP SYN Flood 攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本提到此攻擊會使伺服器資源耗盡直至無法運作，符合 ('attack', 'can_harm', 'system')。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "管理者",
+      "type": "user",
+      "display_name": "管理者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "安全管理政策",
+      "type": "policy",
+      "display_name": "資訊安全政策"
+    },
+    "reasoning": "文本提到管理者需要訂定完善的資訊安全政策，符合 ('user', 'implements', 'policy')。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '管理者' 是 'user' 的合理實例，'資訊安全政策' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊。檢查規則2：不適用，因為動作是 implements，而不是 mitigates。檢查規則3：不適用，因為主體類別是 user，而不是 vulnerability。檢查規則4：不適用，因為主體類別是 user，而不是 principle。檢查規則5：不適用，因為關係是 implements，而不是 uses。檢查規則6：不適用，因為關係是 implements，而不是 deployed_in。檢查規則7：不適用，因為關係是 implements，而不是 generates。檢查規則8：不適用，因為關係是 implements，而不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是管理者，關係是 implements，受體是資訊安全政策，沒有違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊安全政策與安全管理政策為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "安全管理政策",
+        "reason": "根據同義詞判定，資訊安全政策與安全管理政策指稱同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資訊安全政策",
+        "type": "policy"
+      },
+      "reasoning": "文本提到管理者需要訂定完善的資訊安全政策，符合 ('user', 'implements', 'policy')。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "通訊訊息",
+      "type": "data",
+      "display_name": "通訊訊息"
+    },
+    "reasoning": "中間人攻擊會攔截並置換通訊雙方的訊息，對資料完整性造成危害，符合 ('attacker', 'can_harm', 'data')。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 類別的合理實例，通訊訊息 (data) 是 'data' 類別的合理實例，且 'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體是攻擊者，具有主動執行能力，關係是can_harm，受體是通訊訊息，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的攻擊者可以對通訊訊息進行harm動作，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體「通訊訊息」與 Ldr 中的「網路傳輸之訊息」、「入侵訊息」、「訊息或檔案」皆為同義詞或相關概念，但無完全等價同義詞；主體「攻擊者」與 Ldr 中的「攻擊者」完全匹配。",
+        "response": "correct",
+        "standard_subject": "攻擊者",
+        "standard_object": "",
+        "reason": "主體「攻擊者」與 Ldr 中的「攻擊者」完全匹配，受體無完全等價同義詞，依據【廣義/狹義一律保留】與【不確定時預設保留】原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "通訊訊息",
+        "type": "data"
+      },
+      "reasoning": "中間人攻擊會攔截並置換通訊雙方的訊息，對資料完整性造成危害，符合 ('attacker', 'can_harm', 'data')。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "驗證",
+      "type": "technique",
+      "display_name": "認證方法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "中間人攻擊(mitm)",
+      "type": "attack",
+      "display_name": "中間人攻擊(MITM)"
+    },
+    "reasoning": "文本提到在協定中加入認證方法可以阻止中間人攻擊，符合 ('technique', 'mitigates', 'attack')。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "認證方法是 technique 的合理實例，中間人攻擊是 attack 的合理實例，且 'mitigates' 的語意與認證方法對中間人攻擊的關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '認證方法' 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '認證方法' 屬於 technique 類別，符合規則2的條件，且未發現其他明確違反的規則。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源存在於 Ldr 中，但主體 '認證方法' 與 '驗證' 關係為同義詞，受體 '中間人攻擊(MITM)' 與 '中間人攻擊(mitm)' 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "驗證",
+        "standard_object": "中間人攻擊(mitm)",
+        "reason": "根據同義詞判定，主體與受體分別與 Ldr 中的資源為同義詞關係，但受體完全匹配，主體需標準化為 '驗證'。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "認證方法",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "中間人攻擊(MITM)",
+        "type": "attack"
+      },
+      "reasoning": "文本提到在協定中加入認證方法可以阻止中間人攻擊，符合 ('technique', 'mitigates', 'attack')。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "ddos",
+      "type": "attack",
+      "display_name": "DDoS"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "dos",
+      "type": "system",
+      "display_name": "DoS"
+    },
+    "reasoning": "文本明確指出 'DDoS是DoS的一種'，符合 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "DDoS 和 DoS 都是 'attack' 的合理實例，符合資安領域的常見用語和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "DDoS 和 DoS 的三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，因為關係為 'is_part_of'，規則7：無關，規則8：無關",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 與規則清單中沒有直接相關的限制，且主體 'DDoS' 的類別 'attack' 與受體 'DoS' 的類別 'system' 在此關係下沒有明顯違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "DDoS 是 DoS 的一種特定類型，兩者在資安領域中相關但不完全等價，DDoS 可視為 DoS 的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，DDoS 是 DoS 的子類型，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DDoS",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "DoS",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出 'DDoS是DoS的一種'，符合 ('attack', 'is_part_of', 'attack')。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "緩衝區",
+      "type": "feature",
+      "display_name": "緩衝區"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "範圍限制缺陷"
+    },
+    "reasoning": "文本提到若在使用緩衝區時沒有注意範圍限制，會導致溢位，這是一種系統特徵導致的漏洞，符合 ('feature', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "緩衝區 (Buffer) 是 'feature' 的合理實例，範圍限制缺陷 (Buffer Overflow Vulnerability) 是 'vulnerability' 的合理實例，'can_expose' 的關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "緩衝區可以暴露範圍限制缺陷，符合資安領域的常見知識圖譜結構。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為主體不是policy、technique或tool。規則3適用，但三元組中的can_expose動作是對漏洞的特例允許。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的can_expose動作是對漏洞的特例允許，符合規則3的特例條件。因此，三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資源 '弱點' 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "受體 '範圍限制缺陷' 與 Ldr 中的 '弱點' 是同義詞，均指 'vulnerability'"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "緩衝區",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "範圍限制缺陷",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到若在使用緩衝區時沒有注意範圍限制，會導致溢位，這是一種系統特徵導致的漏洞，符合 ('feature', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 12
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "受控制電腦",
+      "type": "system",
+      "display_name": "受控制電腦"
+    },
+    "reasoning": "DDoS 的節點是已被入侵且受控制的電腦，符合 ('attacker', 'controls', 'system')。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 類別的合理實例，受控制電腦 (system) 是 'system' 類別的合理實例，關係 'controls' 在資安領域中是合理的描述。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 attacker，具有主動執行能力，符合規則所允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（攻擊者）與關係（控制）和受體（受控制電腦）之間的關係符合規則8的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全等價同義詞，受體 \"受控制電腦\" 與 Ldr 中的 \"系統\" 可能是廣義/狹義從屬關係，但無法確定",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定 \"受控制電腦\" 與 Ldr 中的 \"系統\" 之間的關係，因此預設保留"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "受控制電腦",
+        "type": "system"
+      },
+      "reasoning": "DDoS 的節點是已被入侵且受控制的電腦，符合 ('attacker', 'controls', 'system')。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "緩衝區溢位攻擊",
+      "type": "attack",
+      "display_name": "緩衝區溢位攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "記憶體",
+      "type": "system",
+      "display_name": "記憶體"
+    },
+    "reasoning": "緩衝區溢位攻擊直接作用於記憶體區域並造成損害，符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 13,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "緩衝區溢位攻擊是 'attack' 的合理實例，記憶體是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "緩衝區溢位攻擊可以對記憶體造成傷害，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_harm'，與規則無直接衝突。",
+        "response": "correct",
+        "reason": "三元組中的緩衝區溢位攻擊（attack）與記憶體（system）之間的 'can_harm' 關係，未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆無完全等價同義詞，且無廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體的同義詞或從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "緩衝區溢位攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "記憶體",
+        "type": "system"
+      },
+      "reasoning": "緩衝區溢位攻擊直接作用於記憶體區域並造成損害，符合 ('attack', 'can_harm', 'system')。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 13
+    }
+  },
+  {
+    "subject": {
+      "name": "ddos",
+      "type": "attack",
+      "display_name": "DDoS"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標伺服器",
+      "type": "system",
+      "display_name": "目標伺服器"
+    },
+    "reasoning": "DDoS 同時對一個目標發動攻擊以使其癱瘓，符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "DDoS 是 'attack' 的合理實例，'目標伺服器' 是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統影響的適當關係。",
+        "response": "correct",
+        "reason": "DDoS攻擊對目標伺服器的傷害是資安領域中常見的攻擊行為，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體 'DDoS' 的類別是 'attack'，與 'can_harm' 關係和 '目標伺服器' 的類別 'system' 相關，無法直接對應到任何一條規則中明確的違反條件。",
+        "response": "correct",
+        "reason": "三元組 'DDoS'、'can_harm'、'目標伺服器' 不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "DDoS 是 Ldr 中 'ddos' 的完全等價同義詞，且 'dos' 是 'DDoS' 的相關概念，但不是完全相同的實體；'目標伺服器' 與 '伺服器' 關係密切，但 '目標伺服器' 較為具體，指的是攻擊的目標",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【同義詞判定】，DDoS 與 'ddos' 是同義詞，但根據【廣義/狹義一律保留】，不進行合併；'目標伺服器' 與 '伺服器' 關係密切，但不完全相同，因此不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DDoS",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "目標伺服器",
+        "type": "system"
+      },
+      "reasoning": "DDoS 同時對一個目標發動攻擊以使其癱瘓，符合 ('attack', 'can_harm', 'system')。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 10
+    }
+  }
+]

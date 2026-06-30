@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "ids",
+      "type": "tool",
+      "display_name": "IDS"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "連線劫持",
+      "type": "attack",
+      "display_name": "連線劫持"
+    },
+    "reasoning": "文本明確提到 'IDS 可偵測...連線劫持'。IDS 是偵測工具 (tool)，連線劫持是一種惡意攻擊行為 (attack)，符合 Schema 中的 ('tool', 'can_detect', 'attack')。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IDS 是一種工具（tool），連線劫持是一種攻擊（attack），'can_detect' 關係在資安領域中是合理的，因為IDS可以偵測攻擊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_detect，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是 IDS（類別為 tool），關係是 can_detect，受體是 連線劫持（類別為 attack）。根據提供的規則，沒有任何一條規則被直接違反。因此，根據無罪推定原則，該三元組被判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 IDS 與 Ldr 中的 ids 完全等價同義詞，受體 連線劫持 與 Ldr 中的 連線劫持 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "ids",
+        "standard_object": "連線劫持",
+        "reason": "主體與受體皆為完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IDS",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "連線劫持",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到 'IDS 可偵測...連線劫持'。IDS 是偵測工具 (tool)，連線劫持是一種惡意攻擊行為 (attack)，符合 Schema 中的 ('tool', 'can_detect', 'attack')。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "備份策略",
+      "type": "policy",
+      "display_name": "資料備份策略"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料損壞",
+      "type": "risk",
+      "display_name": "資料毀損"
+    },
+    "reasoning": "題目 34 提到組織規劃 '資料備份策略' 是為了處理 '資料毀損' 的問題。備份策略屬於規範與策略 (policy)，資料毀損是負面後果 (risk)，符合 Schema 中的 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資料備份策略 (policy) 是一種合理的政策實例，資料毀損 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中是合理的，表示政策可以減輕風險。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '資料備份策略'，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '資料備份策略' 屬於 policy 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資料備份策略與備份策略為同義詞，資料毀損與資料損壞為同義詞",
+        "response": "correct",
+        "standard_subject": "備份策略",
+        "standard_object": "資料損壞",
+        "reason": "根據同義詞判定，資料備份策略與備份策略、資料毀損與資料損壞為同義詞，但根據廣義/狹義一律保留原則，仍判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料備份策略",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料毀損",
+        "type": "risk"
+      },
+      "reasoning": "題目 34 提到組織規劃 '資料備份策略' 是為了處理 '資料毀損' 的問題。備份策略屬於規範與策略 (policy)，資料毀損是負面後果 (risk)，符合 Schema 中的 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "ids",
+      "type": "tool",
+      "display_name": "IDS"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "連線劫持",
+      "type": "attack",
+      "display_name": "連線劫持"
+    },
+    "reasoning": "文本明確提到 'IDS 可...防禦連線劫持'。防禦在此對應於緩解/防禦 (mitigates)，符合 Schema 中的 ('tool', 'mitigates', 'attack')。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "IDS 是一種安全工具，連線劫持是一種攻擊手法，'mitigates' 關係在資安領域中指的是IDS能夠減輕或防禦攻擊，因此這些實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "IDS、連線劫持與 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。由於主體 IDS 的類別是 tool，符合規則2的條件，未觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體 IDS 屬於 tool 類別，符合規則2的要求，且未發現其他明確違反的規則，因此判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 IDS 與 Ldr 中的 ids 完全等價同義詞，受體 連線劫持 與 Ldr 中的 連線劫持 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有近似資源清單中之資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IDS",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "連線劫持",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到 'IDS 可...防禦連線劫持'。防禦在此對應於緩解/防禦 (mitigates)，符合 Schema 中的 ('tool', 'mitigates', 'attack')。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "加鹽",
+      "type": "technique",
+      "display_name": "加鹽"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "雜湊",
+      "type": "function",
+      "display_name": "雜湊"
+    },
+    "reasoning": "題目 35 描述在雜湊之前插入特定字串稱為 '加鹽'。加鹽是雜湊過程中的一種特定技術手段，因此將兩者皆視為技術 (technique)，符合 Schema 中的 ('technique', 'is_part_of', 'technique')。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "加鹽和雜湊都是資安領域中常見的技術，分別對應到 'technique' 類別，且 'is_part_of' 關係在此語境下合理，因為加鹽可以是雜湊的一部分。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 與規則清單中沒有直接相關的限制，因此無法觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"加鹽\" 與 Ldr 中的 \"密碼加鹽\" 關係為同義詞，受體 \"雜湊\" 與 Ldr 中的 \"雜湊\" 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，雖然 \"加鹽\" 可能與 \"密碼加鹽\" 有關，但不完全等同，且 \"雜湊\" 已經是完全匹配的同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加鹽",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "雜湊",
+        "type": "technique"
+      },
+      "reasoning": "題目 35 描述在雜湊之前插入特定字串稱為 '加鹽'。加鹽是雜湊過程中的一種特定技術手段，因此將兩者皆視為技術 (technique)，符合 Schema 中的 ('technique', 'is_part_of', 'technique')。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "網站伺服器",
+      "type": "system",
+      "display_name": "網站伺服器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "raid 5",
+      "type": "feature",
+      "display_name": "RAID 5"
+    },
+    "reasoning": "題目 36 提到將網站伺服器內的硬碟作 RAID 5。網站伺服器是基礎設施 (system)，RAID 5 是其儲存配置的屬性/特徵 (feature)，符合 Schema 中的 ('system', 'has_a', 'feature')。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網站伺服器是 system 的合理實例，RAID 5 是 feature 的合理實例。",
+        "response": "correct",
+        "reason": "網站伺服器具有 RAID 5 的設定，符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（網站伺服器）和關係（has_a）以及受體（RAID 5）之間的關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網站伺服器與網頁伺服器、web伺服器等為同義詞或相關概念，但根據規則2，若無直接對應的同義詞對照，則不判定為duplicate；RAID 5為特定技術，無同義詞重複問題。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無直接同義詞對照，且實體間無廣義/狹義從屬關係，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站伺服器",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "RAID 5",
+        "type": "feature"
+      },
+      "reasoning": "題目 36 提到將網站伺服器內的硬碟作 RAID 5。網站伺服器是基礎設施 (system)，RAID 5 是其儲存配置的屬性/特徵 (feature)，符合 Schema 中的 ('system', 'has_a', 'feature')。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  }
+]

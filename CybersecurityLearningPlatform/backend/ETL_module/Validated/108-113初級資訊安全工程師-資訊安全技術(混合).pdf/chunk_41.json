@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "資訊揭露最小化原則",
+      "type": "policy",
+      "display_name": "資訊揭露最小化原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "文本提到對外傳送個人資料應遵守最小化原則以保護資訊，這是一種透過政策(policy)來緩解(mitigates)個資外洩風險(risk)的行為。",
+    "source_id": "chunk_41",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資訊揭露最小化原則是 'policy' 的合理實例，個資外洩是 'risk' 的合理實例，且 'mitigates' 的語意與資安領域的常見用法相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '資訊揭露最小化原則' 屬於 policy 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '資訊揭露最小化原則' 屬於 policy 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩是資訊揭露最小化原則的受體，兩者之間的關係是個資外洩是資訊外洩的一種特例，然而根據給定的資源清單，個資外洩與資訊外洩的相似度很高，但主體與受體之間的關係並非同義詞重複，而是個資外洩是資訊揭露最小化原則所要避免的風險之一。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，個資外洩與資訊外洩之間的關係不是完全等價的同義詞重複，且個資外洩是資訊揭露最小化原則所要避免的風險之一，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊揭露最小化原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本提到對外傳送個人資料應遵守最小化原則以保護資訊，這是一種透過政策(policy)來緩解(mitigates)個資外洩風險(risk)的行為。",
+      "source_id": "chunk_41",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "雜湊計算",
+      "type": "function",
+      "display_name": "雜湊計算"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "備份資料",
+      "type": "data",
+      "display_name": "備份資料"
+    },
+    "reasoning": "題目 35 詢問確保備份資料完整性的最佳方式，選項中雜湊計算(function)是用於分析/驗證資料(data)完整性的手段。",
+    "source_id": "chunk_41",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雜湊計算 (Hashing) 是一種合理的 'function' 實例，備份資料 (Backup Data) 是一種合理的 'data' 實例，'can_analyze' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，沒有任何規則被觸發為違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（雜湊計算）與受體（備份資料）之間的關係（can_analyze）沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"雜湊計算\" 與 Ldr 中的 \"雜湊\"、\"雜湊演算法\"、\"雜湊函數\" 皆為同義詞或廣義/狹義從屬關係，但 \"雜湊計算\" 與 \"雜湊\" 的相似度最高，受體 \"備份資料\" 與 Ldr 中的 \"備份資料\" 完全匹配，且為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，雜湊計算與雜湊等同義詞，且備份資料完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雜湊計算",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "備份資料",
+        "type": "data"
+      },
+      "reasoning": "題目 35 詢問確保備份資料完整性的最佳方式，選項中雜湊計算(function)是用於分析/驗證資料(data)完整性的手段。",
+      "source_id": "chunk_41",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "ftp",
+      "type": "app",
+      "display_name": "加密之 FTP"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "個人資料",
+      "type": "data",
+      "display_name": "個人資料檔案"
+    },
+    "reasoning": "文本提到傳送電子檔案資料可透過加密之 FTP 進行，因此將加密之 FTP 視為應用程式(app)，它在使用/傳輸個人資料檔案(data)。",
+    "source_id": "chunk_41",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "加密之 FTP 可被視為 'app' 的實例，個人資料檔案可被視為 'data' 的實例，且 'uses' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "加密之 FTP 使用個人資料檔案的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體的類別是app，而不是data，但這裡的主體是加密之FTP，類別是app，使用的是個人資料檔案，類別是data，符合規則5的例外情況。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是加密之FTP，類別是app，使用的是個人資料檔案，類別是data，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '加密之 FTP' 與 Ldr 中 'ftp' 的關係是同義詞重複，受體 '個人資料檔案' 與 Ldr 中 '個人資料' 的關係是同義詞重複",
+        "response": "correct",
+        "standard_subject": "ftp",
+        "standard_object": "個人資料",
+        "reason": "根據同義詞判定，'加密之 FTP' 與 'ftp' 可視為同義詞，'個人資料檔案' 與 '個人資料' 可視為同義詞，但根據廣義/狹義一律保留原則，不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加密之 FTP",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "個人資料檔案",
+        "type": "data"
+      },
+      "reasoning": "文本提到傳送電子檔案資料可透過加密之 FTP 進行，因此將加密之 FTP 視為應用程式(app)，它在使用/傳輸個人資料檔案(data)。",
+      "source_id": "chunk_41",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "備份策略",
+      "type": "policy",
+      "display_name": "資料備份策略"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料損壞",
+      "type": "risk",
+      "display_name": "資料毀損"
+    },
+    "reasoning": "文本描述組織規劃備份策略以應對系統問題導致的資料毀損，這符合政策(policy)緩解風險(risk)的邏輯。",
+    "source_id": "chunk_41",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資料備份策略 (policy) 是一種合理的政策實例，資料毀損 (risk) 是一種合理的風險實例，'mitigates' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 '資料備份策略'，類別為 'policy'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '資料備份策略' 屬於 'policy' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資料備份策略與備份策略為同義詞，資料毀損與資料損壞為同義詞",
+        "response": "duplicate",
+        "standard_subject": "備份策略",
+        "standard_object": "資料損壞",
+        "reason": "根據同義詞對照表與資安教材，資料備份策略與備份策略、資料毀損與資料損壞為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料備份策略",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料毀損",
+        "type": "risk"
+      },
+      "reasoning": "文本描述組織規劃備份策略以應對系統問題導致的資料毀損，這符合政策(policy)緩解風險(risk)的邏輯。",
+      "source_id": "chunk_41",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資料備份管理員",
+      "type": "securityTeam",
+      "display_name": "資料備份管理員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "備份策略",
+      "type": "policy",
+      "display_name": "資料備份策略"
+    },
+    "reasoning": "資料備份管理員屬於資安維運角色(securityTeam)，其執行(implements)組織所規劃的備份策略(policy)。",
+    "source_id": "chunk_41",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資料備份管理員 (securityTeam) 實施資料備份策略 (policy) 合理，符合實例與類別的對齊，且 'implements' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為 securityTeam，具有主動執行能力，符合 controls 的主體條件，但當前關係為 implements，不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係沒有明確違反語義限制清單中的任何規則，尤其是 implements 關係不在規則中被明確限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "資料備份策略與備份策略為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "備份策略",
+        "reason": "根據同義詞判定，資料備份策略與備份策略指稱同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料備份管理員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資料備份策略",
+        "type": "policy"
+      },
+      "reasoning": "資料備份管理員屬於資安維運角色(securityTeam)，其執行(implements)組織所規劃的備份策略(policy)。",
+      "source_id": "chunk_41",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "系統設定錯誤",
+      "type": "vulnerability",
+      "display_name": "系統問題"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料損壞",
+      "type": "risk",
+      "display_name": "資料毀損"
+    },
+    "reasoning": "文本提到『因系統問題導致資料毀損』，將系統問題視為一種漏洞/缺陷(vulnerability)，它可能導致(can_expose)資料毀損的風險(risk)。",
+    "source_id": "chunk_41",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "系統問題 (vulnerability) 可以合理地與 can_expose 關係連接到資料毀損 (risk)，因為系統問題可能導致資料毀損的風險。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但主體為 vulnerability，且關係為 can_expose，屬於特例允許。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 vulnerability，關係為 can_expose，符合規則3中的特例允許，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "系統問題與系統設定錯誤為同義詞，資料毀損與資料損壞為同義詞",
+        "response": "duplicate",
+        "standard_subject": "系統設定錯誤",
+        "standard_object": "資料損壞",
+        "reason": "根據同義詞對照表，系統問題與系統設定錯誤、資料毀損與資料損壞分別為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統問題",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "資料毀損",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『因系統問題導致資料毀損』，將系統問題視為一種漏洞/缺陷(vulnerability)，它可能導致(can_expose)資料毀損的風險(risk)。",
+      "source_id": "chunk_41",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "加密之 ftp",
+      "type": "tool",
+      "display_name": "加密之 FTP"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "文本提到使用加密之 FTP 來保護傳送的資料，將其視為工具(tool)用以緩解(mitigates)個資外洩風險(risk)。",
+    "source_id": "chunk_41",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "加密之 FTP 可被視為 'tool' 的實例，個資外洩可被視為 'risk' 的實例，且 'mitigates' 的關係在資安領域中是合理的，表示某工具可以減輕特定風險。",
+        "response": "correct",
+        "reason": "加密之 FTP 與個資外洩的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是加密之 FTP，類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體是加密之 FTP，類別為 tool，符合規則2的條件，且未發現其他明確違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加密之 FTP",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本提到使用加密之 FTP 來保護傳送的資料，將其視為工具(tool)用以緩解(mitigates)個資外洩風險(risk)。",
+      "source_id": "chunk_41",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "復原點目標 (rpo)",
+      "type": "policy",
+      "display_name": "復原點目標 (RPO)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料損壞",
+      "type": "risk",
+      "display_name": "資料毀損"
+    },
+    "reasoning": "RPO 是災害復原計畫中的一項指標/規範(policy)，其目的在於定義可接受的資料遺失量，從而緩解(mitigates)資料毀損(risk)對業務的影響。",
+    "source_id": "chunk_41",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "復原點目標 (RPO) 是 'policy' 的合理實例，資料毀損是 'risk' 的合理實例，'mitigates' 的語意也合理地描述了 'policy' 對 'risk' 的關係。",
+        "response": "correct",
+        "reason": "主體、關係、受體的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "該三元組的主體是 policy，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"資料毀損\" 與 Ldr 中的 \"資料損壞\" 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資料損壞",
+        "reason": "根據同義詞判定，資料毀損與資料損壞指稱同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "復原點目標 (RPO)",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料毀損",
+        "type": "risk"
+      },
+      "reasoning": "RPO 是災害復原計畫中的一項指標/規範(policy)，其目的在於定義可接受的資料遺失量，從而緩解(mitigates)資料毀損(risk)對業務的影響。",
+      "source_id": "chunk_41",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  }
+]

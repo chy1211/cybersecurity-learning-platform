@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "網路犯罪分子",
+      "type": "attacker",
+      "display_name": "網路犯罪分子"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "密碼攻擊",
+      "type": "attack",
+      "display_name": "密碼攻擊"
+    },
+    "reasoning": "文本提到網路犯罪分子經由猜測密碼來入侵，這對應到選項(B)密碼攻擊。攻擊者執行攻擊行為，符合 ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_33",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "網路犯罪分子是 attacker 的合理實例，密碼攻擊是 attack 的合理實例，且 'implements' 關係在資安領域中指的是攻擊者實施攻擊的行為，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "網路犯罪分子實施密碼攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊與同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：未違反，因為三元組中主體是網路犯罪分子（attacker），沒有同時具有安全團隊（securityTeam）的身分。檢查規則2：不適用，因為關係是implements，不是mitigates。檢查規則3：不適用，因為主體類別是attacker，不是vulnerability。檢查規則4：不適用，因為關係是implements，不是violates，且主體不是principle。檢查規則5：不適用，因為關係是implements，不是uses。檢查規則6：不適用，因為關係是implements，不是deployed_in。檢查規則7：不適用，因為關係是implements，不是generates。檢查規則8：不適用，因為關係是implements，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的網路犯罪分子（attacker）實施（implements）密碼攻擊（attack）沒有明確違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「網路犯罪分子」與 Ldr 中的「網路犯罪分子」完全匹配，受體「密碼攻擊」與 Ldr 中的「密碼攻擊」完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路犯罪分子",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "密碼攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到網路犯罪分子經由猜測密碼來入侵，這對應到選項(B)密碼攻擊。攻擊者執行攻擊行為，符合 ('attacker', 'implements', 'attack')。",
+      "source_id": "chunk_33",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "iot開發商",
+      "type": "securityTeam",
+      "display_name": "IoT開發商"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "安全程序",
+      "type": "policy",
+      "display_name": "安全認證"
+    },
+    "reasoning": "文本提到開發商應建立安全認證等措施。開發商在此扮演防禦/管理角色，安全認證屬於規範策略，符合 ('securityTeam', 'implements', 'policy')。",
+    "source_id": "chunk_33",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "IoT開發商 可以被視為 securityTeam 的合理實例，安全認證 可以被視為 policy 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不觸發，因為三元組中 IoT開發商 的類別是 securityTeam，沒有同時具有攻擊者(attacker)的身分。檢查規則2：不觸發，因為主體是 IoT開發商，類別是 securityTeam，不是 policy、technique 或 tool。檢查規則3：不觸發，因為主體類別是 securityTeam，不是 vulnerability。檢查規則4：不觸發，因為受體是安全認證，類別是 policy，不是 principle。檢查規則5：不觸發，因為關係是 implements，不是 uses。檢查規則6：不觸發，因為關係是 implements，不是 deployed_in。檢查規則7：不觸發，因為關係是 implements，不是 generates。檢查規則8：不觸發，因為關係是 implements，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的 IoT開發商 作為主體，與安全認證之間的 implements 關係，沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "安全認證與安全程序為同義詞，指稱同一概念",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "安全程序",
+        "reason": "根據資安領域已知同義詞對照範例，安全認證與安全程序可視為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IoT開發商",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "安全認證",
+        "type": "policy"
+      },
+      "reasoning": "文本提到開發商應建立安全認證等措施。開發商在此扮演防禦/管理角色，安全認證屬於規範策略，符合 ('securityTeam', 'implements', 'policy')。",
+      "source_id": "chunk_33",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼攻擊",
+      "type": "attack",
+      "display_name": "密碼攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "物聯網設備",
+      "type": "system",
+      "display_name": "物聯網設備"
+    },
+    "reasoning": "文本指出密碼攻擊可用於入侵網路或連到特定網路的設備（物聯網設備），攻擊會對系統造成損害，符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_33",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "密碼攻擊是 'attack' 的合理實例，物聯網設備是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是攻擊（attack），關係是 can_harm，受體是物聯網設備（system），這不涉及控制（controls）關係。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"密碼攻擊\" 與 Ldr 中的 \"密碼攻擊\" 完全相同，受體 \"物聯網設備\" 與 Ldr 中的 \"物聯網設備\" 完全相同，兩者皆無需標準化。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源完全相同，無需進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "物聯網設備",
+        "type": "system"
+      },
+      "reasoning": "文本指出密碼攻擊可用於入侵網路或連到特定網路的設備（物聯網設備），攻擊會對系統造成損害，符合 ('attack', 'can_harm', 'system')。",
+      "source_id": "chunk_33",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "安全認證",
+      "type": "policy",
+      "display_name": "安全認證"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "iot安全風險",
+      "type": "risk",
+      "display_name": "IoT安全風險"
+    },
+    "reasoning": "文本提到透過安全認證等措施來降低 IoT 的安全風險問題，符合 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_33",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全認證 (policy) 是一種合理的政策實例，IoT安全風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中是合理的，表示政策可以減輕風險。",
+        "response": "correct",
+        "reason": "主體、關係和受體都符合預先定義的類別和屬性清單，並且語意對齊，表示安全認證可以減輕 IoT 安全風險。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是安全認證（policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，根據驗證邏輯，該三元組被判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "IoT安全風險與安全風險之間存在狹義關係，因為IoT安全風險是安全風險的一個子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，IoT安全風險是安全風險的子類型，因此判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全認證",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "IoT安全風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到透過安全認證等措施來降低 IoT 的安全風險問題，符合 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_33",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "節點 n5",
+      "type": "system",
+      "display_name": "節點 N5"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "文本明確指出節點 N5 具備有向外連網能力，可與網際網路連結，符合 ('system', 'connects_to', 'system')。",
+    "source_id": "chunk_33",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'system' 和受體的類別 'system' 都存在於 Lc,p 的 'Classes' 中，關係 'connects_to' 也存在於 'Properties' 中。",
+        "step_2_alignment_check": "節點 N5 和網際網路都是 'system' 的合理實例，考慮到資安領域的同義詞寬容原則，'節點' 可以被視為系統的一部分，'網際網路' 是一個系統的典型例子。",
+        "response": "correct",
+        "reason": "主體、關係和受體都符合預先定義的類別和屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 connects_to，不是 deployed_in。規則7：不適用，因為關係為 connects_to，不是 generates。規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體皆為 system 類別，且關係為 connects_to，未觸發任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網際網路與Ldr中的網際網路完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與Ldr中的某資源name字串完全相同，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "節點 N5",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "文本明確指出節點 N5 具備有向外連網能力，可與網際網路連結，符合 ('system', 'connects_to', 'system')。",
+      "source_id": "chunk_33",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "ssh",
+      "type": "tool",
+      "display_name": "SSH"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "加密"
+    },
+    "reasoning": "題目詢問哪種協定會在傳輸過程中將資料加密，答案為 SSH。將 SSH 視為提供安全功能的工具，加密為其功能，符合 ('tool', 'has_a', 'function')。",
+    "source_id": "chunk_33",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SSH 是一種工具（tool），加密是一種功能（function），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "SSH 與加密的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的項目。",
+        "response": "correct",
+        "reason": "三元組中的主體 'SSH' 是一種工具，關係 'has_a' 表示它具有某種特徵 '加密'，這符合一般的語義理解，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 SSH 與 Ldr 中的 ssh 完全等價同義詞，受體 加密 與 Ldr 中的 加密 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1，主體與受體名稱與 Ldr 中某資源的 name 字串完全相同或同義詞，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSH",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密",
+        "type": "function"
+      },
+      "reasoning": "題目詢問哪種協定會在傳輸過程中將資料加密，答案為 SSH。將 SSH 視為提供安全功能的工具，加密為其功能，符合 ('tool', 'has_a', 'function')。",
+      "source_id": "chunk_33",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "小明",
+      "type": "user",
+      "display_name": "小明"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "安全政策",
+      "type": "policy",
+      "display_name": "安全政策"
+    },
+    "reasoning": "文本提到小明須對防火牆訂定安全政策，使用者執行/設定政策，符合 ('user', 'implements', 'policy')。",
+    "source_id": "chunk_33",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '小明' 是 'user' 的合理實例，實體 '安全政策' 是 'policy' 的合理實例，考慮到同義詞寬容原則，'安全政策' 可以被視為 'policy' 的一個例子。",
+        "response": "correct",
+        "reason": "小明作為使用者實體實施安全政策的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中，小明（類別：user）實施（implements）安全政策（類別：policy），這不直接違反任何給定的規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係不直接違反語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"安全政策\" 與 Ldr 中的 \"安全政策\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "小明",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "安全政策",
+        "type": "policy"
+      },
+      "reasoning": "文本提到小明須對防火牆訂定安全政策，使用者執行/設定政策，符合 ('user', 'implements', 'policy')。",
+      "source_id": "chunk_33",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "小明",
+      "type": "user",
+      "display_name": "小明"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "ftp 服務",
+      "type": "app",
+      "display_name": "FTP 服務"
+    },
+    "reasoning": "文本提到小明想存取 FTP 服務，使用者使用應用程式，符合 ('user', 'uses', 'app')。",
+    "source_id": "chunk_33",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "小明 是 'user' 的合理實例，FTP 服務 是 'app' 的合理實例，關係 'uses' 在此語境下合理。",
+        "response": "correct",
+        "reason": "小明 使用 FTP 服務 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體類別為 'user'，不違反此規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 'user'，關係為 'uses'，受體為 'FTP 服務'，不觸發語義限制清單中的任何違規規則。因此，該三元組合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 'FTP 服務' 與 Ldr 中的 'ftp' 和 'ftp伺服器' 皆指涉檔案傳輸協定服務，具有高度相似性，但 'ftp' 和 'ftp伺服器' 分別是 'FTP 服務' 的不同表達形式，且 'ftp' 的 similarity_score 較高，故判定 'ftp' 為最相似候選。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，'FTP 服務' 與 'ftp' 和 'ftp伺服器' 皆指涉檔案傳輸協定服務，但無法完全確定為同義詞重複，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "小明",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "FTP 服務",
+        "type": "app"
+      },
+      "reasoning": "文本提到小明想存取 FTP 服務，使用者使用應用程式，符合 ('user', 'uses', 'app')。",
+      "source_id": "chunk_33",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "家中電腦",
+      "type": "system",
+      "display_name": "家中電腦"
+    },
+    "reasoning": "文本提到防火牆是用來管理家中電腦連線的，工具控制/管理系統，符合 ('tool', 'controls', 'system')。",
+    "source_id": "chunk_33",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "防火牆 (tool) 與 家中電腦 (system) 的名稱與其類別合理對齊，且 'controls' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "防火牆作為一種工具，控制家中電腦的安全是合理的，且所有元素都符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 tool，具有主動執行能力，符合規則。",
+        "response": "correct",
+        "reason": "三元組中的主體是防火牆（tool），關係是控制（controls），受體是家中電腦（system），符合規則8的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「防火牆」與 Ldr 中的「防火牆」完全相同，受體「家中電腦」與 Ldr 中的「個人電腦」相似，但不完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體「防火牆」與 Ldr 中的「防火牆」完全相同，且受體「家中電腦」與 Ldr 中的「個人電腦」不完全相同，無法判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "家中電腦",
+        "type": "system"
+      },
+      "reasoning": "文本提到防火牆是用來管理家中電腦連線的，工具控制/管理系統，符合 ('tool', 'controls', 'system')。",
+      "source_id": "chunk_33",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

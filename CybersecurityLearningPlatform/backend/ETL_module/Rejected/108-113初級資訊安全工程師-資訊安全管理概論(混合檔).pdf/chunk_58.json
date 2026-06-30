@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到滲透測試服務驗證修補，滲透測試是一種透過模擬攻擊來分析並驗證弱點的技術。符合 Schema: ('technique', 'can_analyze', 'vulnerability')。",
+    "source_id": "chunk_58",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "滲透測試 (technique) 可以分析弱點 (vulnerability)，這是資安領域中常見的實例關係，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "滲透測試與弱點之間的 'can_analyze' 關係完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係是can_analyze，而不是mitigates。規則3觸發，因為主體的類別是technique，但受體的類別是vulnerability，且關係是can_analyze，違反了規則3中關於vulnerability不可發起主動行為的原則。規則4、5、6、7、8不適用，因為三元組中的關係和類別不符合這些規則的條件。",
+        "response": "violation",
+        "reason": "三元組違反了規則3，因為vulnerability作為主體的類別，原則上不可發起主動行為，如can_analyze。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組違反了規則3，因為vulnerability作為主體的類別，原則上不可發起主動行為，如can_analyze。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到滲透測試服務驗證修補，滲透測試是一種透過模擬攻擊來分析並驗證弱點的技術。符合 Schema: ('technique', 'can_analyze', 'vulnerability')。",
+      "source_id": "chunk_58",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  }
+]

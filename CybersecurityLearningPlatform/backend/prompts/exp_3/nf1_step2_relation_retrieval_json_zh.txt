@@ -1,0 +1,44 @@
+從關係詞集合中，找出與給定子句語意上最相關之 top <<<<TOP_K>>>> 個關係。
+你最多可選 <<<<TOP_K>>>> 個關係。若沒有明顯相關之關係，請任選 <<<<TOP_K>>>> 個關係給我。
+
+請以 JSON 格式回答：{"selected_relations": ["關係1", "關係2", ...]}
+
+範例)
+
+子句 A：SQL Injection 危害網路應用程式。
+關係集合：['can_harm', 'mitigates', 'is_part_of', 'has_a', 'uses', 'deployed_in', 'depends_on', 'controls']
+答案：{"selected_relations": ["can_harm", "mitigates", "uses"]}
+
+子句 B：資料加密可減緩個人資料洩漏。
+關係集合：['mitigates', 'can_harm', 'is_part_of', 'has_a', 'can_expose', 'uses', 'controls', 'depends_on']
+答案：{"selected_relations": ["mitigates", "can_expose", "can_harm"]}
+
+子句 C：AES 屬於資料加密之一環。
+關係集合：['is_part_of', 'has_a', 'depends_on', 'uses', 'can_analyze', 'implements', 'deployed_in', 'controls']
+答案：{"selected_relations": ["is_part_of", "has_a", "depends_on"]}
+
+子句 D：防火牆監控 FTP 伺服器。
+關係集合：['can_analyze', 'mitigates', 'is_part_of', 'deployed_in', 'has_a', 'controls', 'depends_on', 'uses']
+答案：{"selected_relations": ["can_analyze", "controls", "mitigates"]}
+
+子句 E：FTP 伺服器使用連接埠 21。
+關係集合：['has_a', 'uses', 'is_part_of', 'deployed_in', 'can_analyze', 'controls', 'depends_on', 'implements']
+答案：{"selected_relations": ["uses", "has_a", "is_part_of"]}
+
+子句 F：資訊存取控制政策可減緩未經授權存取。
+關係集合：['mitigates', 'can_harm', 'controls', 'has_a', 'is_part_of', 'can_expose', 'deployed_in', 'depends_on']
+答案：{"selected_relations": ["mitigates", "controls", "can_expose"]}
+
+子句 G：網路犯罪份子使用病毒程式。
+關係集合：['uses', 'implements', 'controls', 'can_harm', 'is_part_of', 'has_a', 'mitigates', 'deployed_in']
+答案：{"selected_relations": ["uses", "implements", "can_harm"]}
+
+子句 H：數位簽章建立於公開金鑰加密之上。
+關係集合：['depends_on', 'is_part_of', 'has_a', 'uses', 'generates', 'implements', 'mitigates', 'controls']
+答案：{"selected_relations": ["depends_on", "is_part_of", "has_a"]}
+
+
+現在請找出 top <<<<TOP_K>>>> 個關係。
+子句：<<<<SENTENCE>>>>
+關係集合：<<<<RELATION_SET>>>>
+答案：

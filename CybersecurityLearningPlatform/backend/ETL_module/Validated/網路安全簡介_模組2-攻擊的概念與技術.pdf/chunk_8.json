@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "字典攻擊",
+      "type": "attack",
+      "display_name": "字典攻擊"
+    },
+    "reasoning": "文本提到駭客有系統地嘗試字典中的單字來測試帳戶，這屬於攻擊者執行特定的攻擊行為，符合 ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別對應到 Lc,p 的 'Classes' 中的 'attacker'、'attack' 和 'Properties' 中的 'implements'，因此皆在 Lc,p 中。",
+        "step_2_alignment_check": "駭客 (attacker) 實施 (implements) 字典攻擊 (attack) 是語意上合理的，因為駭客可能會使用字典攻擊作為其攻擊手段，符合資安領域的常見實踐和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未觸發，因為駭客不具有安全團隊的身分。規則2：不適用，因為動作不是 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為關係不是 violates 且 principle 不在主體位置。規則5：不適用，因為關係不是 uses。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。由於 implements 動作涉及主體（駭客）對受體（字典攻擊）的實施，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的駭客實施字典攻擊的動作，沒有違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "駭客與有組織的駭客、網路攻擊者之間存在廣義/狹義從屬關係，但與字典攻擊無直接關聯",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "駭客與字典攻擊之間不存在同義詞或直接從屬關係，故判定為正確無需合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "字典攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到駭客有系統地嘗試字典中的單字來測試帳戶，這屬於攻擊者執行特定的攻擊行為，符合 ('attacker', 'implements', 'attack')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "暴力攻擊",
+      "type": "attack",
+      "display_name": "暴力攻擊"
+    },
+    "reasoning": "文本描述攻擊者在密碼空間中使用所有可能組合直到獲得結果，這是執行暴力攻擊的過程，符合 ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 實施 (implements) 暴力攻擊 (attack) 是語意上合理的，攻擊者可以實施攻擊，且 'attacker' 和 'attack' 的名稱與其類別對齊。",
+        "response": "correct",
+        "reason": "攻擊者實施暴力攻擊的三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：未違反，因為三元組中沒有同時具有攻擊者與安全團隊的身分。檢查規則2：不適用，因為動作不是 mitigates。檢查規則3：不適用，因為主體類別不是 vulnerability。檢查規則4：不適用，因為關係不是 violates 且主體不是 principle。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但需要注意的是，attacker 是具有主動執行能力的角色，實施攻擊行為在邏輯上是合理的。",
+        "response": "correct",
+        "reason": "三元組中的攻擊者實施暴力攻擊的行為在邏輯上是合理的，沒有明確違反任何一條語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全等價同義詞，受體 \"暴力攻擊\" 與 Ldr 中的 \"暴力攻擊\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "暴力攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本描述攻擊者在密碼空間中使用所有可能組合直到獲得結果，這是執行暴力攻擊的過程，符合 ('attacker', 'implements', 'attack')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "字典攻擊",
+      "type": "attack",
+      "display_name": "字典攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "受密碼保護的帳戶",
+      "type": "system",
+      "display_name": "受密碼保護的帳戶"
+    },
+    "reasoning": "字典攻擊的目的是測試並獲取帳戶存取權，對帳戶系統造成危害，符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "字典攻擊是 'attack' 的合理實例，受密碼保護的帳戶是 'system' 的合理實例，'can_harm' 的語意與攻擊對系統的影響相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，但需要注意 'can_harm' 關係是否符合主體的類別與受體的類別之間的語義關係。根據給定的三元組，'字典攻擊' (類別: attack) 可以對 '受密碼保護的帳戶' (類別: system) 造成傷害，因此這個關係在語義上是合理的。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係 'can_harm' 在語義上是合理的，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '字典攻擊' 與 Ldr 中的 '字典攻擊' 完全相同，受體 '受密碼保護的帳戶' 與 Ldr 中無直接對應關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 '字典攻擊' 與 Ldr 中的 '字典攻擊' 完全相同，無需標準化；受體 '受密碼保護的帳戶' 與 Ldr 中無直接對應關係，保留原狀。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "字典攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "受密碼保護的帳戶",
+        "type": "system"
+      },
+      "reasoning": "字典攻擊的目的是測試並獲取帳戶存取權，對帳戶系統造成危害，符合 ('attack', 'can_harm', 'system')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "暴力攻擊",
+      "type": "attack",
+      "display_name": "暴力攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "受密碼保護的網站",
+      "type": "app",
+      "display_name": "受密碼保護的網站"
+    },
+    "reasoning": "暴力攻擊被描述為訪問受密碼保護網站的方法，旨在破壞其安全性，符合 ('attack', 'can_harm', 'app')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '暴力攻擊' 是 'attack' 的合理實例，'受密碼保護的網站' 是 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的定義，且實體名稱與其類別語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_harm，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（暴力攻擊 can_harm 受密碼保護的網站）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "暴力攻擊是攻擊的一種子類型，與Ldr中的\"攻擊\"、\"惡意攻擊\"、\"暴力密碼攻擊\"等相關，但不完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，暴力攻擊是攻擊的一種子類型，判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "暴力攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "受密碼保護的網站",
+        "type": "app"
+      },
+      "reasoning": "暴力攻擊被描述為訪問受密碼保護網站的方法，旨在破壞其安全性，符合 ('attack', 'can_harm', 'app')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "彩虹攻擊",
+      "type": "attack",
+      "display_name": "彩虹攻擊"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "彩虹表",
+      "type": "tool",
+      "display_name": "彩虹表"
+    },
+    "reasoning": "文本指出彩虹攻擊將雜湊值與儲存在彩虹表中的值進行比較，顯示該攻擊依賴於彩虹表這個工具，符合 ('attack', 'depends_on', 'tool')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "彩虹攻擊 (attack) 和 彩虹表 (tool) 的名稱與其被賦予的類別合理對齊，彩虹攻擊是一種攻擊手法，彩虹表是一種工具，且 'depends_on' 關係在資安領域中是合理的，因為攻擊手法可能依賴特定的工具。",
+        "response": "correct",
+        "reason": "彩虹攻擊與彩虹表的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體 '彩虹攻擊' 的類別是 'attack'，受體 '彩虹表' 的類別是 'tool'，關係 'depends_on' 不在規則中明確限制的範圍內，無法直接判定違規。",
+        "response": "correct",
+        "reason": "三元組中，'彩虹攻擊' 依賴 '彩虹表' 這一關係，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "彩虹攻擊與攻擊之間存在廣義/狹義從屬關係，彩虹攻擊是攻擊的一種特定類型；彩虹表與工具之間的關係不在給定的資源清單中，但彩虹表可以被視為工具的一種實現或方法，尤其是在資安領域中",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，判定彩虹攻擊與攻擊之間的關係為正確的從屬關係，不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "彩虹攻擊",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "彩虹表",
+        "type": "tool"
+      },
+      "reasoning": "文本指出彩虹攻擊將雜湊值與儲存在彩虹表中的值進行比較，顯示該攻擊依賴於彩虹表這個工具，符合 ('attack', 'depends_on', 'tool')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "彩虹表",
+      "type": "tool",
+      "display_name": "彩虹表"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "雜湊值",
+      "type": "data",
+      "display_name": "雜湊值"
+    },
+    "reasoning": "彩虹表充當預先計算的雜湊值字典，用於分析並比對目標的雜湊值以還原密碼，符合 ('tool', 'can_analyze', 'data')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "主體 '彩虹表' 可被視為 'tool' 的合理實例，受體 '雜湊值' 可被視為 'data' 的合理實例，關係 'can_analyze' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "彩虹表作為一種工具，可以分析雜湊值，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而非 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則相關性後，發現規則中沒有直接限制 tool 類別的主體執行 can_analyze 動作對 data 類別的受體。",
+        "response": "correct",
+        "reason": "三元組中的主體（彩虹表）和受體（雜湊值）之間的關係（can_analyze）在給定的語義限制清單中沒有被明確限制或禁止，因此被視為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "彩虹表與雜湊值之間沒有直接的同義詞或從屬關係，彩虹表是一種工具，雜湊值是一種資料，兩者在資安領域中有不同的含義和用途。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，彩虹表和雜湊值之間沒有同義詞或從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "彩虹表",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "雜湊值",
+        "type": "data"
+      },
+      "reasoning": "彩虹表充當預先計算的雜湊值字典，用於分析並比對目標的雜湊值以還原密碼，符合 ('tool', 'can_analyze', 'data')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "流量攔截",
+      "type": "attack",
+      "display_name": "流量攔截"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "未加密的密碼",
+      "type": "data",
+      "display_name": "未加密的密碼"
+    },
+    "reasoning": "透過攔截通信讀取純文字或未加密的密碼，是對敏感資料的侵害，符合 ('attack', 'can_harm', 'data')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "流量攔截 (attack) 可能對未加密的密碼 (data) 造成傷害，符合語意對齊，且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_harm'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 沒有在給定的規則中被明確限制，且主體和受體的類別與關係之間沒有違反給定的語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆無完全等價同義詞，且無廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定同義詞或從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "流量攔截",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "未加密的密碼",
+        "type": "data"
+      },
+      "reasoning": "透過攔截通信讀取純文字或未加密的密碼，是對敏感資料的侵害，符合 ('attack', 'can_harm', 'data')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "進階持續性威脅",
+      "type": "attack",
+      "display_name": "進階持續性威脅"
+    },
+    "reasoning": "文本明確提到攻擊者透過進階持續性威脅 (APT) 實現滲透，符合 ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 實施 (implements) 進階持續性威脅 (attack) 的語意對齊是合理的，因為攻擊者可以實施攻擊手法或技術。",
+        "response": "correct",
+        "reason": "攻擊者實施進階持續性威脅的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。實際上，攻擊者（attacker）可以實施（implements）進階持續性威脅（attack），這在給定的規則中沒有明確的限制。",
+        "response": "correct",
+        "reason": "由於沒有發現明確且直接的違反項目，且攻擊者實施進階持續性威脅在給定的規則中沒有被明確限制，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞在 Ldr 中，但無需合併，因為它們代表不同的概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體無需合併，因為它們是不同的類別且無同義詞關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "進階持續性威脅",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到攻擊者透過進階持續性威脅 (APT) 實現滲透，符合 ('attacker', 'implements', 'attack')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "進階持續性威脅",
+      "type": "attack",
+      "display_name": "進階持續性威脅"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "組織",
+      "type": "system",
+      "display_name": "組織或國家"
+    },
+    "reasoning": "APT 是針對組織或國家的長期、隱密操作，旨在對這些大型基礎設施/系統造成損害或竊取資訊，符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "chunk_8",
+    "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "進階持續性威脅 (Advanced Persistent Threat, APT) 是 'attack' 的合理實例，組織或國家是 'system' 的合理實例，'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者(attacker)與安全團隊(securityTeam)的身分。檢查規則2：不適用，因為三元組中的關係是can_harm，不是mitigates。檢查規則3：不適用，因為主體類別是attack，不是vulnerability。檢查規則4：不適用，因為主體類別是attack，不是principle。檢查規則5：不適用，因為關係是can_harm，不是uses。檢查規則6：不適用，因為關係是can_harm，不是deployed_in。檢查規則7：不適用，因為關係是can_harm，不是generates。檢查規則8：不適用，因為關係是can_harm，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反任何一條語義限制規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "進階持續性威脅與威脅之間存在廣義/狹義從屬關係，組織或國家與組織之間存在完全等價同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "組織",
+        "reason": "根據判斷準則，實體之間的廣義/狹義從屬關係不進行合併，且組織或國家與組織之間的同義詞關係已在資安領域中被認可。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "進階持續性威脅",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "組織或國家",
+        "type": "system"
+      },
+      "reasoning": "APT 是針對組織或國家的長期、隱密操作，旨在對這些大型基礎設施/系統造成損害或竊取資訊，符合 ('attack', 'can_harm', 'system')。",
+      "source_id": "chunk_8",
+      "source_file": "網路安全簡介_模組2-攻擊的概念與技術.pdf",
+      "source_index": 9
+    }
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "subject": {
+      "name": "實體攻擊",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "IC卡攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本明確提到『IC卡攻擊：實體攻擊與邏輯攻擊』，因此實體攻擊是IC卡攻擊的一種，符合 (attack, is_part_of, attack) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "邏輯性攻擊",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "IC卡攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本明確提到『IC卡攻擊：實體攻擊與邏輯攻擊』，因此邏輯性攻擊是IC卡攻擊的一種，符合 (attack, is_part_of, attack) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "實體攻擊",
+      "type": "attack"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "微探針",
+      "type": "tool"
+    },
+    "reasoning": "文本提到實體攻擊『使用微探針或探測器進行探測』，表示該攻擊手段依賴於這些工具，符合 (attack, depends_on, tool) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "實體攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "處理器",
+      "type": "system"
+    },
+    "reasoning": "實體攻擊透過直接存取內部元件（如處理器）來進行干擾或操作，對該元件造成危害，將處理器視為微型系統，符合 (attack, can_harm, system) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "邏輯性攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "私密金鑰",
+      "type": "data"
+    },
+    "reasoning": "文本提到邏輯性攻擊可『推導出私密金鑰』，這導致了金鑰資料的洩露與損害，符合 (attack, can_harm, data) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "智慧卡",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "微處理器",
+      "type": "tool"
+    },
+    "reasoning": "文本提到『智慧卡內部具有微處理器』，微處理器是卡片內執行運算的工具，符合 (system, has_a, tool) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "微處理器",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "function"
+    },
+    "reasoning": "文本提到微處理器『可以實作加密或簽章演算法』，加密是該工具所能執行的功能，符合 (tool, has_a, function) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "智慧卡",
+      "type": "system"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "讀卡機",
+      "type": "system"
+    },
+    "reasoning": "文本提到『智慧卡與讀卡機之間需要相互認證』以及『卡片和讀卡機之間的溝通』，表示兩者之間存在網路/物理連線，符合 (system, connects_to, system) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "雙向認證程序",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "IC卡攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本提到使用安全認證程序（雙向認證）是為了『提升安全性』並確保彼此身分，旨在防禦未經授權的存取或攻擊，符合 (technique, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "資料存取控制",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權的資料存取",
+      "type": "attack"
+    },
+    "reasoning": "文本提到『為預防未經授權的資料存取...在實體或邏輯上均可強化保護機制』，將存取控制視為一種技術來緩解未經授權的攻擊行為，符合 (technique, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 10
+  }
+]

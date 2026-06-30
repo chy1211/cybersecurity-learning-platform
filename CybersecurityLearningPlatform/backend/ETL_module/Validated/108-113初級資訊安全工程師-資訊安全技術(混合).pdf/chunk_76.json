@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "linux",
+      "type": "system",
+      "display_name": "Linux"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "/etc/shadow",
+      "type": "data",
+      "display_name": "/etc/shadow"
+    },
+    "reasoning": "文本提到 Linux 作業系統中使用 /etc/shadow 檔案來儲存雜湊後的密碼。Linux 是基礎設施系統 (system)，/etc/shadow 是其產生的設定/記錄檔案 (data)，符合 (system, generates, data) 的 Schema。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Linux 是一個 'system'，/etc/shadow 是 'data'，而 'generates' 能夠描述 Linux 生成 /etc/shadow 的過程，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "Linux 生成 /etc/shadow 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組符合規則：當關係為generates時，受體的類別必須是data，三元組中的受體/etc/shadow的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的條件，且沒有違反其他規則。因此，三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Linux) 與 Ldr 中的 'linux' 完全等價同義詞，受體 (/etc/shadow) 與 Ldr 中的 '/etc/shadow' 完全匹配",
+        "response": "correct",
+        "standard_subject": "linux",
+        "standard_object": "/etc/shadow",
+        "reason": "主體與受體分別與 Ldr 中的資源完全匹配，無需合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Linux",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "/etc/shadow",
+        "type": "data"
+      },
+      "reasoning": "文本提到 Linux 作業系統中使用 /etc/shadow 檔案來儲存雜湊後的密碼。Linux 是基礎設施系統 (system)，/etc/shadow 是其產生的設定/記錄檔案 (data)，符合 (system, generates, data) 的 Schema。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "社交攻擊",
+      "type": "technique",
+      "display_name": "社交攻擊"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "reasoning": "文本將社交攻擊列為滲透測試的手段之一。兩者皆為達成目的的方法/流程 (technique)，符合 (technique, is_part_of, technique) 的 Schema。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "社交攻擊 (Social Engineering Attack) 是一種 'technique'，滲透測試 (Penetration Testing) 也是一種 'technique'，兩者之間的 'is_part_of' 關係在資安領域中是合理的，因為社交攻擊可以是滲透測試的一部分。",
+        "response": "correct",
+        "reason": "社交攻擊和滲透測試的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'is_part_of'，發現無直接相關規則限制此類別組合。",
+        "response": "correct",
+        "reason": "三元組中的主體 '社交攻擊' 和受體 '滲透測試' 之間的 'is_part_of' 關係，未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "社交攻擊與滲透測試之間沒有直接的同義詞關係或廣義/狹義從屬關係，兩者是不同的技術類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，社交攻擊和滲透測試不具有同義詞關係或從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "社交攻擊",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "reasoning": "文本將社交攻擊列為滲透測試的手段之一。兩者皆為達成目的的方法/流程 (technique)，符合 (technique, is_part_of, technique) 的 Schema。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "mimikatz",
+      "type": "tool",
+      "display_name": "Mimikatz"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "windows credentials",
+      "type": "data",
+      "display_name": "Windows credentials"
+    },
+    "reasoning": "文本指出 Mimikatz (原題 Minikatz) 用於攻擊或竊取 Windows 認證資訊。認證資訊屬於資料 (data)，Mimikatz 作為工具 (tool) 具有分析並提取這些資料的能力，符合 (tool, can_analyze, data) 的 Schema。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Mimikatz 是一種工具（tool），可以分析 Windows 認證資料（Windows credentials），這是工具與資料之間的合理關係。",
+        "response": "correct",
+        "reason": "Mimikatz 與 Windows credentials 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需要注意的是，'can_analyze' 關係中，主體 'Mimikatz' 的類別是 'tool'，這符合一般工具可以進行分析的邏輯，沒有明顯違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中，Mimikatz 作為一種工具，可以分析 Windows credentials，沒有違反語義限制清單中的任何規則。因此，根據無罪推定原則，該三元組被判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Mimikatz 與 /etc/shadow 不相關，Mimikatz 是一個工具，/etc/shadow 是一個資料檔案，兩者無同義詞關係，也無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，Mimikatz 和 Windows credentials 與現有近似資源清單中的 /etc/shadow 無同義詞或從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Mimikatz",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "Windows credentials",
+        "type": "data"
+      },
+      "reasoning": "文本指出 Mimikatz (原題 Minikatz) 用於攻擊或竊取 Windows 認證資訊。認證資訊屬於資料 (data)，Mimikatz 作為工具 (tool) 具有分析並提取這些資料的能力，符合 (tool, can_analyze, data) 的 Schema。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼破解",
+      "type": "technique",
+      "display_name": "密碼破解"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "reasoning": "文本將密碼破解列為滲透測試的手段之一。兩者皆為方法/流程 (technique)，符合 (technique, is_part_of, technique) 的 Schema。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "密碼破解和滲透測試都是資安領域中 technique 的合理實例，且 'is_part_of' 關係在此語境下合理，因為密碼破解可以是滲透測試的一部分。",
+        "response": "correct",
+        "reason": "密碼破解和滲透測試的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關。由於三元組中的關係 'is_part_of' 不在任何規則中被明確限制，且主體和受體的類別（technique）在給定的規則中沒有被直接限制與 'is_part_of' 關係相關的內容。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "滲透測試是實體對齊的完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼破解",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "reasoning": "文本將密碼破解列為滲透測試的手段之一。兩者皆為方法/流程 (technique)，符合 (technique, is_part_of, technique) 的 Schema。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "弱點掃描",
+      "type": "technique",
+      "display_name": "弱點掃描"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "reasoning": "文本將弱點掃描列為滲透測試的手段之一。兩者皆為方法/流程 (technique)，符合 (technique, is_part_of, technique) 的 Schema。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "弱點掃描與滲透測試都是資安領域中 technique 的合理實例，且 'is_part_of' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有被明確限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在給定的規則中被明確限制，且主體和受體的類別與關係之間沒有直接的違反規則的關聯。"
+      },
+      "step_2": {
+        "granularity_analysis": "滲透測試與弱點掃描在資安領域中是相關但不同的概念，滲透測試是一種測試系統安全性的方法，弱點掃描則是用於發現系統中的弱點，兩者在某些情況下可能重疊，但不是完全等價的同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體在資安教材中可互換使用的標準不完全適用於這兩個術語，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "弱點掃描",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "reasoning": "文本將弱點掃描列為滲透測試的手段之一。兩者皆為方法/流程 (technique)，符合 (technique, is_part_of, technique) 的 Schema。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "中國菜刀 (china chopper)",
+      "type": "tool",
+      "display_name": "中國菜刀 (China Chopper)"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "reasoning": "文本描述中國菜刀透過插入木馬獲取 webshell，最終達到控制伺服器的目的。中國菜刀是工具 (tool)，伺服器是系統 (system)，符合 (tool, controls, system) 的 Schema。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "中國菜刀 (China Chopper) 是一種工具 (tool)，伺服器 (server) 是一種系統 (system)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "中國菜刀 (China Chopper) 控制伺服器的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體（中國菜刀）是工具，符合規則8的條件，表示合法。",
+        "response": "correct",
+        "reason": "中國菜刀（China Chopper）作為工具，控制伺服器的動作符合規則8的允許條件，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"伺服器\" 與 Ldr 中的 \"伺服器\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "伺服器",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "中國菜刀 (China Chopper)",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本描述中國菜刀透過插入木馬獲取 webshell，最終達到控制伺服器的目的。中國菜刀是工具 (tool)，伺服器是系統 (system)，符合 (tool, controls, system) 的 Schema。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "中國菜刀 (china chopper)",
+      "type": "tool",
+      "display_name": "中國菜刀 (China Chopper)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "webshell",
+      "type": "tool",
+      "display_name": "webshell"
+    },
+    "reasoning": "文本提到中國菜刀的手法是為了獲取 webshell。webshell 本身也是一種用於控制系統的工具 (tool)，此處描述工具的功能組成，符合 (tool, has_a, tool) 的 Schema。",
+    "source_id": "chunk_76",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "中國菜刀 (China Chopper) 是一種工具 (tool)，webshell 也是一種工具 (tool)，因此名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "中國菜刀 (China Chopper) 與 webshell 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別不是 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls，但需要注意 has_a 關係的合法性。根據給定的三元組，中國菜刀 (China Chopper) 是一種工具 (tool)，它具有 webshell，這在資安知識圖譜中是一種合理的關聯，因為 webshell 可以被視為工具的一部分或是工具的產物。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係 has_a 在給定的語義限制清單中沒有明確的違反規則，且根據無罪推定原則，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "中國菜刀 (China Chopper) 與 webshell 均為工具類別，但非完全等價同義詞，中國菜刀 (China Chopper) 是一種特定工具，webshell 也是特定工具，兩者在資安領域中指稱不同概念，但都屬於工具類別",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，中國菜刀 (China Chopper) 與 webshell 皆為工具類別，但非同義詞，且無從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "中國菜刀 (China Chopper)",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "webshell",
+        "type": "tool"
+      },
+      "reasoning": "文本提到中國菜刀的手法是為了獲取 webshell。webshell 本身也是一種用於控制系統的工具 (tool)，此處描述工具的功能組成，符合 (tool, has_a, tool) 的 Schema。",
+      "source_id": "chunk_76",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  }
+]

@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "個人電腦",
+      "type": "system",
+      "display_name": "個人電腦"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "代理伺服器",
+      "type": "tool",
+      "display_name": "代理伺服器"
+    },
+    "reasoning": "文本描述個人電腦（客戶端）將封包送至代理伺服器，這是一種網路連線行為。根據 Schema，('system', 'connects_to', 'system') 是合法的。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "個人電腦與代理伺服器皆為 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "個人電腦與代理伺服器之間的 'connects_to' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'connects_to'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'connects_to'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'connects_to'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'connects_to'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係 'connects_to' 沒有在語義限制清單中被明確限制或定義，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "個人電腦與 Ldr 中的個人電腦完全匹配，代理伺服器與 Ldr 中的代理伺服器完全匹配，兩者之間沒有同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "個人電腦和代理伺服器在 Ldr 中均有完全匹配的名稱，且無同義詞或從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人電腦",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "代理伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本描述個人電腦（客戶端）將封包送至代理伺服器，這是一種網路連線行為。根據 Schema，('system', 'connects_to', 'system') 是合法的。",
+      "source_id": "chunk_4",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "代理伺服器",
+      "type": "tool",
+      "display_name": "代理伺服器"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "文本提到代理伺服器將資料傳送至外部伺服器（位於網際網路），代表代理伺服器與網際網路之間有連線。根據 Schema，('system', 'connects_to', 'system') 是合法的。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "代理伺服器與網際網路皆為 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "代理伺服器與網際網路之間的 'connects_to' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為主體類別不是 data。檢查規則6：無關，因為關係不是 deployed_in。檢查規則7：無關，因為關係不是 generates。檢查規則8：無關，因為關係不是 controls。檢查規則9：無規則9，檢查完成。",
+        "response": "correct",
+        "reason": "三元組中的主體（代理伺服器）與受體（網際網路）通過 connects_to 關係連接，未觸發語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體為代理伺服器，受體為網際網路，兩者皆在 Ldr 中找到完全匹配的資源，且無同義詞重複關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "代理伺服器",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到代理伺服器將資料傳送至外部伺服器（位於網際網路），代表代理伺服器與網際網路之間有連線。根據 Schema，('system', 'connects_to', 'system') 是合法的。",
+      "source_id": "chunk_4",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "代理伺服器",
+      "type": "tool",
+      "display_name": "代理伺服器"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "封包",
+      "type": "data",
+      "display_name": "封包"
+    },
+    "reasoning": "文本提到代理伺服器接收並傳送封包，封包屬於網路傳輸的資料實體。根據 Schema，('system', 'uses', 'data') 是合法的。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "代理伺服器 (system) 使用封包 (data) 是語意上合理的，代理伺服器可以使用封包進行資料傳輸。",
+        "response": "correct",
+        "reason": "代理伺服器使用封包的三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，待檢查三元組的主體是代理伺服器（類別：tool），而非data，因此不觸發規則5的違規條件。其他規則中，規則2、3、4、6、7、8與本案例無直接關聯，因為它們所描述的情況不符合待檢查三元組的內容。規則1也不適用，因為代理伺服器不具有攻擊者或安全團隊的身分。規則8提到當關係為controls時，主體必須是具有主動執行能力的角色或工具，但待檢查三元組的關係是uses，故不適用此規則。",
+        "response": "correct",
+        "reason": "由於待檢查三元組不觸發語義限制清單中任何規則的違規條件，且主體和關係符合一般的語義期待，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全匹配的實體名稱於 Ldr 中",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中的 name 完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "代理伺服器",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "封包",
+        "type": "data"
+      },
+      "reasoning": "文本提到代理伺服器接收並傳送封包，封包屬於網路傳輸的資料實體。根據 Schema，('system', 'uses', 'data') 是合法的。",
+      "source_id": "chunk_4",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "瀏覽器",
+      "type": "app",
+      "display_name": "IE 瀏覽器"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "代理伺服器",
+      "type": "tool",
+      "display_name": "代理伺服器"
+    },
+    "reasoning": "文本描述在 IE 瀏覽器中設定代理伺服器位址以存取資料，這表示應用程式透過設定連接至代理伺服器。根據 Schema，('app', 'connects_to', 'system') 是合法的。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'connects_to' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "IE 瀏覽器 是 'app' 的合理實例，代理伺服器 是 'system' 的合理實例，且 'connects_to' 能夠描述瀏覽器與伺服器之間的連接關係。",
+        "response": "correct",
+        "reason": "IE 瀏覽器與代理伺服器之間的 'connects_to' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為關係為 connects_to，不是 uses。規則6：不適用，因為關係為 connects_to，不是 deployed_in。規則7：不適用，因為關係為 connects_to，不是 generates。規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（IE 瀏覽器）和受體（代理伺服器）之間的關係（connects_to）沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "IE 瀏覽器與瀏覽器為同義詞，代理伺服器為完全匹配",
+        "response": "correct",
+        "standard_subject": "瀏覽器",
+        "standard_object": "代理伺服器",
+        "reason": "根據同義詞判定，IE 瀏覽器與瀏覽器為同義詞，代理伺服器為完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IE 瀏覽器",
+        "type": "app"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "代理伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本描述在 IE 瀏覽器中設定代理伺服器位址以存取資料，這表示應用程式透過設定連接至代理伺服器。根據 Schema，('app', 'connects_to', 'system') 是合法的。",
+      "source_id": "chunk_4",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "瀏覽器",
+      "type": "app",
+      "display_name": "IE 瀏覽器"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "個人電腦",
+      "type": "system",
+      "display_name": "個人電腦"
+    },
+    "reasoning": "瀏覽器是安裝在個人電腦（系統）上的應用程式。根據 Schema，('app', 'is_part_of', 'system') 是合法的。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "IE 瀏覽器 可被視為 'app' 的實例，個人電腦 可被視為 'system' 的實例，且 'is_part_of' 關係在語意上合理。",
+        "response": "correct",
+        "reason": "IE 瀏覽器 與 個人電腦 的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：當關係為 deployed_in 時，受體的類別必須是 system，但此三元組的關係是 is_part_of，不觸發此規則。檢查規則7：不適用。檢查規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與規則6 中的 deployed_in 不符，且其他規則均不適用，無法觸發任何違規條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "IE 瀏覽器與瀏覽器為同義詞，個人電腦為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "瀏覽器",
+        "standard_object": "個人電腦",
+        "reason": "根據同義詞判定，IE 瀏覽器與瀏覽器為同義詞，個人電腦為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IE 瀏覽器",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "個人電腦",
+        "type": "system"
+      },
+      "reasoning": "瀏覽器是安裝在個人電腦（系統）上的應用程式。根據 Schema，('app', 'is_part_of', 'system') 是合法的。",
+      "source_id": "chunk_4",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "nat",
+      "type": "function",
+      "display_name": "NAT"
+    },
+    "reasoning": "文本明確指出「大部分防火牆皆有建置 NAT 功能」，NAT 在此被定義為防火牆的一項功能。根據 Schema，('tool', 'has_a', 'function') 是合法的。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防火牆 (tool) 和 NAT (function) 的名稱與其類別合理對齊，防火牆是一種工具，NAT是一種功能。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組（防火牆 has_a NAT）不觸發語義限制清單中的任何規則，且無法直接與任何規則相違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "防火牆與網路防火牆為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，防火牆與網路防火牆為同義詞，但根據【廣義/狹義一律保留】原則，不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "NAT",
+        "type": "function"
+      },
+      "reasoning": "文本明確指出「大部分防火牆皆有建置 NAT 功能」，NAT 在此被定義為防火牆的一項功能。根據 Schema，('tool', 'has_a', 'function') 是合法的。",
+      "source_id": "chunk_4",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "企業內部網路",
+      "type": "system",
+      "display_name": "企業內部網路"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "代理伺服器",
+      "type": "tool",
+      "display_name": "代理伺服器"
+    },
+    "reasoning": "代理伺服器被部署在企業內部網路中，作為該網路環境的一部分。根據 Schema，('system', 'has_a', 'system') 是合法的。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "企業內部網路與代理伺服器的名稱與其類別 'system' 合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "企業內部網路與代理伺服器的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則，發現沒有直接觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係 'has_a' 沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "企業內部網路與企業網路之間存在相似性，但非完全等價同義詞；代理伺服器為完全匹配的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "企業內部網路與企業網路之間的關係為廣義/狹義從屬，且代理伺服器為完全匹配的同義詞，但根據判斷準則，廣義/狹義一律保留，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "企業內部網路",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "代理伺服器",
+        "type": "system"
+      },
+      "reasoning": "代理伺服器被部署在企業內部網路中，作為該網路環境的一部分。根據 Schema，('system', 'has_a', 'system') 是合法的。",
+      "source_id": "chunk_4",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "nat",
+      "type": "function",
+      "display_name": "NAT"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ip 位址",
+      "type": "feature",
+      "display_name": "IP 位址"
+    },
+    "reasoning": "NAT 功能涉及對內外 IP 位址的轉換與管理，IP 位址是網路系統的組成屬性（特徵）。根據 Schema，('function', 'has_a', 'feature') 是合法的。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "NAT 是 'function' 的合理實例，IP 位址是 'feature' 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為 NAT 函數可以具有或操作 IP 位址。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關，因為三元組中的關係 'has_a' 不在任何規則中被明確限制。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "NAT 是一個功能，與 IP 位址無直接同義詞關係，但兩者在網路安全中相關聯，NAT 可以修改 IP 位址以實現網路地址轉換",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，NAT 和 IP 位址之間沒有直接的同義詞關係，且 NAT 是一個功能，IP 位址是一個特徵，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "NAT",
+        "type": "function"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "IP 位址",
+        "type": "feature"
+      },
+      "reasoning": "NAT 功能涉及對內外 IP 位址的轉換與管理，IP 位址是網路系統的組成屬性（特徵）。根據 Schema，('function', 'has_a', 'feature') 是合法的。",
+      "source_id": "chunk_4",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "代理伺服器",
+      "type": "tool",
+      "display_name": "代理伺服器"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本提到代理伺服器將資料傳送至外部伺服器並轉送給客戶端，涉及對資料的處理。根據 Schema，('system', 'uses', 'data') 是合法的。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "代理伺服器 (proxy server) 是系統 (system) 的合理實例，資料 (data) 是資料 (data) 的直接對齊，關係 'uses' 在資安領域中描述系統使用資料的場景是合理的。",
+        "response": "correct",
+        "reason": "代理伺服器使用資料的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，給定的三元組中，主體是代理伺服器（類別：tool），關係是uses，受體是資料（類別：data）。因此，根據規則5，當主體不是data而是tool時，使用uses關係指向data是合法的。",
+        "response": "correct",
+        "reason": "三元組中的主體是代理伺服器（tool），使用uses關係指向資料（data），符合規則5的允許條件，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "代理伺服器與資料分別為 tool 和 data 類別，無直接同義詞關係，代理伺服器與防火牆同屬 tool 類別，但與資料無直接從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "代理伺服器和資料無同義詞關係，且無廣義/狹義從屬關係，依據規則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "代理伺服器",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到代理伺服器將資料傳送至外部伺服器並轉送給客戶端，涉及對資料的處理。根據 Schema，('system', 'uses', 'data') 是合法的。",
+      "source_id": "chunk_4",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

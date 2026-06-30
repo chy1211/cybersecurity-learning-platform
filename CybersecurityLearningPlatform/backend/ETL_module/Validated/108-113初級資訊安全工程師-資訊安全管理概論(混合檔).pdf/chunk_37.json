@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "主管機關",
+      "type": "securityTeam",
+      "display_name": "主管機關"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "第二方稽核",
+      "type": "technique",
+      "display_name": "第二方稽核"
+    },
+    "reasoning": "文本提到主管機關對所屬機構執行之稽核稱為第二方稽核。主管機關在此扮演監督防禦的角色 (securityTeam)，而第二方稽核是一種稽核方法 (technique)，因此使用 'uses' 關係。",
+    "source_id": "chunk_37",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主管機關是安全團隊（securityTeam）的合理實例，第二方稽核是技術（technique）的合理實例。",
+        "response": "correct",
+        "reason": "主體、關係、受體皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中主體是主管機關（securityTeam），沒有同時具有攻擊者（attacker）的身分。規則2：不適用，因為關係是uses，不是mitigates。規則3：不適用，因為主體類別是securityTeam，不是vulnerability。規則4：不適用，因為主體是securityTeam，不是principle。規則5：觸發，因為關係是uses，且主體的類別是securityTeam，不是data。規則6：不適用，因為關係不是deployed_in。規則7：不適用，因為關係不是generates。規則8：不適用，因為關係是uses，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（主管機關）使用第二方稽核（technique）不違反任何語義限制規則，尤其是規則5中提到的data相關限制不適用於securityTeam類別。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 \"權責主管\" 和 \"中央目的事業主管機關\" 皆為 securityTeam 類別，但非完全等價同義詞；受體 \"第二方稽核\" 與 Ldr 中的 \"稽核\" 類別相似，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體和受體與 Ldr 中資源的完全等價同義詞關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "主管機關",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "第二方稽核",
+        "type": "technique"
+      },
+      "reasoning": "文本提到主管機關對所屬機構執行之稽核稱為第二方稽核。主管機關在此扮演監督防禦的角色 (securityTeam)，而第二方稽核是一種稽核方法 (technique)，因此使用 'uses' 關係。",
+      "source_id": "chunk_37",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "第三方稽核",
+      "type": "technique",
+      "display_name": "第三方稽核"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本指出第三方稽核可用於 ISO 27001 通過驗證。要發出證書，稽核技術 (technique) 必須對被稽核的基礎設施或環境 (system) 進行分析，符合 'technique' can_analyze 'system' 的 Schema。",
+    "source_id": "chunk_37",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "第三方稽核 (technique) 可以分析系統 (system)，這符合資安領域的常見實踐與語意對齊，接受同義詞寬容原則後仍然合理。",
+        "response": "correct",
+        "reason": "第三方稽核與系統的關係 'can_analyze' 符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為動作是can_analyze而非mitigates。規則3不適用，因為主體類別是technique而非vulnerability。規則4不適用，因為關係不是violates且主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（第三方稽核）與受體（系統）之間的關係（can_analyze）在給定的語義限制清單中沒有被明確禁止或限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "第三方稽核與稽核之間的關係是同義詞重複，系統是完全等價的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "第三方稽核與系統分別與現有近似資源清單中的稽核和系統為同義詞或完全等價，但根據判斷準則，廣義/狹義一律保留，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "第三方稽核",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本指出第三方稽核可用於 ISO 27001 通過驗證。要發出證書，稽核技術 (technique) 必須對被稽核的基礎設施或環境 (system) 進行分析，符合 'technique' can_analyze 'system' 的 Schema。",
+      "source_id": "chunk_37",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "著作權",
+      "type": "policy",
+      "display_name": "著作權"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "非授權複製與使用",
+      "type": "risk",
+      "display_name": "非授權複製與使用"
+    },
+    "reasoning": "文本提到著作權是為了保護權益，使其『不被非授權複製與使用』。著作權是一種法律規範 (policy)，而『非授權複製與使用』是一種負面後果 (risk)，因此使用 'mitigates' 關係。",
+    "source_id": "chunk_37",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "著作權是 policy 的合理實例，非授權複製與使用是 risk 的合理實例，且 'mitigates' 的語意與著作權對非授權複製與使用的減輕作用相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '著作權' 類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '著作權' 類別為 policy，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "著作權與現有近似資源清單中的著作權完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "著作權",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "非授權複製與使用",
+        "type": "risk"
+      },
+      "reasoning": "文本提到著作權是為了保護權益，使其『不被非授權複製與使用』。著作權是一種法律規範 (policy)，而『非授權複製與使用』是一種負面後果 (risk)，因此使用 'mitigates' 關係。",
+      "source_id": "chunk_37",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "營業秘密保密措施",
+      "type": "policy",
+      "display_name": "營業秘密保密措施"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊外洩",
+      "type": "risk",
+      "display_name": "資訊外洩"
+    },
+    "reasoning": "文本提到營業秘密需要『採取保密措施』以維持其不為公眾所知。保密措施屬於管理策略 (policy)，旨在緩解資訊外洩的風險 (risk)。",
+    "source_id": "chunk_37",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "營業秘密保密措施 是 policy 的合理實例，資訊外洩 是 risk 的合理實例，且 'mitigates' 是描述 policy 對 risk 的關係的合理屬性。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '營業秘密保密措施'，類別為 'policy'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '營業秘密保密措施' 屬於 'policy' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 '保密措施' 實體具有高相似度，受體 '資訊外洩' 與 Ldr 中的 '資訊外洩' 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的 '保密措施' 實體具有高相似度，但不完全匹配；受體 '資訊外洩' 與 Ldr 中的 '資訊外洩' 完全匹配，故無需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "營業秘密保密措施",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本提到營業秘密需要『採取保密措施』以維持其不為公眾所知。保密措施屬於管理策略 (policy)，旨在緩解資訊外洩的風險 (risk)。",
+      "source_id": "chunk_37",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "oecd 個人資料保護原則",
+      "type": "policy",
+      "display_name": "OECD 個人資料保護原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "OECD 的個人資料保護原則（如限制蒐集、公開原則）是為了規範資料處理以保護隱私。這類原則屬於規範 (policy)，其目的是緩解個資外洩等風險 (risk)。",
+    "source_id": "chunk_37",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "OECD 個人資料保護原則的類別 'policy' 存在於 Lc,p 的 'Classes' 中，個資外洩的類別 'risk' 也存在於 Lc,p 的 'Classes' 中，關係 'mitigates' 存在於 Lc,p 的 'Properties' 中。",
+        "step_2_alignment_check": "OECD 個人資料保護原則是 'policy' 的合理實例，個資外洩是 'risk' 的合理實例，關係 'mitigates' 在資安領域中指的是減輕風險，與 'policy' 和 'risk' 的語意對齊。",
+        "response": "correct",
+        "reason": "OECD 個人資料保護原則、個資外洩和 'mitigates' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，OECD 個人資料保護原則（類別：policy）符合此規則，觸發合法條件。其他規則未發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "OECD 個人資料保護原則（類別：policy）符合規則2的允許條件，且未違反其他語義限制。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩與個人資料洩漏之間存在同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "個資外洩",
+        "reason": "根據同義詞判定準則，個資外洩與個人資料洩漏指稱同一概念，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OECD 個人資料保護原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "OECD 的個人資料保護原則（如限制蒐集、公開原則）是為了規範資料處理以保護隱私。這類原則屬於規範 (policy)，其目的是緩解個資外洩等風險 (risk)。",
+      "source_id": "chunk_37",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  }
+]

@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "安全機房",
+      "type": "system",
+      "display_name": "安全機房"
+    },
+    "reasoning": "文本明確提到『防火牆建置於安全機房之內』，符合 (tool, deployed_in, system) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，安全機房是系統（system）的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，主體為 tool，受體為 system，無違反規則1、2、3、4、5、7、8的情況。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體符合規則6的要求，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中，分別為 \"防火牆\" 和 \"安全機房\"，且無廣義或狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體和受體皆無同義詞重複，且無廣義或狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "安全機房",
+        "type": "system"
+      },
+      "reasoning": "文本明確提到『防火牆建置於安全機房之內』，符合 (tool, deployed_in, system) 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "密碼原則",
+      "type": "policy",
+      "display_name": "密碼原則"
+    },
+    "reasoning": "文本提到『進入防火牆需要使用夠強的密碼與經常更換密碼』，這屬於使用者在操作時必須遵守的密碼安全政策，符合 (user, implements, policy) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "使用者 (user) 實現 (implements) 密碼原則 (policy) 是語意上合理的，使用者可以實現特定的政策或原則，尤其是在資安領域中，這種關係是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（使用者）與受體（密碼原則）之間的關係（implements）未在語義限制清單中明確定義為違規，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "使用者與Ldr中的用戶、電腦使用者、網站用戶、企業用戶、資訊科技的使用者、無線網路使用者等均為同一類別user的不同稱呼，且pdca原則與密碼原則在資安領域中均指policy，但pdca原則與密碼原則非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則3，若一個實體是另一個的子類型或無法確定，預設保留，且使用者與密碼原則無直接同義詞關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "密碼原則",
+        "type": "policy"
+      },
+      "reasoning": "文本提到『進入防火牆需要使用夠強的密碼與經常更換密碼』，這屬於使用者在操作時必須遵守的密碼安全政策，符合 (user, implements, policy) 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "不符合規定之封包",
+      "type": "attack",
+      "display_name": "不符合規定之封包"
+    },
+    "reasoning": "文本指出防火牆的功能是『阻止不符合預設規定之封包』，將不符合規定的封包視為一種攻擊行為或風險，符合 (tool, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，不符合規定之封包是攻擊（attack）的合理實例，'mitigates' 是合理的關係描述。",
+        "response": "correct",
+        "reason": "防火牆（tool）與不符合規定之封包（attack）之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，該三元組的主體是防火牆（tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（防火牆）是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "防火牆與網路防火牆為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，防火牆與網路防火牆為同義詞，但根據【廣義/狹義一律保留】原則，不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "不符合規定之封包",
+        "type": "attack"
+      },
+      "reasoning": "文本指出防火牆的功能是『阻止不符合預設規定之封包』，將不符合規定的封包視為一種攻擊行為或風險，符合 (tool, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統",
+      "type": "tool",
+      "display_name": "入侵偵測系統"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統安全日誌",
+      "type": "data",
+      "display_name": "安全日誌"
+    },
+    "reasoning": "文本提到入侵偵測系統的功能是『針對系統安全日誌...進行研判』，符合 (tool, can_analyze, data) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統是工具（tool）的合理實例，安全日誌是資料（data）的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "入侵偵測系統可以分析安全日誌，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則相關性後，發現三元組（入侵偵測系統 can_analyze 安全日誌）沒有明顯違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（入侵偵測系統）是 tool 類別，關係是 can_analyze，受體是安全日誌，符合一般的資安知識圖譜描述邏輯，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統與網路型入侵偵測系統、入侵偵測設備等為廣義/狹義從屬關係，安全日誌與系統安全日誌為同義詞重複",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "系統安全日誌",
+        "reason": "根據同義詞判定，安全日誌與系統安全日誌為同義詞重複，但入侵偵測系統與其他相關實體為廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "安全日誌",
+        "type": "data"
+      },
+      "reasoning": "文本提到入侵偵測系統的功能是『針對系統安全日誌...進行研判』，符合 (tool, can_analyze, data) 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "負向模式",
+      "type": "technique",
+      "display_name": "負向模式"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "入侵偵測技術",
+      "type": "technique",
+      "display_name": "入侵偵測技術"
+    },
+    "reasoning": "文本提到『設計入侵偵測技術的基本模式有兩種，負向模式與正面模式』，因此負向模式是入侵偵測技術的一種，符合 (technique, is_part_of, technique) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均存在於 Lc,p 中。",
+        "step_2_alignment_check": "負向模式與入侵偵測技術皆為 'technique' 的合理實例，語意對齊且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中關係為 'is_part_of'，且主體和受體皆為 'technique'，因此無法直接對應到任何一條規則中明確的違反條件。",
+        "response": "correct",
+        "reason": "三元組中 '負向模式' 和 '入侵偵測技術' 之間的 'is_part_of' 關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測技術與入侵偵測之間存在同義詞關係，兩者均指涉及偵測入侵行為的技術或方法，屬於同義詞重複。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "入侵偵測技術",
+        "reason": "根據資安領域已知同義詞對照範例，入侵偵測技術與入侵偵測可視為同義詞，因此判定為duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "負向模式",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "入侵偵測技術",
+        "type": "technique"
+      },
+      "reasoning": "文本提到『設計入侵偵測技術的基本模式有兩種，負向模式與正面模式』，因此負向模式是入侵偵測技術的一種，符合 (technique, is_part_of, technique) 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "正向模式",
+      "type": "technique",
+      "display_name": "正向模式"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "入侵偵測技術",
+      "type": "technique",
+      "display_name": "入侵偵測技術"
+    },
+    "reasoning": "文本提到『設計入侵偵測技術的基本模式有兩種，負向模式與正面模式』，因此正向模式是入侵偵測技術的一種，符合 (technique, is_part_of, technique) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '正向模式' 與受體 '入侵偵測技術' 均為 'technique' 的合理實例，考慮到同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關。由於三元組中的關係 'is_part_of' 不在任何規則中被明確限制，且主體和受體的類別均為 'technique'，未觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測技術與入侵偵測之間存在同義詞關係，兩者指稱同一概念",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "入侵偵測技術",
+        "reason": "根據同義詞判定準則，入侵偵測技術與入侵偵測是同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "正向模式",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "入侵偵測技術",
+        "type": "technique"
+      },
+      "reasoning": "文本提到『設計入侵偵測技術的基本模式有兩種，負向模式與正面模式』，因此正向模式是入侵偵測技術的一種，符合 (technique, is_part_of, technique) 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統",
+      "type": "tool",
+      "display_name": "入侵偵測系統"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "入侵企圖",
+      "type": "attack",
+      "display_name": "入侵企圖"
+    },
+    "reasoning": "文本提到入侵偵測系統透過分析資訊來『辨別某些來源是否對系統具有...入侵企圖』，符合 (tool, can_detect, attack) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統是工具的一個合理實例，入侵企圖是攻擊的一個合理實例，'can_detect' 關係在資安領域中是合理的，因為入侵偵測系統可以偵測入侵企圖。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是 tool，具有主動執行能力，符合 controls 的前提，但這裡的關係是 can_detect，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（入侵偵測系統）和關係（can_detect）以及受體（入侵企圖）之間的關係在給定的語義限制清單中沒有被明確禁止或限制，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統與入侵偵測設備、網路型入侵偵測系統等為同一類別下的不同具體實現，入侵企圖則是攻擊的一種類型，與入侵偵測系統無直接同義詞關係，但兩者在資安領域中相關聯。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，入侵偵測系統和入侵企圖不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "入侵企圖",
+        "type": "attack"
+      },
+      "reasoning": "文本提到入侵偵測系統透過分析資訊來『辨別某些來源是否對系統具有...入侵企圖』，符合 (tool, can_detect, attack) 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統",
+      "type": "tool",
+      "display_name": "入侵偵測系統"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "稽核資料",
+      "type": "data",
+      "display_name": "稽核資料"
+    },
+    "reasoning": "文本提到入侵偵測系統的功能是『針對...稽核資料...進行研判』，符合 (tool, can_analyze, data) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統是工具（tool）的合理實例，稽核資料是資料（data）的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "入侵偵測系統可以分析稽核資料的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是can_analyze，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls，但根據規則8的描述，tool是具有主動執行能力的角色或工具，可以執行某些動作，且can_analyze似乎是tool的合法動作。",
+        "response": "correct",
+        "reason": "三元組中的主體是入侵偵測系統（tool），關係是can_analyze，受體是稽核資料（data），這符合tool可以執行分析的邏輯，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統與網路型入侵偵測系統、入侵偵測設備等為廣義/狹義從屬關係，但與稽核資料無直接同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，入侵偵測系統與稽核資料無同義詞或從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "稽核資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到入侵偵測系統的功能是『針對...稽核資料...進行研判』，符合 (tool, can_analyze, data) 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "負向模式",
+      "type": "technique",
+      "display_name": "負向模式"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "已知壞的行為",
+      "type": "attack",
+      "display_name": "已知壞的行為"
+    },
+    "reasoning": "文本提到負向模式偵測技術遵循『擋掉那些已知是壞的行為』，符合 (technique, can_detect, attack) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "主體 '負向模式' 的類別 'technique' 合理對齊，因為它描述了一種技術或方法；受體 '已知壞的行為' 的類別 'attack' 也合理對齊，因為它描述了一種攻擊行為；關係 'can_detect' 合理地連接了主體和受體，因為技術可以用來檢測攻擊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中關係為 'can_detect'，而檢查的規則中沒有直接提到 'can_detect' 的限制，因此無法直接匹配到任何違規規則。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_detect' 沒有在語義限制清單中被明確限制或定義，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "負向模式與 Ldr 中的 '負向模式' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "負向模式",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "已知壞的行為",
+        "type": "attack"
+      },
+      "reasoning": "文本提到負向模式偵測技術遵循『擋掉那些已知是壞的行為』，符合 (technique, can_detect, attack) 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "正向模式",
+      "type": "technique",
+      "display_name": "正向模式"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "非預期行為",
+      "type": "attack",
+      "display_name": "非預期行為"
+    },
+    "reasoning": "正向模式僅准許已知與期待的行為，其隱含的功能是偵測並阻擋非預期的行為（視為攻擊），符合 (technique, can_detect, attack) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "主體 '正向模式' 的類別 'technique' 合理對齊，受體 '非預期行為' 的類別 'attack' 也合理對齊，關係 'can_detect' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_detect'，與規則無直接衝突。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_detect' 與給定的語義限制清單中沒有直接的違反規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "正向模式與非預期行為之間沒有直接的同義詞關係，且非預期行為在資安領域中可能被視為攻擊的一種形式，但與現有近似資源清單中的「不符合規定之封包」、「入侵企圖」、「已知壞的行為」等攻擊類型相比，非預期行為更接近於「已知壞的行為」的概念，但仍屬於不同的實體。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，非預期行為與現有近似資源清單中的攻擊類型之間沒有完全相同的同義詞關係，且非預期行為代表了一種更廣泛的概念，與「已知壞的行為」等攻擊類型有所不同，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "正向模式",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "非預期行為",
+        "type": "attack"
+      },
+      "reasoning": "正向模式僅准許已知與期待的行為，其隱含的功能是偵測並阻擋非預期的行為（視為攻擊），符合 (technique, can_detect, attack) 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統",
+      "type": "tool",
+      "display_name": "入侵偵測系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "規則集",
+      "type": "feature",
+      "display_name": "規則集"
+    },
+    "reasoning": "文本提到兩種模式『都需要先建立一套規則集』，規則集是入侵偵測系統運作的核心特徵/組成部分，符合 (tool, has_a, feature) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統是工具（tool）的合理實例，規則集是特徵（feature）的合理實例，符合語意對齊原則。",
+        "response": "correct",
+        "reason": "入侵偵測系統與規則集的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組（入侵偵測系統 has_a 規則集）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統與網路型入侵偵測系統、入侵偵測設備等相關實體在Ldr中均有出現，但無完全等價同義詞關係，且入侵偵測系統是最廣義的類別，其他為其子類型或相關概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "入侵偵測系統與其他相關實體在Ldr中均有出現，但無完全等價同義詞關係，且入侵偵測系統是最廣義的類別，其他為其子類型或相關概念，依據判斷準則3，判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "規則集",
+        "type": "feature"
+      },
+      "reasoning": "文本提到兩種模式『都需要先建立一套規則集』，規則集是入侵偵測系統運作的核心特徵/組成部分，符合 (tool, has_a, feature) 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 11
+    }
+  }
+]

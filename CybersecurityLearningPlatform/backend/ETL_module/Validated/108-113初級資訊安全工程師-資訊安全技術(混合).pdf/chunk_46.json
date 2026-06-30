@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "cookies",
+      "type": "feature",
+      "display_name": "Cookies"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本提到 Cookies 儲存帳號密碼等資訊而常被駭客利用進行攻擊，這意味著該資料實體會暴露漏洞，符合 ('data', 'can_expose', 'vulnerability') 的 Schema。",
+    "source_id": "chunk_46",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Cookies 是 'data' 的合理實例，'vulnerability' 的名稱 '漏洞' 是資安領域中常見的同義詞或翻譯，'can_expose' 的語意也合理地描述了 Cookies 與 漏洞之間的關係。",
+        "response": "correct",
+        "reason": "主體、關係和受體的類別與屬性完全符合預先定義的清單，並且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組符合此條件，其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Cookies 與 Ldr 中的 'cookies' 完全等價同義詞，受體 漏洞 與 Ldr 中的 '漏洞' 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "cookies",
+        "standard_object": "漏洞",
+        "reason": "根據同義詞判定，主體 Cookies 與 'cookies'、受體 漏洞 與 '漏洞' 均為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Cookies",
+        "type": "data"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到 Cookies 儲存帳號密碼等資訊而常被駭客利用進行攻擊，這意味著該資料實體會暴露漏洞，符合 ('data', 'can_expose', 'vulnerability') 的 Schema。",
+      "source_id": "chunk_46",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "10.0.0.1",
+      "type": "system",
+      "display_name": "10.0.0.1"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "10.0.0.2",
+      "type": "system",
+      "display_name": "10.0.0.2"
+    },
+    "reasoning": "文本描述 10.0.0.1 可以通往 10.0.0.2，這代表兩個系統實體之間的網路連線狀態，符合 ('system', 'connects_to', 'system') 的 Schema。",
+    "source_id": "chunk_46",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體名稱 '10.0.0.1' 和 '10.0.0.2' 可被視為 'system' 的合理實例，代表 IP 位址的系統或設備。",
+        "response": "correct",
+        "reason": "主體和受體的類別與關係都符合預先定義的清單，且實體名稱與其類別語意上對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 connects_to，不是 deployed_in。規則7：不適用，因為關係為 connects_to，不是 generates。規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體都是 system 類別，且關係為 connects_to，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，且主體和受體為 IP 地址，無法判定同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "10.0.0.1",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "10.0.0.2",
+        "type": "system"
+      },
+      "reasoning": "文本描述 10.0.0.1 可以通往 10.0.0.2，這代表兩個系統實體之間的網路連線狀態，符合 ('system', 'connects_to', 'system') 的 Schema。",
+      "source_id": "chunk_46",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "網路位址轉換 (nat)",
+      "type": "technique",
+      "display_name": "網路位址轉換 (NAT)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "暴力攻擊",
+      "type": "attack",
+      "display_name": "暴力攻擊"
+    },
+    "reasoning": "文本選項 (C) 提到 NAT 可防止暴力攻擊，防止即為緩解/防禦，符合 ('technique', 'mitigates', 'attack') 的 Schema。",
+    "source_id": "chunk_46",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "網路位址轉換 (NAT) 是一種合理的 'technique' 實例，暴力攻擊是 'attack' 的合理實例，'mitigates' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '網路位址轉換 (NAT)' 屬於類別 'technique'，因此符合規則2的條件。其他規則與三元組無直接關聯。",
+        "response": "correct",
+        "reason": "三元組中的主體 '網路位址轉換 (NAT)' 屬於類別 'technique'，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「暴力攻擊」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路位址轉換 (NAT)",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "暴力攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本選項 (C) 提到 NAT 可防止暴力攻擊，防止即為緩解/防禦，符合 ('technique', 'mitigates', 'attack') 的 Schema。",
+      "source_id": "chunk_46",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "微軟網路芳鄰",
+      "type": "app",
+      "display_name": "微軟網路芳鄰"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "port 137",
+      "type": "feature",
+      "display_name": "Port 137"
+    },
+    "reasoning": "文本指出微軟網路芳鄰使用 Port 137，連接埠是應用程式的組成特徵，符合 ('app', 'has_a', 'feature') 的 Schema。",
+    "source_id": "chunk_46",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "微軟網路芳鄰 (Microsoft Network Neighborhood) 是 'app' 的合理實例，Port 137 是 'feature' 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為應用程式可能具有特定的功能或特性，如 Port 137。",
+        "response": "correct",
+        "reason": "微軟網路芳鄰與 Port 137 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 '微軟網路芳鄰' 完全等價，受體 'Port 137' 與 Ldr 中的 'port 137/139/445' 有關聯，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，主體名稱與 Ldr 中某資源的 name 字串完全相同，且受體非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "微軟網路芳鄰",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Port 137",
+        "type": "feature"
+      },
+      "reasoning": "文本指出微軟網路芳鄰使用 Port 137，連接埠是應用程式的組成特徵，符合 ('app', 'has_a', 'feature') 的 Schema。",
+      "source_id": "chunk_46",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆管理員",
+      "type": "securityTeam",
+      "display_name": "防火牆管理員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "規則制定標準",
+      "type": "policy",
+      "display_name": "規則制定標準"
+    },
+    "reasoning": "文本提到管理員應制定一套規則制定標準讓大家遵從，這屬於安全團隊執行/實作規範，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+    "source_id": "chunk_46",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防火牆管理員是安全團隊的合理實例，規則制定標準是政策的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：未違反，因為三元組中主體是防火牆管理員（securityTeam），不具有攻擊者（attacker）的身分。檢查規則2：不適用，因為動作是 implements，不是 mitigates。檢查規則3：不適用，因為主體類別是 securityTeam，不是 vulnerability。檢查規則4：不適用，因為關係是 implements，不是 violates，且主體不是 principle。檢查規則5：不適用，因為關係是 implements，不是 uses。檢查規則6：不適用，因為關係是 implements，不是 deployed_in。檢查規則7：不適用，因為關係是 implements，不是 generates。檢查規則8：不適用，因為關係是 implements，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（防火牆管理員）和關係（implements）以及受體（規則制定標準）之間的關係沒有明確違反任何一條語義限制規則。因此，根據無罪推定原則，該三元組被判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似的近似資源，但無完全匹配的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法確定主體與受體為同義詞或子類型關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆管理員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "規則制定標準",
+        "type": "policy"
+      },
+      "reasoning": "文本提到管理員應制定一套規則制定標準讓大家遵從，這屬於安全團隊執行/實作規範，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+      "source_id": "chunk_46",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  }
+]

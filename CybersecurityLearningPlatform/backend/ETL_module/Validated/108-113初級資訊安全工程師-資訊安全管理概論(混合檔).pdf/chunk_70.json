@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "滲透測試是一種模擬攻擊以發現系統弱點的技術。根據 Schema，(technique, can_analyze, vulnerability) 是合法的。",
+    "source_id": "chunk_70",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試 (technique) 可以分析弱點 (vulnerability)，這是資安領域中合理的語意對齊，'can_analyze' 關係在這裡是適當的。",
+        "response": "correct",
+        "reason": "滲透測試與弱點之間的 'can_analyze' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該規則與待檢查三元組相關，因為主體是滲透測試（technique），而非漏洞（vulnerability），但關係是 can_analyze，受體是弱點（vulnerability），這不直接違反規則3，因為主體不是漏洞。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "由於主體是滲透測試（technique），而非漏洞（vulnerability），且關係和受體的組合在給定的規則中沒有明確的違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '滲透測試' 與 Ldr 中的 'penetration testing' 關係為同義詞，受體 '弱點' 與 Ldr 中的 'vulnerability' 關係為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，'滲透測試' 和 'penetration testing' 不是完全相同的名稱，但 '弱點' 和 'vulnerability' 是同義詞，然而根據【廣義/狹義一律保留】原則，不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "滲透測試是一種模擬攻擊以發現系統弱點的技術。根據 Schema，(technique, can_analyze, vulnerability) 是合法的。",
+      "source_id": "chunk_70",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "電腦鑑識",
+      "type": "technique",
+      "display_name": "電腦鑑識"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "硬碟資料",
+      "type": "data",
+      "display_name": "硬碟資料"
+    },
+    "reasoning": "文本描述電腦鑑識涉及蒐集硬碟資料證據並進行拷貝分析。根據 Schema，(technique, can_analyze, data) 是合法的。",
+    "source_id": "chunk_70",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "電腦鑑識是 technique 的合理實例，硬碟資料是 data 的合理實例，且 'can_analyze' 在資安領域中是合理的關係描述。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別是 technique，而不是 data。規則6：不適用。規則7：不適用。規則8：不適用，因為關係是 can_analyze，而不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是電腦鑑識（類別：technique），關係是 can_analyze，受體是硬碟資料（類別：data），這符合一般的資安分析邏輯，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「電腦鑑識」與 Ldr 中的「電腦鑑識」完全相同，受體「硬碟資料」與 Ldr 中的「儲存資料」具有相似的概念，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體「電腦鑑識」直接判定 correct；受體「硬碟資料」與 Ldr 中的「儲存資料」雖然相關，但非完全等價同義詞，故預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電腦鑑識",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "硬碟資料",
+        "type": "data"
+      },
+      "reasoning": "文本描述電腦鑑識涉及蒐集硬碟資料證據並進行拷貝分析。根據 Schema，(technique, can_analyze, data) 是合法的。",
+      "source_id": "chunk_70",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "網路弱點掃描",
+      "type": "technique",
+      "display_name": "網路弱點掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到進行網路弱點掃描，其目的是分析系統中的弱點。根據 Schema，(technique, can_analyze, vulnerability) 是合法的。",
+    "source_id": "chunk_70",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網路弱點掃描 是 technique 的合理實例，弱點 是 vulnerability 的合理實例，且 'can_analyze' 是合理的關係。",
+        "response": "correct",
+        "reason": "網路弱點掃描、弱點與 can_analyze 三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。由於三元組中主體為網路弱點掃描（類別：technique），而非漏洞，因此不觸發規則3的違規。其他規則均不適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體是網路弱點掃描（類別：technique），與規則3中提到的漏洞類別不符，且其他規則不適用，因此不構成違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "網路弱點掃描",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，漏洞 ≡ 弱點 ≡ 脆弱性均指 vulnerability，且網路弱點掃描與弱點掃描為同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路弱點掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到進行網路弱點掃描，其目的是分析系統中的弱點。根據 Schema，(technique, can_analyze, vulnerability) 是合法的。",
+      "source_id": "chunk_70",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資安事故",
+      "type": "attack",
+      "display_name": "資安事故"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "機密性",
+      "type": "principle",
+      "display_name": "機密性"
+    },
+    "reasoning": "文本提到評估資安事故對機密性的衝擊，這意味著事故違反了機密性原則。根據 Schema，(attack, violates, principle) 是合法的。",
+    "source_id": "chunk_70",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安事故 (attack) 是 'attack' 的合理實例，機密性 (principle) 是 'principle' 的合理實例，'violates' 是描述攻擊違反原則的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係是violates，而不是mitigates。規則3不適用，因為三元組中的主體類別是attack，而不是vulnerability。規則4適用，且三元組中的受體是principle，符合規則允許的條件。規則5、6、7、8不適用，因為三元組中的關係是violates，不符合這些規則的觸發條件。",
+        "response": "correct",
+        "reason": "三元組中的受體是principle，符合規則4允許的條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安事故與資訊安全事故、資安事件、資通安全事件等是同義詞或相關概念，但根據規則，若一個實體是另一個的子類型，判定為 correct，禁止合併。然而，這裡的資安事故與其他相關概念雖然相關，但無明確的子類型關係，因此需要根據同義詞判定進行評估。資安事故與資訊安全事故的同義詞性質最為接近，然而根據給定的同義詞對照範例，沒有明確指出資安事故與其他相關概念之間的直接同義詞關係。因此，根據【廣義/狹義一律保留】的原則，若無法確定同義詞關係，則預設為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】的原則，資安事故與其他相關概念之間的關係不明確，無法確定同義詞關係，因此預設為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安事故",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "機密性",
+        "type": "principle"
+      },
+      "reasoning": "文本提到評估資安事故對機密性的衝擊，這意味著事故違反了機密性原則。根據 Schema，(attack, violates, principle) 是合法的。",
+      "source_id": "chunk_70",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "行政院國家資通安全會報通報及應變作業流程",
+      "type": "policy",
+      "display_name": "行政院國家資通安全會報通報及應變作業流程"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資安事故",
+      "type": "attack",
+      "display_name": "資安事故"
+    },
+    "reasoning": "該流程是一套應變規範（policy），旨在處理並緩解資安事故（attack）造成的影響。根據 Schema，(policy, mitigates, attack) 是合法的。",
+    "source_id": "chunk_70",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "行政院國家資通安全會報通報及應變作業流程 可被視為 'policy' 的實例，'mitigates' 的關係合理地連接 'policy' 與 'attack'，因為資安政策通常用於減輕資安事故的風險。",
+        "response": "correct",
+        "reason": "行政院國家資通安全會報通報及應變作業流程作為一項政策，與資安事故之間的 'mitigates' 關係在資安領域中是合理且正確的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是行政院國家資通安全會報通報及應變作業流程，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "該三元組的主體是行政院國家資通安全會報通報及應變作業流程，類別為 policy，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "行政院國家資通安全會報通報及應變作業流程",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資安事故",
+        "type": "attack"
+      },
+      "reasoning": "該流程是一套應變規範（policy），旨在處理並緩解資安事故（attack）造成的影響。根據 Schema，(policy, mitigates, attack) 是合法的。",
+      "source_id": "chunk_70",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資安事故",
+      "type": "attack",
+      "display_name": "資安事故"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "文本提到評估資安事故對完整性的衝擊，這意味著事故違反了完整性原則。根據 Schema，(attack, violates, principle) 是合法的。",
+    "source_id": "chunk_70",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安事故 (attack) 是 'attack' 的合理實例，完整性 (principle) 是 'principle' 的合理實例，且 'violates' 是描述攻擊對原則的違反行為的合理關係。",
+        "response": "correct",
+        "reason": "資安事故 (attack) 對完整性 (principle) 的 'violates' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係是violates，而不是mitigates。規則3不適用，因為三元組中的主體類別是attack，而不是vulnerability。規則4適用，且三元組中的受體是principle，符合規則允許的條件。規則5、6、7、8不適用，因為三元組中的關係是violates，不符合這些規則的觸發條件。",
+        "response": "correct",
+        "reason": "三元組中的主體是資安事故，關係是violates，受體是完整性，符合規則4的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安事故與資訊安全事故、資安事件、資通安全事件之間存在同義詞關係，但根據判斷準則，若一個實體是另一個的子類型，則判定為 correct。然而，這裡的資安事故與其他相關術語之間的關係更接近同義詞或廣義/狹義從屬，但基於資安領域已知同義詞對照範例，直接判定 duplicate 的情況較少見。因此，需要根據實際情況進行判斷。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，若一個實體是另一個的子類型，則判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安事故",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "文本提到評估資安事故對完整性的衝擊，這意味著事故違反了完整性原則。根據 Schema，(attack, violates, principle) 是合法的。",
+      "source_id": "chunk_70",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "資安事故",
+      "type": "attack",
+      "display_name": "資安事故"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "文本提到評估資安事故對可用性的衝擊，這意味著事故違反了可用性原則。根據 Schema，(attack, violates, principle) 是合法的。",
+    "source_id": "chunk_70",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安事故 (attack) 可能違反可用性 (principle)，這是資安領域中合理的語意對齊，接受同義詞寬容原則後，仍然合理。",
+        "response": "correct",
+        "reason": "資安事故 (attack) 違反可用性 (principle) 的三元組完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：觸發，principle 僅能作為被違反的受體，但此三元組中 principle 是受體，符合規則。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是資安事故，關係是違反，受體是可用性，符合規則4的描述，且無其他規則被觸發違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安事故",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "文本提到評估資安事故對可用性的衝擊，這意味著事故違反了可用性原則。根據 Schema，(attack, violates, principle) 是合法的。",
+      "source_id": "chunk_70",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "營運持續計畫",
+      "type": "policy",
+      "display_name": "營運持續計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "營運中斷",
+      "type": "risk",
+      "display_name": "營運中斷"
+    },
+    "reasoning": "營運持續計畫 (BCP) 是一種策略規範，旨在緩解因災難導致的營運中斷風險。根據 Schema，(policy, mitigates, risk) 是合法的。",
+    "source_id": "chunk_70",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "營運持續計畫 (policy) 是一種合理的政策實例，營運中斷 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，與政策與風險之間的關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 'policy'，因此符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體是 'policy'，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中，但無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體無直接同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "營運持續計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "營運中斷",
+        "type": "risk"
+      },
+      "reasoning": "營運持續計畫 (BCP) 是一種策略規範，旨在緩解因災難導致的營運中斷風險。根據 Schema，(policy, mitigates, risk) 是合法的。",
+      "source_id": "chunk_70",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "資安事故",
+      "type": "attack",
+      "display_name": "資安事故"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "關鍵資訊基礎設施",
+      "type": "system",
+      "display_name": "關鍵資訊基礎設施"
+    },
+    "reasoning": "文本提到資安事故可能導致關鍵資訊基礎設施系統遭竄改或停頓，造成損害。根據 Schema，(attack, can_harm, system) 是合法的。",
+    "source_id": "chunk_70",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安事故 (attack) 可以對關鍵資訊基礎設施 (system) 造成傷害，符合語意對齊，且 'can_harm' 是合理的關係描述。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_harm'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 沒有在給定的規則中被明確限制，因此不違反任何規則。根據 '無罪推定' 原則，若未發現明確且直接的違反項目，則判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安事故與資訊安全事故、資安事件、資通安全事件等為同義詞或近似概念；關鍵資訊基礎設施與資訊基礎設施、關鍵基礎設施等為同義詞或近似概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，資安事故與資訊安全事故等為同義詞，但考慮到廣義/狹義一律保留的原則，且無法確定完全等價，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安事故",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "關鍵資訊基礎設施",
+        "type": "system"
+      },
+      "reasoning": "文本提到資安事故可能導致關鍵資訊基礎設施系統遭竄改或停頓，造成損害。根據 Schema，(attack, can_harm, system) 是合法的。",
+      "source_id": "chunk_70",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "營運衝擊分析",
+      "type": "technique",
+      "display_name": "營運衝擊分析"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "關鍵資訊基礎設施",
+      "type": "system",
+      "display_name": "關鍵資訊基礎設施"
+    },
+    "reasoning": "營運衝擊分析 (BIA) 是一種分析技術，用來評估系統（如關鍵基礎設施）中斷後的影響。根據 Schema，(technique, can_analyze, system) 是合法的。",
+    "source_id": "chunk_70",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '營運衝擊分析' 是 'technique' 的合理實例，'關鍵資訊基礎設施' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_analyze'，且主體是 '營運衝擊分析'（類別：technique），受體是 '關鍵資訊基礎設施'（類別：system），這符合一般的分析邏輯，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間的邏輯關係沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"關鍵資訊基礎設施\" 與 Ldr 中的 \"關鍵資訊基礎設施\" 完全匹配，主體 \"營運衝擊分析\" 與 Ldr 中的 \"營運衝擊分析\" 完全匹配，兩者均為完全等價同義詞或直接匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均直接與 Ldr 中的資源完全匹配，無需進行同義詞判定或廣義/狹義一律保留的判斷。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "營運衝擊分析",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "關鍵資訊基礎設施",
+        "type": "system"
+      },
+      "reasoning": "營運衝擊分析 (BIA) 是一種分析技術，用來評估系統（如關鍵基礎設施）中斷後的影響。根據 Schema，(technique, can_analyze, system) 是合法的。",
+      "source_id": "chunk_70",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 10
+    }
+  }
+]

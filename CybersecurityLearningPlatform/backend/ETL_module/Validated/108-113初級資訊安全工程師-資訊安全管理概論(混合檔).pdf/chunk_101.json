@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "風險轉移",
+      "type": "technique",
+      "display_name": "風險轉移"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本提到『將風險轉移給其他團體時，可以降低風險對自身的影響』，風險轉移是一種風險處理策略（policy），其目的是緩解（mitigates）風險（risk）。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "風險轉移 (policy) 可以合理地與 'mitigates' 關係連接到風險 (risk)，因為風險轉移是一種策略，可以用來減輕風險。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是風險轉移（technique），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體風險轉移（technique）符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "風險轉移與風險之間的關係是風險轉移是一種技術，風險是風險轉移的對象，兩者之間存在著廣義/狹義的從屬關係，但根據規則3，若一個實體是另一個的子類型，判定為correct，禁止合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則3，風險轉移與風險之間的關係是廣義/狹義的從屬關係，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險轉移",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『將風險轉移給其他團體時，可以降低風險對自身的影響』，風險轉移是一種風險處理策略（policy），其目的是緩解（mitigates）風險（risk）。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "存取控制軟體",
+      "type": "tool",
+      "display_name": "存取控制系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "認證",
+      "type": "feature",
+      "display_name": "認證"
+    },
+    "reasoning": "文本提到『存取控制包含了認證、授權以及稽核』，將存取控制視為一種工具/系統（tool），認證則是其具備的功能（function）。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "存取控制系統是工具（tool）的合理實例，認證是功能（function）的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關，因為三元組中的關係是 'has_a'，不涉及任何規則中明確限制的動作或關係。",
+        "response": "correct",
+        "reason": "三元組中的主體 '存取控制系統' 和關係 'has_a'、受體 '認證' 不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "存取控制系統與存取控制軟體為同義詞，認證為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "存取控制軟體",
+        "standard_object": "認證",
+        "reason": "根據同義詞對照表，存取控制系統與存取控制軟體可視為同義詞，認證為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "存取控制系統",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "認證",
+        "type": "function"
+      },
+      "reasoning": "文本提到『存取控制包含了認證、授權以及稽核』，將存取控制視為一種工具/系統（tool），認證則是其具備的功能（function）。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "風險降低",
+      "type": "technique",
+      "display_name": "風險降低"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本將『風險降低』列為風險處理選項，其邏輯目的是透過採取措施來減低風險發生的機率或影響，符合 policy mitigates risk 的定義。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "風險降低 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體是風險降低（technique），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（風險降低）是 technique 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "風險降低與風險處理、風險避免等相關概念在資安領域中有所重疊，但根據給定的資源清單和判斷準則，風險降低是一種技術，與風險是不同的類別，風險是風險降低的目標或對象，因此兩者之間存在著廣義/狹義的從屬關係，但不構成同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體之間的廣義/狹義從屬關係不構成同義詞重複，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險降低",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本將『風險降低』列為風險處理選項，其邏輯目的是透過採取措施來減低風險發生的機率或影響，符合 policy mitigates risk 的定義。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "存取控制軟體",
+      "type": "tool",
+      "display_name": "存取控制系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "授權",
+      "type": "function",
+      "display_name": "授權"
+    },
+    "reasoning": "文本提到『存取控制包含了認證、授權以及稽核』，授權是存取控制系統（tool）的核心功能（function）。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "存取控制系統 (tool) 與 授權 (function) 的名稱與其類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "存取控制系統與授權的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為主體的類別不是 data。檢查規則6：無關，因為關係不是 deployed_in。檢查規則7：無關，因為關係不是 generates。檢查規則8：無關，因為關係不是 controls，但需要注意 has_a 關係的合法性，根據給定的三元組，存取控制系統 (tool) 有授權 (function) 的關係，似乎合理，因為工具可以有功能或元件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組中的關係和實體類別似乎合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "存取控制系統與存取控制軟體為同義詞，授權為完全匹配",
+        "response": "correct",
+        "standard_subject": "存取控制軟體",
+        "standard_object": "授權",
+        "reason": "根據同義詞判定，存取控制系統與存取控制軟體為同義詞，授權為完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "存取控制系統",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "授權",
+        "type": "function"
+      },
+      "reasoning": "文本提到『存取控制包含了認證、授權以及稽核』，授權是存取控制系統（tool）的核心功能（function）。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "存取控制系統",
+      "type": "tool",
+      "display_name": "存取控制系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "稽核",
+      "type": "technique",
+      "display_name": "稽核"
+    },
+    "reasoning": "文本提到『存取控制包含了認證、授權以及稽核』，稽核是存取控制系統（tool）的核心功能（function）。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "存取控制系統 (tool) 與 稽核 (function) 的名稱與其類別合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "存取控制系統與稽核的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'has_a'，無直接相關規則限制。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '存取控制系統' 和受體 '稽核' 之間的關聯，未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "存取控制系統與存取控制軟體之間的關係是同義詞重複，兩者都指的是用於控制和管理存取的系統或工具；而稽核則是完全匹配的同義詞重複，與現有近似資源清單中的「稽核」相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，存取控制系統與存取控制軟體是同義詞重複，但根據廣義/狹義一律保留的原則，不進行合併；而稽核是完全匹配的同義詞重複，但由於其與主體的關係不在同一層面，因此不進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "存取控制系統",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "稽核",
+        "type": "function"
+      },
+      "reasoning": "文本提到『存取控制包含了認證、授權以及稽核』，稽核是存取控制系統（tool）的核心功能（function）。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼強度規範",
+      "type": "policy",
+      "display_name": "密碼強度規範"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本提到『規範高強度密碼長度與複雜度』可以提升安全性，這屬於一種安全策略（policy），用以緩解（mitigates）未經授權存取的風險（risk）。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "密碼強度規範 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊。",
+        "response": "correct",
+        "reason": "密碼強度規範 (policy) 與風險 (risk) 的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是密碼強度規範（policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確違反的規則。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「密碼強度規範」與 Ldr 中的「強密碼原則」具有高相似度，但非完全等價同義詞；受體「風險」與 Ldr 中的「風險」完全匹配，為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "風險",
+        "reason": "根據同義詞判定準則，受體「風險」為同義詞重複，主體「密碼強度規範」與「強密碼原則」非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼強度規範",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『規範高強度密碼長度與複雜度』可以提升安全性，這屬於一種安全策略（policy），用以緩解（mitigates）未經授權存取的風險（risk）。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "存取控制系統",
+      "type": "tool",
+      "display_name": "存取控制系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "aaa 機制",
+      "type": "function",
+      "display_name": "AAA 機制"
+    },
+    "reasoning": "文本提到存取控制系統能夠達到 AAA 機制（Authentication, Authorization, Accounting），AAA 是該系統（tool）所實現的一組功能（function）。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "存取控制系統 (tool) 與 AAA 機制 (function) 的名稱與其類別合理對齊，存取控制系統是一種工具，AAA 機制是一種功能。",
+        "response": "correct",
+        "reason": "存取控制系統與 AAA 機制的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為主體的類別不是 data。檢查規則6：無關，因為關係不是 deployed_in。檢查規則7：無關，因為關係不是 generates。檢查規則8：無關，因為關係不是 controls，但需要注意 has_a 關係的合法性。根據給定的三元組和規則，沒有明確的規則被違反。",
+        "response": "correct",
+        "reason": "由於沒有發現明確且直接的違反項目，且三元組中的主體和受體類別與關係之間沒有直接違反給定的語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "存取控制系統與存取控制軟體之間存在相似性，但非完全等價同義詞；AAA 機制與授權之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，存取控制系統與存取控制軟體之間的關係不構成同義詞重複，AAA 機制與授權之間的關係雖然存在同義詞，但不在主體與受體的直接比較中，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "存取控制系統",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "AAA 機制",
+        "type": "function"
+      },
+      "reasoning": "文本提到存取控制系統能夠達到 AAA 機制（Authentication, Authorization, Accounting），AAA 是該系統（tool）所實現的一組功能（function）。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "資料擁有者",
+      "type": "user",
+      "display_name": "資料擁有者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "存取控制政策",
+      "type": "policy",
+      "display_name": "存取權限授予政策"
+    },
+    "reasoning": "在 DAC 環境中，資料擁有者（user）被授權向其他人授予權限，這是一種執行權限管理政策（policy）的行為。",
+    "source_id": "chunk_101",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '資料擁有者' 的名稱與其類別 'user' 合理對齊，實體 '存取權限授予政策' 的名稱與其類別 'policy' 也合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊。檢查規則2：不適用，因為動作是 implements，而非 mitigates。檢查規則3：不適用，因為主體類別是 user，而非 vulnerability。檢查規則4：不適用，因為關係是 implements，而非 violates。檢查規則5：不適用，因為關係是 implements，而非 uses。檢查規則6：不適用，因為關係是 implements，而非 deployed_in。檢查規則7：不適用，因為關係是 implements，而非 generates。檢查規則8：不適用，因為關係是 implements，而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明顯違反語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "存取權限授予政策與存取控制政策為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "存取控制政策",
+        "reason": "根據資安領域已知同義詞對照範例，存取權限授予政策與存取控制政策是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料擁有者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "存取權限授予政策",
+        "type": "policy"
+      },
+      "reasoning": "在 DAC 環境中，資料擁有者（user）被授權向其他人授予權限，這是一種執行權限管理政策（policy）的行為。",
+      "source_id": "chunk_101",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  }
+]

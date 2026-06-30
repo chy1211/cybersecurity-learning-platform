@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本中定義漏洞為『可能使組織面臨網路攻擊的弱點』，而風險為『遺失、損害或毀損的可能性』。在資安邏輯中，漏洞的存在會導致風險暴露，符合 Schema 中的 ('vulnerability', 'can_expose', 'risk')。",
+    "source_id": "chunk_1",
+    "source_file": "other_type.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '漏洞' 的類別 'vulnerability' 合理對齊，實體 '風險' 的類別 'risk' 也合理對齊，關係 'can_expose' 在資安領域中指漏洞可能暴露風險，符合語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許漏洞（vulnerability）發起 'can_expose' 動作，且待檢查三元組符合此規則，其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體為漏洞，關係為 can_expose，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞，但無直接完全等價同義詞關係，主體「漏洞」與受體「風險」在資安領域中代表不同的概念，前者指系統或程式中的弱點，後者指可能發生的不利事件或情況。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體無直接同義詞關係，且代表不同的概念，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本中定義漏洞為『可能使組織面臨網路攻擊的弱點』，而風險為『遺失、損害或毀損的可能性』。在資安邏輯中，漏洞的存在會導致風險暴露，符合 Schema 中的 ('vulnerability', 'can_expose', 'risk')。",
+      "source_id": "chunk_1",
+      "source_file": "other_type.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "gdpr",
+      "type": "policy",
+      "display_name": "GDPR"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "GDPR 是保護歐盟成員國個人資訊的規範（policy）。保護資訊的目的是為了降低個資外洩的風險，符合 Schema 中的 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_1",
+    "source_file": "other_type.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "GDPR 是一種政策（policy），個資外洩是一種風險（risk），且 'mitigates' 的語意與 GDPR 減輕個資外洩風險的概念相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 GDPR，類別為 policy，符合規則2的條件。其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (GDPR) 與 Ldr 中的 'gdpr' 完全等價同義詞，受體 (個資外洩) 與 Ldr 中的 '個資外洩' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "GDPR",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "GDPR 是保護歐盟成員國個人資訊的規範（policy）。保護資訊的目的是為了降低個資外洩的風險，符合 Schema 中的 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_1",
+      "source_file": "other_type.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "pci dss",
+      "type": "policy",
+      "display_name": "PCI-DSS"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "信用卡資料外洩",
+      "type": "risk",
+      "display_name": "信用卡資訊外洩"
+    },
+    "reasoning": "PCI-DSS 是保護信用卡資訊的規範（policy），旨在緩解金融資料外洩風險，符合 Schema 中的 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_1",
+    "source_file": "other_type.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "PCI-DSS 是一種安全政策（policy），信用卡資訊外洩是一種風險（risk），'mitigates' 關係在資安領域中指的是減輕風險，因此這些實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組符合此規則，其他規則不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 'PCI-DSS' 屬於 'policy' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "PCI-DSS 與 'pci dss' 完全等價同義詞，信用卡資訊外洩與 '信用卡資料外洩' 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "pci dss",
+        "standard_object": "信用卡資料外洩",
+        "reason": "根據同義詞判定，PCI-DSS 與 'pci dss'、信用卡資訊外洩與 '信用卡資料外洩' 分別為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "PCI-DSS",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "信用卡資訊外洩",
+        "type": "risk"
+      },
+      "reasoning": "PCI-DSS 是保護信用卡資訊的規範（policy），旨在緩解金融資料外洩風險，符合 Schema 中的 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_1",
+      "source_file": "other_type.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "hipaa",
+      "type": "policy",
+      "display_name": "HIPAA"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "醫療資訊外洩",
+      "type": "risk",
+      "display_name": "醫療資訊外洩"
+    },
+    "reasoning": "HIPAA 是保護醫療保健資訊的規範（policy），其執行可緩解醫療資料外洩的風險，符合 Schema 中的 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_1",
+    "source_file": "other_type.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "HIPAA 是一種政策（policy），'mitigates' 是一種合理的關係，醫療資訊外洩是一種風險（risk），因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 HIPAA，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"醫療資訊外洩\" 與 Ldr 中的 \"資訊外洩\" 關係為同義詞，兩者均指資訊的不當揭露，但 \"醫療資訊外洩\" 更具體指向醫療領域的資訊外洩。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，\"醫療資訊外洩\" 是 \"資訊外洩\" 的子類型，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "HIPAA",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "醫療資訊外洩",
+        "type": "risk"
+      },
+      "reasoning": "HIPAA 是保護醫療保健資訊的規範（policy），其執行可緩解醫療資料外洩的風險，符合 Schema 中的 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_1",
+      "source_file": "other_type.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "網路犯罪份子",
+      "type": "attacker",
+      "display_name": "網路犯罪份子"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "垃圾郵件",
+      "type": "attack",
+      "display_name": "垃圾郵件"
+    },
+    "reasoning": "文本提到網路犯罪份子透過發送垃圾郵件來獲取利益，垃圾郵件在此被視為攻擊工具，符合 Schema 中的 ('attacker', 'uses', 'tool')。",
+    "source_id": "chunk_1",
+    "source_file": "other_type.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網路犯罪份子是 attacker 的合理實例，垃圾郵件是 tool 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未違反，因為三元組中主體是網路犯罪份子（attacker），沒有同時具有安全團隊（securityTeam）的身分。規則2：不適用，因為關係不是mitigates。規則3：不適用，因為主體類別不是vulnerability。規則4：不適用，因為關係不是violates，且主體不是principle。規則5：觸發檢查，因為關係是uses，但主體類別是attacker，不是data，因此不違反。規則6、7、8：不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（網路犯罪份子）使用垃圾郵件（uses）不觸發任何語義限制清單中的規則，尤其是規則5中明確指出當主體不是data時，使用uses關係是允許的。因此，該三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中，但無需合併，因為它們代表不同的概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱雖有相似，但代表不同的類別，不需進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路犯罪份子",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "垃圾郵件",
+        "type": "tool"
+      },
+      "reasoning": "文本提到網路犯罪份子透過發送垃圾郵件來獲取利益，垃圾郵件在此被視為攻擊工具，符合 Schema 中的 ('attacker', 'uses', 'tool')。",
+      "source_id": "chunk_1",
+      "source_file": "other_type.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "內部威脅",
+      "type": "attack",
+      "display_name": "內部威脅"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "惡意程式碼",
+      "type": "tool",
+      "display_name": "惡意程式碼"
+    },
+    "reasoning": "文本描述內部威脅（如承包商）在伺服器上安裝惡意程式碼，惡意程式碼為攻擊工具，符合 Schema 中的 ('attacker', 'uses', 'tool')。",
+    "source_id": "chunk_1",
+    "source_file": "other_type.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '內部威脅' 的名稱與其類別 'attacker' 合理對齊，實體 '惡意程式碼' 的名稱與其類別 'tool' 也合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體的類別是attack，而不是data，但uses關係的主體可以是attack。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是內部威脅，關係是uses，受體是惡意程式碼，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞或相關概念，但無直接完全等價同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法直接判定為同義詞重複或廣義/狹義從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部威脅",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "惡意程式碼",
+        "type": "tool"
+      },
+      "reasoning": "文本描述內部威脅（如承包商）在伺服器上安裝惡意程式碼，惡意程式碼為攻擊工具，符合 Schema 中的 ('attacker', 'uses', 'tool')。",
+      "source_id": "chunk_1",
+      "source_file": "other_type.json",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "激進駭客"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "激進駭客透過干預政府選舉等行為來宣揚正義，這屬於實作具體的駭客攻擊行為，符合 Schema 中的 ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_1",
+    "source_file": "other_type.json",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "激進駭客 (attacker) 與駭客攻擊 (attack) 的名稱與其類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未觸發，因為三元組中沒有同時具有攻擊者(attacker)與安全團隊(securityTeam)的身分。規則2：未觸發，因為三元組中關係為implements，不是mitigates。規則3：未觸發，因為三元組中主體類別為attacker，不是vulnerability。規則4：未觸發，因為三元組中關係為implements，不是violates。規則5：未觸發，因為三元組中關係為implements，不是uses。規則6：未觸發，因為三元組中關係為implements，不是deployed_in。規則7：未觸發，因為三元組中關係為implements，不是generates。規則8：未觸發，因為三元組中關係為implements，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（激進駭客）與受體（駭客攻擊）之間的關係（implements）在給定的語義限制清單中沒有被明確禁止或限制，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"激進駭客\" 與 Ldr 中的 \"駭客\" 關係為同義詞，受體 \"駭客攻擊\" 與 Ldr 中的 \"駭客攻擊\" 關係為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "駭客",
+        "standard_object": "駭客攻擊",
+        "reason": "根據同義詞判定準則， \"激進駭客\" 與 \"駭客\" 可視為同義詞， \"駭客攻擊\" 與 \"駭客攻擊\" 完全相同，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "激進駭客",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "激進駭客透過干預政府選舉等行為來宣揚正義，這屬於實作具體的駭客攻擊行為，符合 Schema 中的 ('attacker', 'implements', 'attack')。",
+      "source_id": "chunk_1",
+      "source_file": "other_type.json",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "內部威脅",
+      "type": "attack",
+      "display_name": "內部威脅"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "reasoning": "內部威脅透過安裝惡意程式碼來危害伺服器系統，符合 Schema 中的 ('attacker', 'can_harm', 'system')。",
+    "source_id": "chunk_1",
+    "source_file": "other_type.json",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '內部威脅' 的名稱與其類別 'attacker' 合理對齊，實體 '伺服器' 的名稱與其類別 'system' 也合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_harm，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（內部威脅 can_harm 伺服器）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與 Ldr 中的某些資源具有完全等價的同義詞關係，但根據判斷準則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 '內部威脅' 與 Ldr 中的 '內部威脅' 完全匹配，受體 '伺服器' 亦與 Ldr 中的 '伺服器' 完全匹配，故直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部威脅",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "reasoning": "內部威脅透過安裝惡意程式碼來危害伺服器系統，符合 Schema 中的 ('attacker', 'can_harm', 'system')。",
+      "source_id": "chunk_1",
+      "source_file": "other_type.json",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "國家資助的攻擊者",
+      "type": "attacker",
+      "display_name": "國家資助的攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "國家資助的攻擊者與政府合作推動議程，通常透過網路攻擊手段達成，符合 Schema 中的 ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_1",
+    "source_file": "other_type.json",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '國家資助的攻擊者' 可被視為 'attacker' 的合理實例，'駭客攻擊' 可被視為 'attack' 的合理實例，且 'implements' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。檢查規則2：不適用，因為三元組中的關係是implements，不是mitigates。檢查規則3：不適用，因為三元組中的主體類別是attacker，不是vulnerability。檢查規則4：不適用，因為三元組中的關係是implements，不是violates。檢查規則5：不適用，因為三元組中的關係是implements，不是uses。檢查規則6：不適用，因為三元組中的關係是implements，不是deployed_in。檢查規則7：不適用，因為三元組中的關係是implements，不是generates。檢查規則8：不適用，因為三元組中的關係是implements，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是國家資助的攻擊者，關係是implements，受體是駭客攻擊，沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "國家資助的攻擊者與網路犯罪份子或駭客皆屬於attacker類別，但非完全等價同義詞；駭客攻擊為attack類別，與其他攻擊類型（如網路攻擊、物聯網攻擊等）同屬attack類別，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定國家資助的攻擊者與現有資源的完全等價同義詞關係，且駭客攻擊為attack類別的子集，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "國家資助的攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "國家資助的攻擊者與政府合作推動議程，通常透過網路攻擊手段達成，符合 Schema 中的 ('attacker', 'implements', 'attack')。",
+      "source_id": "chunk_1",
+      "source_file": "other_type.json",
+      "source_index": 9
+    }
+  }
+]

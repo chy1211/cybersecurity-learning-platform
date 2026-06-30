@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "公司同仁",
+      "type": "user",
+      "display_name": "公司同仁"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "內部使用資料",
+      "type": "data",
+      "display_name": "內部使用資料"
+    },
+    "reasoning": "文本描述有一份資料僅供公司同仁使用、查閱。公司同仁為 user，資料為 data，符合 ('user', 'uses', 'data') 的 Schema。",
+    "source_id": "chunk_125",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "公司同仁是 user 的合理實例，內部使用資料是 data 的合理實例，'uses' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規檢查，因為關係為 'uses'，但主體的類別是 'user'，不涉及 data 的主體限制。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 '公司同仁'，類別為 'user'，與 '內部使用資料' 的關係是 'uses'，這不直接違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體分別與現有近似資源清單中的「企業」和「資料庫內的資料」具有高相似度，但非完全等價同義詞，受體「內部使用資料」可視為「資料庫內的資料」的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "公司同仁",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "內部使用資料",
+        "type": "data"
+      },
+      "reasoning": "文本描述有一份資料僅供公司同仁使用、查閱。公司同仁為 user，資料為 data，符合 ('user', 'uses', 'data') 的 Schema。",
+      "source_id": "chunk_125",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "紙本類資訊資產",
+      "type": "data",
+      "display_name": "紙本類資訊資產"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "上鎖櫃",
+      "type": "system",
+      "display_name": "上鎖櫃"
+    },
+    "reasoning": "文本提到密級之紙本類資訊資產應放置於上鎖空間或上鎖櫃中。紙本資產屬於 data，上鎖櫃作為存放的物理基礎設施歸類為 system，符合 ('data', 'deployed_in', 'system') 的 Schema。",
+    "source_id": "chunk_125",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "紙本類資訊資產 可被視為 'data' 的實例，上鎖櫃 可被視為 'system' 的實例，且 'deployed_in' 的關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：適用，受體的類別是 system，符合規則。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 'deployed_in' 與受體 '上鎖櫃' 的類別 'system' 符合規則6，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"紙本類資訊資產\" 與 Ldr 中的 \"資料資產\" 類似，但非完全等價同義詞，兩者之間可能存在廣義/狹義從屬關係，但無法確定",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與 Ldr 中資源的關係，預設保留"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "紙本類資訊資產",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "上鎖櫃",
+        "type": "system"
+      },
+      "reasoning": "文本提到密級之紙本類資訊資產應放置於上鎖空間或上鎖櫃中。紙本資產屬於 data，上鎖櫃作為存放的物理基礎設施歸類為 system，符合 ('data', 'deployed_in', 'system') 的 Schema。",
+      "source_id": "chunk_125",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "iso/iec 27001",
+      "type": "policy",
+      "display_name": "CNS 27001"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊安全風險",
+      "type": "risk",
+      "display_name": "資訊安全風險"
+    },
+    "reasoning": "CNS 27001 是資訊安全管理標準，其目的在於定義風險評鑑過程以管理並降低風險。標準屬於 policy，風險屬於 risk，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
+    "source_id": "chunk_125",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "CNS 27001 是一項政策（policy），而 '資訊安全風險' 是風險（risk）的合理實例，且 'mitigates' 關係在資安領域中指政策可以減輕風險，因此語意對齊。",
+        "response": "correct",
+        "reason": "CNS 27001 政策與資訊安全風險之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 CNS 27001 類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "CNS 27001 與 Ldr 中的 iso/iec 27001 和 iso 27001 關係為同義詞重複，資訊安全風險為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "iso/iec 27001",
+        "standard_object": "資訊安全風險",
+        "reason": "根據同義詞判定，CNS 27001 與 iso/iec 27001 和 iso 27001 為同義詞重複，資訊安全風險為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CNS 27001",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊安全風險",
+        "type": "risk"
+      },
+      "reasoning": "CNS 27001 是資訊安全管理標準，其目的在於定義風險評鑑過程以管理並降低風險。標準屬於 policy，風險屬於 risk，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
+      "source_id": "chunk_125",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊安全風險評鑑",
+      "type": "technique",
+      "display_name": "資訊安全風險評鑑"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊安全管理系統",
+      "type": "system",
+      "display_name": "資訊安全管理系統"
+    },
+    "reasoning": "文本提到風險評鑑過程包含識別資訊安全管理系統範圍內之風險。風險評鑑是一種分析方法 (technique)，分析對象為管理系統 (system)，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+    "source_id": "chunk_125",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資訊安全風險評鑑 是 technique 的合理實例，資訊安全管理系統 是 system 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的規定且語意對齊，故此三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別是 technique，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查關係 can_analyze：沒有明確的限制規則直接禁止 technique 類別的主體與 system 類別的受體之間的 can_analyze 關係。",
+        "response": "correct",
+        "reason": "由於沒有發現明確且直接的違反項目，且三元組不觸發任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「資訊安全風險評鑑」與 Ldr 中的「風險評鑑」和「風險評估」相似，但非完全等價同義詞；受體「資訊安全管理系統」與 Ldr 中的「資訊安全管理系統」完全匹配，為同一概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "資訊安全管理系統",
+        "reason": "根據同義詞判定和廣義/狹義一律保留原則，主體不進行合併，受體與 Ldr 中的資源完全匹配。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全風險評鑑",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊安全管理系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到風險評鑑過程包含識別資訊安全管理系統範圍內之風險。風險評鑑是一種分析方法 (technique)，分析對象為管理系統 (system)，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+      "source_id": "chunk_125",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊安全風險評鑑",
+      "type": "technique",
+      "display_name": "資訊安全風險評鑑"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "風險評鑑需要對資產（如文本中提到的紙本類資訊資產）進行分級與分析以識別風險。風險評鑑為 technique，資產為 data，符合 ('technique', 'can_analyze', 'data') 的 Schema。",
+    "source_id": "chunk_125",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資訊安全風險評鑑 (technique) 可以分析資訊資產 (data)，這符合資安領域的常見實踐和語意對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_analyze'，且主體是 '資訊安全風險評鑑'（類別：technique），受體是 '資訊資產'（類別：system），這符合一般的資安分析邏輯，沒有明確違反任何一條規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係符合資安分析的邏輯，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊安全風險評鑑與風險評鑑、風險評估為同義詞或相近概念，但資訊安全風險評鑑為完整名稱，與資訊資產無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與Ldr中某資源的name字串不完全相同，且無直接同義詞關係，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全風險評鑑",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊資產",
+        "type": "data"
+      },
+      "reasoning": "風險評鑑需要對資產（如文本中提到的紙本類資訊資產）進行分級與分析以識別風險。風險評鑑為 technique，資產為 data，符合 ('technique', 'can_analyze', 'data') 的 Schema。",
+      "source_id": "chunk_125",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  }
+]

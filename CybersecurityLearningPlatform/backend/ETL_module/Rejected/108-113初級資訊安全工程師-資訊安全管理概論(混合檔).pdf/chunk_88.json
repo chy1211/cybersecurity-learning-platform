@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "密碼",
+      "type": "data",
+      "display_name": "密碼"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "設備被錯誤使用風險",
+      "type": "risk",
+      "display_name": "設備被錯誤使用風險"
+    },
+    "reasoning": "文本第 26 題提到使用密碼來防止無人看守設備被錯誤使用。密碼在此作為一種控制工具 (tool) 來緩解 (mitigates) 風險 (risk)。",
+    "source_id": "chunk_88",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "密碼 (tool) 可以合理地與 'mitigates' 關係連接到設備被錯誤使用風險 (risk)，因為密碼是一種工具，可以用來減輕設備被錯誤使用的風險。",
+        "response": "correct",
+        "reason": "密碼作為一種工具，能夠減輕設備被錯誤使用的風險，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。由於主體是密碼（類別：data），不符合規則2的條件，觸發違規檢查。",
+        "response": "violation",
+        "reason": "主體為密碼（類別：data），不符合規則2中關係為 mitigates 時的主體類別限制。因此，該三元組違反了語義限制清單中的規則2。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 主體為密碼（類別：data），不符合規則2中關係為 mitigates 時的主體類別限制。因此，該三元組違反了語義限制清單中的規則2。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "設備被錯誤使用風險",
+        "type": "risk"
+      },
+      "reasoning": "文本第 26 題提到使用密碼來防止無人看守設備被錯誤使用。密碼在此作為一種控制工具 (tool) 來緩解 (mitigates) 風險 (risk)。",
+      "source_id": "chunk_88",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  }
+]

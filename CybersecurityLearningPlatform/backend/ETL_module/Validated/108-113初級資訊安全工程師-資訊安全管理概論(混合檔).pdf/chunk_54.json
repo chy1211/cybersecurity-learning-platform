@@ -1,0 +1,626 @@
+[
+  {
+    "subject": {
+      "name": "資安專家",
+      "type": "securityTeam",
+      "display_name": "資安專家"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "captcha",
+      "type": "tool",
+      "display_name": "CAPTCHA"
+    },
+    "reasoning": "文本提到資安專家建議利用圖片辨識（CAPTCHA）作為認證機制，因此資安專家（securityTeam）使用（uses）此工具（tool）。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安專家是 securityTeam 的合理實例，CAPTCHA 是 tool 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不觸發，因為三元組中沒有攻擊者身份；規則2：不適用，因為關係不是 mitigates；規則3：不適用，因為主體類別不是 vulnerability；規則4：不適用，因為關係不是 violates 且主體不是 principle；規則5：觸發，因為主體的類別是 securityTeam 且關係是 uses，但 data 類別的限制是指主體的類別為 data 時才違反，securityTeam 不違反此規則；規則6：不適用，因為關係不是 deployed_in；規則7：不適用，因為關係不是 generates；規則8：不觸發，因為主體是 securityTeam，具有主動執行能力，符合 controls 的主體要求，但關係是 uses，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安專家）與受體（CAPTCHA）通過 uses 關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資安專家' 與 Ldr 中的 '網路安全專業人員'、'資安分析師'、'資安人員' 和 '鑑識專家' 皆為資安領域的相關人員，但無直接同義詞關係；受體 'CAPTCHA' 與 Ldr 中的 'captcha' 完全相同，為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "captcha",
+        "reason": "受體 'CAPTCHA' 與 Ldr 中的 'captcha' 為同義詞，但根據規則 2，判定為 duplicate；然而，主體 '資安專家' 與 Ldr 中的資源無直接同義詞關係，根據規則 4，預設保留，故最終判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安專家",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "CAPTCHA",
+        "type": "tool"
+      },
+      "reasoning": "文本提到資安專家建議利用圖片辨識（CAPTCHA）作為認證機制，因此資安專家（securityTeam）使用（uses）此工具（tool）。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "captcha",
+      "type": "tool",
+      "display_name": "CAPTCHA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "認證功能",
+      "type": "function",
+      "display_name": "認證機制"
+    },
+    "reasoning": "CAPTCHA 被用作一種認證機制，認證是系統執行的動作/能力，故將其定義為功能（function），工具（tool）具有（has_a）此功能。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "CAPTCHA 是一種工具（tool），而 '認證機制' 可被視為一種功能（function），因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 'CAPTCHA' 的類別 'tool' 與受體 '認證機制' 的類別 'function' 之間的關係 'has_a' 在給定的規則中沒有被明確禁止或限制。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體、受體的類別組合在給定的語義限制清單中沒有被明確限制或禁止，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "CAPTCHA 與 'captcha' 完全等價同義詞，認證機制與 '認證功能' 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "captcha",
+        "standard_object": "認證功能",
+        "reason": "根據同義詞判定，CAPTCHA 等同於 'captcha'，認證機制等同於 '認證功能'，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CAPTCHA",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "認證機制",
+        "type": "function"
+      },
+      "reasoning": "CAPTCHA 被用作一種認證機制，認證是系統執行的動作/能力，故將其定義為功能（function），工具（tool）具有（has_a）此功能。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "身分認證技術",
+      "type": "technique",
+      "display_name": "身分認證技術"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "captcha",
+      "type": "tool",
+      "display_name": "CAPTCHA"
+    },
+    "reasoning": "CAPTCHA 是身分認證技術中的一種具體實作工具，符合技術（technique）包含（has_a）工具（tool）的定義。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '身分認證技術' 的名稱與其類別 'technique' 合理對齊，實體 'CAPTCHA' 的名稱與其類別 'tool' 也合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。由於沒有任何規則被觸發，三元組不違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係has_a不違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"身分認證技術\" 與 Ldr 中的 \"認證技術\" 關係為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，身分認證技術與認證技術為同義詞，但根據判斷準則 3，廣義/狹義一律保留，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "身分認證技術",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "CAPTCHA",
+        "type": "tool"
+      },
+      "reasoning": "CAPTCHA 是身分認證技術中的一種具體實作工具，符合技術（technique）包含（has_a）工具（tool）的定義。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "身分認證技術",
+      "type": "technique",
+      "display_name": "身分認證技術"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "生物特徵認證",
+      "type": "technique",
+      "display_name": "生物特徵認證"
+    },
+    "reasoning": "生物特徵認證是身分認證技術的一種具體實作方式，將其視為工具（tool），符合技術（technique）包含（has_a）工具（tool）的定義。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '身分認證技術' 是 'technique' 的合理實例，受體 '生物特徵認證' 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '身分認證技術' 和受體 '生物特徵認證' 之間的關係，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域的技術類別，且受體「生物特徵認證」與近似資源清單中的「生物特徵認證」完全匹配，主體「身分認證技術」與近似資源清單中的「身分認證技術」完全匹配，且「生物特徵認證」與「身分認證技術」皆屬於認證技術的子類型，但根據規則3，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則3，廣義/狹義一律保留，故不合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "身分認證技術",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "生物特徵認證",
+        "type": "tool"
+      },
+      "reasoning": "生物特徵認證是身分認證技術的一種具體實作方式，將其視為工具（tool），符合技術（technique）包含（has_a）工具（tool）的定義。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "生物特徵認證",
+      "type": "technique",
+      "display_name": "生物特徵認證"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "cer",
+      "type": "feature",
+      "display_name": "CER"
+    },
+    "reasoning": "CER（交叉錯誤率）是生物特徵認證的評比指標，屬於該工具的屬性/特徵（feature），符合工具（tool）具有（has_a）特徵（feature）的定義。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "生物特徵認證 (tool) 與 CER (feature) 的名稱與其類別合理對齊，生物特徵認證是一種工具，CER 可被視為一種特徵。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'has_a'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被定義為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與現有近似資源清單中的「生物特徵認證」完全相同，受體 CER 與資安領域已知同義詞對照範例中無直接對應關係，但主體的判斷是直接匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "生物特徵認證",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "CER",
+        "type": "feature"
+      },
+      "reasoning": "CER（交叉錯誤率）是生物特徵認證的評比指標，屬於該工具的屬性/特徵（feature），符合工具（tool）具有（has_a）特徵（feature）的定義。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "生物特徵認證",
+      "type": "technique",
+      "display_name": "生物特徵認證"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "frr",
+      "type": "feature",
+      "display_name": "FRR"
+    },
+    "reasoning": "FRR（錯誤拒絕率）是生物特徵認證的評比指標，屬於該工具的屬性/特徵（feature），符合工具（tool）具有（has_a）特徵（feature）的定義。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "生物特徵認證 (Biometric Authentication) 是一種工具 (tool)，FRR (False Rejection Rate) 是一種特徵 (feature)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係 'has_a' 不在任何規則中被明確限制，且主體 '生物特徵認證' 的類別 'technique' 與受體 'FRR' 的類別 'feature' 沒有直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"生物特徵認證\" 與 Ldr 中的 \"生物特徵認證\" 完全等價同義詞，受體 \"FRR\" 與 Ldr 中的 \"cer\" 可能相關但不完全等價，需要進一步分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源完全匹配，且無法確定受體與 Ldr 中的資源之間的關係，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "生物特徵認證",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "FRR",
+        "type": "feature"
+      },
+      "reasoning": "FRR（錯誤拒絕率）是生物特徵認證的評比指標，屬於該工具的屬性/特徵（feature），符合工具（tool）具有（has_a）特徵（feature）的定義。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "生物特徵認證",
+      "type": "technique",
+      "display_name": "生物特徵認證"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "far",
+      "type": "feature",
+      "display_name": "FAR"
+    },
+    "reasoning": "FAR（錯誤接受率）是生物特徵認證的評比指標，屬於該工具的屬性/特徵（feature），符合工具（tool）具有（has_a）特徵（feature）的定義。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "生物特徵認證 (tool) 與 FAR (feature) 的名稱與其類別合理對齊，符合語意與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "生物特徵認證與 FAR 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 '生物特徵認證' 的類別 'technique' 與受體 'FAR' 的類別 'feature' 之間的關係 'has_a' 在給定的規則中沒有明確的限制或違反。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與給定的語義限制清單中沒有直接的衝突或違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"生物特徵認證\" 與 Ldr 中的 \"生物特徵認證\" 完全等價同義詞，受體 \"FAR\" 與 Ldr 中的 \"frr\" 不完全匹配，但 \"FAR\" 是 \"False Acceptance Rate\" 的縮寫，與 \"frr\"（False Rejection Rate）相關，但不完全等同，兩者皆為生物特徵認證的特徵指標。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源完全匹配，但受體不完全等同，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "生物特徵認證",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "FAR",
+        "type": "feature"
+      },
+      "reasoning": "FAR（錯誤接受率）是生物特徵認證的評比指標，屬於該工具的屬性/特徵（feature），符合工具（tool）具有（has_a）特徵（feature）的定義。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "生物特徵認證",
+      "type": "technique",
+      "display_name": "生物特徵認證"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "靜態特徵",
+      "type": "feature",
+      "display_name": "靜態特徵"
+    },
+    "reasoning": "生物特徵認證可區分為靜態與動態特徵，靜態特徵是其組成屬性，符合工具（tool）具有（has_a）特徵（feature）的定義。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "生物特徵認證 (tool) 與靜態特徵 (feature) 的名稱與其類別合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆無完全等價同義詞，但主體與現有資源 '身分認證技術' 類別相同，受體 '靜態特徵' 與 'cer'、'frr'、'far' 皆屬於特徵類別，但無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體與現有資源之間的直接同義詞關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "生物特徵認證",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "靜態特徵",
+        "type": "feature"
+      },
+      "reasoning": "生物特徵認證可區分為靜態與動態特徵，靜態特徵是其組成屬性，符合工具（tool）具有（has_a）特徵（feature）的定義。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "生物特徵認證",
+      "type": "technique",
+      "display_name": "生物特徵認證"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "動態特徵",
+      "type": "feature",
+      "display_name": "動態特徵"
+    },
+    "reasoning": "生物特徵認證可區分為靜態與動態特徵，動態特徵是其組成屬性，符合工具（tool）具有（has_a）特徵（feature）的定義。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "生物特徵認證 (tool) 與 動態特徵 (feature) 的名稱與其類別合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "生物特徵認證與動態特徵的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係 'has_a' 不在任何規則中被明確限制，且主體和受體的類別組合在給定的規則中沒有被明確禁止或限制。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源，但無直接同義詞關係，受體「動態特徵」與「屬性」、「生理特徵」、「靜態特徵」等相關但非完全等價，主體「生物特徵認證」與「身分認證技術」相關但非完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體或受體與現有資源之間的直接同義詞或完全等價關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "生物特徵認證",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "動態特徵",
+        "type": "feature"
+      },
+      "reasoning": "生物特徵認證可區分為靜態與動態特徵，動態特徵是其組成屬性，符合工具（tool）具有（has_a）特徵（feature）的定義。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "指紋",
+      "type": "feature",
+      "display_name": "指紋"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "生物特徵認證",
+      "type": "technique",
+      "display_name": "生物特徵認證"
+    },
+    "reasoning": "指紋是生物特徵認證中使用的具體特徵，符合特徵（feature）屬於（is_part_of）工具（tool）的定義。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'tool' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "指紋是生物特徵認證中的一個特徵，屬於 'feature' 類別；生物特徵認證是一種工具，屬於 'tool' 類別。這些名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關。檢查規則6：無關。檢查規則7：無關。檢查規則8：無關，因為 'is_part_of' 關係不在控制行為的規則中。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 不違反任何語義限制清單中的規則，且主體和受體的類別組合在給定的規則中沒有被明確限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體指紋與受體生物特徵認證在資安領域中，指紋是一種生物特徵，生物特徵認證是一種技術，兩者之間存在著從屬關係，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則3，若一個實體是另一個的子類型，判定為correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "指紋",
+        "type": "feature"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "生物特徵認證",
+        "type": "tool"
+      },
+      "reasoning": "指紋是生物特徵認證中使用的具體特徵，符合特徵（feature）屬於（is_part_of）工具（tool）的定義。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "聲音模式",
+      "type": "feature",
+      "display_name": "聲音模式"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "生物特徵認證",
+      "type": "technique",
+      "display_name": "生物特徵認證"
+    },
+    "reasoning": "聲音模式是生物特徵認證中使用的具體特徵，符合特徵（feature）屬於（is_part_of）工具（tool）的定義。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'tool' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "聲音模式 (feature) 與 生物特徵認證 (tool) 的名稱與其類別合理對齊，且 'is_part_of' 關係在資安領域中合理適用。",
+        "response": "correct",
+        "reason": "聲音模式作為生物特徵認證的一部分，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為關係不是 'uses'。檢查規則6：無關，因為關係不是 'deployed_in'。檢查規則7：無關，因為關係不是 'generates'。檢查規則8：無關，因為關係不是 'controls'。檢查完所有規則，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體 '聲音模式' 與受體 '生物特徵認證' 透過 'is_part_of' 關係連接，未觸發語義限制清單中的任何規則。因此，該三元組不違反任何語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "聲音模式與現有資源清單中沒有完全匹配的同義詞，但受體生物特徵認證與身分認證技術有相似的概念",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法確定聲音模式與現有資源清單中的資源有直接的同義詞關係，且生物特徵認證與身分認證技術雖有相似概念，但不完全等價，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "聲音模式",
+        "type": "feature"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "生物特徵認證",
+        "type": "tool"
+      },
+      "reasoning": "聲音模式是生物特徵認證中使用的具體特徵，符合特徵（feature）屬於（is_part_of）工具（tool）的定義。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 12
+    }
+  },
+  {
+    "subject": {
+      "name": "視網膜",
+      "type": "feature",
+      "display_name": "視網膜"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "生物特徵認證",
+      "type": "technique",
+      "display_name": "生物特徵認證"
+    },
+    "reasoning": "視網膜是生物特徵認證中使用的具體特徵，符合特徵（feature）屬於（is_part_of）工具（tool）的定義。",
+    "source_id": "chunk_54",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'tool' 與關係 'is_part_of' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "視網膜 (retina) 可被視為生物特徵認證 (biometric authentication) 的一部分，故語意對齊。",
+        "response": "correct",
+        "reason": "視網膜作為生物特徵認證的一部分，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為關係不是 'uses'。檢查規則6：無關，因為關係不是 'deployed_in'。檢查規則7：無關，因為關係不是 'generates'。檢查規則8：無關，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 與給定的語義限制清單中沒有直接相關的規則，因此無法判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆無直接同義詞對應，但受體「生物特徵認證」與現有資源「生物特徵認證」完全匹配，主體「視網膜」無直接匹配項，但無法確定其與現有資源的關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "生物特徵認證",
+        "reason": "根據判斷準則，受體「生物特徵認證」直接匹配現有資源，主體無直接匹配項，且無法確定其與現有資源的關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "視網膜",
+        "type": "feature"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "生物特徵認證",
+        "type": "tool"
+      },
+      "reasoning": "視網膜是生物特徵認證中使用的具體特徵，符合特徵（feature）屬於（is_part_of）工具（tool）的定義。",
+      "source_id": "chunk_54",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 11
+    }
+  }
+]

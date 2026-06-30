@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "分散式阻斷服務攻擊 (ddos)",
+      "type": "attack",
+      "display_name": "分散式阻斷服務攻擊 (DDoS)"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "文本提到『大量會員同時登入，系統當機而無法提供服務』以及後文提到的 DDoS，這描述了攻擊導致服務不可用的情況，符合攻擊違反可用性原則的邏輯。Schema 允許 ('attack', 'violates', 'principle')。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "DDoS 是 'attack' 的合理實例，'violates' 是描述攻擊對可用性原則影響的合理關係，'可用性' 是 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "DDoS 攻擊違反可用性原則，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係是violates，而不是mitigates。規則3不適用，因為主體的類別是attack，而不是vulnerability。規則4適用，因為principle僅能作為被違反的受體，但在三元組中，分散式阻斷服務攻擊（DDoS）違反了可用性（一種資安原則），這符合規則4的描述。規則5、6、7、8不適用，因為三元組中的關係是violates，不符合這些規則的條件。",
+        "response": "correct",
+        "reason": "三元組描述了一個攻擊（DDoS）違反了一個資安原則（可用性），這符合語義限制清單中的規則，特別是規則4沒有被違反，因為principle正確地被用作了受體。因此，三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "分散式阻斷服務攻擊 (DDoS) 與分散式阻斷服務 (ddos) 攻擊為同義詞，且可用性 (principle) 已在 Ldr 中出現",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，分散式阻斷服務攻擊 (DDoS) 與分散式阻斷服務 (ddos) 攻擊為同義詞，但根據廣義/狹義一律保留原則，不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "分散式阻斷服務攻擊 (DDoS)",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "文本提到『大量會員同時登入，系統當機而無法提供服務』以及後文提到的 DDoS，這描述了攻擊導致服務不可用的情況，符合攻擊違反可用性原則的邏輯。Schema 允許 ('attack', 'violates', 'principle')。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵者",
+      "type": "attacker",
+      "display_name": "入侵者"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "學校教學系統",
+      "type": "system",
+      "display_name": "學校教學系統"
+    },
+    "reasoning": "文本提到『學校教學系統遭人入侵』，入侵者（attacker）對系統（system）造成了損害。Schema 允許 ('attacker', 'can_harm', 'system')。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'can_harm' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "入侵者 (attacker) 是攻擊者的合理實例，學校教學系統 (system) 是系統的合理實例，'can_harm' 是一種合理的關係描述。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中入侵者(attacker)與安全團隊(securityTeam)的身分沒有同時出現。規則2：不適用，因為主體不是policy, technique或tool。規則3：不適用，因為主體類別不是vulnerability。規則4：不適用，因為關係不是violates，且主體不是principle。規則5：不適用，因為關係不是uses。規則6：不適用，因為關係不是deployed_in。規則7：不適用，因為關係不是generates。規則8：不適用，因為關係不是controls。由於三元組中的關係can_harm沒有在規則中被明確限制，且主體和受體的類別符合一般的語義理解，因此沒有違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的入侵者可以對學校教學系統造成傷害，這符合一般的語義理解，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵者",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "學校教學系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到『學校教學系統遭人入侵』，入侵者（attacker）對系統（system）造成了損害。Schema 允許 ('attacker', 'can_harm', 'system')。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵者",
+      "type": "attacker",
+      "display_name": "入侵者"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "學生考試分數",
+      "type": "data",
+      "display_name": "學生考試分數"
+    },
+    "reasoning": "文本提到入侵後『公布學生考試分數』，這是一種對敏感資料（data）的非法洩露與損害。Schema 允許 ('attacker', 'can_harm', 'data')。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵者 (attacker) 是攻擊者的合理實例，學生考試分數 (data) 是資料的合理實例，'can_harm' 的語意與攻擊者對資料的危害行為相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體是入侵者，具有主動執行能力，符合規則8的條件，但關係是can_harm，不是controls，故不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵者與現有近似資源清單中的「入侵者」完全相同，受體「學生考試分數」不在同義詞對照範例中，且無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與Ldr中某資源的name字串完全相同，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵者",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "學生考試分數",
+        "type": "data"
+      },
+      "reasoning": "文本提到入侵後『公布學生考試分數』，這是一種對敏感資料（data）的非法洩露與損害。Schema 允許 ('attacker', 'can_harm', 'data')。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "syslog",
+      "type": "tool",
+      "display_name": "Syslog"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "udp",
+      "type": "tool",
+      "display_name": "UDP"
+    },
+    "reasoning": "文本提到『以使用者資料報協定 (UDP) port 514 的方式，遠端蒐集 Syslog』，說明 Syslog 在此實作中使用了 UDP 這一傳輸特徵。Schema 允許 ('tool', 'has_a', 'feature')。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Syslog 是一種工具（tool），UDP 是一種特性（feature），因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "Syslog 和 UDP 的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組 (Syslog, has_a, UDP) 沒有觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Syslog 和 UDP 是兩個不同的工具，沒有同義詞關係，也不是廣義或狹義的從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，Syslog 和 UDP 沒有同義詞關係，也不是廣義或狹義的從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Syslog",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "UDP",
+        "type": "feature"
+      },
+      "reasoning": "文本提到『以使用者資料報協定 (UDP) port 514 的方式，遠端蒐集 Syslog』，說明 Syslog 在此實作中使用了 UDP 這一傳輸特徵。Schema 允許 ('tool', 'has_a', 'feature')。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "syslog",
+      "type": "tool",
+      "display_name": "Syslog"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "文本提到『遠端蒐集 Syslog 進行日誌留存』，Syslog 作為一種工具/協定，其目的是產生並記錄日誌資料。Schema 允許 ('tool', 'generates', 'data')。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Syslog 是一種工具（tool），日誌是資料（data），'generates' 關係在資安領域中合理，表示 Syslog 可以生成日誌，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "Syslog 生成日誌的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係是generates，而不是mitigates。規則3不適用，因為主體的類別是tool，而不是vulnerability。規則4不適用，因為三元組中沒有提到principle。規則5不適用，因為關係是generates，而不是uses。規則6不適用，因為關係是generates，而不是deployed_in。規則7適用，且三元組中的受體類別是data，符合規則。規則8不適用，因為關係是generates，而不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Syslog 是一個工具，日誌是其產生的資料，兩者之間存在著明確的主體和受體關係，Syslog 是一個特定的工具名稱，日誌是其資料類型，不存在同義詞重複的情況。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Syslog 和 日誌 之間不存在同義詞關係，且兩者之間存在著明確的主體和受體關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Syslog",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "文本提到『遠端蒐集 Syslog 進行日誌留存』，Syslog 作為一種工具/協定，其目的是產生並記錄日誌資料。Schema 允許 ('tool', 'generates', 'data')。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊系統",
+      "type": "system",
+      "display_name": "資訊系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "同步時脈 (clock synchronization)",
+      "type": "feature",
+      "display_name": "同步時脈 (Clock Synchronization)"
+    },
+    "reasoning": "文本提到『資訊系統、網路設備須有一致性的同步時脈』，將同步時脈視為系統必須具備的一項屬性或特徵。Schema 允許 ('system', 'has_a', 'feature')。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊系統可以具有同步時脈的功能，故實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 '資訊系統' 的類別 'system' 與受體 '同步時脈' 的類別 'feature' 之間的關係 'has_a' 在給定的規則中沒有被明確禁止。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與給定的語義限制清單中沒有直接的衝突，且無法在規則中找到明確的限制或禁止此類組合的條款。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊系統與現有近似資源清單中的「資訊系統」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "同步時脈 (Clock Synchronization)",
+        "type": "feature"
+      },
+      "reasoning": "文本提到『資訊系統、網路設備須有一致性的同步時脈』，將同步時脈視為系統必須具備的一項屬性或特徵。Schema 允許 ('system', 'has_a', 'feature')。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "同步時脈 (clock synchronization)",
+      "type": "technique",
+      "display_name": "同步時脈 (Clock Synchronization)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "分散式阻斷服務攻擊 (ddos)",
+      "type": "attack",
+      "display_name": "分散式阻斷服務攻擊 (DDoS)"
+    },
+    "reasoning": "文本第 38 題將同步時脈與防範 DDoS 聯繫在一起（雖然選項被截斷，但邏輯上時脈同步有助於日誌分析以偵測/緩解攻擊）。將同步時脈視為一種防禦技術。Schema 允許 ('technique', 'mitigates', 'attack')。",
+    "source_id": "chunk_67",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "同步時脈 (Clock Synchronization) 是一種合理的 'technique' 實例，分散式阻斷服務攻擊 (DDoS) 是一種合理的 'attack' 實例。",
+        "response": "correct",
+        "reason": "同步時脈 (Clock Synchronization) 的 'technique' 類別、分散式阻斷服務攻擊 (DDoS) 的 'attack' 類別與 'mitigates' 關係皆符合 Lc,p 的定義，且名稱與類別對齊，故無違反。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '同步時脈 (Clock Synchronization)' 屬於 'technique' 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '同步時脈 (Clock Synchronization)' 屬於 'technique' 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「分散式阻斷服務攻擊 (ddos)」為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "分散式阻斷服務攻擊 (ddos)",
+        "reason": "根據同義詞判定，受體與 Ldr 中的資源為同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "同步時脈 (Clock Synchronization)",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "分散式阻斷服務攻擊 (DDoS)",
+        "type": "attack"
+      },
+      "reasoning": "文本第 38 題將同步時脈與防範 DDoS 聯繫在一起（雖然選項被截斷，但邏輯上時脈同步有助於日誌分析以偵測/緩解攻擊）。將同步時脈視為一種防禦技術。Schema 允許 ('technique', 'mitigates', 'attack')。",
+      "source_id": "chunk_67",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  }
+]

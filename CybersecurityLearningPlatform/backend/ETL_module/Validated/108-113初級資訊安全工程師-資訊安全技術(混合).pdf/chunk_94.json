@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "交通號誌",
+      "type": "system",
+      "display_name": "交通號誌"
+    },
+    "reasoning": "文本提到交通號誌遭駭客入侵並竄改內容，屬於攻擊者對基礎設施系統的控制。符合 Schema: ('attacker', 'controls', 'system')",
+    "source_id": "chunk_94",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 和 交通號誌 (system) 的名稱與其被賦予的類別合理對齊，駭客是攻擊者的合理實例，交通號誌是系統的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為駭客（attacker），具有主動執行能力，符合規則8的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（駭客）具有主動執行能力，符合規則8的要求，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "駭客與惡意駭客、黑帽駭客等為同一類別的不同稱呼，但非完全等價同義詞；交通號誌不在近似資源清單中，但可判定為系統的一種",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "駭客與交通號誌之間的關係不構成同義詞重複，且交通號誌不在近似資源清單中，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "交通號誌",
+        "type": "system"
+      },
+      "reasoning": "文本提到交通號誌遭駭客入侵並竄改內容，屬於攻擊者對基礎設施系統的控制。符合 Schema: ('attacker', 'controls', 'system')",
+      "source_id": "chunk_94",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "車輛",
+      "type": "system",
+      "display_name": "車輛"
+    },
+    "reasoning": "文本提到車輛遭到駭客遠端操控引擎與煞車，屬於攻擊者對系統的控制。符合 Schema: ('attacker', 'controls', 'system')",
+    "source_id": "chunk_94",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 與 車輛 (system) 的名稱與其被賦予的類別合理對齊，駭客是攻擊者的合理實例，車輛可以視為系統的一部分。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未觸發，因為駭客不具有安全團隊的身分。規則2：不適用，因為動作是 controls 而非 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為主體不是 principle。規則5：不適用，因為關係不是 uses。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：觸發檢查，因為關係是 controls，主體是具有主動執行能力的角色（駭客），符合規則允許的條件。",
+        "response": "correct",
+        "reason": "駭客控制車輛的三元組符合規則8的允許條件，且未違反其他規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全等價同義詞，受體 \"車輛\" 與 Ldr 中的 \"系統\" 類別相關但不完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全匹配，無需進一步判定；受體 \"車輛\" 不在同義詞對照範例中，且與 \"系統\" 類別相關但不完全匹配，根據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "車輛",
+        "type": "system"
+      },
+      "reasoning": "文本提到車輛遭到駭客遠端操控引擎與煞車，屬於攻擊者對系統的控制。符合 Schema: ('attacker', 'controls', 'system')",
+      "source_id": "chunk_94",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "健身手環",
+      "type": "system",
+      "display_name": "健身手環"
+    },
+    "reasoning": "文本提到駭客入侵健身手環以追蹤路線，這屬於攻擊者對物聯網設備（系統）的控制行為。符合 Schema: ('attacker', 'controls', 'system')",
+    "source_id": "chunk_94",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，健身手環 (system) 可以被視為系統的實例，且 'controls' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為駭客不具有安全團隊的身分。規則2：不適用，因為動作是 controls，不是 mitigates。規則3：不適用，因為主體類別是 attacker，不是 vulnerability。規則4：不適用，因為主體不是 principle。規則5：不適用，因為關係不是 uses。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：觸發，因為主體是 attacker，具有主動執行能力的角色，符合 controls 關係的要求。",
+        "response": "correct",
+        "reason": "三元組中的主體（駭客）與關係（controls）以及受體（健身手環）之間的關係符合規則8的要求，駭客作為具有主動執行能力的角色，可以控制系統（健身手環）。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (駭客) 與 Ldr 中的資源 (駭客) 完全相同，受體 (健身手環) 不在 Ldr 中，但無需比對受體，因主體已確定為完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 (駭客) 與 Ldr 中的資源 (駭客) 名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "健身手環",
+        "type": "system"
+      },
+      "reasoning": "文本提到駭客入侵健身手環以追蹤路線，這屬於攻擊者對物聯網設備（系統）的控制行為。符合 Schema: ('attacker', 'controls', 'system')",
+      "source_id": "chunk_94",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "分散式阻斷服務 (ddos) 攻擊",
+      "type": "attack",
+      "display_name": "分散式阻斷服務 (DDoS) 攻擊"
+    },
+    "reasoning": "文本提到使用防火牆能有效阻擋 DDoS 攻擊。符合 Schema: ('tool', 'mitigates', 'attack')",
+    "source_id": "chunk_94",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，分散式阻斷服務（DDoS）攻擊是攻擊（attack）的合理實例，且 'mitigates' 的語意與防火牆減輕攻擊的概念相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是防火牆（tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（防火牆）是 tool，符合規則2的條件，且未發現其他明確違反的規則。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "防火牆",
+        "standard_object": "分散式阻斷服務 (ddos) 攻擊",
+        "reason": "根據資安領域已知同義詞對照範例，防火牆與網路防火牆為同義詞，分散式阻斷服務 (ddos) 攻擊為唯一完全匹配的受體"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "分散式阻斷服務 (DDoS) 攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到使用防火牆能有效阻擋 DDoS 攻擊。符合 Schema: ('tool', 'mitigates', 'attack')",
+      "source_id": "chunk_94",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵防禦系統 (ips)",
+      "type": "tool",
+      "display_name": "入侵防禦系統 (IPS)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "網路攻擊",
+      "type": "attack",
+      "display_name": "網路攻擊"
+    },
+    "reasoning": "IPS 的功能是阻擋網路攻擊，即緩解攻擊。符合 Schema: ('tool', 'mitigates', 'attack')",
+    "source_id": "chunk_94",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵防禦系統 (IPS) 是 'tool' 的合理實例，網路攻擊是 'attack' 的合理實例，且 'mitigates' 的語意與資安領域的同義詞寬容原則相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是入侵防禦系統 (IPS)，類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵防禦系統 (IPS) 與入侵防禦系統 (ips) 完全等價同義詞，網路攻擊為攻擊的子集，但根據規則 3，廣義/狹義一律保留，不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 3，廣義/狹義一律保留，入侵防禦系統 (IPS) 與入侵防禦系統 (ips) 雖然同義，但網路攻擊為攻擊的子集，不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵防禦系統 (IPS)",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "網路攻擊",
+        "type": "attack"
+      },
+      "reasoning": "IPS 的功能是阻擋網路攻擊，即緩解攻擊。符合 Schema: ('tool', 'mitigates', 'attack')",
+      "source_id": "chunk_94",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵偵測系統 (IDS)"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "網路攻擊",
+      "type": "attack",
+      "display_name": "網路攻擊"
+    },
+    "reasoning": "IDS 的核心功能是偵測網路攻擊。符合 Schema: ('tool', 'can_detect', 'attack')",
+    "source_id": "chunk_94",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統 (IDS) 是 'tool' 的合理實例，網路攻擊是 'attack' 的合理實例，'can_detect' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需注意 'can_detect' 關係的主體 'IDS' 屬於 tool 類別，符合具有主動執行能力的角色或工具的描述，與規則8的精神相符，但規則8針對 'controls' 關係，與 'can_detect' 關係無直接關聯。",
+        "response": "correct",
+        "reason": "三元組中的 'IDS' 屬於 tool 類別，'can_detect' 關係描述的是工具的能力，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統 (IDS) 與入侵偵測系統 (ids) 完全等價同義詞，網路攻擊與網路攻擊完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，入侵偵測系統 (IDS) 與入侵偵測系統 (ids) 為同義詞，但由於已經有完全匹配的資源，故不進行替換；網路攻擊也已經有完全匹配的資源，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "網路攻擊",
+        "type": "attack"
+      },
+      "reasoning": "IDS 的核心功能是偵測網路攻擊。符合 Schema: ('tool', 'can_detect', 'attack')",
+      "source_id": "chunk_94",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "開放式系統互聯模型 (osi)",
+      "type": "system",
+      "display_name": "開放式系統互聯模型 (OSI)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "網路層",
+      "type": "system",
+      "display_name": "網路層"
+    },
+    "reasoning": "OSI 模型是一個整體架構（系統），而網路層是其組成的一個分層特徵。符合 Schema: ('system', 'has_a', 'feature')",
+    "source_id": "chunk_94",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '開放式系統互聯模型 (OSI)' 是 'system' 的合理實例，'網路層' 是 'feature' 的合理實例，考慮到資安領域的同義詞、縮寫與翻譯寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與規則列表中沒有直接相關的限制，因此無法觸發任何違規條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路層是 OSI 模型中的一個層級，兩者之間存在著明確的從屬關係，但網路層本身是一個特定的系統，因此與 OSI 模型中的其他層級相比，具有明確的區別。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】的判斷準則，網路層是 OSI 模型中的一個特定層級，因此不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "開放式系統互聯模型 (OSI)",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "網路層",
+        "type": "feature"
+      },
+      "reasoning": "OSI 模型是一個整體架構（系統），而網路層是其組成的一個分層特徵。符合 Schema: ('system', 'has_a', 'feature')",
+      "source_id": "chunk_94",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "openvas",
+      "type": "tool",
+      "display_name": "OpenVAS"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "openvas",
+      "type": "tool",
+      "display_name": "弱點掃描工具"
+    },
+    "reasoning": "OpenVAS 是弱點掃描工具的一種具體實作，將其歸類為工具類別中的一部分。符合 Schema: ('tool', 'is_part_of', 'tool')",
+    "source_id": "chunk_94",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "OpenVAS 是一種弱點掃描工具，符合 'tool' 類別；'弱點掃描工具' 也是一種 'tool'，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "OpenVAS 和 '弱點掃描工具' 的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 'is_part_of'，不涉及 'controls' 關係。另外，主體和受體的類別均為 'tool'，與規則無直接衝突。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別均為 'tool'，且關係為 'is_part_of'，未發現明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (OpenVAS) 與受體 (弱點掃描工具) 分別對應到 Ldr 中的 'openvas' 和 '漏洞掃描工具'，兩者均屬於工具類別，且 '弱點' 和 '漏洞' 是同義詞，指稱同一概念。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "openvas",
+        "reason": "根據同義詞判定準則，'弱點' 和 '漏洞' 是同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OpenVAS",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "弱點掃描工具",
+        "type": "tool"
+      },
+      "reasoning": "OpenVAS 是弱點掃描工具的一種具體實作，將其歸類為工具類別中的一部分。符合 Schema: ('tool', 'is_part_of', 'tool')",
+      "source_id": "chunk_94",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "honeypot",
+      "type": "tool",
+      "display_name": "密罐 (Honeypot)"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "異常活動",
+      "type": "attack",
+      "display_name": "異常網路活動"
+    },
+    "reasoning": "佈署密罐服務是用於偵測異常的網路活動（視為攻擊行為）。符合 Schema: ('tool', 'can_detect', 'attack')",
+    "source_id": "chunk_94",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "密罐 (Honeypot) 是工具 (tool) 的合理實例，異常網路活動是攻擊 (attack) 的合理實例，'can_detect' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體 (Subject) 是 tool，具有主動執行能力，關係為 can_detect，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體是 tool，關係是 can_detect，受體是異常網路活動，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"密罐\" 與 Ldr 中的 \"honeypot\" 和 \"蜜罐\" 皆為同義詞，受體 \"異常網路活動\" 與 Ldr 中的 \"異常活動\" 亦為同義詞，兩者皆可視為同義詞重複。",
+        "response": "duplicate",
+        "standard_subject": "honeypot",
+        "standard_object": "異常活動",
+        "reason": "根據同義詞判定準則，主體和受體皆找到相對應的同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密罐 (Honeypot)",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "異常網路活動",
+        "type": "attack"
+      },
+      "reasoning": "佈署密罐服務是用於偵測異常的網路活動（視為攻擊行為）。符合 Schema: ('tool', 'can_detect', 'attack')",
+      "source_id": "chunk_94",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  }
+]

@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "kerberos",
+      "type": "tool",
+      "display_name": "Kerberos伺服器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "認證功能",
+      "type": "function",
+      "display_name": "認證機制"
+    },
+    "reasoning": "文本提到『採複合 Kerberos伺服器和缺陷認證機制』，Kerberos伺服器是一個具體的安全工具，而認證機制是其執行的功能，符合 (tool, has_a, function) 的 Schema。",
+    "source_id": "chunk_8",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Kerberos伺服器是工具（tool）的合理實例，認證機制是功能（function）的合理實例。",
+        "response": "correct",
+        "reason": "Kerberos伺服器與認證機制的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為主體類別不是 data。檢查規則6：無關，因為關係不是 deployed_in。檢查規則7：無關，因為關係不是 generates。檢查規則8：無關，因為關係不是 controls，但需要注意 has_a 關係的合法性。根據給定的規則，沒有明確的規則直接禁止 tool 類別的主體與 function 類別的受體之間的 has_a 關係。",
+        "response": "correct",
+        "reason": "由於沒有發現明確且直接的違反項目，根據無罪推定原則，該三元組不被判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "Kerberos伺服器與kerberos為同義詞，認證機制與認證功能為同義詞",
+        "response": "duplicate",
+        "standard_subject": "kerberos",
+        "standard_object": "認證功能",
+        "reason": "根據資安領域已知同義詞對照範例，Kerberos伺服器與kerberos、認證機制與認證功能為同義詞，判定為duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Kerberos伺服器",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "認證機制",
+        "type": "function"
+      },
+      "reasoning": "文本提到『採複合 Kerberos伺服器和缺陷認證機制』，Kerberos伺服器是一個具體的安全工具，而認證機制是其執行的功能，符合 (tool, has_a, function) 的 Schema。",
+      "source_id": "chunk_8",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "身分驗證",
+      "type": "function",
+      "display_name": "身分驗證"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "虹膜",
+      "type": "feature",
+      "display_name": "虹膜"
+    },
+    "reasoning": "文本在 Q32 中將『虹膜』列為身分驗證中『What you are』的特徵，身分驗證是功能，虹膜是生物特徵，符合 (function, has_a, feature) 的 Schema。",
+    "source_id": "chunk_8",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '身分驗證' 是 'function' 的合理實例，'虹膜' 是 'feature' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，通過類別與屬性檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，因為主體是身分驗證（function），而關係是has_a，受體是虹膜（feature），不涉及控制關係。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反任何一條語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "身分驗證與身分認證為同義詞，虹膜與視網膜無直接同義關係，但虹膜與視網膜皆屬於生物特徵",
+        "response": "correct",
+        "standard_subject": "身分驗證",
+        "standard_object": "",
+        "reason": "根據同義詞對照表，身分驗證與身分認證為同義詞，虹膜與視網膜無直接同義關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "身分驗證",
+        "type": "function"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "虹膜",
+        "type": "feature"
+      },
+      "reasoning": "文本在 Q32 中將『虹膜』列為身分驗證中『What you are』的特徵，身分驗證是功能，虹膜是生物特徵，符合 (function, has_a, feature) 的 Schema。",
+      "source_id": "chunk_8",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "身分驗證",
+      "type": "function",
+      "display_name": "身分驗證"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "指紋",
+      "type": "feature",
+      "display_name": "指紋"
+    },
+    "reasoning": "文本在 Q32 中將『指紋』列為身分驗證中『What you are』的特徵，身分驗證是功能，指紋是生物特徵，符合 (function, has_a, feature) 的 Schema。",
+    "source_id": "chunk_8",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '身分驗證' 是 'function' 的合理實例，'指紋' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組（身分驗證 has_a 指紋）不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，身分驗證與指紋無直接同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "身分驗證",
+        "type": "function"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "指紋",
+        "type": "feature"
+      },
+      "reasoning": "文本在 Q32 中將『指紋』列為身分驗證中『What you are』的特徵，身分驗證是功能，指紋是生物特徵，符合 (function, has_a, feature) 的 Schema。",
+      "source_id": "chunk_8",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "最小權限原則",
+      "type": "policy",
+      "display_name": "最小權限原則"
+    },
+    "reasoning": "文本 Q33(D) 提到『依照最小權限原則，劃分給予適當的權限控管』，這意味著系統管理員或使用者在操作時應實作此原則，符合 (user, implements, policy) 的 Schema。",
+    "source_id": "chunk_8",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "使用者 (user) 實施 (implements) 最小權限原則 (policy) 是語意上合理的，'使用者' 是 'user' 的合理實例，'最小權限原則' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查後發現，待檢查三元組中的主體是使用者，關係是implements，受體是最小權限原則，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的使用者實施最小權限原則，沒有違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「使用者」與 Ldr 中的「使用者」完全匹配，受體「最小權限原則」與 Ldr 中的「最小權限原則」完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "最小權限原則",
+        "type": "policy"
+      },
+      "reasoning": "文本 Q33(D) 提到『依照最小權限原則，劃分給予適當的權限控管』，這意味著系統管理員或使用者在操作時應實作此原則，符合 (user, implements, policy) 的 Schema。",
+      "source_id": "chunk_8",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "自然人憑證",
+      "type": "tool",
+      "display_name": "自然人憑證"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "pki",
+      "type": "system",
+      "display_name": "PKI"
+    },
+    "reasoning": "文本 Q34(A) 明確指出『自然人憑證是基於 PKI（Public Key Infrastructure）架構下之應用』，自然人憑證作為一種數位憑證工具，屬於 PKI 基礎設施系統的一部分，符合 (tool, is_part_of, system) 的 Schema。",
+    "source_id": "chunk_8",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "自然人憑證是工具（tool）的合理實例，PKI 是系統（system）的合理實例。",
+        "response": "correct",
+        "reason": "自然人憑證與 PKI 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，但關係為 is_part_of，需檢視是否有相關限制。規則7：不適用。規則8：不適用。檢視後發現，給定的三元組（自然人憑證 is_part_of PKI）並未明確違反任何一條規則，尤其是當中沒有明確限制 tool 不能是 system 的一部分。",
+        "response": "correct",
+        "reason": "三元組（自然人憑證 is_part_of PKI）未違反語義限制清單中的任何規則，尤其是 tool 可以是 system 的一部分，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "自然人憑證與 Ldr 中的 '自然人憑證' 完全等價，PKI 與 Ldr 中的 'pki' 完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "自然人憑證",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "PKI",
+        "type": "system"
+      },
+      "reasoning": "文本 Q34(A) 明確指出『自然人憑證是基於 PKI（Public Key Infrastructure）架構下之應用』，自然人憑證作為一種數位憑證工具，屬於 PKI 基礎設施系統的一部分，符合 (tool, is_part_of, system) 的 Schema。",
+      "source_id": "chunk_8",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  }
+]

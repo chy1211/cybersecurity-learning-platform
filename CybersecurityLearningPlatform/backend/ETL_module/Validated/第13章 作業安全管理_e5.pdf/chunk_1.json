@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "安全控管",
+      "type": "technique",
+      "display_name": "安全控管"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意軟體"
+    },
+    "reasoning": "文本提到控管機制包含『保護資訊資產免於惡意軟體攻擊』，因此將『安全控管』視為一種技術 (technique)，其目的在於緩解 (mitigates) 『惡意軟體』這種攻擊 (attack)。",
+    "source_id": "chunk_1",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全控管 (technique) 可以合理地與 'mitigates' 關係連接到惡意軟體 (attack)，因為安全控管通常用於減輕惡意軟體的影響。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體是安全控管（類別：technique），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（安全控管）是 technique 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"安全控管\" 與 Ldr 中的 \"風險監控\" 類別相同，但非完全等價同義詞；受體 \"惡意軟體\" 與 Ldr 中的 \"惡意程式\"、\"惡意軟體之攻擊\"、\"勒索軟體\" 類別相關，但 \"惡意軟體\" 與 \"惡意程式\" 為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "惡意程式",
+        "reason": "受體 \"惡意軟體\" 與 Ldr 中的 \"惡意程式\" 為同義詞，但主體 \"安全控管\" 與 Ldr 中的資源不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全控管",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "惡意軟體",
+        "type": "attack"
+      },
+      "reasoning": "文本提到控管機制包含『保護資訊資產免於惡意軟體攻擊』，因此將『安全控管』視為一種技術 (technique)，其目的在於緩解 (mitigates) 『惡意軟體』這種攻擊 (attack)。",
+      "source_id": "chunk_1",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "指示型控制",
+      "type": "technique",
+      "display_name": "指示型控制"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "安全控管",
+      "type": "technique",
+      "display_name": "安全控管"
+    },
+    "reasoning": "文本明確指出『安全控管依其行為可以分為五種性質或型態』，其中之一為『指示型控制』，因此兩者皆定義為技術 (technique)，且前者屬於 (is_part_of) 後者。",
+    "source_id": "chunk_1",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "指示型控制 (technique) 和安全控管 (technique) 的名稱與其類別 'technique' 合理對齊，考慮到資安領域的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "指示型控制和安全控管的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是 is_part_of，與語義限制清單中的規則無直接衝突。"
+      },
+      "step_2": {
+        "granularity_analysis": "指示型控制與安全控管在資安領域中無直接同義詞關係，但兩者概念上相關，指示型控制可能是安全控管的一部分，但非完全等價同義詞或廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定指示型控制與安全控管之間的直接同義詞或從屬關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "指示型控制",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "安全控管",
+        "type": "technique"
+      },
+      "reasoning": "文本明確指出『安全控管依其行為可以分為五種性質或型態』，其中之一為『指示型控制』，因此兩者皆定義為技術 (technique)，且前者屬於 (is_part_of) 後者。",
+      "source_id": "chunk_1",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "安全控管",
+      "type": "technique",
+      "display_name": "預防型控制"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "安全控管",
+      "type": "technique",
+      "display_name": "安全控管"
+    },
+    "reasoning": "同上，預防型控制是安全控管五種型態之一，符合 (technique, is_part_of, technique) 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "預防型控制與安全控管的名稱與其被賦予的 'technique' 類別合理對齊，尤其是在資安領域中，這些術語常被用來描述安全措施或技術。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'is_part_of'，與規則無直接衝突。",
+        "response": "correct",
+        "reason": "三元組中的主體 '預防型控制' 和受體 '安全控管' 之間的 'is_part_of' 關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "預防型控制與安全控管在資安領域中可視為同義詞，兩者都指涉及控制和管理安全措施的技術",
+        "response": "duplicate",
+        "standard_subject": "安全控管",
+        "standard_object": "安全控管",
+        "reason": "根據同義詞判定準則，預防型控制與安全控管被判定為同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "預防型控制",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "安全控管",
+        "type": "technique"
+      },
+      "reasoning": "同上，預防型控制是安全控管五種型態之一，符合 (technique, is_part_of, technique) 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "偵測型控制",
+      "type": "technique",
+      "display_name": "偵測型控制"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "安全控管",
+      "type": "technique",
+      "display_name": "安全控管"
+    },
+    "reasoning": "同上，偵測型控制是安全控管五種型態之一，符合 (technique, is_part_of, technique) 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "偵測型控制與安全控管皆為合理的 'technique' 實例，語意對齊且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "偵測型控制與安全控管的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'is_part_of' 不在任何規則中被明確限制，且主體和受體的類別均為 'technique'，未觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別均為 'technique'，且關係 'is_part_of' 未在語義限制清單中被明確限制，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"偵測型控制\" 與 Ldr 中的 \"偵查型存取控制\" 類似，但非完全等價同義詞；受體 \"安全控管\" 與 Ldr 中的 \"安全控管\" 完全匹配，為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "安全控管",
+        "reason": "根據同義詞判定準則，受體 \"安全控管\" 與 Ldr 中的 \"安全控管\" 完全匹配，判定為同義詞重複；主體 \"偵測型控制\" 與 Ldr 中的 \"偵查型存取控制\" 類似，但非完全等價同義詞，根據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "偵測型控制",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "安全控管",
+        "type": "technique"
+      },
+      "reasoning": "同上，偵測型控制是安全控管五種型態之一，符合 (technique, is_part_of, technique) 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "修正型控制",
+      "type": "technique",
+      "display_name": "修正型控制"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "安全控管",
+      "type": "technique",
+      "display_name": "安全控管"
+    },
+    "reasoning": "同上，修正型控制是安全控管五種型態之一，符合 (technique, is_part_of, technique) 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "修正型控制和安全控管都是合理的 'technique' 實例，考慮到資安領域的同義詞和術語使用。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'is_part_of' 不在任何規則中被明確限制，且主體和受體的類別均為 'technique'，未發現明確違反任何規則的跡象。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別均為 'technique'，且關係 'is_part_of' 未在語義限制清單中被明確限制，故無法判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域的技術類別，且受體「安全控管」與 Ldr 中的「安全控管」完全相同，主體「修正型控制」與 Ldr 中的「指示型控制」或「偵測型控制」無直接同義詞關係，但皆屬於控制類別的子集，然而根據【廣義/狹義一律保留】原則，判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，主體與受體皆為資安領域的技術類別，且無直接同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "修正型控制",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "安全控管",
+        "type": "technique"
+      },
+      "reasoning": "同上，修正型控制是安全控管五種型態之一，符合 (technique, is_part_of, technique) 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "回復型控制",
+      "type": "technique",
+      "display_name": "回復型控制"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "安全控管",
+      "type": "technique",
+      "display_name": "安全控管"
+    },
+    "reasoning": "同上，回復型控制是安全控管五種型態之一，符合 (technique, is_part_of, technique) 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "回復型控制 (technique) 和安全控管 (technique) 的名稱與其類別 'technique' 合理對齊，考慮到資安領域的同義詞和翻譯。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關，因為三元組中的關係是 'is_part_of'，不涉及任何規則中明確限制的動作或關係。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係 'is_part_of' 沒有在語義限制清單中被明確限制或定義為違規，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域的技術類別，且受體「安全控管」與 Ldr 中的「安全控管」完全相同，主體「回復型控制」與 Ldr 中的「修正型控制」可能為同義詞或相關概念，但無直接證據表明完全等價。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】與【同義詞判定】，受體直接判定為 correct；主體與 Ldr 中的「修正型控制」可能相關，但無直接證據支持同義詞判定，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "回復型控制",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "安全控管",
+        "type": "technique"
+      },
+      "reasoning": "同上，回復型控制是安全控管五種型態之一，符合 (technique, is_part_of, technique) 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "備援計畫",
+      "type": "policy",
+      "display_name": "備援計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本提到『確保備援的有效性』以及安全控管的目的在於『使風險降到最低』。備援計畫屬於規範與策略 (policy)，其作用是緩解 (mitigates) 潛在的風險 (risk)。",
+    "source_id": "chunk_1",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "備援計畫 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊。",
+        "response": "correct",
+        "reason": "備援計畫與風險的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是備援計畫（policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "該三元組的主體是備援計畫（policy），符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「備援計畫」與 Ldr 中的「災難備援計畫」相似，但非完全等價同義詞；受體「風險」與 Ldr 中的「風險」完全匹配，且為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "風險",
+        "reason": "根據同義詞判定，受體「風險」與 Ldr 中的「風險」為同義詞重複，但主體「備援計畫」不完全匹配任何 Ldr 中的資源，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "備援計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『確保備援的有效性』以及安全控管的目的在於『使風險降到最低』。備援計畫屬於規範與策略 (policy)，其作用是緩解 (mitigates) 潛在的風險 (risk)。",
+      "source_id": "chunk_1",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "安全政策",
+      "type": "policy",
+      "display_name": "安全政策"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "安全政策被列為指示型控制的實現方式，旨在達成安全目標並降低風險。符合 (policy, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "安全政策 (policy) 可以合理地減輕 (mitigates) 風險 (risk)，因為安全政策通常用於降低或控制風險。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是安全政策（policy），符合規則2的條件，沒有觸發違規。",
+        "response": "correct",
+        "reason": "三元組的主體（安全政策）符合規則2的允許條件，且未發現其他明確違反的規則，因此判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"安全政策\" 與 Ldr 中的 \"安全政策\" 完全相同，受體 \"風險\" 與 Ldr 中的 \"風險\" 完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全政策",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "安全政策被列為指示型控制的實現方式，旨在達成安全目標並降低風險。符合 (policy, mitigates, risk) 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "系統記錄",
+      "type": "data",
+      "display_name": "系統記錄"
+    },
+    "reasoning": "文本提到『系統記錄與監看使用行為』，這意味著系統 (system) 會產生 (generates) 記錄檔等資料 (data)。",
+    "source_id": "chunk_1",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "系統 (system) 可以生成系統記錄 (data)，這是語意上合理的，因為系統通常會產生各種資料，包括記錄。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為三元組中沒有提到principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的受體類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "系統與系統紀錄分別為主體和受體，系統紀錄在Ldr中與系統紀錄資料、記錄等相關資源的相似度分數最高為0.9886，系統紀錄與系統紀錄資料、記錄等相關資源在資安領域中可視為同義詞或相關概念，但系統與系統紀錄之間的關係是主體與受體的關係，系統紀錄是系統的記錄資料，因此系統與系統紀錄之間的關係是廣義/狹義從屬關係，系統是廣義概念，系統紀錄是狹義概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "系統與系統紀錄之間的關係是廣義/狹義從屬關係，系統是廣義概念，系統紀錄是狹義概念，根據判斷準則3，若一個實體是另一個的子類型，判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "系統記錄",
+        "type": "data"
+      },
+      "reasoning": "文本提到『系統記錄與監看使用行為』，這意味著系統 (system) 會產生 (generates) 記錄檔等資料 (data)。",
+      "source_id": "chunk_1",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

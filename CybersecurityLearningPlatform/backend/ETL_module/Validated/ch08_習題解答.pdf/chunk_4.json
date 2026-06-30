@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料庫系統",
+      "type": "system",
+      "display_name": "資料庫系統"
+    },
+    "reasoning": "文本提到 SQL Injection 讓攻擊者有機會對資料庫系統下達指令，從而查詢或修改資料，這屬於攻擊對系統造成危害。",
+    "source_id": "chunk_4",
+    "source_file": "ch08_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SQL Injection 是 'attack' 的合理實例，資料庫系統是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統影響的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_harm'，發現沒有直接相關的規則限制主體 'SQL Injection' 的類別 'attack' 與受體 '資料庫系統' 的類別 'system' 的組合。",
+        "response": "correct",
+        "reason": "三元組中的主體 'SQL Injection'、關係 'can_harm'、受體 '資料庫系統' 的組合沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "SQL Injection 是 Ldr 中 'sql injection 隱碼攻擊' 的同義詞，資料庫系統與 Ldr 中的 '系統' 或 '關聯式資料庫' 皆有相似性，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，SQL Injection 與 'sql injection 隱碼攻擊' 為同義詞，但資料庫系統與 Ldr 中的資源不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資料庫系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到 SQL Injection 讓攻擊者有機會對資料庫系統下達指令，從而查詢或修改資料，這屬於攻擊對系統造成危害。",
+      "source_id": "chunk_4",
+      "source_file": "ch08_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "未做好輸入查驗",
+      "type": "vulnerability",
+      "display_name": "未做好輸入查驗"
+    },
+    "reasoning": "文本明確指出問題在於『程式開發者所撰寫的應用程式，沒有對使用者的輸入做妥善的檢查與過濾』，這是一種由應用程式導致的漏洞。",
+    "source_id": "chunk_4",
+    "source_file": "ch08_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '應用程式' 的名稱與其類別 'app' 合理對齊，實體 '未做好輸入查驗' 的名稱與其類別 'vulnerability' 也合理對齊，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為app，關係為can_expose，受體類別為vulnerability，未直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係符合規則3的特例允許，且未發現其他明確違反的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似的近似資源，但需進一步判定同義詞關係與子類型關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與近似資源不完全相同，且無直接同義詞對照，故預設保留"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "未做好輸入查驗",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確指出問題在於『程式開發者所撰寫的應用程式，沒有對使用者的輸入做妥善的檢查與過濾』，這是一種由應用程式導致的漏洞。",
+      "source_id": "chunk_4",
+      "source_file": "ch08_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "sql指令",
+      "type": "tool",
+      "display_name": "SQL指令"
+    },
+    "reasoning": "攻擊者將輸入組合成 SQL 指令傳送給伺服器，在此情境下，SQL 指令作為達成攻擊目的的手段/工具。",
+    "source_id": "chunk_4",
+    "source_file": "ch08_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 使用 SQL指令 (tool) 是資安領域中常見的場景，實體名稱與其類別合理對齊，且 'uses' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有提到安全團隊(securityTeam)。規則2：不適用，因為三元組中的關係是uses，而規則2是針對mitigates動作。規則3：不適用，因為三元組中的主體類別是attacker，而規則3是針對vulnerability(漏洞)。規則4：不適用，因為三元組中的關係是uses，而規則4是針對violates關係。規則5：觸發，因為主體的類別是attacker，而不是data，但這裡的uses關係涉及attacker使用tool，符合規則允許的範圍。規則6、7、8：不適用，因為三元組中的關係是uses，而這些規則是針對其他關係。",
+        "response": "correct",
+        "reason": "三元組中的attacker使用SQL指令，符合規則允許的範圍，沒有明確違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源存在於 Ldr 中，但需進一步判定同義詞關係與子類型關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體 '攻擊者' 與 '攻擊' 關係為廣義/狹義從屬，受體 'SQL指令' 與 'sql' 關係為同義詞，但考慮到實體對齊的原則，最終判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "SQL指令",
+        "type": "tool"
+      },
+      "reasoning": "攻擊者將輸入組合成 SQL 指令傳送給伺服器，在此情境下，SQL 指令作為達成攻擊目的的手段/工具。",
+      "source_id": "chunk_4",
+      "source_file": "ch08_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本提到攻擊者能『查詢或修改資料』，這表示該攻擊會危害資料的機密性或完整性。",
+    "source_id": "chunk_4",
+    "source_file": "ch08_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SQL Injection 是 'attack' 的合理實例，'資料' 是 'data' 的合理實例，'can_harm' 的語意也與攻擊對資料的危害相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查後發現，三元組中的主體是SQL Injection（攻擊類別），關係是can_harm，受體是資料（資料類別），這不違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，SQL Injection 與 SQL注入攻擊為同義詞，但主體與受體不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到攻擊者能『查詢或修改資料』，這表示該攻擊會危害資料的機密性或完整性。",
+      "source_id": "chunk_4",
+      "source_file": "ch08_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "輸入條件檢查",
+      "type": "technique",
+      "display_name": "輸入條件檢查"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "reasoning": "文本在回答預防技術時，提到『未作完善的輸入條件檢查』是主因，因此執行輸入條件檢查可緩解此攻擊。",
+    "source_id": "chunk_4",
+    "source_file": "ch08_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "輸入條件檢查是一種合理的 'technique' 實例，SQL Injection 是 'attack' 的典型實例，且 'mitigates' 關係在資安領域中常用於描述減輕攻擊的技術與攻擊之間的關係。",
+        "response": "correct",
+        "reason": "輸入條件檢查與 SQL Injection 之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '輸入條件檢查'，類別為 'technique'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '輸入條件檢查' 屬於 'technique' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "sql injection",
+        "reason": "根據資安領域已知同義詞對照範例，SQL Injection 等同於 SQL注入、SQL注入攻擊，與 Ldr 中的 'sql injection' 完全等價。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "輸入條件檢查",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "reasoning": "文本在回答預防技術時，提到『未作完善的輸入條件檢查』是主因，因此執行輸入條件檢查可緩解此攻擊。",
+      "source_id": "chunk_4",
+      "source_file": "ch08_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "過濾 sql 指令",
+      "type": "technique",
+      "display_name": "過濾 SQL 指令"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "reasoning": "文本提到『也要過濾可能隱含的 SQL 指令』來防止威脅，這屬於緩解攻擊的技術手段。",
+    "source_id": "chunk_4",
+    "source_file": "ch08_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "過濾 SQL 指令 是 'technique' 的合理實例，SQL Injection 是 'attack' 的合理實例，且 'mitigates' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "過濾 SQL 指令 (technique) mitigates SQL Injection (attack) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '過濾 SQL 指令' 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '過濾 SQL 指令' 屬於 technique 類別，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 SQL Injection 與 Ldr 中的 sql injection 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "sql injection",
+        "reason": "根據資安領域已知同義詞對照範例，SQL Injection ≡ SQL注入 ≡ SQL注入攻擊，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "過濾 SQL 指令",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『也要過濾可能隱含的 SQL 指令』來防止威脅，這屬於緩解攻擊的技術手段。",
+      "source_id": "chunk_4",
+      "source_file": "ch08_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "規範資料格式",
+      "type": "technique",
+      "display_name": "規範資料格式"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "reasoning": "文本建議『針對輸入條件也要作適當規範』(如限制長度、僅接受英數字)，用以預防 SQL Injection。",
+    "source_id": "chunk_4",
+    "source_file": "ch08_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "規範資料格式 可被視為 technique 的實例，SQL Injection 是 attack 的典型實例，且 'mitigates' 的語意與資安領域的常見用法相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '規範資料格式'，類別為 'technique'，符合規則2的允許條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '規範資料格式' 屬於 'technique' 類別，符合規則2的條件，允許執行 'mitigates' 動作。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 的名稱 \"SQL Injection\" 與 Ldr 中的 \"sql injection\" 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "sql injection",
+        "reason": "根據同義詞對照範例，SQL Injection ≡ SQL注入 ≡ SQL注入攻擊，與 Ldr 中的 \"sql injection\" 相同，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "規範資料格式",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "reasoning": "文本建議『針對輸入條件也要作適當規範』(如限制長度、僅接受英數字)，用以預防 SQL Injection。",
+      "source_id": "chunk_4",
+      "source_file": "ch08_習題解答.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "sql server",
+      "type": "system",
+      "display_name": "SQL server"
+    },
+    "reasoning": "文本描述應用程式將指令『傳送給 SQL server 執行』，顯示兩者之間存在網路連線/通訊關係。",
+    "source_id": "chunk_4",
+    "source_file": "ch08_習題解答.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'connects_to' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '應用程式' 是 'app' 的合理實例，'SQL server' 是 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，通過類別與屬性檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 connects_to，不是 uses。檢查規則6：不適用，因為關係為 connects_to，不是 deployed_in。檢查規則7：不適用，因為關係為 connects_to，不是 generates。檢查規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（應用程式）與受體（SQL server）通過 connects_to 關係連接，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 \"應用程式\" 完全等價，受體 \"SQL server\" 與 Ldr 中的 \"資料庫系統\" 屬於同一類別但非完全等價同義詞，兩者皆無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的 \"應用程式\" 完全匹配，受體雖然與 \"資料庫系統\" 類別相近但無直接同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "SQL server",
+        "type": "system"
+      },
+      "reasoning": "文本描述應用程式將指令『傳送給 SQL server 執行』，顯示兩者之間存在網路連線/通訊關係。",
+      "source_id": "chunk_4",
+      "source_file": "ch08_習題解答.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "未做好輸入查驗 (input validation)",
+      "type": "vulnerability",
+      "display_name": "未做好輸入查驗"
+    },
+    "reasoning": "文本提到『攻擊者便可利用此問題（未做好輸入查驗）』，符合攻擊者利用漏洞的邏輯。",
+    "source_id": "chunk_4",
+    "source_file": "ch08_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 均在 Lc,p 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，未做好輸入查驗 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是攻擊者與漏洞之間的合理關係。",
+        "response": "correct",
+        "reason": "攻擊者可以利用未做好輸入查驗的漏洞，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。規則2：不適用，因為三元組中沒有mitigates動作。規則3：不適用，因為三元組中的主體類別是攻擊者，而不是漏洞。規則4：不適用，因為三元組中沒有principle作為主體。規則5：不適用，因為三元組中的關係不是uses。規則6：不適用，因為三元組中的關係不是deployed_in。規則7：不適用，因為三元組中的關係不是generates。規則8：不適用，因為三元組中的關係不是controls，但can_exploit與controls有相似的主動性質，需進一步分析。進一步分析後，發現can_exploit的主體是攻擊者，符合具有主動執行能力的角色，與規則8的精神相符，故不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的攻擊者可以利用未做好輸入查驗的漏洞，符合資安知識圖譜的語義限制，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"未做好輸入查驗\" 與 Ldr 中的 \"未做好輸入查驗 (input validation)\" 關係為同義詞，兩者指稱同一概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "未做好輸入查驗 (input validation)",
+        "reason": "根據同義詞判定準則，受體 \"未做好輸入查驗\" 與 Ldr 中的 \"未做好輸入查驗 (input validation)\" 指稱同一概念，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "未做好輸入查驗",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『攻擊者便可利用此問題（未做好輸入查驗）』，符合攻擊者利用漏洞的邏輯。",
+      "source_id": "chunk_4",
+      "source_file": "ch08_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "拒絕輸入字元",
+      "type": "technique",
+      "display_name": "拒絕輸入字元"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "reasoning": "文本建議『基本上應該要拒絕下列的字元輸入』以防止資料隱碼攻擊，這是一種具體的防禦技術。",
+    "source_id": "chunk_4",
+    "source_file": "ch08_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '拒絕輸入字元' 的名稱與其類別 'technique' 合理對齊，實體 'SQL Injection' 的名稱與其類別 'attack' 也合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體是 '拒絕輸入字元'，類別為 'technique'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '拒絕輸入字元' 屬於 'technique' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) SQL Injection 與 Ldr 中的 \"sql injection\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "sql injection",
+        "reason": "根據同義詞對照表，SQL Injection 等同於 sql injection，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "拒絕輸入字元",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "reasoning": "文本建議『基本上應該要拒絕下列的字元輸入』以防止資料隱碼攻擊，這是一種具體的防禦技術。",
+      "source_id": "chunk_4",
+      "source_file": "ch08_習題解答.pdf",
+      "source_index": 7
+    }
+  }
+]

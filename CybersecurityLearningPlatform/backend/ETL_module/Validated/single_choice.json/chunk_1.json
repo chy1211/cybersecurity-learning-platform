@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "敵對者",
+      "type": "attacker",
+      "display_name": "敵對者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "虛構入口網站",
+      "type": "tool",
+      "display_name": "虛構入口網站"
+    },
+    "reasoning": "文本提到敵對者使用包含虛構入口網站登入頁面的電子郵件來獲取認證，符合 ('attacker', 'uses', 'tool') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "single_choice.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "敵對者 (attacker) 使用虛構入口網站 (tool) 的情境下，'敵對者' 是 'attacker' 的合理實例，'虛構入口網站' 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "敵對者使用虛構入口網站的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未觸發，因為三元組中沒有同時具有攻擊者(attacker)與安全團隊(securityTeam)的身分。規則2：不適用，因為動作不是 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為關係不是 violates。規則5：觸發，因為主體的類別是 attacker，而不是 data，但這裡的 uses 關係涉及到 attacker 使用 tool，符合 attacker 的行為特性。規則6、7、8：不適用，因為關係不是 deployed_in、generates 或 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者（attacker），使用虛構入口網站（tool）進行攻擊，符合攻擊者的行為特性，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "敵對者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "虛構入口網站",
+        "type": "tool"
+      },
+      "reasoning": "文本提到敵對者使用包含虛構入口網站登入頁面的電子郵件來獲取認證，符合 ('attacker', 'uses', 'tool') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "single_choice.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "敵對者",
+      "type": "attacker",
+      "display_name": "敵對者"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "憑證",
+      "type": "data",
+      "display_name": "使用者認證"
+    },
+    "reasoning": "敵對者試圖獲取使用者認證是一種惡意行為，會對認證資料的機密性造成危害，符合 ('attacker', 'can_harm', 'data') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "single_choice.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "敵對者 (attacker) 是 'attacker' 的合理實例，使用者認證 (data) 是 'data' 的合理實例，'can_harm' 的語意與攻擊者對資料的危害行為相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：未違反，因為三元組中主體是攻擊者，沒有同時具有安全團隊的身分。檢查規則2：不適用，因為三元組中關係是can_harm，不是mitigates。檢查規則3：不適用，因為三元組中主體類別是攻擊者，不是漏洞。檢查規則4：不適用，因為三元組中關係是can_harm，不是violates。檢查規則5：不適用，因為三元組中關係是can_harm，不是uses。檢查規則6：不適用，因為三元組中關係是can_harm，不是deployed_in。檢查規則7：不適用，因為三元組中關係是can_harm，不是generates。檢查規則8：未違反，因為三元組中主體是攻擊者，具有主動執行能力。",
+        "response": "correct",
+        "reason": "三元組中主體是攻擊者，關係是can_harm，受體是使用者認證，沒有違反任何語義限制規則。根據無罪推定原則，若未發現明確且直接的違反項目，則判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"使用者認證\" 與 Ldr 中的 \"憑證\" 關係為同義詞重複，兩者均指涉及驗證或授權的資料；主體 \"敵對者\" 與 Ldr 中的 \"敵對者\" 關係為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "敵對者",
+        "standard_object": "憑證",
+        "reason": "根據資安領域已知同義詞對照範例，認證與憑證可視為同義詞，因此受體為同義詞重複；主體為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "敵對者",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "使用者認證",
+        "type": "data"
+      },
+      "reasoning": "敵對者試圖獲取使用者認證是一種惡意行為，會對認證資料的機密性造成危害，符合 ('attacker', 'can_harm', 'data') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "single_choice.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "漏洞掃描",
+      "type": "technique",
+      "display_name": "漏洞掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本指出漏洞掃描用於確定系統是否受到影響，這是一種分析系統狀態的技術，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "single_choice.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '漏洞掃描' 是 'technique' 的合理實例，'系統' 是 'system' 的合理實例，且 'can_analyze' 是描述 'technique' 與 'system' 間關係的合理屬性。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用，因為主體是technique，不是vulnerability。規則4：不適用。規則5：不適用，因為關係不是uses。規則6：不適用，因為關係不是deployed_in。規則7：不適用，因為關係不是generates。規則8：不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（漏洞掃描）與關係（can_analyze）以及受體（系統）之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞或相關概念，但無直接完全等價同義詞關係，受體的系統與主體的漏洞掃描無直接同義詞關係，但系統運作、資通系統等為系統的子集或相關概念，漏洞掃描的同義詞如網路弱點掃描、弱點掃描等，皆與系統有關但無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無直接同義詞關係，且主體與受體皆有各自的子集或相關概念，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "漏洞掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本指出漏洞掃描用於確定系統是否受到影響，這是一種分析系統狀態的技術，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "single_choice.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "對手",
+      "type": "attacker",
+      "display_name": "對手"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "cve",
+      "type": "vulnerability",
+      "display_name": "CVE"
+    },
+    "reasoning": "文本明確提到 CVE 是可能被對手「惡意探索」的對象，符合 ('attacker', 'can_exploit', 'vulnerability') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "single_choice.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '對手' 的類別 'attacker' 合理對齊，'CVE' 的類別 'vulnerability' 也合理對齊，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為主體是攻擊者，沒有同時具有安全團隊的身分。規則2：不適用，因為主體不是 policy, technique 或 tool。規則3：不適用，因為主體類別是攻擊者，而不是漏洞。規則4：不適用，因為關係不是 violates。規則5：不適用，因為關係不是 uses。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls，但 can_exploit 關係涉及主動行為，主體是具有主動執行能力的角色（攻擊者）。",
+        "response": "correct",
+        "reason": "三元組中的主體（對手）與受體（CVE）之間的 can_exploit 關係，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"對手\" 與 Ldr 中的 \"敵對者\" 類似，但非完全等價同義詞；受體 \"CVE\" 與 Ldr 中的 \"cve\" 完全匹配，且 \"CVE\" 是資安領域中特指某類漏洞的英文縮寫，與 \"vulnerability\" 的中文翻譯 \"漏洞\" 或 \"弱點\" 等同義詞相關，但 \"CVE\" 本身是特定名稱，不是同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "cve",
+        "reason": "受體 \"CVE\" 完全匹配 Ldr 中的 \"cve\"，但主體 \"對手\" 與 \"敵對者\" 雖相似，卻不完全符合同義詞對照範例，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "對手",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "CVE",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確提到 CVE 是可能被對手「惡意探索」的對象，符合 ('attacker', 'can_exploit', 'vulnerability') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "single_choice.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "cve",
+      "type": "vulnerability",
+      "display_name": "CVE"
+    },
+    "reasoning": "系統可能受到 CVE 的影響，意味著系統暴露了該漏洞，符合 ('system', 'can_expose', 'vulnerability') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "single_choice.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '系統' 是 'system' 的合理實例，'CVE' 是 'vulnerability' 的合理實例，關係 'can_expose' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體是系統（system），與規則3無直接關聯，但受體是vulnerability，觸發了規則3的特例允許，其他規則未發現明確違反。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體符合語義限制清單中的規則，特別是規則3的特例允許，沒有發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"系統\" 與 Ldr 中的 \"系統\" 完全等價同義詞，受體 \"CVE\" 與 Ldr 中的 \"cve\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆非同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "CVE",
+        "type": "vulnerability"
+      },
+      "reasoning": "系統可能受到 CVE 的影響，意味著系統暴露了該漏洞，符合 ('system', 'can_expose', 'vulnerability') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "single_choice.json",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "網路安全性團隊",
+      "type": "securityTeam",
+      "display_name": "網路安全性團隊"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資產管理",
+      "type": "tool",
+      "display_name": "資產管理"
+    },
+    "reasoning": "資產管理是安全團隊用來追蹤裝置資訊的功能/流程，符合 ('securityTeam', 'implements', 'function') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "single_choice.json",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網路安全性團隊是 securityTeam 的合理實例，資產管理是 function 的合理實例，且 implements 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "網路安全性團隊實施資產管理的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為 securityTeam，具有主動執行能力，符合 controls 的主體條件，但實際關係為 implements，不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體（網路安全性團隊）和關係（implements）以及受體（資產管理）之間的關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與資源清單中的「資安團隊」為同義詞，受體與資源清單中的「資產管理」完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞對照表和完全匹配，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路安全性團隊",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資產管理",
+        "type": "function"
+      },
+      "reasoning": "資產管理是安全團隊用來追蹤裝置資訊的功能/流程，符合 ('securityTeam', 'implements', 'function') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "single_choice.json",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "資產管理",
+      "type": "tool",
+      "display_name": "資產管理"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "終端使用者裝置",
+      "type": "system",
+      "display_name": "終端使用者裝置"
+    },
+    "reasoning": "資產管理功能可用於追蹤與分析終端裝置的狀態，符合 ('function', 'can_analyze', 'system') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "single_choice.json",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資產管理 (function) 與 終端使用者裝置 (system) 的名稱與其類別合理對齊，資產管理是功能 (function) 的合理實例，終端使用者裝置是系統 (system) 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係為 can_analyze，主體為 tool，受體為 system，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（資產管理）是 tool 類別，關係是 can_analyze，受體是 system 類別的終端使用者裝置，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資產管理' 與 Ldr 中的 '資產管理' 完全相同，受體 '終端使用者裝置' 與 Ldr 中的 '用戶終端設備'、'使用者裝置' 等相似，但無完全相同的實體名稱，且無明確的同義詞對照範例可供參考，因此進行廣義/狹義一律保留的判斷，認為 '終端使用者裝置' 可能是 '用戶終端設備' 或 '使用者裝置' 的子類型或同義詞，但無法確定，預設保留。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定 '終端使用者裝置' 與 Ldr 中的實體名稱之間的關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產管理",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "終端使用者裝置",
+        "type": "system"
+      },
+      "reasoning": "資產管理功能可用於追蹤與分析終端裝置的狀態，符合 ('function', 'can_analyze', 'system') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "single_choice.json",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "資產管理",
+      "type": "tool",
+      "display_name": "資產管理"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "作業系統版本",
+      "type": "data",
+      "display_name": "作業系統版本"
+    },
+    "reasoning": "資產管理功能可追蹤作業系統版本等資訊（資料），符合 ('function', 'can_analyze', 'data') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "single_choice.json",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資產管理是 function 的合理實例，作業系統版本是 data 的合理實例，'can_analyze' 關係在資安領域中合理適用於資產管理與作業系統版本之間。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但 can_analyze 關係下，tool 可以分析 data，因此合法。",
+        "response": "correct",
+        "reason": "三元組中的主體（資產管理）是 tool 類別，可以執行 can_analyze 動作對於 data 類別的受體（作業系統版本），因此不違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資產管理與人員管理之間存在相似性，但非完全等價同義詞；資產管理與虛構入口網站、憑證無直接關聯。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定資產管理與現有近似資源清單中的資源為完全同義詞或子類型關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產管理",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "作業系統版本",
+        "type": "data"
+      },
+      "reasoning": "資產管理功能可追蹤作業系統版本等資訊（資料），符合 ('function', 'can_analyze', 'data') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "single_choice.json",
+      "source_index": 9
+    }
+  }
+]

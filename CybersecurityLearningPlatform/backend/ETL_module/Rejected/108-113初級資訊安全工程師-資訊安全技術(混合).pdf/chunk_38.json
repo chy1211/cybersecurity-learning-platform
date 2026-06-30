@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "nmap",
+      "type": "tool",
+      "display_name": "Nmap"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "Nmap 用於掃描並發現主機服務及其潛在漏洞，符合 tool 可分析 vulnerability 的 Schema。",
+    "source_id": "chunk_38",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Nmap 是一種網路掃描工具，可以分析漏洞，因此 'Nmap' 是 'tool' 的合理實例，'漏洞' 是 'vulnerability' 的合理實例，且 'can_analyze' 的關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該規則與待檢查三元組相關，因為三元組的受體是 '漏洞'，且關係是 'can_analyze'，這違反了規則3中關於漏洞不可發起主動行為的原則。",
+        "response": "violation",
+        "reason": "三元組中的關係 'can_analyze' 與受體 '漏洞' 結合，違反了語義限制清單中的規則3，該規則規定漏洞不應發起主動行為如 'can_analyze'。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組中的關係 'can_analyze' 與受體 '漏洞' 結合，違反了語義限制清單中的規則3，該規則規定漏洞不應發起主動行為如 'can_analyze'。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "Nmap",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "Nmap 用於掃描並發現主機服務及其潛在漏洞，符合 tool 可分析 vulnerability 的 Schema。",
+      "source_id": "chunk_38",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  }
+]

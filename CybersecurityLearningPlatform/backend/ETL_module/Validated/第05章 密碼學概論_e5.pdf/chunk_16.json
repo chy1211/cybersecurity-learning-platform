@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "竄改",
+      "type": "attack",
+      "display_name": "竄改"
+    },
+    "reasoning": "文本提到數位簽章用於驗證訊息完整性，若驗章成功代表訊息未遭受竄改。因此，數位簽章這項技術可以緩解/防禦『竄改』這種攻擊行為。",
+    "source_id": "chunk_16",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'technique'、受體的類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "數位簽章是 'technique' 的合理實例，竄改是 'attack' 的合理實例，且 'mitigates' 的語意與數位簽章對竄改的關係相符。",
+        "response": "correct",
+        "reason": "數位簽章與竄改的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。由於數位簽章（數位簽章）不屬於這些類別，觸發違規檢查。然而，數位簽章可以視為一種技術或工具，具體取決於其使用的上下文。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "雖然數位簽章不直接符合規則2的明確類別，但考慮到其在資安中的應用和功能，可能被視為一種技術或工具，從而在特定情境下合法地與'mitigates'關係相關聯。因此，無法直接判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞或相關概念，但無直接完全等價同義詞關係，受體「竄改」與「篡改」可視為同義詞，主體「數位簽章」與「電子簽章」可視為同義詞，但無需合併",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定與廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位簽章",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "竄改",
+        "type": "attack"
+      },
+      "reasoning": "文本提到數位簽章用於驗證訊息完整性，若驗章成功代表訊息未遭受竄改。因此，數位簽章這項技術可以緩解/防禦『竄改』這種攻擊行為。",
+      "source_id": "chunk_16",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "篡改",
+      "type": "attack",
+      "display_name": "竄改"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "文本指出訊息未遭受竄改才具有完整性，反之，竄改行為會破壞訊息的完整性，符合 attack violates principle 的定義。",
+    "source_id": "chunk_16",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "竄改 (attack) 是攻擊的合理實例，完整性 (principle) 是安全原則的合理實例，'violates' 關係在資安領域中指攻擊違反安全原則，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "竄改攻擊違反完整性安全原則的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4適用，主體類別為attack，關係為violates，受體類別為principle，符合規則允許的條件。規則5、6、7、8不適用，因為關係不匹配。",
+        "response": "correct",
+        "reason": "三元組符合規則4的允許條件，主體為attack，關係為violates，受體為principle，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「竄改」與 Ldr 中的「篡改」為同義詞，受體「完整性」與 Ldr 中的「完整性」完全匹配",
+        "response": "duplicate",
+        "standard_subject": "篡改",
+        "standard_object": "完整性",
+        "reason": "根據同義詞判定準則，「竄改」與「篡改」為同義詞，且「完整性」完全匹配。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "竄改",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "文本指出訊息未遭受竄改才具有完整性，反之，竄改行為會破壞訊息的完整性，符合 attack violates principle 的定義。",
+      "source_id": "chunk_16",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "雜湊函數",
+      "type": "function",
+      "display_name": "雜湊函數"
+    },
+    "reasoning": "文本描述數位簽章的計算首先需要使用雜湊函數計算訊息摘要，因此該技術依賴於雜湊函數這個工具。",
+    "source_id": "chunk_16",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "數位簽章是 'technique' 的合理實例，雜湊函數是 'tool' 的合理實例，且 'depends_on' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "數位簽章與雜湊函數的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規，因為主體的類別是 data，且關係為 depends_on，但這裡的關係不是 uses，所以不違反規則5。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係是 depends_on，主體是數位簽章（類別：data），受體是雜湊函數（類別：function），這不直接違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "數位簽章與電子簽章為同義詞，雜湊函數為不同概念",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，數位簽章與電子簽章雖為同義詞，但主體與受體不相同，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位簽章",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "雜湊函數",
+        "type": "tool"
+      },
+      "reasoning": "文本描述數位簽章的計算首先需要使用雜湊函數計算訊息摘要，因此該技術依賴於雜湊函數這個工具。",
+      "source_id": "chunk_16",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "數位信封",
+      "type": "technique",
+      "display_name": "數位信封"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "公開金鑰",
+      "type": "feature",
+      "display_name": "公開金鑰"
+    },
+    "reasoning": "數位信封技術使用收訊人的公開金鑰對資料加密，因此該技術依賴於公開金鑰。",
+    "source_id": "chunk_16",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "數位信封是 technique 的合理實例，公開金鑰是 tool 的合理實例，且 'depends_on' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "數位信封依賴於公開金鑰的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'depends_on' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且不符合廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位信封",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "公開金鑰",
+        "type": "tool"
+      },
+      "reasoning": "數位信封技術使用收訊人的公開金鑰對資料加密，因此該技術依賴於公開金鑰。",
+      "source_id": "chunk_16",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "雜湊函數",
+      "type": "function",
+      "display_name": "雜湊函數"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "訊息摘要",
+      "type": "data",
+      "display_name": "訊息摘要"
+    },
+    "reasoning": "文本明確提到使用雜湊函數計算出『訊息摘要』，這符合 tool generates data 的關係。",
+    "source_id": "chunk_16",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "雜湊函數 (Hash Function) 是工具 (tool) 的合理實例，訊息摘要 (Message Digest) 是資料 (data) 的合理實例，'generates' 關係在資安領域中描述工具生成資料的語意是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的動作是generates，而不是mitigates。規則3不適用，因為主體的類別是function，而不是vulnerability。規則4不適用，因為三元組中的關係是generates，而不是violates。規則5不適用，因為三元組中的關係是generates，而不是uses。規則6不適用，因為三元組中的關係是generates，而不是deployed_in。規則7適用，且三元組符合規則所允許的條件，因為受體的類別是data。規則8不適用，因為三元組中的關係是generates，而不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7所允許的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中項目完全匹配，無需進一步分析同義詞或廣義/狹義關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆直接與現有近似資源清單中項目完全匹配，無同義詞或重複資源需要標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雜湊函數",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "訊息摘要",
+        "type": "data"
+      },
+      "reasoning": "文本明確提到使用雜湊函數計算出『訊息摘要』，這符合 tool generates data 的關係。",
+      "source_id": "chunk_16",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "私密金鑰",
+      "type": "tool",
+      "display_name": "私密金鑰"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "數位簽章值",
+      "type": "data",
+      "display_name": "數位簽章值"
+    },
+    "reasoning": "文本提到使用私密金鑰對訊息摘要加密，得到『數位簽章值』。在此將簽章值視為產出的資料，符合 tool generates data。",
+    "source_id": "chunk_16",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "私密金鑰是工具（tool）的合理實例，數位簽章值是資料（data）的合理實例，'generates' 關係在資安領域中描述私密金鑰生成數位簽章值的過程是合理的。",
+        "response": "correct",
+        "reason": "私密金鑰生成數位簽章值的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是generates，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為principle沒有出現在三元組中。規則5不適用，因為關係是generates，而非uses。規則6不適用，因為關係是generates，而非deployed_in。規則7適用，且三元組符合規則，受體的類別是data。規則8不適用，因為關係是generates，而非controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的條件，且沒有違反其他規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "私密金鑰與密碼學、密碼模組、密碼鎖等相關概念，但非完全等價同義詞；數位簽章值與訊息摘要相關，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定私密金鑰與其他概念之間的完全等價同義詞關係，且數位簽章值與訊息摘要非完全等價同義詞，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "私密金鑰",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "數位簽章值",
+        "type": "data"
+      },
+      "reasoning": "文本提到使用私密金鑰對訊息摘要加密，得到『數位簽章值』。在此將簽章值視為產出的資料，符合 tool generates data。",
+      "source_id": "chunk_16",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "公開金鑰",
+      "type": "feature",
+      "display_name": "公開金鑰"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章值"
+    },
+    "reasoning": "文本提到收訊者利用公開金鑰將簽章值解開（驗章），這是一種對資料的分析/驗證過程，符合 tool can_analyze data。",
+    "source_id": "chunk_16",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "公開金鑰是工具（tool）的合理實例，數位簽章值是資料（data）的合理實例，'can_analyze' 關係在資安領域中是合理的，表示工具可以分析資料。",
+        "response": "correct",
+        "reason": "公開金鑰與數位簽章值的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別為 feature，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係為 can_analyze，不是 uses。檢查規則6：不適用，因為關係為 can_analyze，不是 deployed_in。檢查規則7：不適用，因為關係為 can_analyze，不是 generates。檢查規則8：不適用，因為關係為 can_analyze，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（公開金鑰）與關係（can_analyze）和受體（數位簽章值）之間的關係，沒有明確違反任何一條語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "數位簽章值與數位簽章在資安領域中可視為同義詞，指稱同一概念",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "數位簽章",
+        "reason": "根據同義詞判定，數位簽章值與數位簽章是同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "公開金鑰",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "數位簽章值",
+        "type": "data"
+      },
+      "reasoning": "文本提到收訊者利用公開金鑰將簽章值解開（驗章），這是一種對資料的分析/驗證過程，符合 tool can_analyze data。",
+      "source_id": "chunk_16",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "數位信封",
+      "type": "technique",
+      "display_name": "數位信封"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "機密資料",
+      "type": "data",
+      "display_name": "機密資料"
+    },
+    "reasoning": "數位信封是用於處理（加密/解密）機密資料的技術，符合 technique can_analyze data 的邏輯。",
+    "source_id": "chunk_16",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "數位信封 (technique) 可以分析機密資料 (data)，這符合資安領域的常見實踐和語意對齊，接受同義詞寬容原則後，仍然合理。",
+        "response": "correct",
+        "reason": "數位信封與機密資料的關係 'can_analyze' 符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_analyze'，且主體是 '數位信封'（類別：technique），受體是 '機密資料'（類別：data），這符合一般的分析行為，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係沒有違反語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"數位信封\" 與 Ldr 中的 \"數位信封\" 完全相同，受體 \"機密資料\" 與 Ldr 中的 \"機密資料\" 相關但不完全相同，然而 \"機密資料\" 可被視為 \"資料\" 的子類型，且 \"資料\" 在 Ldr 中出現過。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，主體 \"數位信封\" 與 Ldr 中的 \"數位信封\" 完全相同，因此直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位信封",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "機密資料",
+        "type": "data"
+      },
+      "reasoning": "數位信封是用於處理（加密/解密）機密資料的技術，符合 technique can_analyze data 的邏輯。",
+      "source_id": "chunk_16",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "數位信封",
+      "type": "technique",
+      "display_name": "數位信封"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "私密金鑰",
+      "type": "tool",
+      "display_name": "私密金鑰"
+    },
+    "reasoning": "數位信封技術需要收訊人使用自己的私密金鑰來解密，因此該技術依賴於私密金鑰。",
+    "source_id": "chunk_16",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "數位信封 (technique) 和 私密金鑰 (tool) 的名稱與其類別合理對齊，且符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "數位信封依賴私密金鑰的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 'depends_on'，不涉及 'controls' 關係。另外，根據給定的三元組，主體是 '數位信封'（類別：technique），關係是 'depends_on'，受體是 '私密金鑰'（類別：tool），這不直接違反任何給定的規則。",
+        "response": "correct",
+        "reason": "三元組不直接違反語義限制清單中的任何規則，尤其是因為 'depends_on' 關係不在明確限制之列。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中特定術語，無直接同義詞關係，但可觀察到主體「數位信封」與受體「私密金鑰」之間的關聯性，兩者皆與密碼學相關，然而「數位信封」是一種技術，而「私密金鑰」是一種工具，兩者之間存在著廣義與狹義的從屬關係，但基於規則3，若一個實體是另一個的子類型，則判定為 correct，禁止合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "基於規則3，主體與受體之間的廣義/狹義從屬關係，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位信封",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "私密金鑰",
+        "type": "tool"
+      },
+      "reasoning": "數位信封技術需要收訊人使用自己的私密金鑰來解密，因此該技術依賴於私密金鑰。",
+      "source_id": "chunk_16",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

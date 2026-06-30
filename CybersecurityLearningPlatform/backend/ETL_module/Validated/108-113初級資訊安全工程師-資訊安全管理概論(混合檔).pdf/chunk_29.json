@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "系統管理人員",
+      "type": "securityTeam",
+      "display_name": "系統管理人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "根據題目 28，系統管理人員與非管理該系統之人員需定期檢視（分析）日誌，因此選擇 securityTeam 與 data，關係為 can_analyze。",
+    "source_id": "chunk_29",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "系統管理人員是安全團隊的合理實例，日誌是資料的合理實例，且 'can_analyze' 在資安領域中是合理的關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別是 securityTeam，而不是 data。規則6：不適用。規則7：不適用。規則8：不適用，因為關係是 can_analyze，而不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（系統管理人員）與受體（日誌）之間的關係（can_analyze）在給定的語義限制清單中沒有被明確禁止或限制。因此，根據無罪推定原則，該三元組被判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"系統管理人員\" 與 Ldr 中的 \"系統管理人員\" 完全等價同義詞，受體 \"日誌\" 與 Ldr 中的 \"日誌\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統管理人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "根據題目 28，系統管理人員與非管理該系統之人員需定期檢視（分析）日誌，因此選擇 securityTeam 與 data，關係為 can_analyze。",
+      "source_id": "chunk_29",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "題目 28 提到日誌的檢視，而日誌是由系統運作時產生的記錄，符合 system generates data 的 Schema。",
+    "source_id": "chunk_29",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "系統 (system) 可以生成日誌 (data)，這是一種合理的語意對齊，符合資安領域的常見實踐。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為三元組中的主體類別不是vulnerability。規則4不適用，因為三元組中的關係不是violates，且principle不是主體。規則5不適用，因為三元組中的關係不是uses。規則6不適用，因為三元組中的關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為三元組中的關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的要求。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"系統\" 與 Ldr 中的 \"系統\" 完全等價同義詞，受體 \"日誌\" 與 Ldr 中的 \"日誌\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞判定或廣義/狹義一律保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "題目 28 提到日誌的檢視，而日誌是由系統運作時產生的記錄，符合 system generates data 的 Schema。",
+      "source_id": "chunk_29",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "多因子認證",
+      "type": "technique",
+      "display_name": "多因子認證"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權存取",
+      "type": "attack",
+      "display_name": "未經授權存取"
+    },
+    "reasoning": "題目 26 討論身分認證技術中的多因子認證 (MFA)，其目的在於強化認證以防止非法進入，因此將其定義為 technique 緩解 (mitigates) 攻擊 (attack)。",
+    "source_id": "chunk_29",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'technique'、受體的類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "多因子認證是 'technique' 的合理實例，未經授權存取是 'attack' 的合理實例，且 'mitigates' 的語意與多因子認證對未經授權存取的關係相符。",
+        "response": "correct",
+        "reason": "主體、關係、受體的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '多因子認證' 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '多因子認證' 屬於 technique 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「多因子認證」與 Ldr 中的「多因素身份驗證」、「多因素身分驗證」等為同義詞，受體「未經授權存取」與 Ldr 中的「未授權存取」、「未經授權的存取」等為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體和受體與 Ldr 中的資源為同義詞，但根據廣義/狹義一律保留的判斷準則，仍判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "多因子認證",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "未經授權存取",
+        "type": "attack"
+      },
+      "reasoning": "題目 26 討論身分認證技術中的多因子認證 (MFA)，其目的在於強化認證以防止非法進入，因此將其定義為 technique 緩解 (mitigates) 攻擊 (attack)。",
+      "source_id": "chunk_29",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "職能分立",
+      "type": "policy",
+      "display_name": "職能分立"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "內部威脅",
+      "type": "attack",
+      "display_name": "內部威脅"
+    },
+    "reasoning": "題目 27(C) 提到程式開發與上線應由不同人員進行，這是典型的職能分立 (Separation of Duties) 政策，旨在防止單一人員惡意操作，符合 policy mitigates attack。",
+    "source_id": "chunk_29",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "職能分立 (policy) 是一種合理的政策實例，內部威脅 (attack) 是一種合理的攻擊實例，'mitigates' 關係在資安領域中常用於描述政策或措施如何減輕攻擊的影響。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '職能分立'，類別是 'policy'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '職能分立' 屬於 'policy' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「內部威脅」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "職能分立",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "內部威脅",
+        "type": "attack"
+      },
+      "reasoning": "題目 27(C) 提到程式開發與上線應由不同人員進行，這是典型的職能分立 (Separation of Duties) 政策，旨在防止單一人員惡意操作，符合 policy mitigates attack。",
+      "source_id": "chunk_29",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "特權帳號管理",
+      "type": "policy",
+      "display_name": "特權帳號管理"
+    },
+    "reasoning": "題目 24 與 25 討論特權帳號的管理與控制方式（如雙授權、定期審查），這屬於資安管理政策，由安全團隊執行，符合 securityTeam implements policy。",
+    "source_id": "chunk_29",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實施特權帳號管理 (policy) 的情境下，'securityTeam' 和 'policy' 的名稱與其類別是合理對齊的，且 'implements' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、關係和受體都符合預先定義的類別和屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：不適用，因為動作是 implements，而規則2是針對 mitigates 動作。檢查規則3：不適用，因為主體類別是 securityTeam，而規則3是針對 vulnerability (漏洞)。檢查規則4：不適用，因為主體類別是 securityTeam，而規則4是針對 principle (資安原則)。檢查規則5：不適用，因為關係是 implements，而規則5是針對 uses 關係。檢查規則6：不適用，因為關係是 implements，而規則6是針對 deployed_in 關係。檢查規則7：不適用，因為關係是 implements，而規則7是針對 generates 關係。檢查規則8：不適用，因為關係是 implements，而規則8是針對 controls 關係。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安人員）和受體（特權帳號管理）之間的 implements 關係，沒有明確違反任何一條語義限制規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"資安人員\" 與 Ldr 中的 \"資安人員\" 完全等價同義詞，受體 \"特權帳號管理\" 與 Ldr 中的 \"密碼和帳戶管理\" 或 \"存取權限管理\" 類似但非完全等價同義詞，兩者皆無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源完全匹配，但受體與 Ldr 中的資源不完全匹配，且無同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "特權帳號管理",
+        "type": "policy"
+      },
+      "reasoning": "題目 24 與 25 討論特權帳號的管理與控制方式（如雙授權、定期審查），這屬於資安管理政策，由安全團隊執行，符合 securityTeam implements policy。",
+      "source_id": "chunk_29",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "存取控制",
+      "type": "policy",
+      "display_name": "存取控制"
+    },
+    "reasoning": "題目 27 討論存取控制之議題（如密碼變更、遠端連線申請），這屬於資安政策的實作，符合 securityTeam implements policy。",
+    "source_id": "chunk_29",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實施存取控制 (policy) 是語意上合理的，實體名稱與其類別對齊，且符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：不適用，因為動作是 implements，而非 mitigates。檢查規則3：不適用，因為主體類別是 securityTeam，而非 vulnerability。檢查規則4：不適用，因為關係是 implements，而非 violates，並且主體是 securityTeam，而非 principle。檢查規則5：不適用，因為關係是 implements，而非 uses。檢查規則6：不適用，因為關係是 implements，而非 deployed_in。檢查規則7：不適用，因為關係是 implements，而非 generates。檢查規則8：不適用，因為關係是 implements，而非 controls，但主體 securityTeam 具有主動執行能力，符合 implements 的邏輯。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係符合邏輯且未觸發任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「資安人員」與 Ldr 中的「資安人員」完全相同，受體「存取控制」與 Ldr 中的「存取控制」完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "存取控制",
+        "type": "policy"
+      },
+      "reasoning": "題目 27 討論存取控制之議題（如密碼變更、遠端連線申請），這屬於資安政策的實作，符合 securityTeam implements policy。",
+      "source_id": "chunk_29",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "必要軌跡",
+      "type": "data",
+      "display_name": "必要軌跡"
+    },
+    "reasoning": "題目 24(B) 提到特權帳號需留下詳細的必要軌跡，軌跡即為日誌類型的資料，由系統產生，符合 system generates data。",
+    "source_id": "chunk_29",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "系統 (system) 可以生成必要軌跡 (data)，這是資安領域中合理的語意對齊，系統可以生成各種資料。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：觸發，檢查關係 'generates' 的受體類別是否為 'data'，結果為正確，符合規則。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 'generates' 與受體 '必要軌跡' 的類別 'data' 符合規則7，且未發現其他違規情況。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "系統與 Ldr 中的系統是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "必要軌跡",
+        "type": "data"
+      },
+      "reasoning": "題目 24(B) 提到特權帳號需留下詳細的必要軌跡，軌跡即為日誌類型的資料，由系統產生，符合 system generates data。",
+      "source_id": "chunk_29",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  }
+]

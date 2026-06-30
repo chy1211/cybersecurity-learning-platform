@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "網站伺服器",
+      "type": "system",
+      "display_name": "網站伺服器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "硬碟",
+      "type": "system",
+      "display_name": "硬碟"
+    },
+    "reasoning": "文本提到伺服器內有五顆硬碟，硬碟是伺服器系統的組成部分，因此選擇 system has_a feature。",
+    "source_id": "chunk_55",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網站伺服器是 system 的合理實例，硬碟是 feature 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有攻擊者或安全團隊的身分。規則2不適用，因為關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。規則沒有被觸發，表示三元組合法。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間沒有違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "網站伺服器與網頁伺服器、web伺服器等為同義詞或近似概念，但硬碟為獨立實體",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，網站伺服器和硬碟不具有完全相同的同義詞關係，且彼此為不同類型的系統，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站伺服器",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "硬碟",
+        "type": "feature"
+      },
+      "reasoning": "文本提到伺服器內有五顆硬碟，硬碟是伺服器系統的組成部分，因此選擇 system has_a feature。",
+      "source_id": "chunk_55",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "備份機制",
+      "type": "technique",
+      "display_name": "備份機制"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "硬碟故障",
+      "type": "risk",
+      "display_name": "硬碟故障"
+    },
+    "reasoning": "備份機制（包含完整備份與差異備份）是一種計畫/策略，旨在緩解硬碟故障導致資料遺失的風險，符合 policy mitigates risk。",
+    "source_id": "chunk_55",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "備份機制 (policy) 是一種合理的政策實例，硬碟故障 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中是合理的，表示備份機制可以減輕硬碟故障的風險。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是備份機制，類別為 technique，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體備份機制屬於technique類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全匹配的資源，且無同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆直接匹配現有資源，無需進一步同義詞判定。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "備份機制",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "硬碟故障",
+        "type": "risk"
+      },
+      "reasoning": "備份機制（包含完整備份與差異備份）是一種計畫/策略，旨在緩解硬碟故障導致資料遺失的風險，符合 policy mitigates risk。",
+      "source_id": "chunk_55",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "網站伺服器",
+      "type": "system",
+      "display_name": "網站伺服器"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "硬碟故障",
+      "type": "risk",
+      "display_name": "硬碟故障"
+    },
+    "reasoning": "硬碟故障被視為系統的一個缺陷或弱點，導致服務中斷，符合 system can_expose vulnerability。",
+    "source_id": "chunk_55",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網站伺服器是 system 的合理實例，硬碟故障是 vulnerability 的合理實例，'can_expose' 的語意也合理地描述了網站伺服器可能暴露硬碟故障的風險。",
+        "response": "correct",
+        "reason": "網站伺服器與硬碟故障的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：主體類別為 system，不是 vulnerability，故不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。無明確違反規則。",
+        "response": "correct",
+        "reason": "三元組（網站伺服器 can_expose 硬碟故障）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "網站伺服器與 Ldr 中的網站伺服器完全等價同義詞，硬碟故障與 Ldr 中的硬碟故障完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站伺服器",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "硬碟故障",
+        "type": "vulnerability"
+      },
+      "reasoning": "硬碟故障被視為系統的一個缺陷或弱點，導致服務中斷，符合 system can_expose vulnerability。",
+      "source_id": "chunk_55",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "data cleaning",
+      "type": "technique",
+      "display_name": "Data Cleaning"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "日誌分析",
+      "type": "technique",
+      "display_name": "日誌分析"
+    },
+    "reasoning": "文本指出在進行日誌分析前先進行 Data Cleaning，說明資料清洗是日誌分析技術流程的一部分，符合 technique is_part_of technique。",
+    "source_id": "chunk_55",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Data Cleaning 和 日誌分析 都是合理的 'technique' 實例，考慮到資安領域的同義詞、縮寫與翻譯寬容原則。",
+        "response": "correct",
+        "reason": "主體、關係和受體完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在語義限制清單中被明確限制，且主體和受體的類別與給定的規則不衝突。"
+      },
+      "step_2": {
+        "granularity_analysis": "日誌分析與資安日誌分析之間存在同義詞關係，兩者均指涉日誌分析技術",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體在資安教材中可互換使用、指稱同一概念，但由於實體名稱與 Ldr 中某資源的 name 字串不完全相同，且無法確認為完全等價同義詞，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Data Cleaning",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "日誌分析",
+        "type": "technique"
+      },
+      "reasoning": "文本指出在進行日誌分析前先進行 Data Cleaning，說明資料清洗是日誌分析技術流程的一部分，符合 technique is_part_of technique。",
+      "source_id": "chunk_55",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "syslog",
+      "type": "tool",
+      "display_name": "Syslog"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "tls 協議",
+      "type": "feature",
+      "display_name": "TLS 協議"
+    },
+    "reasoning": "文本提到 Syslog 可透過 TLS 協議進行加密傳輸，TLS 是該服務可具備的特徵，符合 app has_a feature。",
+    "source_id": "chunk_55",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Syslog 是一種應用程式（app），TLS 協議是一種安全功能（feature），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "Syslog 與 TLS 協議的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查關係 'has_a'，此關係不在限制清單中，且主體 'Syslog' 是工具，受體 'TLS 協議' 是特徵，符合一般語義理解。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，且關係 'has_a' 在此語境下是合理的。"
+      },
+      "step_2": {
+        "granularity_analysis": "Syslog 與 Ldr 中的 'syslog' 完全等價同義詞，TLS 協議與 Ldr 中的 'tls 協定' 或 'tls' 皆為同一概念的不同表達方式，但 'tls 協定' 的 similarity_score 較高，故優先考慮 'tls 協定'。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Syslog 與 'syslog' 完全匹配，TLS 協議與 'tls 協定' 亦為同義詞，但根據規則 3，若一個實體是另一個的子類型或無法確定，預設保留，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Syslog",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "TLS 協議",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 Syslog 可透過 TLS 協議進行加密傳輸，TLS 是該服務可具備的特徵，符合 app has_a feature。",
+      "source_id": "chunk_55",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "syslog",
+      "type": "tool",
+      "display_name": "Syslog"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "Syslog 作為一種日誌傳輸服務/應用，其運作會產生日誌資料，符合 app generates data。",
+    "source_id": "chunk_55",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Syslog 是一種應用程式（app），日誌是資料（data），因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "Syslog 生成日誌的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的動作是generates，而非mitigates。規則3不適用，因為主體的類別是tool，而非vulnerability。規則4不適用，因為三元組中沒有提到principle。規則5不適用，因為關係是generates，而非uses。規則6不適用，因為關係是generates，而非deployed_in。規則7適用，且三元組中的受體類別是data，符合規則。規則8不適用，因為關係是generates，而非controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Syslog 是一個工具，日誌是其產生的資料，兩者之間存在著明確的主體和受體關係，Syslog 是一個特定的工具名稱，日誌是其資料類型，不存在同義詞重複的情況。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】和【廣義/狹義一律保留】判斷，Syslog 和日誌之間不存在同義詞重複，且 Syslog 是一個特定的工具，日誌是其資料類型，兩者之間存在著明確的主體和受體關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Syslog",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "Syslog 作為一種日誌傳輸服務/應用，其運作會產生日誌資料，符合 app generates data。",
+      "source_id": "chunk_55",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "data cleaning",
+      "type": "technique",
+      "display_name": "Data Cleaning"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌資料",
+      "type": "data",
+      "display_name": "日誌資料"
+    },
+    "reasoning": "Data Cleaning 技術透過分析蒐集的資料來刪除或修正格式不正確的部分，符合 technique can_analyze data。",
+    "source_id": "chunk_55",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Data Cleaning 是一種 'technique'，日誌資料是 'data' 的合理實例，且 'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 technique，而非 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則，發現無直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體是 Data Cleaning，類別為 technique，與日誌資料（類別為 data）之間的關係是 can_analyze，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Data Cleaning) 與 Ldr 中的 'data cleaning' 完全等價同義詞；受體 (日誌資料) 與 Ldr 中的 '日誌檔'、'日誌資訊'、'日誌'、'日誌記錄' 等相關，但非完全等價同義詞，受體與 '資料' 關聯性較低，但 '日誌檔' 等相關詞彙與 '日誌資料' 關聯性較高，故判定受體與 '日誌檔' 最相似。",
+        "response": "correct",
+        "standard_subject": "data cleaning",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的 'data cleaning' 完全等價同義詞，受體與 '日誌檔' 等相關詞彙關聯性較高，但非完全等價同義詞，依據【廣義/狹義一律保留】與【不確定時預設保留】原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Data Cleaning",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "日誌資料",
+        "type": "data"
+      },
+      "reasoning": "Data Cleaning 技術透過分析蒐集的資料來刪除或修正格式不正確的部分，符合 technique can_analyze data。",
+      "source_id": "chunk_55",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "系統管理人員",
+      "type": "securityTeam",
+      "display_name": "系統管理人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌檔",
+      "type": "data",
+      "display_name": "日誌檔"
+    },
+    "reasoning": "文本提到管理人員想要對不同系統的日誌檔進行管理與分析，符合 securityTeam can_analyze data。",
+    "source_id": "chunk_55",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "系統管理人員是安全團隊的合理實例，日誌檔是資料的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 securityTeam，具有主動執行能力，符合 controls 的主體條件，但本三元組的關係為 can_analyze，不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體（系統管理人員）和關係（can_analyze）以及受體（日誌檔）之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統管理人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "日誌檔",
+        "type": "data"
+      },
+      "reasoning": "文本提到管理人員想要對不同系統的日誌檔進行管理與分析，符合 securityTeam can_analyze data。",
+      "source_id": "chunk_55",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  }
+]

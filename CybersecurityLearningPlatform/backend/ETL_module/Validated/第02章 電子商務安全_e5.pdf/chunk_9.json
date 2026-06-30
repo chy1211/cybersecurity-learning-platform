@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "行動支付",
+      "type": "system",
+      "display_name": "行動支付"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "洗錢風險",
+      "type": "vulnerability",
+      "display_name": "洗錢風險"
+    },
+    "reasoning": "文本提到行動支付遊走法律邊緣且有洗錢的潛在風險。將『行動支付』視為一種支付系統，其特性可能導致『洗錢風險』這一漏洞/弱點暴露。符合 (system, can_expose, vulnerability) 的 Schema。",
+    "source_id": "chunk_9",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "行動支付 (system) 可以暴露 (can_expose) 洗錢風險 (vulnerability)，這是一個合理的語意對齊，因為行動支付系統可能會面臨洗錢風險，且 'can_expose' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "行動支付系統與洗錢風險之間的 'can_expose' 關係在資安領域中是合理且語意對齊的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但主體類別為 system，不是 vulnerability，因此不受此規則限制。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是行動支付（類別：system），關係是 can_expose，受體是洗錢風險（類別：vulnerability），這不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，且無法在資安領域已知同義詞對照範例中找到相似實體，故直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "行動支付",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "洗錢風險",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到行動支付遊走法律邊緣且有洗錢的潛在風險。將『行動支付』視為一種支付系統，其特性可能導致『洗錢風險』這一漏洞/弱點暴露。符合 (system, can_expose, vulnerability) 的 Schema。",
+      "source_id": "chunk_9",
+      "source_file": "第02章 電子商務安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "洗錢",
+      "type": "vulnerability",
+      "display_name": "洗錢風險"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "洗錢",
+      "type": "risk",
+      "display_name": "洗錢"
+    },
+    "reasoning": "洗錢風險（漏洞）最終會導致洗錢（實際風險/負面後果）的發生。符合 (vulnerability, can_expose, risk) 的 Schema。",
+    "source_id": "chunk_9",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '洗錢風險' 是 'vulnerability' 的合理實例，'洗錢' 是 'risk' 的合理實例，兩者名稱與類別對齊，且接受資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與類別對齊，通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體為vulnerability，關係為can_expose，符合規則3的特例允許。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間存在同義詞關係，洗錢風險與洗錢在某些資安教材中可互換使用，指稱同一概念",
+        "response": "duplicate",
+        "standard_subject": "洗錢",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，洗錢風險與洗錢是同義詞，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "洗錢風險",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "洗錢",
+        "type": "risk"
+      },
+      "reasoning": "洗錢風險（漏洞）最終會導致洗錢（實際風險/負面後果）的發生。符合 (vulnerability, can_expose, risk) 的 Schema。",
+      "source_id": "chunk_9",
+      "source_file": "第02章 電子商務安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "apple pay",
+      "type": "app",
+      "display_name": "Apple Pay"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "行動支付",
+      "type": "system",
+      "display_name": "行動支付"
+    },
+    "reasoning": "Apple Pay 是行動支付系統中的一個具體應用程式實例。符合 (app, is_part_of, system) 的 Schema。",
+    "source_id": "chunk_9",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Apple Pay 是一款行動支付 app，'app' 是其合理類別；'行動支付' 是一種支付 system，'system' 也是其合理類別。這些名稱與其類別之間具有語意對齊性。",
+        "response": "correct",
+        "reason": "Apple Pay 與 '行動支付' 的類別與屬性完全符合預先定義的清單 Lc,p，且名稱與類別之間具有語意對齊性。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與主體 Apple Pay (類別: app) 和受體 行動支付 (類別: system) 不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "行動支付是系統的一種，Apple Pay 是行動支付的一種實現方式，因此是廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，Apple Pay 是行動支付的一種子類型，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Apple Pay",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "行動支付",
+        "type": "system"
+      },
+      "reasoning": "Apple Pay 是行動支付系統中的一個具體應用程式實例。符合 (app, is_part_of, system) 的 Schema。",
+      "source_id": "chunk_9",
+      "source_file": "第02章 電子商務安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "google pay",
+      "type": "app",
+      "display_name": "Google Pay"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "行動支付",
+      "type": "system",
+      "display_name": "行動支付"
+    },
+    "reasoning": "Google Pay 是行動支付系統中的一個具體應用程式實例。符合 (app, is_part_of, system) 的 Schema。",
+    "source_id": "chunk_9",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Google Pay 是 'app' 的合理實例，行動支付是 'system' 的合理實例，兩者之間的 'is_part_of' 關係在語意上是合理的，因為行動支付系統可能包含 Google Pay 等應用程式。",
+        "response": "correct",
+        "reason": "Google Pay 與行動支付的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：當關係為 deployed_in 時，受體的類別必須是 system，但此三元組的關係是 is_part_of，不觸發此規則。檢查規則7：不適用。檢查規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係是 is_part_of，主體是 Google Pay，受體是行動支付，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "行動支付是系統的一種，Google Pay 是行動支付的一種實現方式，兩者之間存在廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，Google Pay 是行動支付的一種子類型，兩者不應合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Google Pay",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "行動支付",
+        "type": "system"
+      },
+      "reasoning": "Google Pay 是行動支付系統中的一個具體應用程式實例。符合 (app, is_part_of, system) 的 Schema。",
+      "source_id": "chunk_9",
+      "source_file": "第02章 電子商務安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "網站安全認證標章",
+      "type": "tool",
+      "display_name": "網站安全認證標章"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "reasoning": "認證標章透過分析網站的安全狀態來呈現結果，扮演一種偵測/分析工具的角色。符合 (tool, can_analyze, system) 的 Schema。",
+    "source_id": "chunk_9",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網站安全認證標章 可被視為 tool 的合理實例，網站 可被視為 system 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，但關係為 can_analyze，主體為 tool，受體為 app，符合一般工具分析應用程式的邏輯。",
+        "response": "correct",
+        "reason": "三元組中的主體（網站安全認證標章）為 tool，關係為 can_analyze，受體為 app（網站），這符合工具可以分析應用程式的邏輯，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網站是電子商務網站、www、b2c 網站的廣義概念，但與 apple pay 和 google pay 不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "網站與電子商務網站、www、b2c 網站之間存在廣義/狹義從屬關係，無法合併，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站安全認證標章",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "網站",
+        "type": "system"
+      },
+      "reasoning": "認證標章透過分析網站的安全狀態來呈現結果，扮演一種偵測/分析工具的角色。符合 (tool, can_analyze, system) 的 Schema。",
+      "source_id": "chunk_9",
+      "source_file": "第02章 電子商務安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "mcafee secure",
+      "type": "tool",
+      "display_name": "McAfee Secure"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網站安全認證標章",
+      "type": "tool",
+      "display_name": "網站安全認證標章"
+    },
+    "reasoning": "McAfee Secure 是網站安全認證標章的一種具體工具實作。符合 (tool, is_part_of, tool) 的 Schema。",
+    "source_id": "chunk_9",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "McAfee Secure 可被視為 'tool' 的合理實例，網站安全認證標章也可被視為 'tool' 的合理實例，考慮到同義詞寬容原則。",
+        "response": "correct",
+        "reason": "McAfee Secure 和網站安全認證標章的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在語義限制清單中被明確限制，且主體和受體的類別都為 'tool'，因此不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "McAfee Secure 與網站安全認證標章之間的關係是不同實體的不同名稱，兩者皆為工具類別，但非同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體名稱不完全相同，且非同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "McAfee Secure",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "網站安全認證標章",
+        "type": "tool"
+      },
+      "reasoning": "McAfee Secure 是網站安全認證標章的一種具體工具實作。符合 (tool, is_part_of, tool) 的 Schema。",
+      "source_id": "chunk_9",
+      "source_file": "第02章 電子商務安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "webtrust",
+      "type": "tool",
+      "display_name": "WebTrust"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "reasoning": "WebTrust 是一種網站安全認證服務，其功能是分析並驗證網站的安全性。符合 (tool, can_analyze, system) 的 Schema。",
+    "source_id": "chunk_9",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "WebTrust 是一種工具（tool），可以分析網站（system），這符合語意對齊，且 'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係是can_analyze，而不是mitigates。規則3不適用，因為主體的類別是tool，而不是vulnerability。規則4不適用，因為三元組中的關係不是violates。規則5不適用，因為三元組中的關係不是uses。規則6不適用，因為三元組中的關係不是deployed_in。規則7不適用，因為三元組中的關係不是generates。規則8不適用，因為三元組中的關係不是controls。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體是tool，關係是can_analyze，受體是app，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網站是受體的名稱，與Ldr中的資源'網站'完全匹配，且類別均為'app'，因此是完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，實體名稱與Ldr中某資源的name字串完全相同，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WebTrust",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "網站",
+        "type": "system"
+      },
+      "reasoning": "WebTrust 是一種網站安全認證服務，其功能是分析並驗證網站的安全性。符合 (tool, can_analyze, system) 的 Schema。",
+      "source_id": "chunk_9",
+      "source_file": "第02章 電子商務安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "美國會計師協會 (aicpa)",
+      "type": "securityTeam",
+      "display_name": "美國會計師協會 (AICPA)"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "webtrust",
+      "type": "tool",
+      "display_name": "WebTrust"
+    },
+    "reasoning": "AICPA 是推出並管理 WebTrust 認證服務的組織，具有控制權。符合 (securityTeam, controls, tool) 的 Schema。",
+    "source_id": "chunk_9",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "美國會計師協會 (AICPA) 是一個安全團隊的合理實例，WebTrust 是一個工具的合理實例，'controls' 關係在資安領域中指的是控制或管理的意思，適用於安全團隊對工具的控制。",
+        "response": "correct",
+        "reason": "美國會計師協會 (AICPA) 對 WebTrust 的控制關係符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 securityTeam，符合 controls 關係的主體類別要求。",
+        "response": "correct",
+        "reason": "三元組中的主體（美國會計師協會）是 securityTeam 類別，符合規則8中 controls 關係的主體類別要求。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "WebTrust 是 Ldr 中已有的資源，且名稱完全相同",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "webtrust",
+        "reason": "受體 WebTrust 與 Ldr 中的 webtrust 完全相同，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "美國會計師協會 (AICPA)",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "WebTrust",
+        "type": "tool"
+      },
+      "reasoning": "AICPA 是推出並管理 WebTrust 認證服務的組織，具有控制權。符合 (securityTeam, controls, tool) 的 Schema。",
+      "source_id": "chunk_9",
+      "source_file": "第02章 電子商務安全_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

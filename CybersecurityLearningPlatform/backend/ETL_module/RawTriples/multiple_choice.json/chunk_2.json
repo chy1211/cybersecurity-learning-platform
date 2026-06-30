@@ -1,0 +1,107 @@
+[
+  {
+    "subject": {
+      "name": "Telnet",
+      "type": "app"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "資料庫伺服器",
+      "type": "system"
+    },
+    "reasoning": "文本明確提到『系統使用Telnet連線至公司資料庫伺服器』，Telnet 為應用程式 (app)，伺服器為系統 (system)，符合 ('app', 'connects_to', 'system') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "multiple_choice.json",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "Telnet",
+      "type": "app"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本建議停用 Telnet 並改用 SSH，暗示 Telnet 的明文傳輸特性會導致安全弱點，符合 ('app', 'can_expose', 'vulnerability') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "multiple_choice.json",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "SSH",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk"
+    },
+    "reasoning": "文本建議實作 SSH 以取代不安全的 Telnet，SSH 作為安全工具 (tool) 可緩解因明文傳輸導致的風險 (risk)，符合 ('tool', 'mitigates', 'risk') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "multiple_choice.json",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "災害復原計劃",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "設備故障",
+      "type": "risk"
+    },
+    "reasoning": "災害復原計劃 (policy) 的目的在於透過備份等手段緩解災難或設備故障 (risk) 帶來的影響，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "multiple_choice.json",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "私人IPv4位址",
+      "type": "feature"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到網際網路封鎖私人 IPv4 位址以防止安全問題，這意味著在不正確的環境中使用私人位址可能暴露弱點 (vulnerability)，符合 ('feature', 'can_expose', 'vulnerability') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "multiple_choice.json",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "BYOD原則",
+      "type": "policy"
+    },
+    "reasoning": "文本提到公司建立 BYOD 原則允許員工將手機加入網路，這要求員工 (user) 在使用設備時需遵守並執行該政策 (policy)，符合 ('user', 'implements', 'policy') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "multiple_choice.json",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "個人智慧型手機",
+      "type": "system"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "公司網路",
+      "type": "system"
+    },
+    "reasoning": "文本描述 BYOD 原則允許手機 (system) 加入至公司網路 (system)，符合 ('system', 'connects_to', 'system') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "multiple_choice.json",
+    "source_index": 7
+  }
+]

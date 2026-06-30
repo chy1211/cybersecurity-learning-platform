@@ -1,0 +1,626 @@
+[
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "封包",
+      "type": "data",
+      "display_name": "封包"
+    },
+    "reasoning": "文本提到防火牆『管制與過濾通過網路的封包』，過濾行為在本體論中屬於對資料的分析，因此選擇 tool -> can_analyze -> data。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，封包是數據（data）的合理實例，'can_analyze' 的語意也合理地描述了防火牆與封包之間的關係。",
+        "response": "correct",
+        "reason": "防火牆可以分析封包的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但可以分析 (can_analyze) 是 tool 的合法動作。",
+        "response": "correct",
+        "reason": "三元組中的主體是防火牆（tool），關係是 can_analyze，受體是封包（data），這符合工具可以分析資料的邏輯，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與現有近似資源清單中的防火牆完全等價，受體與現有近似資源清單中的 ip 封包相似，但不完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與現有近似資源清單中的防火牆完全等價，但受體與現有近似資源清單中的 ip 封包不完全等價，且無法確定為同義詞，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "封包",
+        "type": "data"
+      },
+      "reasoning": "文本提到防火牆『管制與過濾通過網路的封包』，過濾行為在本體論中屬於對資料的分析，因此選擇 tool -> can_analyze -> data。",
+      "source_id": "chunk_1",
+      "source_file": "ch18_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "文本指出防火牆『通常建置於網際網路與企業網路之間』，描述其部署位置，符合 tool -> deployed_in -> system。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，網際網路是系統（system）的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。此三元組的受體是網際網路，類別是 system，符合規則6的要求。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的防火牆（tool）部署於網際網路（system）符合規則6的要求，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中之資源完全匹配，且無需進一步同義詞判定或廣義/狹義分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆直接與現有近似資源清單中之資源完全匹配，故無需進一步處理。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "文本指出防火牆『通常建置於網際網路與企業網路之間』，描述其部署位置，符合 tool -> deployed_in -> system。",
+      "source_id": "chunk_1",
+      "source_file": "ch18_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "企業網路",
+      "type": "system",
+      "display_name": "企業網路"
+    },
+    "reasoning": "同上，防火牆建置於企業網路邊界，符合 tool -> deployed_in -> system。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "防火牆 (tool) 與 企業網路 (system) 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。此三元組的關係為 deployed_in，受體為企業網路，類別為 system，符合規則6的條件。",
+        "response": "correct",
+        "reason": "三元組的主體為防火牆，類別為 tool，關係為 deployed_in，受體為企業網路，類別為 system，完全符合規則6的要求，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的防火牆完全等價同義詞，受體與 Ldr 中的網際網路或電信網路具有相似性，但不完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的防火牆完全匹配，但受體企業網路與 Ldr 中的網際網路或電信網路不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "企業網路",
+        "type": "system"
+      },
+      "reasoning": "同上，防火牆建置於企業網路邊界，符合 tool -> deployed_in -> system。",
+      "source_id": "chunk_1",
+      "source_file": "ch18_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "文本提到防火牆可『防衛內部電腦，避免被駭客利用作為攻擊跳板』，這是一種緩解攻擊風險的行為，符合 tool -> mitigates -> attack。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates'皆在 Lc,p 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，駭客攻擊是攻擊（attack）的合理實例，且關係 'mitigates' 在資安領域中指的是減輕或緩解攻擊的影響，與防火牆的功能相符。",
+        "response": "correct",
+        "reason": "防火牆（tool）與駭客攻擊（attack）之間的 'mitigates' 關係在資安領域中是合理且正確的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是防火牆（tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（防火牆）是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆在 Ldr 中找到完全匹配的資源，分別為 \"防火牆\" 和 \"駭客攻擊\"，且無同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體在 Ldr 中均找到完全匹配的資源，且無同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到防火牆可『防衛內部電腦，避免被駭客利用作為攻擊跳板』，這是一種緩解攻擊風險的行為，符合 tool -> mitigates -> attack。",
+      "source_id": "chunk_1",
+      "source_file": "ch18_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "安全稽核",
+      "type": "function",
+      "display_name": "安全稽核"
+    },
+    "reasoning": "文本明確指出防火牆應具備的基本功能包含『安全稽核』，符合 tool -> has_a -> function。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，安全稽核是功能（function）的合理實例，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "防火牆與安全稽核的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，但需注意 'has_a' 關係是否符合主體和受體的類別限制。根據給定的三元組，'防火牆' 是一種工具（tool），'安全稽核' 是一種功能（function），'has_a' 關係表示防火牆具有安全稽核功能，未發現明確違反語義限制清單中的任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間的組合未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '防火牆' 完全等價同義詞，受體 '安全稽核' 與 Ldr 中的 '網路存取控管' 不直接相關，但考慮到 '安全稽核' 可能涉及多個方面，包括網路存取控管，仍需進一步分析。然而，根據給定的同義詞對照範例和判斷準則，'防火牆' 和 '網路防火牆' 被視為同義詞，但這裡的 '安全稽核' 和 '網路存取控管' 之間沒有直接的同義關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體和受體之間沒有直接的同義詞或廣義/狹義從屬關係，且無法確定它們之間的直接等價關係，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "安全稽核",
+        "type": "function"
+      },
+      "reasoning": "文本明確指出防火牆應具備的基本功能包含『安全稽核』，符合 tool -> has_a -> function。",
+      "source_id": "chunk_1",
+      "source_file": "ch18_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "網路存取控管",
+      "type": "function",
+      "display_name": "網路存取控管"
+    },
+    "reasoning": "文本明確指出防火牆應具備的基本功能包含『網路存取控管』，符合 tool -> has_a -> function。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "防火牆 (tool) 與 網路存取控管 (function) 的名稱與其類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "防火牆 (tool) 與 網路存取控管 (function) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體是 tool，具有主動執行能力，關係是 has_a，受體是網路存取控管，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係符合語義限制清單中的規則，沒有發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據已知同義詞對照範例，防火牆與網路防火牆為同義詞，但主體與受體不為同一實體，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "網路存取控管",
+        "type": "function"
+      },
+      "reasoning": "文本明確指出防火牆應具備的基本功能包含『網路存取控管』，符合 tool -> has_a -> function。",
+      "source_id": "chunk_1",
+      "source_file": "ch18_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "安全稽核",
+      "type": "function",
+      "display_name": "安全稽核"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "存取資料"
+    },
+    "reasoning": "文本描述安全稽核功能是對『存取資料等事項加以記錄』，記錄前需進行分析，符合 function -> can_analyze -> data。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全稽核 (function) 與存取資料 (data) 的名稱與其類別合理對齊，且 'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，但關係為 can_analyze，主體為 function，受體為 data，未發現明確違反規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "安全稽核與網路存取控管之間沒有直接的同義詞關係，且存取資料與資料之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "資料",
+        "reason": "根據同義詞判定，存取資料與資料之間存在同義詞關係，但安全稽核與網路存取控管之間沒有直接的同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全稽核",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "存取資料",
+        "type": "data"
+      },
+      "reasoning": "文本描述安全稽核功能是對『存取資料等事項加以記錄』，記錄前需進行分析，符合 function -> can_analyze -> data。",
+      "source_id": "chunk_1",
+      "source_file": "ch18_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "代理型防火牆"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "reasoning": "同上，代理型是防火牆的一種具體實現，符合 tool -> is_part_of -> tool。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "代理型防火牆是 tool 的合理實例，防火牆也是 tool 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "代理型防火牆和防火牆的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則後，發現待檢查三元組（代理型防火牆 is_part_of 防火牆）不觸發任何違規，尤其是規則2、5、6、7、8與此三元組無直接關聯，規則1、3、4也不適用於此情境。",
+        "response": "correct",
+        "reason": "由於三元組不違反任何語義限制清單中的規則，且無法在清單中找到任何直接相關的限制，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體為同義詞",
+        "response": "duplicate",
+        "standard_subject": "防火牆",
+        "standard_object": "防火牆",
+        "reason": "根據資安領域已知同義詞對照範例，代理型防火牆與防火牆為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "代理型防火牆",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "reasoning": "同上，代理型是防火牆的一種具體實現，符合 tool -> is_part_of -> tool。",
+      "source_id": "chunk_1",
+      "source_file": "ch18_習題解答.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "過濾型防火牆"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "reasoning": "文本將防火牆分類為過濾型與代理型，過濾型是防火牆的一種具體實現，符合 tool -> is_part_of -> tool。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "過濾型防火牆 與 防火牆 的名稱與其類別 'tool' 合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "過濾型防火牆 與 防火牆 的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則，發現規則1、2、3、4、5、6、7、8均不直接適用於此三元組，因為此三元組的關係是is_part_of，且主體和受體的類別均為tool，與規則中描述的關係和類別不符，無法觸發任何違規。",
+        "response": "correct",
+        "reason": "此三元組不觸發語義限制清單中的任何規則，故判定為正確。三元組中的主體和受體類別均為tool，且關係為is_part_of，無法違反給定的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "防火牆",
+        "standard_object": "防火牆",
+        "reason": "根據資安領域已知同義詞對照範例，過濾型防火牆與防火牆為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "過濾型防火牆",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "reasoning": "文本將防火牆分類為過濾型與代理型，過濾型是防火牆的一種具體實現，符合 tool -> is_part_of -> tool。",
+      "source_id": "chunk_1",
+      "source_file": "ch18_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "網路層防火牆",
+      "type": "tool",
+      "display_name": "網路層防火牆"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "過濾型防火牆",
+      "type": "tool",
+      "display_name": "過濾型防火牆"
+    },
+    "reasoning": "文本提到『過濾型防火牆又可分為網路層防火牆與應用層防火牆』，符合 tool -> is_part_of -> tool。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網路層防火牆與過濾型防火牆都是工具（tool）的合理實例，且 'is_part_of' 關係在資安領域中是合理的，表示前者是後者的組成部分。",
+        "response": "correct",
+        "reason": "網路層防火牆和過濾型防火牆的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'is_part_of' 不在任何規則中被明確限制，且主體和受體的類別均為 'tool'，未發現明確違反任何規則的跡象。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 與給定的語義限制清單中沒有直接相關的限制，且主體和受體的類別均為 'tool'，因此未發現違反任何規則的跡象。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路層防火牆與過濾型防火牆都是防火牆的子類型，但根據給定的同義詞對照範例，網路層防火牆和過濾型防火牆都可以被視為防火牆的不同稱呼，然而根據【同義詞判定】，防火牆 ≡ 網路防火牆，但沒有明確指出過濾型防火牆是防火牆的同義詞，因此需要根據【廣義/狹義一律保留】進行判斷。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路層防火牆",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "過濾型防火牆",
+        "type": "tool"
+      },
+      "reasoning": "文本提到『過濾型防火牆又可分為網路層防火牆與應用層防火牆』，符合 tool -> is_part_of -> tool。",
+      "source_id": "chunk_1",
+      "source_file": "ch18_習題解答.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "應用層防火牆",
+      "type": "tool",
+      "display_name": "應用層防火牆"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "過濾型防火牆",
+      "type": "tool",
+      "display_name": "過濾型防火牆"
+    },
+    "reasoning": "同上，應用層防火牆是過濾型防火牆的子類，符合 tool -> is_part_of -> tool。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "應用層防火牆與過濾型防火牆都是工具的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體皆為 tool，且關係為 is_part_of，未觸發任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為防火牆的子類型，且受體為過濾型防火牆，與現有近似資源清單中的「過濾型防火牆」完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體和受體皆不完全等同於現有近似資源清單中的項目，且無同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用層防火牆",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "過濾型防火牆",
+        "type": "tool"
+      },
+      "reasoning": "同上，應用層防火牆是過濾型防火牆的子類，符合 tool -> is_part_of -> tool。",
+      "source_id": "chunk_1",
+      "source_file": "ch18_習題解答.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "網路層防火牆"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "ip 位址",
+      "type": "feature",
+      "display_name": "IP 位址"
+    },
+    "reasoning": "文本提到過濾型網路防火牆會過濾『來源端之 IP 位址』，IP 位址是網路封包的特徵，符合 tool -> can_analyze -> feature。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網路層防火牆是 tool 的合理實例，IP 位址是 feature 的合理實例。",
+        "response": "correct",
+        "reason": "網路層防火牆與 IP 位址的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體是 tool，具有主動執行能力，符合 controls 的前置條件，但當前的關係是 can_analyze，不是 controls，因此不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體（網路層防火牆）和關係（can_analyze）以及受體（IP 位址）之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路層防火牆與防火牆為同義詞，兩者指稱同一概念",
+        "response": "duplicate",
+        "standard_subject": "防火牆",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，網路層防火牆與防火牆為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路層防火牆",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "IP 位址",
+        "type": "feature"
+      },
+      "reasoning": "文本提到過濾型網路防火牆會過濾『來源端之 IP 位址』，IP 位址是網路封包的特徵，符合 tool -> can_analyze -> feature。",
+      "source_id": "chunk_1",
+      "source_file": "ch18_習題解答.pdf",
+      "source_index": 12
+    }
+  }
+]

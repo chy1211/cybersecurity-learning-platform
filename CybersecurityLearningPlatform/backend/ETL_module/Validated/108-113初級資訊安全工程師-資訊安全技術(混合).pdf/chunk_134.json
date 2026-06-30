@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "入侵偵測與防禦系統 (idps)",
+      "type": "tool",
+      "display_name": "入侵偵測與防禦系統 (IDPS)"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "威脅",
+      "type": "attack",
+      "display_name": "威脅"
+    },
+    "reasoning": "文本提到 IDPS 可以『偵測到的威脅』，IDPS 為安全工具 (tool)，威脅在此脈絡下指攻擊行為 (attack)，符合 (tool, can_detect, attack) 的 Schema。",
+    "source_id": "chunk_134",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測與防禦系統 (IDPS) 是 'tool' 的合理實例，威脅是 'attack' 的合理實例，'can_detect' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "入侵偵測與防禦系統 (IDPS) 的類別、威脅的類別與 'can_detect' 關係皆符合 Lc,p 的定義，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_detect，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（入侵偵測與防禦系統 (IDPS) can_detect 威脅）不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測與防禦系統 (IDPS) 與入侵偵測系統 (ids) 及入侵防禦系統 (ips) 皆為資安工具的不同稱呼，且威脅 (attack) 的同義詞包括多個近似資源，但根據同義詞判定，威脅 (attack) 的近似資源中，'威脅' 的 similarity_score 為 1.0，直接判定為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "威脅",
+        "reason": "根據同義詞判定，威脅 (attack) 的近似資源中，'威脅' 的 similarity_score 為 1.0，直接判定為同義詞；而入侵偵測與防禦系統 (IDPS) 與入侵偵測系統 (ids) 及入侵防禦系統 (ips) 皆為資安工具的不同稱呼，保留為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測與防禦系統 (IDPS)",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "威脅",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 IDPS 可以『偵測到的威脅』，IDPS 為安全工具 (tool)，威脅在此脈絡下指攻擊行為 (attack)，符合 (tool, can_detect, attack) 的 Schema。",
+      "source_id": "chunk_134",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測與防禦系統 (idps)",
+      "type": "tool",
+      "display_name": "入侵偵測與防禦系統 (IDPS)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "威脅",
+      "type": "attack",
+      "display_name": "威脅"
+    },
+    "reasoning": "文本提到 IDPS 可以『主動反應』且『即時阻擋所偵測到的威脅』，阻擋行為即為緩解/防禦 (mitigates)，符合 (tool, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_134",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測與防禦系統 (IDPS) 是 'tool' 的合理實例，威脅是 'attack' 的合理實例，且 'mitigates' 的語意與資安領域的同義詞寬容原則相符。",
+        "response": "correct",
+        "reason": "入侵偵測與防禦系統 (IDPS) 的類別與屬性完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是入侵偵測與防禦系統 (IDPS)，類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 (IDPS) 屬於 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測與防禦系統 (IDPS) 與入侵偵測系統 (ids) 和入侵防禦系統 (ips) 皆為資安工具，且 IDPS 是 ids 和 ips 的整合，故為廣義/狹義從屬關係；威脅為資安攻擊的通稱，與各類型威脅（如潛在威脅、資安威脅等）為廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，入侵偵測與防禦系統 (IDPS) 與威脅不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測與防禦系統 (IDPS)",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "威脅",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 IDPS 可以『主動反應』且『即時阻擋所偵測到的威脅』，阻擋行為即為緩解/防禦 (mitigates)，符合 (tool, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_134",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "日誌管理",
+      "type": "function",
+      "display_name": "日誌管理"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "應用系統日誌",
+      "type": "data",
+      "display_name": "應用系統日誌"
+    },
+    "reasoning": "日誌管理是一種功能 (function)，其目的包含故障排除與安全性確認，這需要分析日誌資料 (data)，符合 (function, can_analyze, data) 的 Schema。",
+    "source_id": "chunk_134",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "日誌管理是 function 的合理實例，應用系統日誌是 data 的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "日誌管理作為一個功能，可以分析應用系統日誌，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。規則沒有被觸發，表示三元組合法。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「日誌管理」與 Ldr 中的「日誌管理」完全相同，受體「應用系統日誌」與 Ldr 中的「應用系統日誌」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "日誌管理",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "應用系統日誌",
+        "type": "data"
+      },
+      "reasoning": "日誌管理是一種功能 (function)，其目的包含故障排除與安全性確認，這需要分析日誌資料 (data)，符合 (function, can_analyze, data) 的 Schema。",
+      "source_id": "chunk_134",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測與防禦系統 (idps)",
+      "type": "tool",
+      "display_name": "入侵偵測與防禦系統 (IDPS)"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "dmz",
+      "type": "system",
+      "display_name": "DMZ"
+    },
+    "reasoning": "選項 (D) 提到將入侵者『引導到 DMZ 區』，這表示 IDPS 對網路流量路徑或 DMZ 系統具有控制/導向能力，符合 (tool, controls, system) 的 Schema。",
+    "source_id": "chunk_134",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測與防禦系統 (IDPS) 是 'tool' 的合理實例，DMZ 是 'system' 的合理實例，且 'controls' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "入侵偵測與防禦系統 (IDPS) 控制 DMZ 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 tool，符合規則允許的條件，代表合法。",
+        "response": "correct",
+        "reason": "三元組中的主體為入侵偵測與防禦系統（IDPS），是一種工具（tool），根據規則8，工具可以控制系統，因此此三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與現有近似資源清單中某些資源的 name 字串完全相同或無同義詞關係，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測與防禦系統 (IDPS)",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "DMZ",
+        "type": "system"
+      },
+      "reasoning": "選項 (D) 提到將入侵者『引導到 DMZ 區』，這表示 IDPS 對網路流量路徑或 DMZ 系統具有控制/導向能力，符合 (tool, controls, system) 的 Schema。",
+      "source_id": "chunk_134",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測與防禦系統 (idps)",
+      "type": "tool",
+      "display_name": "入侵偵測與防禦系統 (IDPS)"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "入侵警告訊息",
+      "type": "data",
+      "display_name": "入侵警告訊息"
+    },
+    "reasoning": "選項 (A) 提到 IDPS 會『發出入侵警告訊息』，警告訊息屬於資訊實體 (data)，符合 (tool, generates, data) 的 Schema。",
+    "source_id": "chunk_134",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "入侵偵測與防禦系統 (IDPS) 是 'tool' 的合理實例，入侵警告訊息是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是generates，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為關係是generates，而非violates。規則5不適用，因為關係是generates，而非uses。規則6不適用，因為關係是generates，而非deployed_in。規則7適用，且三元組符合規則所允許的條件，因為受體的類別是data。規則8不適用，因為關係是generates，而非controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測與防禦系統 (IDPS) 與入侵偵測系統 (ids) 和入侵防禦系統 (ips) 皆為資安工具，且與 Ldr 中的「入侵偵測系統 (ids)」和「入侵防禦系統 (ips)」具有高度相似性，但考慮到廣義/狹義一律保留原則，且無直接同義詞對應關係，因此判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，入侵偵測與防禦系統 (IDPS) 與入侵偵測系統 (ids) 和入侵防禦系統 (ips) 皆為資安工具，但無直接同義詞對應關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測與防禦系統 (IDPS)",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "入侵警告訊息",
+        "type": "data"
+      },
+      "reasoning": "選項 (A) 提到 IDPS 會『發出入侵警告訊息』，警告訊息屬於資訊實體 (data)，符合 (tool, generates, data) 的 Schema。",
+      "source_id": "chunk_134",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "應用系統",
+      "type": "app",
+      "display_name": "應用系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "應用系統日誌",
+      "type": "data",
+      "display_name": "應用系統日誌"
+    },
+    "reasoning": "題目 42 提到『應用系統日誌管理』，隱含應用系統 (app) 會產生日誌 (data)，符合 (app, generates, data) 的 Schema。",
+    "source_id": "chunk_134",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '應用系統' 是 'app' 的合理實例，'應用系統日誌' 是 'data' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，通過類別與屬性檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，因為關係是generates，且受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，且受體的類別是data，符合規則7的允許條件。因此，三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「應用系統」與 Ldr 中的「應用系統」完全相同，受體「應用系統日誌」與 Ldr 中的「系統安全日誌」或「日誌」相關但不完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體名稱與 Ldr 中某資源的 name 字串完全相同，且無法確定受體為同義詞重複，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用系統",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "應用系統日誌",
+        "type": "data"
+      },
+      "reasoning": "題目 42 提到『應用系統日誌管理』，隱含應用系統 (app) 會產生日誌 (data)，符合 (app, generates, data) 的 Schema。",
+      "source_id": "chunk_134",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "日誌管理",
+      "type": "function",
+      "display_name": "日誌管理"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "威脅",
+      "type": "attack",
+      "display_name": "威脅"
+    },
+    "reasoning": "題目 42 選項 (B) 明確提到日誌管理可用於『支援威脅檢測』，符合 (function, can_detect, attack) 的 Schema。",
+    "source_id": "chunk_134",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "日誌管理 (log management) 是 function 的合理實例，威脅 (threat) 是 attack 的合理實例，'can_detect' 關係在資安領域中指日誌管理可以偵測威脅，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "日誌管理 (function) 可以偵測 (can_detect) 威脅 (attack) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是日誌管理，關係是 can_detect，受體是威脅，與控制無關。",
+        "response": "correct",
+        "reason": "三元組（日誌管理 can_detect 威脅）不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "日誌管理與管理之間存在一定的相似度，但日誌管理是管理的一個子類型；威脅與其它威脅相關詞彙之間存在完全等價同義詞關係，但根據給定的對照表和教材，無法直接判定為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，日誌管理和威脅與其它相關詞彙之間的關係不構成同義詞重複，且無法確認為完全等價同義詞或廣義/狹義從屬關係，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "日誌管理",
+        "type": "function"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "威脅",
+        "type": "attack"
+      },
+      "reasoning": "題目 42 選項 (B) 明確提到日誌管理可用於『支援威脅檢測』，符合 (function, can_detect, attack) 的 Schema。",
+      "source_id": "chunk_134",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "驗證密碼控制機制不足",
+      "type": "vulnerability",
+      "display_name": "驗證密碼控制機制不足"
+    },
+    "reasoning": "題目 44 提到『沒有使用強密碼』導致『驗證密碼控制機制不足』，這是一種由使用者行為導致的漏洞 (vulnerability)，符合 (user, can_expose, vulnerability) 的 Schema。",
+    "source_id": "chunk_134",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "使用者 (user) 可以暴露 (expose) 驗證密碼控制機制不足 (vulnerability) 的情況是資安領域中合理的語意對齊，尤其是考慮到使用者可能無意中暴露系統的弱點。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "使用者與Ldr中的用戶、授權使用者、電腦使用者、網站用戶、企業用戶、資訊科技的使用者、無線網路使用者等均為同一類別下的不同稱謂，惟使用者為最直接的稱謂，與Ldr中的其他稱謂存在廣義/狹義從屬關係，但根據判斷準則3，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "使用者與Ldr中的其他稱謂存在廣義/狹義從屬關係，根據判斷準則3，判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "驗證密碼控制機制不足",
+        "type": "vulnerability"
+      },
+      "reasoning": "題目 44 提到『沒有使用強密碼』導致『驗證密碼控制機制不足』，這是一種由使用者行為導致的漏洞 (vulnerability)，符合 (user, can_expose, vulnerability) 的 Schema。",
+      "source_id": "chunk_134",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  }
+]

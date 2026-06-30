@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "iot裝置",
+      "type": "system",
+      "display_name": "IoT裝置"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "根據題目 31，IoT 裝置需要定期更新韌體，暗示若不更新，該系統會暴露漏洞。",
+    "source_id": "chunk_5",
+    "source_file": "single_choice.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IoT裝置是 system 的合理實例，'can_expose' 與漏洞之間的關係在資安領域中是合理的，因為 IoT 裝置可能會暴露漏洞。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：允許 vulnerability 執行 'can_expose' 動作，符合此規則。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 'IoT裝置' 與關係 'can_expose'、受體 '漏洞' 符合規則3的特例允許，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "IoT裝置與Ldr中的\"物聯網裝置\"、\"聯網裝置\"等為同義詞或廣義/狹義從屬關係；漏洞為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據同義詞判定，漏洞為完全等價同義詞，IoT裝置與Ldr中的其他裝置相關名稱為廣義/狹義從屬關係，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IoT裝置",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據題目 31，IoT 裝置需要定期更新韌體，暗示若不更新，該系統會暴露漏洞。",
+      "source_id": "chunk_5",
+      "source_file": "single_choice.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "多重要素驗證",
+      "type": "technique",
+      "display_name": "多重要素驗證"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權存取",
+      "type": "attack",
+      "display_name": "未經授權存取"
+    },
+    "reasoning": "文本描述了使用強式密碼與手機代碼的驗證過程，這屬於『多重要素驗證』技術，其目的是為了緩解/防禦未經授權的存取攻擊。",
+    "source_id": "chunk_5",
+    "source_file": "single_choice.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "多重要素驗證是 technique 的合理實例，未經授權存取是 attack 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '多重要素驗證' 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '多重要素驗證' 屬於 technique 類別，符合規則2的條件，且未發現其他明確違反的規則。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「多重要素驗證」與 Ldr 中的「多因素驗證」為同義詞，受體「未經授權存取」與 Ldr 中的「未經授權存取」為完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體與 Ldr 中的資源為同義詞，但受體已經完全匹配，故無需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "多重要素驗證",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "未經授權存取",
+        "type": "attack"
+      },
+      "reasoning": "文本描述了使用強式密碼與手機代碼的驗證過程，這屬於『多重要素驗證』技術，其目的是為了緩解/防禦未經授權的存取攻擊。",
+      "source_id": "chunk_5",
+      "source_file": "single_choice.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "韌體更新",
+      "type": "technique",
+      "display_name": "韌體更新"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "定期更新韌體是一種維護技術，旨在修補漏洞以緩解潛在的駭客攻擊。",
+    "source_id": "chunk_5",
+    "source_file": "single_choice.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "韌體更新是 'technique' 的合理實例，駭客攻擊是 'attack' 的合理實例，且 'mitigates' 的語意與資安領域的常見用法相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是韌體更新（類別：technique），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域已知實體，且受體與現有近似資源清單中的「駭客攻擊」完全匹配，主體與「韌體更新」完全匹配，無同義詞重複情況。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆為資安領域已知實體，無同義詞重複情況，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "韌體更新",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "定期更新韌體是一種維護技術，旨在修補漏洞以緩解潛在的駭客攻擊。",
+      "source_id": "chunk_5",
+      "source_file": "single_choice.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "查詢漏洞詳細資料",
+      "type": "technique",
+      "display_name": "查詢漏洞詳細資料"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "CVE"
+    },
+    "reasoning": "題目 32 提到面對新的 CVE 時應先查詢詳細資料，這是一種分析漏洞的技術流程。",
+    "source_id": "chunk_5",
+    "source_file": "single_choice.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "查詢漏洞詳細資料 可以被視為 technique 的合理實例，CVE 是 vulnerability 的典型實例，'can_analyze' 的關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該規則與待檢查三元組相關，因為主體 '查詢漏洞詳細資料' 的類別是 technique，但受體 'CVE' 的類別是 vulnerability，然而 '查詢漏洞詳細資料' 這個主體是可以進行 'can_analyze' 動作的，且 'CVE' 是被分析的對象，因此不觸發規則3的違規。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '查詢漏洞詳細資料' 是一個 technique，可以進行 'can_analyze' 動作，且受體 'CVE' 是一個 vulnerability，被分析是合理的。因此，三元組不違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "查詢漏洞詳細資料與漏洞掃描之間的關係是不同概念，查詢漏洞詳細資料與漏洞之間的關係是同義詞重複",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據同義詞判定，查詢漏洞詳細資料與漏洞之間的關係是同義詞重複，但主體不進行替換。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "查詢漏洞詳細資料",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "CVE",
+        "type": "vulnerability"
+      },
+      "reasoning": "題目 32 提到面對新的 CVE 時應先查詢詳細資料，這是一種分析漏洞的技術流程。",
+      "source_id": "chunk_5",
+      "source_file": "single_choice.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "windows 安全性",
+      "type": "tool",
+      "display_name": "Windows 安全性"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "windows 10",
+      "type": "system",
+      "display_name": "Windows 10"
+    },
+    "reasoning": "Windows 安全性是 Windows 10 作業系統中內建的資安工具。",
+    "source_id": "chunk_5",
+    "source_file": "single_choice.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Windows 安全性 可被視為 'tool' 的實例，Windows 10 可被視為 'system' 的實例，且 'is_part_of' 關係在資安領域中合理適用於此三元組。",
+        "response": "correct",
+        "reason": "此三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：觸發檢查，因為關係為 is_part_of，但受體的類別是 system，與規則6無直接關聯，但需注意規則6針對的是 deployed_in 關係。實際上，is_part_of 關係在給定的規則中沒有明確的限制。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與給定的規則無直接衝突，且無規則明確限制 tool 類別的主體與 system 類別的受體之間的 is_part_of 關係。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"Windows 安全性\" 與 Ldr 中的 \"windows\"、\"microsoft windows\"、\"windows 電腦\"、\"windows 作業系統\" 皆為相關但非完全等價同義詞，受體 \"Windows 10\" 則為 \"windows\" 的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Windows 安全性",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Windows 10",
+        "type": "system"
+      },
+      "reasoning": "Windows 安全性是 Windows 10 作業系統中內建的資安工具。",
+      "source_id": "chunk_5",
+      "source_file": "single_choice.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼原則",
+      "type": "policy",
+      "display_name": "密碼原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "題目 37 提到設計密碼原則（如 NIST 指南），其核心目的是透過強化密碼安全性來緩解個資外洩等風險。",
+    "source_id": "chunk_5",
+    "source_file": "single_choice.json",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "密碼原則是 policy 的合理實例，個資外洩是 risk 的合理實例，'mitigates' 的語意也合理地描述了密碼原則對個資外洩的減輕作用。",
+        "response": "correct",
+        "reason": "密碼原則、個資外洩與 'mitigates' 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是密碼原則（policy），符合規則2的條件，沒有觸發違規。",
+        "response": "correct",
+        "reason": "三元組的主體是密碼原則（policy），符合規則2的條件，沒有違反語義限制清單中的任何規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「密碼原則」與 Ldr 中的「密碼原則」完全相同，受體「個資外洩」與 Ldr 中的「個資外洩」完全相同，兩者皆無需進行同義詞判定或廣義/狹義一律保留的檢查。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全相同，無需進行同義詞或廣義/狹義的判定。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "題目 37 提到設計密碼原則（如 NIST 指南），其核心目的是透過強化密碼安全性來緩解個資外洩等風險。",
+      "source_id": "chunk_5",
+      "source_file": "single_choice.json",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "windows 安全性",
+      "type": "tool",
+      "display_name": "Windows 安全性"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "題目 34 提到使用 Windows 安全性進行全面掃描，其功能是偵測系統中的惡意程式或攻擊。",
+    "source_id": "chunk_5",
+    "source_file": "single_choice.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Windows 安全性是一種工具（tool），惡意程式是一種攻擊（attack），因此名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但關係 'can_detect' 類似 'controls'，主體 'Windows 安全性' 屬於 tool，符合具有主動執行能力的角色或工具，合法。",
+        "response": "correct",
+        "reason": "三元組中的主體 'Windows 安全性' 屬於 tool，關係 'can_detect' 代表其具有主動執行能力，符合語義限制清單中的規則，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Windows 安全性) 與 Ldr 中的 windows 安全性 名稱相似，但受體 (惡意程式) 與 Ldr 中的惡意程式完全匹配，且惡意程式與惡意軟體、病毒程式等為同義詞或廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1、2 和 3，受體 (惡意程式) 與 Ldr 中的惡意程式完全匹配，但主體 (Windows 安全性) 與 Ldr 中的 windows 安全性 名稱相似，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Windows 安全性",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "題目 34 提到使用 Windows 安全性進行全面掃描，其功能是偵測系統中的惡意程式或攻擊。",
+      "source_id": "chunk_5",
+      "source_file": "single_choice.json",
+      "source_index": 6
+    }
+  }
+]

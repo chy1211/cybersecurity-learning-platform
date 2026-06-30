@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "核心網路",
+      "type": "system",
+      "display_name": "LTE 核心網路"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "網路域安全 (network domain security)",
+      "type": "feature",
+      "display_name": "網路域安全 (Network Domain Security)"
+    },
+    "reasoning": "文本提到 LTE 核心網路安全包含網路域安全，將其視為系統的一個安全特徵。",
+    "source_id": "chunk_4",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'system' 和受體的類別 'feature' 都存在於 Lc,p 的 'Classes' 中，關係 'has_a' 也存在於 'Properties' 中。",
+        "step_2_alignment_check": "LTE 核心網路是系統（system）的合理實例，網路域安全（Network Domain Security）是特徵（feature）的合理實例，考慮到資安領域的同義詞和縮寫，'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，語意對齊且同義詞寬容原則得到滿足。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'has_a'，而這個關係在給定的規則中沒有被明確限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "LTE 核心網路與核心網路為同義詞",
+        "response": "duplicate",
+        "standard_subject": "核心網路",
+        "standard_object": "",
+        "reason": "根據同義詞判定，LTE 核心網路與核心網路為同義詞，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "LTE 核心網路",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "網路域安全 (Network Domain Security)",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 LTE 核心網路安全包含網路域安全，將其視為系統的一個安全特徵。",
+      "source_id": "chunk_4",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "lte 核心網路",
+      "type": "system",
+      "display_name": "LTE 核心網路"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "使用者資料",
+      "type": "data",
+      "display_name": "使用者資料"
+    },
+    "reasoning": "文本指出核心網路安全涉及使用者資料的安全考量，因此核心網路系統會使用/處理使用者資料。",
+    "source_id": "chunk_4",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "LTE 核心網路 可被視為 'system' 的實例，而使用者資料則是 'data' 的實例，且 'uses' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體的類別是system，但使用者資料的類別是data，且data出現在受體位置，符合規則允許的條件。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是LTE核心網路，類別是system，使用者資料的類別是data，且data出現在受體位置，符合規則5的允許條件。因此，三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"使用者資料\" 與 Ldr 中的 \"使用者資料\" 完全相同，主體 \"LTE 核心網路\" 與 Ldr 中的 \"核心網路\" 類別相同但名稱不完全相同，可能是同義詞或廣義/狹義從屬關係，但根據給定的同義詞對照範例和判斷準則，無法直接判定為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若無法確定，預設保留，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "LTE 核心網路",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "使用者資料",
+        "type": "data"
+      },
+      "reasoning": "文本指出核心網路安全涉及使用者資料的安全考量，因此核心網路系統會使用/處理使用者資料。",
+      "source_id": "chunk_4",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "用戶終端",
+      "type": "system",
+      "display_name": "用戶終端"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "usim",
+      "type": "tool",
+      "display_name": "LTE USIM"
+    },
+    "reasoning": "文本提到用戶終端安全涉及 LTE USIM 與設備之間的認證，USIM 是實現認證的硬體工具。",
+    "source_id": "chunk_4",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "用戶終端是 system 的合理實例，LTE USIM 是 tool 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違反。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 和主體、受體的類別組合沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 LTE USIM 與 Ldr 中的 usim 類別相同，且為同一概念的不同表達方式",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "usim",
+        "reason": "根據同義詞判定，LTE USIM 與 usim 指稱同一概念，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "用戶終端",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "LTE USIM",
+        "type": "tool"
+      },
+      "reasoning": "文本提到用戶終端安全涉及 LTE USIM 與設備之間的認證，USIM 是實現認證的硬體工具。",
+      "source_id": "chunk_4",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "lte usim",
+      "type": "tool",
+      "display_name": "LTE USIM"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "安全存取控制",
+      "type": "function",
+      "display_name": "安全存取控制"
+    },
+    "reasoning": "文本明確指出 LTE USIM 是對行動裝置做安全存取之控制，因此將其定義為該工具具備的功能。",
+    "source_id": "chunk_4",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "LTE USIM 可被視為一種工具 ('tool')，而 '安全存取控制' 可被理解為一種功能 ('function')，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組（LTE USIM, has_a, 安全存取控制）不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 LTE USIM 與 Ldr 中的 usim 類別相同，且名稱相似，但非完全等價同義詞；受體 安全存取控制 與 Ldr 中的 系統存取控制管理 和 網路存取控管 類別相同，且名稱相似，系統存取控制管理 的相似度最高。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3 和 4，主體和受體與 Ldr 中的資源有相似之處，但無法確認為完全等價同義詞或子類型關係，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "LTE USIM",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "安全存取控制",
+        "type": "function"
+      },
+      "reasoning": "文本明確指出 LTE USIM 是對行動裝置做安全存取之控制，因此將其定義為該工具具備的功能。",
+      "source_id": "chunk_4",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "lte 系統",
+      "type": "system",
+      "display_name": "LTE 系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "應用程式域安全 (application domain security)",
+      "type": "feature",
+      "display_name": "應用程式域安全 (Application Domain Security)"
+    },
+    "reasoning": "文本將應用程式安全列為 LTE 安全考量的一部分，視為系統的特徵。",
+    "source_id": "chunk_4",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "LTE 系統是一個系統（system），而應用程式域安全（Application Domain Security）是一個安全特性（feature），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'has_a'，主體 'LTE 系統' 的類別是 'system'，受體 '應用程式域安全' 的類別是 'feature'，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組未觸發語義限制清單中的任何規則，且關係 'has_a' 在此情境下合理適用，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "LTE 系統與網路系統、lte 核心網路等系統類別相關，但非完全等價同義詞；應用程式域安全與網路域安全、應用程式安全等安全特性相關，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定完全等價同義詞或廣義/狹義從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "LTE 系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "應用程式域安全 (Application Domain Security)",
+        "type": "feature"
+      },
+      "reasoning": "文本將應用程式安全列為 LTE 安全考量的一部分，視為系統的特徵。",
+      "source_id": "chunk_4",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "reasoning": "文本提到應用程式與伺服器端之間建立安全通訊，描述了 app 與 system 之間的連接關係。",
+    "source_id": "chunk_4",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '應用程式' 是 'app' 的合理實例，'伺服器' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 connects_to，不是 uses。檢查規則6：不適用，因為關係為 connects_to，不是 deployed_in。檢查規則7：不適用，因為關係為 connects_to，不是 generates。檢查規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（應用程式）與受體（伺服器）通過 connects_to 關係連接，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「應用程式」與 Ldr 中的「應用程式」完全相同，受體「伺服器」與 Ldr 中的「伺服器」完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體皆與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本提到應用程式與伺服器端之間建立安全通訊，描述了 app 與 system 之間的連接關係。",
+      "source_id": "chunk_4",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "ims (ip多媒體子系統)",
+      "type": "app",
+      "display_name": "IMS (IP多媒體子系統)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ip協定",
+      "type": "feature",
+      "display_name": "IP 協定"
+    },
+    "reasoning": "文本指出 IMS 是提供 IP 協定的多媒體服務平台，將 IP 協定視為該應用平台的特徵。",
+    "source_id": "chunk_4",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IMS (IP多媒體子系統) 是 'app' 的合理實例，IP 協定是 'feature' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "IMS (IP多媒體子系統) 與 IP 協定之間的 'has_a' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses，或者data出現在受體位置。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，沒有任何規則被觸發為違規。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體符合一般的語義關係，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "IMS (IP多媒體子系統) 與 Ldr 中的 '應用程式' 類別相關，但非完全等價同義詞；IP 協定與 Ldr 中的 'ip協定' 類別為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "ip協定",
+        "reason": "根據同義詞判定，IP 協定與 'ip協定' 為同義詞，主體 IMS (IP多媒體子系統) 與 Ldr 中的 '應用程式' 類別相關但不完全等價，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IMS (IP多媒體子系統)",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "IP 協定",
+        "type": "feature"
+      },
+      "reasoning": "文本指出 IMS 是提供 IP 協定的多媒體服務平台，將 IP 協定視為該應用平台的特徵。",
+      "source_id": "chunk_4",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "用戶終端設備",
+      "type": "system",
+      "display_name": "用戶終端設備"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "無線網路",
+      "type": "system",
+      "display_name": "無線網路"
+    },
+    "reasoning": "文本描述用戶終端設備存取無線網路的安全機制，定義了兩個系統之間的連接。",
+    "source_id": "chunk_4",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "用戶終端設備與無線網路皆為 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體類別是 system，不是 data。檢查規則6：不適用，因為關係是 connects_to，不是 deployed_in。檢查規則7：不適用，因為關係是 connects_to，不是 generates。檢查規則8：不適用，因為關係是 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係符合一般的語義理解，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "用戶終端設備與用戶終端、用戶設備之間存在同義詞關係，而無線網路與無線區域網路、無線通訊等存在同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例和判斷準則，兩個實體之間不存在完全等價同義詞關係，且無法確認為子類型關係，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "用戶終端設備",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "無線網路",
+        "type": "system"
+      },
+      "reasoning": "文本描述用戶終端設備存取無線網路的安全機制，定義了兩個系統之間的連接。",
+      "source_id": "chunk_4",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "5g",
+      "type": "system",
+      "display_name": "5G"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "高速率",
+      "type": "feature",
+      "display_name": "高速率"
+    },
+    "reasoning": "文本明確將高速率列為 5G 的三個核心特性之一。",
+    "source_id": "chunk_4",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "5G 是 'system' 的合理實例，高速率是 'feature' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，通過類別與屬性檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係 'has_a' 不在任何規則中被明確限制，且主體 '5G' 的類別為 'system'，受體 '高速率' 的類別為 'feature'，這符合一般的系統具有特徵的邏輯。",
+        "response": "correct",
+        "reason": "三元組 '5G has_a 高速率' 沒有違反語義限制清單中的任何規則，且符合系統具有特徵的邏輯。"
+      },
+      "step_2": {
+        "granularity_analysis": "5G 與 Ldr 中的 \"5g\" 完全等價同義詞，高速率 與 Ldr 中的資源不直接匹配，但無法確認是否為同義詞或從屬關係",
+        "response": "correct",
+        "standard_subject": "5g",
+        "standard_object": "",
+        "reason": "根據同義詞判定，5G 與 \"5g\" 完全等價，但高速率 與現有資源無直接匹配關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "5G",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "高速率",
+        "type": "feature"
+      },
+      "reasoning": "文本明確將高速率列為 5G 的三個核心特性之一。",
+      "source_id": "chunk_4",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "5g",
+      "type": "system",
+      "display_name": "5G"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "低延遲",
+      "type": "feature",
+      "display_name": "低延遲"
+    },
+    "reasoning": "文本明確將低延遲列為 5G 的三個核心特性之一。",
+    "source_id": "chunk_4",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "5G 是 'system' 的合理實例，低延遲是 'feature' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係 'has_a' 不在任何規則中被明確限制，因此無法觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 不在語義限制清單中被明確限制，且主體和受體的類別組合不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '5G' 與 Ldr 中的 '5g' 完全等價同義詞，受體 '低延遲' 與 Ldr 中的 '超低延遲' 可能是同一概念的不同表達，但不完全匹配。",
+        "response": "correct",
+        "standard_subject": "5g",
+        "standard_object": "",
+        "reason": "根據同義詞判定，主體 '5G' 可以標準化為 '5g'，但受體 '低延遲' 與 '超低延遲' 雖然相關但不完全等同，根據規則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "5G",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "低延遲",
+        "type": "feature"
+      },
+      "reasoning": "文本明確將低延遲列為 5G 的三個核心特性之一。",
+      "source_id": "chunk_4",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 10
+    }
+  }
+]

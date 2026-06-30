@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "防毒軟體",
+      "type": "tool",
+      "display_name": "防毒軟體"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "電腦病毒",
+      "type": "attack",
+      "display_name": "電腦病毒"
+    },
+    "reasoning": "文本指出需要安裝防毒軟體來避免電腦病毒傷害，防毒軟體是工具(tool)，其目的是緩解/防禦(mitigates)病毒攻擊(attack)。",
+    "source_id": "chunk_7",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "防毒軟體是 tool 的合理實例，電腦病毒是 attack 的合理實例，且 'mitigates' 的語意與防毒軟體對電腦病毒的關係相符。",
+        "response": "correct",
+        "reason": "防毒軟體與電腦病毒的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，該三元組的主體是防毒軟體（類別：tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（防毒軟體）是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中，但無需合併",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "依據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防毒軟體",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "電腦病毒",
+        "type": "attack"
+      },
+      "reasoning": "文本指出需要安裝防毒軟體來避免電腦病毒傷害，防毒軟體是工具(tool)，其目的是緩解/防禦(mitigates)病毒攻擊(attack)。",
+      "source_id": "chunk_7",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "定期備份",
+      "type": "technique",
+      "display_name": "定期備份"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "郵件資料損毀",
+      "type": "risk",
+      "display_name": "郵件資料損毀"
+    },
+    "reasoning": "文本提到『電子郵件需要定期作備份，以防郵件資料遭到損毀』，定期備份是一種管理策略(policy)，用以緩解(mitigates)資料損毀的風險(risk)。",
+    "source_id": "chunk_7",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates'皆在 Lc,p 中。",
+        "step_2_alignment_check": "定期備份是 policy 的合理實例，郵件資料損毀是 risk 的合理實例，'mitigates' 的語意也合理地描述了定期備份對郵件資料損毀的影響。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '定期備份' 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '定期備份' 屬於 technique 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "定期備份",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "郵件資料損毀",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『電子郵件需要定期作備份，以防郵件資料遭到損毀』，定期備份是一種管理策略(policy)，用以緩解(mitigates)資料損毀的風險(risk)。",
+      "source_id": "chunk_7",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "限制存取權限",
+      "type": "policy",
+      "display_name": "限制存取權限"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "垃圾郵件",
+      "type": "attack",
+      "display_name": "垃圾郵件"
+    },
+    "reasoning": "文本建議『提高系統的保護層級，限制存取權限』來預防垃圾郵件，限制權限是一種策略(policy)，用以緩解(mitigates)垃圾郵件攻擊(attack)。",
+    "source_id": "chunk_7",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '限制存取權限' 是 'policy' 的合理實例，受體 '垃圾郵件' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '限制存取權限'，類別為 'policy'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '限制存取權限' 屬於 'policy' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體「垃圾郵件」與 Ldr 中的「垃圾郵件」完全相同，主體「限制存取權限」不在 Ldr 中，但無法與 Ldr 中的資源進行同義詞或廣義/狹義從屬判定。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "垃圾郵件",
+        "reason": "受體「垃圾郵件」與 Ldr 中的「垃圾郵件」完全相同，無需進行同義詞或廣義/狹義從屬判定。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "限制存取權限",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "垃圾郵件",
+        "type": "attack"
+      },
+      "reasoning": "文本建議『提高系統的保護層級，限制存取權限』來預防垃圾郵件，限制權限是一種策略(policy)，用以緩解(mitigates)垃圾郵件攻擊(attack)。",
+      "source_id": "chunk_7",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "outlook",
+      "type": "app",
+      "display_name": "Outlook"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "程式化保護功能",
+      "type": "feature",
+      "display_name": "通訊錄保護功能"
+    },
+    "reasoning": "文本提到『Outlook 通訊錄有程式化的保護功能』，Outlook 是應用程式(app)，而保護功能是其內建的特徵/屬性(feature)。",
+    "source_id": "chunk_7",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Outlook 是一種郵件應用程式，具有 'app' 的特性；'通訊錄保護功能' 是一種功能，與 'feature' 類別相符，且在資安領域中，這種功能是郵件應用程式的一部分，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的項目。",
+        "response": "correct",
+        "reason": "三元組中的主體 'Outlook' 類別為 'app'，關係 'has_a'，受體 '通訊錄保護功能' 類別為 'feature'，這不觸發語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體「通訊錄保護功能」與 Ldr 中的「程式化保護功能」為同義詞，主體「Outlook」與 Ldr 中的「outlook」完全匹配",
+        "response": "correct",
+        "standard_subject": "outlook",
+        "standard_object": "程式化保護功能",
+        "reason": "主體與 Ldr 中的資源完全匹配，受體與 Ldr 中的資源為同義詞，但根據規則 3，若一個實體是另一個的子類型或無法確定，預設保留，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Outlook",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "通訊錄保護功能",
+        "type": "feature"
+      },
+      "reasoning": "文本提到『Outlook 通訊錄有程式化的保護功能』，Outlook 是應用程式(app)，而保護功能是其內建的特徵/屬性(feature)。",
+      "source_id": "chunk_7",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到某些附檔名常藏有病毒與惡意程式，且前文提到『避免電腦病毒傷害』，惡意程式(attack)會對系統(system)造成危害(can_harm)。",
+    "source_id": "chunk_7",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "惡意程式 (attack) 是 'attack' 的合理實例，系統 (system) 是 'system' 的合理實例，關係 'can_harm' 在資安領域中是合理的描述。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是惡意程式，關係是can_harm，受體是系統，與規則8無直接關聯，但需注意規則8的限制主要針對controls關係，與can_harm無直接衝突。",
+        "response": "correct",
+        "reason": "三元組（惡意程式 can_harm 系統）未直接違反語義限制清單中的任何規則，尤其是與惡意程式的行為和系統的受影響性相關的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「惡意程式」與 Ldr 中的「惡意程式」完全相同，受體「系統」與 Ldr 中的「系統」完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體皆與 Ldr 中的資源完全相同，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到某些附檔名常藏有病毒與惡意程式，且前文提到『避免電腦病毒傷害』，惡意程式(attack)會對系統(system)造成危害(can_harm)。",
+      "source_id": "chunk_7",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "垃圾郵件篩選器",
+      "type": "tool",
+      "display_name": "垃圾郵件篩選器"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "垃圾郵件攻擊",
+      "type": "attack",
+      "display_name": "垃圾郵件攻擊"
+    },
+    "reasoning": "文本提到『更新垃圾郵件篩選器，以避免新攻擊字串之攻擊』，篩選器是工具(tool)，用於緩解(mitigates)攻擊(attack)。",
+    "source_id": "chunk_7",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "垃圾郵件篩選器 是 tool 的合理實例，垃圾郵件攻擊 是 attack 的合理實例，且 'mitigates' 是合理的關係描述。",
+        "response": "correct",
+        "reason": "垃圾郵件篩選器、垃圾郵件攻擊 與 mitigates 三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，該三元組的主體是垃圾郵件篩選器（類別：tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體是垃圾郵件篩選器（類別：tool），符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中明確定義的實體，且與現有近似資源清單中的項目完全匹配，無需進一步的同義詞或廣義/狹義分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與現有近似資源清單中的項目完全相同，直接判定為正確。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "垃圾郵件篩選器",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "垃圾郵件攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『更新垃圾郵件篩選器，以避免新攻擊字串之攻擊』，篩選器是工具(tool)，用於緩解(mitigates)攻擊(attack)。",
+      "source_id": "chunk_7",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "關閉自動處理讀信回條",
+      "type": "technique",
+      "display_name": "關閉自動處理讀信回條"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "垃圾郵件攻擊",
+      "type": "attack",
+      "display_name": "垃圾郵件攻擊"
+    },
+    "reasoning": "文本建議關閉此功能以避免遭受攻擊，這是一種操作方法/技術(technique)，用以緩解(mitigates)攻擊(attack)。",
+    "source_id": "chunk_7",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "關閉自動處理讀信回條 可被視為一種 'technique'，而垃圾郵件攻擊 可被視為一種 'attack'，且 'mitigates' 關係在資安領域中合理適用於此類別之間的關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是 '關閉自動處理讀信回條'，類別為 technique，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "因為三元組的主體類別為 technique，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「垃圾郵件攻擊」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "關閉自動處理讀信回條",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "垃圾郵件攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本建議關閉此功能以避免遭受攻擊，這是一種操作方法/技術(technique)，用以緩解(mitigates)攻擊(attack)。",
+      "source_id": "chunk_7",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "outlook",
+      "type": "app",
+      "display_name": "Outlook"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "通訊錄",
+      "type": "data",
+      "display_name": "通訊錄"
+    },
+    "reasoning": "文本提到 Outlook 存取通訊錄，Outlook 是應用程式(app)，通訊錄是其處理的資訊實體(data)。",
+    "source_id": "chunk_7",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Outlook 是 'app' 的合理實例，'通訊錄' 是 'data' 的合理實例，且 'uses' 關係在資安領域中常見，表示應用程式使用資料的合理關係。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，給定的三元組中，主體是Outlook（類別：app），而非data，因此不觸發規則5的違規條件。其他規則與給定的三元組無直接關聯。",
+        "response": "correct",
+        "reason": "三元組中的主體Outlook是app類別，使用通訊錄（data類別）不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Outlook 與 outlook 完全等價同義詞，通訊錄與電話簿廣義/狹義從屬，但根據對照表無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "outlook",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，Outlook 與 outlook 完全等價同義詞，但通訊錄與電話簿無直接同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Outlook",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "通訊錄",
+        "type": "data"
+      },
+      "reasoning": "文本提到 Outlook 存取通訊錄，Outlook 是應用程式(app)，通訊錄是其處理的資訊實體(data)。",
+      "source_id": "chunk_7",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

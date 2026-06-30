@@ -1,0 +1,107 @@
+[
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "記憶體洩漏",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本描述應用程式要求記憶體後未通知作業系統釋放，導致記憶體洩漏。這是一種程式缺陷，因此將其歸類為 app can_expose vulnerability。",
+    "source_id": "chunk_14",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "Linux 系統",
+      "type": "system"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "/etc/shadow",
+      "type": "data"
+    },
+    "reasoning": "文本提到從 Linux 系統中 dump 出密碼 Hash 值需存取 /etc/shadow 檔案，表示該系統產生並維護此資料檔。符合 system generates data。",
+    "source_id": "chunk_14",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "/etc/shadow",
+      "type": "data"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "Linux 系統",
+      "type": "system"
+    },
+    "reasoning": "/etc/shadow 是 Linux 系統中的一個設定檔，屬於資料存放於系統中。符合 data deployed_in system。",
+    "source_id": "chunk_14",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "SELinux",
+      "type": "tool"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "MAC",
+      "type": "technique"
+    },
+    "reasoning": "文本指出 SELinux 是 MAC (強制存取控制) 模型的實作。SELinux 為安全工具，MAC 為其採用的技術/模型。符合 tool uses technique。",
+    "source_id": "chunk_14",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "提權",
+      "type": "attack"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "exploit",
+      "type": "tool"
+    },
+    "reasoning": "文本提到提權的用意是利用 exploit 提升權限，表示提權攻擊依賴於 exploit 工具。符合 attack depends_on tool。",
+    "source_id": "chunk_14",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "SQL Injection 漏洞",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提供一段程式碼片段並指出其存在安全瑕疵可達成 SQL Injection 攻擊，這意味著該應用程式暴露了 SQL Injection 漏洞。符合 app can_expose vulnerability。",
+    "source_id": "chunk_14",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "SQL Injection",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "應用程式",
+      "type": "app"
+    },
+    "reasoning": "SQL Injection 是一種攻擊行為，其目標是透過惡意輸入來損害或操控應用程式及其後端資料。符合 attack can_harm app。",
+    "source_id": "chunk_14",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7
+  }
+]

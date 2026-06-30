@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "弱點掃描",
+      "type": "technique",
+      "display_name": "弱點掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本提到『安排弱點掃描，以便檢查是否有應用程式或作業系統的漏洞』，因此弱點掃描（技術）可以用來分析漏洞（漏洞）。",
+    "source_id": "chunk_118",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '弱點掃描' 是 'technique' 的合理實例，'漏洞' 是 'vulnerability' 的合理實例，且 'can_analyze' 是合理的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。由於三元組中的主體是弱點掃描（technique），而非漏洞（vulnerability），因此不觸發規則3的違規檢查。其他規則也未被觸發，因為三元組的主體和關係不符合其他規則的違規條件。",
+        "response": "correct",
+        "reason": "三元組中的主體是弱點掃描（technique），與關係can_analyze和受體漏洞（vulnerability）不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞，主體 '弱點掃描' 可以視為 '漏洞掃描' 的同義詞，受體 '漏洞' 則直接與多個同義詞相關，包括 '弱點'、'脆弱性' 等，但根據給定的對照表，'漏洞'、'弱點'、'脆弱性' 均指 'vulnerability'，因此這裡的主體和受體在概念上相關，但需要根據給定的規則進行判斷。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據給定的規則，雖然 '弱點掃描' 和 '漏洞' 有相關的同義詞，但它們在資安領域中代表不同的概念，前者是一種技術，後者是一種狀態或結果，因此不視為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "弱點掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『安排弱點掃描，以便檢查是否有應用程式或作業系統的漏洞』，因此弱點掃描（技術）可以用來分析漏洞（漏洞）。",
+      "source_id": "chunk_118",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "nessus",
+      "type": "tool",
+      "display_name": "Nessus"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "弱點掃描",
+      "type": "technique",
+      "display_name": "弱點掃描"
+    },
+    "reasoning": "Nessus 是文本中列舉的常見弱點掃描工具，因此該工具實作/使用弱點掃描技術。",
+    "source_id": "chunk_118",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Nessus 是一種常見的弱點掃描工具，'tool' 是 Nessus 的合理類別；'technique' 是 '弱點掃描' 的合理類別，'uses' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "Nessus 使用弱點掃描技術的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為動作是uses，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為關係是uses，而非violates。規則5觸發，因為主體類別是tool，而非data，但這裡的uses關係是合法的，因為tool可以使用technique。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是Nessus（一種工具），使用弱點掃描（一種技術），這符合規則5的允許條件，沒有違反任何語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 '弱點掃描' 與 Ldr 中的 '弱點掃描' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Nessus",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "弱點掃描",
+        "type": "technique"
+      },
+      "reasoning": "Nessus 是文本中列舉的常見弱點掃描工具，因此該工具實作/使用弱點掃描技術。",
+      "source_id": "chunk_118",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資料治理",
+      "type": "policy",
+      "display_name": "資料治理"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "文本提到資料治理是政策目標，且涉及個人資料與隱私資訊的保護，其目的在於緩解個資外洩等風險。",
+    "source_id": "chunk_118",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資料治理 (policy) 是一種合理的政策實例，個資外洩 (risk) 是一種合理的風險實例，'mitigates' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '資料治理' 類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '資料治理' 類別為 policy，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩與資料外洩之間存在廣義/狹義從屬關係，但根據給定的同義詞對照範例和判斷準則，個資外洩與資料外洩並不被視為完全等價的同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，個資外洩是資料外洩的子類型，因此不進行合併，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料治理",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本提到資料治理是政策目標，且涉及個人資料與隱私資訊的保護，其目的在於緩解個資外洩等風險。",
+      "source_id": "chunk_118",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "osv-scanner",
+      "type": "tool",
+      "display_name": "OSV-Scanner"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "弱點掃描",
+      "type": "technique",
+      "display_name": "弱點掃描"
+    },
+    "reasoning": "OSV-Scanner 是文本中列舉的常見弱點掃描工具，因此該工具實作/使用弱點掃描技術。",
+    "source_id": "chunk_118",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "OSV-Scanner 是一種工具（tool），使用弱點掃描（technique）是一種合理的語意對齊，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "OSV-Scanner 使用弱點掃描的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體的類別是 'tool'，不違反規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 'OSV-Scanner' 是一種工具（tool），使用關係 'uses' 來描述其與受體 '弱點掃描'（technique）的關係，這符合語義限制清單中沒有明確禁止的內容。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「弱點掃描」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OSV-Scanner",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "弱點掃描",
+        "type": "technique"
+      },
+      "reasoning": "OSV-Scanner 是文本中列舉的常見弱點掃描工具，因此該工具實作/使用弱點掃描技術。",
+      "source_id": "chunk_118",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "雙因子身份驗證",
+      "type": "tool",
+      "display_name": "雙因子身份驗證"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "文本提到啟用 2FA 將『減少駭客對工作相關系統與資料惡意存取』，這屬於使用工具來緩解攻擊行為。",
+    "source_id": "chunk_118",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "雙因子身份驗證是工具 (tool) 的合理實例，駭客攻擊是攻擊 (attack) 的合理實例，且 'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的風險，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體 '雙因子身份驗證' 屬於 tool 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '雙因子身份驗證' 屬於 tool 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 駭客攻擊與 Ldr 中的資源 '駭客攻擊' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雙因子身份驗證",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到啟用 2FA 將『減少駭客對工作相關系統與資料惡意存取』，這屬於使用工具來緩解攻擊行為。",
+      "source_id": "chunk_118",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "openvas",
+      "type": "tool",
+      "display_name": "OpenVAS"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "弱點掃描",
+      "type": "technique",
+      "display_name": "弱點掃描"
+    },
+    "reasoning": "OpenVAS 是文本中列舉的常見弱點掃描工具，因此該工具實作/使用弱點掃描技術。",
+    "source_id": "chunk_118",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "OpenVAS 是一種資安工具，'tool' 是其合理類別；'弱點掃描' 是一種技術或方法，'technique' 是其合理類別。關係 'uses' 也合理，因為 OpenVAS 可以使用弱點掃描技術。",
+        "response": "correct",
+        "reason": "OpenVAS 使用弱點掃描的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是uses，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為關係是uses，而非violates。規則5觸發，因為主體類別是tool，而非data，但這裡的uses關係是合法的，因為tool可以使用technique。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是OpenVAS（類別：tool），關係是uses，受體是弱點掃描（類別：technique），這符合規則5的允許條件，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資源 '弱點掃描' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OpenVAS",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "弱點掃描",
+        "type": "technique"
+      },
+      "reasoning": "OpenVAS 是文本中列舉的常見弱點掃描工具，因此該工具實作/使用弱點掃描技術。",
+      "source_id": "chunk_118",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "加密軟體",
+      "type": "tool",
+      "display_name": "加密軟體"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "加密"
+    },
+    "reasoning": "文本提到加密軟體可在傳輸和儲存時保護資料，其核心能力（功能）即為加密。",
+    "source_id": "chunk_118",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "加密軟體 (tool) 可以有加密 (function) 的功能，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "加密軟體與加密功能的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與規則清單中沒有直接相關的限制，因此無法觸發任何違規條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞或相似實體存在於 Ldr 中，主體 '加密軟體' 與 '加密工具' 類似，受體 '加密' 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，'加密' 的同義詞為 '資料加密'，但主體 '加密軟體' 與 '加密' 不是同義詞，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加密軟體",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密",
+        "type": "function"
+      },
+      "reasoning": "文本提到加密軟體可在傳輸和儲存時保護資料，其核心能力（功能）即為加密。",
+      "source_id": "chunk_118",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "員工"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "vpn",
+      "type": "tool",
+      "display_name": "VPN"
+    },
+    "reasoning": "文本明確提到『員工應該使用虛擬專用網路（VPN）』，符合使用者使用應用程式的關係。",
+    "source_id": "chunk_118",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "員工 (user) 使用 VPN (app) 是語意上合理的，'uses' 關係也合理地描述了員工與 VPN 之間的關係。",
+        "response": "correct",
+        "reason": "員工使用 VPN 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 user，不是 data，故不違反。規則6：不適用（關係不是 deployed_in）。規則7：不適用（關係不是 generates）。規則8：不適用（關係不是 controls）。",
+        "response": "correct",
+        "reason": "三元組（員工 uses VPN）未觸發語義限制清單中的任何規則，故判定為正確。員工使用 VPN 是一種合理的行為，沒有違反任何資安本體論規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "員工與Ldr中的員工完全等價同義詞，VPN與Ldr中的vpn完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "員工與VPN與Ldr中的相應實體完全匹配，無需進行同義詞判定或廣義/狹義一律保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "員工",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "VPN",
+        "type": "app"
+      },
+      "reasoning": "文本明確提到『員工應該使用虛擬專用網路（VPN）』，符合使用者使用應用程式的關係。",
+      "source_id": "chunk_118",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "零信任",
+      "type": "policy",
+      "display_name": "零信任"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "文本提到利用零信任來保護資料完整性，這是一種透過安全策略來緩解惡意攻擊（破壞完整性）的手段。",
+    "source_id": "chunk_118",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "零信任是 'policy' 的合理實例，駭客攻擊是 'attack' 的合理實例，且 'mitigates' 是描述政策對攻擊的緩解作用的適當關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '零信任' 類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '零信任' 類別為 policy，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"零信任\" 與 Ldr 中的 \"zero trust security\" 關係為同義詞，受體 \"駭客攻擊\" 與 Ldr 中的 \"駭客攻擊\" 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體與受體皆不需要標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "零信任",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到利用零信任來保護資料完整性，這是一種透過安全策略來緩解惡意攻擊（破壞完整性）的手段。",
+      "source_id": "chunk_118",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "vpn",
+      "type": "tool",
+      "display_name": "VPN"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "公司資料",
+      "type": "data",
+      "display_name": "公司資料"
+    },
+    "reasoning": "文本提到使用 VPN 來『存取公司資料』，在 Schema 中，應用程式存取/使用資料符合 ('app', 'uses', 'data')。",
+    "source_id": "chunk_118",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "VPN 是 'app' 的合理實例，公司資料是 'data' 的合理實例，'uses' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "VPN 使用公司資料的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規檢查，因為關係為 'uses'，但主體的類別是 'tool'，不違反規則5的限制。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 'VPN'，類別為 'tool'，與 '公司資料' 的關係是 'uses'，這不違反語義限制清單中的任何規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "VPN 是一個特定的工具，Ldr 中的 'vpn'、'ssl vpn' 和 'vpn 服務' 都與 VPN 相關，但只有 'vpn' 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "VPN",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "公司資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到使用 VPN 來『存取公司資料』，在 Schema 中，應用程式存取/使用資料符合 ('app', 'uses', 'data')。",
+      "source_id": "chunk_118",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

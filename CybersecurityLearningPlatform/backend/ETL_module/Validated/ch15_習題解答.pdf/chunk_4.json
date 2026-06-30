@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "實體攻擊",
+      "type": "attack",
+      "display_name": "實體攻擊"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "微探針",
+      "type": "tool",
+      "display_name": "微探針"
+    },
+    "reasoning": "文本提到實體攻擊會『使用微探針(或探測器)進行探測』，表示該攻擊手段依賴此工具執行。",
+    "source_id": "chunk_4",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '實體攻擊' 的名稱與其類別 'attack' 合理對齊，實體 '微探針' 的名稱與其類別 'tool' 合理對齊，考慮到資安領域的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體是實體攻擊（attack），關係是depends_on，受體是微探針（tool），不違反規則8，因為depends_on不在規則8的限制範圍內。",
+        "response": "correct",
+        "reason": "三元組不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體攻擊與 Ldr 中的實體攻擊完全相同，屬於同一概念",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體攻擊",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "微探針",
+        "type": "tool"
+      },
+      "reasoning": "文本提到實體攻擊會『使用微探針(或探測器)進行探測』，表示該攻擊手段依賴此工具執行。",
+      "source_id": "chunk_4",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "重送攻擊",
+      "type": "attack",
+      "display_name": "重送攻擊"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "ic 卡攻擊",
+      "type": "attack",
+      "display_name": "IC 卡攻擊"
+    },
+    "reasoning": "文本提到參數 B 是用來『防止重送攻擊』，且此處討論背景為 IC 卡認證，故重送攻擊屬於 IC 卡攻擊的一種。",
+    "source_id": "chunk_4",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "重送攻擊 (Replay Attack) 和 IC 卡攻擊 (IC Card Attack) 都是攻擊 (attack) 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則，發現規則1、2、3、4、5、6、7、8都不直接適用於此三元組，因為它們所描述的關係或類別不匹配此三元組的內容。",
+        "response": "correct",
+        "reason": "此三元組不違反任何語義限制清單中的規則，因為它描述的是攻擊類別之間的關係，沒有觸發任何規則中的違規條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為攻擊類別，且受體 IC 卡攻擊與主體重送攻擊在資安領域中可視為不同類型的攻擊，無直接同義詞關係，但皆屬於攻擊的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，兩個實體皆為攻擊的子類型，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "重送攻擊",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "IC 卡攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到參數 B 是用來『防止重送攻擊』，且此處討論背景為 IC 卡認證，故重送攻擊屬於 IC 卡攻擊的一種。",
+      "source_id": "chunk_4",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "實體攻擊",
+      "type": "attack",
+      "display_name": "實體攻擊"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "ic 卡攻擊",
+      "type": "attack",
+      "display_name": "IC 卡攻擊"
+    },
+    "reasoning": "文本明確提到『IC 卡的攻擊依形態包含實體攻擊與邏輯攻擊』，因此實體攻擊是 IC 卡攻擊的一種子類別。",
+    "source_id": "chunk_4",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '實體攻擊' 和 'IC 卡攻擊' 的名稱與其被賦予的 'attack' 類別合理對齊，考慮到資安領域的同義詞和術語。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且實體名稱與類別對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有被明確限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在語義限制清單中被明確限制，且主體和受體的類別都為 'attack'，因此不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體攻擊與IC卡攻擊之間的關係是廣義/狹義從屬，IC卡攻擊是攻擊的一種子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則3，若一個實體是另一個的子類型，判定為correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體攻擊",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "IC 卡攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到『IC 卡的攻擊依形態包含實體攻擊與邏輯攻擊』，因此實體攻擊是 IC 卡攻擊的一種子類別。",
+      "source_id": "chunk_4",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "邏輯攻擊",
+      "type": "attack",
+      "display_name": "邏輯攻擊"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "ic 卡攻擊",
+      "type": "attack",
+      "display_name": "IC 卡攻擊"
+    },
+    "reasoning": "文本明確提到『IC 卡的攻擊依形態包含實體攻擊與邏輯攻擊』，因此邏輯攻擊是 IC 卡攻擊的一種子類別。",
+    "source_id": "chunk_4",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "邏輯攻擊與 IC 卡攻擊皆為攻擊的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "邏輯攻擊與 IC 卡攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係 'is_part_of' 不在任何規則中被明確限制，且主體和受體的類別均為 'attack'，因此未發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，且關係 'is_part_of' 在給定的規則中沒有明確的限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為攻擊類別，且受體 IC 卡攻擊為攻擊的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，IC 卡攻擊是攻擊的子類型，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "邏輯攻擊",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "IC 卡攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到『IC 卡的攻擊依形態包含實體攻擊與邏輯攻擊』，因此邏輯攻擊是 IC 卡攻擊的一種子類別。",
+      "source_id": "chunk_4",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "實體攻擊",
+      "type": "attack",
+      "display_name": "實體攻擊"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "雷射",
+      "type": "tool",
+      "display_name": "雷射"
+    },
+    "reasoning": "文本提到實體攻擊可使用『雷射』等技術誘導錯誤，因此該攻擊依賴雷射工具。",
+    "source_id": "chunk_4",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '實體攻擊' 的名稱與其類別 'attack' 合理對齊，實體 '雷射' 的名稱與其類別 'tool' 合理對齊，考慮到同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體是實體攻擊（attack），具有主動執行能力，關係是depends_on，不涉及控制動作，因此不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體攻擊與攻擊之間存在廣義/狹義從屬關係，實體攻擊是攻擊的一種子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則3，若一個實體是另一個的子類型，判定為correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體攻擊",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "雷射",
+        "type": "tool"
+      },
+      "reasoning": "文本提到實體攻擊可使用『雷射』等技術誘導錯誤，因此該攻擊依賴雷射工具。",
+      "source_id": "chunk_4",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "實體攻擊",
+      "type": "attack",
+      "display_name": "實體攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "非接觸式 ic 卡",
+      "type": "system",
+      "display_name": "非接觸式 IC 卡"
+    },
+    "reasoning": "實體攻擊透過直接存取內部元件或誘導錯誤來改變內容值，會對 IC 卡系統造成損害或功能異常。",
+    "source_id": "chunk_4",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '實體攻擊' 是 'attack' 的合理實例，'非接觸式 IC 卡' 是 'system' 的合理實例，考慮到同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'can_harm' 不在明確限制的關係中，且主體 '實體攻擊' 的類別 'attack' 與受體 '非接觸式 IC 卡' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體攻擊與Ldr中的實體攻擊完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體攻擊與Ldr中的實體攻擊完全匹配，無需進行同義詞判定或廣義/狹義一律保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "非接觸式 IC 卡",
+        "type": "system"
+      },
+      "reasoning": "實體攻擊透過直接存取內部元件或誘導錯誤來改變內容值，會對 IC 卡系統造成損害或功能異常。",
+      "source_id": "chunk_4",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "邏輯攻擊",
+      "type": "attack",
+      "display_name": "邏輯攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "ic 卡",
+      "type": "system",
+      "display_name": "非接觸式 IC 卡"
+    },
+    "reasoning": "邏輯攻擊透過收集電磁輻射重建資料，旨在竊取 IC 卡內的資訊，對系統的機密性造成危害。",
+    "source_id": "chunk_4",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "邏輯攻擊是 'attack' 的合理實例，非接觸式 IC 卡是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統影響的合理關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。由於三元組中的關係can_harm沒有在規則中被明確限制，且主體和受體的類別與規則中沒有直接衝突，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係can_harm之間的組合沒有違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「邏輯攻擊」與 Ldr 中的「邏輯攻擊」完全相同，受體「非接觸式 IC 卡」與 Ldr 中的「非接觸式 ic 卡」同義詞重複",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "ic 卡",
+        "reason": "主體與 Ldr 中的資源完全相同，受體與 Ldr 中的資源同義詞重複，但根據判斷準則 3，廣義/狹義一律保留，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "邏輯攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "非接觸式 IC 卡",
+        "type": "system"
+      },
+      "reasoning": "邏輯攻擊透過收集電磁輻射重建資料，旨在竊取 IC 卡內的資訊，對系統的機密性造成危害。",
+      "source_id": "chunk_4",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "非接觸式 ic 卡",
+      "type": "system",
+      "display_name": "非接觸式 IC 卡"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "亂數 ra",
+      "type": "data",
+      "display_name": "亂數 RA"
+    },
+    "reasoning": "認證程序第一步明確指出『卡片產生一個亂數 RA』，因此系統產生了該資料。",
+    "source_id": "chunk_4",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "非接觸式 IC 卡 可被視為 system 的實例，亂數 RA 可被視為 data 的實例，'generates' 的關係在此語境下合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：適用，主體為非接觸式 IC 卡（類別：system），關係為 generates，受體為亂數 RA（類別：data），符合規則7的允許條件。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "非接觸式 IC 卡",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "亂數 RA",
+        "type": "data"
+      },
+      "reasoning": "認證程序第一步明確指出『卡片產生一個亂數 RA』，因此系統產生了該資料。",
+      "source_id": "chunk_4",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "讀卡機",
+      "type": "tool",
+      "display_name": "讀卡機"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "亂數 rb",
+      "type": "data",
+      "display_name": "亂數 RB"
+    },
+    "reasoning": "認證程序第二步指出『讀卡機...產生一個亂數 RB』，因此工具產生了該資料。",
+    "source_id": "chunk_4",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "讀卡機是一種工具（tool），能夠生成亂數 RB，這是一種資料（data），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是generates，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為關係是generates，而非violates。規則5不適用，因為主體類別是tool，而非data。規則6不適用，因為關係是generates，而非deployed_in。規則7適用，且三元組符合規則：受體的類別是data，符合generates關係的要求。規則8不適用，因為關係是generates，而非controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的要求，受體的類別是data，且關係是generates，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「讀卡機」與 Ldr 中的「微探針」和「雷射」不完全等價同義詞，且不具有廣義/狹義從屬關係；受體「亂數 RB」與 Ldr 中的「亂數 ra」可能為同義詞重複，但不完全確定。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體和受體的同義詞關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "讀卡機",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "亂數 RB",
+        "type": "data"
+      },
+      "reasoning": "認證程序第二步指出『讀卡機...產生一個亂數 RB』，因此工具產生了該資料。",
+      "source_id": "chunk_4",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "微探針",
+      "type": "tool",
+      "display_name": "微探針"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "非接觸式 ic 卡",
+      "type": "system",
+      "display_name": "非接觸式 IC 卡"
+    },
+    "reasoning": "文本提到使用微探針『分析及鑑別系統元件和它們之間的交互關係』，符合 tool can_analyze system 的定義。",
+    "source_id": "chunk_4",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "微探針是工具（tool）的合理實例，非接觸式 IC 卡是系統（system）的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "微探針與非接觸式 IC 卡的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_analyze' 不在任何規則中被明確限制，且主體 '微探針' 的類別 'tool' 具有分析能力，受體 '非接觸式 IC 卡' 的類別 'system' 可被分析。",
+        "response": "correct",
+        "reason": "三元組不觸發任何語義限制清單中的規則，且主體和受體的類別與關係相符。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆在 Ldr 中找到完全匹配的資源，且無同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "微探針",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "非接觸式 IC 卡",
+        "type": "system"
+      },
+      "reasoning": "文本提到使用微探針『分析及鑑別系統元件和它們之間的交互關係』，符合 tool can_analyze system 的定義。",
+      "source_id": "chunk_4",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "雙向認證程序",
+      "type": "technique",
+      "display_name": "雙向認證程序"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "讀卡機",
+      "type": "tool",
+      "display_name": "讀卡機"
+    },
+    "reasoning": "雙向認證程序需要讀卡機與卡片之間的交互傳輸與加密比對才能完成，因此該技術依賴讀卡機工具。",
+    "source_id": "chunk_4",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雙向認證程序 (technique) 與 讀卡機 (tool) 的名稱與其類別合理對齊，且 'depends_on' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "雙向認證程序與讀卡機的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是 'technique'，而 'technique' 不被明確列為具有主動執行能力的角色或工具，但 'depends_on' 關係不涉及 'controls' 的限制。",
+        "response": "correct",
+        "reason": "三元組中的 '雙向認證程序'（technique）與 '讀卡機'（tool）之間的 'depends_on' 關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「讀卡機」完全相同，屬於同一實體",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雙向認證程序",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "讀卡機",
+        "type": "tool"
+      },
+      "reasoning": "雙向認證程序需要讀卡機與卡片之間的交互傳輸與加密比對才能完成，因此該技術依賴讀卡機工具。",
+      "source_id": "chunk_4",
+      "source_file": "ch15_習題解答.pdf",
+      "source_index": 11
+    }
+  }
+]

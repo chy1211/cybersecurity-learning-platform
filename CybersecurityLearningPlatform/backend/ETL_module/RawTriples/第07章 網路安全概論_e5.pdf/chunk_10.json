@@ -1,0 +1,182 @@
+[
+  {
+    "subject": {
+      "name": "記憶體",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "堆疊",
+      "type": "system"
+    },
+    "reasoning": "文本提到暫存記憶等存在於堆疊中，堆疊是記憶體配置的一部分，因此將記憶體與堆疊均視為 system，並使用 has_a 關係。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "記憶體",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "堆積",
+      "type": "system"
+    },
+    "reasoning": "文本提到暫存記憶等存在於堆積中，堆積是記憶體配置的一部分，因此將記憶體與堆積均視為 system，並使用 has_a 關係。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "堆疊溢位",
+      "type": "attack"
+    },
+    "reasoning": "文本指出堆疊溢位是常見的攻擊法，且駭客利用此方式入侵，因此駭客 (attacker) 執行 (implements) 堆疊溢位 (attack)。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "堆疊溢位",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system"
+    },
+    "reasoning": "文本提到堆疊溢位可改變程式執行流程並讓後門程式填入以便入侵系統，這對系統造成危害，符合 attack can_harm system。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "程式未對存入堆疊的變數做範圍檢查",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "區段錯誤",
+      "type": "risk"
+    },
+    "reasoning": "文本明確指出因為未做範圍檢查（漏洞）導致產生區段錯誤（負面後果/風險），符合 vulnerability can_expose risk。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "後門程式",
+      "type": "tool"
+    },
+    "reasoning": "文本提到駭客將後門程式填入堆疊中，後門程式在此作為攻擊工具，符合 attacker uses tool。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "補釘程式",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "弱點",
+      "type": "risk"
+    },
+    "reasoning": "文本提到下載與安裝補釘程式 (patch) 是為了處理危機，補釘程式的作用是緩解系統風險，符合 tool mitigates risk。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "資訊安全監控維運中心",
+      "type": "securityTeam"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資訊安全政策",
+      "type": "policy"
+    },
+    "reasoning": "文本提到將安全需求訂定成資訊安全政策並整合進 SOC，表示 SOC 執行/實作該政策，符合 securityTeam implements policy。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "資訊安全監控維運中心",
+      "type": "securityTeam"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資訊安全技術產品",
+      "type": "tool"
+    },
+    "reasoning": "文本提到 SOC 整合相關資訊安全技術產品，表示 SOC 使用這些工具，符合 securityTeam uses tool。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "進階持續性威脅",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本將 APT 作為駭客攻擊的一個例子，因此 APT 是駭客攻擊的一種，符合 attack is_part_of attack。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 10
+  },
+  {
+    "subject": {
+      "name": "資訊安全監控維運中心",
+      "type": "securityTeam"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到建立 SOC 是為了完整了解資訊系統之弱點，符合 securityTeam can_detect vulnerability。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 11
+  },
+  {
+    "subject": {
+      "name": "資訊安全監控維運中心",
+      "type": "securityTeam"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊安全事件相關資訊",
+      "type": "data"
+    },
+    "reasoning": "文本提到 SOC 協助蒐集及分析資訊安全事件相關資訊，符合 securityTeam can_analyze data。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 12
+  }
+]

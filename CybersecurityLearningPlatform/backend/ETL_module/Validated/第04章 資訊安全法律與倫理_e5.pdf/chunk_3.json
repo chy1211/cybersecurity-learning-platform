@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "microsoft windows",
+      "type": "system",
+      "display_name": "Microsoft Windows"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "原始程式碼",
+      "type": "data",
+      "display_name": "原始程式碼"
+    },
+    "reasoning": "文本提到『Microsoft Windows 原始程式碼』，這表示該系統 (system) 在開發過程中產生了對應的原始程式碼 (data)，符合 ('system', 'generates', 'data') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Microsoft Windows 是一個系統（system），而 'generates' 原始程式碼（data）在資安領域中是合理的，尤其是考慮到系統可能會產生各種資料。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：適用，主體為 Microsoft Windows (類別: system)，關係為 generates，受體為原始程式碼 (類別: data)，符合規則7的允許條件。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Microsoft Windows) 與 Ldr 中的 'microsoft windows' 完全等價同義詞，受體 (原始程式碼) 與 Ldr 中的 '原始程式碼' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Microsoft Windows",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "原始程式碼",
+        "type": "data"
+      },
+      "reasoning": "文本提到『Microsoft Windows 原始程式碼』，這表示該系統 (system) 在開發過程中產生了對應的原始程式碼 (data)，符合 ('system', 'generates', 'data') 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "營業秘密",
+      "type": "data",
+      "display_name": "營業秘密"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本定義營業秘密包含『技術資訊』與『程式』。這類技術性資料 (data) 若被獲取，可被分析出系統的弱點 (vulnerability)，符合 ('data', 'can_expose', 'vulnerability') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'vulnerability' 與關係 'can_expose' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "營業秘密 (data) 和 弱點 (vulnerability) 的名稱與其被賦予的類別合理對齊，且 'can_expose' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "營業秘密與弱點之間的 'can_expose' 關係在資安領域中是合理的，且完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為主體不是policy、technique或tool。規則3適用，但三元組中的can_expose動作是允許的特例。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的can_expose動作是規則3中的允許特例，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似的資源存在於 Ldr 中，主體 '營業秘密' 與 '商業營運秘密' 類似，但不完全相同；受體 '弱點' 完全匹配 '弱點'，且 '弱點' 與 '漏洞'、'脆弱性' 為同義詞，但這裡 '弱點' 已直接出現在 Ldr 中，因此不需要進一步同義詞判定。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】和【同義詞判定】，受體 '弱點' 直接匹配 Ldr 中的 '弱點'，但主體 '營業秘密' 雖與 '商業營運秘密' 類似，卻不完全相同，且無法確定為同義詞或子類型，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "營業秘密",
+        "type": "data"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本定義營業秘密包含『技術資訊』與『程式』。這類技術性資料 (data) 若被獲取，可被分析出系統的弱點 (vulnerability)，符合 ('data', 'can_expose', 'vulnerability') 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "營業秘密法",
+      "type": "policy",
+      "display_name": "營業秘密法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊外洩",
+      "type": "risk",
+      "display_name": "資訊外洩"
+    },
+    "reasoning": "文本提到營業秘密法是用於規範與保護不為公眾所知悉的技術與經營資訊。在資安本體論中，法律規範屬於 policy，其保護行為旨在緩解 (mitigates) 資訊外洩 (risk) 的風險。",
+    "source_id": "chunk_3",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "營業秘密法 是 policy 的合理實例，資訊外洩 是 risk 的合理實例，且 'mitigates' 的語意與實體之間的關係相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是營業秘密法，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "該三元組的主體營業秘密法（類別：policy）與關係 mitigates 的組合符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊外洩與個資外洩、信用卡資料外洩、隱私侵害等風險相關，但非完全等價同義詞，且無明確從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定資訊外洩與現有近似資源清單中的項目為完全同義詞或從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "營業秘密法",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本提到營業秘密法是用於規範與保護不為公眾所知悉的技術與經營資訊。在資安本體論中，法律規範屬於 policy，其保護行為旨在緩解 (mitigates) 資訊外洩 (risk) 的風險。",
+      "source_id": "chunk_3",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "原始程式碼",
+      "type": "data",
+      "display_name": "原始程式碼"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本將『原始程式碼』列為營業秘密的例子。從資安專業角度看，原始程式碼屬於 data，且程式碼的洩漏或分析可導致系統弱點 (vulnerability) 的暴露，符合 ('data', 'can_expose', 'vulnerability') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '原始程式碼' 是 'data' 的合理實例，'弱點' 是 'vulnerability' 的合理實例，關係 'can_expose' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但允許 'can_expose' 動作。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為原始程式碼（類別：data），關係為 can_expose，受體為弱點（類別：vulnerability），符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，或有同義詞對照，則直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "原始程式碼",
+        "type": "data"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本將『原始程式碼』列為營業秘密的例子。從資安專業角度看，原始程式碼屬於 data，且程式碼的洩漏或分析可導致系統弱點 (vulnerability) 的暴露，符合 ('data', 'can_expose', 'vulnerability') 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "軟體程式",
+      "type": "app",
+      "display_name": "操作軟體"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "機器手臂",
+      "type": "system",
+      "display_name": "機器手臂"
+    },
+    "reasoning": "文本舉例『發明一套操作軟體，用於操作機器人之手臂』。操作軟體為 app，機器手臂為硬體基礎設施 system，兩者之間存在控制與通訊連線，符合 ('app', 'connects_to', 'system') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "操作軟體 (app) 和 機器手臂 (system) 的名稱與其被賦予的類別合理對齊，操作軟體是一種應用程式 (app)，機器手臂是一種系統 (system)，且 'connects_to' 關係在資安領域中是合理的，描述了操作軟體與機器手臂之間的連接關係。",
+        "response": "correct",
+        "reason": "操作軟體 (app) 與 機器手臂 (system) 的三元組完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為關係不是 'uses'。檢查規則6：無關，因為關係不是 'deployed_in'。檢查規則7：無關，因為關係不是 'generates'。檢查規則8：無關，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'connects_to' 與規則清單中沒有直接相關的限制，因此不觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "操作軟體與軟體程式為同義詞，機器手臂與現有資源列表中無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "軟體程式",
+        "standard_object": "",
+        "reason": "根據同義詞判定，操作軟體與軟體程式為同義詞，故主體標準化為軟體程式。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "操作軟體",
+        "type": "app"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "機器手臂",
+        "type": "system"
+      },
+      "reasoning": "文本舉例『發明一套操作軟體，用於操作機器人之手臂』。操作軟體為 app，機器手臂為硬體基礎設施 system，兩者之間存在控制與通訊連線，符合 ('app', 'connects_to', 'system') 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 5
+    }
+  }
+]

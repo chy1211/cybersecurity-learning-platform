@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "資訊資產分類",
+      "type": "technique",
+      "display_name": "資產分類分級"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "風險評估",
+      "type": "technique",
+      "display_name": "風險評估"
+    },
+    "reasoning": "文本中提到『資產分類分級可以做為風險評估重要的依據』，這表示資產分類是風險評估流程中的一個環節或基礎技術，因此選擇 technique 與 is_part_of。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資產分類分級 可以被視為風險評估的一部分，且 'technique' 是一個合理的類別名稱，與其實例相符。",
+        "response": "correct",
+        "reason": "主體和受體的類別與關係都符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被定義為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "資產分類分級與資訊資產分類為同義詞，風險評估為完全匹配",
+        "response": "correct",
+        "standard_subject": "資訊資產分類",
+        "standard_object": "風險評估",
+        "reason": "根據同義詞判定，資產分類分級與資訊資產分類為同義詞，風險評估為完全匹配。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產分類分級",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "風險評估",
+        "type": "technique"
+      },
+      "reasoning": "文本中提到『資產分類分級可以做為風險評估重要的依據』，這表示資產分類是風險評估流程中的一個環節或基礎技術，因此選擇 technique 與 is_part_of。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "erp 系統當機",
+      "type": "attack",
+      "display_name": "ERP 系統當機"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "文本將『ERP 系統當機』作為考量『可用性』的案例。在資安本體論中，系統失效或當機導致服務無法使用，屬於違反可用性原則，因此將當機事件視為 attack (惡意或非惡意導致的損害事件) 並使用 violates 關係。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "ERP 系統當機 可被視為 'attack' 的實例，'violates' 的關係合理地連接 'attack' 與 'principle'，而 '可用性' 是 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：觸發，principle 僅能作為被違反的受體，但此三元組中 principle 是受體，符合規則。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 ERP 系統當機，類別為 attack，與受體可用性之間的關係是 violates，符合語義限制清單中的規則，尤其是規則4沒有被違反，因為 principle 是作為被違反的受體。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ERP 系統當機",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "文本將『ERP 系統當機』作為考量『可用性』的案例。在資安本體論中，系統失效或當機導致服務無法使用，屬於違反可用性原則，因此將當機事件視為 attack (惡意或非惡意導致的損害事件) 並使用 violates 關係。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端服務資料",
+      "type": "data",
+      "display_name": "雲端服務資料"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "雲端服務系統",
+      "type": "system",
+      "display_name": "雲端服務系統"
+    },
+    "reasoning": "文本提到雲端服務資料與雲端服務系統均為資產。邏輯上，雲端資料是存放於雲端系統之中，符合 (data, deployed_in, system) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雲端服務資料 (data) 與 雲端服務系統 (system) 的名稱與其類別合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "雲端服務資料與雲端服務系統的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：不觸發，因為 data 是主體，但規則5 指出當主體是 data 時，關係為 uses 才違反；規則6：觸發，因為關係是 deployed_in，受體的類別是 system，符合規則6 的描述，表示合法。",
+        "response": "correct",
+        "reason": "三元組中的關係 deployed_in 與受體類別 system 的組合符合規則6 的描述，表示合法。沒有發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似的近似資源，但無完全等價同義詞關係，受體的近似資源中，雲端服務系統與雲端服務、雲端服務環境、雲端資訊系統等具有廣義/狹義從屬關係，但主體雲端服務資料與近似資源雲端資料具有高相似度，可能是同義詞關係，但無法確定完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體的完全等價同義詞關係，且廣義/狹義從屬關係不明確，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端服務資料",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "雲端服務系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到雲端服務資料與雲端服務系統均為資產。邏輯上，雲端資料是存放於雲端系統之中，符合 (data, deployed_in, system) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資產分類分級",
+      "type": "technique",
+      "display_name": "資產分類分級"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "資產分類分級的目的是對資訊資產進行分析與歸類，符合 (technique, can_analyze, system) 的定義。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資產分類分級 可以被視為 technique 的合理實例，資訊資產 可以被視為 system 的合理實例，且 'can_analyze' 的關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查後發現，三元組中的關係 'can_analyze' 與規則3有關，但主體 '資產分類分級' 類別為 'technique'，不屬於 'vulnerability'，因此不觸發規則3的限制。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "資產分類分級與資訊資產分級之間存在相似性，但非完全等價同義詞，資訊資產分級是資產分類分級的一種特定類型，兩者之間存在廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，資產分類分級與資訊資產分級之間的關係被判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產分類分級",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "reasoning": "資產分類分級的目的是對資訊資產進行分析與歸類，符合 (technique, can_analyze, system) 的定義。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "erp系統",
+      "type": "app",
+      "display_name": "ERP 系統"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "ERP 系統是一個具體的應用程式 (app)，而資訊資產在本文中被視為一個整體的基礎設施或資產集合 (system)，因此 ERP 系統屬於資訊資產的一部分。",
+    "source_id": "chunk_3",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "ERP 系統是 'app' 的合理實例，資訊資產是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，因為關係為 is_part_of，不是 deployed_in，規則7：無關，規則8：無關，關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與規則清單中沒有直接相關的限制，且主體和受體的類別與規則中描述的情況不符，無法觸發任何違規條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "ERP 系統與 erp系統為完全等價同義詞，資訊資產為完全匹配",
+        "response": "correct",
+        "standard_subject": "erp系統",
+        "standard_object": "資訊資產",
+        "reason": "根據同義詞判定，ERP 系統與 erp系統為同義詞，資訊資產為完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ERP 系統",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "reasoning": "ERP 系統是一個具體的應用程式 (app)，而資訊資產在本文中被視為一個整體的基礎設施或資產集合 (system)，因此 ERP 系統屬於資訊資產的一部分。",
+      "source_id": "chunk_3",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "作業系統",
+      "type": "system"
+    },
+    "reasoning": "文本提到『當攻擊者取得作業系統存取權限時』，這代表攻擊者取得了對系統的控制權，符合 (attacker, controls, system) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "系統設定檔",
+      "type": "data"
+    },
+    "reasoning": "系統設定檔是由作業系統產生並維護的資訊實體，符合 (system, generates, data) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "系統設定檔",
+      "type": "data"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本指出攻擊者翻找設定檔是為了尋找帳號密碼，這意味著設定檔若管理不當會暴露認證資訊等弱點，符合 (data, can_expose, vulnerability) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "/etc/shadow",
+      "type": "data"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "Linux 作業系統",
+      "type": "system"
+    },
+    "reasoning": "/etc/shadow 是 Linux 系統中的一個特定檔案（資料），存放於該系統中，符合 (data, deployed_in, system) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "安全強化",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本提到『為了讓作業系統變得更安全、更難以入侵，通常企業會對作業系統進行安全強化』，說明強化技術是用來緩解攻擊風險，符合 (technique, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "密碼原則",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack"
+    },
+    "reasoning": "密碼原則是安全強化的一環，旨在防止未經授權的存取（如暴力破解攻擊），符合 (policy, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "fail2ban",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack"
+    },
+    "reasoning": "fail2ban 透過將登入錯誤過多的使用者列入黑名單來防禦攻擊，符合 (tool, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "iptables",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "防火牆功能",
+      "type": "function"
+    },
+    "reasoning": "文本明確提到『使用 iptables 防火牆功能』，表示 iptables 這個工具具備防火牆的功能，符合 (tool, has_a, function) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "iptables",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack"
+    },
+    "reasoning": "透過限制存取來源來最小化連線來源，是一種防禦攻擊的手段，符合 (tool, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "作業系統",
+      "type": "system"
+    },
+    "reasoning": "滲透測試是一種模擬攻擊來分析系統安全弱點的技術，符合 (technique, can_analyze, system) 的 Schema。",
+    "source_id": "chunk_112",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10
+  }
+]

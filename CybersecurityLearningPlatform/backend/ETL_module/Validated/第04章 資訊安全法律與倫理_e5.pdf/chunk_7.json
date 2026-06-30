@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "企業及個人",
+      "type": "user",
+      "display_name": "企業及個人"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "個人資料保護法",
+      "type": "policy",
+      "display_name": "個人資料保護法"
+    },
+    "reasoning": "文本提到『所有企業及個人均適用該規定』，表示這些個體必須遵守並執行個人資料保護法，因此選擇 user implements policy。",
+    "source_id": "chunk_7",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '企業及個人' 可被視為 'user' 的合理實例，'個人資料保護法' 可被視為 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為 user，關係為 implements，受體為 policy，未發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '企業及個人' 與 Ldr 中 '企業' 的 name 字串不完全相同，但 '企業' 可能是 '企業及個人' 的子集；受體 '個人資料保護法' 與 Ldr 中 '電腦處理個人資料保護法' 的 name 字串不完全相同，但兩者都與 '個人資料保護' 相關，可能是同一概念的不同表述。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，若一個實體是另一個的子類型，判定為 correct；且無法確定 '企業及個人' 與 '企業' 的關係為完全等價同義詞，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "企業及個人",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "個人資料保護法",
+        "type": "policy"
+      },
+      "reasoning": "文本提到『所有企業及個人均適用該規定』，表示這些個體必須遵守並執行個人資料保護法，因此選擇 user implements policy。",
+      "source_id": "chunk_7",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "個人資料保護法",
+      "type": "policy",
+      "display_name": "個人資料保護法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "違法蒐集處理利用個資",
+      "type": "attack",
+      "display_name": "違法蒐集處理利用個資"
+    },
+    "reasoning": "個資法旨在規範個資的蒐集、處理及利用，以防止違法行為發生，因此將違法行為視為 attack，政策對其具有緩解作用，符合 policy mitigates attack。",
+    "source_id": "chunk_7",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "個人資料保護法 是 policy 的合理實例，違法蒐集處理利用個資 是 attack 的合理實例。",
+        "response": "correct",
+        "reason": "個人資料保護法與違法蒐集處理利用個資的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是個人資料保護法，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確違反的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "個人資料保護法與電腦處理個人資料保護法之間存在廣義/狹義從屬關係，但根據給定的資訊，個人資料保護法與資訊法律的相似度較低，且無法確定為完全等價同義詞或子類型，因此預設保留。然而，個人資料保護法與電腦處理個人資料保護法的相似度較高，但仍不完全相同，故不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，個人資料保護法與現有近似資源清單中的資源不完全相同，且無法確定為同義詞或子類型，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人資料保護法",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "違法蒐集處理利用個資",
+        "type": "attack"
+      },
+      "reasoning": "個資法旨在規範個資的蒐集、處理及利用，以防止違法行為發生，因此將違法行為視為 attack，政策對其具有緩解作用，符合 policy mitigates attack。",
+      "source_id": "chunk_7",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "個人資料保護法",
+      "type": "policy",
+      "display_name": "個人資料保護法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "人格權受侵害",
+      "type": "risk",
+      "display_name": "人格權受侵害"
+    },
+    "reasoning": "文本明確提到個資法是為了『避免人格權受到侵害』，人格權受侵害是一種負面後果，屬於 risk，符合 policy mitigates risk。",
+    "source_id": "chunk_7",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "個人資料保護法 是 policy 的合理實例，人格權受侵害 是 risk 的合理實例。",
+        "response": "correct",
+        "reason": "個人資料保護法與人格權受侵害的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，個人資料保護法 (類別: policy) 執行 mitigates 動作，符合規則。其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "個人資料保護法 (類別: policy) 執行 mitigates 動作，符合規則2，無違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "個人資料保護法與電腦處理個人資料保護法之間存在廣義/狹義從屬關係，前者涵蓋了後者，但兩者並非完全等價同義詞；人格權受侵害與非法侵害、隱私侵害之間存在概念上的相關性，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，個人資料保護法與電腦處理個人資料保護法之間的關係不應合併；同時，人格權受侵害與非法侵害、隱私侵害之間的關係也非完全等價同義詞，故保留原狀。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人資料保護法",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "人格權受侵害",
+        "type": "risk"
+      },
+      "reasoning": "文本明確提到個資法是為了『避免人格權受到侵害』，人格權受侵害是一種負面後果，屬於 risk，符合 policy mitigates risk。",
+      "source_id": "chunk_7",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "違法蒐集處理利用個資",
+      "type": "attack",
+      "display_name": "違法蒐集處理利用個資"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "個人資料",
+      "type": "data",
+      "display_name": "個人資料"
+    },
+    "reasoning": "文本指出違法蒐集、處理或利用個資會產生損害，這直接影響到資料的安全性與權利，符合 attack can_harm data。",
+    "source_id": "chunk_7",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '違法蒐集處理利用個資' 合理對齊其類別 'attack'，而 '個人資料' 也合理對齊其類別 'data'，且考慮到同義詞寬容原則，兩者皆為合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則，發現規則5不適用，因為主體的類別是attack，而不是data，且關係為can_harm，不在規則中明確限制的範圍內。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 個人資料與 Ldr 中的個人基本資料、使用者資料、用戶資訊等實體具有高度相似性，屬於同義詞或廣義/狹義從屬關係，但根據判斷準則，若一個實體是另一個的子類型，判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，若一個實體是另一個的子類型，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "違法蒐集處理利用個資",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "個人資料",
+        "type": "data"
+      },
+      "reasoning": "文本指出違法蒐集、處理或利用個資會產生損害，這直接影響到資料的安全性與權利，符合 attack can_harm data。",
+      "source_id": "chunk_7",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "企業及個人",
+      "type": "user",
+      "display_name": "企業及個人"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "個人資料",
+      "type": "data",
+      "display_name": "個人資料"
+    },
+    "reasoning": "文本描述個資法規範個資的『蒐集、處理及利用』，這意味著企業與個人在日常運作中會使用個人資料，符合 user uses data。",
+    "source_id": "chunk_7",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '企業及個人' 可被視為 'user' 的合理實例，'個人資料' 可被視為 'data' 的合理實例，關係 'uses' 在此語境下是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有攻擊者或安全團隊的身分。規則2不適用，因為關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5觸發，因為主體的類別是user，但使用了uses關係，且受體是個人資料(data)，這符合規則5的允許條件，然而主體類別為user而非data，故不違反規則5。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體為企業及個人，使用uses關係，且受體是個人資料，這符合規則5的允許條件，且未觸發其他規則的違反條件。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"企業及個人\" 與 Ldr 中的 \"企業及個人\" 完全相同，受體 \"個人資料\" 與 Ldr 中的 \"個人基本資料\"、\"使用者資料\"、\"用戶資訊\" 和 \"個人資料\" 皆有相似的概念，但 \"個人資料\" 是最直接的匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "個人資料",
+        "reason": "根據前提確認和同義詞判定，主體不需標準化，受體 \"個人資料\" 是最直接的匹配。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "企業及個人",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "個人資料",
+        "type": "data"
+      },
+      "reasoning": "文本描述個資法規範個資的『蒐集、處理及利用』，這意味著企業與個人在日常運作中會使用個人資料，符合 user uses data。",
+      "source_id": "chunk_7",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "違法蒐集處理利用個資",
+      "type": "attack",
+      "display_name": "違法蒐集處理利用個資"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "隱私權",
+      "type": "principle",
+      "display_name": "隱私權"
+    },
+    "reasoning": "違法處理個資的行為直接破壞了個體不受干擾與資訊公開控制的權利，即違反了隱私權原則，符合 attack violates principle。",
+    "source_id": "chunk_7",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '違法蒐集處理利用個資' 的名稱與其類別 'attack' 合理對齊，實體 '隱私權' 的名稱與其類別 'principle' 也合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係是violates，而不是mitigates。規則3不適用，因為三元組中的主體類別是attack，而不是vulnerability。規則4適用，且三元組中的受體是principle，符合規則允許的條件。規則5-8不適用，因為三元組中的關係是violates，不符合這些規則的觸發條件。",
+        "response": "correct",
+        "reason": "三元組中的受體是principle，符合規則4允許的條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中之資源完全相符，無需進一步分析同義詞或廣義/狹義關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有近似資源清單中之資源完全相符，直接判定正確。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "違法蒐集處理利用個資",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "隱私權",
+        "type": "principle"
+      },
+      "reasoning": "違法處理個資的行為直接破壞了個體不受干擾與資訊公開控制的權利，即違反了隱私權原則，符合 attack violates principle。",
+      "source_id": "chunk_7",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "特種個人資料",
+      "type": "data",
+      "display_name": "特種個人資料"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "個資保護弱點",
+      "type": "vulnerability",
+      "display_name": "個資保護弱點"
+    },
+    "reasoning": "文本提到特種個人資料（如基因、病歷）需要『特別保護』，暗示這類高敏感資料若缺乏對應保護，更容易暴露系統或流程中的管理弱點，符合 data can_expose vulnerability。",
+    "source_id": "chunk_7",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "特種個人資料是 data 的合理實例，個資保護弱點是 vulnerability 的合理實例，'can_expose' 關係在資安領域中指的是資料可能被暴露，與特種個人資料和個資保護弱點的語意對齊。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但特例允許 'can_expose' 動作。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為特種個人資料（類別：data），關係為 can_expose，受體為個資保護弱點（類別：vulnerability），符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "特種個人資料與個人資料之間的關係是同義詞或近似概念，但根據給定的同義詞對照範例和判斷準則，兩者並不完全等價，然而考慮到實體名稱與 Ldr 中某資源的 name 字串相似度較高，需要進一步分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若無法確定同義詞關係或廣義/狹義從屬，預設保留，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "特種個人資料",
+        "type": "data"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "個資保護弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到特種個人資料（如基因、病歷）需要『特別保護』，暗示這類高敏感資料若缺乏對應保護，更容易暴露系統或流程中的管理弱點，符合 data can_expose vulnerability。",
+      "source_id": "chunk_7",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

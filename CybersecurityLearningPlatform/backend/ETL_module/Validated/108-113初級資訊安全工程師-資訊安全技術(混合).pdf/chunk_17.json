@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "靜態程式分析",
+      "type": "technique",
+      "display_name": "靜態分析"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "進階攻擊",
+      "type": "attack",
+      "display_name": "進階攻擊"
+    },
+    "reasoning": "文本提到惡意程式分析常使用靜態分析來防禦進階攻擊，因此將靜態分析定義為技術 (technique)，進階攻擊定義為攻擊 (attack)，關係為可偵測 (can_detect)。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "靜態分析是技術 (technique) 的合理實例，進階攻擊是攻擊 (attack) 的合理實例，'can_detect' 關係在資安領域中合理適用於技術與攻擊之間。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_detect'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_detect' 沒有在語義限制清單中被明確限制，且主體 '靜態分析' 和受體 '進階攻擊' 的類別組合在給定的規則中沒有被認為是違規的。"
+      },
+      "step_2": {
+        "granularity_analysis": "靜態分析與靜態程式分析為同義詞，進階攻擊與攻擊為廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "靜態程式分析",
+        "standard_object": "",
+        "reason": "根據同義詞判定與廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "靜態分析",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "進階攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到惡意程式分析常使用靜態分析來防禦進階攻擊，因此將靜態分析定義為技術 (technique)，進階攻擊定義為攻擊 (attack)，關係為可偵測 (can_detect)。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "個人資料",
+      "type": "data",
+      "display_name": "個人資料"
+    },
+    "reasoning": "文本指出駭客可以透過 Cookies 竊取個人資料，這是一種對資料的損害行為，因此選擇 attacker -> can_harm -> data。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，個人資料 (data) 是資料的合理實例，'can_harm' 的語意與攻擊者對資料的危害行為相符。",
+        "response": "correct",
+        "reason": "駭客對個人資料的危害行為符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：未違反，因為駭客不具有安全團隊的身分。檢查規則2：不適用，因為動作不是 mitigates。檢查規則3：不適用，因為主體類別不是 vulnerability。檢查規則4：不適用，因為關係不是 violates。檢查規則5：不適用，因為關係不是 uses 或主體類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但需要注意的是，attacker 是具有主動執行能力的角色，符合某些規則的前提。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且駭客可以對個人資料進行有害的操作，符合資安知識圖譜的邏輯。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全等價同義詞，受體 \"個人資料\" 與 Ldr 中的 \"個人資料\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "個人資料",
+        "type": "data"
+      },
+      "reasoning": "文本指出駭客可以透過 Cookies 竊取個人資料，這是一種對資料的損害行為，因此選擇 attacker -> can_harm -> data。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "漏洞掃描工具",
+      "type": "tool",
+      "display_name": "漏洞掃描工具"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本討論漏洞掃描工具偵測漏洞的能力（即使某些漏洞如零時差漏洞無法偵測），其核心功能仍是分析漏洞，符合 tool -> can_analyze -> vulnerability。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體名稱 '漏洞掃描工具' 是 'tool' 的合理實例，'漏洞' 是 'vulnerability' 的合理實例，且 'can_analyze' 是工具分析漏洞的合理關係。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用，因為主體類別為 tool，不是 vulnerability。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是漏洞掃描工具（tool），關係是 can_analyze，受體是漏洞（vulnerability），這符合工具可以分析漏洞的邏輯，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞出現在 Ldr 中，但主體 '漏洞掃描工具' 與 Ldr 中的 '掃描工具' 類似，受體 '漏洞' 則直接出現在 Ldr 中，且為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定與廣義/狹義一律保留原則，主體與受體不構成同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "漏洞掃描工具",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本討論漏洞掃描工具偵測漏洞的能力（即使某些漏洞如零時差漏洞無法偵測），其核心功能仍是分析漏洞，符合 tool -> can_analyze -> vulnerability。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "openvas",
+      "type": "tool",
+      "display_name": "OpenVAS"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "作業系統漏洞",
+      "type": "vulnerability",
+      "display_name": "作業系統漏洞"
+    },
+    "reasoning": "文本指出 OpenVAS 用來找出作業系統漏洞，符合 tool -> can_analyze -> vulnerability。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "OpenVAS 是一種資安工具，可以分析作業系統漏洞，符合語意對齊原則。",
+        "response": "correct",
+        "reason": "OpenVAS 的類別為 'tool'、關係 'can_analyze' 與受體 '作業系統漏洞' 的類別 'vulnerability' 符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用，因為主體是 tool，不是 vulnerability。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，因為關係是 can_analyze，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是 OpenVAS，類別是 tool，關係是 can_analyze，受體是作業系統漏洞，類別是 vulnerability。根據規則，tool 可以執行 can_analyze 動作，且沒有違反任何語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 OpenVAS 與 Ldr 中的 openvas 完全等價，受體 作業系統漏洞 與 Ldr 中的 系統漏洞 密切相關，但非完全等價同義詞，受體 可能是漏洞的子類型",
+        "response": "correct",
+        "standard_subject": "openvas",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全匹配，受體與 Ldr 中的資源相關但非完全等價同義詞，依據規則 3 保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OpenVAS",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "作業系統漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出 OpenVAS 用來找出作業系統漏洞，符合 tool -> can_analyze -> vulnerability。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "勒索軟體",
+      "type": "attack",
+      "display_name": "勒索軟體"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "加密演算法",
+      "type": "tool",
+      "display_name": "加密演算法"
+    },
+    "reasoning": "文本提到勒索軟體使用 RSA 與 AES 等加密演算法來執行其功能，將演算法視為實現攻擊的工具，符合 attack -> depends_on -> tool。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "勒索軟體是 'attack' 的合理實例，且加密演算法是 'tool' 的合理實例，兩者之間的 'depends_on' 關係在資安領域中是合理的，因為勒索軟體通常依賴加密演算法來實現其攻擊手段。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查完所有規則，未發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組（勒索軟體 depends_on 加密演算法）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"勒索軟體\" 與 Ldr 中的 \"勒索軟體\" 完全相同，受體 \"加密演算法\" 與 Ldr 中的 \"加密演算法\" 完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "勒索軟體",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "加密演算法",
+        "type": "tool"
+      },
+      "reasoning": "文本提到勒索軟體使用 RSA 與 AES 等加密演算法來執行其功能，將演算法視為實現攻擊的工具，符合 attack -> depends_on -> tool。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "openvas",
+      "type": "tool",
+      "display_name": "OpenVAS"
+    },
+    "reasoning": "文本明確提到資安人員使用 OpenVAS 作為工具，符合 securityTeam -> uses -> tool。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 使用 OpenVAS (tool) 是合理的，OpenVAS 是一種常見的資安工具，與 'tool' 類別對齊，且 'securityTeam' 使用 'tool' 的情境在資安領域中是常見的。",
+        "response": "correct",
+        "reason": "主體、關係和受體都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 securityTeam，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：主體為 securityTeam，具有主動執行能力，關係為 uses，符合規則允許的條件，代表合法。",
+        "response": "correct",
+        "reason": "三元組中的主體為 securityTeam，關係為 uses，受體為 OpenVAS，符合語義限制清單中的規則，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資安人員' 與 Ldr 中的 '資安人員' 完全等價同義詞，受體 'OpenVAS' 與 Ldr 中的 'openvas' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體皆與 Ldr 中的資源完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "OpenVAS",
+        "type": "tool"
+      },
+      "reasoning": "文本明確提到資安人員使用 OpenVAS 作為工具，符合 securityTeam -> uses -> tool。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "勒索軟體",
+      "type": "attack",
+      "display_name": "勒索軟體"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統檔案",
+      "type": "data",
+      "display_name": "系統檔案"
+    },
+    "reasoning": "文本提到勒索軟體將系統檔案加密，導致檔案無法正常使用，這屬於對資料的危害，符合 attack -> can_harm -> data。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "勒索軟體是 'attack' 的合理實例，系統檔案是 'data' 的合理實例，且 'can_harm' 適合描述勒索軟體對系統檔案的影響。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 attack，而非 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組（勒索軟體 can_harm 系統檔案）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"勒索軟體\" 與 Ldr 中的 \"勒索軟體\" 完全相同，受體 \"系統檔案\" 與 Ldr 中的 \"系統設定檔\"、\"檔案\"、\"文件\" 類似，但非完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 \"勒索軟體\" 與 Ldr 中的 \"勒索軟體\" 完全相同，無需標準化；受體 \"系統檔案\" 與 Ldr 中的資源不完全相同，無法判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "勒索軟體",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統檔案",
+        "type": "data"
+      },
+      "reasoning": "文本提到勒索軟體將系統檔案加密，導致檔案無法正常使用，這屬於對資料的危害，符合 attack -> can_harm -> data。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "勒索軟體",
+      "type": "attack",
+      "display_name": "勒索軟體"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "勒索軟體透過加密檔案使使用者無法存取資料，直接破壞了資安三要素中的可用性 (Availability)，符合 attack -> violates -> principle。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "勒索軟體是 'attack' 的合理實例，可用性是 'principle' 的合理實例，且 'violates' 關係在資安領域中是合理的，描述攻擊違反安全原則的場景。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4適用，主體為勒索軟體（attack），關係為violates，受體為可用性（principle），符合規則允許的條件。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則4的允許條件，且未發現其他規則的違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"勒索軟體\" 與 Ldr 中的 \"勒索軟體\" 完全相同，受體 \"可用性\" 與 Ldr 中的 \"可用性\" 完全相同，兩者皆無需標準化。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全相同，無需進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "勒索軟體",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "勒索軟體透過加密檔案使使用者無法存取資料，直接破壞了資安三要素中的可用性 (Availability)，符合 attack -> violates -> principle。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "比特幣",
+      "type": "tool",
+      "display_name": "比特幣"
+    },
+    "reasoning": "文本提到勒索軟體（由攻擊者操作）要求使用比特幣支付贖金，比特幣在此作為支付工具，符合 attacker -> uses -> tool。",
+    "source_id": "chunk_17",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 使用比特幣 (tool) 是語意上合理的，攻擊者可以使用工具如比特幣進行攻擊或其他惡意活動。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規檢查，因為主體的類別是 attacker，而不是 data，但這裡的主體是攻擊者，使用比特幣，與規則5無直接關聯。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，使用比特幣，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「攻擊者」與 Ldr 中的「攻擊者」完全等價同義詞，受體「比特幣」與 Ldr 中的「比特幣」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "比特幣",
+        "type": "tool"
+      },
+      "reasoning": "文本提到勒索軟體（由攻擊者操作）要求使用比特幣支付贖金，比特幣在此作為支付工具，符合 attacker -> uses -> tool。",
+      "source_id": "chunk_17",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

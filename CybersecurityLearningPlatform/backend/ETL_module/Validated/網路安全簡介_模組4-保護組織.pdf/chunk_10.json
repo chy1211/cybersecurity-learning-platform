@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "鑑識專家",
+      "type": "securityTeam",
+      "display_name": "鑑識專家"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "違規行為",
+      "type": "attack",
+      "display_name": "違規行為"
+    },
+    "reasoning": "文本提到『聘請鑑識專家來研究並找出細節』，鑑識專家屬於安全團隊，其動作是分析違規行為（攻擊），符合 (securityTeam, can_analyze, attack) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'attack' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "鑑識專家 (securityTeam) 可以分析 (can_analyze) 違規行為 (attack)，這符合資安領域的常見實踐和語意對齊，接受同義詞寬容原則後仍然合理。",
+        "response": "correct",
+        "reason": "鑑識專家可以分析違規行為的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為主體是鑑識專家，類別是securityTeam，沒有同時具有攻擊者與安全團隊的身分。檢查規則2：不適用，因為主體不是policy、technique或tool。檢查規則3：不適用，因為主體類別不是vulnerability。檢查規則4：不適用，因為關係不是violates，且主體不是principle。檢查規則5：不適用，因為關係不是uses。檢查規則6：不適用，因為關係不是deployed_in。檢查規則7：不適用，因為關係不是generates。檢查規則8：不適用，因為關係不是controls，但根據規則8的描述，securityTeam具有主動執行能力的角色，符合can_analyze的主體要求。",
+        "response": "correct",
+        "reason": "三元組中的主體（鑑識專家）和關係（can_analyze）以及受體（違規行為）之間的關係在給定的語義限制清單中沒有被明確禁止，且主體的類別securityTeam具有主動執行能力的角色，符合can_analyze的主體要求。"
+      },
+      "step_2": {
+        "granularity_analysis": "鑑識專家與電腦鑑識專家之間存在相似性，但非完全等價同義詞，鑑識專家是較廣義的術語，電腦鑑識專家是其子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "鑑識專家與電腦鑑識專家之間的關係是廣義/狹義從屬，根據判斷準則3，判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "鑑識專家",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "違規行為",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『聘請鑑識專家來研究並找出細節』，鑑識專家屬於安全團隊，其動作是分析違規行為（攻擊），符合 (securityTeam, can_analyze, attack) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "後門",
+      "type": "attack",
+      "display_name": "後門"
+    },
+    "reasoning": "文本提到『攻擊者經常試圖留下後門』，後門在此被視為攻擊者使用的工具，符合 (attacker, uses, tool) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 使用後門 (tool) 是語意上合理的，後門是攻擊者常用的工具。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規檢查，因為主體的類別是 attacker，而不是 data，但這裡的主體是攻擊者，使用後門，與規則5的限制不符。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "雖然規則5提到當關係為 uses 時，如果主體的類別是 data 則為違反，但這裡的主體是攻擊者，使用後門，沒有明確違反任何規則。因此，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中，但無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體無直接同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "後門",
+        "type": "tool"
+      },
+      "reasoning": "文本提到『攻擊者經常試圖留下後門』，後門在此被視為攻擊者使用的工具，符合 (attacker, uses, tool) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "教育培訓",
+      "type": "policy",
+      "display_name": "教育培訓"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "違規行為",
+      "type": "attack",
+      "display_name": "違規行為"
+    },
+    "reasoning": "文本提到『對員工...進行培訓和教育，以預防未來的違規行為』，教育培訓可視為一種管理策略（policy）用來緩解攻擊風險，符合 (policy, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "教育培訓 (policy) 與 違規行為 (attack) 的名稱與其類別合理對齊，教育培訓是政策的一種實例，違規行為是攻擊的一種實例。",
+        "response": "correct",
+        "reason": "教育培訓與違規行為的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 '教育培訓'，類別為 'policy'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '教育培訓' 屬於 'policy' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"教育培訓\" 與 Ldr 中的 \"教育訓練\" 關係為同義詞，受體 \"違規行為\" 與 Ldr 中的 \"違規行為\" 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體和受體均不需要標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "教育培訓",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "違規行為",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『對員工...進行培訓和教育，以預防未來的違規行為』，教育培訓可視為一種管理策略（policy）用來緩解攻擊風險，符合 (policy, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "後門",
+      "type": "attack",
+      "display_name": "後門"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "後門的目的是為了『方便將來的破壞』，這意味著後門工具能控制受害系統，符合 (tool, controls, system) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "後門 (backdoor) 是工具 (tool) 的合理實例，系統 (system) 是系統 (system) 的合理實例，且 'controls' 是描述工具與系統之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "後門 (tool) 控制系統 (system) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體 '後門' 屬於攻擊者類別，具有主動執行能力，符合 'controls' 關係的要求。",
+        "response": "correct",
+        "reason": "三元組中的主體 '後門' 屬於攻擊者類別，具有主動執行能力，符合 'controls' 關係的要求，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「後門」與 Ldr 中的「後門」完全匹配，受體「系統」與 Ldr 中的「系統」完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認原則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "後門",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "後門的目的是為了『方便將來的破壞』，這意味著後門工具能控制受害系統，符合 (tool, controls, system) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "風險評估",
+      "type": "technique",
+      "display_name": "風險評估"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "風險管理包含『評估風險』以確定嚴重性，這是一種技術流程（technique）用來分析系統的弱點/漏洞，符合 (technique, can_analyze, vulnerability) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "風險評估 (technique) 可以分析弱點 (vulnerability)，這符合資安領域的常見實踐和語意對齊，接受同義詞寬容原則後仍然合理。",
+        "response": "correct",
+        "reason": "風險評估可以分析弱點的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。但本三元組的主體是風險評估（technique），不觸發規則3的限制。其他規則均不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "風險評估（technique）可以執行 can_analyze 動作，且受體為弱點（vulnerability），不違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中，風險評估與變更風險評估、風險識別、風險監控等相關，但與弱點的同義詞如漏洞、脆弱性無直接關聯",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體無直接同義詞關聯，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險評估",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "風險管理包含『評估風險』以確定嚴重性，這是一種技術流程（technique）用來分析系統的弱點/漏洞，符合 (technique, can_analyze, vulnerability) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本提到風險管理是為了減少『漏洞影響』，邏輯上漏洞（vulnerability）會導致風險（risk）暴露，符合 (vulnerability, can_expose, risk) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '弱點' 的類別 'vulnerability' 合理對齊，實體 '風險' 的類別 'risk' 也合理對齊，關係 'can_expose' 在資安領域中是合理的用法。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組符合此規則，其他規則不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為vulnerability，關係為can_expose，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞在 Ldr 中，分別為「弱點」與「風險」",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，「漏洞」、「弱點」與「脆弱性」均指「vulnerability」，但與「風險」無直接同義關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到風險管理是為了減少『漏洞影響』，邏輯上漏洞（vulnerability）會導致風險（risk）暴露，符合 (vulnerability, can_expose, risk) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到『您必須確保所有系統都是乾淨的』，這裡的『您』指負責維運的資安人員，他們需要控制並檢查系統，符合 (securityTeam, controls, system) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 控制系統 (system) 的語意是合理的，'securityTeam' 和 'system' 的名稱與其類別對齊，且 'controls' 關係在資安領域中是常見的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不觸發，因為三元組中沒有提到攻擊者(attacker)。規則2：不觸發，因為三元組中的關係是 controls，不是 mitigates。規則3：不觸發，因為三元組中的主體類別是 securityTeam，不是 vulnerability。規則4：不觸發，因為三元組中的主體類別是 securityTeam，不是 principle。規則5：不觸發，因為三元組中的關係是 controls，不是 uses。規則6：不觸發，因為三元組中的關係是 controls，不是 deployed_in。規則7：不觸發，因為三元組中的關係是 controls，不是 generates。規則8：觸發，但符合規則所允許的條件，因為主體是具有主動執行能力的角色(securityTeam)。",
+        "response": "correct",
+        "reason": "三元組中的主體是 securityTeam，關係是 controls，受體是 system，符合規則8所允許的條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安人員與網路安全專業人員為同義詞，系統與各系統相關詞彙為同義詞或廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，資安人員與系統不構成同義詞重複，且系統相關詞彙為廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到『您必須確保所有系統都是乾淨的』，這裡的『您』指負責維運的資安人員，他們需要控制並檢查系統，符合 (securityTeam, controls, system) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "身份盜用服務",
+      "type": "tool",
+      "display_name": "身份盜用服務"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "組織提供身份盜用服務來補償客戶，這是一種工具/服務用來緩解個資外洩後的風險影響，符合 (tool, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "身份盜用服務 (tool) 與個資外洩 (risk) 的名稱與其類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "身份盜用服務與個資外洩的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體 '身份盜用服務' 屬於 tool 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '身份盜用服務' 屬於 tool 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩與資料外洩、資訊外洩、敏感資訊外洩等均屬於資安領域中與『資料』或『資訊』相關的風險類型，尤其『個資外洩』與『資料外洩』在某些情境下可視為同義詞，但基於提供的資訊，『個資外洩』最直接對應的同義詞或近似詞在清單中為『個資外洩』本身，且與『資料外洩』、『資訊外洩』等概念上有重疊，但不完全等同，故依據『廣義/狹義一律保留』原則，判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "基於『廣義/狹義一律保留』原則，個資外洩與其他近似詞不完全等同，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "身份盜用服務",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "組織提供身份盜用服務來補償客戶，這是一種工具/服務用來緩解個資外洩後的風險影響，符合 (tool, mitigates, risk) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "鑑識調查",
+      "type": "technique",
+      "display_name": "鑑識調查"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "記錄檔資訊",
+      "type": "data",
+      "display_name": "記錄檔資訊"
+    },
+    "reasoning": "文本提到透過鑑識專家研究找出細節，鑑識調查（technique）必然涉及對日誌或封包等資料（data）的分析，符合 (technique, can_analyze, data) 的 Schema。",
+    "source_id": "chunk_10",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "鑑識調查 (technique) 與 記錄檔資訊 (data) 的名稱與其類別合理對齊，且 'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "鑑識調查 (technique) 可以分析記錄檔資訊 (data)，因此此三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 technique，而非 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於三元組中的主體是鑑識調查（technique），關係是 can_analyze，受體是記錄檔資訊（data），這符合一般的資安分析邏輯，沒有明顯違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關聯性在資安分析的邏輯中是合理的，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "鑑識調查與問卷調查之間的關係是同義詞，但鑑識調查與記錄檔資訊之間的關係是主體與受體的關係，記錄檔資訊是資料類別，與其他資料類別資源（如資訊檔案、檔案資料）有相似的特性，但不完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "鑑識調查與記錄檔資訊之間的關係是主體與受體的關係，無法確認為同義詞或廣義/狹義從屬，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "鑑識調查",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "記錄檔資訊",
+        "type": "data"
+      },
+      "reasoning": "文本提到透過鑑識專家研究找出細節，鑑識調查（technique）必然涉及對日誌或封包等資料（data）的分析，符合 (technique, can_analyze, data) 的 Schema。",
+      "source_id": "chunk_10",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 10
+    }
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "subject": {
+      "name": "後門程式",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack"
+    },
+    "reasoning": "文本提到『對抗惡意程式的能力，如對後門程式...』，顯示後門程式是惡意程式的一種具體形式，符合 (attack, is_part_of, attack) 的 Schema。",
+    "source_id": "chunk_8",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "木馬程式",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack"
+    },
+    "reasoning": "文本將木馬程式列為惡意程式的例子，因此定義為 (attack, is_part_of, attack)。",
+    "source_id": "chunk_8",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "病毒程式",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack"
+    },
+    "reasoning": "文本將病毒程式列為惡意程式的例子，因此定義為 (attack, is_part_of, attack)。",
+    "source_id": "chunk_8",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "可信賴平台模組",
+      "type": "tool"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "可信賴電腦系統",
+      "type": "system"
+    },
+    "reasoning": "文本描述可信賴電腦系統的架構中，最底層是可信賴平台模組 (TPM)，因此 TPM 是該系統的一個組成工具，符合 (tool, is_part_of, system)。",
+    "source_id": "chunk_8",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "TCG 驅動程式庫",
+      "type": "tool"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "可信賴電腦系統",
+      "type": "system"
+    },
+    "reasoning": "TCG 驅動程式庫是可信賴電腦系統架構中的一層，屬於系統的組成部分，符合 (tool, is_part_of, system)。",
+    "source_id": "chunk_8",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "TCG 軟體堆疊核心服務",
+      "type": "tool"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "可信賴電腦系統",
+      "type": "system"
+    },
+    "reasoning": "TCG 軟體堆疊核心服務是可信賴電腦系統架構中的一層，屬於系統的組成部分，符合 (tool, is_part_of, system)。",
+    "source_id": "chunk_8",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "TCG 服務提供者",
+      "type": "tool"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "可信賴電腦系統",
+      "type": "system"
+    },
+    "reasoning": "TCG 服務提供者是可信賴電腦系統架構中的最上層，屬於系統的組成部分，符合 (tool, is_part_of, system)。",
+    "source_id": "chunk_8",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "TCG 服務提供者",
+      "type": "tool"
+    },
+    "reasoning": "文本提到 TCG 服務提供者『提供最上層應用程式使用』，表示應用程式在運作時包含或調用此工具，符合 (app, has_a, tool)。",
+    "source_id": "chunk_8",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "可信賴電腦系統",
+      "type": "system"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "網路資料",
+      "type": "data"
+    },
+    "reasoning": "文本提到提升安全性以『確保網路資料之安全』，暗示系統在處理或保護網路資料，符合 (system, uses, data)。",
+    "source_id": "chunk_8",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "可信賴平台模組",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack"
+    },
+    "reasoning": "文本提到可信賴電腦系統（其核心為 TPM）需具備對抗惡意程式的能力，將此防禦能力具體化為 TPM 工具對攻擊的緩解，符合 (tool, mitigates, attack)。",
+    "source_id": "chunk_8",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 10
+  },
+  {
+    "subject": {
+      "name": "可信賴平台模組",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "身分鑑別",
+      "type": "function"
+    },
+    "reasoning": "文本提到『鑑別使用者或網路連線者之身分』是可信賴電腦系統的功能，而 TPM 是實現此功能的硬體基礎，符合 (tool, has_a, function)。",
+    "source_id": "chunk_8",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 11
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "subject": {
+      "name": "登入系統",
+      "type": "app"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "密碼檔案",
+      "type": "data"
+    },
+    "reasoning": "文本提到登入系統將帳號與密碼保存於檔案中作為比對依據，因此登入系統（app）使用了密碼檔案（data）。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "密碼檔案",
+      "type": "data"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "明文儲存密碼",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本指出將密碼直接保存在檔案中是危險的，這構成了一種系統缺陷（明文儲存），因此資料實體（data）可暴露此漏洞（vulnerability）。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "非法者",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "明文儲存密碼",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到非法者可以窺視密碼並冒用帳號，這是在利用明文儲存的漏洞，符合攻擊者（attacker）利用漏洞（vulnerability）的邏輯。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "非法者",
+      "type": "attacker"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "冒用帳號",
+      "type": "attack"
+    },
+    "reasoning": "非法者執行「冒用合法用戶帳號」的惡意行為，因此攻擊者（attacker）實作了該攻擊（attack）。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "加鹽雜湊法",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "冒用帳號",
+      "type": "attack"
+    },
+    "reasoning": "文本明確指出採用加鹽雜湊法後，即使檔案被窺視，非法者也無法冒用帳號，因此該技術（technique）可緩解此攻擊（attack）。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "加鹽雜湊法",
+      "type": "technique"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "雜湊函數",
+      "type": "tool"
+    },
+    "reasoning": "加鹽雜湊法必須依賴雜湊函數來計算訊息摘要才能運作，因此技術（technique）依賴於工具（tool）。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "雜湊函數",
+      "type": "tool"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "密碼訊息摘要",
+      "type": "data"
+    },
+    "reasoning": "文本描述採用雜湊函數計算出「密碼訊息摘要」並儲存，因此工具（tool）產生了資料（data）。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "登入系統",
+      "type": "app"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "雜湊函數",
+      "type": "tool"
+    },
+    "reasoning": "登入系統在建立帳號與登入比對時使用了雜湊函數，將其作為系統內建的功能工具，符合 app has_a tool 的關係。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "冒用帳號",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "登入系統",
+      "type": "app"
+    },
+    "reasoning": "冒用帳號會導致非法者進入系統，對登入系統的安全性與權限控制造成損害，符合攻擊（attack）危害應用程式（app）的邏輯。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 9
+  }
+]

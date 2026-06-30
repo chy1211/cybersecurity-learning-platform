@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "圍牆",
+      "type": "feature",
+      "display_name": "圍牆"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "入侵",
+      "type": "attack",
+      "display_name": "入侵"
+    },
+    "reasoning": "文本指出圍牆可用於阻隔入侵者，將「入侵」視為一種惡意攻擊行為(attack)，圍牆作為工具(tool)能緩解此攻擊，符合 ('tool', 'mitigates', 'attack')。",
+    "source_id": "chunk_8",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體名稱 '圍牆' 可被視為 'tool' 的合理實例，'入侵' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。待檢查三元組的主體是圍牆（feature），不符合規則2的條件，可能觸發違規。",
+        "response": "violation",
+        "reason": "因為圍牆（feature）不符合規則2中對於可以執行 mitigates 動作的主體類型，故判定為違規。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 因為圍牆（feature）不符合規則2中對於可以執行 mitigates 動作的主體類型，故判定為違規。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "圍牆",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "入侵",
+        "type": "attack"
+      },
+      "reasoning": "文本指出圍牆可用於阻隔入侵者，將「入侵」視為一種惡意攻擊行為(attack)，圍牆作為工具(tool)能緩解此攻擊，符合 ('tool', 'mitigates', 'attack')。",
+      "source_id": "chunk_8",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

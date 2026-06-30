@@ -1,0 +1,137 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "TCP 三向交握弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本明確提到 TCP SYN flood 攻擊是利用 TCP 協定三向交握的弱點，而發起攻擊的是攻擊者，因此符合 (attacker, can_exploit, vulnerability) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "TCP SYN flood 攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標伺服器",
+      "type": "system"
+    },
+    "reasoning": "文本描述 TCP SYN flood 攻擊會導致目標伺服器資源耗盡且無法運作，這屬於攻擊對系統造成損害，符合 (attack, can_harm, system) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "位址偽裝",
+      "type": "technique"
+    },
+    "reasoning": "文本提到攻擊者電腦可能透過位址偽裝來送出封包，位址偽裝是一種達成攻擊目的的方法，符合 (attacker, uses, technique) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "UDP 泛洪攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標主機",
+      "type": "system"
+    },
+    "reasoning": "文本提到 UDP 泛洪攻擊使主機不堪負荷且反應遲鈍，符合 (attack, can_harm, system) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "UDP",
+      "type": "feature"
+    },
+    "reasoning": "攻擊者利用 UDP 協定發送大量流量進行攻擊，協定在此被視為系統特徵，符合 (attacker, uses, feature) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "TCP SYN flood 攻擊",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "分散式阻斷服務攻擊",
+      "type": "attack"
+    },
+    "reasoning": "根據文本結構，TCP SYN flood 與 UDP flood 均被歸類在 7.2.2 分散式阻斷服務攻擊 (DDoS) 的章節下，符合 (attack, is_part_of, attack) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "UDP 泛洪攻擊",
+      "type": "attack"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "分散式阻斷服務攻擊",
+      "type": "attack"
+    },
+    "reasoning": "同上，UDP 泛洪攻擊是 DDoS 攻擊的一種具體形式，符合 (attack, is_part_of, attack) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "目標伺服器",
+      "type": "system"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "SYN-ACK 封包",
+      "type": "data"
+    },
+    "reasoning": "文本提到目標伺服器在收到 SYN 封包後會回應 SYN-ACK 封包，封包為資料實體，符合 (system, generates, data) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "TCP SYN flood 攻擊",
+      "type": "attack"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle"
+    },
+    "reasoning": "攻擊導致伺服器資源耗盡且無法運作，直接破壞了資安三要素中的可用性 (Availability)，符合 (attack, violates, principle) 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 9
+  }
+]

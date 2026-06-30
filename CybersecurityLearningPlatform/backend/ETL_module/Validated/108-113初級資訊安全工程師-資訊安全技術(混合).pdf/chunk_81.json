@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "中間人攻擊",
+      "type": "attack",
+      "display_name": "中間人攻擊"
+    },
+    "reasoning": "文本提到『攻擊者會將自己穿插到兩者受害目標之間』，這描述了攻擊者執行中間人攻擊的行為，因此使用 (attacker, implements, attack)。",
+    "source_id": "chunk_81",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 實現 (implements) 中間人攻擊 (attack) 是語意上合理的，攻擊者可以實現各種攻擊手法，包括中間人攻擊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。檢查規則2：不適用，因為三元組中的關係不是mitigates。檢查規則3：不適用，因為主體類別不是vulnerability。檢查規則4：不適用，因為關係不是violates且主體不是principle。檢查規則5：不適用，因為關係不是uses或主體類別不是data。檢查規則6：不適用，因為關係不是deployed_in。檢查規則7：不適用，因為關係不是generates。檢查規則8：不適用，因為關係不是controls，但需注意規則8中提到的主體必須是具有主動執行能力的角色或工具，攻擊者實際上符合這一點，且implements動作在此語境下是合理的。",
+        "response": "correct",
+        "reason": "三元組中的攻擊者實體通過implements關係實施中間人攻擊，這在語義上是合理的，因為攻擊者可以實施各種攻擊手法。沒有發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「攻擊者」與 Ldr 中的「攻擊者」完全等價同義詞，受體「中間人攻擊」與 Ldr 中的「中間人攻擊」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "中間人攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『攻擊者會將自己穿插到兩者受害目標之間』，這描述了攻擊者執行中間人攻擊的行為，因此使用 (attacker, implements, attack)。",
+      "source_id": "chunk_81",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "中間人攻擊",
+      "type": "attack",
+      "display_name": "中間人攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "通訊資訊",
+      "type": "data",
+      "display_name": "通訊資訊"
+    },
+    "reasoning": "文本 (C) 選項提到可『攔截受害目標雙方間的通訊資訊』，攔截資訊是對資料的侵害，符合 (attack, can_harm, data)。",
+    "source_id": "chunk_81",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "中間人攻擊 (Man-in-the-middle attack) 是 'attack' 的合理實例，通訊資訊 (communication data) 是 'data' 的合理實例，'can_harm' 關係在資安領域中合理適用於攻擊對資訊的危害。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 attack，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則相關性後，發現待檢查三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體是中間人攻擊，關係是 can_harm，受體是通訊資訊，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「中間人攻擊」與 Ldr 中的「中間人攻擊」完全匹配，受體「通訊資訊」與 Ldr 中的「通訊資訊」完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "中間人攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "通訊資訊",
+        "type": "data"
+      },
+      "reasoning": "文本 (C) 選項提到可『攔截受害目標雙方間的通訊資訊』，攔截資訊是對資料的侵害，符合 (attack, can_harm, data)。",
+      "source_id": "chunk_81",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資安管理制度",
+      "type": "policy",
+      "display_name": "資安管理制度"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "電腦犯罪",
+      "type": "attack",
+      "display_name": "電腦犯罪"
+    },
+    "reasoning": "題目 1 提到面對電腦犯罪的預防措施包含『建立資安管理制度』，制度屬於 policy 且用於緩解攻擊風險，符合 (policy, mitigates, attack)。",
+    "source_id": "chunk_81",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安管理制度 (policy) 是一種合理的政策實例，電腦犯罪 (attack) 是一種合理的攻擊實例，'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，因此語意對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 '資安管理制度'，類別為 'policy'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '資安管理制度' 屬於 'policy' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安管理制度與安全管理政策為同義詞，電腦犯罪與網路犯罪、犯罪、經濟犯罪、電腦安全事件皆屬攻擊類型，但電腦犯罪與網路犯罪最為相近",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，資安管理制度與安全管理政策不完全匹配，電腦犯罪與網路犯罪最為相近，但不完全等價，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安管理制度",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "電腦犯罪",
+        "type": "attack"
+      },
+      "reasoning": "題目 1 提到面對電腦犯罪的預防措施包含『建立資安管理制度』，制度屬於 policy 且用於緩解攻擊風險，符合 (policy, mitigates, attack)。",
+      "source_id": "chunk_81",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "掃描",
+      "type": "technique",
+      "display_name": "掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "物聯網設備",
+      "type": "system",
+      "display_name": "物聯網設備"
+    },
+    "reasoning": "題目 50 (D) 提到『對物聯網設備定期進行掃描』，掃描是一種分析系統狀態的技術，符合 (technique, can_analyze, system)。",
+    "source_id": "chunk_81",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "掃描 (technique) 與 物聯網設備 (system) 的名稱與其類別合理對齊，且 'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_analyze'，且主體是 '掃描'（類別：technique），受體是 '物聯網設備'（類別：system），這符合一般的分析或檢查行為，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間的關聯性沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"掃描\" 與 Ldr 中的 \"原始碼掃描\" 類別相同，但非完全等價同義詞；受體 \"物聯網設備\" 與 Ldr 中的 \"物聯網設備\" 完全匹配，為同一概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "物聯網設備",
+        "reason": "受體 \"物聯網設備\" 與 Ldr 中的 \"物聯網設備\" 完全匹配，為同一概念，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "物聯網設備",
+        "type": "system"
+      },
+      "reasoning": "題目 50 (D) 提到『對物聯網設備定期進行掃描』，掃描是一種分析系統狀態的技術，符合 (technique, can_analyze, system)。",
+      "source_id": "chunk_81",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "https",
+      "type": "app",
+      "display_name": "HTTPS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "port 443",
+      "type": "feature",
+      "display_name": "Port 443"
+    },
+    "reasoning": "題目 49 詢問 HTTPS 常使用的通訊埠為 443，通訊埠是協定/應用程式的特徵，符合 (app, has_a, feature)。",
+    "source_id": "chunk_81",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "HTTPS 是一種網路協定，屬於 'app' 類別的合理實例；'Port 443' 是一種特徵，屬於 'feature' 類別的合理實例，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "HTTPS 與 Port 443 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的主體 'HTTPS' 類別為 'app'，關係為 'has_a'，受體為 'Port 443' 類別為 'feature'，未觸發語義限制清單中的任何規則。因此，該三元組不違反任何語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 HTTPS 與 Ldr 中的 https 完全等價同義詞，受體 Port 443 與 Ldr 中無直接相關資源，但可視為 HTTPS 的特徵",
+        "response": "correct",
+        "standard_subject": "https",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，HTTPS 是 https 的同義詞，但 Port 443 不是同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "HTTPS",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Port 443",
+        "type": "feature"
+      },
+      "reasoning": "題目 49 詢問 HTTPS 常使用的通訊埠為 443，通訊埠是協定/應用程式的特徵，符合 (app, has_a, feature)。",
+      "source_id": "chunk_81",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "snmp",
+      "type": "app",
+      "display_name": "SNMP"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "public community string",
+      "type": "vulnerability",
+      "display_name": "public community string"
+    },
+    "reasoning": "題目 2 提到 SNMP 的安全問題是『使用 public community string』，這是一種設定錯誤導致的漏洞，符合 (app, can_expose, vulnerability)。",
+    "source_id": "chunk_81",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SNMP 是一種網絡管理協議，屬於 'app' 類別；'public community string' 是一種安全漏洞，屬於 'vulnerability' 類別，兩者名稱與類別之間的對齊是合理的。",
+        "response": "correct",
+        "reason": "SNMP 可以暴露公眾社群字串，導致安全漏洞，因此該三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為app，受體類別為vulnerability，關係為can_expose，符合規則3的特例允許，未觸發其他規則的違規條件。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，且未違反其他規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SNMP 與 https 關係不明確，public community string 不在 Ldr 中，但根據資安領域知識，public community string 屬於漏洞類別，與 Ldr 中的資源無直接關聯。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法在 Ldr 中找到完全匹配或同義詞的資源，且實體之間無明確的從屬或等價關係，根據判斷準則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SNMP",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "public community string",
+        "type": "vulnerability"
+      },
+      "reasoning": "題目 2 提到 SNMP 的安全問題是『使用 public community string』，這是一種設定錯誤導致的漏洞，符合 (app, can_expose, vulnerability)。",
+      "source_id": "chunk_81",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "smurf 攻擊",
+      "type": "attack",
+      "display_name": "Smurf 攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標網路",
+      "type": "system",
+      "display_name": "目標網路"
+    },
+    "reasoning": "題目 3 提到透過假造封包至『目標網路』產生擴大流量效果，這會導致目標網路系統癱瘓，符合 (attack, can_harm, system)。",
+    "source_id": "chunk_81",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Smurf 攻擊是 'attack' 的合理實例，目標網路是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統影響的合理關係。",
+        "response": "correct",
+        "reason": "Smurf 攻擊對目標網路的 'can_harm' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體 'Smurf 攻擊' 的類別是 'attack'，與 'can_harm' 關係和 '目標網路' 的類別 'system' 相關，無明確違反規則。",
+        "response": "correct",
+        "reason": "三元組中 'Smurf 攻擊' 的類別是 'attack'，與 'can_harm' 關係和 '目標網路' 的類別 'system' 相關，無法觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Smurf 攻擊與 Ldr 中的 'smurf attack' 完全等價同義詞，且 '目標網路' 與 Ldr 中的 '目標網路' 完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Smurf 攻擊與 'smurf attack' 為同義詞，且 '目標網路' 已經是標準化的名稱。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Smurf 攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "目標網路",
+        "type": "system"
+      },
+      "reasoning": "題目 3 提到透過假造封包至『目標網路』產生擴大流量效果，這會導致目標網路系統癱瘓，符合 (attack, can_harm, system)。",
+      "source_id": "chunk_81",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "smurf 攻擊",
+      "type": "attack",
+      "display_name": "Smurf 攻擊"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "阻絕服務攻擊",
+      "type": "attack",
+      "display_name": "阻絕服務攻擊"
+    },
+    "reasoning": "題目 3 描述 Smurf 攻擊（由選項 A 縮寫推斷）是一種『阻絕服務攻擊』，符合 (attack, is_part_of, attack)。",
+    "source_id": "chunk_81",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Smurf 攻擊與阻絕服務攻擊都是合理的 'attack' 實例，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "Smurf 攻擊與阻絕服務攻擊的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。檢查規則2：不適用，因為三元組中的關係不是 mitigates。檢查規則3：不適用，因為三元組中的主體類別不是 vulnerability。檢查規則4：不適用，因為三元組中的關係不是 violates，且主體不是 principle。檢查規則5：不適用，因為三元組中的關係不是 uses。檢查規則6：不適用，因為三元組中的關係不是 deployed_in。檢查規則7：不適用，因為三元組中的關係不是 generates。檢查規則8：不適用，因為三元組中的關係不是 controls。由於三元組中的主體和受體都是攻擊類別，且關係是 is_part_of，表示 Smurf 攻擊是 阻絕服務攻擊的一部分，沒有違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體都是攻擊類別，且關係是 is_part_of，表示 Smurf 攻擊是 阻絕服務攻擊的一部分，沒有違反任何規則。因此，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "Smurf 攻擊與阻絕服務攻擊在資安領域中，Smurf 攻擊是一種特定類型的阻絕服務攻擊，兩者之間存在著廣義和狹義的關係，Smurf 攻擊是阻絕服務攻擊的一種實現方式。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Smurf 攻擊是阻絕服務攻擊的一種子類型，根據判斷準則中的【廣義/狹義一律保留】，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Smurf 攻擊",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "阻絕服務攻擊",
+        "type": "attack"
+      },
+      "reasoning": "題目 3 描述 Smurf 攻擊（由選項 A 縮寫推斷）是一種『阻絕服務攻擊』，符合 (attack, is_part_of, attack)。",
+      "source_id": "chunk_81",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  }
+]

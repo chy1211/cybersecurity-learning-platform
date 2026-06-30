@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "aes",
+      "type": "tool",
+      "display_name": "AES"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "subbytes",
+      "type": "function",
+      "display_name": "SubBytes"
+    },
+    "reasoning": "文本提到 AES 加密流程包含 SubBytes，AES 作為加密演算法被視為 tool，而 SubBytes 是其執行的一個具體功能步驟，因此選擇 tool -> has_a -> function。",
+    "source_id": "chunk_9",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "AES 是一種加密工具（tool），SubBytes 是 AES 中的一個函數（function），因此名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "AES 和 SubBytes 的類別與屬性完全符合預先定義的類別與屬性清單，且名稱與類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（AES, has_a, SubBytes）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 AES 與 Ldr 中的 aes 完全等價同義詞，受體 SubBytes 與 Ldr 中的 subbytes 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "aes",
+        "standard_object": "subbytes",
+        "reason": "根據同義詞判定，AES 與 aes、SubBytes 與 subbytes 分別為完全等價同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "AES",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "SubBytes",
+        "type": "function"
+      },
+      "reasoning": "文本提到 AES 加密流程包含 SubBytes，AES 作為加密演算法被視為 tool，而 SubBytes 是其執行的一個具體功能步驟，因此選擇 tool -> has_a -> function。",
+      "source_id": "chunk_9",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "aes",
+      "type": "tool",
+      "display_name": "AES"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "shift rows",
+      "type": "function",
+      "display_name": "Shift Rows"
+    },
+    "reasoning": "文本提到 AES 加密流程包含 Shift Rows，AES 為 tool，Shift Rows 為其執行功能，符合 tool -> has_a -> function。",
+    "source_id": "chunk_9",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 中。",
+        "step_2_alignment_check": "AES 是一種加密工具，可以包含 'Shift Rows' 這種加密功能，名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "AES 和 'Shift Rows' 的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則，發現規則5與規則8可能相關，但主體為tool，關係為has_a，受體為function，未直接觸發規則5或規則8的違規條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係未違反任何語義限制清單中的規則，尤其是規則5和規則8不直接適用於此has_a關係。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 AES 與 Ldr 中的 aes 完全等價同義詞，受體 Shift Rows 與 Ldr 中的 shift rows 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "aes",
+        "standard_object": "shift rows",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "AES",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Shift Rows",
+        "type": "function"
+      },
+      "reasoning": "文本提到 AES 加密流程包含 Shift Rows，AES 為 tool，Shift Rows 為其執行功能，符合 tool -> has_a -> function。",
+      "source_id": "chunk_9",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "subbytes",
+      "type": "function",
+      "display_name": "SubBytes"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "s-box",
+      "type": "feature",
+      "display_name": "S-box"
+    },
+    "reasoning": "文本指出 SubBytes 使用替換盒子 (S-box)，S-box 是實現該功能的組成部分/屬性，因此選擇 function -> has_a -> feature。",
+    "source_id": "chunk_9",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SubBytes 是一個加密演算法中的函數，S-box 是加密演算法中的特徵，因此這些名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。無明確違規規則被觸發。",
+        "response": "correct",
+        "reason": "三元組（SubBytes, has_a, S-box）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SubBytes 與 subbytes 完全等價同義詞，S-box 與 s-box 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "subbytes",
+        "standard_object": "s-box",
+        "reason": "根據同義詞判定，SubBytes 與 subbytes、S-box 與 s-box 分別為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SubBytes",
+        "type": "function"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "S-box",
+        "type": "feature"
+      },
+      "reasoning": "文本指出 SubBytes 使用替換盒子 (S-box)，S-box 是實現該功能的組成部分/屬性，因此選擇 function -> has_a -> feature。",
+      "source_id": "chunk_9",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "aes",
+      "type": "tool",
+      "display_name": "AES"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "mix columns",
+      "type": "function",
+      "display_name": "Mix Columns"
+    },
+    "reasoning": "文本提到 AES 加密流程包含 Mix Columns，AES 為 tool，Mix Columns 為其執行功能，符合 tool -> has_a -> function。",
+    "source_id": "chunk_9",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "AES 是一種加密工具，'Mix Columns' 是 AES 中的一個功能，名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "AES 和 'Mix Columns' 的類別與屬性完全符合預先定義的清單，且名稱與類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的項目。",
+        "response": "correct",
+        "reason": "三元組中的主體 'AES' 是一個工具，與 'Mix Columns' 進行 'has_a' 關係，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 AES 與 Ldr 中的 aes 完全等價同義詞，受體 Mix Columns 與 Ldr 中的 mix columns 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "aes",
+        "standard_object": "mix columns",
+        "reason": "根據前提確認與同義詞判定，主體與受體均與 Ldr 中的資源完全匹配。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "AES",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Mix Columns",
+        "type": "function"
+      },
+      "reasoning": "文本提到 AES 加密流程包含 Mix Columns，AES 為 tool，Mix Columns 為其執行功能，符合 tool -> has_a -> function。",
+      "source_id": "chunk_9",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa",
+      "type": "technique",
+      "display_name": "RSA"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "文本提到 RSA 廣泛運用於網際網路，網際網路為基礎設施 (system)，符合 tool -> deployed_in -> system。",
+    "source_id": "chunk_9",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "RSA 是一種加密工具，合理對齊 'tool' 類別；網際網路是一種系統，合理對齊 'system' 類別。",
+        "response": "correct",
+        "reason": "RSA 部署於網際網路的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，因為受體 '網際網路' 的類別是 system。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，且無其他規則被違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (RSA) 與 Ldr 中的 'rsa' 完全等價同義詞，受體 (網際網路) 與 Ldr 中的 '網際網路' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到 RSA 廣泛運用於網際網路，網際網路為基礎設施 (system)，符合 tool -> deployed_in -> system。",
+      "source_id": "chunk_9",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "aes",
+      "type": "tool",
+      "display_name": "AES"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "密文",
+      "type": "data",
+      "display_name": "密文"
+    },
+    "reasoning": "文本描述 AES 運算結果得到密文，密文屬於資訊實體 (data)，符合 tool -> generates -> data。",
+    "source_id": "chunk_9",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "AES 是一種加密工具，能夠生成密文，因此其名稱與類別 'tool' 對齊，且 '密文' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "AES 生成密文的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是generates，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為關係是generates，而非violates。規則5不適用，因為關係是generates，而非uses。規則6不適用，因為關係是generates，而非deployed_in。規則7適用，且三元組符合規則所允許的條件，因為受體的類別是data。規則8不適用，因為關係是generates，而非controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "AES 是一種加密工具，與 Ldr 中的 'aes' 完全等價；密文是加密後的資料，與 Ldr 中的 '密文' 完全等價。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "AES",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "密文",
+        "type": "data"
+      },
+      "reasoning": "文本描述 AES 運算結果得到密文，密文屬於資訊實體 (data)，符合 tool -> generates -> data。",
+      "source_id": "chunk_9",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa",
+      "type": "technique",
+      "display_name": "RSA"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "電子商務",
+      "type": "system",
+      "display_name": "電子商務"
+    },
+    "reasoning": "文本提到 RSA 運用於電子商務安全，電子商務在此視為一種綜合環境/系統 (system)，符合 tool -> deployed_in -> system。",
+    "source_id": "chunk_9",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "RSA 是一種加密工具，電子商務是一種系統，'deployed_in' 關係在資安領域中是合理的，表示 RSA 可以部署在電子商務系統中。",
+        "response": "correct",
+        "reason": "RSA 部署在電子商務系統中是資安領域中的一種常見做法，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，因為受體 '電子商務' 的類別是 system。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，且無其他規則被違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (RSA) 與 Ldr 中的 'rsa' 完全等價同義詞，受體 (電子商務) 與 Ldr 中的 '電子商務' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的某資源 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "電子商務",
+        "type": "system"
+      },
+      "reasoning": "文本提到 RSA 運用於電子商務安全，電子商務在此視為一種綜合環境/系統 (system)，符合 tool -> deployed_in -> system。",
+      "source_id": "chunk_9",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa",
+      "type": "technique",
+      "display_name": "RSA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "質因數分解問題",
+      "type": "feature",
+      "display_name": "大整數分解"
+    },
+    "reasoning": "文本指出 RSA 的安全度建立在將大整數分解為兩個質因數乘積的難題上，這是 RSA 演算法的核心數學特徵，符合 tool -> has_a -> feature。",
+    "source_id": "chunk_9",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "RSA 是一種密碼工具，'大整數分解' 是其的一個特徵，符合語意對齊，且 'tool' 和 'feature' 的名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "RSA 和 '大整數分解' 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查規則沒有直接觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體 'RSA' 和關係 'has_a'、受體 '大整數分解' 沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "RSA 是一種加密技術，與大整數分解有關，但 Ldr 中的資源 'rsa' 與 '質因數分解問題' 分別與主體和受體最為相似，且 'rsa' 與 'RSA' 完全等價同義詞，'大整數分解' 與 '質因數分解問題' 可視為同一概念的不同表述。",
+        "response": "correct",
+        "standard_subject": "rsa",
+        "standard_object": "質因數分解問題",
+        "reason": "根據同義詞判定，'RSA' 與 'rsa' 完全等價同義詞，'大整數分解' 與 '質因數分解問題' 可視為同一概念的不同表述。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "大整數分解",
+        "type": "feature"
+      },
+      "reasoning": "文本指出 RSA 的安全度建立在將大整數分解為兩個質因數乘積的難題上，這是 RSA 演算法的核心數學特徵，符合 tool -> has_a -> feature。",
+      "source_id": "chunk_9",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

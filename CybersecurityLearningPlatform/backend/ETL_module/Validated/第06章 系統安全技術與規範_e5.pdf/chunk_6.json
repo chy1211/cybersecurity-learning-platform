@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "itsec",
+      "type": "policy",
+      "display_name": "ITSEC"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "ITSEC 同樣是資訊技術安全評估準則（規範/策略），旨在透過標準化評估來緩解安全風險。根據 Schema，policy 可以 mitigates risk。",
+    "source_id": "chunk_6",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "ITSEC 可被視為一種 'policy'，而 '個資外洩' 是 'risk' 的合理實例，關係 'mitigates' 在資安領域中指的是減輕風險的措施，與 'policy' 減輕 'risk' 的語意相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 ITSEC 類別為 policy，符合規則；其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 ITSEC 類別為 policy，符合規則2的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩與資訊外洩為同義詞，ITSEC與tcsec無直接關聯",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "個資外洩",
+        "reason": "受體為同義詞重複，但主體無直接同義詞對應，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ITSEC",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "ITSEC 同樣是資訊技術安全評估準則（規範/策略），旨在透過標準化評估來緩解安全風險。根據 Schema，policy 可以 mitigates risk。",
+      "source_id": "chunk_6",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "tcsec",
+      "type": "policy",
+      "display_name": "TCSEC"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "設備故障",
+      "type": "risk",
+      "display_name": "設備故障"
+    },
+    "reasoning": "TCSEC (橘皮書) 是一套安全評估準則（規範/策略），其目的是透過定義安全等級來降低系統風險。根據 Schema，policy 可以 mitigates risk。",
+    "source_id": "chunk_6",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "TCSEC 是一種安全政策（policy），'設備故障' 是一種風險（risk），'mitigates' 是一種合理的關係，因為安全政策可以減輕風險。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 TCSEC 類別為 policy，符合規則。其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他規則的違反。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "設備故障為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "設備故障已在近似資源清單中，且為完全等價同義詞，無需進行標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "TCSEC",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "設備故障",
+        "type": "risk"
+      },
+      "reasoning": "TCSEC (橘皮書) 是一套安全評估準則（規範/策略），其目的是透過定義安全等級來降低系統風險。根據 Schema，policy 可以 mitigates risk。",
+      "source_id": "chunk_6",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "可信賴電腦系統",
+      "type": "system",
+      "display_name": "可信賴電腦基礎 TCB"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "可信賴電腦系統",
+      "type": "system",
+      "display_name": "可信賴電腦系統"
+    },
+    "reasoning": "文本提到 TCB (Trusted Computing Base) 是可信賴電腦系統的基礎，在邏輯上 TCB 是構成可信賴電腦系統的核心子系統，因此使用 ('system', 'is_part_of', 'system')。",
+    "source_id": "chunk_6",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "可信賴電腦基礎 TCB 與可信賴電腦系統 均為 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與主體、受體的類別（皆為 system）不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "可信賴電腦系統",
+        "standard_object": "可信賴電腦系統",
+        "reason": "主體與受體皆為可信賴電腦基礎 TCB 與可信賴電腦系統，與 Ldr 中的「可信賴電腦系統」完全相同，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "可信賴電腦基礎 TCB",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "可信賴電腦系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到 TCB (Trusted Computing Base) 是可信賴電腦系統的基礎，在邏輯上 TCB 是構成可信賴電腦系統的核心子系統，因此使用 ('system', 'is_part_of', 'system')。",
+      "source_id": "chunk_6",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "安全功能",
+      "type": "function",
+      "display_name": "安全功能"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "文本提到橘皮書根據電腦系統採用的「安全功能」來分級。安全功能的本質是為了偵測或防止惡意行為，符合 ('function', 'can_detect', 'attack')。",
+    "source_id": "chunk_6",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全功能 (function) 可以檢測駭客攻擊 (attack)，這是資安領域中常見的語意對齊，符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_detect，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（安全功能）與關係（can_detect）和受體（駭客攻擊）之間的關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 駭客攻擊與 Ldr 中的資源 '駭客攻擊' 完全等價同義詞，主體 (Subject) 安全功能與 Ldr 中的資源 '安全功能' 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全功能",
+        "type": "function"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到橘皮書根據電腦系統採用的「安全功能」來分級。安全功能的本質是為了偵測或防止惡意行為，符合 ('function', 'can_detect', 'attack')。",
+      "source_id": "chunk_6",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "可信賴電腦組織 tcg",
+      "type": "securityTeam",
+      "display_name": "可信賴電腦組織 TCG"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "可信賴計算平台",
+      "type": "system",
+      "display_name": "可信賴計算平台"
+    },
+    "reasoning": "TCG (原 TCPA) 是由多家公司發起的聯盟（安全團隊/組織），負責定義與管理可信賴計算平台的標準與實作，符合 ('securityTeam', 'controls', 'system')。",
+    "source_id": "chunk_6",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "可信賴電腦組織 TCG 是 'securityTeam' 的合理實例，可信賴計算平台是 'system' 的合理實例，且 'controls' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 securityTeam，具有主動執行能力，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體為可信賴電腦組織 TCG，類別為 securityTeam，關係為 controls，受體為可信賴計算平台，類別為 system，符合規則8的允許條件。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中項目無直接完全匹配關係，但主體與受體之間存在著廣義與狹義的關係，受體「可信賴計算平台」可被視為「可信賴電腦系統」的子類型或相關概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，若一個實體是另一個的子類型，則判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "可信賴電腦組織 TCG",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "可信賴計算平台",
+        "type": "system"
+      },
+      "reasoning": "TCG (原 TCPA) 是由多家公司發起的聯盟（安全團隊/組織），負責定義與管理可信賴計算平台的標準與實作，符合 ('securityTeam', 'controls', 'system')。",
+      "source_id": "chunk_6",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "solaris 8 作業系統",
+      "type": "system",
+      "display_name": "Solaris 8 作業系統"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "可信賴電腦系統",
+      "type": "system",
+      "display_name": "可信賴電腦系統"
+    },
+    "reasoning": "文本將 Solaris 8 作為 B1 等級（強制進入管制與資料安全標示）的實例，說明它屬於可信賴電腦系統的一種實作，符合 ('system', 'is_part_of', 'system')。",
+    "source_id": "chunk_6",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Solaris 8 作業系統 和 可信賴電腦系統 的名稱與其被賦予的 'system' 類別合理對齊，符合資安領域的常見用語和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "Solaris 8 作業系統和可信賴電腦系統的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與主體和受體的類別（system）不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Solaris 8 作業系統與可信賴電腦系統之間的關係是不同系統的描述，兩者不完全等價同義詞，也非廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體名稱在資安領域中不被視為同義詞，且不具有廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Solaris 8 作業系統",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "可信賴電腦系統",
+        "type": "system"
+      },
+      "reasoning": "文本將 Solaris 8 作為 B1 等級（強制進入管制與資料安全標示）的實例，說明它屬於可信賴電腦系統的一種實作，符合 ('system', 'is_part_of', 'system')。",
+      "source_id": "chunk_6",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "trusted xenix 系統",
+      "type": "system",
+      "display_name": "Trusted XENIX 系統"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "可信賴電腦系統",
+      "type": "system",
+      "display_name": "可信賴電腦系統"
+    },
+    "reasoning": "文本將 Trusted XENIX 作為 B2 等級（結構化系統保護設計）的實例，說明其屬於可信賴電腦系統，符合 ('system', 'is_part_of', 'system')。",
+    "source_id": "chunk_6",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Trusted XENIX 系統和可信賴電腦系統的名稱與其被賦予的 'system' 類別合理對齊，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "Trusted XENIX 系統和可信賴電腦系統的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，因為關係為 is_part_of，不是 deployed_in，規則7：無關，規則8：無關",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間的關聯沒有明顯違反語義限制清單中的任何規則，尤其是當關係為 is_part_of 時，沒有特定的限制被觸發。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「可信賴電腦系統」完全相同，屬於同義詞重複",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "可信賴電腦系統",
+        "reason": "根據同義詞判定準則，受體與 Ldr 中的「可信賴電腦系統」完全相同，屬於同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Trusted XENIX 系統",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "可信賴電腦系統",
+        "type": "system"
+      },
+      "reasoning": "文本將 Trusted XENIX 作為 B2 等級（結構化系統保護設計）的實例，說明其屬於可信賴電腦系統，符合 ('system', 'is_part_of', 'system')。",
+      "source_id": "chunk_6",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "boeing aerospace sns 系統",
+      "type": "system",
+      "display_name": "Boeing Aerospace SNS 系統"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "可信賴電腦系統",
+      "type": "system",
+      "display_name": "可信賴電腦系統"
+    },
+    "reasoning": "文本將 Boeing Aerospace SNS 作為 A1 等級（經許可的系統安全設計）的實例，說明其屬於可信賴電腦系統，符合 ('system', 'is_part_of', 'system')。",
+    "source_id": "chunk_6",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Boeing Aerospace SNS 系統與可信賴電腦系統的名稱與其類別 'system' 合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與規則無直接衝突，且主體和受體的類別皆為 system，符合一般的語義理解。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「可信賴電腦系統」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Boeing Aerospace SNS 系統",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "可信賴電腦系統",
+        "type": "system"
+      },
+      "reasoning": "文本將 Boeing Aerospace SNS 作為 A1 等級（經許可的系統安全設計）的實例，說明其屬於可信賴電腦系統，符合 ('system', 'is_part_of', 'system')。",
+      "source_id": "chunk_6",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

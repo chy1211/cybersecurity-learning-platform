@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "系統日誌",
+      "type": "data",
+      "display_name": "系統日誌"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "儲存媒體",
+      "type": "tool",
+      "display_name": "儲存媒體"
+    },
+    "reasoning": "文本提到日誌記錄檔需留意儲存媒體的最大容量，表示系統日誌（data）被部署/存放於（deployed_in）儲存媒體（system）中。",
+    "source_id": "chunk_92",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "系統日誌 (data) 與儲存媒體 (system) 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊與同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，但本例中受體儲存媒體的類別是 tool，不符合規則6的要求，觸發違規檢查。",
+        "response": "violation",
+        "reason": "三元組中的受體儲存媒體的類別是 tool，而規則6要求當關係為 deployed_in 時，受體的類別必須是 system，因此觸發違規。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組中的受體儲存媒體的類別是 tool，而規則6要求當關係為 deployed_in 時，受體的類別必須是 system，因此觸發違規。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統日誌",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "儲存媒體",
+        "type": "system"
+      },
+      "reasoning": "文本提到日誌記錄檔需留意儲存媒體的最大容量，表示系統日誌（data）被部署/存放於（deployed_in）儲存媒體（system）中。",
+      "source_id": "chunk_92",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  }
+]

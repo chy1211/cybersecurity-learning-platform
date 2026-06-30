@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "風險應對方案",
+      "type": "policy",
+      "display_name": "風險應對方案"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "項目風險",
+      "type": "risk",
+      "display_name": "項目風險"
+    },
+    "reasoning": "文本提到風險應對方案是針對項目風險開發的，目的是提高實現目標的機會，這符合 policy (規範與策略) 用於 mitigates (緩解) risk (風險) 的邏輯。",
+    "source_id": "chunk_4",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "風險應對方案 (policy) 是一種合理的政策實例，項目風險 (risk) 是一種合理的風險實例，'mitigates' 是一種合理的關係描述，表示政策可以減輕風險。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是風險應對方案（類別：policy），符合規則2的允許條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（風險應對方案）是 policy 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "項目風險是風險的子類型，但根據給定的資安領域已知同義詞對照範例，項目風險與風險之間的關係不在同義詞對照範例中，且項目風險是風險的子集，因此不視為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "項目風險是風險的子類型，根據【廣義/狹義一律保留】判斷準則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險應對方案",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "項目風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到風險應對方案是針對項目風險開發的，目的是提高實現目標的機會，這符合 policy (規範與策略) 用於 mitigates (緩解) risk (風險) 的邏輯。",
+      "source_id": "chunk_4",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "風險監控",
+      "type": "technique",
+      "display_name": "風險監控"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "it基礎結構",
+      "type": "system",
+      "display_name": "IT基礎結構"
+    },
+    "reasoning": "風險監控在項目過程中追蹤風險並監視殘餘風險，這是一種分析系統狀態的技術。由於 technique 無法直接 analyze risk，因此將其對象設定為其監控的 system (系統)。",
+    "source_id": "chunk_4",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "風險監控 (technique) 可以分析 IT基礎結構 (system)，這是合理的，因為風險監控通常涉及分析系統的安全性和風險。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_analyze' 不在任何規則中被明確限制，且主體 '風險監控' 的類別 'technique' 與受體 'IT基礎結構' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，Ldr為空，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險監控",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "IT基礎結構",
+        "type": "system"
+      },
+      "reasoning": "風險監控在項目過程中追蹤風險並監視殘餘風險，這是一種分析系統狀態的技術。由於 technique 無法直接 analyze risk，因此將其對象設定為其監控的 system (系統)。",
+      "source_id": "chunk_4",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "內部稽核",
+      "type": "technique",
+      "display_name": "內部稽核"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "可疑行為",
+      "type": "attack",
+      "display_name": "可疑行為"
+    },
+    "reasoning": "文本明確指出內部稽核用來幫助偵測可疑行為。內部稽核是一種方法 (technique)，可疑行為在資安語境中視為攻擊跡象 (attack)，符合 technique can_detect attack。",
+    "source_id": "chunk_4",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "內部稽核 (technique) 可以檢測可疑行為 (attack)，這是資安領域中合理的語意對齊，內部稽核是一種技術，用于檢測攻擊或可疑行為。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_detect'，而非規則中明確限制的動作，且主體 '內部稽核' 屬於 'technique' 類別，受體 '可疑行為' 屬於 'attack' 類別，未觸發任何規則的違規條件。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "內部稽核與風險監控無直接同義詞關係，但兩者皆與風險管理相關，然而內部稽核更側重於組織內部的審核與評估，風險監控則著重於監測與控制風險，兩者在資安領域中有所重疊但非完全等同，且無明確的廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定內部稽核與風險監控之間的直接同義詞或從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部稽核",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "可疑行為",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出內部稽核用來幫助偵測可疑行為。內部稽核是一種方法 (technique)，可疑行為在資安語境中視為攻擊跡象 (attack)，符合 technique can_detect attack。",
+      "source_id": "chunk_4",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "內部稽核",
+      "type": "technique",
+      "display_name": "內部稽核"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "內部稽核的目標包含確保資料存取授權與資料正確性，這必須透過分析資料 (data) 來達成，符合 technique can_analyze data。",
+    "source_id": "chunk_4",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "內部稽核 (Internal Audit) 是一種技術 (technique)，而資料 (data) 是一種數據 (data)，這些名稱與其類別是合理對齊的，且 'can_analyze' 關係在資安領域中是合理的，因為內部稽核可以分析資料。",
+        "response": "correct",
+        "reason": "內部稽核與資料的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別是 technique，而不是 data。規則6：不適用。規則7：不適用。規則8：不適用，因為關係是 can_analyze，而不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是內部稽核（類別：technique），關係是 can_analyze，受體是資料（類別：data），這符合一般的語義理解，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆不為同義詞重複，且無廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定實體間的同義詞或從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部稽核",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "內部稽核的目標包含確保資料存取授權與資料正確性，這必須透過分析資料 (data) 來達成，符合 technique can_analyze data。",
+      "source_id": "chunk_4",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "安全政策",
+      "type": "policy",
+      "display_name": "安全政策"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "項目風險",
+      "type": "risk",
+      "display_name": "項目風險"
+    },
+    "reasoning": "安全政策旨在規範運作以降低風險，符合 policy mitigates risk 的定義。",
+    "source_id": "chunk_4",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全政策 (policy) 和 項目風險 (risk) 的名稱與其被賦予的類別合理對齊，且 'mitigates' 是一個合理的關係描述，表示安全政策可以減輕項目風險。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是安全政策（policy），符合規則2的條件，沒有違反任何規則。",
+        "response": "correct",
+        "reason": "三元組的主體是安全政策（policy），符合規則2的條件，沒有違反任何規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "項目風險與風險為同義詞，安全政策與安全管理政策為近似同義詞，但不完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與Ldr中某資源的name字串不完全相同，且無法確認為同義詞或子類型，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全政策",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "項目風險",
+        "type": "risk"
+      },
+      "reasoning": "安全政策旨在規範運作以降低風險，符合 policy mitigates risk 的定義。",
+      "source_id": "chunk_4",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "內部稽核",
+      "type": "technique",
+      "display_name": "內部稽核"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統運作",
+      "type": "system",
+      "display_name": "系統運作"
+    },
+    "reasoning": "內部稽核需要確保所有運作按照安全政策執行，這涉及對系統 (system) 運作狀態的分析，符合 technique can_analyze system。",
+    "source_id": "chunk_4",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "內部稽核 (technique) 可以分析系統運作 (system)，這是合理的，因為內部稽核通常涉及評估系統的運作與安全性。",
+        "response": "correct",
+        "reason": "內部稽核可以分析系統運作的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_analyze'，且主體是 '內部稽核'（類別：technique），受體是 '系統運作'（類別：system），這符合一般的分析邏輯，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間的邏輯關係沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源存在於 Ldr 中，但無直接同義詞關係，且無明顯的廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體之間的直接同義詞或從屬關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部稽核",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統運作",
+        "type": "system"
+      },
+      "reasoning": "內部稽核需要確保所有運作按照安全政策執行，這涉及對系統 (system) 運作狀態的分析，符合 technique can_analyze system。",
+      "source_id": "chunk_4",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 5
+    }
+  }
+]

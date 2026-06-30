@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "xss",
+      "type": "vulnerability",
+      "display_name": "XSS"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "雲端介面",
+      "type": "app",
+      "display_name": "雲端介面"
+    },
+    "reasoning": "文本提到需要檢查雲端介面是否能通過 XSS 等測試，隱含 XSS 攻擊會對雲端介面造成危害。符合 Schema: (attack, can_harm, app)。",
+    "source_id": "chunk_7",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "XSS 是 'attack' 的合理實例，雲端介面是 'app' 的合理實例，且 'can_harm' 的語意與 XSS 對雲端介面的影響相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3適用，因為主體是vulnerability，但can_harm動作不在允許的特例中。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "violation",
+        "reason": "三元組中的主體是vulnerability，根據規則3，vulnerability作為被動缺陷，原則上不可發起主動行為，如can_harm。因此，該三元組違反了語義限制清單中的規則3。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組中的主體是vulnerability，根據規則3，vulnerability作為被動缺陷，原則上不可發起主動行為，如can_harm。因此，該三元組違反了語義限制清單中的規則3。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "XSS",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "雲端介面",
+        "type": "app"
+      },
+      "reasoning": "文本提到需要檢查雲端介面是否能通過 XSS 等測試，隱含 XSS 攻擊會對雲端介面造成危害。符合 Schema: (attack, can_harm, app)。",
+      "source_id": "chunk_7",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

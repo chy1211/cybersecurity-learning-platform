@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "密碼檔案",
+      "type": "data",
+      "display_name": "密碼檔案"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "明文儲存密碼",
+      "type": "vulnerability",
+      "display_name": "明文儲存密碼"
+    },
+    "reasoning": "文本指出將密碼直接保存在檔案中是危險的，這構成了一種系統缺陷（明文儲存），因此資料實體（data）可暴露此漏洞（vulnerability）。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "密碼檔案是 'data' 的合理實例，明文儲存密碼是 'vulnerability' 的合理實例，'can_expose' 的關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為data，受體類別為vulnerability，關係為can_expose，符合規則3的特例允許。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"密碼檔案\" 與 Ldr 中的 \"密碼檔\" 關係為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，若一個實體是另一個的子類型或無法確定，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼檔案",
+        "type": "data"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "明文儲存密碼",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出將密碼直接保存在檔案中是危險的，這構成了一種系統缺陷（明文儲存），因此資料實體（data）可暴露此漏洞（vulnerability）。",
+      "source_id": "chunk_15",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "登入系統",
+      "type": "app",
+      "display_name": "登入系統"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "密碼檔",
+      "type": "data",
+      "display_name": "密碼檔案"
+    },
+    "reasoning": "文本提到登入系統將帳號與密碼保存於檔案中作為比對依據，因此登入系統（app）使用了密碼檔案（data）。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '登入系統' 是 'app' 的合理實例，'密碼檔案' 是 'data' 的合理實例，且 'uses' 是描述 app 與 data 間關係的合理屬性。",
+        "response": "correct",
+        "reason": "登入系統使用密碼檔案的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為關係為uses且主體類別是app，但受體類別是data，符合規則允許的條件。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是登入系統（類別：app），關係是uses，受體是密碼檔案（類別：data），這符合規則5的允許條件，且未違反其他規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "密碼檔案與密碼檔為同義詞，兩者指稱同一概念",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "密碼檔",
+        "reason": "根據同義詞判定，密碼檔案與密碼檔為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "登入系統",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "密碼檔案",
+        "type": "data"
+      },
+      "reasoning": "文本提到登入系統將帳號與密碼保存於檔案中作為比對依據，因此登入系統（app）使用了密碼檔案（data）。",
+      "source_id": "chunk_15",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "非法者",
+      "type": "attacker",
+      "display_name": "非法者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "明文儲存密碼",
+      "type": "vulnerability",
+      "display_name": "明文儲存密碼"
+    },
+    "reasoning": "文本提到非法者可以窺視密碼並冒用帳號，這是在利用明文儲存的漏洞，符合攻擊者（attacker）利用漏洞（vulnerability）的邏輯。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "非法者 (attacker) 是 'attacker' 的合理實例，明文儲存密碼 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是 attacker 對 vulnerability 的合理關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為主體是攻擊者，而規則1是關於同一實體不能同時具有攻擊者和安全團隊的身分。規則2：不適用，因為主體不是policy、technique或tool。規則3：不適用，因為主體類別不是vulnerability。規則4：不適用，因為關係不是violates。規則5：不適用，因為關係不是uses。規則6：不適用，因為關係不是deployed_in。規則7：不適用，因為關係不是generates。規則8：不適用，因為關係不是controls。然而，需要注意的是，規則3雖然不直接適用，但它提到vulnerability不可發起主動行為，然而這裡的主體是攻擊者，可以_exploit，與規則3無直接衝突。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，關係是can_exploit，受體是明文儲存密碼，沒有直接違反任何一條語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資源名稱完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "非法者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "明文儲存密碼",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到非法者可以窺視密碼並冒用帳號，這是在利用明文儲存的漏洞，符合攻擊者（attacker）利用漏洞（vulnerability）的邏輯。",
+      "source_id": "chunk_15",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "非法者",
+      "type": "attacker",
+      "display_name": "非法者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "冒用帳號",
+      "type": "attack",
+      "display_name": "冒用帳號"
+    },
+    "reasoning": "非法者執行「冒用合法用戶帳號」的惡意行為，因此攻擊者（attacker）實作了該攻擊（attack）。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別對應到 'attacker'、'attack' 和 'implements'，皆在 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '非法者' 的類別 'attacker' 合理對齊，'冒用帳號' 的類別 'attack' 也合理對齊，考慮到同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不觸發，因為主體是攻擊者，沒有同時具有安全團隊的身分。規則2：不觸發，因為主體不是 policy, technique 或 tool。規則3：不觸發，因為主體類別不是 vulnerability。規則4：不觸發，因為關係不是 violates，且主體不是 principle。規則5：不觸發，因為關係不是 uses，或者主體的類別不是 data。規則6：不觸發，因為關係不是 deployed_in。規則7：不觸發，因為關係不是 generates。規則8：不觸發，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（非法者）與受體（冒用帳號）之間的 implements 關係，沒有明確違反任何一條語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似資源，但需進一步判定同義詞或從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，雖然有相似資源，但無法確認為完全同義詞或從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "非法者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "冒用帳號",
+        "type": "attack"
+      },
+      "reasoning": "非法者執行「冒用合法用戶帳號」的惡意行為，因此攻擊者（attacker）實作了該攻擊（attack）。",
+      "source_id": "chunk_15",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "加鹽雜湊法",
+      "type": "technique",
+      "display_name": "加鹽雜湊法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "冒用帳號",
+      "type": "attack",
+      "display_name": "冒用帳號"
+    },
+    "reasoning": "文本明確指出採用加鹽雜湊法後，即使檔案被窺視，非法者也無法冒用帳號，因此該技術（technique）可緩解此攻擊（attack）。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "加鹽雜湊法是 'technique' 的合理實例，冒用帳號是 'attack' 的合理實例，且 'mitigates' 的語意與加鹽雜湊法對冒用帳號的關係相符。",
+        "response": "correct",
+        "reason": "加鹽雜湊法作為一種技術，能夠有效地減輕冒用帳號的風險，三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '加鹽雜湊法' 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '加鹽雜湊法' 屬於 technique 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的某資源名稱完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "受體名稱與 Ldr 中的某資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加鹽雜湊法",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "冒用帳號",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出採用加鹽雜湊法後，即使檔案被窺視，非法者也無法冒用帳號，因此該技術（technique）可緩解此攻擊（attack）。",
+      "source_id": "chunk_15",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "加鹽雜湊法",
+      "type": "technique",
+      "display_name": "加鹽雜湊法"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "雜湊函數",
+      "type": "function",
+      "display_name": "雜湊函數"
+    },
+    "reasoning": "加鹽雜湊法必須依賴雜湊函數來計算訊息摘要才能運作，因此技術（technique）依賴於工具（tool）。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'technique' 和受體的類別 'tool' 都存在於 Lc,p 的 'Classes' 中，關係 'depends_on' 也存在於 'Properties' 中。",
+        "step_2_alignment_check": "加鹽雜湊法是一種技術（technique），而雜湊函數是一種工具（tool），這些名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "加鹽雜湊法與雜湊函數的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'depends_on'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'depends_on'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'depends_on'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'depends_on'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組（加鹽雜湊法 depends_on 雜湊函數）不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域已知概念，但無直接同義詞關係，且主體為技術，受體為函數，兩者概念不同，無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體無同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加鹽雜湊法",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "雜湊函數",
+        "type": "tool"
+      },
+      "reasoning": "加鹽雜湊法必須依賴雜湊函數來計算訊息摘要才能運作，因此技術（technique）依賴於工具（tool）。",
+      "source_id": "chunk_15",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "雜湊函數",
+      "type": "function",
+      "display_name": "雜湊函數"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "密碼訊息摘要",
+      "type": "data",
+      "display_name": "密碼訊息摘要"
+    },
+    "reasoning": "文本描述採用雜湊函數計算出「密碼訊息摘要」並儲存，因此工具（tool）產生了資料（data）。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雜湊函數 (Hash Function) 是工具 (tool) 的合理實例，密碼訊息摘要 (Password Message Digest) 是資料 (data) 的合理實例，'generates' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組符合規則所允許的條件，因為關係是generates，受體的類別是data。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且沒有違反其他規則。因此，三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源，但主體「雜湊函數」與現有資源「雜湊函數」完全匹配，受體「密碼訊息摘要」與現有資源「密碼檔」或「密碼檔案」無直接同義詞關係，但「密碼訊息摘要」可被視為與「密碼檔」或「密碼檔案」相關的概念，但非完全等價同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與現有資源完全匹配，受體與現有資源無直接同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雜湊函數",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "密碼訊息摘要",
+        "type": "data"
+      },
+      "reasoning": "文本描述採用雜湊函數計算出「密碼訊息摘要」並儲存，因此工具（tool）產生了資料（data）。",
+      "source_id": "chunk_15",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "登入系統",
+      "type": "app",
+      "display_name": "登入系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "雜湊函數",
+      "type": "function",
+      "display_name": "雜湊函數"
+    },
+    "reasoning": "登入系統在建立帳號與登入比對時使用了雜湊函數，將其作為系統內建的功能工具，符合 app has_a tool 的關係。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '登入系統' 是 'app' 的合理實例，'雜湊函數' 是 'tool' 的合理實例，兩者名稱與類別對齊合理。",
+        "response": "correct",
+        "reason": "登入系統與雜湊函數的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses，或者data不是主體。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組沒有觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞不存在，實體名稱與 Ldr 中某資源的 name 字串完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "登入系統",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "雜湊函數",
+        "type": "tool"
+      },
+      "reasoning": "登入系統在建立帳號與登入比對時使用了雜湊函數，將其作為系統內建的功能工具，符合 app has_a tool 的關係。",
+      "source_id": "chunk_15",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "冒用帳號",
+      "type": "attack",
+      "display_name": "冒用帳號"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "登入系統",
+      "type": "app",
+      "display_name": "登入系統"
+    },
+    "reasoning": "冒用帳號會導致非法者進入系統，對登入系統的安全性與權限控制造成損害，符合攻擊（attack）危害應用程式（app）的邏輯。",
+    "source_id": "chunk_15",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "冒用帳號是一種攻擊（attack），登入系統是一種應用程式（app），'can_harm' 關係在資安領域中是合理的，因為攻擊可以對登入系統造成傷害。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體 '冒用帳號' 屬於攻擊者類別，具有主動執行能力，符合 'can_harm' 關係的使用條件。",
+        "response": "correct",
+        "reason": "三元組 '冒用帳號'、'can_harm'、'登入系統' 沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全匹配的資源存在於 Ldr 中，且無需進一步同義詞判定。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中的資源完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "冒用帳號",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "登入系統",
+        "type": "app"
+      },
+      "reasoning": "冒用帳號會導致非法者進入系統，對登入系統的安全性與權限控制造成損害，符合攻擊（attack）危害應用程式（app）的邏輯。",
+      "source_id": "chunk_15",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

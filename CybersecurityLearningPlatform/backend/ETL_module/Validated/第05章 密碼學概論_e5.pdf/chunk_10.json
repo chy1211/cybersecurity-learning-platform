@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "rsa",
+      "type": "technique",
+      "display_name": "RSA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "rsa演算法",
+      "type": "tool",
+      "display_name": "RSA演算法"
+    },
+    "reasoning": "文本描述 RSA 為一種加密演算法。為了符合 Schema 中使用者(user)使用應用程式(app)且應用程式包含工具(tool)的邏輯，將 RSA 實作視為 app，其核心演算法視為 tool。",
+    "source_id": "chunk_10",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "RSA 是一種應用程式（app），而 'RSA演算法' 是一種工具（tool），這些名稱與其類別之間的對齊是合理的，考慮到資安領域的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "RSA 與 RSA演算法 的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的主體 'RSA' 和受體 'RSA演算法' 之間的關係 'has_a' 沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (RSA) 與 Ldr 中的資源 (rsa) 名稱完全相同，且類別 (technique) 相同，受體 (RSA演算法) 與主體 (RSA) 關係密切，可能是同一概念的不同表達方式",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "RSA演算法",
+        "type": "tool"
+      },
+      "reasoning": "文本描述 RSA 為一種加密演算法。為了符合 Schema 中使用者(user)使用應用程式(app)且應用程式包含工具(tool)的邏輯，將 RSA 實作視為 app，其核心演算法視為 tool。",
+      "source_id": "chunk_10",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa演算法",
+      "type": "tool",
+      "display_name": "RSA演算法"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "公開金鑰加密演算法",
+      "type": "technique",
+      "display_name": "公開金鑰加密演算法"
+    },
+    "reasoning": "文本明確指出『RSA 加密演算法是一種公開金鑰加密演算法』，因此 RSA 工具使用了公開金鑰加密這項技術。",
+    "source_id": "chunk_10",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "RSA演算法是一種工具，公開金鑰加密演算法是一種技術，'uses' 關係在此語境下合理，因為 RSA 演算法使用公開金鑰加密技術。",
+        "response": "correct",
+        "reason": "RSA演算法與公開金鑰加密演算法的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 tool，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 RSA演算法，類別為 tool，關係為 uses，受體為公開金鑰加密演算法，類別為 technique。根據規則5，當關係為 uses 時，如果主體的類別是 data，則為違反，但本例中主體類別為 tool，不是 data，故不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "RSA演算法與公開金鑰加密演算法之間的關係是同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "RSA演算法是一種公開金鑰加密演算法，兩者在資安領域中指稱同一概念，但根據【廣義/狹義一律保留】原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA演算法",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "公開金鑰加密演算法",
+        "type": "technique"
+      },
+      "reasoning": "文本明確指出『RSA 加密演算法是一種公開金鑰加密演算法』，因此 RSA 工具使用了公開金鑰加密這項技術。",
+      "source_id": "chunk_10",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa演算法",
+      "type": "tool",
+      "display_name": "RSA演算法"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "質因數分解問題",
+      "type": "feature",
+      "display_name": "質因數分解問題"
+    },
+    "reasoning": "文本提到 RSA 的安全度建立在質因數分解問題上，這屬於該演算法的一個核心安全特徵(feature)。",
+    "source_id": "chunk_10",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "RSA演算法是一種密碼學工具，與 'tool' 類別對齊；質因數分解問題是一種數學問題，與 'feature' 類別對齊，考慮到資安領域的同義詞寬容原則，兩者均為合理實例。",
+        "response": "correct",
+        "reason": "RSA演算法與質因數分解問題的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而非 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於三元組中的關係 'has_a' 與給定的規則中沒有直接相關的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 沒有在給定的語義限制清單中被明確限制，且主體和受體的類別組合沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA演算法",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "質因數分解問題",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 RSA 的安全度建立在質因數分解問題上，這屬於該演算法的一個核心安全特徵(feature)。",
+      "source_id": "chunk_10",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa演算法",
+      "type": "tool",
+      "display_name": "RSA演算法"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "訊息加密",
+      "type": "function",
+      "display_name": "訊息加密"
+    },
+    "reasoning": "文本指出訊息加密是 RSA 演算法包含的操作程序之一，屬於功能(function)。",
+    "source_id": "chunk_10",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "RSA演算法是一種工具（tool），訊息加密是一種功能（function），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "RSA演算法與訊息加密的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1至8，發現待檢查三元組（RSA演算法 has_a 訊息加密）不觸發任何違規條件，尤其是規則5中提到的uses關係不適用於本案例，且其他規則皆未被觸發。",
+        "response": "correct",
+        "reason": "由於三元組中的主體和關係不違反任何語義限制清單中的規則，且無法在清單中找到直接相關的限制條款，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 RSA演算法 與 Ldr 中的 rsa演算法 完全等價同義詞，受體 訊息加密 可以被視為與金鑰對產生相關，但不完全等價，然而根據給定的同義詞對照範例，沒有直接的同義詞關係，但考慮到加密 ≡ 資料加密 的例子，訊息加密可以被視為加密的子類型或相關概念，因此不直接判定為 duplicate。",
+        "response": "correct",
+        "standard_subject": "rsa演算法",
+        "standard_object": "",
+        "reason": "根據同義詞判定和廣義/狹義一律保留原則，主體為同義詞重複，受體不直接重複但相關。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA演算法",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "訊息加密",
+        "type": "function"
+      },
+      "reasoning": "文本指出訊息加密是 RSA 演算法包含的操作程序之一，屬於功能(function)。",
+      "source_id": "chunk_10",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa演算法",
+      "type": "tool",
+      "display_name": "RSA演算法"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "金鑰對產生",
+      "type": "function",
+      "display_name": "金鑰對產生"
+    },
+    "reasoning": "文本指出加密演算法包含三個操作程序，其中之一是金鑰對產生，這屬於工具執行的功能(function)。",
+    "source_id": "chunk_10",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "RSA演算法是一種密碼學工具，金鑰對產生是其功能之一，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "RSA演算法與金鑰對產生之間的 'has_a' 關係，完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用，因為關係為 has_a，不是 generates。檢查規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（RSA演算法）和關係（has_a）以及受體（金鑰對產生）之間的關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA演算法",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "金鑰對產生",
+        "type": "function"
+      },
+      "reasoning": "文本指出加密演算法包含三個操作程序，其中之一是金鑰對產生，這屬於工具執行的功能(function)。",
+      "source_id": "chunk_10",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa演算法",
+      "type": "tool",
+      "display_name": "RSA演算法"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "訊息解密",
+      "type": "function",
+      "display_name": "訊息解密"
+    },
+    "reasoning": "文本指出訊息解密是 RSA 演算法包含的操作程序之一，屬於功能(function)。",
+    "source_id": "chunk_10",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "RSA演算法是一種密碼學工具，訊息解密是一種功能，兩者之間的 'has_a' 關係在資安領域中是合理的，因為 RSA 演算法可以用於訊息解密。",
+        "response": "correct",
+        "reason": "RSA演算法與訊息解密之間的 'has_a' 關係在資安領域中是合理的，且符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（RSA演算法）和關係（has_a）以及受體（訊息解密）之間的關係，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 RSA演算法 與 Ldr 中的 rsa演算法 完全等價同義詞，受體 訊息解密 與 Ldr 中的 訊息加密 關係為廣義/狹義從屬，但根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct。",
+        "response": "correct",
+        "standard_subject": "rsa演算法",
+        "standard_object": "",
+        "reason": "根據同義詞判定與廣義/狹義一律保留原則，主體為同義詞重複，受體不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA演算法",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "訊息解密",
+        "type": "function"
+      },
+      "reasoning": "文本指出訊息解密是 RSA 演算法包含的操作程序之一，屬於功能(function)。",
+      "source_id": "chunk_10",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa演算法",
+      "type": "tool",
+      "display_name": "RSA演算法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊外洩",
+      "type": "risk",
+      "display_name": "資料外洩"
+    },
+    "reasoning": "文本提到 Alice 希望資料經過加密以『防止資料內容外洩』，因此 RSA 工具能緩解資料外洩的風險(risk)。",
+    "source_id": "chunk_10",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "RSA演算法是一種加密工具，合理對齊 'tool' 類別；資料外洩是一種風險，合理對齊 'risk' 類別；'mitigates' 關係描述了工具對風險的減輕作用，語意上合理。",
+        "response": "correct",
+        "reason": "RSA演算法、資料外洩與 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，該三元組的主體是 RSA演算法 (類別: tool)，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "因為三元組符合規則2的允許條件，且無其他規則直接違反，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 'RSA演算法' 與 Ldr 中 'rsa演算法' 完全等價同義詞；受體 '資料外洩' 與 Ldr 中 '資訊外洩' 密切相關，但非完全等價同義詞，然而 '資料外洩' 可視為 '資訊外洩' 的同義詞或子類型，考慮到資安領域的術語使用習慣，兩者在此場合可視為同義詞。",
+        "response": "correct",
+        "standard_subject": "rsa演算法",
+        "standard_object": "資訊外洩",
+        "reason": "根據同義詞判定準則，主體與 Ldr 中的資源為完全等價同義詞，受體與 Ldr 中的資源在資安領域可視為同義詞或子類型，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA演算法",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本提到 Alice 希望資料經過加密以『防止資料內容外洩』，因此 RSA 工具能緩解資料外洩的風險(risk)。",
+      "source_id": "chunk_10",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "alice",
+      "type": "user",
+      "display_name": "Alice"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "rsa",
+      "type": "technique",
+      "display_name": "RSA"
+    },
+    "reasoning": "文本描述 Alice 與 Bob 要進行秘密通訊並使用 RSA 加密演算法，因此使用者(user)使用了該應用程式(app)。",
+    "source_id": "chunk_10",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 'Alice' 是 'user' 的合理實例，'RSA' 是 'app' 的合理實例，考慮到同義詞寬容原則，'RSA' 可能指加密演算法或相關應用，仍視為合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體的類別是 'user'，不違反規則5。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 'Alice' 是 'user' 類別，使用 'RSA' 技術，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 的類別為 technique，與 Ldr 中的資源 'rsa' 類別相同，且名稱完全相同，屬於完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Alice",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "RSA",
+        "type": "app"
+      },
+      "reasoning": "文本描述 Alice 與 Bob 要進行秘密通訊並使用 RSA 加密演算法，因此使用者(user)使用了該應用程式(app)。",
+      "source_id": "chunk_10",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 10
+    }
+  }
+]

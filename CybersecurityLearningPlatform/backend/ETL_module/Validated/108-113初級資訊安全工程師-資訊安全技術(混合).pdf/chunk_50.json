@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "syslog伺服器",
+      "type": "system",
+      "display_name": "Syslog伺服器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "tcp",
+      "type": "system",
+      "display_name": "TCP"
+    },
+    "reasoning": "文本提到『採用TCP 為基礎的 Syslog伺服器』，TCP 是該系統運作的基礎協定特徵，符合 (system, has_a, feature) 的 Schema。",
+    "source_id": "chunk_50",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Syslog伺服器是 system 的合理實例，TCP 是 feature 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為 Syslog 伺服器可以使用 TCP 通訊協定。",
+        "response": "correct",
+        "reason": "Syslog伺服器與 TCP 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 'has_a'，而非 'deployed_in'。規則7：不適用，因為關係為 'has_a'，而非 'generates'。規則8：不適用，因為關係為 'has_a'，而非 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 'Syslog伺服器' 和受體 'TCP' 的類別組合，未觸發語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Syslog伺服器與syslog伺服器為完全等價同義詞，TCP與tcp為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "syslog伺服器",
+        "standard_object": "tcp",
+        "reason": "Syslog伺服器與syslog伺服器、TCP與tcp為完全等價同義詞，根據【前提確認】與【同義詞判定】直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Syslog伺服器",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "TCP",
+        "type": "feature"
+      },
+      "reasoning": "文本提到『採用TCP 為基礎的 Syslog伺服器』，TCP 是該系統運作的基礎協定特徵，符合 (system, has_a, feature) 的 Schema。",
+      "source_id": "chunk_50",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "syslog伺服器",
+      "type": "system",
+      "display_name": "Syslog伺服器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "tls/ssl",
+      "type": "feature",
+      "display_name": "TLS/SSL"
+    },
+    "reasoning": "文本提到在設備與 Syslog伺服器間建立 TLS/SSL 安全性連線，TLS/SSL 作為加密傳輸的特徵屬性，符合 (system, has_a, feature) 的 Schema。",
+    "source_id": "chunk_50",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Syslog伺服器是 system 的合理實例，TLS/SSL 是 feature 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為 Syslog伺服器可以具備 TLS/SSL 功能以確保通訊安全。",
+        "response": "correct",
+        "reason": "Syslog伺服器與 TLS/SSL 之間的 'has_a' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（Syslog伺服器 has_a TLS/SSL）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Syslog伺服器與syslog伺服器完全等價，TLS/SSL與tls相似但非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "syslog伺服器",
+        "standard_object": "",
+        "reason": "Syslog伺服器與syslog伺服器完全匹配，且TLS/SSL與tls不完全等價，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Syslog伺服器",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "TLS/SSL",
+        "type": "feature"
+      },
+      "reasoning": "文本提到在設備與 Syslog伺服器間建立 TLS/SSL 安全性連線，TLS/SSL 作為加密傳輸的特徵屬性，符合 (system, has_a, feature) 的 Schema。",
+      "source_id": "chunk_50",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵防禦系統",
+      "type": "tool",
+      "display_name": "入侵防禦系統"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "technique",
+      "display_name": "攻擊"
+    },
+    "reasoning": "文本提到『安裝入侵防禦系統抵擋上述所有的攻擊』，抵擋即為緩解/防禦，符合 (tool, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_50",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "入侵防禦系統 (tool) 與 攻擊 (attack) 的名稱與其類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "入侵防禦系統與攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的入侵防禦系統（類別：tool）執行 mitigates 動作，符合規則2的允許條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的入侵防禦系統（類別：tool）執行 mitigates 動作，符合規則2的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵防禦系統與攻擊分別為工具和技術，兩者無直接同義詞關係，但入侵防禦系統的目的在於防禦攻擊，屬於廣義/狹義從屬關係，不過根據規則，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，入侵防禦系統和攻擊之間的關係不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵防禦系統",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『安裝入侵防禦系統抵擋上述所有的攻擊』，抵擋即為緩解/防禦，符合 (tool, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_50",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼原則",
+      "type": "policy",
+      "display_name": "密碼原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "technique",
+      "display_name": "攻擊"
+    },
+    "reasoning": "文本將『實施強制性密碼原則管理』列為預防性安全管控機制，其目的是為了防止未經授權的攻擊，符合 (policy, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_50",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '密碼原則' 是 'policy' 的合理實例，'攻擊' 是 'attack' 的合理實例，關係 'mitigates' 合理描述了 'policy' 與 'attack' 之間的關係。",
+        "response": "correct",
+        "reason": "密碼原則與攻擊之間的關係 'mitigates' 符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是密碼原則（policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（密碼原則）符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源，但無直接同義詞關係，主體為「密碼原則」，受體為「攻擊」，兩者之間無直接從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無同義詞關係，且無從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本將『實施強制性密碼原則管理』列為預防性安全管控機制，其目的是為了防止未經授權的攻擊，符合 (policy, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_50",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "防毒軟體",
+      "type": "tool",
+      "display_name": "防毒軟體"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "偵測",
+      "type": "function",
+      "display_name": "即時偵測"
+    },
+    "reasoning": "文本提到『安裝防毒軟體並啟動即時偵測』，即時偵測是防毒軟體提供的一項功能，符合 (tool, has_a, function) 的 Schema。",
+    "source_id": "chunk_50",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防毒軟體是 tool 的合理實例，即時偵測是 function 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "防毒軟體具有即時偵測功能，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則，發現規則5與規則8可能相關，但三元組中的關係是has_a，與規則5和規則8不直接相關。其他規則也未直接觸發違規條件。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "防毒軟體與現有近似資源清單中的防毒軟體、防毒解毒軟體、防病毒軟體等實體存在同義詞或廣義/狹義從屬關係，但根據判斷準則，若一個實體是另一個的子類型，判定為 correct，禁止合併。即時偵測與偵測存在同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "偵測",
+        "reason": "根據資安領域已知同義詞對照範例和判斷準則，防毒軟體不進行合併，且即時偵測與偵測存在同義詞關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防毒軟體",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "即時偵測",
+        "type": "function"
+      },
+      "reasoning": "文本提到『安裝防毒軟體並啟動即時偵測』，即時偵測是防毒軟體提供的一項功能，符合 (tool, has_a, function) 的 Schema。",
+      "source_id": "chunk_50",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "安全性更新",
+      "type": "tool",
+      "display_name": "安全性更新"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "technique",
+      "display_name": "攻擊"
+    },
+    "reasoning": "文本提到『定期套用安全性更新（Patch）』作為預防性機制，Patch 用於修補漏洞以防止攻擊，符合 (tool, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_50",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "安全性更新 (tool) 和 攻擊 (attack) 的名稱與其類別合理對齊，符合資安領域的常見用語和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是安全性更新（tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體（安全性更新）是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體（安全性更新）與受體（攻擊）之間沒有直接的同義詞關係或從屬關係，兩者屬於不同類別（tool與technique）",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩個實體沒有明確的同義詞或從屬關係，因此判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全性更新",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『定期套用安全性更新（Patch）』作為預防性機制，Patch 用於修補漏洞以防止攻擊，符合 (tool, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_50",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "安全記錄檔",
+      "type": "data",
+      "display_name": "安全記錄檔"
+    },
+    "reasoning": "文本提到『在伺服器的紀錄檔中，發現...』，表示伺服器會產生紀錄檔（Log），符合 (system, generates, data) 的 Schema。",
+    "source_id": "chunk_50",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "伺服器 (server) 是系統 (system) 的合理實例，安全記錄檔 (security log) 是資料 (data) 的合理實例，'generates' 的關係在資安領域中是合理的，因為伺服器可以生成安全記錄檔。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「伺服器」與 Ldr 中的「伺服器」完全匹配，受體「安全記錄檔」與 Ldr 中的「安全記錄檔」完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "安全記錄檔",
+        "type": "data"
+      },
+      "reasoning": "文本提到『在伺服器的紀錄檔中，發現...』，表示伺服器會產生紀錄檔（Log），符合 (system, generates, data) 的 Schema。",
+      "source_id": "chunk_50",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "安全記錄檔",
+      "type": "data",
+      "display_name": "安全記錄檔"
+    },
+    "reasoning": "文本描述透過檢視紀錄檔來發現攻擊類型，這屬於資安分析師/團隊分析資料的行為，符合 (securityTeam, can_analyze, data) 的 Schema。",
+    "source_id": "chunk_50",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 可以分析安全記錄檔 (data) 的情境是合理的，符合實體名稱與類別的對齊，且 'can_analyze' 是適合的關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有攻擊者身份。規則2：不適用，因為動作不是 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為關係不是 violates 且 principle 不是主體。規則5：不適用，因為關係不是 uses 或主體類別不是 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls，但注意到 can_analyze 關係下，主體 securityTeam 是合理的，因為它代表了一種分析能力。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安人員）與關係（can_analyze）以及受體（安全記錄檔）之間的關係在給定的語義限制清單中沒有被明確禁止，且符合一般的資安分析邏輯。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「資安人員」與 Ldr 中的「資安人員」完全匹配，受體「安全記錄檔」與 Ldr 中的「安全記錄檔」完全匹配，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "安全記錄檔",
+        "type": "data"
+      },
+      "reasoning": "文本描述透過檢視紀錄檔來發現攻擊類型，這屬於資安分析師/團隊分析資料的行為，符合 (securityTeam, can_analyze, data) 的 Schema。",
+      "source_id": "chunk_50",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料庫",
+      "type": "app",
+      "display_name": "資料庫"
+    },
+    "reasoning": "文本提到 SQL Injection 攻擊以及對 UserData 的查詢，SQL Injection 是一種針對資料庫應用程式的攻擊，符合 (attack, can_harm, app) 的 Schema。",
+    "source_id": "chunk_50",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SQL Injection 是 'attack' 的合理實例，資料庫是 'app' 的合理實例，且 'can_harm' 是描述攻擊對應用程式可能造成傷害的合理關係。",
+        "response": "correct",
+        "reason": "SQL Injection 對資料庫的 'can_harm' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別為 attack，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組（SQL Injection, can_harm, 資料庫）沒有明確違反任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SQL Injection 與 Ldr 中的 \"sql injection\" 完全等價同義詞，資料庫與 Ldr 中的 \"資料庫\" 完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，SQL Injection 等同於 \"sql injection\"，但由於實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資料庫",
+        "type": "app"
+      },
+      "reasoning": "文本提到 SQL Injection 攻擊以及對 UserData 的查詢，SQL Injection 是一種針對資料庫應用程式的攻擊，符合 (attack, can_harm, app) 的 Schema。",
+      "source_id": "chunk_50",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

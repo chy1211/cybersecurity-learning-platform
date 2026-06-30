@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "應用程式弱點掃描",
+      "type": "technique",
+      "display_name": "應用程式弱點掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到應用程式弱點掃描可以瞭解既有的技術性弱點。根據 Schema，technique 對於 vulnerability 的合法關係為 can_analyze。",
+    "source_id": "chunk_130",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'technique'、受體的類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '應用程式弱點掃描' 的名稱與其類別 'technique' 合理對齊，實體 '弱點' 的名稱與其類別 'vulnerability' 也合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是can_analyze而非mitigates。規則3不適用，因為主體類別是technique而非vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係合理，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞出現在 Ldr 中，主體 '應用程式弱點掃描' 可以視為 '弱點掃描' 的子類型，受體 '弱點' 是一個直接的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，主體和受體不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式弱點掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到應用程式弱點掃描可以瞭解既有的技術性弱點。根據 Schema，technique 對於 vulnerability 的合法關係為 can_analyze。",
+      "source_id": "chunk_130",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "程式碼掃描",
+      "type": "technique",
+      "display_name": "程式碼掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "安全性問題",
+      "type": "vulnerability",
+      "display_name": "安全性問題"
+    },
+    "reasoning": "文本指出程式碼掃描可偵測程式撰寫的問題及安全性問題。安全性問題在此被定義為 vulnerability，technique 對其使用 can_analyze。",
+    "source_id": "chunk_130",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "程式碼掃描是 technique 的合理實例，安全性問題是 vulnerability 的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "程式碼掃描與安全性問題的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 technique，則可以執行 can_analyze 動作，與規則內容不衝突。其他規則均不適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '程式碼掃描' 屬於 technique 類別，可以執行 can_analyze 動作，且未觸發語義限制清單中的任何規則。因此，該三元組不違反語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "程式碼掃描與源碼掃描、程式碼檢測等為同義詞或廣義/狹義從屬關係，但考慮到資安領域已知同義詞對照範例，程式碼掃描與漏洞掃描、安全性問題與安全隱患、安全性弱點等之間的關係更為接近同義詞或子類型關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，程式碼掃描與安全性問題之間的關係不完全等價，但考慮到廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "程式碼掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "安全性問題",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出程式碼掃描可偵測程式撰寫的問題及安全性問題。安全性問題在此被定義為 vulnerability，technique 對其使用 can_analyze。",
+      "source_id": "chunk_130",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "模糊測試",
+      "type": "technique",
+      "display_name": "模糊測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "程式碼問題",
+      "type": "vulnerability",
+      "display_name": "程式碼問題"
+    },
+    "reasoning": "文本描述模糊測試 (Fuzzing) 用以偵測程式碼的問題。程式碼問題屬於 vulnerability，對應關係為 can_analyze。",
+    "source_id": "chunk_130",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "模糊測試 (technique) 可以分析程式碼問題 (vulnerability)，這是資安領域中合理的語意對齊，'can_analyze' 關係在這裡是適當的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該規則與三元組相關，因為主體是 '模糊測試' (類別: technique)，不觸發規則3的限制；然而，關係 'can_analyze' 使得我們需要檢視是否有其他相關規則。其他規則不直接適用此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '模糊測試' 屬於 'technique' 類別，與 'can_analyze' 關係相容，不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"模糊測試\" 與 Ldr 中的 \"測試\" 和 \"滲透測試\" 類似，但不完全等價；受體 \"程式碼問題\" 可能與 \"弱點\" 或 \"安全性問題\" 相關，但 \"程式碼問題\" 更接近 \"弱點\" 的概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體或受體為同義詞重複，且實體間的關係不明確，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "模糊測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "程式碼問題",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本描述模糊測試 (Fuzzing) 用以偵測程式碼的問題。程式碼問題屬於 vulnerability，對應關係為 can_analyze。",
+      "source_id": "chunk_130",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "fortify",
+      "type": "tool",
+      "display_name": "Fortify"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "原始碼檢測",
+      "type": "technique",
+      "display_name": "原始碼檢測"
+    },
+    "reasoning": "Fortify 被列為原始碼檢測工具 (SCA)。根據 Schema，tool 可以 uses technique。",
+    "source_id": "chunk_130",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Fortify 是一種工具（tool），'原始碼檢測' 可被視為一種技術（technique），且 'uses' 關係在工具使用技術的語境下是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 tool，不是 data，因此不觸發違規。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 Fortify，類別為 tool，關係為 uses，受體為原始碼檢測，類別為 technique。根據規則5，當關係為 uses 時，如果主體的類別是 data 才會違反，但此處主體是 tool，因此不觸發違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "原始碼檢測與程式原碼檢測、源碼檢測等為同義詞或近似概念，但根據判斷準則，若一個實體是另一個的子類型或無法確定，預設保留。然而，原始碼檢測與其他近似概念在資安領域中可視為同一概念的不同表達方式，因此與 Ldr 中的 '原始碼檢測' 最相似，且可視為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例和判斷準則，原始碼檢測與其他近似概念在資安領域中可視為同一概念的不同表達方式，但由於實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Fortify",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "原始碼檢測",
+        "type": "technique"
+      },
+      "reasoning": "Fortify 被列為原始碼檢測工具 (SCA)。根據 Schema，tool 可以 uses technique。",
+      "source_id": "chunk_130",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "checkmarx",
+      "type": "tool",
+      "display_name": "Checkmarx"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "原始碼檢測",
+      "type": "technique",
+      "display_name": "原始碼檢測"
+    },
+    "reasoning": "Checkmarx 被列為原始碼檢測工具 (SCA)。根據 Schema，tool 可以 uses technique。",
+    "source_id": "chunk_130",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Checkmarx 是一種安全工具，'tool' 是其合理類別；'原始碼檢測' 可被視為一種 'technique'，因為它描述了一種技術或方法，且 'uses' 關係在此語境下合理，因為工具可以使用技術或方法。",
+        "response": "correct",
+        "reason": "Checkmarx 使用原始碼檢測的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體類別為 'tool'，不違反規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 'Checkmarx' 是一種工具（tool），使用 'uses' 關係與受體 '原始碼檢測'（technique）相關聯，符合語義限制清單中沒有違反任何規則的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"原始碼檢測\" 與 Ldr 中的 \"原始碼檢測\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Checkmarx",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "原始碼檢測",
+        "type": "technique"
+      },
+      "reasoning": "Checkmarx 被列為原始碼檢測工具 (SCA)。根據 Schema，tool 可以 uses technique。",
+      "source_id": "chunk_130",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "sonarqube",
+      "type": "tool",
+      "display_name": "SonarQube"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "原始碼檢測",
+      "type": "technique",
+      "display_name": "原始碼檢測"
+    },
+    "reasoning": "SonarQube 被列為原始碼檢測工具 (SCA)。根據 Schema，tool 可以 uses technique。",
+    "source_id": "chunk_130",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SonarQube 是一種工具（tool），'原始碼檢測' 可被視為一種技術（technique），而 'uses' 關係在此語境下合理，因為 SonarQube 可以使用原始碼檢測技術。",
+        "response": "correct",
+        "reason": "SonarQube 使用原始碼檢測的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體的類別是 'tool'，不違反規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 'SonarQube' 是一種工具（tool），使用 'uses' 關係與 '原始碼檢測'（technique）相關聯，符合語義限制清單中沒有明確的違反規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"原始碼檢測\" 與 Ldr 中的 \"原始碼檢測\" 完全相同，且 \"原始碼檢測\" 的同義詞對照範例中沒有相關記錄，但與 \"程式原碼檢測\"、\"源碼檢測\" 等相關術語具有高度相似性，然而根據判斷準則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SonarQube",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "原始碼檢測",
+        "type": "technique"
+      },
+      "reasoning": "SonarQube 被列為原始碼檢測工具 (SCA)。根據 Schema，tool 可以 uses technique。",
+      "source_id": "chunk_130",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "c 程式語言",
+      "type": "system",
+      "display_name": "C 程式語言"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "buffer overflows",
+      "type": "vulnerability",
+      "display_name": "Buffer Overflows"
+    },
+    "reasoning": "文本將 Buffer Overflows 列為 C 程式語言常見的漏洞。將 C 語言視為 system，其可暴露 (can_expose) vulnerability。",
+    "source_id": "chunk_130",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "C 程式語言是一種系統（system），Buffer Overflows 是一種漏洞（vulnerability），而 'can_expose' 關係在資安領域中是合理的，因為系統可能會暴露漏洞。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作不是mitigates。規則3適用，但主體類別為system，而不是vulnerability，因此不違反。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。另外，根據規則3的特例允許，vulnerability可以發起'can_expose'動作，但這裡主體是C程式語言，類別是system，不是vulnerability，因此不直接適用此特例。然而，整體而言，三元組中C程式語言可以暴露Buffer Overflows，符合一般的語義理解，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係沒有明確違反語義限制清單中的任何規則，且符合一般的語義理解。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 的名稱 \"Buffer Overflows\" 與現有近似資源清單中的 \"弱點\"、\"安全性問題\"、\"程式碼問題\" 皆不完全相同，但 \"Buffer Overflows\" 是 \"弱點\" 的子類型，屬於廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，若一個實體是另一個的子類型，則判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "C 程式語言",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "Buffer Overflows",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本將 Buffer Overflows 列為 C 程式語言常見的漏洞。將 C 語言視為 system，其可暴露 (can_expose) vulnerability。",
+      "source_id": "chunk_130",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "c 程式語言",
+      "type": "system",
+      "display_name": "C 程式語言"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "integer overflow",
+      "type": "vulnerability",
+      "display_name": "Integer Overflow"
+    },
+    "reasoning": "文本將 Integer Overflow 列為 C 程式語言常見的漏洞。將 C 語言視為 system，其可暴露 (can_expose) vulnerability。",
+    "source_id": "chunk_130",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "C 程式語言是一種系統（system），Integer Overflow是一種漏洞（vulnerability），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但主體類別為 system，不是 vulnerability，因此不違反。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 C 程式語言，類別為 system，與 Integer Overflow 之間的關係是 can_expose，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Integer Overflow 是 buffer overflows 的子類型，兩者皆屬於漏洞（vulnerability）",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，Integer Overflow 是 buffer overflows 的子類型，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "C 程式語言",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "Integer Overflow",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本將 Integer Overflow 列為 C 程式語言常見的漏洞。將 C 語言視為 system，其可暴露 (can_expose) vulnerability。",
+      "source_id": "chunk_130",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "any.run",
+      "type": "tool",
+      "display_name": "ANY.RUN"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "文本提到 ANY.RUN 是分析了解惡意程式的工具。惡意程式屬於 attack，tool 對其合法關係為 can_detect。",
+    "source_id": "chunk_130",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "ANY.RUN 是一種工具（tool），惡意程式（malware）是攻擊（attack）的一種形式，'can_detect' 關係在資安領域中是合理的，因為工具可以用來偵測攻擊。",
+        "response": "correct",
+        "reason": "ANY.RUN 與惡意程式的三元組完全符合預先定義的類別與屬性清單，語意對齊且合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，但注意到 'can_detect' 關係涉及主體 'ANY.RUN' 的類別是 'tool'，這與規則8中提到的具有主動執行能力的工具相符，沒有直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體 'ANY.RUN' 是一種工具，可以執行 'can_detect' 動作，沒有違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「惡意程式」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，惡意程式與惡意軟體、惡意代碼為同義詞，但此處受體為「惡意程式」，與 Ldr 中的「惡意程式」完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ANY.RUN",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 ANY.RUN 是分析了解惡意程式的工具。惡意程式屬於 attack，tool 對其合法關係為 can_detect。",
+      "source_id": "chunk_130",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "virustotal",
+      "type": "tool",
+      "display_name": "VirusTotal"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "文本提到 VirusTotal 是分析了解惡意程式的工具。惡意程式屬於 attack，tool 對其合法關係為 can_detect。",
+    "source_id": "chunk_130",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "VirusTotal 是一種工具（tool），惡意程式是攻擊（attack）的合理實例，'can_detect' 的關係在資安領域中是合理的，因為工具可以用來偵測攻擊。",
+        "response": "correct",
+        "reason": "VirusTotal、'can_detect' 和惡意程式的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查每條規則後，發現待檢查三元組（VirusTotal can_detect 惡意程式）不觸發任何違規，尤其是規則2中提到的tool可以執行特定動作，但這裡的can_detect動作不在規則中明確限制的動作列表內，且其他規則不適用於此三元組。",
+        "response": "correct",
+        "reason": "由於三元組不違反任何語義限制清單中的規則，且符合工具可以執行檢測動作的邏輯，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) \"惡意程式\" 與 Ldr 中的 \"惡意程式\" 完全相同，且 \"惡意程式\" 是 \"惡意軟體\" 的同義詞，但根據規則 3，不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 1，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "VirusTotal",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 VirusTotal 是分析了解惡意程式的工具。惡意程式屬於 attack，tool 對其合法關係為 can_detect。",
+      "source_id": "chunk_130",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "蠕蟲",
+      "type": "attack",
+      "display_name": "蠕蟲"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "文本將蠕蟲作為一種惡意程式的類型來詢問。根據 Schema，attack 可以 is_part_of 另一個 attack。",
+    "source_id": "chunk_130",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "蠕蟲和惡意程式都是合理的 'attack' 實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。檢查規則2：不適用，因為三元組中沒有提到mitigates動作。檢查規則3：不適用，因為主體類別為attack，不是vulnerability。檢查規則4：不適用，因為關係不是violates，且主體不是principle。檢查規則5：不適用，因為關係不是uses，或者data不是主體。檢查規則6：不適用，因為關係不是deployed_in。檢查規則7：不適用，因為關係不是generates。檢查規則8：不適用，因為關係不是controls。由於沒有任何規則被觸發，三元組不違反任何語義限制。",
+        "response": "correct",
+        "reason": "三元組中的主體（蠕蟲）和受體（惡意程式）之間的關係（is_part_of）在給定的語義限制清單中沒有被明確禁止或限制。因此，根據無罪推定原則，該三元組被判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體（蠕蟲）與受體（惡意程式）皆為資安領域的攻擊類別，且惡意程式為蠕蟲的廣義概念，但兩者在此語境下不完全等價，蠕蟲是一種特定類型的惡意程式。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，蠕蟲是惡意程式的一種子類型，因此不進行合併，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "蠕蟲",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "文本將蠕蟲作為一種惡意程式的類型來詢問。根據 Schema，attack 可以 is_part_of 另一個 attack。",
+      "source_id": "chunk_130",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 11
+    }
+  }
+]

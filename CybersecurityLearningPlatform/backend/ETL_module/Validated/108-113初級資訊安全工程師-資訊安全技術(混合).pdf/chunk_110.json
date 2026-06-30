@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "nmap",
+      "type": "tool",
+      "display_name": "nmap"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ping",
+      "type": "tool",
+      "display_name": "ping"
+    },
+    "reasoning": "文本提到 nmap 會透過 ping 來確認目標伺服器是否連線，因此將 ping 視為 nmap 具備的一項功能 (function)。符合 Schema: (tool, has_a, function)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "nmap 是一種網路掃描工具，可以實現 ping 功能，故其名稱與類別 'tool' 對齊，受體 'ping' 的類別 'function' 亦合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而非 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則相關的主體和受體類別，發現沒有直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與給定的關係沒有直接違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "nmap 和 ping 是兩個不同的工具，沒有同義詞關係，也不是廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，nmap 和 ping 沒有同義詞關係，也不是廣義/狹義從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "nmap",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "ping",
+        "type": "function"
+      },
+      "reasoning": "文本提到 nmap 會透過 ping 來確認目標伺服器是否連線，因此將 ping 視為 nmap 具備的一項功能 (function)。符合 Schema: (tool, has_a, function)。",
+      "source_id": "chunk_110",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "nmap",
+      "type": "tool",
+      "display_name": "nmap"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "目標伺服器",
+      "type": "system",
+      "display_name": "目標伺服器"
+    },
+    "reasoning": "nmap 用於網路探勘並確認伺服器狀態，屬於對系統的分析行為。符合 Schema: (tool, can_analyze, system)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "nmap 是一種網路掃描工具，合理對齊 'tool' 類別；'目標伺服器' 是一種系統，合理對齊 'system' 類別。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但注意到 'can_analyze' 關係下，主體 'nmap' 的類別是 'tool'，這符合一般工具可以進行分析的邏輯。",
+        "response": "correct",
+        "reason": "三元組中，'nmap' 作為工具，與 'can_analyze' 關係下的 '目標伺服器' 合理匹配，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "nmap 與 Ldr 中的 'nmap' 完全等價，且 '目標伺服器' 與 '伺服器' 關係密切，但非完全等價同義詞；兩者皆無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 'nmap' 與 Ldr 中的 'nmap' 完全匹配，受體 '目標伺服器' 雖與 '伺服器' 相關，但非完全同義詞，依據規則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "nmap",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "目標伺服器",
+        "type": "system"
+      },
+      "reasoning": "nmap 用於網路探勘並確認伺服器狀態，屬於對系統的分析行為。符合 Schema: (tool, can_analyze, system)。",
+      "source_id": "chunk_110",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "中間人攻擊",
+      "type": "attack",
+      "display_name": "中間人攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "流量",
+      "type": "data",
+      "display_name": "流量"
+    },
+    "reasoning": "文本明確指出中間人攻擊是用來竊聽、竄改流量的行為，這對資料（流量）造成了危害。符合 Schema: (attack, can_harm, data)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "中間人攻擊 (Man-in-the-middle attack) 是 'attack' 的合理實例，流量 (traffic) 是 'data' 的合理實例，'can_harm' 的語意也與中間人攻擊對流量的影響相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_harm'，發現無直接相關規則限制此三元組的組合。",
+        "response": "correct",
+        "reason": "三元組（中間人攻擊 can_harm 流量）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "中間人攻擊與攻擊之間存在廣義/狹義從屬關係，中間人攻擊是攻擊的一種；流量與網路流量之間存在同義詞關係，兩者均指資料傳輸的流動狀態",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，中間人攻擊是攻擊的子類型，且流量與網路流量同義，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "中間人攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "流量",
+        "type": "data"
+      },
+      "reasoning": "文本明確指出中間人攻擊是用來竊聽、竄改流量的行為，這對資料（流量）造成了危害。符合 Schema: (attack, can_harm, data)。",
+      "source_id": "chunk_110",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "靜態arp",
+      "type": "technique",
+      "display_name": "靜態ARP"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "中間人攻擊",
+      "type": "attack",
+      "display_name": "中間人攻擊"
+    },
+    "reasoning": "文本提到將 ARP 設定為靜態是為了避免 ARP 污染，進而防範中間人攻擊。符合 Schema: (technique, mitigates, attack)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "靜態ARP 是一種 'technique'，中間人攻擊是一種 'attack'，且 'mitigates' 關係在資安領域中合理適用於描述某一技術如何減輕特定攻擊的風險。",
+        "response": "correct",
+        "reason": "靜態ARP、mitigates 和中間人攻擊三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '靜態ARP' 屬於 'technique' 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '靜態ARP' 屬於 'technique' 類別，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "靜態ARP與中間人攻擊之間的關係是靜態ARP是一種中間人攻擊的技術，屬於廣義/狹義從屬關係，但根據給定的資安領域已知同義詞對照範例和判斷準則，靜態ARP並非直接等同於中間人攻擊的同義詞或子類型，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，若一個實體是另一個的子類型，判定為correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "靜態ARP",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "中間人攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到將 ARP 設定為靜態是為了避免 ARP 污染，進而防範中間人攻擊。符合 Schema: (technique, mitigates, attack)。",
+      "source_id": "chunk_110",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "sslv2",
+      "type": "feature",
+      "display_name": "SSLv2"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到 SSLv2 協定已被驗證有明顯的弱點。符合 Schema: (feature, can_expose, vulnerability)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SSLv2 是一種 'feature'，而 '弱點' 是 'vulnerability' 的合理實例，且 'can_expose' 是一個合理的關係，因為 SSLv2 的弱點可以被暴露。",
+        "response": "correct",
+        "reason": "SSLv2 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但主體類別為 feature，受體類別為 vulnerability，且關係為 can_expose，符合規則3的特例允許。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 SSLv2，類別為 feature，關係為 can_expose，受體為弱點，類別為 vulnerability，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 的類別為 vulnerability，與 Ldr 中的資源 '弱點' 類別相同，且根據資安領域已知同義詞對照範例，'漏洞'、'弱點'、'脆弱性' 均指 vulnerability，因此受體與 Ldr 中的 '弱點' 為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，受體 '弱點' 與 Ldr 中的 '弱點' 為同義詞，但根據【廣義/狹義一律保留】原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSLv2",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到 SSLv2 協定已被驗證有明顯的弱點。符合 Schema: (feature, can_expose, vulnerability)。",
+      "source_id": "chunk_110",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "https/smtps",
+      "type": "app",
+      "display_name": "HTTPS/SMTPS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "sslv2",
+      "type": "feature",
+      "display_name": "SSLv2"
+    },
+    "reasoning": "HTTPS/SMTPS 應用程式使用 SSLv2 協定來保護傳輸，協定在此被視為應用程式的特徵/組成部分。符合 Schema: (app, has_a, feature)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "HTTPS/SMTPS 可被視為 'app' 的實例，SSLv2 可被視為 'feature' 的實例，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "HTTPS/SMTPS 與 SSLv2 的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體HTTPS/SMTPS與受體SSLv2之間的關係has_a，未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "HTTPS/SMTPS 與 https 關係為同義詞或同一概念的不同表達，兩者皆指使用 SSL/TLS 加密的通訊協定，但主體實際上是指使用 HTTPS/SMTPS 的應用類別，與列表中的 https 關係為同一概念的不同表達，但受體 SSLv2 與列表中無直接相關資源。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】與【同義詞判定】，主體與列表中資源有相似性，但考慮到實體類別與列表中資源的類別不同，且受體無直接相關資源，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "HTTPS/SMTPS",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "SSLv2",
+        "type": "feature"
+      },
+      "reasoning": "HTTPS/SMTPS 應用程式使用 SSLv2 協定來保護傳輸，協定在此被視為應用程式的特徵/組成部分。符合 Schema: (app, has_a, feature)。",
+      "source_id": "chunk_110",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "dnssec",
+      "type": "technique",
+      "display_name": "DNSSEC"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "假冒網域名稱",
+      "type": "attack",
+      "display_name": "假冒網域名稱"
+    },
+    "reasoning": "DNSSEC 用於驗證 DNS 安全性，以避免存取假冒的網域名稱（一種攻擊行為）。符合 Schema: (technique, mitigates, attack)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "DNSSEC 是一種安全技術，合理對齊 'technique' 類別；'假冒網域名稱' 是一種攻擊手法，合理對齊 'attack' 類別；'mitigates' 關係描述了 DNSSEC 如何減輕假冒網域名稱攻擊的風險，語意上合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的 DNSSEC 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的 DNSSEC 屬於 technique 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "DNSSEC 與網路安全之間的關係是不同概念，DNSSEC 是一種技術，網路安全是一個更廣泛的領域；而假冒網域名稱是一種攻擊，與中間人攻擊相關但不是完全相同的概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，DNSSEC 和假冒網域名稱與現有近似資源清單中的項目不完全相同，且無法確定為同義詞或子類型，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DNSSEC",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "假冒網域名稱",
+        "type": "attack"
+      },
+      "reasoning": "DNSSEC 用於驗證 DNS 安全性，以避免存取假冒的網域名稱（一種攻擊行為）。符合 Schema: (technique, mitigates, attack)。",
+      "source_id": "chunk_110",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "vpn",
+      "type": "tool",
+      "display_name": "VPN"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "網路環境",
+      "type": "system",
+      "display_name": "網路環境"
+    },
+    "reasoning": "文本提到使用 VPN 可確保網路環境在掌控範圍之內，即對網路環境系統進行控制。符合 Schema: (tool, controls, system)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "VPN 是 'tool' 的合理實例，網路環境是 'system' 的合理實例，且 'controls' 是描述工具對系統控制的合理關係。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是controls而非mitigates。規則3不適用，因為主體類別是tool而非vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8適用，且主體tool具有主動執行能力，符合規則所允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體tool具有主動執行能力，符合規則8的要求，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "VPN 與 Ldr 中的 'vpn' 完全等價同義詞，網路環境與 Ldr 中的 '網路環境' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "VPN",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "網路環境",
+        "type": "system"
+      },
+      "reasoning": "文本提到使用 VPN 可確保網路環境在掌控範圍之內，即對網路環境系統進行控制。符合 Schema: (tool, controls, system)。",
+      "source_id": "chunk_110",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "行程隔離",
+      "type": "feature",
+      "display_name": "行程隔離"
+    },
+    "reasoning": "文本提到作業系統的安全架構中希望達到行程隔離，這被視為系統的一項安全特徵。符合 Schema: (system, has_a, feature)。",
+    "source_id": "chunk_110",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "作業系統 (system) 可以有行程隔離 (feature) 的功能，且 'has_a' 關係合理描述了這種關聯，考慮到資安領域的同義詞、縮寫與翻譯寬容原則後，仍然是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 '作業系統' 的類別 'system' 與受體 '行程隔離' 的類別 'feature' 之間的關係 'has_a' 在給定的規則中沒有被定義為違反。",
+        "response": "correct",
+        "reason": "三元組不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全等價同義詞，受體 \"行程隔離\" 與 Ldr 中無直接相關資源。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全匹配，無需進一步判定。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "行程隔離",
+        "type": "feature"
+      },
+      "reasoning": "文本提到作業系統的安全架構中希望達到行程隔離，這被視為系統的一項安全特徵。符合 Schema: (system, has_a, feature)。",
+      "source_id": "chunk_110",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

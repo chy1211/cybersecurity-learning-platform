@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "有心人士",
+      "type": "attacker",
+      "display_name": "有心人士"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "wireshark",
+      "type": "tool",
+      "display_name": "Wireshark"
+    },
+    "reasoning": "文本提到有心人士下載並使用網路監看工具 Wireshark，符合 (attacker, uses, tool) 的 Schema。",
+    "source_id": "chunk_72",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "有心人士 (attacker) 使用 Wireshark (tool) 是語意上合理的，符合實例與類別的對齊，且 'attacker' 與 'tool' 的名稱與其類別相符，同義詞寬容原則也得到滿足。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊與同義詞寬容原則得到滿足。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為attacker，不是data，故不違反。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體有心人士（attacker）使用Wireshark（tool）不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中之資源完全相符，無需進一步分析同義詞或廣義/狹義關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆直接匹配現有近似資源清單中之資源，故無需進行同義詞或廣義/狹義判定。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "有心人士",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "Wireshark",
+        "type": "tool"
+      },
+      "reasoning": "文本提到有心人士下載並使用網路監看工具 Wireshark，符合 (attacker, uses, tool) 的 Schema。",
+      "source_id": "chunk_72",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "wireshark",
+      "type": "tool",
+      "display_name": "Wireshark"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "telnet",
+      "type": "feature",
+      "display_name": "Telnet"
+    },
+    "reasoning": "Wireshark 作為監看工具，可用於分析 Telnet 協定的封包，符合 (tool, can_analyze, app) 的 Schema。",
+    "source_id": "chunk_72",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'app' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Wireshark 是一種網路封包分析工具，合理對齊 'tool' 類別；Telnet 是一種遠端存取應用，合理對齊 'app' 類別。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（Wireshark can_analyze Telnet）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Wireshark 和 wireshark 是完全等價同義詞，Telnet 和 telnet 是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "wireshark",
+        "standard_object": "telnet",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Wireshark",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "Telnet",
+        "type": "app"
+      },
+      "reasoning": "Wireshark 作為監看工具，可用於分析 Telnet 協定的封包，符合 (tool, can_analyze, app) 的 Schema。",
+      "source_id": "chunk_72",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "telnet",
+      "type": "feature",
+      "display_name": "Telnet"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "密碼封包",
+      "type": "data",
+      "display_name": "密碼封包"
+    },
+    "reasoning": "Telnet 應用程式在傳輸過程中會產生包含密碼的封包資料，符合 (app, generates, data) 的 Schema。",
+    "source_id": "chunk_72",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Telnet 是一種遠端存取應用程式（app），'密碼封包' 可被視為資料（data），而 'generates' 在此語境下指 Telnet 會產生包含密碼的封包，這些名稱與其類別之間的對齊是合理的。",
+        "response": "correct",
+        "reason": "Telnet 產生密碼封包的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組符合規則所允許的條件，因為關係是generates，受體的類別是data。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且沒有違反其他規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "Telnet 是一個特定的功能，密碼封包是資料的一種類型，兩者之間沒有直接的同義詞關係，但 Telnet 可能涉及密碼封包的傳輸，因此可能存在廣義/狹義從屬關係，但根據給定的規則，若一個實體是另一個的子類型，判定為 correct，禁止合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Telnet",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "密碼封包",
+        "type": "data"
+      },
+      "reasoning": "Telnet 應用程式在傳輸過程中會產生包含密碼的封包資料，符合 (app, generates, data) 的 Schema。",
+      "source_id": "chunk_72",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "單一使用者",
+      "type": "user",
+      "display_name": "單一使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "vpn",
+      "type": "tool",
+      "display_name": "VPN"
+    },
+    "reasoning": "使用者透過 VPN 連接至私人網路，此處將 VPN 視為應用服務，符合 (user, uses, app) 的 Schema。",
+    "source_id": "chunk_72",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '單一使用者' 是 'user' 的合理實例，'VPN' 是 'app' 的合理實例，考慮到同義詞寬容原則，'VPN' 可被視為一種應用程式 ('app')。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為動作是uses，而非mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，沒有任何規則被觸發為違規。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞或類別相似性，但無直接完全匹配的同義詞；受體 'VPN' 在 Ldr 中有多個相關的同義詞或類似工具，但無需合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體和受體無直接同義詞或完全匹配的名稱，且無需進行合併或替換。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "單一使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "VPN",
+        "type": "app"
+      },
+      "reasoning": "使用者透過 VPN 連接至私人網路，此處將 VPN 視為應用服務，符合 (user, uses, app) 的 Schema。",
+      "source_id": "chunk_72",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "vpn",
+      "type": "tool",
+      "display_name": "VPN"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "內部網路",
+      "type": "system",
+      "display_name": "內部網路"
+    },
+    "reasoning": "VPN 的功能是建立連線至內部網路 (Intranet)，符合 (app, connects_to, system) 的 Schema。",
+    "source_id": "chunk_72",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'connects_to' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "VPN 是 'app' 的合理實例，內部網路是 'system' 的合理實例，且 'connects_to' 的語意與 VPN 連接到內部網路的描述相符。",
+        "response": "correct",
+        "reason": "VPN 連接到內部網路的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 connects_to，不是 deployed_in。規則7：不適用，因為關係為 connects_to，不是 generates。規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（VPN）和關係（connects_to）以及受體（內部網路）之間的關係沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (VPN) 與 Ldr 中的 'vpn' 完全等價同義詞，受體 (內部網路) 與 Ldr 中的 '內部網路' 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "VPN",
+        "type": "app"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "內部網路",
+        "type": "system"
+      },
+      "reasoning": "VPN 的功能是建立連線至內部網路 (Intranet)，符合 (app, connects_to, system) 的 Schema。",
+      "source_id": "chunk_72",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "管理人員",
+      "type": "securityTeam",
+      "display_name": "管理人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "vpn",
+      "type": "tool",
+      "display_name": "VPN"
+    },
+    "reasoning": "管理人員（資安角色）正在診斷 VPN 的安全性問題，即對其進行分析，符合 (securityTeam, can_analyze, app) 的 Schema。",
+    "source_id": "chunk_72",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'app' 與關係 'can_analyze' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "管理人員 (securityTeam) 可以分析 VPN (app) 的設定或流量，符合語意對齊，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：不適用，因為關係不是 mitigates。檢查規則3：不適用，因為主體類別不是 vulnerability。檢查規則4：不適用，因為關係不是 violates 且 principle 不是主體。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但 can_analyze 關係下，主體 securityTeam 是合法的，因為它具有主動分析能力。",
+        "response": "correct",
+        "reason": "三元組中的主體為管理人員（securityTeam），關係為 can_analyze，受體為 VPN（tool），這符合資安團隊可以分析工具的邏輯，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"管理人員\" 與 Ldr 中的 \"資安管理人員\" 類別相同，且受體 \"VPN\" 與 Ldr 中的 \"vpn\" 類別相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，管理人員與資安管理人員、VPN 與 vpn 分別為同義詞，但根據廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "VPN",
+        "type": "app"
+      },
+      "reasoning": "管理人員（資安角色）正在診斷 VPN 的安全性問題，即對其進行分析，符合 (securityTeam, can_analyze, app) 的 Schema。",
+      "source_id": "chunk_72",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "wsus",
+      "type": "tool",
+      "display_name": "WSUS"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "個人電腦與伺服器",
+      "type": "system",
+      "display_name": "個人電腦與伺服器"
+    },
+    "reasoning": "WSUS 用於管控個人電腦與伺服器的修補更新狀態，符合 (tool, controls, system) 的 Schema。",
+    "source_id": "chunk_72",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "WSUS 是一種工具（tool），個人電腦與伺服器是系統（system），且 'controls' 能夠描述工具對系統的控制關係，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "WSUS、個人電腦與伺服器、'controls' 三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體 (WSUS) 是 tool，符合規則8的條件，允許 controls 關係。",
+        "response": "correct",
+        "reason": "三元組中的主體 (WSUS) 是 tool，符合規則8的條件，允許 controls 關係，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "WSUS 與 Ldr 中的資源不完全匹配，但 '個人電腦與伺服器' 可以被視為 '個人電腦' 和 '電腦伺服器' 的廣義概念，兩者在 Ldr 中有相似的實體。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，'個人電腦與伺服器' 是 '個人電腦' 和 '電腦伺服器' 的廣義概念，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WSUS",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "個人電腦與伺服器",
+        "type": "system"
+      },
+      "reasoning": "WSUS 用於管控個人電腦與伺服器的修補更新狀態，符合 (tool, controls, system) 的 Schema。",
+      "source_id": "chunk_72",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "防毒軟體",
+      "type": "tool",
+      "display_name": "防毒軟體"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "安裝防毒軟體是為了提高防禦效率，緩解惡意程式帶來的威脅，符合 (tool, mitigates, attack) 的 Schema。",
+    "source_id": "chunk_72",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防毒軟體是工具（tool）的合理實例，惡意程式是攻擊（attack）的合理實例，且 'mitigates' 的語意與防毒軟體對抗惡意程式的功能相符。",
+        "response": "correct",
+        "reason": "防毒軟體、惡意程式與 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，該三元組的主體是防毒軟體（tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（防毒軟體）是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「防毒軟體」與 Ldr 中的「防毒軟體」完全相同，受體「惡意程式」與 Ldr 中的「惡意程式」完全相同，且無同義詞重複關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的名稱完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防毒軟體",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "安裝防毒軟體是為了提高防禦效率，緩解惡意程式帶來的威脅，符合 (tool, mitigates, attack) 的 Schema。",
+      "source_id": "chunk_72",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統",
+      "type": "tool",
+      "display_name": "入侵偵測系統"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "入侵偵測系統 (IDS) 的功能是偵測網路中的惡意行為或程式，符合 (tool, can_detect, attack) 的 Schema。",
+    "source_id": "chunk_72",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測系統是工具（tool）的合理實例，惡意程式是攻擊（attack）的合理實例，'can_detect' 關係在資安領域中是合理的，表示工具可以偵測攻擊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_detect，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（入侵偵測系統 can_detect 惡意程式）不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵偵測系統與惡意程式分別為資安領域中的工具和攻擊類別，兩者無直接同義詞關係，但可觀察到主體與受體皆有相近的實體存在於Ldr中，惡意程式的同義詞為惡意軟體、病毒程式等，入侵偵測系統的同義詞則包括網路型入侵偵測系統、入侵防禦系統等，然而這些同義詞不直接影響主體與受體的判定，因為它們代表的是不同層面的概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，入侵偵測系統和惡意程式不具有直接的同義詞關係，且代表不同的概念，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測系統",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "入侵偵測系統 (IDS) 的功能是偵測網路中的惡意行為或程式，符合 (tool, can_detect, attack) 的 Schema。",
+      "source_id": "chunk_72",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "個人電腦與伺服器",
+      "type": "system",
+      "display_name": "個人電腦與伺服器"
+    },
+    "reasoning": "惡意程式植入系統會對電腦與伺服器造成損害，符合 (attack, can_harm, system) 的 Schema。",
+    "source_id": "chunk_72",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "惡意程式是 'attack' 的合理實例，個人電腦與伺服器是 'system' 的合理實例，關係 'can_harm' 在資安領域中是合理的描述。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 '惡意程式' 的類別 'attack' 與受體 '個人電腦與伺服器' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 與主體、受體的類別組合在給定的語義限制清單中沒有明確的違反規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中之實體完全相符，惡意程式為攻擊類別，個人電腦與伺服器為系統類別，兩者皆無同義詞重複情況，但主體與受體皆有完全匹配的實體存在於Ldr中",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與Ldr中實體完全匹配，無同義詞重複情況，依據判斷準則1直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "個人電腦與伺服器",
+        "type": "system"
+      },
+      "reasoning": "惡意程式植入系統會對電腦與伺服器造成損害，符合 (attack, can_harm, system) 的 Schema。",
+      "source_id": "chunk_72",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "敏感資料",
+      "type": "data",
+      "display_name": "敏感資料"
+    },
+    "reasoning": "文本提到惡意程式植入後導致敏感資料外洩，表示攻擊危害了資料，符合 (attack, can_harm, data) 的 Schema。",
+    "source_id": "chunk_72",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "惡意程式是 'attack' 的合理實例，敏感資料是 'data' 的合理實例，'can_harm' 是描述惡意程式對敏感資料的影響的合理關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是惡意程式，關係是can_harm，受體是敏感資料，與控制無關。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係在給定的語義限制清單中沒有明確的違反規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「惡意程式」與 Ldr 中的「惡意程式」完全相同，受體「敏感資料」與 Ldr 中的「敏感資料」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "敏感資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到惡意程式植入後導致敏感資料外洩，表示攻擊危害了資料，符合 (attack, can_harm, data) 的 Schema。",
+      "source_id": "chunk_72",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 11
+    }
+  }
+]

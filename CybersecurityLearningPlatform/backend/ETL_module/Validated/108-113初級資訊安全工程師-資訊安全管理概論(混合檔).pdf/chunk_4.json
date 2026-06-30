@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "雲端服務資料",
+      "type": "data",
+      "display_name": "雲端服務資料"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "雲端服務系統",
+      "type": "system",
+      "display_name": "雲端服務系統"
+    },
+    "reasoning": "文本提到雲端服務資料與雲端服務系統均為資產，邏輯上資料部署於該系統之中。符合 Schema: ('data', 'deployed_in', 'system')。",
+    "source_id": "chunk_4",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "雲端服務資料 (data) 與 雲端服務系統 (system) 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "雲端服務資料與雲端服務系統的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為三元組中的關係不是violates，且主體不是principle。規則5不適用，因為三元組中的關係不是uses。規則6適用，且三元組符合規則6的條件，因為關係是deployed_in，受體的類別是system。規則7不適用，因為三元組中的關係不是generates。規則8不適用，因為三元組中的關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，且沒有違反其他規則。因此，三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端服務資料與雲端資料為同義詞，雲端服務系統為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，雲端服務資料與雲端資料可視為同一概念，但由於廣義/狹義一律保留原則，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端服務資料",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "雲端服務系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到雲端服務資料與雲端服務系統均為資產，邏輯上資料部署於該系統之中。符合 Schema: ('data', 'deployed_in', 'system')。",
+      "source_id": "chunk_4",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資產識別",
+      "type": "function",
+      "display_name": "資產識別"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "雲端服務系統",
+      "type": "system",
+      "display_name": "雲端服務系統"
+    },
+    "reasoning": "文本指出雲端服務系統屬於資產識別需考量之範圍，意即資產識別功能需分析該系統。符合 Schema: ('function', 'can_analyze', 'system')。",
+    "source_id": "chunk_4",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資產識別 (function) 和 雲端服務系統 (system) 的名稱與其類別合理對齊，符合語意對齊原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別為 function，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查關係 can_analyze，發現沒有直接相關的規則限制此關係與主體類別 function 的組合。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端服務系統與雲端服務、雲端服務環境、雲端資訊系統等是相關的概念，但不是完全等價的同義詞，雲端服務系統是最精確的描述",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，雲端服務系統不是同義詞重複，且是最精確的描述，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產識別",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "雲端服務系統",
+        "type": "system"
+      },
+      "reasoning": "文本指出雲端服務系統屬於資產識別需考量之範圍，意即資產識別功能需分析該系統。符合 Schema: ('function', 'can_analyze', 'system')。",
+      "source_id": "chunk_4",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資產清冊",
+      "type": "tool",
+      "display_name": "資產清冊"
+    },
+    "reasoning": "文本討論建立資產清冊的必要做法（如識別資產、指派擁有者），這屬於資安團隊執行管理規範的行為。將資產清冊視為一種管理政策/規範。符合 Schema: ('securityTeam', 'implements', 'policy')。",
+    "source_id": "chunk_4",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實施 (implements) 資產清冊 (policy) 的語意對齊是合理的，因為資安人員可能會實施與管理相關的政策或程序，資產清冊可以被視為一種政策或管理文件。",
+        "response": "correct",
+        "reason": "主體、關係和受體都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需注意 implements 關係的主體和受體類別是否合理。根據給定的三元組，主體是 'securityTeam'，關係是 'implements'，受體是 'tool'，這不直接違反任何規則，因為 implements 關係本身沒有在規則中被明確限制，尤其是當主體是安全團隊（securityTeam）時，實施（implements）某個工具（tool）是合理的。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別以及關係之間的組合在給定的規則中沒有被明確指出為違規。因此，根據無罪推定原則，該三元組被判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安人員與資安管理人員、資訊安全維運人員等為同一類別下的不同稱謂，但非完全等價同義詞；資產清冊為獨立的工具類別，與資安人員無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，資安人員與資產清冊無同義詞關係，且非廣義/狹義從屬，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資產清冊",
+        "type": "policy"
+      },
+      "reasoning": "文本討論建立資產清冊的必要做法（如識別資產、指派擁有者），這屬於資安團隊執行管理規範的行為。將資產清冊視為一種管理政策/規範。符合 Schema: ('securityTeam', 'implements', 'policy')。",
+      "source_id": "chunk_4",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "緊急應變計畫",
+      "type": "policy",
+      "display_name": "緊急應變計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "災害",
+      "type": "risk",
+      "display_name": "災難"
+    },
+    "reasoning": "文本明確提到為了在災難發生時降低損失，必須制定緊急應變計畫。符合 Schema: ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_4",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "緊急應變計畫 (policy) 是一種合理的政策實例，災難 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊。",
+        "response": "correct",
+        "reason": "緊急應變計畫與災難的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是緊急應變計畫，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體是緊急應變計畫，類別為 policy，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"緊急應變計畫\" 與 Ldr 中的 \"緊急計畫書\"、\"突發事件計畫\"、\"災害緊急應變措施\" 皆為相關概念，但無完全等價同義詞；受體 \"災害\" 與 Ldr 中的 \"災害\" 完全匹配，為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "災害",
+        "reason": "受體 \"災害\" 與 Ldr 中的 \"災害\" 完全匹配，判定為同義詞重複；主體 \"緊急應變計畫\" 與 Ldr 中的相關概念無完全等價同義詞，依據規則 4 預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "緊急應變計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "災難",
+        "type": "risk"
+      },
+      "reasoning": "文本明確提到為了在災難發生時降低損失，必須制定緊急應變計畫。符合 Schema: ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_4",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "erp 備援系統",
+      "type": "tool",
+      "display_name": "ERP 備援系統"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本將建立 ERP 備援系統定義為「風險降低」的一種行為，即透過該工具來緩解風險。符合 Schema: ('tool', 'mitigates', 'risk')。",
+    "source_id": "chunk_4",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "ERP 備援系統是 'tool' 的合理實例，風險是 'risk' 的合理實例，且 'mitigates' 的語意與資安領域的同義詞寬容原則相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊與同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是 ERP 備援系統，類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體是 ERP 備援系統，類別為 tool，符合規則2的條件，且未發現其他明確違反的規則。因此，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "ERP 備援系統與即時備援系統之間存在相似性，但非完全等價同義詞；風險為完全匹配的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "風險",
+        "reason": "根據同義詞判定，風險為完全匹配，但ERP 備援系統與即時備援系統之間的關係不構成同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ERP 備援系統",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本將建立 ERP 備援系統定義為「風險降低」的一種行為，即透過該工具來緩解風險。符合 Schema: ('tool', 'mitigates', 'risk')。",
+      "source_id": "chunk_4",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "erp系統",
+      "type": "app",
+      "display_name": "ERP 系統"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "企業組織營運",
+      "type": "system",
+      "display_name": "企業組織基礎設施"
+    },
+    "reasoning": "ERP 系統作為企業運作的應用程式，屬於組織整體 IT 系統的一部分。符合 Schema: ('app', 'is_part_of', 'system')。",
+    "source_id": "chunk_4",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "ERP 系統是 'app' 的合理實例，企業組織基礎設施是 'system' 的合理實例，且 'is_part_of' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，因為關係為 is_part_of，不是 deployed_in，規則7：無關，規則8：無關",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 不在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "ERP 系統與 erp系統為完全等價同義詞，企業組織基礎設施與 企業組織營運為同義詞",
+        "response": "duplicate",
+        "standard_subject": "erp系統",
+        "standard_object": "企業組織營運",
+        "reason": "根據同義詞判定，ERP 系統與 erp系統、企業組織基礎設施與 企業組織營運為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ERP 系統",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "企業組織基礎設施",
+        "type": "system"
+      },
+      "reasoning": "ERP 系統作為企業運作的應用程式，屬於組織整體 IT 系統的一部分。符合 Schema: ('app', 'is_part_of', 'system')。",
+      "source_id": "chunk_4",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  }
+]

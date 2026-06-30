@@ -1,0 +1,152 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資料隱碼攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本描述攻擊者透過在使用者名稱欄位輸入特定字串來執行資料隱碼攻擊（實為 SQL Injection），因此攻擊者實作了該攻擊。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "資料隱碼攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "Login.asp",
+      "type": "app"
+    },
+    "reasoning": "資料隱碼攻擊直接針對 Login.asp 這個登入頁面應用程式，使其在未經正確認證的情況下回傳登入成功訊息，造成應用程式邏輯受損。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "資料隱碼攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "伺服器",
+      "type": "system"
+    },
+    "reasoning": "攻擊透過傳送惡意指令給伺服器，影響伺服器的正常運作與權限控管。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "Login.asp",
+      "type": "app"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到『按照程式碼的判斷方式』導致攻擊成功，這暗示 Login.asp 的程式碼存在輸入驗證不足的弱點。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "攻擊者利用 Login.asp 程式碼判斷方式的缺陷（弱點），輸入 `' admin --` 或 `' or 1=1--` 來繞過認證。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "資料隱碼攻擊",
+      "type": "attack"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "SQL指令",
+      "type": "tool"
+    },
+    "reasoning": "此攻擊必須依賴於構造特定的 SQL 指令（如 SELECT 語句的變形）才能達成繞過登入的目的，在此將惡意指令視為攻擊工具。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "Login.asp",
+      "type": "app"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "SQL指令",
+      "type": "data"
+    },
+    "reasoning": "文本提到『實際傳送給伺服器的指令會變成...』，說明應用程式將使用者輸入組合成 SQL 指令並傳送。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "Login.asp",
+      "type": "app"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "伺服器",
+      "type": "system"
+    },
+    "reasoning": "Login.asp 作為一個網頁應用程式，部署在伺服器系統之上。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "伺服器",
+      "type": "system"
+    },
+    "reasoning": "攻擊者透過測試網頁與後端伺服器建立連線並傳送資料。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "資料隱碼攻擊",
+      "type": "attack"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "機密性",
+      "type": "principle"
+    },
+    "reasoning": "攻擊者在不知道密碼的情況下成功登入系統，違反了資安原則中的機密性（Confidentiality）。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 10
+  }
+]

@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "虛擬帳號付款機制",
+      "type": "tool",
+      "display_name": "虛擬帳號付款機制"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "信用卡資料外洩",
+      "type": "risk",
+      "display_name": "信用卡資料外洩"
+    },
+    "reasoning": "文本提到採用虛擬帳號付款機制可以避免銀行或商家洩漏客戶的信用卡資料。將該機制視為一種工具 (tool)，將資料外洩視為風險 (risk)，符合 ('tool', 'mitigates', 'risk') 的合法邊界。",
+    "source_id": "chunk_2",
+    "source_file": "ch02_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "虛擬帳號付款機制 可被視為 'tool' 的合理實例，信用卡資料外洩 可被視為 'risk' 的合理實例，且 'mitigates' 的關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "虛擬帳號付款機制、信用卡資料外洩與 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是虛擬帳號付款機制，類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體虛擬帳號付款機制是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "虛擬帳號付款機制與信用卡資料外洩之間無直接同義詞關係，且無廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定虛擬帳號付款機制與信用卡資料外洩之間的同義詞或從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "虛擬帳號付款機制",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "信用卡資料外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本提到採用虛擬帳號付款機制可以避免銀行或商家洩漏客戶的信用卡資料。將該機制視為一種工具 (tool)，將資料外洩視為風險 (risk)，符合 ('tool', 'mitigates', 'risk') 的合法邊界。",
+      "source_id": "chunk_2",
+      "source_file": "ch02_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "電子商務網站",
+      "type": "app",
+      "display_name": "電子商務網站"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ev-ssl數位憑證",
+      "type": "tool",
+      "display_name": "EV-SSL數位憑證"
+    },
+    "reasoning": "文本指出取得網站身分識別標章的電子商務網站導入了 EV-SSL 數位憑證。將網站視為應用程式 (app)，憑證視為工具 (tool)，符合 ('app', 'has_a', 'tool') 的合法邊界。",
+    "source_id": "chunk_2",
+    "source_file": "ch02_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "電子商務網站 可被視為 'app' 的實例，EV-SSL數位憑證 可被視為 'tool' 的實例，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "電子商務網站擁有 EV-SSL 數位憑證的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係 'has_a' 不在任何規則中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違反，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '電子商務網站' 和受體 'EV-SSL數位憑證' 的組合在給定的語義限制清單中沒有被明確指出為違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "電子商務網站與網站之間存在廣義/狹義從屬關係，前者是後者的子類型；EV-SSL數位憑證與虛擬帳號付款機制無直接關聯",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "電子商務網站是網站的子類型，根據【廣義/狹義一律保留】判斷準則，應保留不合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子商務網站",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "EV-SSL數位憑證",
+        "type": "tool"
+      },
+      "reasoning": "文本指出取得網站身分識別標章的電子商務網站導入了 EV-SSL 數位憑證。將網站視為應用程式 (app)，憑證視為工具 (tool)，符合 ('app', 'has_a', 'tool') 的合法邊界。",
+      "source_id": "chunk_2",
+      "source_file": "ch02_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "iso/iec 27001",
+      "type": "policy",
+      "display_name": "ISO 27001"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "資訊安全風險"
+    },
+    "reasoning": "ISO 27001 被描述為資訊安全管理標準，旨在確保資訊安全在組織中有效運作，這在本質上是透過規範來緩解風險。符合 ('policy', 'mitigates', 'risk') 的合法邊界。",
+    "source_id": "chunk_2",
+    "source_file": "ch02_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "ISO 27001 是一種資訊安全政策 ('policy')，而 '資訊安全風險' 是一種風險 ('risk')，兩者名稱與其類別合理對齊，且 'mitigates' 關係在資安領域中常用於描述政策或措施如何減輕風險。",
+        "response": "correct",
+        "reason": "ISO 27001 作為一種資訊安全政策，與 'mitigates' 關係和 '資訊安全風險' 作為風險，完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 ISO 27001 類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，根據驗證邏輯，判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 ISO 27001 與 Ldr 中的 iso/iec 27001 關係為同義詞，受體 資訊安全風險 與 Ldr 中的 風險 關係為同義詞",
+        "response": "correct",
+        "standard_subject": "iso/iec 27001",
+        "standard_object": "風險",
+        "reason": "根據同義詞判定準則，ISO 27001 與 iso/iec 27001 為同義詞，資訊安全風險 與 風險 亦為同義詞，但根據廣義/狹義一律保留原則，不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ISO 27001",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊安全風險",
+        "type": "risk"
+      },
+      "reasoning": "ISO 27001 被描述為資訊安全管理標準，旨在確保資訊安全在組織中有效運作，這在本質上是透過規範來緩解風險。符合 ('policy', 'mitigates', 'risk') 的合法邊界。",
+      "source_id": "chunk_2",
+      "source_file": "ch02_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "電子商務網站",
+      "type": "app",
+      "display_name": "電子商務網站"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "企業實體身分認證機制",
+      "type": "feature",
+      "display_name": "企業實體身分認證機制"
+    },
+    "reasoning": "文本提到取得標章代表電子商務網站具備企業實體身分認證機制。將此機制視為系統的特徵 (feature)，符合 ('app', 'has_a', 'feature') 的合法邊界。",
+    "source_id": "chunk_2",
+    "source_file": "ch02_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "電子商務網站是 'app' 的合理實例，企業實體身分認證機制是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "電子商務網站具有企業實體身分認證機制的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '電子商務網站' 和受體 '企業實體身分認證機制' 並未直接違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "電子商務網站與網站之間存在廣義/狹義從屬關係，但根據給定的資安領域已知同義詞對照範例和判斷準則，電子商務網站並不完全等同於網站，且企業實體身分認證機制與給定的同義詞對照範例中沒有直接相關的同義詞，因此無法直接判定為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，電子商務網站是網站的一種子類型，且企業實體身分認證機制沒有明確的同義詞對應，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子商務網站",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "企業實體身分認證機制",
+        "type": "feature"
+      },
+      "reasoning": "文本提到取得標章代表電子商務網站具備企業實體身分認證機制。將此機制視為系統的特徵 (feature)，符合 ('app', 'has_a', 'feature') 的合法邊界。",
+      "source_id": "chunk_2",
+      "source_file": "ch02_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "webtrust 認證",
+      "type": "policy",
+      "display_name": "WebTrust 認證"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "交易風險"
+    },
+    "reasoning": "WebTrust 認證涉及交易過程披露與內部控制程序，旨在提升交易安全性並降低風險。將認證標準視為規範 (policy)，將其防禦目標視為風險 (risk)，符合 ('policy', 'mitigates', 'risk') 的合法邊界。",
+    "source_id": "chunk_2",
+    "source_file": "ch02_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "WebTrust 認證是 'policy' 的合理實例，交易風險是 'risk' 的合理實例，且 'mitigates' 的語意與資安領域的常見用法相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 WebTrust 認證，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體是 WebTrust 認證，類別為 policy，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 WebTrust 認證 與 Ldr 中的 iso/iec 27001 皆屬於 policy 類別，但非完全等價同義詞；受體 交易風險 與 Ldr 中的 風險 屬於同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "風險",
+        "reason": "受體 交易風險 與 Ldr 中的 風險 屬於同義詞關係，但主體 WebTrust 認證 與 Ldr 中的 iso/iec 27001 非同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WebTrust 認證",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "交易風險",
+        "type": "risk"
+      },
+      "reasoning": "WebTrust 認證涉及交易過程披露與內部控制程序，旨在提升交易安全性並降低風險。將認證標準視為規範 (policy)，將其防禦目標視為風險 (risk)，符合 ('policy', 'mitigates', 'risk') 的合法邊界。",
+      "source_id": "chunk_2",
+      "source_file": "ch02_習題解答.pdf",
+      "source_index": 5
+    }
+  }
+]

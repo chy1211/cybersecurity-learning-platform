@@ -1,0 +1,152 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "殭屍網路",
+      "type": "system"
+    },
+    "reasoning": "文本提到『攻擊者在取得裝置的權限後，利用這些裝置組成殭屍網路』，這符合攻擊者對受控系統的控制關係。符合 Schema: (attacker, controls, system)。",
+    "source_id": "chunk_7",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "物聯網重要資訊",
+      "type": "data"
+    },
+    "reasoning": "文本指出利用殭屍網路『造成物聯網重要資訊外洩』，實質上是攻擊者對資料造成危害。符合 Schema: (attacker, can_harm, data)。",
+    "source_id": "chunk_7",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "物聯網路",
+      "type": "system"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "缺乏傳輸加密保護",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到『有 70% 的物聯網路傳輸並未加密』，這種缺乏保護的狀態被定義為系統的漏洞。符合 Schema: (system, can_expose, vulnerability)。",
+    "source_id": "chunk_7",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "物聯網路",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "防火牆",
+      "type": "tool"
+    },
+    "reasoning": "文本提到『物聯網路需要提供防火牆設定』，表示防火牆是物聯網路系統中應包含的工具。符合 Schema: (system, has_a, tool)。",
+    "source_id": "chunk_7",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "網站",
+      "type": "app"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "SSL/TLS",
+      "type": "feature"
+    },
+    "reasoning": "文本提到『代表該網站有支援 SSL』，SSL/TLS 在此作為網站應用程式的一項安全特徵。符合 Schema: (app, has_a, feature)。",
+    "source_id": "chunk_7",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "裝置",
+      "type": "system"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "個人隱私洩漏",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到『裝置...可能洩漏用戶的姓名...等重要的個人隱私』，這表示裝置存在導致資料外洩的漏洞。符合 Schema: (system, can_expose, vulnerability)。",
+    "source_id": "chunk_7",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "雲端介面",
+      "type": "app"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全漏洞",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到『如果在身分驗證不夠嚴謹或存在安全漏洞，可能造成使用時的安全問題』，指雲端介面（應用程式）會暴露漏洞。符合 Schema: (app, can_expose, vulnerability)。",
+    "source_id": "chunk_7",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "XSS",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "雲端介面",
+      "type": "app"
+    },
+    "reasoning": "文本提到需要檢查雲端介面是否能通過 XSS 等測試，隱含 XSS 攻擊會對雲端介面造成危害。符合 Schema: (attack, can_harm, app)。",
+    "source_id": "chunk_7",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "SQL Injection",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "雲端介面",
+      "type": "app"
+    },
+    "reasoning": "文本提到需要檢查雲端介面是否能通過 SQL（指 SQL Injection）等測試，隱含此攻擊會對雲端介面造成危害。符合 Schema: (attack, can_harm, app)。",
+    "source_id": "chunk_7",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "SSL/TLS",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊外洩",
+      "type": "risk"
+    },
+    "reasoning": "文本提到透過 SSL/TLS 加密保護來確保通訊安全，旨在緩解資訊外洩的風險。符合 Schema: (tool, mitigates, risk)。",
+    "source_id": "chunk_7",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 10
+  }
+]

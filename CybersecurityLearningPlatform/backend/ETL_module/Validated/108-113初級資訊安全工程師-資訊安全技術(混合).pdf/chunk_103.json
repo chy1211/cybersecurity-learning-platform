@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "資安分析師",
+      "type": "securityTeam",
+      "display_name": "資安分析師"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "dhcp 伺服器日誌文件",
+      "type": "data",
+      "display_name": "DHCP 伺服器日誌文件"
+    },
+    "reasoning": "文本第 39 題提到在調查 DHCP 分配 IP 的網路時，應在 DHCP 伺服器日誌文件中查看以確定 MAC 與 IP 的對應關係，這屬於資安分析師對日誌資料的分析行為。",
+    "source_id": "chunk_103",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安分析師是 securityTeam 的合理實例，DHCP 伺服器日誌文件是 data 的合理實例，'can_analyze' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但關係 'can_analyze' 類似 'controls'，主體 '資安分析師' 屬於 securityTeam，符合主動執行能力的角色，合法。",
+        "response": "correct",
+        "reason": "三元組中的主體 '資安分析師' 屬於 securityTeam，具有主動分析能力，關係 'can_analyze' 不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安分析師與現有近似資源清單中的資安分析師完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與Ldr中某資源的name字串完全相同，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安分析師",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "DHCP 伺服器日誌文件",
+        "type": "data"
+      },
+      "reasoning": "文本第 39 題提到在調查 DHCP 分配 IP 的網路時，應在 DHCP 伺服器日誌文件中查看以確定 MAC 與 IP 的對應關係，這屬於資安分析師對日誌資料的分析行為。",
+      "source_id": "chunk_103",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "dhcp 協定",
+      "type": "feature",
+      "display_name": "DHCP 協定"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "ip 地址",
+      "type": "data",
+      "display_name": "IP 地址"
+    },
+    "reasoning": "DHCP (Dynamic Host Configuration Protocol) 是一種網路協定（feature），其核心功能是使用並分配 IP 地址（data）給主機。",
+    "source_id": "chunk_103",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "DHCP 協定是 'feature' 的合理實例，IP 地址是 'data' 的合理實例，且 'uses' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "DHCP 協定使用 IP 地址的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5觸發，因為關係是uses，且主體的類別是feature，但這不違反規則5的限制。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是DHCP協定，關係是uses，受體是IP地址，沒有違反任何語義限制規則。根據規則5，當關係為uses時，如果主體的類別是data，則為違反，但本例中主體的類別是feature，因此不違反規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "DHCP 協定與 Ldr 中的資源不完全匹配，但 'ip協定' 的 similarity_score 較高，可能與網路協定相關，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，DHCP 協定是網路協定的子類型，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DHCP 協定",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "IP 地址",
+        "type": "data"
+      },
+      "reasoning": "DHCP (Dynamic Host Configuration Protocol) 是一種網路協定（feature），其核心功能是使用並分配 IP 地址（data）給主機。",
+      "source_id": "chunk_103",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "arp 緩存",
+      "type": "data",
+      "display_name": "ARP 緩存"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "個人電腦",
+      "type": "system",
+      "display_name": "個人計算機"
+    },
+    "reasoning": "文本第 39 題 (A) 選項提到 ARP 緩存存在於個人計算機上，因此將 ARP 緩存（data）視為部署/存放於個人計算機（system）中。",
+    "source_id": "chunk_103",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "ARP 緩存 可被視為 'data' 的實例，個人計算機 可被視為 'system' 的實例，且 'deployed_in' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的定義且語意對齊，故無違反規則。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：觸發，檢查關係為 'deployed_in' 時，受體的類別是否為 'system'，結果為正確。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 'deployed_in' 與受體 '個人計算機' 的類別 'system' 符合規則6，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 'ARP 緩存' 與 'dhcp 伺服器日誌文件'、'ip 地址' 不直接相關，但 '個人計算機' 可能與 '個人電腦' 同義，受體 '個人計算機' 與 '個人電腦' 應該是同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "個人電腦",
+        "reason": "根據同義詞判定，'個人計算機' 與 '個人電腦' 應該是同義詞，故受體標準化為 '個人電腦'。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ARP 緩存",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "個人計算機",
+        "type": "system"
+      },
+      "reasoning": "文本第 39 題 (A) 選項提到 ARP 緩存存在於個人計算機上，因此將 ARP 緩存（data）視為部署/存放於個人計算機（system）中。",
+      "source_id": "chunk_103",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "dhcp 伺服器",
+      "type": "app",
+      "display_name": "DHCP 伺服器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "dhcp 伺服器日誌文件",
+      "type": "data",
+      "display_name": "DHCP 伺服器日誌文件"
+    },
+    "reasoning": "DHCP 伺服器作為一種網路服務（app），在運作過程中會產生記錄其分配行為的日誌文件（data）。",
+    "source_id": "chunk_103",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "DHCP 伺服器是 'app' 的合理實例，DHCP 伺服器日誌文件是 'data' 的合理實例，'generates' 的語意與 'app' 生成 'data' 的情境相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組符合規則，受體的類別是data。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的條件，且沒有違反其他規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "DHCP 伺服器日誌文件與現有近似資源清單中的 dhcp 伺服器日誌文件為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "dhcp 伺服器日誌文件",
+        "reason": "根據同義詞判定準則，DHCP 伺服器日誌文件與 dhcp 伺服器日誌文件為同義詞，但由於主體與受體的類別不同，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DHCP 伺服器",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "DHCP 伺服器日誌文件",
+        "type": "data"
+      },
+      "reasoning": "DHCP 伺服器作為一種網路服務（app），在運作過程中會產生記錄其分配行為的日誌文件（data）。",
+      "source_id": "chunk_103",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "行政院及所屬機關資訊安全管理規範",
+      "type": "policy",
+      "display_name": "行政院及所屬機關資訊安全管理規範"
+    },
+    "reasoning": "文本第 38 題提到該管理規範中的日常作業安全管理與資料備份原則，這些規範（policy）是由負責資安的團隊（securityTeam）在組織中實作與執行。",
+    "source_id": "chunk_103",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實施行政院及所屬機關資訊安全管理規範 (policy) 的情境下，'securityTeam' 和 'policy' 的名稱與其類別是合理對齊的，且 'implements' 關係在資安領域中是常見的用法。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需注意 implements 關係的主體和受體類別是否合理。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安人員）和受體（行政院及所屬機關資訊安全管理規範）之間的 implements 關係，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "行政院及所屬機關資訊安全管理規範",
+        "type": "policy"
+      },
+      "reasoning": "文本第 38 題提到該管理規範中的日常作業安全管理與資料備份原則，這些規範（policy）是由負責資安的團隊（securityTeam）在組織中實作與執行。",
+      "source_id": "chunk_103",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "web 伺服器",
+      "type": "system",
+      "display_name": "Web 伺服器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "web 伺服器日誌文件",
+      "type": "data",
+      "display_name": "Web 伺服器日誌文件"
+    },
+    "reasoning": "文本第 39 題 (B) 選項提到 Web 伺服器日誌文件，Web 伺服器（app）在處理請求時會產生對應的日誌（data）。",
+    "source_id": "chunk_103",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Web 伺服器是 'app' 的合理實例，Web 伺服器日誌文件是 'data' 的合理實例，且 'generates' 在資安領域中描述此關係是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為三元組中沒有提到principle。規則5不適用，因為三元組中的關係不是uses。規則6不適用，因為三元組中的關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為三元組中的關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的要求。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞或相關概念，但無直接完全匹配的同義詞；主體 'Web 伺服器' 與 'web 伺服器'、'網頁伺服器' 等為同義詞，受體 'Web 伺服器日誌文件' 與 'dhcp 伺服器日誌文件' 不完全匹配，但皆屬於伺服器日誌文件的範疇，然而無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，主體與受體皆無直接同義詞關係，且無法確定為完全等價同義詞，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Web 伺服器",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "Web 伺服器日誌文件",
+        "type": "data"
+      },
+      "reasoning": "文本第 39 題 (B) 選項提到 Web 伺服器日誌文件，Web 伺服器（app）在處理請求時會產生對應的日誌（data）。",
+      "source_id": "chunk_103",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  }
+]

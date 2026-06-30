@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "vpn 服務",
+      "type": "tool",
+      "display_name": "VPN 服務"
+    },
+    "reasoning": "文本提到『存取無線網路時使用受信任的 VPN 服務』，因此使用者(user)使用(uses)VPN服務(app)。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "使用者 (user) 是 'user' 類別的合理實例，VPN 服務 (app) 是 'app' 類別的合理實例，'uses' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體類別為 'user'，不違反。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 '使用者'，關係為 'uses'，受體為 'VPN 服務'，不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"使用者\" 與 Ldr 中的 \"使用者\" 完全等價同義詞，受體 \"VPN 服務\" 與 Ldr 中的 \"vpn 服務\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "VPN 服務",
+        "type": "app"
+      },
+      "reasoning": "文本提到『存取無線網路時使用受信任的 VPN 服務』，因此使用者(user)使用(uses)VPN服務(app)。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "vpn 服務",
+      "type": "tool",
+      "display_name": "VPN 服務"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "加密"
+    },
+    "reasoning": "文本提到『使用加密的 VPN 服務』以及『透過加密你的裝置和 VPN 伺服器之間的連接』，說明VPN工具(tool)具有加密(function)功能。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "VPN 服務是工具（tool）的合理實例，且加密是功能（function）的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為 VPN 服務通常具備加密功能。",
+        "response": "correct",
+        "reason": "VPN 服務與加密之間的 'has_a' 關係在資安領域中是合理的，且符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組 'VPN 服務 (tool) has_a 加密 (feature)' 沒有觸發任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "VPN 服務",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密",
+        "type": "function"
+      },
+      "reasoning": "文本提到『使用加密的 VPN 服務』以及『透過加密你的裝置和 VPN 伺服器之間的連接』，說明VPN工具(tool)具有加密(function)功能。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "竊聽",
+      "type": "attack",
+      "display_name": "竊聽"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "個人資訊",
+      "type": "data",
+      "display_name": "個人資訊"
+    },
+    "reasoning": "文本提到不要使用公共 Wi-Fi 發送個人資訊，因為會被攔截（竊聽），這表示竊聽攻擊(attack)會危害(can_harm)個人資訊(data)。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "竊聽 (attack) 可能對個人資訊 (data) 造成傷害，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "竊聽對個人資訊的傷害符合資安領域的常見理解，且三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 attack，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於三元組中的關係是 can_harm，且主體是攻擊（attack）類別，受體是個人資訊（data）類別，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，因此判定為正確。沒有發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「竊聽」與 Ldr 中的「竊聽」完全等價同義詞，受體「個人資訊」與 Ldr 中的「個人資訊」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "竊聽",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "個人資訊",
+        "type": "data"
+      },
+      "reasoning": "文本提到不要使用公共 Wi-Fi 發送個人資訊，因為會被攔截（竊聽），這表示竊聽攻擊(attack)會危害(can_harm)個人資訊(data)。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "vpn 服務",
+      "type": "tool",
+      "display_name": "VPN 服務"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "竊聽",
+      "type": "attack",
+      "display_name": "竊聽"
+    },
+    "reasoning": "文本明確指出使用加密的 VPN 服務可以『防止其他人透過公共無線網路攔截你的資訊（稱為「竊聽」）』，因此VPN工具(tool)可緩解(mitigates)竊聽攻擊(attack)。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "VPN 服務是 'tool' 的合理實例，竊聽是 'attack' 的合理實例，且 'mitigates' 的語意與資安領域的同義詞寬容原則相符。",
+        "response": "correct",
+        "reason": "VPN 服務作為一種工具，可以有效地減輕竊聽攻擊的風險，符合資安領域的常見實踐和語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，該三元組的主體是 VPN 服務 (類別: tool)，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "該三元組的主體是 VPN 服務 (類別: tool)，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 竊聽與竊取、盜竊之間存在語義上的相關性，但非完全等價同義詞；主體 (Subject) VPN 服務與列表中vpn 服務完全匹配。",
+        "response": "correct",
+        "standard_subject": "vpn 服務",
+        "standard_object": "",
+        "reason": "根據【前提確認】與【同義詞判定】，主體為完全匹配，受體與列表中資源之間雖有相似性，但不構成同義詞關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "VPN 服務",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "竊聽",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出使用加密的 VPN 服務可以『防止其他人透過公共無線網路攔截你的資訊（稱為「竊聽」）』，因此VPN工具(tool)可緩解(mitigates)竊聽攻擊(attack)。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "公共無線網路",
+      "type": "system",
+      "display_name": "公共無線網路"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到公共 Wi-Fi 涉及一些風險，且建議驗證裝置設定檔，暗示公共無線網路(system)會暴露(can_expose)系統弱點(vulnerability)。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "公共無線網路是 system 的合理實例，弱點是 vulnerability 的合理實例，'can_expose' 的語意也與資安領域的常見用法對齊。",
+        "response": "correct",
+        "reason": "公共無線網路可以暴露弱點的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：允許 vulnerability 發起 'can_expose' 動作，適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為公共無線網路（類別：system），關係為 can_expose，受體為弱點（類別：vulnerability），符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"公共無線網路\" 與 Ldr 中的 \"無線網路\" 關係為同義詞，受體 \"弱點\" 與 Ldr 中的 \"弱點\" 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例， \"公共無線網路\" 與 \"無線網路\" 不完全相同，且 \"弱點\" 已在 Ldr 中出現，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "公共無線網路",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到公共 Wi-Fi 涉及一些風險，且建議驗證裝置設定檔，暗示公共無線網路(system)會暴露(can_expose)系統弱點(vulnerability)。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "強密碼原則",
+      "type": "policy",
+      "display_name": "強密碼原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "字典攻擊",
+      "type": "attack",
+      "display_name": "字典攻擊"
+    },
+    "reasoning": "文本建議不要使用字典單字以選擇強密碼，且提到密碼短語比典型密碼更不容易受到字典攻擊，因此強密碼原則(policy)可緩解(mitigates)字典攻擊(attack)。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "強密碼原則是 policy 的合理實例，字典攻擊是 attack 的合理實例，'mitigates' 的語意也與資安領域的同義詞寬容原則相符。",
+        "response": "correct",
+        "reason": "強密碼原則、字典攻擊與 'mitigates' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是強密碼原則，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體和關係符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「強密碼原則」與 Ldr 中的「密碼原則」相似，但非完全等價同義詞；受體「字典攻擊」與 Ldr 中的「字典攻擊」完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源不完全匹配，受體完全匹配，但不觸發同義詞判定，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "強密碼原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "字典攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本建議不要使用字典單字以選擇強密碼，且提到密碼短語比典型密碼更不容易受到字典攻擊，因此強密碼原則(policy)可緩解(mitigates)字典攻擊(attack)。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "強密碼原則",
+      "type": "policy",
+      "display_name": "強密碼原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "暴力攻擊",
+      "type": "attack",
+      "display_name": "暴力攻擊"
+    },
+    "reasoning": "文本提到較長的密碼短語更不容易受到暴力攻擊，因此強密碼原則(policy)可緩解(mitigates)暴力攻擊(attack)。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "強密碼原則是 policy 的合理實例，暴力攻擊是 attack 的合理實例，且 'mitigates' 的語意與資安領域的同義詞寬容原則相符。",
+        "response": "correct",
+        "reason": "強密碼原則、暴力攻擊與 'mitigates' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '強密碼原則' 屬於 policy 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '強密碼原則' 屬於 policy 類別，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"強密碼原則\" 與 Ldr 中的 \"強密碼原則\" 完全等價，受體 \"暴力攻擊\" 與 Ldr 中的 \"暴力攻擊\" 完全等價，兩者皆為完全匹配的同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "強密碼原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "暴力攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到較長的密碼短語更不容易受到暴力攻擊，因此強密碼原則(policy)可緩解(mitigates)暴力攻擊(attack)。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼短語",
+      "type": "technique",
+      "display_name": "密碼短語"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權的存取",
+      "type": "attack",
+      "display_name": "未經授權的存取"
+    },
+    "reasoning": "文本提到『使用密碼短語...來防止未經授權的存取你的設備』，因此密碼短語(technique)可緩解(mitigates)未經授權的存取(attack)。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "密碼短語 (Password Phrase) 是一種合理的 'technique' 實例，未經授權的存取 (Unauthorized Access) 是一種合理的 'attack' 實例，且 'mitigates' 關係在資安領域中是合理的用法。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '密碼短語' 屬於 'technique' 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '密碼短語' 屬於 'technique' 類別，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "未經授權的存取與未經授權存取、未授權存取、非授權存取等為同義詞或近似概念，但未經授權的存取與其他選項如竊聽、字典攻擊、暴力攻擊等無直接同義關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "未經授權的存取",
+        "reason": "受體與現有近似資源清單中的某些項目為同義詞或近似概念，但根據判斷準則，若一個實體是另一個的子類型或無法確定，預設保留，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼短語",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "未經授權的存取",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『使用密碼短語...來防止未經授權的存取你的設備』，因此密碼短語(technique)可緩解(mitigates)未經授權的存取(attack)。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料傳輸",
+      "type": "data",
+      "display_name": "資料傳輸"
+    },
+    "reasoning": "文本提到駭客會嘗試攔截加密 VPN 隧道中的資料傳輸，這符合攻擊者(attacker)危害(can_harm)資料(data)的邏輯。",
+    "source_id": "chunk_3",
+    "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，受體類別 'data' 也存在於 Lc,p 的 'Classes' 中，關係 'can_harm' 存在於 Lc,p 的 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是 'attacker' 的合理實例，資料傳輸 (data) 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：駭客（attacker）與安全團隊（securityTeam）無交集，符合規則。檢查規則2：不涉及mitigates動作，無關。檢查規則3：主體非vulnerability，無關。檢查規則4：不涉及principle，無關。檢查規則5：關係非uses，無關。檢查規則6：關係非deployed_in，無關。檢查規則7：關係非generates，無關。檢查規則8：主體是attacker，具有主動執行能力，關係can_harm合法。",
+        "response": "correct",
+        "reason": "三元組（駭客，can_harm，資料傳輸）未觸發語義限制清單中的任何規則，屬於合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「駭客」與 Ldr 中的「駭客」完全等價同義詞，受體「資料傳輸」與 Ldr 中的「傳輸資料」具有高相似度，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源具有完全相同的名稱，受體雖然具有高相似度，但不完全符合同義詞對照範例，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資料傳輸",
+        "type": "data"
+      },
+      "reasoning": "文本提到駭客會嘗試攔截加密 VPN 隧道中的資料傳輸，這符合攻擊者(attacker)危害(can_harm)資料(data)的邏輯。",
+      "source_id": "chunk_3",
+      "source_file": "網路安全簡介_模組3-保護你的資料和隱私.pdf",
+      "source_index": 9
+    }
+  }
+]

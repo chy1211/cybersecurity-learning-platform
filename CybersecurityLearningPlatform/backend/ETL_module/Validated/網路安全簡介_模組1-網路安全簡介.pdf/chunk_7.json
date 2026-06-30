@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "惡意事件",
+      "type": "attack",
+      "display_name": "惡意事件"
+    },
+    "reasoning": "文本提到技術利用防火牆來保護資訊系統並查找惡意事件，因此防火牆作為工具可緩解/防禦惡意攻擊。符合 Schema: (tool, mitigates, attack)。",
+    "source_id": "chunk_7",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，惡意事件是攻擊（attack）的合理實例，且 'mitigates' 是合理的關係描述。",
+        "response": "correct",
+        "reason": "防火牆（tool）與惡意事件（attack）之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，三元組中的主體是防火牆（tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（防火牆）是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「防火牆」與 Ldr 中的「防火牆」完全相同，受體「惡意事件」與 Ldr 中的「惡意入侵事件」相似，但非完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體「防火牆」與 Ldr 中的「防火牆」完全相同，且無法確定受體「惡意事件」與 Ldr 中的「惡意入侵事件」為同義詞，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "惡意事件",
+        "type": "attack"
+      },
+      "reasoning": "文本提到技術利用防火牆來保護資訊系統並查找惡意事件，因此防火牆作為工具可緩解/防禦惡意攻擊。符合 Schema: (tool, mitigates, attack)。",
+      "source_id": "chunk_7",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "技術",
+      "type": "technique",
+      "display_name": "技術"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "惡意事件",
+      "type": "attack",
+      "display_name": "惡意事件"
+    },
+    "reasoning": "文本指出技術旨在『持續監控你的網路以查找可能的惡意事件』，這是一種偵測行為。符合 Schema: (technique, can_detect, attack)。",
+    "source_id": "chunk_7",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "技術 (technique) 可以檢測 (can_detect) 惡意事件 (attack)，這是資安領域中合理的語意關係，技術可以用於檢測攻擊行為。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係是can_detect，而不是mitigates。規則3不適用，因為三元組中的主體類別是technique，而不是vulnerability。規則4不適用，因為三元組中的關係是can_detect，而不是violates。規則5不適用，因為三元組中的關係是can_detect，而不是uses。規則6不適用，因為三元組中的關係是can_detect，而不是deployed_in。規則7不適用，因為三元組中的關係是can_detect，而不是generates。規則8不適用，因為三元組中的關係是can_detect，而不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是技術，關係是can_detect，受體是惡意事件，沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「技術」與 Ldr 中的「攻擊技術」、「入侵偵測技術」等為廣義/狹義從屬關係，但與「惡意事件」無直接等價同義詞關係；受體「惡意事件」與 Ldr 中的「惡意入侵事件」、「事件」為廣義/狹義從屬關係，且「惡意事件」與「惡意入侵事件」可視為同一概念的不同表述。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與受體之間無直接同義詞關係，且彼此為不同類別，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "技術",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "惡意事件",
+        "type": "attack"
+      },
+      "reasoning": "文本指出技術旨在『持續監控你的網路以查找可能的惡意事件』，這是一種偵測行為。符合 Schema: (technique, can_detect, attack)。",
+      "source_id": "chunk_7",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端叢集",
+      "type": "system",
+      "display_name": "雲端叢集"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "系統設定錯誤",
+      "type": "vulnerability",
+      "display_name": "設定錯誤"
+    },
+    "reasoning": "文本提到安全顧問發現雲端叢集『設定錯誤』，表示該系統暴露了漏洞。符合 Schema: (system, can_expose, vulnerability)。",
+    "source_id": "chunk_7",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雲端叢集是 system 的合理實例，設定錯誤是 vulnerability 的合理實例，'can_expose' 的語意與雲端叢集可能暴露設定錯誤的風險相符。",
+        "response": "correct",
+        "reason": "雲端叢集與設定錯誤的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體類別為system，受體類別為vulnerability，關係為can_expose，符合規則3的特例允許，因此不觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係符合語義限制清單中的規則3特例允許，沒有明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "設定錯誤與系統設定錯誤為同義詞，兩者在資安領域中可互換使用、指稱同一概念",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "系統設定錯誤",
+        "reason": "根據同義詞判定，設定錯誤與系統設定錯誤為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端叢集",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "設定錯誤",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到安全顧問發現雲端叢集『設定錯誤』，表示該系統暴露了漏洞。符合 Schema: (system, can_expose, vulnerability)。",
+      "source_id": "chunk_7",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "系統設定錯誤",
+      "type": "vulnerability",
+      "display_name": "設定錯誤"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料外洩",
+      "type": "risk",
+      "display_name": "資料外洩"
+    },
+    "reasoning": "文本明確指出設定錯誤『導致資料外洩』，漏洞導致了風險的發生。符合 Schema: (vulnerability, can_expose, risk)。",
+    "source_id": "chunk_7",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "設定錯誤 (vulnerability) 可能導致資料外洩 (risk)，這是資安領域中合理的語意對齊，'can_expose' 關係也合理地描述了設定錯誤可能導致資料外洩的風險。",
+        "response": "correct",
+        "reason": "設定錯誤 (vulnerability) 可能導致資料外洩 (risk) 的三元組完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體為設定錯誤（類別：vulnerability），關係為can_expose，受體為資料外洩（類別：risk），符合規則3的特例允許。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，vulnerability可以發起'can_expose'動作。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "設定錯誤與系統設定錯誤為同義詞，資料外洩為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "系統設定錯誤",
+        "standard_object": "資料外洩",
+        "reason": "設定錯誤與系統設定錯誤為同義詞，資料外洩為完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "設定錯誤",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "資料外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本明確指出設定錯誤『導致資料外洩』，漏洞導致了風險的發生。符合 Schema: (vulnerability, can_expose, risk)。",
+      "source_id": "chunk_7",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "網路犯罪份子",
+      "type": "attacker",
+      "display_name": "網路犯罪份子"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "社交工程",
+      "type": "technique",
+      "display_name": "社交工程"
+    },
+    "reasoning": "文本提到網路犯罪份子使用資訊進行『社交工程』攻擊，這屬於攻擊者的實作行為。符合 Schema: (attacker, implements, attack)。",
+    "source_id": "chunk_7",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，但實際上應該是 'attacker' 的同義詞 'attacker' 在列表中被記為 'attacker'，受體類別 'attack' 存在於 Lc,p 的 'Classes' 中，關係 'implements' 存在於 'Properties' 中。",
+        "step_2_alignment_check": "網路犯罪份子可以被視為 'attacker' 的合理實例，社交工程可以被視為 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體的類別與關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（網路犯罪份子 implements 社交工程）未觸發語義限制清單中的任何規則，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路犯罪份子與網路攻擊者為同義詞，社交工程與社會工程學為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，網路犯罪份子和社交工程不需要合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路犯罪份子",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "社交工程",
+        "type": "attack"
+      },
+      "reasoning": "文本提到網路犯罪份子使用資訊進行『社交工程』攻擊，這屬於攻擊者的實作行為。符合 Schema: (attacker, implements, attack)。",
+      "source_id": "chunk_7",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "物聯網",
+      "type": "system",
+      "display_name": "物聯網"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "設備",
+      "type": "tool",
+      "display_name": "設備"
+    },
+    "reasoning": "文本提到物聯網正在連接越來越多的設備，設備是物聯網系統的組成部分。符合 Schema: (system, has_a, system)。",
+    "source_id": "chunk_7",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '物聯網' 與 '設備' 均為 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'has_a'，與規則無直接衝突。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與給定的語義限制清單中沒有直接的違反規則，且主體 '物聯網' 的類別為 'system'，受體 '設備' 的類別為 'tool'，這符合一般的物聯網系統包含或具有設備的邏輯。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"物聯網\" 與 Ldr 中的 \"物聯網\" 完全等價，受體 \"設備\" 與 Ldr 中的 \"設備\" 完全等價，兩者皆為完全匹配的同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "物聯網",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "設備",
+        "type": "system"
+      },
+      "reasoning": "文本提到物聯網正在連接越來越多的設備，設備是物聯網系統的組成部分。符合 Schema: (system, has_a, system)。",
+      "source_id": "chunk_7",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "網路犯罪份子",
+      "type": "attacker",
+      "display_name": "網路犯罪份子"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "詐欺攻擊",
+      "type": "attack",
+      "display_name": "詐欺攻擊"
+    },
+    "reasoning": "文本提到網路犯罪份子使用資訊進行『詐欺攻擊』。符合 Schema: (attacker, implements, attack)。",
+    "source_id": "chunk_7",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，受體類別 'attack' 也存在於 Lc,p 的 'Classes' 中，關係 'implements' 存在於 Lc,p 的 'Properties' 中。",
+        "step_2_alignment_check": "網路犯罪份子是 attacker 的合理實例，詐欺攻擊是 attack 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。實際上，規則3中提到vulnerability不可發起主動行為，但這裡的主體是attacker，與規則3無關。因此，沒有發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組中的主體是網路犯罪份子（attacker），關係是implements，受體是詐欺攻擊（attack），這符合資安知識圖譜的語義限制，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路犯罪份子與網路攻擊者為同義詞，詐欺攻擊與攻擊為廣義/狹義從屬關係，但根據判斷準則，廣義/狹義一律保留，因此不進行合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，廣義/狹義一律保留，且無法確定為完全等價同義詞，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路犯罪份子",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "詐欺攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到網路犯罪份子使用資訊進行『詐欺攻擊』。符合 Schema: (attacker, implements, attack)。",
+      "source_id": "chunk_7",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "persirai 殭屍網路",
+      "type": "attack",
+      "display_name": "Persirai 殭屍網路"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "ip 攝影機",
+      "type": "system",
+      "display_name": "IP 攝影機"
+    },
+    "reasoning": "Persirai 殭屍網路以 IP 攝影機為目標並注入命令，對其造成危害。符合 Schema: (attack, can_harm, system)。",
+    "source_id": "chunk_7",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Persirai 殭屍網路 是 'attack' 的合理實例，IP 攝影機 是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統的影響的合理關係。",
+        "response": "correct",
+        "reason": "Persirai 殭屍網路 對 IP 攝影機 的 'can_harm' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'can_harm' 不在明確限制的關係中，且主體 'Persirai 殭屍網路' 的類別 'attack' 與受體 'IP 攝影機' 的類別 'system' 在給定的規則中沒有直接的限制或違反。",
+        "response": "correct",
+        "reason": "三元組 'Persirai 殭屍網路'、'can_harm'、'IP 攝影機' 沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Persirai 殭屍網路 是一種攻擊，與 Ldr 中的 \"惡意事件\" 或 \"詐欺攻擊\" 類似，但非完全等價同義詞；IP 攝影機 屬於系統類別，與 Ldr 中的 \"雲端叢集\" 或 \"物聯網\" 類似，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，Persirai 殭屍網路 和 IP 攝影機 與 Ldr 中的資源不完全相符，且無法確定為同義詞或子類型，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Persirai 殭屍網路",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "IP 攝影機",
+        "type": "system"
+      },
+      "reasoning": "Persirai 殭屍網路以 IP 攝影機為目標並注入命令，對其造成危害。符合 Schema: (attack, can_harm, system)。",
+      "source_id": "chunk_7",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "ip 攝影機",
+      "type": "system",
+      "display_name": "IP 攝影機"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "開放連接埠",
+      "type": "feature",
+      "display_name": "開放連接埠"
+    },
+    "reasoning": "文本提到存取 IP 攝影機的『開放連接埠』，連接埠是系統的特徵/屬性。符合 Schema: (system, has_a, feature)。",
+    "source_id": "chunk_7",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IP 攝影機是一種系統（system），而開放連接埠是一種功能（feature），這些名稱與其類別之間的對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（IP 攝影機 has_a 開放連接埠）未觸發語義限制清單中的任何規則，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 'IP 攝影機' 與 Ldr 中的 'ip 攝影機' 關係為完全等價同義詞，受體 '開放連接埠' 與 Ldr 中的 '連接埠' 關係為廣義/狹義從屬",
+        "response": "correct",
+        "standard_subject": "ip 攝影機",
+        "standard_object": "",
+        "reason": "根據同義詞判定，'IP 攝影機' 與 'ip 攝影機' 為同義詞，且 '開放連接埠' 是 '連接埠' 的子類型，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IP 攝影機",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "開放連接埠",
+        "type": "feature"
+      },
+      "reasoning": "文本提到存取 IP 攝影機的『開放連接埠』，連接埠是系統的特徵/屬性。符合 Schema: (system, has_a, feature)。",
+      "source_id": "chunk_7",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "網路犯罪份子",
+      "type": "attacker",
+      "display_name": "網路犯罪份子"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "開放連接埠",
+      "type": "feature",
+      "display_name": "開放連接埠"
+    },
+    "reasoning": "雖然文本主體是殭屍網路，但其背後是網路犯罪份子利用開放連接埠來注入命令。符合 Schema: (attacker, uses, feature)。",
+    "source_id": "chunk_7",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 應為 'attacker' 的同義詞 'attacker' 在 Classes 中，實際上 'attacker' 的同義詞應為 'attacker'，但給定的類別為 'attacker'，而 'attacker' 的同義詞在 Classes 中為 'attacker'，受體類別 'feature' 存在於 Classes 中，關係 'uses' 存在於 Properties 中。因此，主體類別、受體類別與關係皆在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '網路犯罪份子' 的類別為 'attacker'，受體 '開放連接埠' 的類別為 'feature'，這些名稱與其被賦予的類別合理對齊，因為 '網路犯罪份子' 可以被視為 'attacker' 的實例，'開放連接埠' 可以被視為 'feature' 的實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體的類別是 'attacker'，不違反此規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 'attacker'，關係為 'uses'，受體為 'feature'，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞或類別相似性，但無直接同義詞對應關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法直接判定為同義詞或廣義/狹義從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路犯罪份子",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "開放連接埠",
+        "type": "feature"
+      },
+      "reasoning": "雖然文本主體是殭屍網路，但其背後是網路犯罪份子利用開放連接埠來注入命令。符合 Schema: (attacker, uses, feature)。",
+      "source_id": "chunk_7",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "ip 攝影機",
+      "type": "system",
+      "display_name": "IP 攝影機"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "惡意軟體網站",
+      "type": "system",
+      "display_name": "惡意軟體網站"
+    },
+    "reasoning": "文本提到迫使攝影機『連接到安裝了惡意軟體的網站』。將網站視為一個系統實體。符合 Schema: (system, connects_to, system)。",
+    "source_id": "chunk_7",
+    "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "IP 攝影機 可被視為 'system' 的實例，惡意軟體網站 也可被視為 'system' 的實例，考慮到資安領域的同義詞寬容原則，兩者皆合理對齊其類別。",
+        "response": "correct",
+        "reason": "IP 攝影機與惡意軟體網站的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（IP 攝影機）和受體（惡意軟體網站）之間的關係（connects_to）未在語義限制清單中明確定義為違規，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 IP 攝影機與 Ldr 中的 ip 攝影機 完全等價同義詞，受體 惡意軟體網站 與 Ldr 中無直接相關資源，但惡意軟體網站 可以被視為 system 類別下的子類型，惡意軟體網站 的主體部分（惡意軟體）與 Ldr 中無直接相關資源。",
+        "response": "correct",
+        "standard_subject": "ip 攝影機",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，主體 IP 攝影機 與 Ldr 中的 ip 攝影機 完全等價同義詞，受體惡意軟體網站無直接同義詞或子類型關係於 Ldr 中，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IP 攝影機",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "惡意軟體網站",
+        "type": "system"
+      },
+      "reasoning": "文本提到迫使攝影機『連接到安裝了惡意軟體的網站』。將網站視為一個系統實體。符合 Schema: (system, connects_to, system)。",
+      "source_id": "chunk_7",
+      "source_file": "網路安全簡介_模組1-網路安全簡介.pdf",
+      "source_index": 11
+    }
+  }
+]

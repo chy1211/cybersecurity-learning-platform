@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "sim卡",
+      "type": "system",
+      "display_name": "SIM 卡"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "gsm 行動電話設備",
+      "type": "system",
+      "display_name": "GSM 行動電話設備"
+    },
+    "reasoning": "文本提到 SIM 卡被使用在 GSM 行動電話設備中，SIM 卡與電話設備均為基礎設施/硬體系統，符合 ('system', 'is_part_of', 'system') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'system' 和受體的類別 'system' 都存在於 Lc,p 的 'Classes' 中，關係 'is_part_of' 存在於 'Properties' 中。",
+        "step_2_alignment_check": "SIM 卡是系統（system）的合理實例，GSM 行動電話設備也是系統（system）的合理實例，'is_part_of' 關係在此語境中合理，因為 SIM 卡通常是行動電話設備的一部分。",
+        "response": "correct",
+        "reason": "SIM 卡和 GSM 行動電話設備的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 is_part_of，不是 deployed_in。規則7：不適用，因為關係為 is_part_of，不是 generates。規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與主體 SIM 卡和受體 GSM 行動電話設備的類別組合，未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SIM 卡與 Ldr 中的 'sim卡' 是完全等價同義詞，GSM 行動電話設備與 Ldr 中的 'gsm' 有關但不完全等價，'gsm' 是 'GSM 行動電話設備' 的子類型或相關概念",
+        "response": "correct",
+        "standard_subject": "sim卡",
+        "standard_object": "",
+        "reason": "根據同義詞判定，SIM 卡與 'sim卡' 是同義詞，且 'GSM 行動電話設備' 與 'gsm' 不是完全等價的同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SIM 卡",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "GSM 行動電話設備",
+        "type": "system"
+      },
+      "reasoning": "文本提到 SIM 卡被使用在 GSM 行動電話設備中，SIM 卡與電話設備均為基礎設施/硬體系統，符合 ('system', 'is_part_of', 'system') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "執行碼 (applet)",
+      "type": "app",
+      "display_name": "執行碼 (applet)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "java 卡",
+      "type": "system",
+      "display_name": "Java 卡"
+    },
+    "reasoning": "文本指出在 Java 卡上可以載入不同的執行碼 (applet) 以執行應用程式。Applet 是具體的應用軟體 (app)，Java 卡是其運行的平台系統 (system)，符合 ('app', 'is_part_of', 'system') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "執行碼 (applet) 可被視為 'app' 的合理實例，Java 卡可被視為 'system' 的合理實例，且 'is_part_of' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：當關係為 is_part_of 時，受體的類別是 system，符合規則6的前提但不直接適用，因為規則6針對的是 deployed_in 關係。檢查規則7：不適用。檢查規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與受體 Java 卡 (類別: system) 不直接違反任何一條語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Java 卡與 sim 卡、gsm 行動電話設備皆屬於 system 類別，但 Java 卡與 sim 卡在某些情境下可能被視為同義詞，然而在此資安領域的語境下，Java 卡更特指一種具特定功能的卡片，與 sim 卡有所區別，兩者皆不完全等同於 gsm 行動電話設備。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Java 卡與 sim 卡、gsm 行動電話設備在此語境下被視為不同的實體，無法直接判定為同義詞或廣義/狹義從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "執行碼 (applet)",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Java 卡",
+        "type": "system"
+      },
+      "reasoning": "文本指出在 Java 卡上可以載入不同的執行碼 (applet) 以執行應用程式。Applet 是具體的應用軟體 (app)，Java 卡是其運行的平台系統 (system)，符合 ('app', 'is_part_of', 'system') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "智慧卡電子系統",
+      "type": "system",
+      "display_name": "EMV 系統"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "智慧卡電子系統",
+      "type": "system",
+      "display_name": "支付卡系統"
+    },
+    "reasoning": "文本提到 Visa, MasterCard 等組織發布 EMV 支付卡系統，EMV 是支付卡系統的一種具體實現，符合 ('system', 'is_part_of', 'system') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "EMV 系統和支付卡系統都是系統的合理實例，'is_part_of' 關係在資安領域中是合理的，表示 EMV 系統是支付卡系統的一部分。",
+        "response": "correct",
+        "reason": "主體、關係和受體都符合預先定義的類別和屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 is_part_of 與規則清單中沒有直接相關的限制，且主體和受體的類別與給定的關係之間沒有明顯的語義衝突。"
+      },
+      "step_2": {
+        "granularity_analysis": "EMV 系統與智慧卡電子系統在資安領域中可視為同義詞，兩者皆指涉及安全交易的卡片系統",
+        "response": "duplicate",
+        "standard_subject": "智慧卡電子系統",
+        "standard_object": "智慧卡電子系統",
+        "reason": "根據同義詞判定，EMV 系統與智慧卡電子系統指稱同一概念，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "EMV 系統",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "支付卡系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到 Visa, MasterCard 等組織發布 EMV 支付卡系統，EMV 是支付卡系統的一種具體實現，符合 ('system', 'is_part_of', 'system') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "ic 卡對策",
+      "type": "technique",
+      "display_name": "IC 卡對策"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "ic 卡攻擊",
+      "type": "attack",
+      "display_name": "IC 卡攻擊"
+    },
+    "reasoning": "文本提及「IC 卡攻擊及對策」，對策是指用來防禦或緩解攻擊的技術方法，符合 ('technique', 'mitigates', 'attack') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IC 卡對策 是 technique 的合理實例，IC 卡攻擊 是 attack 的合理實例，且 'mitigates' 關係在資安領域中合理適用於此類別與實例之間的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是 IC 卡對策，類別為 technique，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 IC 卡對策 屬於 technique 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "IC 卡攻擊是攻擊的子類型，兩者之間存在廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IC 卡對策",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "IC 卡攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提及「IC 卡攻擊及對策」，對策是指用來防禦或緩解攻擊的技術方法，符合 ('technique', 'mitigates', 'attack') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "ic 卡攻擊",
+      "type": "attack",
+      "display_name": "IC 卡攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "ic 卡",
+      "type": "system",
+      "display_name": "IC 卡"
+    },
+    "reasoning": "文本提及「IC 卡攻擊及對策」，邏輯上攻擊行為會對其目標系統造成損害，符合 ('attack', 'can_harm', 'system') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IC 卡攻擊 (IC 卡攻擊) 是 'attack' 的合理實例，IC 卡是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統影響的合理關係。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'can_harm' 不在任何規則中明確被限制或定義，且主體 'IC 卡攻擊' 的類別 'attack' 與受體 'IC 卡' 的類別 'system' 在給定的規則中沒有直接的違反。",
+        "response": "correct",
+        "reason": "三元組 'IC 卡攻擊'、'can_harm'、'IC 卡' 沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "IC 卡攻擊與 ic 卡攻擊為完全等價同義詞，IC 卡與 ic 卡為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，IC 卡攻擊與 ic 卡攻擊為同義詞，但根據廣義/狹義一律保留原則，仍判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IC 卡攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "IC 卡",
+        "type": "system"
+      },
+      "reasoning": "文本提及「IC 卡攻擊及對策」，邏輯上攻擊行為會對其目標系統造成損害，符合 ('attack', 'can_harm', 'system') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "multos",
+      "type": "system",
+      "display_name": "Multos"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "ic 卡",
+      "type": "system",
+      "display_name": "IC 卡"
+    },
+    "reasoning": "Multos 被定義為一種多應用作業系統，是用於 IC 卡平台的系統。兩者均屬系統類別，符合 ('system', 'is_part_of', 'system') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Multos 和 IC 卡都可以被視為 'system' 的合理實例，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "Multos 和 IC 卡的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查是否有其他規則適用：沒有相關規則直接適用於 'is_part_of' 關係，且主體和受體的類別均為 'system'，因此無明確違反規則的跡象。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別均為 'system'，且關係為 'is_part_of'，未發現明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) IC 卡與 Ldr 中的 \"ic 卡\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "ic 卡",
+        "reason": "根據同義詞判定，IC 卡與 ic 卡是同義詞，但根據規則 3，若一個實體是另一個的子類型，則判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Multos",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "IC 卡",
+        "type": "system"
+      },
+      "reasoning": "Multos 被定義為一種多應用作業系統，是用於 IC 卡平台的系統。兩者均屬系統類別，符合 ('system', 'is_part_of', 'system') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 3
+    }
+  }
+]

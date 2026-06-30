@@ -1,0 +1,574 @@
+[
+  {
+    "subject": {
+      "name": "非揮發性記憶體 (nvram)",
+      "type": "system",
+      "display_name": "非揮發性記憶體 (NVRAM)"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "主金鑰 (master key)",
+      "type": "data",
+      "display_name": "主金鑰 (master key)"
+    },
+    "reasoning": "文本提到 NVRAM 用於儲存敏感性資料如主金鑰。在 Schema 中，硬體組件可視為 system，且 system 與 data 之間可以使用 uses 關係。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "非揮發性記憶體 (NVRAM) 是 'system' 的合理實例，主金鑰 (master key) 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，待檢查三元組的主體是非揮發性記憶體（NVRAM），類別為system，使用主金鑰（master key），類別為data。因此，規則5不適用於此三元組，因為主體的類別不是data。",
+        "response": "correct",
+        "reason": "三元組中的主體（非揮發性記憶體）和關係（uses）以及受體（主金鑰）之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主金鑰與金鑰之間的關係是同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主金鑰與金鑰在資安領域中指稱同一概念，但根據【廣義/狹義一律保留】原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "非揮發性記憶體 (NVRAM)",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "主金鑰 (master key)",
+        "type": "data"
+      },
+      "reasoning": "文本提到 NVRAM 用於儲存敏感性資料如主金鑰。在 Schema 中，硬體組件可視為 system，且 system 與 data 之間可以使用 uses 關係。",
+      "source_id": "chunk_11",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "硬體密碼模組",
+      "type": "tool",
+      "display_name": "硬體密碼模組"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "實體安全機制",
+      "type": "tool",
+      "display_name": "實體安全機制"
+    },
+    "reasoning": "硬體密碼模組包含實體安全機制。將模組視為 system，將其內建的安全機制視為 tool，符合 ('system', 'has_a', 'tool') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "硬體密碼模組 (HSM) 是系統 (system) 的合理實例，實體安全機制 (physical security mechanism) 可被視為工具 (tool) 的實例，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "硬體密碼模組與實體安全機制的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為關係不是 'uses'。檢查規則6：無關，因為關係不是 'deployed_in'。檢查規則7：無關，因為關係不是 'generates'。檢查規則8：無關，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 不在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域的工具類別，且主體「硬體密碼模組」與 Ldr 中的「硬體密碼模組」完全匹配，受體「實體安全機制」與 Ldr 中的「實體安全設施」相似但不完全匹配，兩者皆無同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "硬體密碼模組",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "實體安全機制",
+        "type": "tool"
+      },
+      "reasoning": "硬體密碼模組包含實體安全機制。將模組視為 system，將其內建的安全機制視為 tool，符合 ('system', 'has_a', 'tool') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "實體安全機制",
+      "type": "tool",
+      "display_name": "實體安全機制"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "竄改證據 (tamper evidence)",
+      "type": "function",
+      "display_name": "竄改證據 (tamper evidence)"
+    },
+    "reasoning": "文本明確指出實體安全包含竄改證據功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體安全機制 (tool) 與 竄改證據 (function) 的名稱與其類別合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，但需注意 'has_a' 關係的合法性，實體安全機制 (tool) 與竄改證據 (function) 的組合在給定的規則中沒有明確的限制或違反。",
+        "response": "correct",
+        "reason": "由於給定的三元組（實體安全機制 has_a 竄改證據）沒有明確違反語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體安全機制與實體安全設施在資安領域中可能指涉不同層面的安全措施，無法直接判定為完全等價同義詞，但實體安全機制與實體安全設施之間可能存在廣義/狹義從屬關係，然而根據給定的資訊，實體安全機制與實體安全設施在此場合被視為同一類別的工具，且實體安全機制在Ldr中直接出現，故無需進一步的同義詞判定。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體安全機制在Ldr中直接出現，且無法確定其與其他實體之間的同義詞關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體安全機制",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "竄改證據 (tamper evidence)",
+        "type": "function"
+      },
+      "reasoning": "文本明確指出實體安全包含竄改證據功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "實體安全機制",
+      "type": "tool",
+      "display_name": "實體安全機制"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "對抗竄改 (tamper resistance)",
+      "type": "function",
+      "display_name": "對抗竄改 (tamper resistance)"
+    },
+    "reasoning": "文本明確指出實體安全包含對抗竄改功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體安全機制 ('tool') 與 對抗竄改 ('function') 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊與同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（實體安全機制 has_a 對抗竄改）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體安全機制與實體安全設施之間存在相似性，但非完全等價同義詞，實體安全機制是實體安全設施的子類型或相關概念，但不完全相同；對抗竄改與竄改證據之間存在不同，竄改證據是指竄改行為的證據，而對抗竄改是指防止竄改的功能或機制。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體安全機制與實體安全設施之間的關係是廣義/狹義從屬，且對抗竄改與竄改證據之間的關係不是同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體安全機制",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "對抗竄改 (tamper resistance)",
+        "type": "function"
+      },
+      "reasoning": "文本明確指出實體安全包含對抗竄改功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "實體安全機制",
+      "type": "tool",
+      "display_name": "實體安全機制"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "竄改偵測 (tamper detection)",
+      "type": "function",
+      "display_name": "竄改偵測 (tamper detection)"
+    },
+    "reasoning": "文本明確指出實體安全包含竄改偵測功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體安全機制 ('tool') 可能包含竄改偵測 ('function')，這是語意上合理的，符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係為 has_a，描述的是實體安全機制具有竄改偵測功能，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體安全機制與實體安全設施之間存在廣義/狹義從屬關係，但實體安全機制與竄改偵測之間不存在直接同義詞關係或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體安全機制與竄改偵測之間不存在直接同義詞關係或從屬關係，且無法確定兩者之間的直接等價關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體安全機制",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "竄改偵測 (tamper detection)",
+        "type": "function"
+      },
+      "reasoning": "文本明確指出實體安全包含竄改偵測功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "實體安全機制",
+      "type": "tool",
+      "display_name": "實體安全機制"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "竄改回應 (tamper response)",
+      "type": "function",
+      "display_name": "竄改回應 (tamper response)"
+    },
+    "reasoning": "文本明確指出實體安全包含竄改回應功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體安全機制 (tool) 與 竄改回應 (function) 的名稱與其類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊與同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需注意 'has_a' 關係是否符合實體安全機制的屬性或功能，然而根據給定的資訊，'has_a' 關係似乎是描述實體安全機制具備的功能或特性，因此不違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 描述了實體安全機制與竄改回應之間的屬性或功能關係，未發現明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體安全機制與實體安全設施之間存在相似性，但非完全等價同義詞，實體安全機制與竄改回應之間無直接從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定實體安全機制與竄改回應之間的直接同義詞關係，且實體安全機制與實體安全設施之間的相似性不足以判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體安全機制",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "竄改回應 (tamper response)",
+        "type": "function"
+      },
+      "reasoning": "文本明確指出實體安全包含竄改回應功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "實體安全機制",
+      "type": "tool",
+      "display_name": "實體安全機制"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "實體攻擊",
+      "type": "attack",
+      "display_name": "實體攻擊"
+    },
+    "reasoning": "文本提到實體安全是用於偵測非授權的實體存取（實體攻擊）。符合 ('tool', 'can_detect', 'attack') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體安全機制 (tool) 與 實體攻擊 (attack) 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為 tool，具有主動執行能力，符合 controls 的主體條件，但關係為 can_detect，不是 controls，因此不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體安全機制與實體安全設施之間存在相似性，但非完全等價同義詞；實體攻擊為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體安全機制與實體攻擊之間不存在同義詞關係，且實體攻擊為完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體安全機制",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "實體攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到實體安全是用於偵測非授權的實體存取（實體攻擊）。符合 ('tool', 'can_detect', 'attack') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "硬體密碼模組",
+      "type": "tool",
+      "display_name": "硬體密碼模組"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "邏輯安全",
+      "type": "feature",
+      "display_name": "邏輯安全"
+    },
+    "reasoning": "硬體密碼模組需要考量邏輯安全機制。將其視為系統的一個特徵，符合 ('system', 'has_a', 'feature') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "硬體密碼模組 (HSM) 是系統 (system) 的合理實例，邏輯安全 (logical security) 可被視為安全功能 (security feature) 的一部分，與 'feature' 類別有合理的對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與受體 '邏輯安全' 並不直接違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆在 Ldr 中找到完全匹配的資源，分別為 \"硬體密碼模組\" 和 \"邏輯安全\"，且兩者皆為完全等價同義詞無需進一步分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆直接在 Ldr 中找到完全匹配的資源，無需同義詞判定或廣義/狹義分析。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "硬體密碼模組",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "邏輯安全",
+        "type": "feature"
+      },
+      "reasoning": "硬體密碼模組需要考量邏輯安全機制。將其視為系統的一個特徵，符合 ('system', 'has_a', 'feature') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "硬體密碼模組",
+      "type": "tool",
+      "display_name": "硬體密碼模組"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "環境安全",
+      "type": "feature",
+      "display_name": "環境安全"
+    },
+    "reasoning": "硬體密碼模組需要考量環境安全機制。符合 ('system', 'has_a', 'feature') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "硬體密碼模組 (HSM) 是系統 (system) 的合理實例，環境安全 (environmental security) 可被視為安全特性 (security feature) 的一種，'has_a' 關係在此語境下合理，因為系統可以具有安全特性。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 has_a 不在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆在 Ldr 中找到完全匹配的資源，分別為硬體密碼模組和環境安全，兩者之間無同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體在 Ldr 中均找到完全匹配的資源，且無同義詞或從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "硬體密碼模組",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "環境安全",
+        "type": "feature"
+      },
+      "reasoning": "硬體密碼模組需要考量環境安全機制。符合 ('system', 'has_a', 'feature') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "硬體密碼模組",
+      "type": "tool",
+      "display_name": "硬體密碼模組"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "操作安全",
+      "type": "feature",
+      "display_name": "操作安全"
+    },
+    "reasoning": "硬體密碼模組需要考量操作安全機制。符合 ('system', 'has_a', 'feature') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "硬體密碼模組 (HSM) 是系統 (system) 的合理實例，操作安全 (operational security) 是安全特性 (security feature) 的合理實例，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "硬體密碼模組與操作安全的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反任何一條語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆在 Ldr 中找到完全匹配的資源，分別為 \"硬體密碼模組\" 和 \"操作安全\"，且兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體在 Ldr 中均找到完全匹配的資源，且無同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "硬體密碼模組",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "操作安全",
+        "type": "feature"
+      },
+      "reasoning": "硬體密碼模組需要考量操作安全機制。符合 ('system', 'has_a', 'feature') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "實體攻擊",
+      "type": "attack",
+      "display_name": "實體攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "敏感資訊",
+      "type": "data",
+      "display_name": "敏感資訊"
+    },
+    "reasoning": "文本提到實體安全的目標是保護裝置免於被攻擊導致資料被非法竊取或修改。這意味著實體攻擊可危害資料。符合 ('attack', 'can_harm', 'data') 的 Schema。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '實體攻擊' 的名稱與其類別 'attack' 合理對齊，實體 '敏感資訊' 的名稱與其類別 'data' 也合理對齊，考慮到同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_harm'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 沒有在給定的規則中被明確限制，因此不違反任何規則。根據無罪推定原則，若未發現明確且直接的違反項目，則判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體攻擊與Ldr中的實體攻擊完全相同，敏感資訊與Ldr中的敏感性資訊具有高相似度，但不完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體攻擊與Ldr中的實體攻擊完全相同，因此判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "敏感資訊",
+        "type": "data"
+      },
+      "reasoning": "文本提到實體安全的目標是保護裝置免於被攻擊導致資料被非法竊取或修改。這意味著實體攻擊可危害資料。符合 ('attack', 'can_harm', 'data') 的 Schema。",
+      "source_id": "chunk_11",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 11
+    }
+  }
+]

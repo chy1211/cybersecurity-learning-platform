@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "認證資料",
+      "type": "data",
+      "display_name": "認證資料"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "使用者端",
+      "type": "system",
+      "display_name": "使用者端"
+    },
+    "reasoning": "文本明確提到『認證資料存於使用者端』，認證資料屬於資訊實體 (data)，使用者端在此指稱存放資料的基礎設施或環境 (system)，符合 ('data', 'deployed_in', 'system') 的 Schema。",
+    "source_id": "chunk_114",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '認證資料' 的名稱與其類別 'data' 合理對齊，實體 '使用者端' 的名稱與其類別 'system' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：觸發，關係為 deployed_in，受體的類別是 system，符合規則。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 deployed_in 與受體的類別 system 符合規則6，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「認證資料」與 Ldr 中的「認證資料」完全相同，受體「使用者端」與 Ldr 中的「使用者端」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源完全相同，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "認證資料",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "使用者端",
+        "type": "system"
+      },
+      "reasoning": "文本明確提到『認證資料存於使用者端』，認證資料屬於資訊實體 (data)，使用者端在此指稱存放資料的基礎設施或環境 (system)，符合 ('data', 'deployed_in', 'system') 的 Schema。",
+      "source_id": "chunk_114",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "加密傳輸",
+      "type": "technique",
+      "display_name": "加密傳輸"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "中間人攻擊",
+      "type": "attack",
+      "display_name": "中間人攻擊"
+    },
+    "reasoning": "文本提到『密碼傳輸過程加密』，加密傳輸是一種防禦技術 (technique)，用於防止資料在傳輸過程中被竊聽或篡改（即中間人攻擊 attack），符合 ('technique', 'mitigates', 'attack') 的 Schema。",
+    "source_id": "chunk_114",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "加密傳輸 (technique) 是一種合理的技術，中間人攻擊 (attack) 是一種常見的攻擊手法，'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，故語意對齊。",
+        "response": "correct",
+        "reason": "加密傳輸與中間人攻擊之間的 'mitigates' 關係在資安領域中是合理的，且完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '加密傳輸' 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '加密傳輸' 屬於 technique 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "中間人攻擊是攻擊的一種子類型，但加密傳輸與中間人攻擊之間的關係不在同義詞或廣義/狹義從屬的範疇內",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法確定兩者之間的直接關聯，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加密傳輸",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "中間人攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『密碼傳輸過程加密』，加密傳輸是一種防禦技術 (technique)，用於防止資料在傳輸過程中被竊聽或篡改（即中間人攻擊 attack），符合 ('technique', 'mitigates', 'attack') 的 Schema。",
+      "source_id": "chunk_114",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "權責主管",
+      "type": "securityTeam",
+      "display_name": "權責主管"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "系統權限管理",
+      "type": "policy",
+      "display_name": "系統權限管理"
+    },
+    "reasoning": "文本提到權限申請必須經過主管核准，這是一種管理規範 (policy)，而主管在此扮演資安管理角色 (securityTeam) 來執行該規範，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+    "source_id": "chunk_114",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '權責主管' 的名稱與其類別 'securityTeam' 合理對齊，實體 '系統權限管理' 的名稱與其類別 'policy' 也合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者身份。檢查規則2：不適用，因為動作是 implements，而規則2 指的是 mitigates。檢查規則3：不適用，因為主體類別是 securityTeam，而規則3 指的是 vulnerability。檢查規則4：不適用，因為主體類別是 securityTeam，而規則4 指的是 principle。檢查規則5：不適用，因為關係是 implements，而規則5 指的是 uses。檢查規則6：不適用，因為關係是 implements，而規則6 指的是 deployed_in。檢查規則7：不適用，因為關係是 implements，而規則7 指的是 generates。檢查規則8：不適用，因為關係是 implements，而規則8 指的是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（權責主管）和關係（implements）以及受體（系統權限管理）之間的關係沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，該三元組被判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '安全主管' 類似，但非完全等價同義詞；受體 '系統權限管理' 與 Ldr 中的資源完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "系統權限管理",
+        "reason": "根據判斷準則，受體 '系統權限管理' 與 Ldr 中的資源完全匹配，但主體 '權責主管' 與 '安全主管' 類似但不完全等價，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "權責主管",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "系統權限管理",
+        "type": "policy"
+      },
+      "reasoning": "文本提到權限申請必須經過主管核准，這是一種管理規範 (policy)，而主管在此扮演資安管理角色 (securityTeam) 來執行該規範，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+      "source_id": "chunk_114",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼安全管控",
+      "type": "policy",
+      "display_name": "密碼安全管控"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "密碼攻擊",
+      "type": "attack",
+      "display_name": "密碼攻擊"
+    },
+    "reasoning": "文本列舉了限制錯誤次數、定期更改密碼等管控措施，這些措施共同構成密碼安全政策 (policy)，其目的是為了緩解如暴力破解等密碼攻擊 (attack)，符合 ('policy', 'mitigates', 'attack') 的 Schema。",
+    "source_id": "chunk_114",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "密碼安全管控 是 policy 的合理實例，密碼攻擊 是 attack 的合理實例，'mitigates' 關係在資安領域中合理適用於此類別組合。",
+        "response": "correct",
+        "reason": "密碼安全管控與密碼攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組符合此規則，無違反；其他規則不適用此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（密碼安全管控）是 policy 類別，符合規則2的允許條件，且無其他規則被觸發違規。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"密碼安全管控\" 與 Ldr 中的 \"密碼保護和管理\" 類似，但非完全等價同義詞；受體 \"密碼攻擊\" 與 Ldr 中的 \"密碼攻擊\" 完全匹配，為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "密碼攻擊",
+        "reason": "受體為同義詞重複，主體不需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼安全管控",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "密碼攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本列舉了限制錯誤次數、定期更改密碼等管控措施，這些措施共同構成密碼安全政策 (policy)，其目的是為了緩解如暴力破解等密碼攻擊 (attack)，符合 ('policy', 'mitigates', 'attack') 的 Schema。",
+      "source_id": "chunk_114",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "責任分擔",
+      "type": "policy",
+      "display_name": "責任分擔"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "內部威脅",
+      "type": "attack",
+      "display_name": "內部威脅"
+    },
+    "reasoning": "文本提到『責任分擔』是為了避免單人完整持有高機密資訊，這是一種管理原則/政策 (policy)，旨在降低內部人員濫用權限導致的風險 (risk)，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
+    "source_id": "chunk_114",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "責任分擔 (policy) 可以合理地減輕 (mitigates) 內部威脅 (risk)，這符合資安領域的常見語意。",
+        "response": "correct",
+        "reason": "責任分擔與內部威脅的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 '責任分擔'，類別是 'policy'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "該三元組的主體 '責任分擔' 屬於 'policy' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"責任分擔\" 與 Ldr 中的 \"責任區分\" 類似，但非完全等價同義詞；受體 \"內部威脅\" 與 Ldr 中的 \"內部威脅\" 完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "內部威脅",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源不完全匹配，受體與 Ldr 中的 \"內部威脅\" 完全匹配，但根據規則 3，若一個實體是另一個的子類型，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "責任分擔",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "內部威脅",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『責任分擔』是為了避免單人完整持有高機密資訊，這是一種管理原則/政策 (policy)，旨在降低內部人員濫用權限導致的風險 (risk)，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
+      "source_id": "chunk_114",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "最低權限",
+      "type": "policy",
+      "display_name": "最低權限"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "權限提升攻擊",
+      "type": "attack",
+      "display_name": "權限提升攻擊"
+    },
+    "reasoning": "『最低權限』原則要求僅擁有完成任務所需的權限，這是一種安全政策 (policy)，能有效緩解攻擊者在進入系統後嘗試擴大權限的攻擊 (attack)，符合 ('policy', 'mitigates', 'attack') 的 Schema。",
+    "source_id": "chunk_114",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '最低權限' 是 'policy' 的合理實例，受體 '權限提升攻擊' 是 'attack' 的合理實例，關係 'mitigates' 合理描述了 'policy' 與 'attack' 之間的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '最低權限'，類別為 'policy'，符合規則2的條件，代表合法。",
+        "response": "correct",
+        "reason": "三元組的主體 '最低權限' 屬於 'policy' 類別，符合規則2的允許條件，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"最低權限\" 與 Ldr 中的 \"最低權限\" 完全相同，受體 \"權限提升攻擊\" 與 Ldr 中的 \"攻擊\" 類別相關但非完全等價同義詞，兩者之間存在廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1，主體 \"最低權限\" 與 Ldr 中的 \"最低權限\" 完全相同，且受體 \"權限提升攻擊\" 屬於 \"攻擊\" 的子類型，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "最低權限",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "權限提升攻擊",
+        "type": "attack"
+      },
+      "reasoning": "『最低權限』原則要求僅擁有完成任務所需的權限，這是一種安全政策 (policy)，能有效緩解攻擊者在進入系統後嘗試擴大權限的攻擊 (attack)，符合 ('policy', 'mitigates', 'attack') 的 Schema。",
+      "source_id": "chunk_114",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "生物特徵認證",
+      "type": "technique",
+      "display_name": "生物特徵認證"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "指紋資料",
+      "type": "data",
+      "display_name": "指紋資料"
+    },
+    "reasoning": "文本提到指紋等生物特徵認證，這是一種認證技術 (technique)，其運作原理是分析使用者的生物特徵資料 (data)，符合 ('technique', 'can_analyze', 'data') 的 Schema。",
+    "source_id": "chunk_114",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "生物特徵認證是 technique 的合理實例，指紋資料是 data 的合理實例，且 'can_analyze' 在資安領域中是一種合理的關係描述。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 technique，而非 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於三元組中的主體是生物特徵認證（technique），關係是 can_analyze，受體是指紋資料（data），這符合一般的語義理解，沒有明顯違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的生物特徵認證可以分析指紋資料，這是一種合理的技術應用，沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"生物特徵認證\" 與 Ldr 中的 \"生物特徵認證\" 完全相同，受體 \"指紋資料\" 與 Ldr 中的 \"資料\" 類別相關但非完全相同，兩者之間無直接同義詞關係，但 \"指紋資料\" 可視為 \"資料\" 的子類型。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 1，主體 \"生物特徵認證\" 與 Ldr 中的 \"生物特徵認證\" 完全相同，且受體 \"指紋資料\" 與 \"資料\" 關係為廣義/狹義從屬，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "生物特徵認證",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "指紋資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到指紋等生物特徵認證，這是一種認證技術 (technique)，其運作原理是分析使用者的生物特徵資料 (data)，符合 ('technique', 'can_analyze', 'data') 的 Schema。",
+      "source_id": "chunk_114",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "多因素身份驗證",
+      "type": "technique",
+      "display_name": "多因子認證"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "身份盜竊",
+      "type": "attack",
+      "display_name": "身分盜用攻擊"
+    },
+    "reasoning": "文本提到使用多因子認證 (MFA) 來強化身分認證機制，MFA 是一種技術 (technique)，能有效防禦僅靠單一密碼即可完成的身分盜用攻擊 (attack)，符合 ('technique', 'mitigates', 'attack') 的 Schema。",
+    "source_id": "chunk_114",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "多因子認證是 technique 的合理實例，身分盜用攻擊是 attack 的合理實例，且 'mitigates' 的語意對齊正確，表示多因子認證可以減輕身分盜用攻擊的風險。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊正確。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是多因子認證（類別：technique），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "因為三元組的主體是多因子認證（類別：technique），符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"多因子認證\" 與 Ldr 中的 \"多因素身份驗證\" 關係為同義詞，受體 \"身分盜用攻擊\" 與 Ldr 中的 \"身份盜竊\" 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "多因素身份驗證",
+        "standard_object": "身份盜竊",
+        "reason": "根據同義詞對照表和資安教材，主體和受體均有對應的同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "多因子認證",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "身分盜用攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到使用多因子認證 (MFA) 來強化身分認證機制，MFA 是一種技術 (technique)，能有效防禦僅靠單一密碼即可完成的身分盜用攻擊 (attack)，符合 ('technique', 'mitigates', 'attack') 的 Schema。",
+      "source_id": "chunk_114",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "認證資料",
+      "type": "data",
+      "display_name": "認證資料"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "認證漏洞"
+    },
+    "reasoning": "根據文本第一句『認證資料存於使用者端』，若認證資料 (data) 儲存不當（如明文儲存），會導致系統暴露認證相關的弱點 (vulnerability)，符合 ('data', 'can_expose', 'vulnerability') 的 Schema。",
+    "source_id": "chunk_114",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '認證資料' 是 'data' 的合理實例，'認證漏洞' 是 'vulnerability' 的合理實例，關係 'can_expose' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但允許 'can_expose' 動作。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 '認證資料'，關係為 'can_expose'，受體為 '認證漏洞'，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"認證資料\" 與 Ldr 中的 \"認證資料\" 完全相同，受體 \"認證漏洞\" 與 Ldr 中的 \"漏洞\" 同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據同義詞判定，認證漏洞與漏洞為同義詞，但根據廣義/狹義一律保留原則，認證資料不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "認證資料",
+        "type": "data"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "認證漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據文本第一句『認證資料存於使用者端』，若認證資料 (data) 儲存不當（如明文儲存），會導致系統暴露認證相關的弱點 (vulnerability)，符合 ('data', 'can_expose', 'vulnerability') 的 Schema。",
+      "source_id": "chunk_114",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 9
+    }
+  }
+]

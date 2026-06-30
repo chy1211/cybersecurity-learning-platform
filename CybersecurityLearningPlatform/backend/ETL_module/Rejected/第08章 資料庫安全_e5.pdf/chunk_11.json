@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "lilith",
+      "type": "tool",
+      "display_name": "Lilith"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料隱碼弱點",
+      "type": "vulnerability",
+      "display_name": "資料隱碼弱點"
+    },
+    "reasoning": "文本指出 Lilith 工具透過輸入攻擊字串來檢測網頁是否有資料隱碼弱點。",
+    "source_id": "chunk_11",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Lilith 可被視為一種工具（tool），'資料隱碼弱點' 合理對齊 'vulnerability'，且 'can_analyze' 在資安領域中是一種合理的關係描述。",
+        "response": "correct",
+        "reason": "Lilith 作為一種工具，可以分析資料隱碼弱點，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：觸發違規，因為主體類別為 tool，但受體類別為 vulnerability，且關係為 can_analyze，違反了漏洞不可發起主動行為的原則。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "violation",
+        "reason": "三元組違反了規則3，因為主體類別為 tool，但受體類別為 vulnerability，且關係為 can_analyze，違反了漏洞不可發起主動行為的原則。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組違反了規則3，因為主體類別為 tool，但受體類別為 vulnerability，且關係為 can_analyze，違反了漏洞不可發起主動行為的原則。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "Lilith",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資料隱碼弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本指出 Lilith 工具透過輸入攻擊字串來檢測網頁是否有資料隱碼弱點。",
+      "source_id": "chunk_11",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 5
+    }
+  }
+]

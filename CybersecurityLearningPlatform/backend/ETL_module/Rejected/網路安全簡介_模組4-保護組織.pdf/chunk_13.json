@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "滲透測試的目的在於發現可利用的漏洞，符合 technique can_analyze vulnerability。",
+    "source_id": "chunk_13",
+    "source_file": "網路安全簡介_模組4-保護組織.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試 (technique) 可以分析漏洞 (vulnerability)，這是資安領域中常見的實例關係，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "滲透測試可以分析漏洞的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該三元組的主體是漏洞，關係是 can_analyze，觸發了規則3的限制。",
+        "response": "violation",
+        "reason": "該三元組違反了規則3，因為漏洞作為主體，發起了主動行為 can_analyze。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 該三元組違反了規則3，因為漏洞作為主體，發起了主動行為 can_analyze。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "滲透測試的目的在於發現可利用的漏洞，符合 technique can_analyze vulnerability。",
+      "source_id": "chunk_13",
+      "source_file": "網路安全簡介_模組4-保護組織.pdf",
+      "source_index": 11
+    }
+  }
+]

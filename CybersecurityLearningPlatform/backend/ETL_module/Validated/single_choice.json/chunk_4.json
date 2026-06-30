@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "cvss評估",
+      "type": "technique",
+      "display_name": "CVSS評估"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "終端系統"
+    },
+    "reasoning": "文本提到 CVSS 評估會評估終端系統的安全性，因此該技術 (technique) 可以分析系統 (system)。符合 Schema: (\"technique\", \"can_analyze\", \"system\")",
+    "source_id": "chunk_4",
+    "source_file": "single_choice.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "CVSS評估是一種技術（technique），因此其名稱與類別合理對齊；終端系統是一種系統（system），同樣合理對齊。",
+        "response": "correct",
+        "reason": "CVSS評估與終端系統的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體（CVSS評估）與關係（can_analyze）和受體（終端系統）之間的關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "CVSS評估與cvss評估為完全等價同義詞，終端系統與系統為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "cvss評估",
+        "standard_object": "系統",
+        "reason": "根據同義詞判定準則，CVSS評估與cvss評估、終端系統與系統為同義詞，判定為duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CVSS評估",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "終端系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到 CVSS 評估會評估終端系統的安全性，因此該技術 (technique) 可以分析系統 (system)。符合 Schema: (\"technique\", \"can_analyze\", \"system\")",
+      "source_id": "chunk_4",
+      "source_file": "single_choice.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "cvss評估",
+      "type": "technique",
+      "display_name": "CVSS評估"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "軟體漏洞",
+      "type": "vulnerability",
+      "display_name": "軟體漏洞"
+    },
+    "reasoning": "文本提到 CVSS 評估是用於對軟體漏洞進行評分，因此 CVSS 作為一種評估技術 (technique) 可以分析漏洞 (vulnerability)。符合 Schema: (\"technique\", \"can_analyze\", \"vulnerability\")",
+    "source_id": "chunk_4",
+    "source_file": "single_choice.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "CVSS評估是一種技術（technique），軟體漏洞是一種漏洞（vulnerability），且 'can_analyze' 關係在資安領域中是合理的，因為 CVSS 評估可以分析軟體漏洞。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 technique，與規則中所述的 vulnerability 不符，故不觸發；規則8：關係為 can_analyze，主體 CVSS評估 屬於 technique，受體 軟體漏洞 屬於 vulnerability，未觸發 controls 關係，故不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體 CVSS評估 屬於 technique，與規則中所述的限制不符，且關係 can_analyze 不在語義限制清單中被明確限制，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體（軟體漏洞）與 Ldr 中的資源存在同義詞關係，與「漏洞」為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，軟體漏洞是漏洞的子類型，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CVSS評估",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "軟體漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到 CVSS 評估是用於對軟體漏洞進行評分，因此 CVSS 作為一種評估技術 (technique) 可以分析漏洞 (vulnerability)。符合 Schema: (\"technique\", \"can_analyze\", \"vulnerability\")",
+      "source_id": "chunk_4",
+      "source_file": "single_choice.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "syslog伺服器",
+      "type": "system",
+      "display_name": "Syslog伺服器"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "警告訊息",
+      "type": "data",
+      "display_name": "警告訊息"
+    },
+    "reasoning": "Syslog 伺服器用於監視並觀察 DNS 伺服器傳送的訊息，因此該工具 (tool) 具有分析日誌資料 (data) 的能力。符合 Schema: (\"tool\", \"can_analyze\", \"data\")",
+    "source_id": "chunk_4",
+    "source_file": "single_choice.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Syslog伺服器是工具（tool）的合理實例，警告訊息是數據（data）的合理實例，且 'can_analyze' 的語意與工具分析數據的概念相符。",
+        "response": "correct",
+        "reason": "Syslog伺服器與警告訊息的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別是 system，而不是 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。唯一可能相關的規則是沒有直接提及 'can_analyze' 關係的限制，因此無法直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（Syslog伺服器）和關係（can_analyze）以及受體（警告訊息）之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Syslog伺服器與syslog伺服器完全等價同義詞，警告訊息與入侵警告訊息、警示、警告文字相關但非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "syslog伺服器",
+        "standard_object": "",
+        "reason": "Syslog伺服器為完全等價同義詞，警告訊息與其他選項非完全等價同義詞，依據判斷準則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Syslog伺服器",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "警告訊息",
+        "type": "data"
+      },
+      "reasoning": "Syslog 伺服器用於監視並觀察 DNS 伺服器傳送的訊息，因此該工具 (tool) 具有分析日誌資料 (data) 的能力。符合 Schema: (\"tool\", \"can_analyze\", \"data\")",
+      "source_id": "chunk_4",
+      "source_file": "single_choice.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "dns伺服器",
+      "type": "system",
+      "display_name": "DNS伺服器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "警告訊息",
+      "type": "data",
+      "display_name": "警告訊息"
+    },
+    "reasoning": "文本指出 DNS 伺服器正在傳送（產生）警告嚴重性的訊息，因此系統 (system) 產生了資料 (data)。符合 Schema: (\"system\", \"generates\", \"data\")",
+    "source_id": "chunk_4",
+    "source_file": "single_choice.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "DNS伺服器是 system 的合理實例，警告訊息是 data 的合理實例，且 'generates' 在資安領域中是合理的關係描述。",
+        "response": "correct",
+        "reason": "DNS伺服器作為系統可以生成警告訊息，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "DNS伺服器與網站伺服器、internet伺服器、網頁伺服器、電腦伺服器、伺服器等系統類型的相似度分析，發現DNS伺服器是一種特定的伺服器類型，與其他類型的伺服器有所不同；而警告訊息與入侵警告訊息、警示、警告文字等資料類型的相似度分析，發現警告訊息是一種通用的資料類型，與其他類型的警告訊息有所重疊，但無法確定為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，DNS伺服器與其他類型的伺服器有所不同，且警告訊息與其他類型的警告訊息有所重疊，但無法確定為完全等價同義詞，因此判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DNS伺服器",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "警告訊息",
+        "type": "data"
+      },
+      "reasoning": "文本指出 DNS 伺服器正在傳送（產生）警告嚴重性的訊息，因此系統 (system) 產生了資料 (data)。符合 Schema: (\"system\", \"generates\", \"data\")",
+      "source_id": "chunk_4",
+      "source_file": "single_choice.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "線上入口網站",
+      "type": "app",
+      "display_name": "線上入口網站"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "電子版受保護的健康資訊 (ephi)",
+      "type": "data",
+      "display_name": "電子版受保護的健康資訊 (ePHI)"
+    },
+    "reasoning": "醫院在線上入口網站中儲存 ePHI，表示該應用程式 (app) 使用/處理這些敏感資料 (data)。符合 Schema: (\"app\", \"uses\", \"data\")",
+    "source_id": "chunk_4",
+    "source_file": "single_choice.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "線上入口網站可以被視為 'app' 的合理實例，電子版受保護的健康資訊 (ePHI) 可以被視為 'data' 的合理實例，'uses' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "線上入口網站使用電子版受保護的健康資訊的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，給定的三元組中，主體是線上入口網站（類別：app），而非data類別，因此不觸發規則5的違規條件。其他規則與給定的三元組無直接關聯。",
+        "response": "correct",
+        "reason": "三元組中的主體是線上入口網站（類別：app），使用電子版受保護的健康資訊（ePHI），這不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "線上入口網站與電子學習入口網站之間存在相似性，但非完全等價同義詞；電子版受保護的健康資訊(ePHI)與警告訊息無直接關聯。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定線上入口網站與電子學習入口網站為同義詞或子類型關係，且電子版受保護的健康資訊(ePHI)與警告訊息無直接關聯，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "線上入口網站",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "電子版受保護的健康資訊 (ePHI)",
+        "type": "data"
+      },
+      "reasoning": "醫院在線上入口網站中儲存 ePHI，表示該應用程式 (app) 使用/處理這些敏感資料 (data)。符合 Schema: (\"app\", \"uses\", \"data\")",
+      "source_id": "chunk_4",
+      "source_file": "single_choice.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "hipaa規定",
+      "type": "policy",
+      "display_name": "HIPAA規定"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "HIPAA 是醫療資訊隱私規範，其目的是防止 ePHI 等敏感資料外洩，因此該政策 (policy) 緩解了個資外洩的風險 (risk)。符合 Schema: (\"policy\", \"mitigates\", \"risk\")",
+    "source_id": "chunk_4",
+    "source_file": "single_choice.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "HIPAA規定是一種政策（policy），個資外洩是一種風險（risk），且 'mitigates' 的語意與政策減輕風險的概念相符。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 HIPAA規定，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "HIPAA規定與法規、個人資料保護法施行細則等政策相關，但非完全等價同義詞；個資外洩為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "個資外洩",
+        "reason": "根據同義詞判定，個資外洩為完全等價同義詞，主體不需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "HIPAA規定",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "HIPAA 是醫療資訊隱私規範，其目的是防止 ePHI 等敏感資料外洩，因此該政策 (policy) 緩解了個資外洩的風險 (risk)。符合 Schema: (\"policy\", \"mitigates\", \"risk\")",
+      "source_id": "chunk_4",
+      "source_file": "single_choice.json",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "檔案保險箱 (filevault)",
+      "type": "tool",
+      "display_name": "檔案保險箱 (FileVault)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "加密"
+    },
+    "reasoning": "檔案保險箱的功能是加密整個磁碟區，因此該工具 (tool) 具有加密功能 (function)。符合 Schema: (\"tool\", \"has_a\", \"function\")",
+    "source_id": "chunk_4",
+    "source_file": "single_choice.json",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "檔案保險箱 (FileVault) 是一種工具 (tool)，加密 (Encryption) 是一種功能 (function)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "檔案保險箱 (FileVault) 與加密 (Encryption) 的三元組完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'has_a'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，且關係 'has_a' 在給定的規則中沒有明確的限制。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (FileVault) 與 Ldr 中的 'filevault' 類別相同，受體 (加密) 與 Ldr 中的 '加密' 完全匹配，且 '加密' 是資安領域已知的同義詞對照範例中的動詞/技術時的用法",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，'加密' 是直接匹配，且 'FileVault' 與 'filevault' 類別相同，但不視為同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "檔案保險箱 (FileVault)",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密",
+        "type": "function"
+      },
+      "reasoning": "檔案保險箱的功能是加密整個磁碟區，因此該工具 (tool) 具有加密功能 (function)。符合 Schema: (\"tool\", \"has_a\", \"function\")",
+      "source_id": "chunk_4",
+      "source_file": "single_choice.json",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "mac位址篩選",
+      "type": "technique",
+      "display_name": "MAC位址篩選"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "不明主機連線",
+      "type": "attack",
+      "display_name": "不明主機連線"
+    },
+    "reasoning": "實作 MAC 位址篩選是用來防止不明主機（未經授權的存取）連線，這是一種防禦技術 (technique) 用於緩解攻擊/非法存取 (attack)。符合 Schema: (\"technique\", \"mitigates\", \"attack\")",
+    "source_id": "chunk_4",
+    "source_file": "single_choice.json",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "MAC 位址篩選是 'technique' 的合理實例，不明主機連線是 'attack' 的合理實例，且 'mitigates' 的語意與資安領域的同義詞寬容原則相符。",
+        "response": "correct",
+        "reason": "MAC 位址篩選與不明主機連線的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 'MAC位址篩選' 屬於類別 'technique'，因此符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 'MAC位址篩選' 屬於類別 'technique'，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "MAC位址篩選與cvss評估無直接同義詞關係，且MAC位址篩選是網路安全的一種技術，cvss評估是漏洞評估的一種方法，兩者在資安領域中代表不同的概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "MAC位址篩選與cvss評估無直接同義詞關係，且代表不同的概念，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "MAC位址篩選",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "不明主機連線",
+        "type": "attack"
+      },
+      "reasoning": "實作 MAC 位址篩選是用來防止不明主機（未經授權的存取）連線，這是一種防禦技術 (technique) 用於緩解攻擊/非法存取 (attack)。符合 Schema: (\"technique\", \"mitigates\", \"attack\")",
+      "source_id": "chunk_4",
+      "source_file": "single_choice.json",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "filevault",
+      "type": "tool",
+      "display_name": "檔案保險箱 (FileVault)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "macos",
+      "type": "system",
+      "display_name": "macOS"
+    },
+    "reasoning": "檔案保險箱是 macOS 的安全性功能，因此該工具 (tool) 是 macOS 系統 (system) 的一部分。符合 Schema: (\"tool\", \"is_part_of\", \"system\")",
+    "source_id": "chunk_4",
+    "source_file": "single_choice.json",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "檔案保險箱 (FileVault) 是一種工具 (tool)，macOS 是一種系統 (system)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "檔案保險箱 (FileVault) 是 macOS 的一部分，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為關係不是 'uses'。檢查規則6：無關，因為關係不是 'deployed_in'。檢查規則7：無關，因為關係不是 'generates'。檢查規則8：無關，因為關係不是 'controls'。檢查是否有其他規則適用：沒有。因此，三元組不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的主體 '檔案保險箱 (FileVault)' 和受體 'macOS' 以及關係 'is_part_of' 沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (FileVault) 與 Ldr 中的 filevault 實體為同義詞，受體 (macOS) 與 Ldr 中的 macos 實體完全匹配",
+        "response": "correct",
+        "standard_subject": "filevault",
+        "standard_object": "macos",
+        "reason": "根據同義詞判定，FileVault 與 filevault 為同義詞，macOS 與 macos 完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "檔案保險箱 (FileVault)",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "macOS",
+        "type": "system"
+      },
+      "reasoning": "檔案保險箱是 macOS 的安全性功能，因此該工具 (tool) 是 macOS 系統 (system) 的一部分。符合 Schema: (\"tool\", \"is_part_of\", \"system\")",
+      "source_id": "chunk_4",
+      "source_file": "single_choice.json",
+      "source_index": 7
+    }
+  }
+]

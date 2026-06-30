@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本提到網站若缺乏定期檢測會產生漏洞，因此網站（app）可能會暴露漏洞（vulnerability）。",
+    "source_id": "chunk_6",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '網站' 是 'app' 的合理實例，'漏洞' 是 'vulnerability' 的合理實例，關係 'can_expose' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體類別為app，關係為can_expose，受體為vulnerability，未觸發其他規則的違規條件。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，且未違反其他語義限制規則。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「網站」與 Ldr 中的「網站」完全相同，受體「漏洞」與 Ldr 中的「漏洞」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全相同，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到網站若缺乏定期檢測會產生漏洞，因此網站（app）可能會暴露漏洞（vulnerability）。",
+      "source_id": "chunk_6",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "開發與維護人員",
+      "type": "securityTeam",
+      "display_name": "開發與維護人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "安全開發",
+      "type": "function",
+      "display_name": "安全開發"
+    },
+    "reasoning": "文本指出專門的人員負責網站的安全開發，這屬於安全團隊（securityTeam）執行的一項功能（function）。",
+    "source_id": "chunk_6",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "開發與維護人員 是 securityTeam 的合理實例，安全開發 是 function 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：不適用，因為動作不是 mitigates。檢查規則3：不適用，因為主體類別不是 vulnerability。檢查規則4：不適用，因為關係不是 violates 且 principle 不是主體。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但 securityTeam 可以執行 implements 動作，符合邏輯。",
+        "response": "correct",
+        "reason": "三元組中的主體（開發與維護人員）和受體（安全開發）之間的 implements 關係，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相似的近似資源，但需進一步判定同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然有相似的近似資源，但主體與受體之間的關係不構成同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "開發與維護人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "安全開發",
+        "type": "function"
+      },
+      "reasoning": "文本指出專門的人員負責網站的安全開發，這屬於安全團隊（securityTeam）執行的一項功能（function）。",
+      "source_id": "chunk_6",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "ssl",
+      "type": "tool",
+      "display_name": "SSL"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "加密"
+    },
+    "reasoning": "SSL 作為一種安全機制（在此視為 tool），其核心能力是提供加密（function）。",
+    "source_id": "chunk_6",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SSL 是一種工具（tool），加密是其功能（function），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "SSL 和加密的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組（SSL, has_a, 加密）不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "SSL 是一種工具，與 Ldr 中的 'ssl vpn' 相似，但不是完全等價同義詞；'加密' 是一個特徵，與 Ldr 中的 '加密' 完全匹配，為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "加密",
+        "reason": "根據同義詞判定，'加密' 是一個已知的同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSL",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密",
+        "type": "function"
+      },
+      "reasoning": "SSL 作為一種安全機制（在此視為 tool），其核心能力是提供加密（function）。",
+      "source_id": "chunk_6",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "開發與維護人員",
+      "type": "securityTeam",
+      "display_name": "開發與維護人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "隨時監控",
+      "type": "function",
+      "display_name": "隨時監控"
+    },
+    "reasoning": "文本指出專門的人員負責隨時監控，這屬於安全團隊（securityTeam）執行的一項功能（function）。",
+    "source_id": "chunk_6",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "開發與維護人員 可被視為 securityTeam 的合理實例，隨時監控 可被視為 function 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需注意 implements 關係的主體和受體類別是否合理。根據給定的三元組，開發與維護人員（securityTeam）implements 隨時監控（function），這不直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與 implements 關係相符，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與現有近似資源清單中的「開發與維護人員」完全相同，受體「隨時監控」與清單中無直接相關資源，但無法確定其與「安全開發」之間的關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "開發與維護人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "隨時監控",
+        "type": "function"
+      },
+      "reasoning": "文本指出專門的人員負責隨時監控，這屬於安全團隊（securityTeam）執行的一項功能（function）。",
+      "source_id": "chunk_6",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "開發與維護人員",
+      "type": "securityTeam",
+      "display_name": "開發與維護人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "災難備援計畫",
+      "type": "policy",
+      "display_name": "災難備援計畫"
+    },
+    "reasoning": "文本提到規劃災難備援機制，這屬於安全團隊（securityTeam）實作的一項策略/計畫（policy）。",
+    "source_id": "chunk_6",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "開發與維護人員 是 securityTeam 的合理實例，災難備援計畫 是 policy 的合理實例。",
+        "response": "correct",
+        "reason": "主體、關係和受體都符合預先定義的類別和屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：不適用，因為主體不是 policy, technique 或 tool。檢查規則3：不適用，因為主體類別不是 vulnerability。檢查規則4：不適用，因為主體不是 principle。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但 implements 關係涉及主體具有主動執行能力的角色或工具，符合規則允許的條件。",
+        "response": "correct",
+        "reason": "三元組中的主體（開發與維護人員）具有主動執行能力的角色，實施災難備援計畫的動作符合語義限制清單中沒有明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "開發與維護人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "災難備援計畫",
+        "type": "policy"
+      },
+      "reasoning": "文本提到規劃災難備援機制，這屬於安全團隊（securityTeam）實作的一項策略/計畫（policy）。",
+      "source_id": "chunk_6",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "消費者",
+      "type": "user",
+      "display_name": "消費者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "網站伺服器",
+      "type": "system",
+      "display_name": "網站伺服器"
+    },
+    "reasoning": "消費者（user）在傳輸資料時會與網站伺服器（system）進行互動，符合 user uses system。",
+    "source_id": "chunk_6",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '消費者' 是 'user' 的合理實例，實體 '網站伺服器' 是 'system' 的合理實例，關係 'uses' 在此語境下合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 user，不是 data，故不違反。規則6：不適用（關係不是 deployed_in）。規則7：不適用（關係不是 generates）。規則8：不適用（關係不是 controls）。",
+        "response": "correct",
+        "reason": "三元組中的主體為消費者（類別：user），關係為 uses，受體為網站伺服器（類別：system），未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中之資源完全相符，無需進一步分析同義詞或廣義/狹義關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與現有近似資源清單中之資源完全相符，直接判定正確。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "消費者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "網站伺服器",
+        "type": "system"
+      },
+      "reasoning": "消費者（user）在傳輸資料時會與網站伺服器（system）進行互動，符合 user uses system。",
+      "source_id": "chunk_6",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "webtrust認證服務",
+      "type": "technique",
+      "display_name": "WebTrust認證服務"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "reasoning": "WebTrust 認證服務透過稽核程序來檢查網站的實務與保護狀況，因此是一種分析網站（app）的技術（technique）。",
+    "source_id": "chunk_6",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'app' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "WebTrust認證服務是 'technique' 的合理實例，網站是 'app' 的合理實例，且 'can_analyze' 的語意與資安領域的常見用法相符。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的主體是 WebTrust 認證服務（類別：technique），關係是 can_analyze，受體是網站（類別：app），這些內容均未直接違反任何一條語義限制清單中的規則。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "網站是電子商務網站的廣義概念，但根據給定的資源清單，網站與電子商務網站的相似度分數不同，且無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，網站與電子商務網站之間的關係是廣義/狹義從屬，且無直接同義詞關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WebTrust認證服務",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "網站",
+        "type": "app"
+      },
+      "reasoning": "WebTrust 認證服務透過稽核程序來檢查網站的實務與保護狀況，因此是一種分析網站（app）的技術（technique）。",
+      "source_id": "chunk_6",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 8
+    }
+  }
+]

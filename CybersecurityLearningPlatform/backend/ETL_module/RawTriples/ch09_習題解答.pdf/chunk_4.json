@@ -1,0 +1,107 @@
+[
+  {
+    "subject": {
+      "name": "集中式存取控制",
+      "type": "system"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "單點失效",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到『系統風險集中在一點』，這在資安中即為單點失效 (Single Point of Failure) 的漏洞，因此將集中式存取控制視為 system，其可暴露 (can_expose) 的漏洞為 vulnerability。",
+    "source_id": "chunk_4",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "集中式存取控制",
+      "type": "system"
+    },
+    "reasoning": "文本明確指出集中式存取控制『會是駭客攻擊的目標』，因此攻擊者 (attacker) 可以危害 (can_harm) 該系統 (system)。",
+    "source_id": "chunk_4",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "備援機制",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "系統無法執行任務",
+      "type": "risk"
+    },
+    "reasoning": "文本提到『需要有備援機制，防止系統因存取控制認證機能無法執行』，備援機制在此作為一種工具/手段 (tool) 來緩解 (mitigates) 系統失效的風險 (risk)。",
+    "source_id": "chunk_4",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "RADIUS 伺服器",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "認證",
+      "type": "function"
+    },
+    "reasoning": "文本指出『RADIUS 用來認證使用者的身份與密碼』，認證是 RADIUS 伺服器 (tool) 所具備的核心功能 (function)。",
+    "source_id": "chunk_4",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "RADIUS 伺服器",
+      "type": "tool"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "身份與密碼",
+      "type": "data"
+    },
+    "reasoning": "RADIUS 伺服器需要處理並驗證使用者的身份與密碼，這屬於對認證資料 (data) 的分析與驗證過程。",
+    "source_id": "chunk_4",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "無線網路使用者",
+      "type": "user"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "基地台",
+      "type": "system"
+    },
+    "reasoning": "文本描述『無線網路使用者連接基地台』，使用者 (user) 使用 (uses) 基地台 (system) 作為接入網路的基礎設施。",
+    "source_id": "chunk_4",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "基地台",
+      "type": "system"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "RADIUS 伺服器系統",
+      "type": "system"
+    },
+    "reasoning": "文本提到『基地台將使用者的身份與密碼傳送至 RADIUS 伺服器』，描述了兩個系統實體之間的網路連線 (connects_to)。",
+    "source_id": "chunk_4",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 7
+  }
+]

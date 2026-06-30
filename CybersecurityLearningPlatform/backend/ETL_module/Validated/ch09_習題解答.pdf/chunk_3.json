@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "管理者",
+      "type": "user",
+      "display_name": "管理者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "權限管理",
+      "type": "function",
+      "display_name": "權限管理"
+    },
+    "reasoning": "文本提到管理者可以依照需求給予權限，且系統存取控制的工作包含權限管理，因此管理者實作了權限管理功能。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '管理者' 的名稱與其類別 'securityTeam' 合理對齊，實體 '權限管理' 的名稱與其類別 'function' 也合理對齊，考慮到資安領域的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別為 user，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於 implements 關係涉及主體實施或執行某一功能，且主體為管理者，受體為權限管理，符合一般的資安管理邏輯，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的管理者實施權限管理，符合資安管理的邏輯，未違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理者",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "權限管理",
+        "type": "function"
+      },
+      "reasoning": "文本提到管理者可以依照需求給予權限，且系統存取控制的工作包含權限管理，因此管理者實作了權限管理功能。",
+      "source_id": "chunk_3",
+      "source_file": "ch09_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "管理者",
+      "type": "user",
+      "display_name": "管理者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "帳號管理",
+      "type": "function",
+      "display_name": "帳號管理"
+    },
+    "reasoning": "文本在回答系統存取控制的三項工作時提到帳號管理，而這些工作由管理者執行，因此選擇 securityTeam implements function。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '管理者' 是 'securityTeam' 的合理實例，'帳號管理' 是 'function' 的合理實例，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別為 user，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查完所有規則，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組（管理者 implements 帳號管理）未觸發語義限制清單中的任何規則，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 '帳號管理' 與現有近似資源 '權限管理' 關係為同義詞重複，兩者均指涉及管理使用者帳號的功能，然而 '帳號管理' 更為明確指涉及帳號的管理；主體 '管理者' 與現有近似資源 '管理者' 關係為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "管理者",
+        "standard_object": "",
+        "reason": "根據同義詞判定，受體 '帳號管理' 與 '權限管理' 雖然相關，但不完全等同，主體 '管理者' 完全匹配現有資源，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理者",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "帳號管理",
+        "type": "function"
+      },
+      "reasoning": "文本在回答系統存取控制的三項工作時提到帳號管理，而這些工作由管理者執行，因此選擇 securityTeam implements function。",
+      "source_id": "chunk_3",
+      "source_file": "ch09_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "管理者",
+      "type": "user",
+      "display_name": "管理者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "活動追蹤",
+      "type": "function",
+      "display_name": "活動追蹤"
+    },
+    "reasoning": "同上，活動追蹤是系統存取控制的核心工作，由資安管理角色（管理者）執行。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '管理者' 是 'securityTeam' 的合理實例，'活動追蹤' 是 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別為 user，不是 vulnerability。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於沒有任何規則被觸發，三元組不違反任何語義限制。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係不觸發語義限制清單中的任何規則，因此被判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "管理者與現有近似資源清單中的「管理者」完全相同，活動追蹤與現有近似資源清單中的「權限管理」或「帳號管理」無直接同義詞關係，但活動追蹤可能與管理相關功能有關，然而根據給定的資安領域已知同義詞對照範例和判斷準則，活動追蹤不直接等同於任何已知同義詞或子類型關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，管理者與活動追蹤不符合同義詞判定或廣義/狹義一律保留的條件，且無法確定其為同一概念，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理者",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "活動追蹤",
+        "type": "function"
+      },
+      "reasoning": "同上，活動追蹤是系統存取控制的核心工作，由資安管理角色（管理者）執行。",
+      "source_id": "chunk_3",
+      "source_file": "ch09_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "最小權限原則",
+      "type": "policy",
+      "display_name": "最小權限原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "安全管理風險"
+    },
+    "reasoning": "文本明確指出『多給予使用者權限，增加安全管理的風險』，反之，實施最小權限原則可緩解此風險。符合 (policy, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "主體 '最小權限原則' 是 'policy' 的合理實例，受體 '安全管理風險' 是 'risk' 的合理實例，關係 'mitigates' 在資安領域中是合理的用法。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '最小權限原則' 屬於 policy 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"安全管理風險\" 與 Ldr 中的 \"風險\" 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "風險",
+        "reason": "根據同義詞判定，\"安全管理風險\" 與 \"風險\" 指稱同一概念，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "最小權限原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "安全管理風險",
+        "type": "risk"
+      },
+      "reasoning": "文本明確指出『多給予使用者權限，增加安全管理的風險』，反之，實施最小權限原則可緩解此風險。符合 (policy, mitigates, risk) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch09_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "文本提到集中式存取控制會是『駭客攻擊的目標』，由此推論駭客發起（實作）攻擊行為。符合 (attacker, implements, attack) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，受體類別 'attack' 也存在於 Lc,p 的 'Classes' 中，關係 'implements' 存在於 Lc,p 的 'Properties' 中。",
+        "step_2_alignment_check": "駭客（attacker）是攻擊者的合理實例，駭客攻擊（attack）是攻擊的合理實例，兩者名稱與類別對齊，且關係 'implements' 在資安領域中是合理的，表示攻擊者實施攻擊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：駭客（attacker）與安全團隊（securityTeam）無交集，符合規則。檢查規則2：不涉及mitigates動作，無關。檢查規則3：主體類別為attacker，不涉及vulnerability，無關。檢查規則4：不涉及principle，無關。檢查規則5：關係為implements，不涉及uses，無關。檢查規則6：不涉及deployed_in，無關。檢查規則7：不涉及generates，無關。檢查規則8：主體為attacker，具有主動執行能力，關係為implements，合法。",
+        "response": "correct",
+        "reason": "三元組（駭客，implements，駭客攻擊）未觸發語義限制清單中的任何規則，屬於合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "駭客攻擊與入侵攻擊、緩衝區溢位攻擊、各種攻擊等相關攻擊類型比較，發現駭客攻擊與入侵攻擊最為相似，但非完全等價同義詞，兩者皆屬於攻擊的子類型。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，駭客攻擊是攻擊的子類型，因此不進行合併，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到集中式存取控制會是『駭客攻擊的目標』，由此推論駭客發起（實作）攻擊行為。符合 (attacker, implements, attack) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch09_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "文本提到『如果這一個點發生問題，則整個系統無法執行任務』，這直接破壞了資安三要素中的可用性 (Availability)。符合 (attack, violates, principle) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "駭客攻擊 (attack) 是攻擊類別的合理實例，可用性 (principle) 是原則類別的合理實例，且 'violates' 關係在資安領域中常用於描述攻擊違反安全原則的場景，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意和同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：觸發，主體為攻擊者（駭客攻擊），受體為資安原則（可用性），符合規則允許的條件。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組（駭客攻擊，violates，可用性）符合規則4的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「駭客攻擊」與 Ldr 中的「駭客攻擊」完全相同，受體「可用性」與 Ldr 中的「可用性」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "文本提到『如果這一個點發生問題，則整個系統無法執行任務』，這直接破壞了資安三要素中的可用性 (Availability)。符合 (attack, violates, principle) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch09_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "管理者",
+      "type": "user",
+      "display_name": "管理者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "強制型存取控制",
+      "type": "technique",
+      "display_name": "強制型存取控制"
+    },
+    "reasoning": "強制型存取控制 (MAC) 是一種存取控制技術，由管理者或系統設定來執行。符合 (securityTeam, uses, technique) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "管理者 (securityTeam) 使用 強制型存取控制 (technique) 是合理的，管理者可能使用強制型存取控制來管理系統安全。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 user，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為管理者，類別為 user，關係為 uses，受體為強制型存取控制，類別為 technique，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的技術型存取控制為同義詞，主體與 Ldr 中的管理者完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，受體強制型存取控制與技術型存取控制為同義詞，但根據廣義/狹義一律保留原則，仍判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理者",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "強制型存取控制",
+        "type": "technique"
+      },
+      "reasoning": "強制型存取控制 (MAC) 是一種存取控制技術，由管理者或系統設定來執行。符合 (securityTeam, uses, technique) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch09_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "集中式存取控制系統",
+      "type": "system",
+      "display_name": "集中式存取控制系統"
+    },
+    "reasoning": "文本指出集中式存取控制若發生問題（被攻擊），則整個系統無法執行任務，表示攻擊會危害該系統。符合 (attack, can_harm, system) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "駭客攻擊 (attack) 是攻擊類別的合理實例，集中式存取控制系統 (system) 是系統類別的合理實例，'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體 '駭客攻擊' 屬於 'attack' 類別，具有主動執行能力，但關係 'can_harm' 不在 'controls' 關係中，因此不違反規則8。",
+        "response": "correct",
+        "reason": "三元組 '駭客攻擊'、'can_harm'、'集中式存取控制系統' 沒有明確違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 '駭客攻擊' 與 Ldr 中的 '駭客攻擊' 完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "集中式存取控制系統",
+        "type": "system"
+      },
+      "reasoning": "文本指出集中式存取控制若發生問題（被攻擊），則整個系統無法執行任務，表示攻擊會危害該系統。符合 (attack, can_harm, system) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch09_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "管理者",
+      "type": "user",
+      "display_name": "管理者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "最小權限原則",
+      "type": "policy",
+      "display_name": "必要知道原則"
+    },
+    "reasoning": "必要知道原則是 MAC 環境中的一項規範，由管理端強制執行以確保資料安全。符合 (securityTeam, implements, policy) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體名稱 '管理者' 是 'securityTeam' 的合理實例，'必要知道原則' 是 'policy' 的合理實例，考慮到同義詞寬容原則，'必要知道原則' 可被視為 'policy' 的一種表達方式。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且實體名稱與其類別語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為管理者，類別為user，關係為implements，受體為必要知道原則，類別為policy。根據規則，沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與現有近似資源清單中的「最小權限原則」為同義詞，兩者均指「必要知道原則」",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "最小權限原則",
+        "reason": "根據資安領域已知同義詞對照範例，必要知道原則與最小權限原則為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理者",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "必要知道原則",
+        "type": "policy"
+      },
+      "reasoning": "必要知道原則是 MAC 環境中的一項規範，由管理端強制執行以確保資料安全。符合 (securityTeam, implements, policy) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch09_習題解答.pdf",
+      "source_index": 9
+    }
+  }
+]

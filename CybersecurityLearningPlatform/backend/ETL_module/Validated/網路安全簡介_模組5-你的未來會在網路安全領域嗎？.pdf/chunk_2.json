@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "網路攻擊",
+      "type": "attack",
+      "display_name": "網路戰"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網路攻擊",
+      "type": "attack",
+      "display_name": "網路攻擊"
+    },
+    "reasoning": "文本提到『網路戰中的攻擊來源』，暗示網路戰是網路攻擊的一種具體形式或組成部分，符合 ('attack', 'is_part_of', 'attack') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網路戰與網路攻擊皆為攻擊的合理實例，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "網路戰與網路攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而非規則中提到的特定關係，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路戰與網路攻擊為同義詞，兩者均指網路上的攻擊行為",
+        "response": "duplicate",
+        "standard_subject": "網路攻擊",
+        "standard_object": "網路攻擊",
+        "reason": "根據同義詞判定，網路戰與網路攻擊是同義詞，均指網路上的攻擊行為。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路戰",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "網路攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『網路戰中的攻擊來源』，暗示網路戰是網路攻擊的一種具體形式或組成部分，符合 ('attack', 'is_part_of', 'attack') 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資安分析師",
+      "type": "securityTeam",
+      "display_name": "資安分析師"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "reasoning": "文本描述『你為@Apollo 進行的滲透測試』，這裡的『你』扮演的是資安專業人員（securityTeam）的角色，執行滲透測試（technique），符合 ('securityTeam', 'uses', 'technique') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安分析師 (securityTeam) 使用滲透測試 (technique) 是合理的，名稱與類別對齊，且符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為主體是資安分析師，沒有同時具有攻擊者與安全團隊的身分。規則2：不適用，因為關係是 uses，不是 mitigates。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為主體不是 principle。規則5：不適用，因為主體類別不是 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。",
+        "response": "correct",
+        "reason": "三元組（資安分析師 uses 滲透測試）沒有觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "滲透測試與 Ldr 中的滲透測試完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安分析師",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "reasoning": "文本描述『你為@Apollo 進行的滲透測試』，這裡的『你』扮演的是資安專業人員（securityTeam）的角色，執行滲透測試（technique），符合 ('securityTeam', 'uses', 'technique') 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "網路攻擊",
+      "type": "attack",
+      "display_name": "網路攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網路空間",
+      "type": "system",
+      "display_name": "網路空間"
+    },
+    "reasoning": "文本指出網路攻擊發生在網路空間中，且網路空間是由實體維護的電子空間（系統），攻擊行為對其造成影響，符合 ('attack', 'can_harm', 'system') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "網路攻擊 (attack) 與 網路空間 (system) 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，通過類別與屬性檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 '網路攻擊' 的類別 'attack' 與受體 '網路空間' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 與主體、受體的類別組合在給定的語義限制清單中沒有被明確限制或禁止，因此不構成違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路攻擊與Ldr中的網路攻擊完全等價同義詞，網路空間與Ldr中的網路系統概念相關但非完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則1，網路攻擊與Ldr中的網路攻擊完全匹配，且網路空間與網路系統概念相關但非完全等價，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網路空間",
+        "type": "system"
+      },
+      "reasoning": "文本指出網路攻擊發生在網路空間中，且網路空間是由實體維護的電子空間（系統），攻擊行為對其造成影響，符合 ('attack', 'can_harm', 'system') 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "@apollo",
+      "type": "system",
+      "display_name": "@Apollo"
+    },
+    "reasoning": "滲透測試是一種分析系統弱點的技術，對象是 @Apollo 的基礎設施（system），符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試 (Penetration Testing) 是一種安全技術 (technique)，@Apollo 可能是一個系統 (system)，因此這些名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_analyze'，主體 '滲透測試' 的類別是 'technique'，受體 '@Apollo' 的類別是 'system'，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體 '滲透測試' 是一種 'technique'，可以執行 'can_analyze' 動作，且受體 '@Apollo' 是 'system'，符合一般的語義限制，未發現違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "滲透測試與 Ldr 中的 '滲透測試' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 '滲透測試' 與 Ldr 中的 '滲透測試' 完全匹配，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "@Apollo",
+        "type": "system"
+      },
+      "reasoning": "滲透測試是一種分析系統弱點的技術，對象是 @Apollo 的基礎設施（system），符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user",
+      "display_name": "員工"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "@apollo 政策",
+      "type": "policy",
+      "display_name": "@Apollo 政策"
+    },
+    "reasoning": "文本詢問『你的行為符合@Apollo 政策嗎？』，這意味著使用者（user）應實踐或遵守公司政策（policy），符合 ('user', 'implements', 'policy') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "員工是一個 user 的合理實例，@Apollo 政策是一個 policy 的合理實例，且 implements 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊。檢查規則2：不適用，因為動作是 implements，而不是 mitigates。檢查規則3：不適用，因為主體類別是 user，而不是 vulnerability。檢查規則4：不適用，因為關係是 implements，而不是 violates。檢查規則5：不適用，因為關係是 implements，而不是 uses。檢查規則6：不適用，因為關係是 implements，而不是 deployed_in。檢查規則7：不適用，因為關係是 implements，而不是 generates。檢查規則8：不適用，因為關係是 implements，而不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是員工（類別：user），關係是 implements，受體是 @Apollo 政策（類別：policy），這不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "員工與人員、組織員工、雇主之間存在廣義/狹義從屬關係，但員工與Ldr中的某些資源存在高度相似度，特別是與「員工」本身的完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認原則，實體名稱與Ldr中的某資源的name字串完全相同，直接判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "員工",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "@Apollo 政策",
+        "type": "policy"
+      },
+      "reasoning": "文本詢問『你的行為符合@Apollo 政策嗎？』，這意味著使用者（user）應實踐或遵守公司政策（policy），符合 ('user', 'implements', 'policy') 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "思科道德團隊",
+      "type": "securityTeam",
+      "display_name": "思科道德團隊"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "商業行為準則",
+      "type": "policy",
+      "display_name": "商業行為準則"
+    },
+    "reasoning": "思科擁有一支專門團隊（securityTeam）致力於商業行為準則（policy），符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "思科道德團隊是一個安全團隊的合理實例，商業行為準則是一個政策的合理實例，且 'implements' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為主體是安全團隊，沒有攻擊者的身分。規則2：不適用，因為主體不是 policy、technique 或 tool。規則3：不適用，因為主體類別不是 vulnerability。規則4：不適用，因為關係不是 violates。規則5：不適用，因為關係不是 uses。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls，但 implements 關係下，主體是 securityTeam，合法。",
+        "response": "correct",
+        "reason": "三元組中的主體是安全團隊，實施商業行為準則，沒有違反任何語義限制規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆無直接同義詞或廣義/狹義關係於 Ldr 中的資源",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法直接匹配同義詞或從屬關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "思科道德團隊",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "商業行為準則",
+        "type": "policy"
+      },
+      "reasoning": "思科擁有一支專門團隊（securityTeam）致力於商業行為準則（policy），符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊系統安全協會 (issa)",
+      "type": "securityTeam",
+      "display_name": "資訊系統安全協會 (ISSA)"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "規範",
+      "type": "policy",
+      "display_name": "道德準則"
+    },
+    "reasoning": "ISSA 作為專業 IT 組織（securityTeam）發布道德準則（policy）來指導行為，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資訊系統安全協會 (ISSA) 是一個安全團隊的合理實例，道德準則是政策的合理實例，實體名稱與其被賦予的類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "根據提供的語義限制清單，檢查三元組 (資訊系統安全協會 (ISSA), implements, 道德準則) 是否違反任何規則。規則1不適用，因為ISSA是安全團隊，沒有攻擊者的身分。規則2不適用，因為主體是安全團隊，關係是implements。規則3不適用，因為主體不是漏洞。規則4不適用，因為道德準則不是資安原則。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為主體是安全團隊，具有主動執行能力，但關係是implements，不是controls。因此，沒有發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組 (資訊系統安全協會 (ISSA), implements, 道德準則) 沒有違反語義限制清單中的任何規則。根據無罪推定原則，若未發現明確且直接的違反項目，則判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"道德準則\" 與 Ldr 中的 \"規範\" 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "規範",
+        "reason": "根據同義詞判定，道德準則與規範為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊系統安全協會 (ISSA)",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "道德準則",
+        "type": "policy"
+      },
+      "reasoning": "ISSA 作為專業 IT 組織（securityTeam）發布道德準則（policy）來指導行為，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "網路安全簡介_模組5-你的未來會在網路安全領域嗎？.pdf",
+      "source_index": 6
+    }
+  }
+]

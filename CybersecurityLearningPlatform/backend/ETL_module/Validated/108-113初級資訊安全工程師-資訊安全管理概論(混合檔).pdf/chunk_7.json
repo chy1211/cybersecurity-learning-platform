@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "密碼",
+      "type": "data",
+      "display_name": "密碼"
+    },
+    "reasoning": "文本提到使用者在選定密碼，因此使用者使用密碼作為認證手段。符合 ('user', 'uses', 'data') 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "使用者 (user) 使用 密碼 (data) 是語意上合理的，使用者使用密碼是資安領域中常見的場景。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體的類別是user，使用關係是uses，受體是密碼，屬於data類別，但規則5指出當關係為uses時，如果主體的類別是data則為違反，然而這裡主體是user，不是data，所以不觸發違規。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是使用者，關係是uses，受體是密碼，沒有明確違反語義限制清單中的任何規則。根據規則5，當關係為uses時，如果主體的類別是data則為違反，但這裡主體是user，不是data。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「使用者」與 Ldr 中的「使用者」完全相同，受體「密碼」與 Ldr 中的「密碼」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源完全相同，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "密碼",
+        "type": "data"
+      },
+      "reasoning": "文本提到使用者在選定密碼，因此使用者使用密碼作為認證手段。符合 ('user', 'uses', 'data') 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "密碼",
+      "type": "data",
+      "display_name": "密碼"
+    },
+    "reasoning": "文本提到密碼容易被攻擊者破解，破解密碼會損害該認證資料的機密性。符合 ('attacker', 'can_harm', 'data') 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，密碼 (data) 是 'data' 的合理實例，'can_harm' 是描述攻擊者對資料可能造成傷害的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。檢查規則2：不適用，因為三元組中沒有mitigates動作。檢查規則3：不適用，因為三元組中主體類別不是vulnerability。檢查規則4：不適用，因為三元組中沒有principle作為主體。檢查規則5：不適用，因為三元組中關係不是uses。檢查規則6：不適用，因為三元組中關係不是deployed_in。檢查規則7：不適用，因為三元組中關係不是generates。檢查規則8：不適用，因為三元組中關係不是controls，但檢查到can_harm關係，需要進一步分析。進一步分析發現，can_harm關係的主體是攻擊者，受體是密碼，符合一般的資安知識圖譜邏輯，沒有違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的攻擊者可以對密碼造成傷害，符合一般的資安知識圖譜邏輯，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"攻擊者\" 與 Ldr 中的 \"攻擊者\" 完全等價同義詞，受體 \"密碼\" 與 Ldr 中的 \"密碼\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體名稱與 Ldr 中的資源完全匹配，無需進行同義詞判定或廣義/狹義一律保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "密碼",
+        "type": "data"
+      },
+      "reasoning": "文本提到密碼容易被攻擊者破解，破解密碼會損害該認證資料的機密性。符合 ('attacker', 'can_harm', 'data') 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "雙因素認證",
+      "type": "technique",
+      "display_name": "雙因素認證"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "rfid感應卡",
+      "type": "tool",
+      "display_name": "RFID感應卡"
+    },
+    "reasoning": "文本將 RFID 感應卡列為雙因素認證的組合元件之一。符合 ('technique', 'has_a', 'tool') 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雙因素認證是 'technique' 的合理實例，RFID感應卡是 'tool' 的合理實例，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "雙因素認證與 RFID 感應卡的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關，因為三元組中的關係是 'has_a'，不涉及任何規則中明確限制的動作或關係。",
+        "response": "correct",
+        "reason": "三元組中的主體 '雙因素認證' 和受體 'RFID感應卡' 透過 'has_a' 關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "雙因素認證與雙因子認證為同義詞，兩者指稱同一概念",
+        "response": "duplicate",
+        "standard_subject": "雙因素認證",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，雙因素認證與雙因子認證為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雙因素認證",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "RFID感應卡",
+        "type": "tool"
+      },
+      "reasoning": "文本將 RFID 感應卡列為雙因素認證的組合元件之一。符合 ('technique', 'has_a', 'tool') 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼複雜性原則",
+      "type": "policy",
+      "display_name": "密碼複雜性原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "密碼破解",
+      "type": "technique",
+      "display_name": "密碼破解"
+    },
+    "reasoning": "文本指出符合密碼複雜性原則可增強密碼強度，進而降低被破解的風險。符合 ('policy', 'mitigates', 'attack') 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "密碼複雜性原則是 policy 的合理實例，密碼破解是 attack 的合理實例，且 'mitigates' 的語意與密碼複雜性原則減輕密碼破解風險的概念相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是密碼複雜性原則（policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體是密碼複雜性原則（policy），符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"密碼複雜性原則\" 與 Ldr 中的 \"密碼原則\"、\"強密碼原則\"、\"安全密碼原則\" 皆為廣義/狹義從屬關係，但無完全等價同義詞；受體 \"密碼破解\" 與 Ldr 中的 \"密碼破解\" 完全匹配，為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "密碼破解",
+        "reason": "受體為同義詞重複，主體無完全等價同義詞，依據判斷準則 3，保留主體，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼複雜性原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "密碼破解",
+        "type": "attack"
+      },
+      "reasoning": "文本指出符合密碼複雜性原則可增強密碼強度，進而降低被破解的風險。符合 ('policy', 'mitigates', 'attack') 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "雙因素認證",
+      "type": "technique",
+      "display_name": "雙因素認證"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "密碼破解",
+      "type": "technique",
+      "display_name": "密碼破解"
+    },
+    "reasoning": "文本提到使用雙因素認證來「強化身份認證機制」，其目的是為了防止單一密碼被破解後直接進入系統。符合 ('technique', 'mitigates', 'attack') 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雙因素認證是 technique 的合理實例，密碼破解是 attack 的合理實例，且 'mitigates' 關係在資安領域中常用於描述某一技術或措施如何減輕或防禦特定攻擊或風險。",
+        "response": "correct",
+        "reason": "雙因素認證與密碼破解之間的 'mitigates' 關係在資安領域中是合理且常見的，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體 '雙因素認證' 屬於 technique 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '雙因素認證' 屬於 technique 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雙因素認證",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "密碼破解",
+        "type": "attack"
+      },
+      "reasoning": "文本提到使用雙因素認證來「強化身份認證機制」，其目的是為了防止單一密碼被破解後直接進入系統。符合 ('technique', 'mitigates', 'attack') 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "kerberos",
+      "type": "tool",
+      "display_name": "Kerberos"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "身分驗證",
+      "type": "function",
+      "display_name": "身份認證"
+    },
+    "reasoning": "文本明確指出 Kerberos 可進行身份認證。符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Kerberos 是一種工具（tool），身份認證是功能（function），且 'has_a' 關係在此語境下合理，表示 Kerberos 擁有身份認證功能。",
+        "response": "correct",
+        "reason": "Kerberos 與身份認證的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與規則清單中沒有直接相關的限制，因此無法觸發任何違規條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "身份認證與身分驗證為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "身分驗證",
+        "reason": "根據資安領域已知同義詞對照範例，身份認證與身分驗證為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Kerberos",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "身份認證",
+        "type": "function"
+      },
+      "reasoning": "文本明確指出 Kerberos 可進行身份認證。符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "雙因素認證",
+      "type": "technique",
+      "display_name": "雙因素認證"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "指紋",
+      "type": "feature",
+      "display_name": "指紋"
+    },
+    "reasoning": "雙因素認證在驗證過程中需要分析/比對指紋資料。符合 ('technique', 'can_analyze', 'data') 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "雙因素認證是 technique 的合理實例，指紋是 data 的合理實例，且 'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "雙因素認證與指紋的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中，主體為「雙因素認證」（類別：technique），關係為「can_analyze」，受體為「指紋」（類別：feature），未發現明確違反任何規則的內容。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "雙因素認證與雙因子認證、多因素驗證等為同義詞或相關概念，但指紋為獨立的特徵，與認證技術無直接同義關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，雙因素認證和指紋不構成同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雙因素認證",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "指紋",
+        "type": "data"
+      },
+      "reasoning": "雙因素認證在驗證過程中需要分析/比對指紋資料。符合 ('technique', 'can_analyze', 'data') 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "單一登入 (sso)",
+      "type": "tool",
+      "display_name": "單一登入 (SSO)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "權限控管",
+      "type": "function",
+      "display_name": "權限控管"
+    },
+    "reasoning": "文本提到 SSO 的優點之一是「集中權限控管」，表示 SSO 提供了權限控管的功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "單一登入 (SSO) 是一種工具 (tool)，而權限控管 (access control) 是一種功能 (function)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需注意 'has_a' 關係是否符合主體和受體的類別定義，然而根據給定的資訊，'has_a' 關係在此三元組中似乎是描述工具與其功能的關係，未直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的 'has_a' 關係描述了一個工具（單一登入）與其功能（權限控管）之間的關係，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"單一登入 (SSO)\" 與 Ldr 中的 \"單一登入 (sso)\" 完全等價同義詞，受體 \"權限控管\" 與 Ldr 中的 \"集中權限控管\" 或 \"權限管理\" 可能是同一概念的不同表述，但無法確認完全等價，需要進一步分析。",
+        "response": "correct",
+        "standard_subject": "單一登入 (sso)",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體 \"單一登入 (SSO)\" 與 Ldr 中的 \"單一登入 (sso)\" 完全等價同義詞，但受體 \"權限控管\" 與 Ldr 中的資源無法確認完全等價，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "單一登入 (SSO)",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "權限控管",
+        "type": "function"
+      },
+      "reasoning": "文本提到 SSO 的優點之一是「集中權限控管」，表示 SSO 提供了權限控管的功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "kerberos",
+      "type": "tool",
+      "display_name": "Kerberos"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "金鑰管理",
+      "type": "function",
+      "display_name": "金鑰管理"
+    },
+    "reasoning": "文本描述 Kerberos 是一種金鑰管理機制/系統。符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Kerberos 是一種工具（tool），金鑰管理是功能（function），這些名稱與其類別是合理對齊的，符合資安領域的常見用法。",
+        "response": "correct",
+        "reason": "Kerberos 和金鑰管理的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 'Kerberos' 和受體 '金鑰管理' 並未直接違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Kerberos 是一個工具，金鑰管理是其功能之一，但在給定的 Ldr 中，沒有完全等價的同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，無法確定 Kerberos 和金鑰管理之間的同義詞或從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Kerberos",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "金鑰管理",
+        "type": "function"
+      },
+      "reasoning": "文本描述 Kerberos 是一種金鑰管理機制/系統。符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "kerberos",
+      "type": "tool",
+      "display_name": "Kerberos"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "加密"
+    },
+    "reasoning": "文本提到 Kerberos 具備加密機制。符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "chunk_7",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Kerberos 是一種工具（tool），加密是功能（function），且 'has_a' 關係在此語境下合理，因為 Kerberos indeed 有加密功能。",
+        "response": "correct",
+        "reason": "Kerberos 和加密的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的主體 'Kerberos' 是一種工具（tool），其關係 'has_a' 與受體 '加密'（feature）之間的關係在給定的語義限制清單中沒有被明確禁止或限制，因此不構成違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，'加密' 是一個已知的同義詞，但根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。因此，'Kerberos' 與 '加密' 之間的關係不構成 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Kerberos",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密",
+        "type": "function"
+      },
+      "reasoning": "文本提到 Kerberos 具備加密機制。符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "chunk_7",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 10
+    }
+  }
+]

@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "注入攻擊",
+      "type": "attack",
+      "display_name": "注入攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網站 weba",
+      "type": "app",
+      "display_name": "網站 webA"
+    },
+    "reasoning": "文本描述透過主機向網站 webA 發起請求並進行注入攻擊，攻擊的目的是損害目標應用程式，對應 Schema 中的 ('attack', 'can_harm', 'app')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "注入攻擊 (attack) 是攻擊類別的合理實例，網站 webA (app) 是應用程式類別的合理實例，'can_harm' 關係在資安領域中是合理的，描述攻擊對應用程式的潛在危害。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需要檢查 'can_harm' 關係是否符合語義限制。根據給定的三元組，'can_harm' 關係涉及 'attack' 類別的主體對 'app' 類別的受體進行傷害，這在資安知識圖譜中是一種合理的關係，因為攻擊（attack）可以對應用程式（app）造成傷害。",
+        "response": "correct",
+        "reason": "三元組中的 'can_harm' 關係在資安知識圖譜中是合理的，因為攻擊可以對應用程式造成傷害。沒有發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"注入攻擊\" 與 Ldr 中的 \"注入攻擊\" 完全相同，受體 \"網站 webA\" 與 Ldr 中的 \"網站\" 類別相同但名稱不完全匹配，需要進一步判斷。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，主體 \"注入攻擊\" 與 Ldr 中的 \"注入攻擊\" 完全匹配，受體 \"網站 webA\" 雖然類別相同但名稱不完全匹配，根據廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "注入攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網站 webA",
+        "type": "app"
+      },
+      "reasoning": "文本描述透過主機向網站 webA 發起請求並進行注入攻擊，攻擊的目的是損害目標應用程式，對應 Schema 中的 ('attack', 'can_harm', 'app')。",
+      "source_id": "chunk_77",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "不安全的反序列化漏洞",
+      "type": "vulnerability",
+      "display_name": "不安全的反序列化漏洞"
+    },
+    "reasoning": "文本提到『使用不安全的反序列化漏洞』來進行攻擊，這符合攻擊者利用漏洞的邏輯，對應 Schema 中的 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 均在 Lc,p 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，不安全的反序列化漏洞 (vulnerability) 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。檢查規則2：不適用，因為三元組中沒有mitigates動作。檢查規則3：不適用，因為主體類別為attacker，不是vulnerability。檢查規則4：不適用，因為關係不是violates。檢查規則5：不適用，因為關係不是uses。檢查規則6：不適用，因為關係不是deployed_in。檢查規則7：不適用，因為關係不是generates。檢查規則8：不適用，因為關係不是controls，但檢查到can_exploit與規則3無直接關聯，且主體為attacker，符合一般攻擊者行為的邏輯。",
+        "response": "correct",
+        "reason": "三元組中的攻擊者可以利用不安全的反序列化漏洞，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞或類別關聯，但無直接完全等價同義詞；不安全的反序列化漏洞與安全漏洞之間有狹義關聯，但主體攻擊者與各類攻擊者之間的關聯是廣義的從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱雖有相近的同義詞或類別關聯，但無直接完全等價同義詞，且廣義/狹義一律保留，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "不安全的反序列化漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『使用不安全的反序列化漏洞』來進行攻擊，這符合攻擊者利用漏洞的邏輯，對應 Schema 中的 ('attacker', 'can_exploit', 'vulnerability')。",
+      "source_id": "chunk_77",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "owasp 指南",
+      "type": "policy",
+      "display_name": "OWASP 指南"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "網頁攻擊",
+      "type": "attack",
+      "display_name": "網頁攻擊"
+    },
+    "reasoning": "OWASP 指南提供撰寫安全程式碼的規範以防止漏洞與攻擊，屬於資安政策/規範，對應 Schema 中的 ('policy', 'mitigates', 'attack')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "OWASP 指南 是 'policy' 的合理實例，網頁攻擊 是 'attack' 的合理實例，且 'mitigates' 是描述政策對攻擊的緩解關係的適當用語。",
+        "response": "correct",
+        "reason": "OWASP 指南與網頁攻擊的三元組完全符合預先定義的類別與屬性清單，語意對齊且合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 OWASP 指南，類別為 policy，符合規則2的允許條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 OWASP 指南 屬於 policy 類別，符合規則2 的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網頁攻擊是攻擊的子集，但根據給定的資安領域已知同義詞對照範例和判斷準則，網頁攻擊與網路攻擊在此語境下被視為相關但不同的概念，且沒有直接的同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留的判斷準則，網頁攻擊是攻擊的子集，但不視為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OWASP 指南",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "網頁攻擊",
+        "type": "attack"
+      },
+      "reasoning": "OWASP 指南提供撰寫安全程式碼的規範以防止漏洞與攻擊，屬於資安政策/規範，對應 Schema 中的 ('policy', 'mitigates', 'attack')。",
+      "source_id": "chunk_77",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "稽核日誌",
+      "type": "data",
+      "display_name": "稽核日誌"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "日誌伺服器",
+      "type": "system",
+      "display_name": "日誌伺服器"
+    },
+    "reasoning": "文本明確提到『將所有稽核日誌存放於另一台獨立的日誌伺服器』，對應 Schema 中的 ('data', 'deployed_in', 'system')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "稽核日誌是 'data' 的合理實例，日誌伺服器是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：觸發，檢查通過，因為受體的類別是 system。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，受體的類別是 system，且未發現其他規則的違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「稽核日誌」與 Ldr 中的「日誌」、「日誌記錄」、「日誌檔」具有相似性，但非完全等價同義詞；受體「日誌伺服器」與 Ldr 中的「伺服器」具有相似性，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法找到完全匹配的同義詞，且實體間具有廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "稽核日誌",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "日誌伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本明確提到『將所有稽核日誌存放於另一台獨立的日誌伺服器』，對應 Schema 中的 ('data', 'deployed_in', 'system')。",
+      "source_id": "chunk_77",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "系統管理員",
+      "type": "securityTeam",
+      "display_name": "系統管理員"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "日誌伺服器",
+      "type": "system",
+      "display_name": "日誌伺服器"
+    },
+    "reasoning": "系統管理員負責管理日誌伺服器，對應 Schema 中的 ('securityTeam', 'controls', 'system')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 均在 Lc,p 中。",
+        "step_2_alignment_check": "系統管理員是安全團隊的合理實例，日誌伺服器是系統的合理實例，且 'controls' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不觸發，因為主體是系統管理員，沒有攻擊者的身分。規則2：不觸發，因為關係是 controls，不是 mitigates。規則3：不觸發，因為主體類別是 securityTeam，不是 vulnerability。規則4：不觸發，因為主體不是 principle。規則5：不觸發，因為關係是 controls，不是 uses。規則6：不觸發，因為關係是 controls，不是 deployed_in。規則7：不觸發，因為關係是 controls，不是 generates。規則8：觸發檢查，因為關係是 controls，主體必須是具有主動執行能力的角色或工具，系統管理員屬於 securityTeam，符合規則。",
+        "response": "correct",
+        "reason": "三元組中的主體（系統管理員）與關係（controls）以及受體（日誌伺服器）之間的關係符合規則8的要求，主體具有主動執行能力，且受體是系統，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"系統管理員\" 與 Ldr 中的 \"系統管理人員\" 和 \"系統管理者\" 皆為同義詞，但 \"系統管理員\" 與 \"系統管理人員\" 的相似度最高，受體 \"日誌伺服器\" 與 Ldr 中的 \"日誌伺服器\" 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，主體與 Ldr 中的某些資源為同義詞，但受體與 Ldr 中的資源完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統管理員",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "日誌伺服器",
+        "type": "system"
+      },
+      "reasoning": "系統管理員負責管理日誌伺服器，對應 Schema 中的 ('securityTeam', 'controls', 'system')。",
+      "source_id": "chunk_77",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "cross-site request forgery",
+      "type": "attack",
+      "display_name": "Cross-Site Request Forgery"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網頁攻擊",
+      "type": "attack",
+      "display_name": "網頁攻擊"
+    },
+    "reasoning": "題目 32 將 CSRF 列為網頁攻擊手法的一種，對應 Schema 中的 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Cross-Site Request Forgery 是 'attack' 的合理實例，網頁攻擊也是 'attack' 的合理實例，兩者名稱與類別對齊合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'is_part_of' 不在任何規則中被明確限制，且主體和受體的類別均為 'attack'，未觸發任何違規條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 與主體、受體的類別 'attack' 未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Cross-Site Request Forgery) 與受體 (網頁攻擊) 分別對應到 Ldr 中的資源，前者與 '跨站請求偽造攻擊（csrf）' 類似，後者完全匹配 '網頁攻擊'，但兩者之間無直接同義詞關係，且 '跨站請求偽造攻擊（csrf）' 是 '網頁攻擊' 的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，'跨站請求偽造攻擊（csrf）' 是 '網頁攻擊' 的子類型，故不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Cross-Site Request Forgery",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "網頁攻擊",
+        "type": "attack"
+      },
+      "reasoning": "題目 32 將 CSRF 列為網頁攻擊手法的一種，對應 Schema 中的 ('attack', 'is_part_of', 'attack')。",
+      "source_id": "chunk_77",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "sql injection",
+      "type": "attack",
+      "display_name": "SQL Injection"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網頁攻擊",
+      "type": "attack",
+      "display_name": "網頁攻擊"
+    },
+    "reasoning": "題目 32 將 SQL Injection 列為網頁攻擊手法的一種，對應 Schema 中的 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SQL Injection 是 'attack' 的合理實例，網頁攻擊也是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "SQL Injection 和網頁攻擊的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在語義限制清單中被明確限制，且三元組的主體和受體類別與給定的規則不直接衝突。"
+      },
+      "step_2": {
+        "granularity_analysis": "SQL Injection 與網頁攻擊在資安領域中是不同的攻擊類型，SQL Injection 是一種特定的攻擊手法，而網頁攻擊是一個更廣泛的攻擊類別，兩者之間存在著廣義/狹義的關係，但根據判斷準則，若一個實體是另一個的子類型，判定為 correct，禁止合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則中的【廣義/狹義一律保留】，SQL Injection 與網頁攻擊之間的關係不需要合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "網頁攻擊",
+        "type": "attack"
+      },
+      "reasoning": "題目 32 將 SQL Injection 列為網頁攻擊手法的一種，對應 Schema 中的 ('attack', 'is_part_of', 'attack')。",
+      "source_id": "chunk_77",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "反組譯器",
+      "type": "tool",
+      "display_name": "反組譯器"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "反組譯器 (Disassemblers) 用於分析二進位檔案或系統指令，對應 Schema 中的 ('tool', 'can_analyze', 'system')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "反組譯器 (tool) 與 系統 (system) 的名稱與其類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_analyze'，且主體是 '反組譯器'（類別：tool），受體是 '系統'（類別：system），未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間的組合未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"系統\" 與 Ldr 中的 \"系統\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "反組譯器",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "反組譯器 (Disassemblers) 用於分析二進位檔案或系統指令，對應 Schema 中的 ('tool', 'can_analyze', 'system')。",
+      "source_id": "chunk_77",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "cross-site scripting",
+      "type": "attack",
+      "display_name": "Cross-Site Scripting"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "cross-site scripting",
+      "type": "attack",
+      "display_name": "網頁攻擊"
+    },
+    "reasoning": "題目 32 將 XSS 列為網頁攻擊手法的一種，對應 Schema 中的 ('attack', 'is_part_of', 'attack')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Cross-Site Scripting 是 'attack' 的合理實例，網頁攻擊也是 'attack' 的合理實例，兩者名稱與類別對齊，且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "Cross-Site Scripting 與網頁攻擊的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在給定的語義限制清單中被明確限制，因此不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Cross-Site Scripting 與網頁攻擊在資安領域中可視為同義詞，兩者都指涉及在網頁中注入惡意腳本以攻擊用戶的行為。",
+        "response": "duplicate",
+        "standard_subject": "cross-site scripting",
+        "standard_object": "cross-site scripting",
+        "reason": "根據同義詞判定，Cross-Site Scripting 與網頁攻擊是同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Cross-Site Scripting",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "網頁攻擊",
+        "type": "attack"
+      },
+      "reasoning": "題目 32 將 XSS 列為網頁攻擊手法的一種，對應 Schema 中的 ('attack', 'is_part_of', 'attack')。",
+      "source_id": "chunk_77",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "白名單過濾輸入參數",
+      "type": "technique",
+      "display_name": "白名單過濾輸入參數"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "cross-site scripting",
+      "type": "attack",
+      "display_name": "Cross-Site Scripting"
+    },
+    "reasoning": "題目 33 指出以白名單過濾輸入參數是防禦 XSS 最有效的方法，對應 Schema 中的 ('technique', 'mitigates', 'attack')。",
+    "source_id": "chunk_77",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "白名單過濾輸入參數 可以被視為 'technique' 的合理實例，Cross-Site Scripting 是 'attack' 的典型例子，'mitigates' 的關係在資安領域中是合理的，因為某些技術可以減輕特定攻擊的風險。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是白名單過濾輸入參數，類別為 technique，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體是白名單過濾輸入參數，類別為 technique，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "Cross-Site Scripting 是 Ldr 中的資源之一，與受體完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "受體 Cross-Site Scripting 與 Ldr 中的資源完全匹配，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "白名單過濾輸入參數",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "Cross-Site Scripting",
+        "type": "attack"
+      },
+      "reasoning": "題目 33 指出以白名單過濾輸入參數是防禦 XSS 最有效的方法，對應 Schema 中的 ('technique', 'mitigates', 'attack')。",
+      "source_id": "chunk_77",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

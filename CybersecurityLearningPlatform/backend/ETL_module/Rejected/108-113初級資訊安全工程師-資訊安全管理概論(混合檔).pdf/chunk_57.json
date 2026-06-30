@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到利用滲透測試服務驗證修補情況，這是一種分析弱點的技術，符合 technique can_analyze vulnerability 的定義。",
+    "source_id": "chunk_57",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試 (technique) 可以分析弱點 (vulnerability)，這是資安領域中合理的語意對齊，符合同義詞寬容原則。",
+        "response": "correct",
+        "reason": "滲透測試可以分析弱點的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該規則觸發違規，因為滲透測試 (technique) 的 can_analyze 動作對應到弱點 (vulnerability)，但根據規則3，vulnerability 不應發起主動行為如 can_analyze。",
+        "response": "violation",
+        "reason": "三元組違反規則3，因為弱點 (vulnerability) 不應發起主動行為如 can_analyze。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組違反規則3，因為弱點 (vulnerability) 不應發起主動行為如 can_analyze。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到利用滲透測試服務驗證修補情況，這是一種分析弱點的技術，符合 technique can_analyze vulnerability 的定義。",
+      "source_id": "chunk_57",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  }
+]

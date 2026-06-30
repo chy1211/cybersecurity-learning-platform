@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "雜湊函數",
+      "type": "function",
+      "display_name": "雜湊函數"
+    },
+    "reasoning": "文本提到數位簽章流程的第一步是『經由雜湊函數計算』，顯示數位簽章技術依賴於雜湊函數工具來產生摘要。",
+    "source_id": "chunk_5",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "數位簽章是 technique 的合理實例，雜湊函數是 tool 的合理實例，且 'depends_on' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "數位簽章與雜湊函數的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規，因為主體的類別是 data，且關係為 depends_on，但這裡的關係不是 uses，所以不違反規則5。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係是 depends_on，主體是數位簽章，受體是雜湊函數，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全匹配的資源，且無同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆直接匹配現有資源，無需進一步同義詞判定。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位簽章",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "雜湊函數",
+        "type": "tool"
+      },
+      "reasoning": "文本提到數位簽章流程的第一步是『經由雜湊函數計算』，顯示數位簽章技術依賴於雜湊函數工具來產生摘要。",
+      "source_id": "chunk_5",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "雜湊函數",
+      "type": "function",
+      "display_name": "雜湊函數"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "訊息摘要",
+      "type": "data",
+      "display_name": "訊息摘要"
+    },
+    "reasoning": "文本明確指出『經由雜湊函數計算後，得到訊息摘要』，符合 tool generates data 的定義。",
+    "source_id": "chunk_5",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "雜湊函數 (Hash Function) 是一種工具 (tool)，能夠生成訊息摘要 (Message Digest)，這是一種資料 (data)，因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別是合理對齊的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：觸發，檢查關係 'generates' 時，受體 '訊息摘要' 的類別是 'data'，符合規則。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 'generates' 與受體 '訊息摘要' 的類別 'data' 符合規則7，且未發現其他違規情況。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雜湊函數與訊息摘要在資安領域中是相關但不同的概念，無法判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雜湊函數",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "訊息摘要",
+        "type": "data"
+      },
+      "reasoning": "文本明確指出『經由雜湊函數計算後，得到訊息摘要』，符合 tool generates data 的定義。",
+      "source_id": "chunk_5",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "篡改",
+      "type": "attack",
+      "display_name": "篡改"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "文本提到電子簽章法旨在『強化網路交易之安全性與完整性』，而文件的修改（篡改）直接違反了資安原則中的完整性。",
+    "source_id": "chunk_5",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "篡改 (attack) 是攻擊的合理實例，完整性 (principle) 是原則的合理實例，且 'violates' 是描述攻擊違反原則的合理關係。",
+        "response": "correct",
+        "reason": "篡改攻擊違反完整性原則的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係是violates，而不是mitigates。規則3不適用，因為三元組中的主體類別是attack，而不是vulnerability。規則4適用，因為三元組中的受體是principle，符合規則的描述。規則5、6、7、8不適用，因為三元組中的關係是violates，不符合這些規則的描述。",
+        "response": "correct",
+        "reason": "三元組中的主體是篡改（attack），關係是violates，受體是完整性（principle），這符合規則4的描述，且沒有違反其他規則。因此，三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "篡改與資料竄改、資料篡改、程式碼篡改之間存在廣義/狹義從屬關係，但篡改與完整性之間不存在直接同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，篡改與現有近似資源清單中的其他攻擊類型之間存在廣義/狹義從屬關係，且與完整性之間不存在直接同義詞或從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "篡改",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "文本提到電子簽章法旨在『強化網路交易之安全性與完整性』，而文件的修改（篡改）直接違反了資安原則中的完整性。",
+      "source_id": "chunk_5",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "公開金鑰簽章演算法",
+      "type": "technique",
+      "display_name": "公開金鑰簽章演算法"
+    },
+    "reasoning": "文本提到使用『公開金鑰簽章演算法做加密運算』來產生簽章，因此該技術依賴此演算法工具。",
+    "source_id": "chunk_5",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "數位簽章是 technique 的合理實例，公開金鑰簽章演算法是 tool 的合理實例，且 'depends_on' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "數位簽章與公開金鑰簽章演算法之間的 'depends_on' 關係在資安領域中是合理的，且符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：觸發，關係為 'depends_on'，主體類別為 'data'，但 'uses' 關係觸發違反，'depends_on' 關係不在限制清單中。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的關係 'depends_on' 不在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被明確禁止。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞或相似名稱在 Ldr 中，但無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法直接判定為同義詞或廣義/狹義從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位簽章",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "公開金鑰簽章演算法",
+        "type": "tool"
+      },
+      "reasoning": "文本提到使用『公開金鑰簽章演算法做加密運算』來產生簽章，因此該技術依賴此演算法工具。",
+      "source_id": "chunk_5",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "公開金鑰基礎建設",
+      "type": "system",
+      "display_name": "公開金鑰基礎建設"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "reasoning": "文本指出電子簽章的普遍應用需要『公開金鑰基礎建設 (PKI)』，PKI 作為系統包含並支持數位簽章的實作工具。",
+    "source_id": "chunk_5",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "公開金鑰基礎建設 可被視為 system 的實例，數位簽章 可被視為 tool 的實例，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "公開金鑰基礎建設與數位簽章的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 system，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則沒有發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組中的主體是公開金鑰基礎建設，關係是 has_a，受體是數位簽章，沒有觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 (Object) 數位簽章與 Ldr 中的數位簽章完全相同，主體 (Subject) 公開金鑰基礎建設與 Ldr 中無直接關聯",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "數位簽章",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "公開金鑰基礎建設",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "數位簽章",
+        "type": "tool"
+      },
+      "reasoning": "文本指出電子簽章的普遍應用需要『公開金鑰基礎建設 (PKI)』，PKI 作為系統包含並支持數位簽章的實作工具。",
+      "source_id": "chunk_5",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "電子簽章法",
+      "type": "policy",
+      "display_name": "電子簽章法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "網路交易風險",
+      "type": "risk",
+      "display_name": "網路交易風險"
+    },
+    "reasoning": "文本提到制定『電子簽章法』是為了『強化網路交易之安全性與完整性』，旨在降低網路交易中不被信任或被偽造的風險。",
+    "source_id": "chunk_5",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "電子簽章法 是 policy 的合理實例，網路交易風險 是 risk 的合理實例，且 'mitigates' 關係在資安領域中常用於描述政策或措施如何減輕風險。",
+        "response": "correct",
+        "reason": "電子簽章法、網路交易風險與 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是電子簽章法，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "電子簽章法作為主體，具有 policy 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為完全等價同義詞無關，主體為電子簽章法，受體為網路交易風險，兩者無直接同義詞關係，但皆有相近的資源存在於 Ldr 中",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體之間的同義詞或從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子簽章法",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "網路交易風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到制定『電子簽章法』是為了『強化網路交易之安全性與完整性』，旨在降低網路交易中不被信任或被偽造的風險。",
+      "source_id": "chunk_5",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "公開金鑰基礎建設",
+      "type": "system",
+      "display_name": "公開金鑰基礎建設"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "公開金鑰",
+      "type": "feature",
+      "display_name": "公開金鑰"
+    },
+    "reasoning": "PKI 系統的核心即在於管理與使用公開金鑰與私密金鑰等認證資料。",
+    "source_id": "chunk_5",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "公開金鑰基礎建設 (public key infrastructure) 是系統 (system) 的合理實例，公開金鑰 (public key) 是數據 (data) 的合理實例，'uses' 關係在此語境中合理。",
+        "response": "correct",
+        "reason": "公開金鑰基礎建設使用公開金鑰的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為主體不是principle。規則5觸發，因為關係為uses且主體類別是system，但規則5指出當主體類別是data時才為違反，故此三元組不違反規則5。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組不違反任何語義限制清單中的規則，尤其是規則5中明確指出當主體類別是data時才為違反，然而此三元組的主體類別是system，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間的關係是系統與其特徵的關係，公開金鑰基礎建設是一個系統，公開金鑰是其特徵之一，兩者之間存在著廣義/狹義的從屬關係，但根據給定的資安領域已知同義詞對照範例和判斷準則，兩者不被視為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】的判斷準則，公開金鑰基礎建設和公開金鑰之間的關係是系統與其特徵的關係，不存在同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "公開金鑰基礎建設",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "公開金鑰",
+        "type": "data"
+      },
+      "reasoning": "PKI 系統的核心即在於管理與使用公開金鑰與私密金鑰等認證資料。",
+      "source_id": "chunk_5",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

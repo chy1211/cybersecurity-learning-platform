@@ -1,0 +1,107 @@
+[
+  {
+    "subject": {
+      "name": "PKCS #11",
+      "type": "system"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "PKCS",
+      "type": "system"
+    },
+    "reasoning": "文本提到 PKCS 是一序列規範，而 PKCS #11 是這套標準中的一個成員。由於 policy 類型缺乏 is_part_of 關係，將其視為規範系統 (system) 以符合 Schema 中的 ('system', 'is_part_of', 'system')。",
+    "source_id": "chunk_4",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "Cryptoki",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "插槽 (slot)",
+      "type": "feature"
+    },
+    "reasoning": "文本明確指出 Cryptoki 介面有抽象的密碼模組稱為插槽。符合 ('system', 'has_a', 'feature')。",
+    "source_id": "chunk_4",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "符記 (token)",
+      "type": "tool"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "Cryptoki",
+      "type": "system"
+    },
+    "reasoning": "文本描述符記是插槽之下的實體密碼模組，屬於 Cryptoki 架構的一部分。符合 ('tool', 'is_part_of', 'system')。",
+    "source_id": "chunk_4",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "符記 (token)",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "密碼功能",
+      "type": "function"
+    },
+    "reasoning": "文本提到符記是由廠商提供的密碼模組，用以提供密碼功能。符合 ('tool', 'has_a', 'function')。",
+    "source_id": "chunk_4",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "Cryptoki",
+      "type": "system"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "金鑰 (key)",
+      "type": "data"
+    },
+    "reasoning": "文本提到 Cryptoki 可以定義許多物件，如金鑰、憑證等。在知識圖譜中，系統定義並操作這些資訊實體可視為 uses。符合 ('system', 'uses', 'data')。",
+    "source_id": "chunk_4",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "Cryptoki",
+      "type": "system"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "憑證 (certificate)",
+      "type": "data"
+    },
+    "reasoning": "同上，憑證被定義為 Cryptoki 系統管理的一種物件資料。符合 ('system', 'uses', 'data')。",
+    "source_id": "chunk_4",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "Cryptoki",
+      "type": "tool"
+    },
+    "reasoning": "文本提到應用程式呼叫 Cryptoki 介面來實現安全控管。將 Cryptoki 介面視為應用程式所採用的工具組。符合 ('app', 'has_a', 'tool')。",
+    "source_id": "chunk_4",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 7
+  }
+]

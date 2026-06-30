@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "acl",
+      "type": "technique",
+      "display_name": "ACL"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "windows",
+      "type": "system",
+      "display_name": "Windows"
+    },
+    "reasoning": "ACL 作為一種存取控制方法，其目的是控管系統資源的存取，因此 ACL (tool) 控制 (controls) Windows (system)。",
+    "source_id": "chunk_5",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "ACL 是一種工具（tool），Windows 是一個系統（system），因此名稱與類別合理對齊，且 'controls' 是一個合理的關係描述。",
+        "response": "correct",
+        "reason": "ACL 控制 Windows 的描述符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則8指出當關係為 controls 時，主體必須是具有主動執行能力的角色或工具，但 ACL 屬於 technique 類別，不一定具有主動執行能力，可能違反規則8。",
+        "response": "violation",
+        "reason": "三元組中的主體 ACL 屬於 technique 類別，與 controls 關係可能不符，觸發規則8的違規檢查。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組中的主體 ACL 屬於 technique 類別，與 controls 關係可能不符，觸發規則8的違規檢查。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "ACL",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "Windows",
+        "type": "system"
+      },
+      "reasoning": "ACL 作為一種存取控制方法，其目的是控管系統資源的存取，因此 ACL (tool) 控制 (controls) Windows (system)。",
+      "source_id": "chunk_5",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 4
+    }
+  }
+]

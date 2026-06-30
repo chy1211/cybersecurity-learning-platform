@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "資訊主管",
+      "type": "securityTeam",
+      "display_name": "資訊主管"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "電腦設備",
+      "type": "system",
+      "display_name": "電腦設備"
+    },
+    "reasoning": "文本提到主管應查核電腦設備之使用與管理情形，查核行為屬於分析與審核，對應 securityTeam -> can_analyze -> system。",
+    "source_id": "chunk_4",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資訊主管是 securityTeam 的合理實例，電腦設備是 system 的合理實例，且 'can_analyze' 在資安領域中是合理的關係。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為 securityTeam，具有主動執行能力，符合 controls 的主體條件，但本三元組的關係為 can_analyze，不違反規則8。",
+        "response": "correct",
+        "reason": "三元組中的主體（資訊主管）和關係（can_analyze）以及受體（電腦設備）之間的關係沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資訊主管' 與 Ldr 中 '資訊部門' 關係為近似同義詞，但不完全等價；受體 '電腦設備' 與 Ldr 中 '硬體設備' 關係為近似同義詞，兩者均有相似的概念，但不完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，雖然 '資訊主管' 和 '資訊部門'、'電腦設備' 和 '硬體設備' 有相似之處，但無法確認為完全同義詞或廣義/狹義從屬關係，因此預設保留，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊主管",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "電腦設備",
+        "type": "system"
+      },
+      "reasoning": "文本提到主管應查核電腦設備之使用與管理情形，查核行為屬於分析與審核，對應 securityTeam -> can_analyze -> system。",
+      "source_id": "chunk_4",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "變更管理",
+      "type": "policy",
+      "display_name": "變更管理"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "文本明確指出變更管理的工作是要評估並降低風險，對應 policy -> mitigates -> risk。",
+    "source_id": "chunk_4",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "變更管理 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中常用於描述政策或措施如何減輕風險。",
+        "response": "correct",
+        "reason": "變更管理 (policy) 與風險 (risk) 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '變更管理' 屬於類別 'policy'，因此符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '變更管理' 屬於類別 'policy'，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「變更管理」與 Ldr 中的「變更管理」完全相同，受體「風險」與 Ldr 中的「風險」完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全相同，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "變更管理",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "文本明確指出變更管理的工作是要評估並降低風險，對應 policy -> mitigates -> risk。",
+      "source_id": "chunk_4",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊主管",
+      "type": "securityTeam",
+      "display_name": "資訊主管"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "變更管理",
+      "type": "policy",
+      "display_name": "變更管理"
+    },
+    "reasoning": "變更管理作為一種管理規範，由資訊主管單位實作與執行，對應 securityTeam -> implements -> policy。",
+    "source_id": "chunk_4",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '資訊主管' 是 'securityTeam' 的合理實例，'變更管理' 是 'policy' 的合理實例，考慮到同義詞寬容原則，'資訊主管' 可以被視為資安團隊的一部分，'變更管理' 可以被視為一種政策或程序。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：不適用，因為動作是 implements，而非 mitigates。檢查規則3：不適用，因為主體類別是 securityTeam，而非 vulnerability。檢查規則4：不適用，因為關係是 implements，而非 violates。檢查規則5：不適用，因為關係是 implements，而非 uses。檢查規則6：不適用，因為關係是 implements，而非 deployed_in。檢查規則7：不適用，因為關係是 implements，而非 generates。檢查規則8：不適用，因為關係是 implements，而非 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（資訊主管）和關係（implements）以及受體（變更管理）之間的關係沒有違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資訊主管' 與 Ldr 中的 '資訊部門' 類別相同，但非完全等價同義詞；受體 '變更管理' 與 Ldr 中的 '變更管理' 完全匹配，為同一概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "變更管理",
+        "reason": "受體 '變更管理' 與 Ldr 中的 '變更管理' 完全匹配，判定為 correct；主體 '資訊主管' 與 '資訊部門' 類別相同但非完全等價同義詞，依據【廣義/狹義一律保留】原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊主管",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "變更管理",
+        "type": "policy"
+      },
+      "reasoning": "變更管理作為一種管理規範，由資訊主管單位實作與執行，對應 securityTeam -> implements -> policy。",
+      "source_id": "chunk_4",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "變更風險評估",
+      "type": "technique",
+      "display_name": "變更風險評估"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊系統",
+      "type": "system",
+      "display_name": "資訊系統"
+    },
+    "reasoning": "變更風險評估是一種技術手段，用來分析變更對系統及業務的影響，對應 technique -> can_analyze -> system。",
+    "source_id": "chunk_4",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "變更風險評估 (technique) 可以分析資訊系統 (system)，這符合資安領域的常見實踐與語意對齊，接受同義詞寬容原則後仍然合理。",
+        "response": "correct",
+        "reason": "變更風險評估與資訊系統之間的 'can_analyze' 關係完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為 technique，關係為 can_analyze，受體為 system，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係未違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「變更風險評估」與 Ldr 中的「風險評估」相似，但非完全等價同義詞；受體「資訊系統」與 Ldr 中的「資訊系統」完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "資訊系統",
+        "reason": "根據【前提確認】，受體「資訊系統」與 Ldr 中的「資訊系統」完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "變更風險評估",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊系統",
+        "type": "system"
+      },
+      "reasoning": "變更風險評估是一種技術手段，用來分析變更對系統及業務的影響，對應 technique -> can_analyze -> system。",
+      "source_id": "chunk_4",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊主管",
+      "type": "securityTeam",
+      "display_name": "資訊主管"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊檔案",
+      "type": "data",
+      "display_name": "資訊檔案"
+    },
+    "reasoning": "文本提到主管應查核資訊檔案之使用與管理情形，對應 securityTeam -> can_analyze -> data。",
+    "source_id": "chunk_4",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊主管 是 securityTeam 的合理實例，資訊檔案 是 data 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有提到攻擊者(attacker)。規則2：不適用，因為三元組中的關係是can_analyze，不是mitigates。規則3：不適用，因為三元組中的主體類別是securityTeam，不是vulnerability。規則4：不適用，因為三元組中的關係是can_analyze，不是violates，且主體不是principle。規則5：不適用，因為三元組中的關係是can_analyze，不是uses。規則6：不適用，因為三元組中的關係是can_analyze，不是deployed_in。規則7：不適用，因為三元組中的關係是can_analyze，不是generates。規則8：不適用，因為三元組中的關係是can_analyze，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是資訊主管（securityTeam），關係是can_analyze，受體是資訊檔案（data），這符合一般的資安分析邏輯，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資訊主管' 與 Ldr 中 '資訊主管' 完全相同，受體 '資訊檔案' 與 Ldr 中 '檔案'、'記錄檔資訊'、'檔案資料'、'資訊' 皆有相似性，但無完全相同的實體名稱，且無直接同義詞對應關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【前提確認】，主體 '資訊主管' 與 Ldr 中 '資訊主管' 完全相同，且無同義詞對應關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊主管",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊檔案",
+        "type": "data"
+      },
+      "reasoning": "文本提到主管應查核資訊檔案之使用與管理情形，對應 securityTeam -> can_analyze -> data。",
+      "source_id": "chunk_4",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "備援計畫",
+      "type": "policy",
+      "display_name": "備援計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "備援計畫旨在應對系統無法操作的風險，確保業務持續性，對應 policy -> mitigates -> risk。",
+    "source_id": "chunk_4",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "備援計畫 (policy) 和 風險 (risk) 的名稱與其類別合理對齊，且 'mitigates' 關係在資安領域中是合理的，表示備援計畫可以減輕風險。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是備援計畫（policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體是備援計畫（policy），符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "備援計畫與災難備援計畫、突發事件計畫、災害復原計畫等存在廣義/狹義從屬關係，但無完全等價同義詞；風險與潛在風險、項目風險等存在廣義/狹義從屬關係，且風險為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留原則，備援計畫與風險不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "備援計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "備援計畫旨在應對系統無法操作的風險，確保業務持續性，對應 policy -> mitigates -> risk。",
+      "source_id": "chunk_4",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "回復程序",
+      "type": "policy",
+      "display_name": "回復程序"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "設備故障",
+      "type": "risk",
+      "display_name": "設備故障"
+    },
+    "reasoning": "文本提到當系統無法正常運作（風險）時，需要啟動回復程序以確保安全，對應 policy -> mitigates -> risk。",
+    "source_id": "chunk_4",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "回復程序 (policy) 是一種合理的政策實例，設備故障 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是回復程序（類別：policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "該三元組的主體是回復程序（類別：policy），符合規則2的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "設備故障與系統故障之間存在相似性，但非完全等價同義詞，兩者皆屬於風險類別，且無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，設備故障與系統故障非完全等價同義詞，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "回復程序",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "設備故障",
+        "type": "risk"
+      },
+      "reasoning": "文本提到當系統無法正常運作（風險）時，需要啟動回復程序以確保安全，對應 policy -> mitigates -> risk。",
+      "source_id": "chunk_4",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊主管",
+      "type": "securityTeam",
+      "display_name": "資訊主管"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "pdca 管理模式",
+      "type": "technique",
+      "display_name": "PDCA 管理模式"
+    },
+    "reasoning": "文本提到變更管理導入需要導入 PDCA 管理模式，這是一種管理技術，由安全團隊使用，對應 securityTeam -> uses -> technique。",
+    "source_id": "chunk_4",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊主管 (securityTeam) 使用 PDCA 管理模式 (technique) 是合理的，因為 PDCA 是一種管理技術，資訊主管可能使用它來管理資安工作。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體的類別是 'securityTeam'，不違反此規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '資訊主管' 屬於 'securityTeam' 類別，使用 'PDCA 管理模式' 屬於 'technique' 類別，符合 'uses' 關係的合理使用場景，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有近似資源清單中之資源完全匹配，故無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊主管",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "PDCA 管理模式",
+        "type": "technique"
+      },
+      "reasoning": "文本提到變更管理導入需要導入 PDCA 管理模式，這是一種管理技術，由安全團隊使用，對應 securityTeam -> uses -> technique。",
+      "source_id": "chunk_4",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "subject": {
+      "name": "雙向認證程序",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "重送攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本提到加入參數 T 是為了防止重送攻擊 (replay attack)，而雙向認證程序是實作此防禦的技術手段，因此選擇 technique -> mitigates -> attack。",
+    "source_id": "chunk_7",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "卡片",
+      "type": "system"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "讀卡機",
+      "type": "system"
+    },
+    "reasoning": "文本描述卡片與讀卡機之間傳送亂數與加密資訊，存在通訊連線，因此選擇 system -> connects_to -> system。",
+    "source_id": "chunk_7",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "卡片",
+      "type": "system"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "金鑰 K",
+      "type": "data"
+    },
+    "reasoning": "文本明確指出卡片擁有一把金鑰 K 並使用其進行加密與解密，金鑰屬於認證資訊，因此選擇 system -> uses -> data。",
+    "source_id": "chunk_7",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "讀卡機",
+      "type": "system"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "金鑰 K",
+      "type": "data"
+    },
+    "reasoning": "文本明確指出讀卡機擁有一把金鑰 K 並使用其進行加密與解密，因此選擇 system -> uses -> data。",
+    "source_id": "chunk_7",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "卡片",
+      "type": "system"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "亂數 RA",
+      "type": "data"
+    },
+    "reasoning": "文本提到『卡片產生一個亂數 RA』，亂數為通訊過程中的臨時資料，因此選擇 system -> generates -> data。",
+    "source_id": "chunk_7",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "讀卡機",
+      "type": "system"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "亂數 RB",
+      "type": "data"
+    },
+    "reasoning": "文本提到『讀卡機...產生一個亂數 RB』，因此選擇 system -> generates -> data。",
+    "source_id": "chunk_7",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "磁條卡",
+      "type": "system"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全性弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到磁條卡在應用上存在很多危機，暗示其具有系統缺陷，因此選擇 system -> can_expose -> vulnerability。",
+    "source_id": "chunk_7",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "安全性弱點",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "財務損失",
+      "type": "risk"
+    },
+    "reasoning": "文本指出磁條卡的危機（弱點）可能導致使用者遭受財務損失，符合 vulnerability -> can_expose -> risk 的邏輯。",
+    "source_id": "chunk_7",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "IC 卡",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "PIN 碼",
+      "type": "feature"
+    },
+    "reasoning": "文本提到 IC 卡需要輸入 PIN 碼，PIN 碼是 IC 卡安全機制的一項屬性/特徵，因此選擇 system -> has_a -> feature。",
+    "source_id": "chunk_7",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "IC 卡",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "驗證機制",
+      "type": "tool"
+    },
+    "reasoning": "文本提到 IC 卡須通過驗證，驗證機制可視為系統內建的安全工具，因此選擇 system -> has_a -> tool。",
+    "source_id": "chunk_7",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 10
+  },
+  {
+    "subject": {
+      "name": "IC 卡",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "金鑰保護機制",
+      "type": "feature"
+    },
+    "reasoning": "文本提到『卡片內有金鑰之保護等機制』，這是 IC 卡相對於磁條卡的特徵，因此選擇 system -> has_a -> feature。",
+    "source_id": "chunk_7",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 11
+  }
+]

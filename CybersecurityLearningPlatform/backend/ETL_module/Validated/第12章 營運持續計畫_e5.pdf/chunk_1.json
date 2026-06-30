@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "營運持續計畫",
+      "type": "policy",
+      "display_name": "營運持續計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "營運中斷",
+      "type": "risk",
+      "display_name": "營運中斷"
+    },
+    "reasoning": "文本提到實施營運持續計畫是為了將災害或缺失所造成的營運中斷機會降低至可接受程度，因此 BCP (policy) 緩解了營運中斷 (risk)。",
+    "source_id": "chunk_1",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "營運持續計畫 (policy) 是一種合理的政策實例，營運中斷 (risk) 是一種合理的風險實例，'mitigates' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "營運持續計畫與營運中斷的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是營運持續計畫（類別：policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "該三元組的主體（營運持續計畫）是 policy 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆在 Ldr 中找到完全匹配的資源，且無同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆為完全匹配的資源，無同義詞關係，依據【前提確認】判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "營運持續計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "營運中斷",
+        "type": "risk"
+      },
+      "reasoning": "文本提到實施營運持續計畫是為了將災害或缺失所造成的營運中斷機會降低至可接受程度，因此 BCP (policy) 緩解了營運中斷 (risk)。",
+      "source_id": "chunk_1",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "災害",
+      "type": "risk",
+      "display_name": "災害"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "企業組織營運",
+      "type": "system",
+      "display_name": "企業組織營運"
+    },
+    "reasoning": "文本指出災害會造成營運中斷，將災害視為一種威脅實體 (attack)，其會危害到企業的運作系統 (system)。",
+    "source_id": "chunk_1",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '災害' 的類別 'attack' 合理對齊，因為災害可能是攻擊的一種形式；實體 '企業組織營運' 的類別 'system' 也合理對齊，因為企業組織營運可以被視為系統的一部分。",
+        "response": "correct",
+        "reason": "災害與企業組織營運之間的 'can_harm' 關係在資安領域中是合理的，且符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查後發現，給定的三元組（災害 can_harm 企業組織營運）與規則列表中沒有直接衝突或違反的內容。",
+        "response": "correct",
+        "reason": "由於三元組中的關係 'can_harm' 不在語義限制清單中被明確限制，且主體和受體的類別與給定的規則中沒有直接違反的條件，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源，但無直接同義詞關係，受體「企業組織營運」可視為「企業或組織內部」與「營運持續管理」的組合，但依據規則3，若一個實體是另一個的子類型，則判定為 correct，禁止合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無直接同義詞關係，且受體為組合概念，依據規則3判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "災害",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "企業組織營運",
+        "type": "system"
+      },
+      "reasoning": "文本指出災害會造成營運中斷，將災害視為一種威脅實體 (attack)，其會危害到企業的運作系統 (system)。",
+      "source_id": "chunk_1",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "風險管理",
+      "type": "function",
+      "display_name": "風險管理"
+    },
+    "reasoning": "文本提到營運持續管理包含風險管理，而管理活動是由安全團隊或管理人員執行的功能。",
+    "source_id": "chunk_1",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實施風險管理 (function) 是語意上合理的，風險管理是資安人員工作職責的一部分。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，但需注意 implements 關係的主體應具有執行能力，securityTeam 屬於具有主動執行能力的角色，因此此三元組在 implements 關係下合法。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安人員）與關係（implements）以及受體（風險管理）之間的關係在給定的語義限制清單中沒有明確的違反規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "風險管理與風險分析是相關概念，但非完全等價同義詞，風險管理是主體資安人員的職能之一，而風險分析是風險管理的子集，兩者之間存在廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】判斷準則，風險管理與風險分析之間的關係是廣義/狹義從屬，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "風險管理",
+        "type": "function"
+      },
+      "reasoning": "文本提到營運持續管理包含風險管理，而管理活動是由安全團隊或管理人員執行的功能。",
+      "source_id": "chunk_1",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "營運衝擊分析",
+      "type": "technique",
+      "display_name": "營運衝擊分析"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "企業組織營運",
+      "type": "system",
+      "display_name": "企業組織營運"
+    },
+    "reasoning": "營運衝擊分析 (BIA) 是營運持續計畫流程中的一項技術，用於分析事件對系統運作的影響。",
+    "source_id": "chunk_1",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "營運衝擊分析 (technique) 與 企業組織營運 (system) 的名稱與其類別合理對齊，且 'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_analyze'，且主體是 'technique'，受體是 'system'，這符合一般的分析邏輯，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體之間的關係沒有違反語義限制清單中的任何規則，尤其是考慮到 'technique' 可以分析 'system' 的情況下。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體「企業組織營運」與 Ldr 中的「企業組織營運」完全匹配，主體「營運衝擊分析」無同義詞重複",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "營運衝擊分析",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "企業組織營運",
+        "type": "system"
+      },
+      "reasoning": "營運衝擊分析 (BIA) 是營運持續計畫流程中的一項技術，用於分析事件對系統運作的影響。",
+      "source_id": "chunk_1",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "營運持續計畫",
+      "type": "policy",
+      "display_name": "營運持續計畫"
+    },
+    "reasoning": "企業組織（由資安或管理團隊負責）實施營運持續計畫以達到防治中斷的目的。",
+    "source_id": "chunk_1",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實施營運持續計畫 (policy) 是合理的，因為資安人員可能負責實施與維護這類計畫，且 'implements' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需注意 implements 關係的主體和受體類別是否合理。根據給定的三元組，資安人員（securityTeam）實施營運持續計畫（policy），這不直接違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與 implements 關係相容，不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "營運持續計畫",
+        "type": "policy"
+      },
+      "reasoning": "企業組織（由資安或管理團隊負責）實施營運持續計畫以達到防治中斷的目的。",
+      "source_id": "chunk_1",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊安全管理系統",
+      "type": "system",
+      "display_name": "資訊安全管理系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "營運持續管理",
+      "type": "system",
+      "display_name": "營運持續管理"
+    },
+    "reasoning": "文本提到 BCM 可以結合 ISMS 一併實施，在管理架構上，ISMS 作為整體系統可包含 BCM 這一管理子系統。",
+    "source_id": "chunk_1",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資訊安全管理系統 (system) 和 營運持續管理 (system) 的名稱與其類別 'system' 合理對齊，考慮到資安領域的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與主體 '資訊安全管理系統' 和受體 '營運持續管理' 之間的關係未在語義限制清單中明確定義為違規，因此無法判定為違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞在 Ldr 中，但無直接同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，兩實體無直接同義詞關係且無子類型關係，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全管理系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "營運持續管理",
+        "type": "system"
+      },
+      "reasoning": "文本提到 BCM 可以結合 ISMS 一併實施，在管理架構上，ISMS 作為整體系統可包含 BCM 這一管理子系統。",
+      "source_id": "chunk_1",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "災害復原計畫",
+      "type": "policy",
+      "display_name": "災害復原計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "營運中斷",
+      "type": "risk",
+      "display_name": "營運中斷"
+    },
+    "reasoning": "災害復原計畫 (DRP) 是營運持續計畫的具體內容，旨在透過復原措施緩解營運中斷的風險。",
+    "source_id": "chunk_1",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "災害復原計畫 可被視為 policy 的合理實例，營運中斷 可被視為 risk 的合理實例。",
+        "response": "correct",
+        "reason": "災害復原計畫與營運中斷的類別與屬性完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是災害復原計畫，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "由於三元組符合規則2的允許條件，且未發現其他明確違反的規則，因此判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "災害復原計畫與災難備援計畫、災害復原計畫 (drp) 相似，但非完全等價同義詞；營運中斷為完全匹配的同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "營運中斷",
+        "reason": "根據同義詞判定，營運中斷為完全匹配的同義詞，主體不需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "災害復原計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "營運中斷",
+        "type": "risk"
+      },
+      "reasoning": "災害復原計畫 (DRP) 是營運持續計畫的具體內容，旨在透過復原措施緩解營運中斷的風險。",
+      "source_id": "chunk_1",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "設備管理",
+      "type": "function",
+      "display_name": "設備管理"
+    },
+    "reasoning": "營運持續管理包含設備管理，這屬於安全團隊在維運中實作的功能。",
+    "source_id": "chunk_1",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 實施 (implements) 設備管理 (function) 是語意上合理的，因為資安人員可能負責實施與管理安全功能，設備管理可以被視為安全功能的一部分。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者身份。檢查規則2：不適用，因為動作不是 mitigates。檢查規則3：不適用，因為主體類別不是 vulnerability。檢查規則4：不適用，因為關係不是 violates 且主體不是 principle。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但 implements 關係中，securityTeam 可以實施 function，因此合法。",
+        "response": "correct",
+        "reason": "三元組中的主體（資安人員）和關係（implements）以及受體（設備管理）之間的關係在給定的規則中沒有被明確禁止，且 securityTeam 可以實施 function。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安人員與資安人員完全等價，設備管理與資安設備管理具有高相似度，但非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，資安人員與資安人員完全匹配，設備管理與資安設備管理雖然相似但不完全等價，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "設備管理",
+        "type": "function"
+      },
+      "reasoning": "營運持續管理包含設備管理，這屬於安全團隊在維運中實作的功能。",
+      "source_id": "chunk_1",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

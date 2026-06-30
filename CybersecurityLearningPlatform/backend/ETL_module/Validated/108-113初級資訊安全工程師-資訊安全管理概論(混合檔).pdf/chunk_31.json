@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "密碼原則",
+      "type": "policy",
+      "display_name": "密碼原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊破解",
+      "type": "attack",
+      "display_name": "攻擊破解"
+    },
+    "reasoning": "文本第 33 題提到透過設定密碼長度、複雜度及定期更換（這些構成密碼原則/策略）來防止帳號密碼遭到攻擊破解。符合 ('policy', 'mitigates', 'attack')。",
+    "source_id": "chunk_31",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '密碼原則' 是 'policy' 的合理實例，'攻擊破解' 是 'attack' 的合理實例，關係 'mitigates' 合理描述了 '密碼原則' 對 '攻擊破解' 的影響。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是密碼原則（policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（密碼原則）符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"密碼原則\" 與 Ldr 中的 \"密碼原則\" 完全相同，受體 \"攻擊破解\" 與 Ldr 中的 \"密碼破解攻擊\" 或 \"破解實體安全攻擊\" 類似，但非完全等價同義詞，兩者皆無廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定同義詞重複或廣義/狹義從屬關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊破解",
+        "type": "attack"
+      },
+      "reasoning": "文本第 33 題提到透過設定密碼長度、複雜度及定期更換（這些構成密碼原則/策略）來防止帳號密碼遭到攻擊破解。符合 ('policy', 'mitigates', 'attack')。",
+      "source_id": "chunk_31",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "密碼雜湊函數",
+      "type": "tool",
+      "display_name": "雜湊函式"
+    },
+    "reasoning": "文本第 34 題 (A) 提到數位簽章運用雜湊函式達成效果。在 Schema 中，technique 只能 depends_on tool，因此將雜湊函式的實作視為 tool。符合 ('technique', 'depends_on', 'tool')。",
+    "source_id": "chunk_31",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "數位簽章是 technique 的合理實例，雜湊函式是 tool 的合理實例，且 'depends_on' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "數位簽章與雜湊函式之間的 'depends_on' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則5：當關係為 uses 時，如果主體 (Subject) 的類別是 data，則為違反；但如果 data 僅是出現在受體 (Object) 位置，則屬合法。由於三元組的關係是 depends_on，不是 uses，因此不觸發規則5的違規。檢查其他規則，未發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組的關係是 depends_on，不違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "數位簽章與電子簽章為同義詞，密碼雜湊函數與雜湊函式為同義詞",
+        "response": "duplicate",
+        "standard_subject": "數位簽章",
+        "standard_object": "密碼雜湊函數",
+        "reason": "根據資安領域已知同義詞對照範例，數位簽章與電子簽章為同義詞，密碼雜湊函數與雜湊函式為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位簽章",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "雜湊函式",
+        "type": "tool"
+      },
+      "reasoning": "文本第 34 題 (A) 提到數位簽章運用雜湊函式達成效果。在 Schema 中，technique 只能 depends_on tool，因此將雜湊函式的實作視為 tool。符合 ('technique', 'depends_on', 'tool')。",
+      "source_id": "chunk_31",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "數位信封",
+      "type": "technique",
+      "display_name": "數位信封"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "對稱金鑰加密",
+      "type": "tool",
+      "display_name": "對稱金鑰加密"
+    },
+    "reasoning": "文本第 34 題 (C) 提到數位信封將資料以對稱金鑰加密。將加密演算法實作視為 tool。符合 ('technique', 'depends_on', 'tool')。",
+    "source_id": "chunk_31",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "數位信封 (technique) 和對稱金鑰加密 (tool) 的名稱與其被賦予的類別合理對齊，數位信封依賴對稱金鑰加密的邏輯在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "數位信封與對稱金鑰加密的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的主體 '數位信封' 類別為 'technique'，關係為 'depends_on'，受體為 '對稱金鑰加密' 類別為 'tool'，未觸發任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的同義詞或相關概念，但需依序檢查",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 '數位信封' 與 '對稱金鑰加密' 無直接同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位信封",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "對稱金鑰加密",
+        "type": "tool"
+      },
+      "reasoning": "文本第 34 題 (C) 提到數位信封將資料以對稱金鑰加密。將加密演算法實作視為 tool。符合 ('technique', 'depends_on', 'tool')。",
+      "source_id": "chunk_31",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "elgamal 演算法",
+      "type": "tool",
+      "display_name": "ElGamal 演算法"
+    },
+    "reasoning": "文本第 35 題 (D) 提到可以用 ElGamal 演算法來實做數位簽章。演算法在此作為實現技術的工具。符合 ('technique', 'depends_on', 'tool')。",
+    "source_id": "chunk_31",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "數位簽章是 'technique' 的合理實例，ElGamal 演算法是 'tool' 的合理實例，且 'depends_on' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "數位簽章與 ElGamal 演算法之間的 'depends_on' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則5：當關係為 uses 時，如果主體 (Subject) 的類別是 data，則為違反；但如果 data 僅是出現在受體 (Object) 位置，則屬合法。由於三元組的關係是 depends_on，而非 uses，因此不觸發規則5的違規。檢查規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。由於三元組的關係是 depends_on，而非 generates，因此不觸發規則7的違規。檢查規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。由於三元組的關係是 depends_on，而非 controls，因此不觸發規則8的違規。",
+        "response": "correct",
+        "reason": "三元組的關係是 depends_on，主體是數位簽章（類別：data），受體是 ElGamal 演算法（類別：tool），不觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"數位簽章\" 與 Ldr 中的 \"數位簽章\" 完全相同，受體 \"ElGamal 演算法\" 與 Ldr 中的資源不完全匹配，但無法確認為同義詞或子類型關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認原則，主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位簽章",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "ElGamal 演算法",
+        "type": "tool"
+      },
+      "reasoning": "文本第 35 題 (D) 提到可以用 ElGamal 演算法來實做數位簽章。演算法在此作為實現技術的工具。符合 ('technique', 'depends_on', 'tool')。",
+      "source_id": "chunk_31",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "pki",
+      "type": "system",
+      "display_name": "PKI"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "reasoning": "文本第 35 題 (A) 提到數位簽章使用了公開金鑰基礎建設 (PKI)。將數位簽章視為 PKI 系統中的一個工具元件。符合 ('system', 'has_a', 'tool')。",
+    "source_id": "chunk_31",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "PKI 是一種系統（system），數位簽章是一種工具（tool），這些名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為主體的類別是 system，而不是 data。規則6：不適用，因為關係不是 deployed_in。規則7：不適用，因為關係不是 generates。規則8：不適用，因為關係不是 controls。另外，根據給定的三元組，PKI (類別: system) 與 數位簽章 (類別: data) 之間的關係是 has_a，這不在語義限制清單中明確被禁止的行為中。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，且無法找到明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (PKI) 與 Ldr 中的 cryptoki 類別相同，但非完全等價同義詞；受體 (數位簽章) 與 Ldr 中的 數位簽章 完全匹配，為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "數位簽章",
+        "reason": "根據同義詞判定，受體為完全匹配的同義詞，但主體不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "PKI",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "數位簽章",
+        "type": "tool"
+      },
+      "reasoning": "文本第 35 題 (A) 提到數位簽章使用了公開金鑰基礎建設 (PKI)。將數位簽章視為 PKI 系統中的一個工具元件。符合 ('system', 'has_a', 'tool')。",
+      "source_id": "chunk_31",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "ca",
+      "type": "securityTeam",
+      "display_name": "CA"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "pki",
+      "type": "system",
+      "display_name": "PKI"
+    },
+    "reasoning": "文本第 35 題 (C) 提到公鑰必須向數位憑證認證機構 (CA) 註冊，CA 是管理 PKI 信任鏈的核心角色。符合 ('securityTeam', 'controls', 'system')。",
+    "source_id": "chunk_31",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "CA 是 'securityTeam' 的合理實例，PKI 是 'system' 的合理實例，關係 'controls' 在資安領域中是合理的用法。",
+        "response": "correct",
+        "reason": "CA 與 PKI 的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體 (CA) 的類別是 securityTeam，具有主動執行能力，符合 controls 關係的要求。",
+        "response": "correct",
+        "reason": "三元組中的主體 (CA) 是 securityTeam，具有主動執行能力，符合 controls 關係的要求，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "PKI 是 Ldr 中的系統類型，與主體 CA 的受體 PKI 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CA",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "PKI",
+        "type": "system"
+      },
+      "reasoning": "文本第 35 題 (C) 提到公鑰必須向數位憑證認證機構 (CA) 註冊，CA 是管理 PKI 信任鏈的核心角色。符合 ('securityTeam', 'controls', 'system')。",
+      "source_id": "chunk_31",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "帳號及密碼",
+      "type": "data",
+      "display_name": "帳號及密碼"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本第 33 題暗示若密碼設定不當（如太短、與帳號關連），會導致容易被破解的弱點。符合 ('data', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_31",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "帳號及密碼 可以被視為 'data' 的實例，弱點 可以被視為 'vulnerability' 的實例，'can_expose' 關係在資安領域中是合理的，因為帳號及密碼的弱點可能會被攻擊者利用。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體類別為data，關係為can_expose，受體為vulnerability，未觸發其他規則的違規條件。",
+        "response": "correct",
+        "reason": "三元組符合規則3的特例允許，且未違反其他規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '帳號及密碼' 與 Ldr 中的 '帳號與密碼' 關係為同義詞，受體 '弱點' 與 Ldr 中的 '弱點' 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，'帳號及密碼' 與 '帳號與密碼' 不完全相同，但 '弱點' 是完全等價同義詞，且無法確認為 duplicate，因此預設保留為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "帳號及密碼",
+        "type": "data"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本第 33 題暗示若密碼設定不當（如太短、與帳號關連），會導致容易被破解的弱點。符合 ('data', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_31",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  }
+]

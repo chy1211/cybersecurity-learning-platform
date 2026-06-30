@@ -1,0 +1,167 @@
+[
+  {
+    "subject": {
+      "name": "伺服器",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "硬碟",
+      "type": "feature"
+    },
+    "reasoning": "文本提到『伺服器其中一顆硬碟發生故障』，硬碟是伺服器系統的組成硬體部分，因此將伺服器設為 system，硬碟設為 feature，關係為 has_a。",
+    "source_id": "chunk_19",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "SAN",
+      "type": "system"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "伺服器",
+      "type": "system"
+    },
+    "reasoning": "文本提到『SAN及 NAS 都是提供伺服器與儲存設備間高速連結』，SAN 作為儲存網路系統，與伺服器系統之間存在網路連接，符合 ('system', 'connects_to', 'system')。",
+    "source_id": "chunk_19",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "NAS",
+      "type": "system"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "伺服器",
+      "type": "system"
+    },
+    "reasoning": "文本提到『NAS 可透過 IP 網路與伺服器連結』，NAS 作為儲存系統與伺服器系統之間存在連接，符合 ('system', 'connects_to', 'system')。",
+    "source_id": "chunk_19",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "SAN",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "光纖通道",
+      "type": "feature"
+    },
+    "reasoning": "文本提到『SAN透過光纖通道...與伺服器作連結』，光纖通道是 SAN 系統實現連接的技術特徵/組成部分，符合 ('system', 'has_a', 'feature')。",
+    "source_id": "chunk_19",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "NAS",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "IP 網路",
+      "type": "feature"
+    },
+    "reasoning": "文本提到『NAS 可透過 IP 網路與伺服器連結』，IP 網路是 NAS 運作的網路特徵，符合 ('system', 'has_a', 'feature')。",
+    "source_id": "chunk_19",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "系統日誌",
+      "type": "data"
+    },
+    "reasoning": "文本討論『系統日誌的管理與分析』，系統在運作過程中會產生日誌資料，符合 ('system', 'generates', 'data')。",
+    "source_id": "chunk_19",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "Log管理工具",
+      "type": "tool"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統日誌",
+      "type": "data"
+    },
+    "reasoning": "文本提到『選擇適當的整合式 Log管理工具...確認是否能快速查詢分析』，工具的功能是分析日誌資料，符合 ('tool', 'can_analyze', 'data')。",
+    "source_id": "chunk_19",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "Log管理工具",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "function"
+    },
+    "reasoning": "文本提到『可以考慮將日誌加密儲存』，這是在 Log 管理工具中實作的一項功能，符合 ('tool', 'has_a', 'function')。",
+    "source_id": "chunk_19",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "系統管理人員",
+      "type": "securityTeam"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌檔",
+      "type": "data"
+    },
+    "reasoning": "文本提到『系統管理人員欲針對這些...日誌檔進行管理』，管理日誌的前提是能對其進行分析，符合 ('securityTeam', 'can_analyze', 'data')。",
+    "source_id": "chunk_19",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "系統管理人員",
+      "type": "securityTeam"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "正規化",
+      "type": "technique"
+    },
+    "reasoning": "文本選項 (A) 提到『正規化』作為處理不同結構日誌檔的合適方式，這是一種處理資料的技術，由管理人員使用，符合 ('securityTeam', 'uses', 'technique')。",
+    "source_id": "chunk_19",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 10
+  },
+  {
+    "subject": {
+      "name": "正規化",
+      "type": "technique"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌檔",
+      "type": "data"
+    },
+    "reasoning": "正規化技術的目的在於將雜亂的日誌結構統一，以便後續分析，符合 ('technique', 'can_analyze', 'data')。",
+    "source_id": "chunk_19",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 11
+  }
+]

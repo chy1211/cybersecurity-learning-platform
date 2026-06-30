@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "營運衝擊分析",
+      "type": "technique",
+      "display_name": "營運衝擊分析"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到營運衝擊分析需確認重要營運流程並決定資源相依性，這在本體論中屬於使用一種技術 (technique) 來分析系統 (system) 的運作衝擊。",
+    "source_id": "chunk_4",
+    "source_file": "ch12_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '營運衝擊分析' 是 'technique' 的合理實例，'系統' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組（營運衝擊分析 can_analyze 系統）未觸發語義限制清單中的任何規則，且關係 can_analyze 與主體類別 technique 和受體類別 system 之間沒有直接的限制或衝突。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與 Ldr 中的某些資源具有完全等價同義詞關係，但根據規則 3，若一個實體是另一個的子類型，則判定為 correct，禁止合併。然而，這裡的主體與受體之間的關係並非子類型關係，而是兩個不同的概念，因此不涉及廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 4，若無法確定，預設 correct；且主體與受體之間的關係不涉及同義詞或子類型關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "營運衝擊分析",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到營運衝擊分析需確認重要營運流程並決定資源相依性，這在本體論中屬於使用一種技術 (technique) 來分析系統 (system) 的運作衝擊。",
+      "source_id": "chunk_4",
+      "source_file": "ch12_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "緊急事件",
+      "type": "attack",
+      "display_name": "緊急事件"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到『系統遭受緊急事件時可能造成營運上的重大危害』，將緊急事件視為一種威脅/攻擊 (attack)，其能對系統 (system) 造成危害 (can_harm)。",
+    "source_id": "chunk_4",
+    "source_file": "ch12_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "緊急事件 (attack) 可能對系統 (system) 造成傷害 (can_harm)，這是一種語意上合理的對齊，尤其是在資安領域中，'attack' 和 'system' 是常見的實體，'can_harm' 是描述攻擊對系統可能造成傷害的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_harm，不是 controls。",
+        "response": "correct",
+        "reason": "三元組（主體: 緊急事件，關係: can_harm，受體: 系統）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"系統\" 與 Ldr 中的 \"系統\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "系統",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "緊急事件",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到『系統遭受緊急事件時可能造成營運上的重大危害』，將緊急事件視為一種威脅/攻擊 (attack)，其能對系統 (system) 造成危害 (can_harm)。",
+      "source_id": "chunk_4",
+      "source_file": "ch12_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "營運持續計畫",
+      "type": "policy",
+      "display_name": "營運持續計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "緊急事件",
+      "type": "attack",
+      "display_name": "緊急事件"
+    },
+    "reasoning": "營運持續計畫 (policy) 是為了在緊急事件 (attack) 發生前做好準備，以減少損失並確保營運，符合緩解 (mitigates) 攻擊影響的定義。",
+    "source_id": "chunk_4",
+    "source_file": "ch12_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "營運持續計畫 (policy) 是一種合理的政策實例，緊急事件 (attack) 是一種合理的攻擊實例，'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，與政策與攻擊之間的關係相符。",
+        "response": "correct",
+        "reason": "營運持續計畫與緊急事件之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '營運持續計畫' 類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體 '營運持續計畫' 類別為 policy，符合規則2的條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆非完全等價同義詞，且無廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定同義詞或從屬關係，預設保留"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "營運持續計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "緊急事件",
+        "type": "attack"
+      },
+      "reasoning": "營運持續計畫 (policy) 是為了在緊急事件 (attack) 發生前做好準備，以減少損失並確保營運，符合緩解 (mitigates) 攻擊影響的定義。",
+      "source_id": "chunk_4",
+      "source_file": "ch12_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "營運恢復計畫",
+      "type": "system",
+      "display_name": "營運恢復計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "緊急事件",
+      "type": "attack",
+      "display_name": "緊急事件"
+    },
+    "reasoning": "營運恢復計畫 (policy) 著重於在系統受到衝擊後回復機能並將衝擊降到最低，屬於緩解 (mitigates) 緊急事件 (attack) 造成後果的手段。",
+    "source_id": "chunk_4",
+    "source_file": "ch12_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "營運恢復計畫 (policy) 與 緊急事件 (attack) 的名稱與其類別合理對齊，'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，與 'policy' 和 'attack' 的語意相符。",
+        "response": "correct",
+        "reason": "營運恢復計畫 (policy) 與 緊急事件 (attack) 的三元組完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。待檢查三元組的主體是營運恢復計畫，類別為 system，不符合規則2的明確條件，但規則2並未明確排除其他類別執行 mitigates 動作。因此，需要進一步分析其他規則。規則6和規則7與本案例無關，因為關係不是 deployed_in 或 generates。規則1、規則3、規則4、規則5和規則8也與本案例無關，因為三元組的主體和關係不符合這些規則的觸發條件。",
+        "response": "correct",
+        "reason": "由於未發現明確且直接的違反項目，且三元組的主體和關係不觸發語義限制清單中的任何規則，因此判定為 correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全匹配的資源存在於 Ldr 中",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆直接匹配 Ldr 中的資源，無需進一步的同義詞或廣義/狹義判定。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "營運恢復計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "緊急事件",
+        "type": "attack"
+      },
+      "reasoning": "營運恢復計畫 (policy) 著重於在系統受到衝擊後回復機能並將衝擊降到最低，屬於緩解 (mitigates) 緊急事件 (attack) 造成後果的手段。",
+      "source_id": "chunk_4",
+      "source_file": "ch12_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資料備援",
+      "type": "technique",
+      "display_name": "資料備援"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "緊急事件",
+      "type": "attack",
+      "display_name": "緊急事件"
+    },
+    "reasoning": "文本將資料備援列為緊急事件準備的要項，資料備援是一種技術手段 (technique)，用於緩解 (mitigates) 緊急事件 (attack) 導致的資料遺失或系統停擺。",
+    "source_id": "chunk_4",
+    "source_file": "ch12_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資料備援 (technique) 和 緊急事件 (attack) 的名稱與其被賦予的類別合理對齊，且 'mitigates' 關係在資安領域中是合理的，表示某種技術可以減輕攻擊的影響。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。待檢查三元組的主體是 '資料備援'，類別是 'technique'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組的主體 '資料備援' 屬於 'technique' 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆無直接同義詞或廣義/狹義關係於 Ldr 中",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體之間的同義詞或從屬關係，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料備援",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "緊急事件",
+        "type": "attack"
+      },
+      "reasoning": "文本將資料備援列為緊急事件準備的要項，資料備援是一種技術手段 (technique)，用於緩解 (mitigates) 緊急事件 (attack) 導致的資料遺失或系統停擺。",
+      "source_id": "chunk_4",
+      "source_file": "ch12_習題解答.pdf",
+      "source_index": 6
+    }
+  }
+]

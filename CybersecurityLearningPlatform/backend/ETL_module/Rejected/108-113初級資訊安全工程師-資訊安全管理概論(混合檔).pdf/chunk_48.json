@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "資訊安全管理系統 (isms)",
+      "type": "system",
+      "display_name": "資訊安全管理系統 (ISMS)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊安全事件",
+      "type": "attack",
+      "display_name": "資訊安全事件"
+    },
+    "reasoning": "文本提到 ISMS 用於『預防資訊安全事件』，將資訊安全事件視為 attack，ISMS 作為 policy 可緩解 (mitigates) 該攻擊。",
+    "source_id": "chunk_48",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資訊安全管理系統 (ISMS) 是 'policy' 的合理實例，資訊安全事件是 'attack' 的合理實例，'mitigates' 的關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。由於主體 '資訊安全管理系統 (ISMS)' 類別為 system，不屬於規則2中指定的類別，但考慮到 ISMS 可能包含 policy 或 technique，因此可能間接符合規則2的意圖。然而，嚴格按照規則，'system' 不在明確允許的類別中。其他規則不直接適用此三元組。",
+        "response": "violation",
+        "reason": "主體 '資訊安全管理系統 (ISMS)' 的類別為 system，不符合規則2中關於 'mitigates' 動作的主體類別限制。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 主體 '資訊安全管理系統 (ISMS)' 的類別為 system，不符合規則2中關於 'mitigates' 動作的主體類別限制。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全管理系統 (ISMS)",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊安全事件",
+        "type": "attack"
+      },
+      "reasoning": "文本提到 ISMS 用於『預防資訊安全事件』，將資訊安全事件視為 attack，ISMS 作為 policy 可緩解 (mitigates) 該攻擊。",
+      "source_id": "chunk_48",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  }
+]

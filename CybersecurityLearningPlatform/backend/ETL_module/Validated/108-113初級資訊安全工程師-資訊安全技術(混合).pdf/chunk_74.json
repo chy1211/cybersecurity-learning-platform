@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "網頁伺服器",
+      "type": "system",
+      "display_name": "網頁伺服器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "http",
+      "type": "feature",
+      "display_name": "HTTP"
+    },
+    "reasoning": "文本提到 HTTP 狀態代碼，HTTP 是網頁伺服器（app）所使用的協定特徵（feature）。",
+    "source_id": "chunk_74",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網頁伺服器是 'app' 的合理實例，HTTP 是 'feature' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與規則清單中沒有直接相關的限制，因此不觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "網頁伺服器與Ldr中的網頁伺服器、網站伺服器、web伺服器、web 伺服器等為同義詞或廣義/狹義從屬關係；HTTP與Ldr中的http為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定和廣義/狹義一律保留原則，網頁伺服器和HTTP不需要合併或替換。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網頁伺服器",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "HTTP",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 HTTP 狀態代碼，HTTP 是網頁伺服器（app）所使用的協定特徵（feature）。",
+      "source_id": "chunk_74",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "網路防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "dns攻擊",
+      "type": "attack",
+      "display_name": "DNS攻擊"
+    },
+    "reasoning": "文本討論防火牆規則如何防範針對 DNS UDP 53 的攻擊，因此防火牆（tool）可緩解此類攻擊（attack）。",
+    "source_id": "chunk_74",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，DNS攻擊是攻擊（attack）的合理實例，且 'mitigates' 的語意與防火牆減輕 DNS 攻擊的意義相符。",
+        "response": "correct",
+        "reason": "防火牆、DNS攻擊與 'mitigates' 的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，該三元組的主體是防火牆（tool），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（防火牆）是 tool 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "防火牆與網路防火牆為同義詞，DNS攻擊與dns 放大攻擊不完全等價但相關",
+        "response": "correct",
+        "standard_subject": "網路防火牆",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，防火牆 ≡ 網路防火牆，故判定主體為同義詞重複；受體不完全等價但相關，故不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "DNS攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本討論防火牆規則如何防範針對 DNS UDP 53 的攻擊，因此防火牆（tool）可緩解此類攻擊（attack）。",
+      "source_id": "chunk_74",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "網頁伺服器",
+      "type": "system",
+      "display_name": "網頁伺服器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "網頁事件記錄檔",
+      "type": "data",
+      "display_name": "網頁事件記錄檔"
+    },
+    "reasoning": "文本提到查看網頁事件記錄檔，這類日誌是由網頁伺服器系統（system）產生的資料（data）。",
+    "source_id": "chunk_74",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "網頁伺服器是 system 的合理實例，網頁事件記錄檔是 data 的合理實例，'generates' 的語意與網頁伺服器生成網頁事件記錄檔的關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為三元組中的主體類別不是vulnerability。規則4不適用，因為三元組中的關係不是violates，且主體不是principle。規則5不適用，因為三元組中的關係不是uses。規則6不適用，因為三元組中的關係不是deployed_in。規則7適用，且三元組中的受體類別是data，符合規則。規則8不適用，因為三元組中的關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "網頁伺服器與網站伺服器、web伺服器等為同義詞或近似同義詞，網頁事件記錄檔與事件紀錄檔為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，網頁伺服器與網站伺服器、web伺服器等為同義詞或近似同義詞，但根據廣義/狹義一律保留原則，仍判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網頁伺服器",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "網頁事件記錄檔",
+        "type": "data"
+      },
+      "reasoning": "文本提到查看網頁事件記錄檔，這類日誌是由網頁伺服器系統（system）產生的資料（data）。",
+      "source_id": "chunk_74",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆規則",
+      "type": "policy",
+      "display_name": "防火牆規則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "dns攻擊",
+      "type": "attack",
+      "display_name": "DNS攻擊"
+    },
+    "reasoning": "防火牆規則屬於資安策略（policy），其目的是為了防範/緩解（mitigates）特定的攻擊行為。",
+    "source_id": "chunk_74",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "防火牆規則是 'policy' 的合理實例，DNS攻擊是 'attack' 的合理實例，且 'mitigates' 的語意與資安領域的同義詞寬容原則相符。",
+        "response": "correct",
+        "reason": "防火牆規則、DNS攻擊與 'mitigates' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是防火牆規則（policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（防火牆規則）是 policy，符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有相近的資源，但無完全等價同義詞；防火牆規則與防火牆管理規範、防火牆連線規則管理政策等為廣義/狹義從屬關係；DNS攻擊與dns 放大攻擊、網路攻擊等為廣義/狹義從屬關係，但dns攻擊為完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "dns攻擊",
+        "reason": "受體 DNS攻擊 與 Ldr 中的 dns攻擊 完全匹配，判定為同義詞重複；主體無完全匹配，保留原狀"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆規則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "DNS攻擊",
+        "type": "attack"
+      },
+      "reasoning": "防火牆規則屬於資安策略（policy），其目的是為了防範/緩解（mitigates）特定的攻擊行為。",
+      "source_id": "chunk_74",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "syslog",
+      "type": "tool",
+      "display_name": "Syslog"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "Syslog 是一種用於傳輸與管理日誌的工具（tool），其運作過程涉及日誌資料（data）的處理與生成。",
+    "source_id": "chunk_74",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Syslog 是一種工具（tool），日誌是資料（data），'generates' 關係在資安領域中合理，表示 Syslog 可以生成日誌，符合語意對齊和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "Syslog 生成日誌的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係是generates，而不是mitigates。規則3不適用，因為主體的類別是tool，而不是vulnerability。規則4不適用，因為三元組中沒有提到principle。規則5不適用，因為關係是generates，而不是uses。規則6不適用，因為關係是generates，而不是deployed_in。規則7適用，且三元組符合規則，受體的類別是data。規則8不適用，因為關係是generates，而不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的條件，且沒有違反其他規則。因此，三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "Syslog 是一個工具，日誌是其資料類型，兩者之間存在著工具與資料的關係，Syslog 是用於記錄和管理日誌的工具，因此兩者不完全等價，但相關性高。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，Syslog 和日誌之間的關係是工具和資料的關係，兩者不完全等價，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Syslog",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "Syslog 是一種用於傳輸與管理日誌的工具（tool），其運作過程涉及日誌資料（data）的處理與生成。",
+      "source_id": "chunk_74",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "機密性資料系統",
+      "type": "system",
+      "display_name": "機密性資料系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "文本提到「存有機密性資料系統的日誌」，表示該系統（system）會產生日誌資料（data）。",
+    "source_id": "chunk_74",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "機密性資料系統是一個系統（system），日誌是一種資料（data），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組符合規則所允許的條件，因為關係為generates，受體的類別是data。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組符合規則7的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"機密性資料系統\" 與 Ldr 中的 \"資料庫系統\"、\"加密系統\"、\"資訊安全系統\" 皆為資安系統的不同類型，但非完全等價同義詞；受體 \"日誌\" 與 Ldr 中的 \"日誌\" 完全匹配，為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "日誌",
+        "reason": "受體 \"日誌\" 與 Ldr 中的 \"日誌\" 完全匹配，判定為同義詞重複，但主體 \"機密性資料系統\" 與 Ldr 中的系統類型不完全等價，故保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "機密性資料系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "文本提到「存有機密性資料系統的日誌」，表示該系統（system）會產生日誌資料（data）。",
+      "source_id": "chunk_74",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "syslog",
+      "type": "tool",
+      "display_name": "Syslog"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "文本提到以 Syslog 的方式透過網際網路傳輸，表示該工具的傳輸路徑部署於網際網路（system）之中。",
+    "source_id": "chunk_74",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Syslog 是一種工具（tool），網際網路是一種系統（system），'deployed_in' 關係在資安領域中合理適用於工具與系統之間的關係。",
+        "response": "correct",
+        "reason": "Syslog 作為一種工具部署在網際網路這個系統中，完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，因為受體 '網際網路' 的類別是 system。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，且無其他規則被違反，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "Syslog 與 'syslog' 完全等價同義詞，網際網路與 '網際網路' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "syslog",
+        "standard_object": "網際網路",
+        "reason": "主體與受體皆與 Ldr 中的某資源 name 完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Syslog",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到以 Syslog 的方式透過網際網路傳輸，表示該工具的傳輸路徑部署於網際網路（system）之中。",
+      "source_id": "chunk_74",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "竊聽攻擊",
+      "type": "attack",
+      "display_name": "竊聽攻擊"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "機密性",
+      "type": "principle",
+      "display_name": "機密性"
+    },
+    "reasoning": "文本提到機密性資料系統，若傳輸過程未加密而被竊聽，該攻擊（attack）將違反（violates）資安核心原則中的機密性（principle）。",
+    "source_id": "chunk_74",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "竊聽攻擊 (attack) 是攻擊的一種合理實例，機密性 (principle) 是資安原則的一種合理實例，'violates' 關係在此語境下合理描述竊聽攻擊對機密性的違反。",
+        "response": "correct",
+        "reason": "竊聽攻擊對機密性的違反完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4適用，主體類別為attack，關係為violates，受體為principle，符合規則允許的條件。規則5、6、7、8不適用，因為關係不匹配。",
+        "response": "correct",
+        "reason": "三元組符合規則4的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"竊聽攻擊\" 與 Ldr 中的 \"竊聽\" 類似，但非完全等價同義詞；受體 \"機密性\" 與 Ldr 中的 \"機密性\" 完全匹配，且為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，主體與 Ldr 中的資源不完全匹配，受體為完全匹配的同義詞，但根據規則 3，廣義/狹義一律保留，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "竊聽攻擊",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "機密性",
+        "type": "principle"
+      },
+      "reasoning": "文本提到機密性資料系統，若傳輸過程未加密而被竊聽，該攻擊（attack）將違反（violates）資安核心原則中的機密性（principle）。",
+      "source_id": "chunk_74",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 9
+    }
+  }
+]

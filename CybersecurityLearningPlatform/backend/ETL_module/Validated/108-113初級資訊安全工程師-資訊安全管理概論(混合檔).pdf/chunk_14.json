@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "服務中斷",
+      "type": "attack",
+      "display_name": "服務中斷"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "文本 C 10 描述服務中斷會造成營運重大影響，並將其歸類為可用性 (Availability) 的評估面向。在資安本體論中，導致服務不可用的事件（視為廣義的 attack/威脅）會違反可用性原則，符合 ('attack', 'violates', 'principle') 的 Schema。",
+    "source_id": "chunk_14",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'attack'、受體的類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "服務中斷 (attack) 是攻擊的合理實例，可用性 (principle) 是原則的合理實例，且 'violates' 關係在攻擊與原則之間是合理的。",
+        "response": "correct",
+        "reason": "服務中斷 (attack) 違反可用性 (principle) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：觸發，principle 僅能作為被違反的受體，但此三元組中 principle 是受體，符合規則。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是服務中斷（attack），關係是違反（violates），受體是可用性（principle），這符合規則4的描述，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "服務中斷與可用性之間的關係是攻擊手法與安全原則之間的對立關係，非同義詞或廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "服務中斷與可用性不符合同義詞或廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "服務中斷",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "文本 C 10 描述服務中斷會造成營運重大影響，並將其歸類為可用性 (Availability) 的評估面向。在資安本體論中，導致服務不可用的事件（視為廣義的 attack/威脅）會違反可用性原則，符合 ('attack', 'violates', 'principle') 的 Schema。",
+      "source_id": "chunk_14",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資料分級",
+      "type": "technique",
+      "display_name": "資訊分級"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊",
+      "type": "data",
+      "display_name": "資訊"
+    },
+    "reasoning": "文本 A 13 提到資訊分級的目標是確保資訊依其重要性受到保護。資訊分級是一種分析資料重要程度的技術 (technique)，分析對象是資訊 (data)，符合 ('technique', 'can_analyze', 'data') 的 Schema。",
+    "source_id": "chunk_14",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊分級 (technique) 可以分析 (can_analyze) 資訊 (data)，這是資安領域中合理的語意對齊。",
+        "response": "correct",
+        "reason": "主體、關係、受體皆符合 Lc,p 的規定且語意對齊，故無違反。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_analyze'，且主體是 '資訊分級'（類別：technique），受體是 '資訊'（類別：data），這符合一般的分析行為，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間的關聯性沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊分級與資料分級為同義詞，資訊與資訊為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "資料分級",
+        "standard_object": "資訊",
+        "reason": "根據同義詞判定，資訊分級與資料分級為同義詞，資訊為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊分級",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊",
+        "type": "data"
+      },
+      "reasoning": "文本 A 13 提到資訊分級的目標是確保資訊依其重要性受到保護。資訊分級是一種分析資料重要程度的技術 (technique)，分析對象是資訊 (data)，符合 ('technique', 'can_analyze', 'data') 的 Schema。",
+      "source_id": "chunk_14",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "保管員",
+      "type": "securityTeam",
+      "display_name": "保管員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資訊保護與維護",
+      "type": "function",
+      "display_name": "資訊保護與維護"
+    },
+    "reasoning": "文本 B 11 指出保管員 (Custodian) 主要負責資訊的保護與維護。保管員屬於資安角色 (securityTeam)，而保護與維護是其執行的功能 (function)，符合 ('securityTeam', 'implements', 'function') 的 Schema。",
+    "source_id": "chunk_14",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "保管員是 securityTeam 的合理實例，資訊保護與維護是 function 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：不適用，因為三元組中的關係是implements，不是mitigates。檢查規則3：不適用，因為主體類別是securityTeam，不是vulnerability。檢查規則4：不適用，因為關係是implements，不是violates。檢查規則5：不適用，因為關係是implements，不是uses。檢查規則6：不適用，因為關係是implements，不是deployed_in。檢查規則7：不適用，因為關係是implements，不是generates。檢查規則8：不適用，因為關係是implements，不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（保管員）和關係（implements）以及受體（資訊保護與維護）之間的關係沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "保管員與執勤人員在資安領域中可能指涉不同角色，但無法確認完全等價同義詞關係，兩者可能是不同職責的安全團隊成員。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認保管員與執勤人員為完全同義詞，且兩者可能是安全團隊中的不同角色，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "保管員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資訊保護與維護",
+        "type": "function"
+      },
+      "reasoning": "文本 B 11 指出保管員 (Custodian) 主要負責資訊的保護與維護。保管員屬於資安角色 (securityTeam)，而保護與維護是其執行的功能 (function)，符合 ('securityTeam', 'implements', 'function') 的 Schema。",
+      "source_id": "chunk_14",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資產管理",
+      "type": "tool",
+      "display_name": "資產管理"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資產清冊",
+      "type": "tool",
+      "display_name": "資產清冊"
+    },
+    "reasoning": "文本 D 12 提到在資產管理中，建議採取資產清冊作為控制措施。資產管理是一種管理技術 (technique)，而資產清冊是實現該技術的工具/記錄表 (tool)，符合 ('technique', 'has_a', 'tool') 的 Schema。",
+    "source_id": "chunk_14",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資產管理是 technique 的合理實例，資產清冊是 tool 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的主體 '資產管理' 和受體 '資產清冊' 都是 tool 類別，且關係 'has_a' 沒有在語義限制清單中被明確限制，因此不觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "資產管理與資產清冊在資安領域中無直接同義詞關係，但兩者皆屬於工具類別，無明顯廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定兩實體之間的直接同義詞或從屬關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產管理",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資產清冊",
+        "type": "tool"
+      },
+      "reasoning": "文本 D 12 提到在資產管理中，建議採取資產清冊作為控制措施。資產管理是一種管理技術 (technique)，而資產清冊是實現該技術的工具/記錄表 (tool)，符合 ('technique', 'has_a', 'tool') 的 Schema。",
+      "source_id": "chunk_14",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊資產盤點",
+      "type": "technique",
+      "display_name": "資訊資產盤點"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "文本 C 9 提到權責單位應進行資訊資產盤點以確保更新。盤點是一種分析資產狀態的技術 (technique)，而資訊資產在此被視為被分析的系統 (system)，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+    "source_id": "chunk_14",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資訊資產盤點 (technique) 可以分析資訊資產 (system)，這符合資安領域的常見實踐與語意對齊，接受同義詞寬容原則後，仍然合理。",
+        "response": "correct",
+        "reason": "主體、關係、受體的類別與屬性完全符合預先定義的清單，並且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_analyze'，且主體是 '資訊資產盤點'（類別：technique），受體是 '資訊資產'（類別：system），這符合一般的資安分析邏輯，沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體和受體類別與關係之間的邏輯關係沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊資產盤點與資訊資產之間的關係是主體與受體的對應關係，前者是後者的管理技術",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，資訊資產盤點和資訊資產之間沒有同義詞關係，且前者是資訊資產的管理技術，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產盤點",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "reasoning": "文本 C 9 提到權責單位應進行資訊資產盤點以確保更新。盤點是一種分析資產狀態的技術 (technique)，而資訊資產在此被視為被分析的系統 (system)，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+      "source_id": "chunk_14",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  }
+]

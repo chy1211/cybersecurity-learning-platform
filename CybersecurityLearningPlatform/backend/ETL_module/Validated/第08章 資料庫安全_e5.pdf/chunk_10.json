@@ -1,0 +1,470 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資料隱碼攻擊",
+      "type": "attack",
+      "display_name": "資料隱碼攻擊"
+    },
+    "reasoning": "文本描述攻擊者透過在使用者名稱欄位輸入特定字串來執行資料隱碼攻擊（實為 SQL Injection），因此攻擊者實作了該攻擊。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 實施 (implements) 資料隱碼攻擊 (attack) 的語意是合理的，因為攻擊者可能會使用特定的攻擊技術，如資料隱碼攻擊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：同一實體不能同時具有攻擊者(attacker)與安全團隊(securityTeam)的身分，該三元組不涉及安全團隊，因此不觸發此規則。檢查規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作，該三元組的關係是 implements，不涉及 mitigates，因此不觸發此規則。檢查規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，該三元組的主體是攻擊者，不涉及漏洞，因此不觸發此規則。檢查規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)，該三元組的主體是攻擊者，不涉及資安原則，因此不觸發此規則。檢查規則5：當關係為 uses 時，如果主體 (Subject) 的類別是 data，則為違反；但如果 data 僅是出現在受體 (Object) 位置，則屬合法，該三元組的關係是 implements，不涉及 uses，因此不觸發此規則。檢查規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，該三元組的關係是 implements，不涉及 deployed_in，因此不觸發此規則。檢查規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)，該三元組的關係是 implements，不涉及 generates，因此不觸發此規則。檢查規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具，該三元組的主體是攻擊者，具有主動執行能力，但關係是 implements，不涉及 controls，因此不觸發此規則。",
+        "response": "correct",
+        "reason": "該三元組的主體是攻擊者，關係是 implements，受體是資料隱碼攻擊，沒有觸發任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "攻擊者與攻擊者完全匹配，資料隱碼攻擊與資料隱碼攻擊完全匹配，兩者皆為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與現有近似資源清單中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資料隱碼攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本描述攻擊者透過在使用者名稱欄位輸入特定字串來執行資料隱碼攻擊（實為 SQL Injection），因此攻擊者實作了該攻擊。",
+      "source_id": "chunk_10",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資料隱碼攻擊",
+      "type": "attack",
+      "display_name": "資料隱碼攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "login.asp",
+      "type": "app",
+      "display_name": "Login.asp"
+    },
+    "reasoning": "資料隱碼攻擊直接針對 Login.asp 這個登入頁面應用程式，使其在未經正確認證的情況下回傳登入成功訊息，造成應用程式邏輯受損。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資料隱碼攻擊 (attack) 是攻擊類別的合理實例，Login.asp (app) 是應用程式類別的合理實例，'can_harm' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_harm'，而這個關係在給定的規則中沒有明確的限制，因此無法直接匹配到任何違規條件。",
+        "response": "correct",
+        "reason": "三元組中的關係 'can_harm' 沒有在給定的語義限制清單中被明確限制或定義，因此根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "資料隱碼攻擊與現有近似資源清單中的名稱完全匹配，無需進行同義詞判定或廣義/狹義一律保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料隱碼攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "Login.asp",
+        "type": "app"
+      },
+      "reasoning": "資料隱碼攻擊直接針對 Login.asp 這個登入頁面應用程式，使其在未經正確認證的情況下回傳登入成功訊息，造成應用程式邏輯受損。",
+      "source_id": "chunk_10",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "攻擊者利用 Login.asp 程式碼判斷方式的缺陷（弱點），輸入 `' admin --` 或 `' or 1=1--` 來繞過認證。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，弱點 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是描述攻擊者與弱點之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。規則2：不適用，因為三元組中沒有提到mitigates動作。規則3：不適用，因為三元組中的主體類別是攻擊者，而不是漏洞。規則4：不適用，因為三元組中沒有提到principle。規則5：不適用，因為三元組中的關係不是uses。規則6：不適用，因為三元組中的關係不是deployed_in。規則7：不適用，因為三元組中的關係不是generates。規則8：不適用，因為三元組中的關係不是controls，但規則3中提到可以發起'can_expose'動作，然而這裡的關係是can_exploit，與規則3無直接關聯，但根據規則3的原則，vulnerability不應發起主動行為，然而這裡的主體是攻擊者，因此不違反規則3。",
+        "response": "correct",
+        "reason": "三元組中的主體是攻擊者，關係是can_exploit，受體是弱點，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體（弱點）與 Ldr 中的「弱點」完全等價同義詞，且「系統弱點」、「協定弱點」、「偽造弱點」、「認證弱點」皆為其子類型，但不影響本判斷。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定，受體（弱點）與 Ldr 中的「弱點」為同義詞，但考慮到廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "攻擊者利用 Login.asp 程式碼判斷方式的缺陷（弱點），輸入 `' admin --` 或 `' or 1=1--` 來繞過認證。",
+      "source_id": "chunk_10",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "login.asp",
+      "type": "app",
+      "display_name": "Login.asp"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到『按照程式碼的判斷方式』導致攻擊成功，這暗示 Login.asp 的程式碼存在輸入驗證不足的弱點。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "Login.asp 是 'app' 的合理實例，'弱點' 是 'vulnerability' 的合理實例，'can_expose' 的語意與 'app' 和 'vulnerability' 的關係是合理的。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但主體類別為 app，不是 vulnerability，因此不觸發違規。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 Login.asp，類別為 app，與規則3中提到的vulnerability無關，且關係can_expose在此情境下未觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資源 '弱點' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，'弱點' 是 '漏洞'、'脆弱性' 的同義詞，與 Ldr 中的 '弱點' 完全等價。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Login.asp",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『按照程式碼的判斷方式』導致攻擊成功，這暗示 Login.asp 的程式碼存在輸入驗證不足的弱點。",
+      "source_id": "chunk_10",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資料隱碼攻擊",
+      "type": "attack",
+      "display_name": "資料隱碼攻擊"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "sql指令",
+      "type": "tool",
+      "display_name": "SQL指令"
+    },
+    "reasoning": "此攻擊必須依賴於構造特定的 SQL 指令（如 SELECT 語句的變形）才能達成繞過登入的目的，在此將惡意指令視為攻擊工具。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資料隱碼攻擊 (attack) 與 SQL指令 (tool) 的名稱與其被賦予的類別合理對齊，資料隱碼攻擊是一種攻擊手法，SQL指令是一種工具。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查規則沒有直接觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'depends_on' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "資料隱碼攻擊與注入攻擊為同義詞，sql指令與sql為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "資料隱碼攻擊與注入攻擊為同義詞，sql指令與sql為同義詞，但根據【廣義/狹義一律保留】原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料隱碼攻擊",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "SQL指令",
+        "type": "tool"
+      },
+      "reasoning": "此攻擊必須依賴於構造特定的 SQL 指令（如 SELECT 語句的變形）才能達成繞過登入的目的，在此將惡意指令視為攻擊工具。",
+      "source_id": "chunk_10",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "資料隱碼攻擊",
+      "type": "attack",
+      "display_name": "資料隱碼攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "reasoning": "攻擊透過傳送惡意指令給伺服器，影響伺服器的正常運作與權限控管。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資料隱碼攻擊是 'attack' 的合理實例，伺服器是 'system' 的合理實例，且 'can_harm' 是描述攻擊對系統影響的適當關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_harm'，發現無直接相關規則限制此類別組合的使用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '資料隱碼攻擊' 與關係 'can_harm'、受體 '伺服器' 組合未觸發語義限制清單中的任何規則，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"資料隱碼攻擊\" 與 Ldr 中的 \"資料隱碼攻擊\" 完全相同，受體 \"伺服器\" 與 Ldr 中的 \"伺服器\" 完全相同，兩者皆無需進一步比對。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆在 Ldr 中找到完全匹配的名稱，無需進行同義詞判定或廣義/狹義一律保留的判斷。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料隱碼攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "reasoning": "攻擊透過傳送惡意指令給伺服器，影響伺服器的正常運作與權限控管。",
+      "source_id": "chunk_10",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "login.asp",
+      "type": "app",
+      "display_name": "Login.asp"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "reasoning": "Login.asp 作為一個網頁應用程式，部署在伺服器系統之上。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Login.asp 是 'app' 的合理實例，'伺服器' 是 'system' 的合理實例，兩者名稱與類別對齊，且符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "主體、關係、受體的類別與屬性完全符合預先定義的清單，且實體名稱與其類別語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，主體為 Login.asp (類別: app)，關係為 deployed_in，受體為 伺服器 (類別: system)。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，受體的類別是 system，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Login.asp) 與 Ldr 中的 'login.asp' 完全等價同義詞，受體 (伺服器) 與 Ldr 中的 '伺服器' 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Login.asp",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "reasoning": "Login.asp 作為一個網頁應用程式，部署在伺服器系統之上。",
+      "source_id": "chunk_10",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "資料隱碼攻擊",
+      "type": "attack",
+      "display_name": "資料隱碼攻擊"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "機密性",
+      "type": "principle",
+      "display_name": "機密性"
+    },
+    "reasoning": "攻擊者在不知道密碼的情況下成功登入系統，違反了資安原則中的機密性（Confidentiality）。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資料隱碼攻擊是攻擊的一種合理實例，機密性是資安原則的一部分，'violates' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：觸發，principle 僅能作為被違反的受體，但此三元組中 principle 是受體，符合規則。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體 '資料隱碼攻擊' 是攻擊類別，與 '機密性' 這一原則之間的 'violates' 關係在語義上是合理的，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域已知實體，且受體「機密性」與 Ldr 中的「機密性」完全匹配，主體「資料隱碼攻擊」與 Ldr 中的「資料隱碼攻擊」完全匹配，無同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆為完全匹配的資安實體，無需進行同義詞或廣義/狹義從屬判定。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料隱碼攻擊",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "機密性",
+        "type": "principle"
+      },
+      "reasoning": "攻擊者在不知道密碼的情況下成功登入系統，違反了資安原則中的機密性（Confidentiality）。",
+      "source_id": "chunk_10",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "reasoning": "攻擊者透過測試網頁與後端伺服器建立連線並傳送資料。",
+    "source_id": "chunk_10",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 與 伺服器 (system) 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 connects_to，不是 uses。檢查規則6：不適用，因為關係為 connects_to，不是 deployed_in。檢查規則7：不適用，因為關係為 connects_to，不是 generates。檢查規則8：不適用，因為關係為 connects_to，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的關係 connects_to 與規則清單中沒有直接相關的限制，因此不觸發任何違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆與現有近似資源清單中某些項目具有完全等價同義詞或廣義/狹義從屬關係，但根據判斷準則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "reasoning": "攻擊者透過測試網頁與後端伺服器建立連線並傳送資料。",
+      "source_id": "chunk_10",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

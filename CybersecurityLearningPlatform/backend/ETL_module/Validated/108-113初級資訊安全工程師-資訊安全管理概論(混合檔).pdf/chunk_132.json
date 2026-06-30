@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "稽核日誌",
+      "type": "data",
+      "display_name": "稽核日誌"
+    },
+    "reasoning": "文本提到稽核日誌是資安事故的有效證據，暗示資安人員（securityTeam）需要分析（can_analyze）這些日誌資料（data）來調查事故。",
+    "source_id": "chunk_132",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 可以分析稽核日誌 (data) 是合理的，'can_analyze' 關係在資安領域中常見，且 'securityTeam' 和 'data' 的名稱與其類別對齊。",
+        "response": "correct",
+        "reason": "主體、關係和受體都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：不適用，因為三元組中沒有mitigates動作。檢查規則3：不適用，因為三元組中主體類別不是vulnerability。檢查規則4：不適用，因為三元組中沒有principle作為主體。檢查規則5：不適用，因為三元組中關係不是uses。檢查規則6：不適用，因為三元組中關係不是deployed_in。檢查規則7：不適用，因為三元組中關係不是generates。檢查規則8：不適用，因為三元組中關係不是controls，但can_analyze關係下，主體securityTeam具有分析能力，合法。",
+        "response": "correct",
+        "reason": "三元組中的主體securityTeam具有分析能力，與關係can_analyze和受體稽核日誌(data)相符，沒有違反任何語義限制規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '資安人員' 與 Ldr 中的 '資安人員' 完全相同，受體 '稽核日誌' 與 Ldr 中的 '稽核日誌' 完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "稽核日誌",
+        "type": "data"
+      },
+      "reasoning": "文本提到稽核日誌是資安事故的有效證據，暗示資安人員（securityTeam）需要分析（can_analyze）這些日誌資料（data）來調查事故。",
+      "source_id": "chunk_132",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "存取權限控管",
+      "type": "policy",
+      "display_name": "存取權限控管"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊安全事故",
+      "type": "attack",
+      "display_name": "資安事故"
+    },
+    "reasoning": "文本指出控管稽核日誌的存取權限是最重要的議題，這是一種安全策略（policy），旨在緩解（mitigates）因權限過大而導致的資安事故或惡意篡改（attack）。",
+    "source_id": "chunk_132",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "存取權限控管 (policy) 是一種合理的政策實例，資安事故 (attack) 是一種合理的攻擊實例，'mitigates' 關係在資安領域中是合理的，表示政策可以減輕攻擊的影響。",
+        "response": "correct",
+        "reason": "存取權限控管與資安事故之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是存取權限控管（類別：policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "因為三元組的主體是存取權限控管（類別：policy），符合規則2的允許條件，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "存取權限控管與存取權限管理、存取控制等為同義詞或廣義/狹義從屬關係，但受體資安事故與資訊安全事故、資安事件等為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "資訊安全事故",
+        "reason": "根據同義詞判定，資安事故與資訊安全事故為同義詞，但主體存取權限控管與現有近似資源清單中的項目為同義詞或廣義/狹義從屬關係，故不進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "存取權限控管",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資安事故",
+        "type": "attack"
+      },
+      "reasoning": "文本指出控管稽核日誌的存取權限是最重要的議題，這是一種安全策略（policy），旨在緩解（mitigates）因權限過大而導致的資安事故或惡意篡改（attack）。",
+      "source_id": "chunk_132",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "事故處理單位",
+      "type": "securityTeam",
+      "display_name": "事故處理單位"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資安事故",
+      "type": "attack",
+      "display_name": "資安事故"
+    },
+    "reasoning": "文本明確提到事故處理完成後應「分析事故發生原因」，因此事故處理單位（securityTeam）具備分析（can_analyze）資安事故（attack）的能力。",
+    "source_id": "chunk_132",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'attack' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "事故處理單位 (securityTeam) 可以分析 (can_analyze) 資安事故 (attack)，這符合資安領域的常見實踐和語意對齊，接受同義詞寬容原則後仍然合理。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者(attacker)的身分。檢查規則2：不適用，因為三元組中的關係是can_analyze，而規則2是針對mitigates動作。檢查規則3：不適用，因為三元組中的主體類別是securityTeam，而規則3是針對vulnerability。檢查規則4：不適用，因為三元組中的關係是can_analyze，而規則4是針對principle。檢查規則5：不適用，因為三元組中的關係是can_analyze，而規則5是針對uses。檢查規則6：不適用，因為三元組中的關係是can_analyze，而規則6是針對deployed_in。檢查規則7：不適用，因為三元組中的關係是can_analyze，而規則7是針對generates。檢查規則8：不適用，因為三元組中的關係是can_analyze，而規則8是針對controls。由於沒有任何規則被觸發，三元組不違反任何語義限制。",
+        "response": "correct",
+        "reason": "三元組中的主體、關係和受體之間的關係沒有違反任何語義限制清單中的規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安事故與資安事件、資通安全事件等均指同一概念，屬於同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資安事故",
+        "reason": "根據同義詞對照範例，資安事故與資安事件、資通安全事件等均指同一概念，屬於同義詞關係，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "事故處理單位",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資安事故",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到事故處理完成後應「分析事故發生原因」，因此事故處理單位（securityTeam）具備分析（can_analyze）資安事故（attack）的能力。",
+      "source_id": "chunk_132",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資安事件通報",
+      "type": "technique",
+      "display_name": "資安事件通報"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "受影響系統"
+    },
+    "reasoning": "文本提到通報時必須提供「受影響的系統及範圍」，這意味著通報流程（technique）涉及對受影響系統（system）的分析與確認（can_analyze）。",
+    "source_id": "chunk_132",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安事件通報 (technique) 可以分析受影響系統 (system)，這符合資安領域的常見實踐與語意對齊，同義詞寬容原則下也接受這種表達。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_analyze'，主體 '資安事件通報' 的類別是 'technique'，受體 '受影響系統' 的類別是 'system'，未發現明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的主體 '資安事件通報' 屬於 'technique' 類別，與 'can_analyze' 關係相容，且未觸發語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受影響系統與系統、受害者系統之間的關係是同義詞重複",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "系統",
+        "reason": "根據資安領域已知同義詞對照範例，受影響系統與系統是同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安事件通報",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "受影響系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到通報時必須提供「受影響的系統及範圍」，這意味著通報流程（technique）涉及對受影響系統（system）的分析與確認（can_analyze）。",
+      "source_id": "chunk_132",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊備份",
+      "type": "technique",
+      "display_name": "資訊備份"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "備份媒體",
+      "type": "tool",
+      "display_name": "備份媒體"
+    },
+    "reasoning": "文本討論資訊備份時提及備份媒體的機密性，說明執行備份技術（technique）必須依賴（depends_on）備份媒體（tool）才能完成。",
+    "source_id": "chunk_132",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資訊備份 (technique) 與 備份媒體 (tool) 的名稱與其類別合理對齊，且 'depends_on' 關係在資安領域中是合理的，表示資訊備份的過程可能依賴於備份媒體。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊與同義詞寬容原則均通過檢查。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "response": "correct",
+        "reason": "三元組中的關係 'depends_on' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊備份與資料備份、資料庫備份等是相關概念，但資訊備份更為廣義，包含了資料庫備份、檔案備份等；備份媒體與儲存媒體、備份工具等是相關概念，但備份媒體更為狹義，指的是用於儲存備份資料的媒體，如硬碟、USB等。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，資訊備份與資料備份、資料庫備份等是相關概念，但資訊備份更為廣義，包含了資料庫備份、檔案備份等；備份媒體與儲存媒體、備份工具等是相關概念，但備份媒體更為狹義，指的是用於儲存備份資料的媒體，如硬碟、USB等。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊備份",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "備份媒體",
+        "type": "tool"
+      },
+      "reasoning": "文本討論資訊備份時提及備份媒體的機密性，說明執行備份技術（technique）必須依賴（depends_on）備份媒體（tool）才能完成。",
+      "source_id": "chunk_132",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "備份媒體",
+      "type": "system",
+      "display_name": "備份媒體"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "備份資料",
+      "type": "data",
+      "display_name": "備份資料"
+    },
+    "reasoning": "備份媒體作為儲存基礎設施（system），其功能是承載並使用（uses）備份後的資訊（data）。",
+    "source_id": "chunk_132",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "備份媒體 (system) 和 備份資料 (data) 的名稱與其類別合理對齊，符合資安領域的常見用法和同義詞寬容原則。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為主體的類別是system，而不是data，且關係是uses，但這裡的主體是system，受體是data，符合規則允許的條件。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是備份媒體（system），關係是uses，受體是備份資料（data），這符合規則5的允許條件，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 \"備份資料\" 與 Ldr 中的 \"備份資料\" 完全相同，主體 \"備份媒體\" 與 Ldr 中的 \"系統\" 類別相關但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "備份媒體",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "備份資料",
+        "type": "data"
+      },
+      "reasoning": "備份媒體作為儲存基礎設施（system），其功能是承載並使用（uses）備份後的資訊（data）。",
+      "source_id": "chunk_132",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  }
+]

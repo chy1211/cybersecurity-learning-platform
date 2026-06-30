@@ -1,0 +1,418 @@
+[
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "竄改攻擊",
+      "type": "attack",
+      "display_name": "竄改攻擊"
+    },
+    "reasoning": "文本提到駭客侵入並竄改存款金額，這是一種具體的惡意行為，因此將其定義為攻擊者實作了一項竄改攻擊。",
+    "source_id": "chunk_96",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，受體類別 'attack' 存在於 Lc,p 的 'Classes' 中，關係 'implements' 存在於 Lc,p 的 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是 'attacker' 的合理實例，竄改攻擊 (attack) 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：未觸發，因為駭客不具有安全團隊的身分。規則2：未觸發，因為主體不是 policy, technique 或 tool。規則3：未觸發，因為主體類別不是 vulnerability。規則4：未觸發，因為關係不是 violates 且主體不是 principle。規則5：未觸發，因為關係不是 uses 或主體類別不是 data。規則6：未觸發，因為關係不是 deployed_in。規則7：未觸發，因為關係不是 generates。規則8：未觸發，因為關係不是 controls，但需要注意的是，attacker 可以實施攻擊，因此 implements 關係在這裡是合理的。",
+        "response": "correct",
+        "reason": "三元組中的駭客實施竄改攻擊的行為符合資安知識圖譜的邏輯，沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"駭客\" 與 Ldr 中的 \"駭客\" 完全等價同義詞，受體 \"竄改攻擊\" 與 Ldr 中的 \"竄改攻擊\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的某資源 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "竄改攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本提到駭客侵入並竄改存款金額，這是一種具體的惡意行為，因此將其定義為攻擊者實作了一項竄改攻擊。",
+      "source_id": "chunk_96",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資料篡改攻擊",
+      "type": "attack",
+      "display_name": "竄改攻擊"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "題目明確指出竄改金額是破壞資訊系統的「完整性」，符合 (attack, violates, principle) 的 Schema 邊界。",
+    "source_id": "chunk_96",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 均存在於 Lc,p 中。",
+        "step_2_alignment_check": "竄改攻擊 (attack) 是攻擊類別的合理實例，完整性 (principle) 是原則類別的合理實例，且 'violates' 是合理描述攻擊對原則的影響的關係。",
+        "response": "correct",
+        "reason": "竄改攻擊對完整性的違反是資安領域中合理且常見的描述，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為三元組中的關係是violates，而不是mitigates。規則3不適用，因為三元組中的主體是攻擊類別，而不是vulnerability。規則4適用，且三元組中的受體是principle，符合規則允許的條件。規則5、6、7、8不適用，因為三元組中的關係是violates，不符合這些規則的觸發條件。",
+        "response": "correct",
+        "reason": "三元組中的受體是principle，符合規則4的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為correct。"
+      },
+      "step_2": {
+        "granularity_analysis": "竄改攻擊與資料篡改攻擊之間存在同義詞關係，兩者均指涉及修改或竄改資料的攻擊行為，屬於同一概念的不同表達方式。",
+        "response": "duplicate",
+        "standard_subject": "資料篡改攻擊",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，竄改攻擊與資料篡改攻擊被認為是同義詞，指涉及修改或竄改資料的攻擊行為。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "竄改攻擊",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "題目明確指出竄改金額是破壞資訊系統的「完整性」，符合 (attack, violates, principle) 的 Schema 邊界。",
+      "source_id": "chunk_96",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "竄改攻擊",
+      "type": "attack",
+      "display_name": "竄改攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "存款金額",
+      "type": "data",
+      "display_name": "存款金額"
+    },
+    "reasoning": "竄改存款金額直接對資料的正確性造成損害，符合 (attack, can_harm, data) 的 Schema 邊界。",
+    "source_id": "chunk_96",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "竄改攻擊 (attack) 可能對存款金額 (data) 造成傷害，符合語意對齊與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "竄改攻擊對存款金額的傷害關係符合資安本體論的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體 '竄改攻擊' 屬於攻擊類別，具有主動執行能力，符合 'can_harm' 關係的使用條件。",
+        "response": "correct",
+        "reason": "三元組 '竄改攻擊'、'can_harm'、'存款金額' 沒有明確違反語義限制清單中的任何規則，且主體 '竄改攻擊' 具有主動執行能力，符合 'can_harm' 關係的使用條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「竄改攻擊」與 Ldr 中的「資料篡改攻擊」為同義詞，受體「存款金額」與 Ldr 中的「存款金額」完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "竄改攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "存款金額",
+        "type": "data"
+      },
+      "reasoning": "竄改存款金額直接對資料的正確性造成損害，符合 (attack, can_harm, data) 的 Schema 邊界。",
+      "source_id": "chunk_96",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "銀行資料庫",
+      "type": "app",
+      "display_name": "銀行資料庫"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "存款金額",
+      "type": "data",
+      "display_name": "存款金額"
+    },
+    "reasoning": "銀行資料庫作為一個應用程式/服務，其運作是基於對存款金額等資料的儲存與使用，符合 (app, uses, data) 的 Schema 邊界。",
+    "source_id": "chunk_96",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '銀行資料庫' 的名稱與其類別 'app' 合理對齊，實體 '存款金額' 的名稱與其類別 'data' 也合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規檢查，因為關係為 'uses'，但主體的類別是 'app'，不違反此規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體是 '銀行資料庫'，類別為 'app'，與 '存款金額' 類別為 'data' 的受體之間的 'uses' 關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "銀行資料庫與資料庫之間存在廣義/狹義從屬關係，但根據給定的規則，廣義/狹義一律保留，因此不進行合併。存款金額為完全匹配的同義詞重複，但由於其與銀行資料庫的關係不在同一類別，因此不影響主體的判定。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據廣義/狹義一律保留的判斷準則，銀行資料庫與資料庫之間的關係不需要合併，且存款金額的匹配不影響主體的判定。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "銀行資料庫",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "存款金額",
+        "type": "data"
+      },
+      "reasoning": "銀行資料庫作為一個應用程式/服務，其運作是基於對存款金額等資料的儲存與使用，符合 (app, uses, data) 的 Schema 邊界。",
+      "source_id": "chunk_96",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "個人資料保護法",
+      "type": "policy",
+      "display_name": "個人資料保護法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "個人資料保護法透過規範蒐集與處理行為來降低個資外洩的風險，符合 (policy, mitigates, risk) 的 Schema 邊界。",
+    "source_id": "chunk_96",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "個人資料保護法 (policy) 是一種合理的政策實例，個資外洩 (risk) 是一種合理的風險實例，'mitigates' 關係在此語境下合理描述政策對風險的減輕作用。",
+        "response": "correct",
+        "reason": "個人資料保護法與個資外洩的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是個人資料保護法，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體（個人資料保護法）是 policy 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "個人資料保護法與Ldr中的個人資料保護法完全相同，個資外洩與Ldr中的個資外洩完全相同，兩者皆為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與Ldr中的資源完全相同，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人資料保護法",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "個人資料保護法透過規範蒐集與處理行為來降低個資外洩的風險，符合 (policy, mitigates, risk) 的 Schema 邊界。",
+      "source_id": "chunk_96",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "風險評鑑",
+      "type": "technique",
+      "display_name": "風險評鑑"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "pdca循環",
+      "type": "technique",
+      "display_name": "PDCA循環"
+    },
+    "reasoning": "風險評鑑是 PDCA (Plan-Do-Check-Act) 管理循環中的一個具體技術步驟，符合 (technique, is_part_of, technique) 的 Schema 邊界。",
+    "source_id": "chunk_96",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "風險評鑑 (Risk Assessment) 與 PDCA循環 (PDCA Cycle) 均為合理的 'technique' 實例，語意對齊且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "風險評鑑與 PDCA循環的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，且主體和受體的類別分別是 'technique'，因此沒有明確違反任何規則。",
+        "response": "correct",
+        "reason": "三元組中的關係和實體類別沒有違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆有完全等價的同義詞出現在 Ldr 中，分別為 \"風險評鑑\" 與 \"pdca循環\"，且兩者皆為 1.0 的相似度，表示完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，主體與受體的名稱與 Ldr 中的某些資源完全相同，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險評鑑",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "PDCA循環",
+        "type": "technique"
+      },
+      "reasoning": "風險評鑑是 PDCA (Plan-Do-Check-Act) 管理循環中的一個具體技術步驟，符合 (technique, is_part_of, technique) 的 Schema 邊界。",
+      "source_id": "chunk_96",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "a公司",
+      "type": "securityTeam",
+      "display_name": "A公司"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "iso 27001",
+      "type": "policy",
+      "display_name": "ISO 27001"
+    },
+    "reasoning": "文本提到 A 公司以 ISO 27001 架構其資訊安全管理系統，代表該組織實作了此項資安規範，符合 (securityTeam, implements, policy) 的 Schema 邊界。",
+    "source_id": "chunk_96",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "A公司是一個安全團隊的合理實例，ISO 27001是一個政策的合理實例，實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "A公司實施ISO 27001政策的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用，主體是安全團隊(securityTeam)；規則2：不適用，關係是 implements；規則3：不適用，主體類別不是 vulnerability；規則4：不適用，關係不是 violates；規則5：不適用，關係不是 uses；規則6：不適用，關係不是 deployed_in；規則7：不適用，關係不是 generates；規則8：不適用，關係不是 controls，但 implements 關係下，安全團隊(securityTeam)實施政策(policy)是合理的。",
+        "response": "correct",
+        "reason": "三元組中的主體(A公司)是安全團隊(securityTeam)，實施(implements)ISO 27001政策(policy)，這符合一般的資安實踐，沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "ISO 27001 與 Ldr 中的 iso 27001 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "iso 27001",
+        "reason": "根據同義詞判定準則，ISO 27001 與 iso 27001 完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "A公司",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "ISO 27001",
+        "type": "policy"
+      },
+      "reasoning": "文本提到 A 公司以 ISO 27001 架構其資訊安全管理系統，代表該組織實作了此項資安規範，符合 (securityTeam, implements, policy) 的 Schema 邊界。",
+      "source_id": "chunk_96",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "資通安全管理法",
+      "type": "policy",
+      "display_name": "資通安全管理法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "資通安全管理法旨在規範公務機關之資安管理，以緩解或防禦駭客攻擊，符合 (policy, mitigates, attack) 的 Schema 邊界。",
+    "source_id": "chunk_96",
+    "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資通安全管理法 (policy) 是一種合理的政策實例，駭客攻擊 (attack) 是一種合理的攻擊實例，'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，因此語意對齊。",
+        "response": "correct",
+        "reason": "資通安全管理法與駭客攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 '資通安全管理法'，類別為 'policy'，符合規則2的條件，表示合法。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且無其他規則被違反，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "資通安全管理法與通訊保障及監察法、網路安全法律等為不同政策，駭客攻擊與網路攻擊、物聯網攻擊等為不同攻擊類型，但皆無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無同義詞關係，且非廣義/狹義從屬，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資通安全管理法",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "資通安全管理法旨在規範公務機關之資安管理，以緩解或防禦駭客攻擊，符合 (policy, mitigates, attack) 的 Schema 邊界。",
+      "source_id": "chunk_96",
+      "source_file": "108-113初級資訊安全工程師-資訊安全管理概論(混合檔).pdf",
+      "source_index": 8
+    }
+  }
+]

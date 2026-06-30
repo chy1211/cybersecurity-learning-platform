@@ -1,0 +1,94 @@
+[
+  {
+    "subject": {
+      "name": "營運持續管理",
+      "type": "system",
+      "display_name": "營運持續管理"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "營運中斷",
+      "type": "risk",
+      "display_name": "營運中斷"
+    },
+    "reasoning": "營運持續管理 (BCM) 作為國際管理標準，其核心目的在於防治企業組織營運中斷。",
+    "source_id": "chunk_1",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "實體 '營運持續管理' 是 'policy' 的合理實例，'營運中斷' 是 'risk' 的合理實例，關係 'mitigates' 合理地連接這兩個實體。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。待檢查三元組的主體是營運持續管理，類別是 system，不符合規則2的條件，可能觸發違規。",
+        "response": "violation",
+        "reason": "因為營運持續管理的類別是 system，不在規則2允許的類別（policy, technique 或 tool）中，故違反規則2。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 因為營運持續管理的類別是 system，不在規則2允許的類別（policy, technique 或 tool）中，故違反規則2。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "營運持續管理",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "營運中斷",
+        "type": "risk"
+      },
+      "reasoning": "營運持續管理 (BCM) 作為國際管理標準，其核心目的在於防治企業組織營運中斷。",
+      "source_id": "chunk_1",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "營運恢復計畫",
+      "type": "system",
+      "display_name": "營運恢復計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "營運中斷",
+      "type": "risk",
+      "display_name": "營運中斷"
+    },
+    "reasoning": "營運恢復計畫與 DRP 類似，皆為降低營運中斷影響的規範與計畫。",
+    "source_id": "chunk_1",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "營運恢復計畫 是 policy 的合理實例，營運中斷 是 risk 的合理實例，且 'mitigates' 是合理的關係。",
+        "response": "correct",
+        "reason": "營運恢復計畫、營運中斷與 mitigates 三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。待檢查三元組的主體是營運恢復計畫，類別為 system，不符合規則2的條件，可能觸發違規。",
+        "response": "violation",
+        "reason": "營運恢復計畫（類別：system）執行 mitigates 動作，違反了規則2中只有 policy, technique 或 tool 才能執行 mitigates 動作的限制。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 營運恢復計畫（類別：system）執行 mitigates 動作，違反了規則2中只有 policy, technique 或 tool 才能執行 mitigates 動作的限制。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "營運恢復計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "營運中斷",
+        "type": "risk"
+      },
+      "reasoning": "營運恢復計畫與 DRP 類似，皆為降低營運中斷影響的規範與計畫。",
+      "source_id": "chunk_1",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 10
+    }
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "subject": {
+      "name": "漏洞掃描",
+      "type": "technique",
+      "display_name": "漏洞掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "cve",
+      "type": "vulnerability",
+      "display_name": "CVE"
+    },
+    "reasoning": "漏洞掃描旨在識別系統中是否存在特定的 CVE 弱點，符合 ('technique', 'can_analyze', 'vulnerability') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "single_choice.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體 '漏洞掃描' 是 'technique' 的合理實例，'CVE' 是 'vulnerability' 的合理實例，關係 'can_analyze' 在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係是can_analyze，而不是mitigates。規則3觸發違規，因為主體的類別是technique，但受體的類別是vulnerability，且關係是can_analyze，違反了規則3中關於vulnerability不可發起主動行為的原則。規則4、5、6、7、8不適用，因為三元組中的關係和類別不符合這些規則的條件。",
+        "response": "violation",
+        "reason": "三元組中的主體是technique，受體是vulnerability，且關係是can_analyze，違反了規則3中關於vulnerability不可發起主動行為的原則。因此，該三元組違反了語義限制清單中的規則3。"
+      }
+    },
+    "reject_reason": "Step 3 (Semantic Violation): 三元組中的主體是technique，受體是vulnerability，且關係是can_analyze，違反了規則3中關於vulnerability不可發起主動行為的原則。因此，該三元組違反了語義限制清單中的規則3。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "漏洞掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "CVE",
+        "type": "vulnerability"
+      },
+      "reasoning": "漏洞掃描旨在識別系統中是否存在特定的 CVE 弱點，符合 ('technique', 'can_analyze', 'vulnerability') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "single_choice.json",
+      "source_index": 4
+    }
+  }
+]

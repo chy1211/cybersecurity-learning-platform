@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "ddos",
+      "type": "attack",
+      "display_name": "DDoS"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "文本第 8 題明確指出 DDoS 攻擊導致交易量降低，直接影響資訊安全特性中的「可用性」。根據 Schema，攻擊 (attack) 違反 (violates) 資安原則 (principle) 是合法的。",
+    "source_id": "chunk_95",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "DDoS 是 'attack' 的合理實例，可用性是 'principle' 的合理實例，且 'violates' 是描述攻擊對原則的影響的合理關係。",
+        "response": "correct",
+        "reason": "DDoS 攻擊違反可用性原則的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4適用，主體類別為attack，關係為violates，受體類別為principle，符合規則允許的條件。規則5、6、7、8不適用，因為關係不是uses、deployed_in、generates或controls。",
+        "response": "correct",
+        "reason": "三元組符合規則4的允許條件，主體為attack，關係為violates，受體為principle，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "DDoS 是 Ldr 中的 \"ddos\" 的完全等價同義詞，且 \"可用性\" 與 Ldr 中的 \"可用性\" 完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認和同義詞判定，DDoS 和 \"可用性\" 分別與 Ldr 中的資源完全匹配或相同，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DDoS",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "文本第 8 題明確指出 DDoS 攻擊導致交易量降低，直接影響資訊安全特性中的「可用性」。根據 Schema，攻擊 (attack) 違反 (violates) 資安原則 (principle) 是合法的。",
+      "source_id": "chunk_95",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "ddos",
+      "type": "attack",
+      "display_name": "DDoS"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "ddos",
+      "type": "attack",
+      "display_name": "阻斷服務攻擊"
+    },
+    "reasoning": "文本第 8 題將 DDoS 稱為「分散式阻斷服務」攻擊，顯示 DDoS 是阻斷服務攻擊的一種具體形式。根據 Schema，攻擊 (attack) 屬於 (is_part_of) 另一種攻擊 (attack) 是合法的。",
+    "source_id": "chunk_95",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "DDoS 是 'attack' 的合理實例，'阻斷服務攻擊' 也是 'attack' 的合理實例，兩者皆為資安領域中常見的攻擊類型，且名稱與類別對齊。",
+        "response": "correct",
+        "reason": "DDoS 與 阻斷服務攻擊 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係 'is_part_of' 不在任何規則中被明確限制，且主體和受體的類別均為 'attack'，因此未發現明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 不在語義限制清單中被明確限制，且主體和受體的類別均為 'attack'，因此判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "DDoS 和 阻斷服務攻擊 是完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "ddos",
+        "standard_object": "ddos",
+        "reason": "根據資安領域已知同義詞對照範例，DDoS 和 阻斷服務攻擊 是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DDoS",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "阻斷服務攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本第 8 題將 DDoS 稱為「分散式阻斷服務」攻擊，顯示 DDoS 是阻斷服務攻擊的一種具體形式。根據 Schema，攻擊 (attack) 屬於 (is_part_of) 另一種攻擊 (attack) 是合法的。",
+      "source_id": "chunk_95",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "阻斷服務攻擊",
+      "type": "attack",
+      "display_name": "阻斷服務攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "主機",
+      "type": "system",
+      "display_name": "主機"
+    },
+    "reasoning": "文本第 5 題 (A) 選項提到「導致主機當機」是阻斷服務攻擊的表現。根據 Schema，攻擊 (attack) 可危害 (can_harm) 系統 (system) 是合法的。",
+    "source_id": "chunk_95",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "阻斷服務攻擊 (DDoS) 是 'attack' 的合理實例，主機是 'system' 的合理實例，'can_harm' 的語意也合理地描述了攻擊對系統的影響。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 '阻斷服務攻擊' 的類別 'attack' 與受體 '主機' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，且關係 'can_harm' 在給定的規則中沒有被明確限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「阻斷服務攻擊」與 Ldr 中的「阻斷服務攻擊」完全等價同義詞，受體「主機」與 Ldr 中的「主機」完全匹配。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體和受體均與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "阻斷服務攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "主機",
+        "type": "system"
+      },
+      "reasoning": "文本第 5 題 (A) 選項提到「導致主機當機」是阻斷服務攻擊的表現。根據 Schema，攻擊 (attack) 可危害 (can_harm) 系統 (system) 是合法的。",
+      "source_id": "chunk_95",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "ddos",
+      "type": "attack",
+      "display_name": "DDoS"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網站下單系統",
+      "type": "app",
+      "display_name": "網站下單系統"
+    },
+    "reasoning": "文本第 8 題提到「網站下單系統更實際遭受網路 DDoS 攻擊」，表示該攻擊對該應用程式造成損害。根據 Schema，攻擊 (attack) 可危害 (can_harm) 應用程式 (app) 是合法的。",
+    "source_id": "chunk_95",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "DDoS 是 'attack' 的合理實例，網站下單系統是 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "DDoS 攻擊可以對網站下單系統造成傷害，三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。檢查規則2：不適用，因為三元組中的關係不是 mitigates。檢查規則3：不適用，因為主體的類別不是 vulnerability。檢查規則4：不適用，因為關係不是 violates 且主體不是 principle。檢查規則5：不適用，因為關係不是 uses 或主體的類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但需要注意的是，DDoS 是一種攻擊類型，可以對系統或應用程序造成傷害，符合 can_harm 的語義。",
+        "response": "correct",
+        "reason": "三元組中的主體 DDoS 是一種攻擊類型，與網站下單系統之間的 can_harm 關係在語義上是合理的，沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "DDoS 是 Ldr 中的 \"ddos\" 的完全等價同義詞，兩者指稱同一概念。",
+        "response": "duplicate",
+        "standard_subject": "ddos",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，DDoS 與 \"ddos\" 指稱同一概念，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DDoS",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網站下單系統",
+        "type": "app"
+      },
+      "reasoning": "文本第 8 題提到「網站下單系統更實際遭受網路 DDoS 攻擊」，表示該攻擊對該應用程式造成損害。根據 Schema，攻擊 (attack) 可危害 (can_harm) 應用程式 (app) 是合法的。",
+      "source_id": "chunk_95",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "連接埠掃描",
+      "type": "technique",
+      "display_name": "通訊埠掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本第 4 題提到通訊埠掃描 (Port Scan)，這是一種分析目標系統開放連接埠的技術。根據 Schema，技術 (technique) 可分析 (can_analyze) 系統 (system) 是合法的。",
+    "source_id": "chunk_95",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "通訊埠掃描是 technique 的合理實例，系統是 system 的合理實例，且 'can_analyze' 是合理的關係。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則違反。",
+        "response": "correct",
+        "reason": "三元組（通訊埠掃描 can_analyze 系統）未觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「通訊埠掃描」與 Ldr 中的「連接埠掃描」為同義詞，受體「系統」與 Ldr 中的「系統」完全匹配",
+        "response": "correct",
+        "standard_subject": "連接埠掃描",
+        "standard_object": "系統",
+        "reason": "根據同義詞判定準則，主體與 Ldr 中的資源為同義詞，受體完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "通訊埠掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本第 4 題提到通訊埠掃描 (Port Scan)，這是一種分析目標系統開放連接埠的技術。根據 Schema，技術 (technique) 可分析 (can_analyze) 系統 (system) 是合法的。",
+      "source_id": "chunk_95",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本第 6 題指出數位簽章可用來確認資料的完整性，這涉及對資料的分析驗證。根據 Schema，技術 (technique) 可分析 (can_analyze) 資料 (data) 是合法的。",
+    "source_id": "chunk_95",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "數位簽章是 technique 的合理實例，資料是 data 的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "數位簽章可以分析資料，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為關係為 can_analyze，不是 uses。規則6：不適用，因為關係為 can_analyze，不是 deployed_in。規則7：不適用，因為關係為 can_analyze，不是 generates。規則8：不適用，因為關係為 can_analyze，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（數位簽章）和關係（can_analyze）以及受體（資料）之間的關係，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中常見的術語，且與 Ldr 中的某些資源具有高度相似性，特別是主體「數位簽章」與 Ldr 中的「數位簽章」完全匹配，受體「資料」也與 Ldr 中的「資料」完全匹配，表明這兩個實體在資安領域中具有明確的定義和使用範圍。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆為資安領域中常見的術語，且與 Ldr 中的某些資源具有完全匹配，無需進行同義詞判定或合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位簽章",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本第 6 題指出數位簽章可用來確認資料的完整性，這涉及對資料的分析驗證。根據 Schema，技術 (technique) 可分析 (can_analyze) 資料 (data) 是合法的。",
+      "source_id": "chunk_95",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "最低權限",
+      "type": "policy",
+      "display_name": "最低權限"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "technique",
+      "display_name": "攻擊"
+    },
+    "reasoning": "文本第 6 題將最低權限作為一種安全機制（雖然在此題中不是確認完整性的正確答案，但它是資安策略）。根據 Schema，規範與策略 (policy) 可緩解 (mitigates) 攻擊 (attack) 是合法的。",
+    "source_id": "chunk_95",
+    "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '最低權限' 可被視為 'policy' 的實例，受體 '攻擊' 可被視為 'attack' 的實例，且 'mitigates' 的語意與 'policy' 減輕 'attack' 的意義相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是 '最低權限'，類別為 'policy'，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 '最低權限' 與 Ldr 中的 '最小權限原則' 關係為同義詞，受體 '攻擊' 與 Ldr 中的 '攻擊' 關係為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，主體和受體與 Ldr 中的資源不構成重複，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "最低權限",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "文本第 6 題將最低權限作為一種安全機制（雖然在此題中不是確認完整性的正確答案，但它是資安策略）。根據 Schema，規範與策略 (policy) 可緩解 (mitigates) 攻擊 (attack) 是合法的。",
+      "source_id": "chunk_95",
+      "source_file": "108-113初級資訊安全工程師-資訊安全技術(混合).pdf",
+      "source_index": 7
+    }
+  }
+]

@@ -1,0 +1,522 @@
+[
+  {
+    "subject": {
+      "name": "ieee 802.11",
+      "type": "tool",
+      "display_name": "IEEE 802.11"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "身分認證",
+      "type": "function",
+      "display_name": "身分認證"
+    },
+    "reasoning": "文本提到 IEEE 802.11 有身分認證模式，將身分認證視為該系統的一個特徵(feature)，符合 ('system', 'has_a', 'feature') 的 Schema。",
+    "source_id": "chunk_9",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IEEE 802.11 是一個無線網路通訊標準，屬於 'system' 類別；而 '身分認證' 是一個安全功能，屬於 'feature' 類別，兩者之間的關係 'has_a' 合理，因為系統可以具有身分認證功能。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 'IEEE 802.11' 的類別 'tool' 與受體 '身分認證' 的類別 'function' 之間的關係 'has_a' 在給定的規則中沒有被明確禁止或限制。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 與給定的語義限制清單中沒有直接的衝突，且沒有規則明確禁止工具與功能之間的 'has_a' 關係。"
+      },
+      "step_2": {
+        "granularity_analysis": "身分認證與身分驗證為同義詞，且與實體名稱「身分認證」完全匹配",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據同義詞對照表，身分認證與身分驗證為同義詞，但由於實體名稱與 Ldr 中的「身分認證」完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IEEE 802.11",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "身分認證",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 IEEE 802.11 有身分認證模式，將身分認證視為該系統的一個特徵(feature)，符合 ('system', 'has_a', 'feature') 的 Schema。",
+      "source_id": "chunk_9",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "開放系統認證",
+      "type": "technique",
+      "display_name": "開放系統認證"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "未加密認證",
+      "type": "technique",
+      "display_name": "未加密認證"
+    },
+    "reasoning": "文本明確指出未加密認證包含開放系統認證，因此開放系統認證是未加密認證的一種，符合 ('technique', 'is_part_of', 'technique')。",
+    "source_id": "chunk_9",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "主體 '開放系統認證' 和受體 '未加密認證' 都是 'technique' 的合理實例，考慮到資安領域的同義詞和術語使用。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域的認證技術，且受體「未加密認證」可視為「開放系統認證」的子類型或特定情況，但兩者在此語境下不完全等同，故無同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，兩實體無直接同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "開放系統認證",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "未加密認證",
+        "type": "technique"
+      },
+      "reasoning": "文本明確指出未加密認證包含開放系統認證，因此開放系統認證是未加密認證的一種，符合 ('technique', 'is_part_of', 'technique')。",
+      "source_id": "chunk_9",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "封閉系統認證",
+      "type": "technique",
+      "display_name": "封閉系統認證"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "未加密認證",
+      "type": "technique",
+      "display_name": "未加密認證"
+    },
+    "reasoning": "文本明確指出未加密認證包含封閉系統認證，符合 ('technique', 'is_part_of', 'technique')。",
+    "source_id": "chunk_9",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "封閉系統認證和未加密認證都是合理的 'technique' 實例，語意對齊且接受資安領域的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "封閉系統認證和未加密認證的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被定義為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "封閉系統認證與開放系統認證是相對的概念，未加密認證是與認證方式相關的技術，與封閉系統認證無直接同義詞關係，但都屬於 technique 類別",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，封閉系統認證和未加密認證是不同的認證技術，無法合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "封閉系統認證",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "未加密認證",
+        "type": "technique"
+      },
+      "reasoning": "文本明確指出未加密認證包含封閉系統認證，符合 ('technique', 'is_part_of', 'technique')。",
+      "source_id": "chunk_9",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "分享密鑰認證",
+      "type": "technique",
+      "display_name": "分享密鑰認證"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "加密認證",
+      "type": "technique",
+      "display_name": "加密認證"
+    },
+    "reasoning": "文本指出加密認證即是分享密鑰認證，將其視為加密認證的一種技術實作，符合 ('technique', 'is_part_of', 'technique')。",
+    "source_id": "chunk_9",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "分享密鑰認證與加密認證皆為合理的 'technique' 實例，且 'is_part_of' 關係在資安領域中合理適用於描述認證技術之間的關係。",
+        "response": "correct",
+        "reason": "分享密鑰認證與加密認證之間的 'is_part_of' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 沒有在語義限制清單中被明確限制，且主體和受體的類別與給定的規則不衝突。"
+      },
+      "step_2": {
+        "granularity_analysis": "分享密鑰認證與驗證之間存在一定的相似性，但非完全等價同義詞；加密認證與驗證之間存在一定的關聯，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，分享密鑰認證和加密認證之間的關係不完全符合同義詞或廣義/狹義從屬的條件，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "分享密鑰認證",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "加密認證",
+        "type": "technique"
+      },
+      "reasoning": "文本指出加密認證即是分享密鑰認證，將其視為加密認證的一種技術實作，符合 ('technique', 'is_part_of', 'technique')。",
+      "source_id": "chunk_9",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "分享密鑰認證",
+      "type": "technique",
+      "display_name": "分享密鑰認證"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "wep",
+      "type": "tool",
+      "display_name": "WEP"
+    },
+    "reasoning": "文本提到分享密鑰認證僅允許擁有 WEP 金鑰者加入，表示該技術依賴 WEP 工具，符合 ('technique', 'depends_on', 'tool')。",
+    "source_id": "chunk_9",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'technique'、受體的類別 'tool' 與關係 'depends_on' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "分享密鑰認證 (technique) 和 WEP (tool) 的名稱與其被賦予的類別合理對齊，分享密鑰認證是一種技術，WEP 是一種工具。",
+        "response": "correct",
+        "reason": "分享密鑰認證和 WEP 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，發現這個三元組的關係是 'depends_on'，這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
+        "response": "correct",
+        "reason": "三元組中的關係 'depends_on' 沒有在給定的語義限制清單中被明確限制，因此不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "分享密鑰認證與開放系統認證、未加密認證、封閉系統認證、加密認證等均為認證的子類型，但與WEP無直接同義詞關係，WEP為工具，與分享密鑰認證無直接等價關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "分享密鑰認證與WEP無直接同義詞關係，且屬於不同類型，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "分享密鑰認證",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "WEP",
+        "type": "tool"
+      },
+      "reasoning": "文本提到分享密鑰認證僅允許擁有 WEP 金鑰者加入，表示該技術依賴 WEP 工具，符合 ('technique', 'depends_on', 'tool')。",
+      "source_id": "chunk_9",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "wep",
+      "type": "tool",
+      "display_name": "WEP"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資料保密",
+      "type": "function",
+      "display_name": "資料保密"
+    },
+    "reasoning": "文本將 WEP 與資料保密對應，WEP 作為工具提供保密功能，符合 ('tool', 'has_a', 'function')。",
+    "source_id": "chunk_9",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "WEP 是一種工具（tool），資料保密是功能（function），且 'has_a' 關係在此語境下合理，因為 WEP 可以提供資料保密功能。",
+        "response": "correct",
+        "reason": "WEP 與資料保密的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為主體是 tool，具有主動執行能力，但關係是 has_a，不是 controls。",
+        "response": "correct",
+        "reason": "三元組中的主體（WEP）和關係（has_a）以及受體（資料保密）不觸發語義限制清單中的任何規則，因此判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "WEP 是一個特定的工具，資料保密是一個功能，兩者之間沒有直接的同義詞關係，但 WEP 的功能與資料保密相關，然而根據規則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。因此，WEP 與資料保密之間的關係是正確的，不需要合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 3，WEP 是一個特定的工具，資料保密是一個功能，兩者之間沒有直接的同義詞關係，且 WEP 的功能與資料保密相關，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WEP",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資料保密",
+        "type": "function"
+      },
+      "reasoning": "文本將 WEP 與資料保密對應，WEP 作為工具提供保密功能，符合 ('tool', 'has_a', 'function')。",
+      "source_id": "chunk_9",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "ssid",
+      "type": "data",
+      "display_name": "SSID"
+    },
+    "reasoning": "文本提到用戶設定無線網卡加入某個服務域名 (SSID)，表示使用者使用了 SSID 這項資料，符合 ('user', 'uses', 'data')。",
+    "source_id": "chunk_9",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "使用者 (user) 可以使用 SSID (data)，這是語意上合理的對齊，SSID 是一種資料 (data)，使用者 (user) 可以使用 (uses) 它。",
+        "response": "correct",
+        "reason": "主體、關係、受體三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，給定的三元組中，主體是使用者（類別：user），關係是uses，受體是SSID（類別：data），因此不觸發規則5的違規條件。其他規則不直接適用於此三元組。",
+        "response": "correct",
+        "reason": "三元組中的主體是使用者，關係是uses，受體是SSID，沒有明確違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"使用者\" 與 Ldr 中的 \"使用者\" 完全等價同義詞，受體 \"SSID\" 與 Ldr 中的 \"ssid\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "使用者",
+        "standard_object": "ssid",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "SSID",
+        "type": "data"
+      },
+      "reasoning": "文本提到用戶設定無線網卡加入某個服務域名 (SSID)，表示使用者使用了 SSID 這項資料，符合 ('user', 'uses', 'data')。",
+      "source_id": "chunk_9",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "crc",
+      "type": "tool",
+      "display_name": "CRC"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資料完整性",
+      "type": "feature",
+      "display_name": "資料完整性"
+    },
+    "reasoning": "文本將 CRC 與資料完整性對應，CRC 作為工具提供完整性檢查功能，符合 ('tool', 'has_a', 'function')。",
+    "source_id": "chunk_9",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "CRC 可被視為一種工具（tool），而 '資料完整性' 可被理解為一種功能（function），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "CRC 與 '資料完整性' 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "response": "correct",
+        "reason": "三元組中的主體和關係不觸發語義限制清單中的任何規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "CRC 是工具類別，資料完整性是特徵類別，兩者無直接同義詞關係，但 CRC 可能與資料完整性相關聯，然而根據給定的資安領域同義詞對照範例和判斷準則，無法直接判定為同義詞或子類型關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定 CRC 和資料完整性之間的直接同義詞或子類型關係，根據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CRC",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資料完整性",
+        "type": "function"
+      },
+      "reasoning": "文本將 CRC 與資料完整性對應，CRC 作為工具提供完整性檢查功能，符合 ('tool', 'has_a', 'function')。",
+      "source_id": "chunk_9",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "無線存取器",
+      "type": "system",
+      "display_name": "無線存取器"
+    },
+    "reasoning": "文本提到用戶能與該存取器連線，表示使用者使用了該系統，符合 ('user', 'uses', 'system')。",
+    "source_id": "chunk_9",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "使用者 (user) 可以使用無線存取器 (system)，這是語意上合理的對齊，'uses' 關係也符合實體之間的邏輯關係。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係是uses，而不是mitigates。規則3不適用，因為主體的類別是user，而不是vulnerability。規則4不適用，因為三元組中沒有提到principle。規則5不適用，因為主體的類別是user，而不是data。規則6不適用，因為關係是uses，而不是deployed_in。規則7不適用，因為關係是uses，而不是generates。規則8不適用，因為關係是uses，而不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是使用者，關係是uses，受體是無線存取器，沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 \"使用者\" 與 Ldr 中的 \"使用者\" 完全等價同義詞，受體 \"無線存取器\" 與 Ldr 中的 \"無線存取器 (ap)\" 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "無線存取器",
+        "type": "system"
+      },
+      "reasoning": "文本提到用戶能與該存取器連線，表示使用者使用了該系統，符合 ('user', 'uses', 'system')。",
+      "source_id": "chunk_9",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "ssid",
+      "type": "data",
+      "display_name": "SSID"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "服務區域",
+      "type": "system",
+      "display_name": "服務區域"
+    },
+    "reasoning": "文本提到每個服務區域會取一個代號稱為 SSID，表示 SSID 資料部署/定義在服務區域系統中，符合 ('data', 'deployed_in', 'system')。",
+    "source_id": "chunk_9",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "SSID 是 'data' 的合理實例，服務區域是 'system' 的合理實例，且 'deployed_in' 關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "SSID、服務區域與 'deployed_in' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：不觸發，因為 data 是主體，但規則5 指出當主體是 data 時為違反，但這裡的關係是 deployed_in，不是 uses。規則6：觸發，且合法，因為受體的類別是 system，符合規則6 的要求。",
+        "response": "correct",
+        "reason": "三元組中的關係 deployed_in 與受體的類別 system 符合規則6 的要求，且未發現其他明確違反的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "SSID 與 Ldr 中的 'ssid' 完全等價同義詞，服務區域與 Ldr 中的 '無線存取器' 不完全匹配，但考慮到 SSID 通常與無線存取器相關，仍視為不同概念。",
+        "response": "correct",
+        "standard_subject": "ssid",
+        "standard_object": "",
+        "reason": "SSID 是 Ldr 中 'ssid' 的同義詞，但服務區域與 '無線存取器' 不是同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSID",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "服務區域",
+        "type": "system"
+      },
+      "reasoning": "文本提到每個服務區域會取一個代號稱為 SSID，表示 SSID 資料部署/定義在服務區域系統中，符合 ('data', 'deployed_in', 'system')。",
+      "source_id": "chunk_9",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 10
+    }
+  }
+]

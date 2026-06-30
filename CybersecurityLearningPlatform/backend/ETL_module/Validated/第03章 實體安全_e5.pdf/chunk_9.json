@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "玻璃窗",
+      "type": "system",
+      "display_name": "玻璃窗"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "易被擊碎",
+      "type": "vulnerability",
+      "display_name": "易被擊碎"
+    },
+    "reasoning": "文本明確指出『窗通常是一棟建築物安全性較脆弱的地方』且『玻璃窗容易被擊碎』，因此玻璃窗 (system) 會暴露 (can_expose) 出易被擊碎的弱點 (vulnerability)。",
+    "source_id": "chunk_9",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '玻璃窗' 可被視為 'system' 的實例，受體 '易被擊碎' 可被視為 'vulnerability' 的實例，且 'can_expose' 關係在資安領域中合理適用於此情境。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為動作不是mitigates。規則3適用，但三元組中的can_expose動作是對漏洞的特例允許。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "三元組中的can_expose動作是對漏洞的特例允許，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，Ldr為空，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "玻璃窗",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "易被擊碎",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確指出『窗通常是一棟建築物安全性較脆弱的地方』且『玻璃窗容易被擊碎』，因此玻璃窗 (system) 會暴露 (can_expose) 出易被擊碎的弱點 (vulnerability)。",
+      "source_id": "chunk_9",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "強化玻璃",
+      "type": "tool",
+      "display_name": "強化玻璃"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "玻璃被擊碎",
+      "type": "risk",
+      "display_name": "玻璃被擊碎"
+    },
+    "reasoning": "文本建議採用強化玻璃以提高安全等級並增加抗撞擊強度，這是一種用工具 (tool) 來緩解 (mitigates) 玻璃被擊碎之風險 (risk) 的手段。",
+    "source_id": "chunk_9",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "強化玻璃是工具（tool）的合理實例，玻璃被擊碎是風險（risk）的合理實例，'mitigates' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "強化玻璃（tool）與玻璃被擊碎（risk）之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是 tool，符合規則2的條件，代表合法。",
+        "response": "correct",
+        "reason": "三元組的主體是 tool，符合規則2的條件，沒有違反任何規則。因此，該三元組是合法的。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，Ldr 中已有完全匹配的實體名稱「強化玻璃」，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "強化玻璃",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "玻璃被擊碎",
+        "type": "risk"
+      },
+      "reasoning": "文本建議採用強化玻璃以提高安全等級並增加抗撞擊強度，這是一種用工具 (tool) 來緩解 (mitigates) 玻璃被擊碎之風險 (risk) 的手段。",
+      "source_id": "chunk_9",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵者",
+      "type": "attacker",
+      "display_name": "入侵者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "入侵",
+      "type": "attack",
+      "display_name": "入侵"
+    },
+    "reasoning": "文本提到『阻絕刻意入侵者』，暗示入侵者 (attacker) 是執行 (implements) 入侵行為 (attack) 的主體。",
+    "source_id": "chunk_9",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "入侵者 (attacker) 實現 (implements) 入侵 (attack) 的語意對齊是合理的，因為入侵者通常會實施攻擊行為。",
+        "response": "correct",
+        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。檢查規則2：不適用，因為三元組中的關係是implements，而不是mitigates。檢查規則3：不適用，因為三元組中的主體類別是attacker，而不是vulnerability。檢查規則4：不適用，因為三元組中的關係是implements，而不是violates。檢查規則5：不適用，因為三元組中的關係是implements，而不是uses。檢查規則6：不適用，因為三元組中的關係是implements，而不是deployed_in。檢查規則7：不適用，因為三元組中的關係是implements，而不是generates。檢查規則8：不適用，因為三元組中的關係是implements，而不是controls。",
+        "response": "correct",
+        "reason": "三元組中的主體是入侵者，關係是implements，受體是入侵，沒有違反任何規則。根據無罪推定原則，若未發現明確且直接的違反項目，則判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "入侵者與入侵分別與Ldr中的「入侵者」和「入侵」完全匹配，且無需進一步同義詞判定或廣義/狹義分析。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與Ldr中某些資源的name字串完全相同，直接判定為正確。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "入侵",
+        "type": "attack"
+      },
+      "reasoning": "文本提到『阻絕刻意入侵者』，暗示入侵者 (attacker) 是執行 (implements) 入侵行為 (attack) 的主體。",
+      "source_id": "chunk_9",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "有權限的人員",
+      "type": "user",
+      "display_name": "有權限的人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "門禁系統",
+      "type": "system",
+      "display_name": "門禁系統"
+    },
+    "reasoning": "文本提到有權限的人員可以使用 IC 卡開門進入，這代表使用者 (user) 使用 (uses) 了門禁系統 (system) 來達成目的。",
+    "source_id": "chunk_9",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "有權限的人員 是 user 的合理實例，門禁系統 是 system 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 user，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "三元組中的主體為 user，關係為 uses，受體為門禁系統，沒有觸發任何語義限制清單中的規則，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "門禁系統與現有近似資源清單中的門禁系統完全匹配，無需進行同義詞判定或廣義/狹義一律保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "有權限的人員",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "門禁系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到有權限的人員可以使用 IC 卡開門進入，這代表使用者 (user) 使用 (uses) 了門禁系統 (system) 來達成目的。",
+      "source_id": "chunk_9",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "門禁系統",
+      "type": "system",
+      "display_name": "門禁系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ic卡刷卡機",
+      "type": "tool",
+      "display_name": "IC卡刷卡機"
+    },
+    "reasoning": "文本提到門配有輔助設施如『IC卡刷卡機』，將整體的門禁控制視為一個系統 (system)，而刷卡機是其包含的工具 (tool)。",
+    "source_id": "chunk_9",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "門禁系統是 system 的合理實例，IC卡刷卡機是 tool 的合理實例。",
+        "response": "correct",
+        "reason": "門禁系統與 IC卡刷卡機的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中，門禁系統（system）與IC卡刷卡機（tool）之間的關係為has_a，未觸發任何語義限制清單中的規則。",
+        "response": "correct",
+        "reason": "三元組中的門禁系統和IC卡刷卡機之間的has_a關係，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "門禁系統與現有資源『門禁系統』完全等價，IC卡刷卡機與『讀卡機』具有相似的概念，但非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "門禁系統",
+        "standard_object": "",
+        "reason": "根據前提確認與同義詞判定，門禁系統為完全匹配，IC卡刷卡機與讀卡機非完全同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "門禁系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "IC卡刷卡機",
+        "type": "tool"
+      },
+      "reasoning": "文本提到門配有輔助設施如『IC卡刷卡機』，將整體的門禁控制視為一個系統 (system)，而刷卡機是其包含的工具 (tool)。",
+      "source_id": "chunk_9",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "警衛",
+      "type": "securityTeam",
+      "display_name": "警衛"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "門",
+      "type": "system",
+      "display_name": "門"
+    },
+    "reasoning": "文本將警衛列為門的輔助設施，用以控制人員進出，因此警衛 (securityTeam) 執行對門 (system) 的控制 (controls)。",
+    "source_id": "chunk_9",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "警衛 (securityTeam) 和 門 (system) 的名稱與其被賦予的類別合理對齊，警衛是安全團隊的合理實例，門是系統的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體 (Subject) 的類別是 securityTeam，具有主動執行能力，符合規則。",
+        "response": "correct",
+        "reason": "三元組中的主體 (Subject) 是警衛 (securityTeam)，關係是 controls，受體是門 (system)，符合規則8的允許條件，沒有違反任何語義限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "門與出入口、門禁系統、玻璃窗等系統相關實體比較，門與門禁系統有較高的相關性，但非完全等價同義詞；與出入口、玻璃窗等則是系統的不同子類型或相關概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據【廣義/狹義一律保留】原則，門是系統的子類型，且無法確定門與其他系統相關實體為完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "警衛",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "門",
+        "type": "system"
+      },
+      "reasoning": "文本將警衛列為門的輔助設施，用以控制人員進出，因此警衛 (securityTeam) 執行對門 (system) 的控制 (controls)。",
+      "source_id": "chunk_9",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "ic卡刷卡機",
+      "type": "tool",
+      "display_name": "IC卡刷卡機"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "門",
+      "type": "system",
+      "display_name": "門"
+    },
+    "reasoning": "文本描述透過刷卡來『開啟門禁』，表示刷卡機 (tool) 具有控制 (controls) 門 (system) 開關的能力。",
+    "source_id": "chunk_9",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_2_alignment_check": "IC卡刷卡機 可以被視為 'tool' 的實例，門可以被視為 'system' 的實例，且 'controls' 的關係在資安領域中是合理的。",
+        "response": "correct",
+        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體 IC卡刷卡機 的類別是 tool，符合 controls 關係的主體要求，代表合法。",
+        "response": "correct",
+        "reason": "三元組中的主體 IC卡刷卡機 是一個 tool，符合規則8中 controls 關係的主體要求。因此，該三元組不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 IC卡刷卡機 與 Ldr 中的 ic卡刷卡機 完全等價同義詞，受體 門 與 Ldr 中的 出入口 相似但不完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "ic卡刷卡機",
+        "standard_object": "",
+        "reason": "主體 IC卡刷卡機 與 Ldr 中的 ic卡刷卡機 完全等價同義詞，受體 門 與 Ldr 中的 出入口 不完全等價同義詞，依據【廣義/狹義一律保留】與【不確定時預設保留】原則判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IC卡刷卡機",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "門",
+        "type": "system"
+      },
+      "reasoning": "文本描述透過刷卡來『開啟門禁』，表示刷卡機 (tool) 具有控制 (controls) 門 (system) 開關的能力。",
+      "source_id": "chunk_9",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 6
+    }
+  }
+]
