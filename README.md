@@ -105,7 +105,7 @@ NEO4J_USER=neo4j
 ### 2. 啟動後端
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend'
 Copy-Item .env.example .env
 python -m pip install -r requirements.txt
 python app.py
@@ -126,7 +126,7 @@ Invoke-WebRequest http://localhost:5000/api/health
 ### 3. 啟動前端
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\frontend'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\frontend'
 npm install
 npm run dev -- --port 3000
 ```
@@ -149,7 +149,7 @@ npm run dev -- --port 3000
 本 repository 不從原始 PDF 切塊開始復現，原因是原始教材內容可能涉及著作權。公開復現路徑從已驗證三元組 `Validated/` 開始。
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\ETL_module'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\ETL_module'
 python 03b_restore_neo4j.py
 ```
 
@@ -201,7 +201,7 @@ MatchGPT 已歸入實驗 1：`CybersecurityLearningPlatform/backend/exp_1/MatchG
 先做語法層級檢查，確認搬移後的 Python 檔案仍可編譯：
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend'
 Get-ChildItem .\exp_1,.\exp_2,.\exp_3 -Recurse -Filter *.py |
   ForEach-Object { python -m py_compile $_.FullName }
 ```
@@ -218,7 +218,7 @@ python tools/check_release_ready.py
 `backend/exp_1/run_mock_tests.py` 是實驗 1 的離線檢查入口，用來確認指標彙整邏輯可在不連線 Neo4j、不呼叫 LLM 的情況下執行。
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\exp_1'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\exp_1'
 python run_mock_tests.py
 python exp_1_indicator2_matchgpt.py
 python exp_1_indicator3_prepost.py
@@ -243,7 +243,7 @@ MatchGPT 的可執行腳本位於 `backend/exp_1/MatchGPT/phase1_scripts/`：
 常用檢查順序：
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\exp_1\MatchGPT'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\exp_1\MatchGPT'
 python phase1_scripts\check_env.py
 python phase1_scripts\preflight_check.py
 ```
@@ -255,7 +255,7 @@ python phase1_scripts\preflight_check.py
 `backend/exp_2/run_mock_tests.py` 是實驗 2 的離線檢查入口；`backend/exp_2/phase2/` 則保留原本的 Leiden/章節結構化執行鏈。
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\exp_2'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\exp_2'
 python run_mock_tests.py
 ```
 
@@ -275,7 +275,7 @@ python run_mock_tests.py
 常用順序：
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\exp_2\phase2'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\exp_2\phase2'
 python smoke_test.py
 python step2_1_leiden.py
 python step2_1_leiden.py --finalize --gamma 1.5 --min_community_size 3
@@ -305,14 +305,14 @@ python step2_6_chapter_dict.py
 快速 smoke run 可先加 `--limit`：
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\exp_3'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\exp_3'
 python exp_3_nf1_pipeline.py --model phi --questions data\question_bank_329.json --output data\eval_results\phi_NF1_smoke.json --limit 5
 ```
 
 完整批次評估範例：
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\exp_3'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\exp_3'
 python exp_3_eval_batch.py --questions data\question_bank_329.json --subgraphs data\subgraph --output_dir data\eval_results --models phi,llama8b,gemma,llama70b --conditions llm_only,graph_rag
 python exp_3_thesis_tables.py
 python exp_3_paper_tables.py
