@@ -1,4 +1,5 @@
 import json
+import argparse
 import os
 import sys
 # Load backend .env when this script is executed directly.
@@ -20,9 +21,11 @@ import threading
 import concurrent.futures
 import copy
 import random
+from datetime import datetime
 from tqdm import tqdm
 from openai import OpenAI
 from neo4j import GraphDatabase
+from neo4j.exceptions import ServiceUnavailable, SessionExpired, TransientError
 import torch
 import torch.nn.functional as F
 import requests
@@ -41,6 +44,7 @@ API_KEY_3 = os.getenv("NVIDIA_API_KEY_3")
 API_KEY_4 = os.getenv("NVIDIA_API_KEY_4")
 API_KEY_5 = os.getenv("NVIDIA_API_KEY_5")
 API_KEY_6 = os.getenv("NVIDIA_API_KEY_6")
+API_KEY_7 = os.getenv("NVIDIA_API_KEY_7")
 
 API_KEYS = [
     os.getenv("NVIDIA_API_KEY_1", API_KEY_1),
@@ -48,7 +52,8 @@ API_KEYS = [
     os.getenv("NVIDIA_API_KEY_3", API_KEY_3),
     os.getenv("NVIDIA_API_KEY_4", API_KEY_4),
     os.getenv("NVIDIA_API_KEY_5", API_KEY_5),
-    os.getenv("NVIDIA_API_KEY_6", API_KEY_6)
+    os.getenv("NVIDIA_API_KEY_6", API_KEY_6),
+    os.getenv("NVIDIA_API_KEY_7", API_KEY_7)
 ]
 API_KEYS = [key.strip() for key in API_KEYS if key and key.strip()]
 
@@ -64,7 +69,7 @@ for api_key in API_KEYS:
         print(f"初始化 Llama API Client 失敗。錯誤：{e}")
         exit(1)
 
-LLAMA_MODEL_NAME = "meta/llama-3.3-70b-instruct"
+LLAMA_MODEL_NAME = "meta/llama-3.1-70b-instruct"
 
 # API 客戶端佇列 (Thread-safe)
 client_queue = queue.Queue()
@@ -106,6 +111,46 @@ NEO4J_URI = os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687")
 NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "")
 
+# --- [F12] Neo4j 有界重試（bounded retry） ---
+# Neo4j 為遠端主機，浮動 IP 斷線時 session.run 會立即 raise。對齊 F7 embedding
+# 呼叫的既有模式：重試上限、遞增等待、超過上限才 raise，交由上層安全網接手
+# （import 路徑→「Neo4j Import Error」reject；Step 2 讀取路徑→F6「Internal Error」reject）。
+NEO4J_READ_RETRY_ATTEMPTS = 20   # 讀取呼叫，總等待約 7-8 分鐘（同 F7 embedding）
+NEO4J_WRITE_RETRY_ATTEMPTS = 15  # 寫入於 step2_and_write_lock 鎖內執行，總等待約 5 分鐘
+
+_NEO4J_TRANSIENT_KEYWORDS = (
+    "connection", "refused", "reset", "timed out", "timeout", "unavailable",
+    "defunct", "broken pipe", "socket", "routing", "failed to read", "failed to write",
+)
+
+def is_transient_neo4j_error(e):
+    """僅連線層級的暫時性錯誤可重試；語法錯誤、資料錯誤等立即 raise、不得吞掉。"""
+    if isinstance(e, (ServiceUnavailable, SessionExpired, TransientError)):
+        return True
+    if isinstance(e, OSError):  # ConnectionError / TimeoutError / socket 層皆為其子類
+        return True
+    msg = str(e).lower()
+    return any(k in msg for k in _NEO4J_TRANSIENT_KEYWORDS)
+
+def run_with_neo4j_retry(op, what="", max_attempts=NEO4J_READ_RETRY_ATTEMPTS):
+    """op 為無參數 callable，必須把 session.run(...) 與結果消費（list()/single()/
+    consume()）包成同一組——run 為 lazy，只包 run 不包消費會漏接斷線。"""
+    attempt = 0
+    while True:
+        try:
+            return op()
+        except Exception as e:
+            if not is_transient_neo4j_error(e):
+                raise
+            attempt += 1
+            if attempt >= max_attempts:
+                raise RuntimeError(
+                    f"Neo4j unreachable after {attempt} attempts ({what}): {e}"
+                ) from e
+            wait_time = min(attempt * 3, 30)
+            print(f"  [Neo4j 重試] {what}: {type(e).__name__}，第 {attempt}/{max_attempts} 次失敗，{wait_time}s 後重試...")
+            time.sleep(wait_time)
+
 # --- 參數與日誌設定 ---
 RAW_TRIPLES_DIR = "RawTriples"
 VALIDATED_DIR = "Validated"
@@ -115,6 +160,83 @@ VALIDATE_SYSTEM_PROMPT = load_prompt("etl/validate_system.md")
 VALIDATE_CLASS_PROPERTY_PROMPT = load_prompt("etl/validate_class_property.md")
 VALIDATE_URI_STANDARDIZATION_PROMPT = load_prompt("etl/validate_uri_standardization.md")
 VALIDATE_SEMANTIC_CONSISTENCY_PROMPT = load_prompt("etl/validate_semantic_consistency.md")
+
+AUDIT_LOG_PATH = None
+AUDIT_LOCK = threading.Lock()
+AUDIT_WARNED_FAILURE = False
+
+
+def default_audit_log_path():
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    return os.path.join("logs", f"validation_audit_{timestamp}.jsonl")
+
+
+def configure_audit_log(path=None):
+    global AUDIT_LOG_PATH, AUDIT_WARNED_FAILURE
+    AUDIT_LOG_PATH = os.fspath(path) if path else default_audit_log_path()
+    AUDIT_WARNED_FAILURE = False
+    return AUDIT_LOG_PATH
+
+
+def classify_audit_stage(is_valid, triple):
+    if is_valid:
+        # [F8] accept 過去誤標 step3_semantic，混淆 stage 統計
+        return "accepted"
+
+    reason = str(triple.get("reject_reason") or "")
+    if "Phase 1" in reason:
+        return "phase1_schema"
+    if "Step 1" in reason or "Class/Property" in reason:
+        return "step1_class_property"
+    if "Step 2" in reason or "URI" in reason:
+        return "step2_uri"
+    if "Step 3" in reason or "Semantic" in reason:
+        return "step3_semantic"
+    if "Neo4j Import Error" in reason:
+        return "neo4j_import"
+    return "other"
+
+
+def summarize_reason(reason):
+    text = str(reason or "").replace("\r", " ").replace("\n", " ").strip()
+    return text[:500]
+
+
+def write_validation_audit(record):
+    global AUDIT_WARNED_FAILURE
+    if not AUDIT_LOG_PATH:
+        return
+
+    try:
+        log_path = os.fspath(AUDIT_LOG_PATH)
+        parent = os.path.dirname(log_path)
+        if parent:
+            os.makedirs(parent, exist_ok=True)
+        with AUDIT_LOCK:
+            with open(log_path, "a", encoding="utf-8") as f:
+                json.dump(record, f, ensure_ascii=False, sort_keys=True)
+                f.write("\n")
+    except Exception:
+        if not AUDIT_WARNED_FAILURE:
+            print("[AUDIT_WARN] validation audit write failed; pipeline continues.")
+            AUDIT_WARNED_FAILURE = True
+
+
+def audit_validation_decision(is_valid, validated_triple, raw_triple, source_file="", source_index=None):
+    reason = "" if is_valid else str(validated_triple.get("reject_reason") or "")
+    record = {
+        "timestamp": datetime.now().isoformat(timespec="seconds"),
+        "decision": "accept" if is_valid else "reject",
+        "stage": classify_audit_stage(is_valid, validated_triple),
+        "reason": reason,
+        "reason_summary": "accepted" if is_valid else summarize_reason(reason),
+        "source_file": source_file or str(raw_triple.get("source_file") or ""),
+        "source_index": source_index if source_index is not None else raw_triple.get("source_index", ""),
+        "raw_triple": raw_triple,
+        "final_triple": validated_triple,
+    }
+    write_validation_audit(record)
+    return record
 
 # 設定 API 請求日誌
 api_logger = logging.getLogger("API_Requests")
@@ -138,8 +260,8 @@ ALLOWED_EDGES = {
     ("data", "deployed_in", "system"),
     ("feature", "uses", "data"), ("feature", "is_part_of", "tool"),
     ("function", "has_a", "feature"),
-    ("system", "generates", "data"), ("system", "uses", "data"), ("system", "has_a", "feature"), ("system", "connects_to", "system"), ("system", "has_a", "system"), ("system", "has_a", "system"), ("system", "is_part_of", "system"), ("system", "is_part_of", "system"), ("system", "has_a", "tool"),
-    ("technique", "can_analyze", "app"), ("technique", "can_analyze", "data"), ("technique", "can_analyze", "system"), ("technique", "is_part_of", "technique"), ("technique", "is_part_of", "technique"), ("technique", "has_a", "tool"),
+    ("system", "generates", "data"), ("system", "uses", "data"), ("system", "has_a", "feature"), ("system", "connects_to", "system"), ("system", "has_a", "system"), ("system", "is_part_of", "system"), ("system", "has_a", "tool"),
+    ("technique", "can_analyze", "app"), ("technique", "can_analyze", "data"), ("technique", "can_analyze", "system"), ("technique", "is_part_of", "technique"), ("technique", "has_a", "tool"),
     ("tool", "is_part_of", "app"), ("tool", "generates", "data"), ("tool", "has_a", "feature"), ("tool", "has_a", "function"), ("tool", "deployed_in", "system"), ("tool", "is_part_of", "system"), ("tool", "uses", "technique"), ("tool", "has_a", "tool"), ("tool", "is_part_of", "tool"),
     ("user", "uses", "app"), ("user", "uses", "data"), ("user", "implements", "policy"), ("user", "uses", "system"), ("user", "can_expose", "vulnerability"),
 
@@ -150,8 +272,7 @@ ALLOWED_EDGES = {
     ("data", "can_expose", "vulnerability"),
     ("feature", "can_expose", "vulnerability"),
     ("system", "can_expose", "vulnerability"),
-    ("technique", "implements", "attack"), ("technique", "depends_on", "tool"),
-    ("tool", "controls", "system"),
+    ("technique", "implements", "attack"),
     ("vulnerability", "can_expose", "risk"),
 
     # Security View
@@ -180,13 +301,60 @@ Lc_p = {
 Lsr = [
     "規則1：同一實體不能同時具有攻擊者(attacker)與安全團隊(securityTeam)的身分。",
     "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
-    "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+    "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
     "規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。",
-    "規則5：當關係為 uses 時，如果主體 (Subject) 的類別是 data，則為違反；但如果 data 僅是出現在受體 (Object) 位置，則屬合法。",
+    "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
     "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
     "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
     "規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。"
 ]
+
+# [F13] Step 3 語意規則機械複核 --------------------------------------------------
+# Lsr 規則 2-8 的觸發條件皆為 (主體型別, 關係, 受體型別) 層級、可由程式判定；
+# 且 ALLOWED_EDGES 98 條合法邊不含任何違規組合——進入 Step 3 的三元組已通過
+# Step 2 的 schema 複檢，這些機械條件必然不成立。實測 LLM 會在逐字引用規則
+# 後仍反向誤判（run2 前 38%：step3 拒絕 47 筆中 44 筆確認誤拒），故 LLM 判
+# violation 時由程式逐條複核：機械條件皆不成立、且未引用規則 1（唯一非型別
+# 層級、跨三元組的語意規則）者，判定為規則誤用之誤拒，改判通過並留存紀錄。
+_RULE1_CITE_PAT = re.compile(r"規則\s*1(?!\d)")
+
+def _cites_rule1(res_3):
+    """規則 1 引用偵測：只看最終判定 reason（step_1_rule_matching 是規則引用
+    工作區，舊版 prompt 會整段抄錄全部規則、含規則1 字樣，不可作為依據），
+    另以「攻擊者/安全團隊雙雙出現」作為未寫規則編號時的保守備援。"""
+    reason = str(res_3.get('reason', ''))
+    if _RULE1_CITE_PAT.search(reason):
+        return True
+    return (('attacker' in reason or '攻擊者' in reason)
+            and ('securityTeam' in reason or '安全團隊' in reason))
+
+def step3_mechanical_recheck(t, res_3):
+    """複核 Step 3 的 violation 判定；回傳 dict，override=True 表示翻案通過。"""
+    s_type = t['subject'].get('type', '')
+    o_type = t['object'].get('type', '')
+    rel = t.get('relation', '')
+    hits = []
+    if rel == 'mitigates' and s_type not in ('policy', 'technique', 'tool'):
+        hits.append('規則2')
+    if s_type == 'vulnerability' and rel != 'can_expose':
+        hits.append('規則3')
+    if s_type == 'principle':
+        hits.append('規則4')
+    if s_type == 'data' and rel == 'uses':
+        hits.append('規則5')
+    if rel == 'deployed_in' and o_type != 'system':
+        hits.append('規則6')
+    if rel == 'generates' and o_type != 'data':
+        hits.append('規則7')
+    if rel == 'controls' and s_type in ('data', 'feature'):
+        hits.append('規則8')
+    cites_rule1 = _cites_rule1(res_3)
+    return {
+        'override': (not hits) and (not cites_rule1),
+        'mechanical_hits': hits,
+        'cites_rule1': cites_rule1,
+        'llm_reason': str(res_3.get('reason', '')),
+    }
 
 # [修復 1: 確定性字串正規化，消除大小寫/空格造成的假冗餘節點]
 def normalize_entity_name(name: str) -> str:
@@ -194,17 +362,27 @@ def normalize_entity_name(name: str) -> str:
     return name.strip().lower()
 
 def extract_json(text):
+    # [F1] 解析順序修正：response_format=json_object 下頂層必為 object，
+    # 先整段解析、再抓 dict、最後才抓 array；舊版先抓 `\[.*\]` 會把
+    # 「含陣列欄位的合法 dict 回應」毀成陣列，導致 response 欄位遺失。
     try:
-        match = re.search(r'\[.*\]', text, re.DOTALL)
-        if match:
-            return json.loads(match.group(0))
-        match_obj = re.search(r'\{.*\}', text, re.DOTALL)
-        if match_obj:
+        return json.loads(text.strip())
+    except Exception:
+        pass
+    match_obj = re.search(r'\{.*\}', text, re.DOTALL)
+    if match_obj:
+        try:
             return json.loads(match_obj.group(0))
-        return json.loads(text)
-    except Exception as e:
-        print(f"JSON 解析錯誤: {e}\n原始文字:\n{text}")
-        return []
+        except Exception:
+            pass
+    match = re.search(r'\[.*\]', text, re.DOTALL)
+    if match:
+        try:
+            return json.loads(match.group(0))
+        except Exception:
+            pass
+    print(f"JSON 解析錯誤，無法解析回應:\n{text}")
+    return []
 
 def call_llama(prompt):
     attempt = 0
@@ -258,7 +436,10 @@ def get_embedding_from_lmstudio(text):
             return embedding
         except Exception as e:
             attempt += 1
-            wait_time = attempt * 3
+            # [F7] 重試上限：舊版無上限，embedding 端點斷線會令整批靜默卡死
+            if attempt >= 20:
+                raise RuntimeError(f"Embedding endpoint failed after {attempt} attempts: {e}")
+            wait_time = min(attempt * 3, 30)
             time.sleep(wait_time)
 
 def get_semantic_top_k(session, entity_name, entity_type, top_k=5):
@@ -267,8 +448,11 @@ def get_semantic_top_k(session, entity_name, entity_type, top_k=5):
 
     label = "".join([c for c in entity_type if c.isalnum()])
     query = f"MATCH (n:{label}) RETURN DISTINCT n.name AS name"
-    result = session.run(query)
-    existing_names = [record["name"] for record in result if record["name"]]
+    # [F12] run 為 lazy：把 run + 迭代取回包成同一組重試單位
+    existing_names = run_with_neo4j_retry(
+        lambda: [record["name"] for record in session.run(query) if record["name"]],
+        what=f"get_semantic_top_k({label})",
+    )
 
     if not existing_names:
         return []
@@ -311,8 +495,11 @@ def queryForDuplicateResources(session, s_name, s_type, o_name, o_type):
 # [修復 4: 實體類別標註不穩定 (Type Instability)]
 def resolve_type_conflict(session, entity_name, current_type):
     query = "MATCH (n) WHERE n.name = $name RETURN labels(n)[0] AS label LIMIT 1"
-    result = session.run(query, name=entity_name)
-    record = result.single()
+    # [F12] run + single() 包成同一組重試單位
+    record = run_with_neo4j_retry(
+        lambda: session.run(query, name=entity_name).single(),
+        what="resolve_type_conflict",
+    )
     if record and record["label"]:
         return record["label"]
     return current_type
@@ -349,15 +536,25 @@ def import_to_neo4j(session, t):
         r.source_id = coalesce(r.source_id, []) + [$source_id],
         r.source_index = coalesce(r.source_index, []) + [$source_index]
     """
-    session.run(
-        query,
-        norm_s_name=norm_s_name,
-        norm_o_name=norm_o_name,
-        display_s_name=display_s_name,
-        display_o_name=display_o_name,
-        source_file=t.get('source_file', ''),
-        source_id=t.get('source_id', ''),
-        source_index=t.get('source_index', '')
+    # [F5] consume()：session.run 為 lazy，未消費結果會延遲到 session 關閉才執行，
+    # 屆時已在鎖外，曾實測產生同名同 label 重複節點（寫入競態）。
+    # [F12] 重試單位＝run().consume() 整組：任一半途失敗即整組重試，成功才返回、
+    # 才離開 step2_and_write_lock，維持 F5 語意（consume 不得移出重試迴圈）。
+    # 鎖內重試會令其他 worker 一起等鎖，屬預期行為（Neo4j 斷線時全員反正無法寫入），
+    # 故上限採較短的 NEO4J_WRITE_RETRY_ATTEMPTS，避免斷線過久時卡死整個 pipeline。
+    run_with_neo4j_retry(
+        lambda: session.run(
+            query,
+            norm_s_name=norm_s_name,
+            norm_o_name=norm_o_name,
+            display_s_name=display_s_name,
+            display_o_name=display_o_name,
+            source_file=t.get('source_file', ''),
+            source_id=t.get('source_id', ''),
+            source_index=t.get('source_index', '')
+        ).consume(),
+        what="import_to_neo4j",
+        max_attempts=NEO4J_WRITE_RETRY_ATTEMPTS,
     )
 
 # [架構變更 5: 混合式過濾漏斗架構 (Hybrid Funnel Architecture)]
@@ -396,6 +593,12 @@ def validate_and_import_triple(t, neo4j_session, triple_idx):
         t['subject']['name'] = normalize_entity_name(t['subject']['name'])
     if t['object'].get('name'):
         t['object']['name'] = normalize_entity_name(t['object']['name'])
+
+    # [F3] 自我迴圈防線（raw 層）：正規化後主受體同名即拒絕
+    if t['subject'].get('name') and t['subject']['name'] == t['object'].get('name'):
+        t['reject_reason'] = "Phase 1 (Self-Loop Violation): subject == object after normalization."
+        _advance_counter()
+        return False, t
 
     s_type = t['subject'].get('type', '')
     rel = t.get('relation', '')
@@ -475,20 +678,44 @@ def validate_and_import_triple(t, neo4j_session, triple_idx):
         try:
             raw_res_2 = call_llama(prompt_2)
             res_2 = extract_json(raw_res_2)
-            # 居後判斷：只要 LLM 填了 standard 就套用，不依賴 response 欄位
-            # （防止 LLM 誤回 "correct" 卻已圖入同義詞）
-            if isinstance(res_2, dict):
-                if res_2.get("response") == "duplicate" or res_2.get("standard_subject") or res_2.get("standard_object"):
-                    std_sub = res_2.get("standard_subject")
-                    std_obj = res_2.get("standard_object")
+            # [F2] 僅在 LLM 明確判定 duplicate 時才套用標準名：
+            # 舊版「居後判斷」會在 response=correct 卻殘留 standard_* 欄位時強行改名
+            if isinstance(res_2, dict) and res_2.get("response") == "duplicate":
+                std_sub = res_2.get("standard_subject")
+                std_obj = res_2.get("standard_object")
         except Exception:
             pass
 
-        # URI 標準化套用到本地 t
+        # URI 標準化套用到本地 t（[F2] 標準名一律重新正規化，維持 MERGE 鍵一致性）
         if std_sub and std_sub.strip():
-            t['subject']['name'] = std_sub
+            t['subject']['name'] = normalize_entity_name(std_sub)
         if std_obj and std_obj.strip():
-            t['object']['name'] = std_obj
+            t['object']['name'] = normalize_entity_name(std_obj)
+
+        # [F3] 合併後自我迴圈防線：同義詞合併若使主受體同名（母類/子類誤合併
+        # 的典型症狀），還原本次改名、保留原始名稱，不阻斷後續驗證。
+        if (std_sub or std_obj) and t['subject']['name'] == t['object']['name']:
+            t['subject']['name'] = s_name
+            t['object']['name'] = o_name
+            t.setdefault('validation_history', {})['step_2_selfloop_reverted'] = True
+
+        # ── [F4] 型別覆寫/改名後之 schema 複檢 ─────────────────────────────
+        # 對最終名稱重新對齊既有節點 label（避免同名跨 label 重複節點），
+        # 再以最終 (type, relation, type) 複查 98 合法邊；不合法即拒絕，
+        # 杜絕「原始合法、覆寫後違法」的邊繞過 Phase 1 進入圖庫。
+        t['subject']['type'] = resolve_type_conflict(neo4j_session, t['subject']['name'], t['subject']['type'])
+        t['object']['type'] = resolve_type_conflict(neo4j_session, t['object']['name'], t['object']['type'])
+        final_sig = (t['subject']['type'], t['relation'], t['object']['type'])
+        if final_sig not in ALLOWED_EDGES:
+            t['reject_reason'] = (
+                f"Step 2 (Post-standardization Schema Violation): "
+                f"{final_sig[0]} -> {final_sig[1]} -> {final_sig[2]} "
+                f"(original: {s_type} -> {rel} -> {o_type})"
+            )
+            t.setdefault('validation_history', {})['step_2'] = res_2
+            step2_next_idx += 1
+            step2_cond.notify_all()
+            return False, t
 
         # ── 預登錄 session cache（在鎖內立即可見，消除 Race Condition）────────
         session_entity_cache[t['subject']['name']] = {"name": t['subject']['name'], "type": t['subject']['type']}
@@ -519,12 +746,17 @@ def validate_and_import_triple(t, neo4j_session, triple_idx):
         res_3 = extract_json(raw_res_3)
         t.setdefault('validation_history', {})['step_3'] = res_3
         if isinstance(res_3, dict) and res_3.get("response") == "violation":
-            t['reject_reason'] = f"Step 3 (Semantic Violation): {res_3.get('reason')}"
-            # Step 3 拒絕：移除 Step 2 預登錄的 cache 條目，避免汙染後續查詢
-            with step2_and_write_lock:
-                session_entity_cache.pop(t['subject']['name'], None)
-                session_entity_cache.pop(t['object']['name'],  None)
-            return False, t
+            # [F13] 機械複核：規則 2-8 條件不成立且未涉規則 1 → 誤拒翻案通過
+            recheck = step3_mechanical_recheck(t, res_3)
+            if recheck['override']:
+                t['validation_history']['step_3_recheck'] = recheck
+            else:
+                t['reject_reason'] = f"Step 3 (Semantic Violation): {res_3.get('reason')}"
+                # Step 3 拒絕：移除 Step 2 預登錄的 cache 條目，避免汙染後續查詢
+                with step2_and_write_lock:
+                    session_entity_cache.pop(t['subject']['name'], None)
+                    session_entity_cache.pop(t['object']['name'],  None)
+                return False, t
     except Exception as e:
         t['reject_reason'] = f"Step 3 LLM Error: {e}"
         with step2_and_write_lock:
@@ -546,6 +778,33 @@ def validate_and_import_triple(t, neo4j_session, triple_idx):
             session_entity_cache.pop(t['object']['name'],  None)
             return False, t
 
+def validate_audit_and_import_triple(t, neo4j_session, triple_idx, source_file=""):
+    original_t = copy.deepcopy(t)
+    try:
+        is_valid, validated_t = validate_and_import_triple(t, neo4j_session, triple_idx)
+    except Exception as e:
+        # [F6] 例外安全網：未捕捉例外過去會讓三元組無聲消失（不進 Validated/
+        # Rejected/audit），且 Step 2 順序計數器未推進會使整個 chunk 死鎖。
+        is_valid = False
+        validated_t = t if isinstance(t, dict) else {"subject": {}, "relation": "", "object": {}}
+        validated_t['reject_reason'] = f"Internal Error: {type(e).__name__}: {e}"
+        global step2_next_idx
+        with step2_cond:
+            while step2_next_idx < triple_idx:
+                step2_cond.wait()
+            if step2_next_idx == triple_idx:
+                step2_next_idx += 1
+                step2_cond.notify_all()
+    validated_t['original_raw_triple'] = original_t
+    audit_validation_decision(
+        is_valid,
+        validated_t,
+        original_t,
+        source_file=source_file,
+        source_index=original_t.get('source_index', triple_idx),
+    )
+    return is_valid, validated_t
+
 def get_raw_triple_files(raw_dir):
     files = []
     for root, _, filenames in os.walk(raw_dir):
@@ -554,9 +813,22 @@ def get_raw_triple_files(raw_dir):
                 files.append(os.path.join(root, f))
     return files
 
-def main():
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser(description="Validate RawTriples and import accepted triples into Neo4j.")
+    parser.add_argument(
+        "--audit-log",
+        default=None,
+        help="Validation audit jsonl path. Default: ETL_module/logs/validation_audit_{timestamp}.jsonl",
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv=None):
+    args = parse_args(argv)
     script_dir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(script_dir)
+    audit_log_path = configure_audit_log(args.audit_log)
+    print(f"[INFO] validation_audit_log={audit_log_path}")
 
     if not os.path.exists(RAW_TRIPLES_DIR):
         print(f"找不到輸入資料夾: {os.path.abspath(RAW_TRIPLES_DIR)}")
@@ -570,6 +842,34 @@ def main():
         print("Neo4j 連線成功。")
     except Exception as e:
         print(f"Neo4j 連線失敗: {e}")
+        exit(1)
+
+    # [F5] 唯一性約束：杜絕 MERGE 競態產生同名同 label 重複節點（雙保險）
+    with neo4j_driver.session() as constraint_session:
+        for label in sorted(Lc_p["Classes"]):
+            # [F12] 啟動時只跑一次，包較簡短的 5 次重試即可
+            run_with_neo4j_retry(
+                lambda label=label: constraint_session.run(
+                    f"CREATE CONSTRAINT uniq_{label}_name IF NOT EXISTS "
+                    f"FOR (n:{label}) REQUIRE n.name IS UNIQUE"
+                ).consume(),
+                what=f"create_constraint({label})",
+                max_attempts=5,
+            )
+    print("Neo4j 唯一性約束就緒（15 labels）。")
+
+    # [F7] embedding 端點健檢：避免開跑後才因端點離線而卡死
+    try:
+        _probe = requests.post(
+            os.getenv("EMBEDDING_BASE_URL", "http://127.0.0.1:1234/v1") + "/embeddings",
+            headers={"Content-Type": "application/json"},
+            json={"model": "text-embedding-embeddinggemma-300m-qat", "input": "healthcheck"},
+            timeout=10,
+        )
+        _probe.raise_for_status()
+        print("Embedding 端點健檢通過。")
+    except Exception as e:
+        print(f"[FATAL] Embedding 端點健檢失敗：{e}；請先啟動 LM Studio embedding 服務再重跑。")
         exit(1)
 
     print(f"\n開始驗證與寫入 (總共 {len(raw_files)} 個區塊檔案)...")
@@ -614,9 +914,6 @@ def main():
         chunk_rejected = []
 
         def process_triple(idx, t):
-            # [需求 2: 保留最原始 Rawtriple 的資訊]
-            original_t = copy.deepcopy(t)
-            
             s_name = t.get('subject', {}).get('name', '')
             o_name = t.get('object', {}).get('name', '')
             s_type = t.get('subject', {}).get('type', '')
@@ -625,10 +922,12 @@ def main():
             print(f"  [開始驗證 {idx+1}/{len(triples)}] ({s_name}({s_type}), {rel}, {o_name}({o_type})) ...")
             
             with neo4j_driver.session() as thread_session:
-                is_valid, validated_t = validate_and_import_triple(t, thread_session, idx)
-                
-            # 將原始未修改的資訊存入驗證結果
-            validated_t['original_raw_triple'] = original_t
+                is_valid, validated_t = validate_audit_and_import_triple(
+                    t,
+                    thread_session,
+                    idx,
+                    source_file=rel_path,
+                )
             
             if is_valid:
                 print(f"  ✅ [通過 {idx+1}/{len(triples)}] ({validated_t['subject']['name']}, {validated_t['relation']}, {validated_t['object']['name']})")
@@ -642,7 +941,7 @@ def main():
         global step2_next_idx
         session_entity_cache.clear()
         step2_next_idx = 0
-        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=7) as executor:
             futures = [executor.submit(process_triple, idx, t) for idx, t in enumerate(triples)]
             for future in concurrent.futures.as_completed(futures):
                 try:

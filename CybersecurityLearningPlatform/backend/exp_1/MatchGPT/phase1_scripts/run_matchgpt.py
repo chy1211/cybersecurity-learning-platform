@@ -42,6 +42,7 @@ import requests
 import torch
 import torch.nn.functional as F
 from neo4j import GraphDatabase
+from neo4j.exceptions import ServiceUnavailable, SessionExpired, TransientError
 from openai import OpenAI
 
 # 直接 import neo4j_backup_restore 函式（避免 subprocess stdin 問題）
@@ -69,6 +70,45 @@ MATCHGPT_USER_PROMPT = load_prompt("matchgpt/merge_nodes_user.md")
 NEO4J_URI  = os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687")
 NEO4J_USER = "neo4j"
 NEO4J_PASS = os.getenv("NEO4J_PASSWORD", "")
+
+# --- [F12] Neo4j 有界重試（bounded retry） ---
+# MatchGPT 需長時間讀取、還原、合併與備份 Neo4j；暫時性連線中斷只重試
+# 連線層級錯誤，語法或資料錯誤仍立即交給上層處理。
+NEO4J_READ_RETRY_ATTEMPTS = 20
+NEO4J_WRITE_RETRY_ATTEMPTS = 15
+
+_NEO4J_TRANSIENT_KEYWORDS = (
+    "connection", "refused", "reset", "timed out", "timeout", "unavailable",
+    "defunct", "broken pipe", "socket", "routing", "failed to read", "failed to write",
+)
+
+def is_transient_neo4j_error(e):
+    """僅連線層級的暫時性錯誤可重試；語法錯誤、資料錯誤等立即 raise、不得吞掉。"""
+    if isinstance(e, (ServiceUnavailable, SessionExpired, TransientError)):
+        return True
+    if isinstance(e, OSError):  # ConnectionError / TimeoutError / socket 層皆為其子類
+        return True
+    msg = str(e).lower()
+    return any(k in msg for k in _NEO4J_TRANSIENT_KEYWORDS)
+
+def run_with_neo4j_retry(op, what="", max_attempts=NEO4J_READ_RETRY_ATTEMPTS):
+    """op 為無參數 callable，必須把 session.run(...) 與結果消費（list()/
+    single()/consume()）包成同一組——run 為 lazy，只包 run 不包消費會漏接斷線。"""
+    attempt = 0
+    while True:
+        try:
+            return op()
+        except Exception as e:
+            if not is_transient_neo4j_error(e):
+                raise
+            attempt += 1
+            if attempt >= max_attempts:
+                raise RuntimeError(
+                    f"Neo4j unreachable after {attempt} attempts ({what}): {e}"
+                ) from e
+            wait_time = min(attempt * 3, 30)
+            print(f"  [Neo4j 重試] {what}: {type(e).__name__}，第 {attempt}/{max_attempts} 次失敗，{wait_time}s 後重試...")
+            time.sleep(wait_time)
 
 # ─── LLM API（6 把 NVIDIA key）────────────────────────────────────────────────
 _RAW_KEYS = [
@@ -134,13 +174,13 @@ def save_embedding_cache():
         with open(EMBEDDING_CACHE_FILE, "w", encoding="utf-8") as f:
             json.dump(embedding_cache, f, ensure_ascii=False)
 
-def get_embedding(text: str) -> list | None:
+def get_embedding(text: str) -> list:
     with embed_cache_lock:
         if text in embedding_cache:
             return embedding_cache[text]
 
     # 嘗試呼叫 LM Studio
-    for attempt in range(3):
+    for attempt in range(1, 21):
         try:
             resp = requests.post(
                 EMBED_URL,
@@ -154,11 +194,9 @@ def get_embedding(text: str) -> list | None:
                 embedding_cache[text] = emb
             return emb
         except Exception as e:
-            if attempt == 2:
-                print(f"  [WARN] embedding 失敗（{text[:30]}...）：{e}")
-                return None
-            time.sleep(1 + attempt)
-    return None
+            if attempt >= 20:
+                raise RuntimeError(f"Embedding endpoint unreachable after 20 attempts: {e}") from e
+            time.sleep(min(attempt * 3, 30))
 
 
 def cosine_sim(a: list, b: list) -> float:
@@ -202,53 +240,68 @@ def build_matchgpt_prompt(name_a: str, type_a: str, name_b: str, type_b: str) ->
 def call_llama_once(prompt: str) -> dict | None:
     attempt = 0
     client = client_queue.get()  # 取得 Key，並扣留在該執行緒中直到成功或徹底失敗
-    while True:
-        try:
-            completion = client.chat.completions.create(
-                model=LLAMA_MODEL,
-                messages=[
-                    {"role": "system", "content": MATCHGPT_SYSTEM_PROMPT},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.0,
-                max_tokens=256,
-                response_format={"type": "json_object"},
-            )
-            client_queue.put(client)  # 成功後歸還 Key
-            raw = completion.choices[0].message.content
-            return json.loads(raw)
-        except Exception as e:
-            err = str(e).lower()
-            attempt += 1
-            wait = min(2 ** attempt, 60) + random.uniform(0, 2)
-            
-            if not ("429" in err or "rate limit" in err or "too many" in err):
-                # 只有非限流的嚴重錯誤才印出，避免 429 洗版
-                print(f"  [LLM Error] {e}  等待 {wait:.1f}s")
+    try:
+        while True:
+            try:
+                completion = client.chat.completions.create(
+                    model=LLAMA_MODEL,
+                    messages=[
+                        {"role": "system", "content": MATCHGPT_SYSTEM_PROMPT},
+                        {"role": "user", "content": prompt}
+                    ],
+                    temperature=0.0,
+                    max_tokens=256,
+                    response_format={"type": "json_object"},
+                )
+                raw = completion.choices[0].message.content
+                return json.loads(raw)
+            except Exception as e:
+                err = str(e).lower()
+                attempt += 1
+                wait = min(2 ** attempt, 60) + random.uniform(0, 2)
                 
-            time.sleep(wait)
-            
-            if attempt >= 8:
-                print(f"  [SKIP] 超過重試上限，跳過此筆")
-                client_queue.put(client)  # 徹底放棄時，歸還 Key 給下一個任務
-                return None
+                if not ("429" in err or "rate limit" in err or "too many" in err):
+                    # 只有非限流的嚴重錯誤才印出，避免 429 洗版
+                    print(f"  [LLM Error] {e}  等待 {wait:.1f}s")
+                    
+                time.sleep(wait)
+                
+                if attempt >= 8:
+                    print(f"  [SKIP] 超過重試上限，跳過此筆")
+                    return None
+    finally:
+        client_queue.put(client)
 
 
 def judge_one_pair(args) -> dict:
     idx, name_a, type_a, name_b, type_b, sim = args
-    prompt = build_matchgpt_prompt(name_a, type_a, name_b, type_b)
-    result = call_llama_once(prompt)
-    if result is None:
-        result = {"decision": "different", "confidence": 0.0, "reason": "API 失敗"}
-    return {
-        "idx":        idx,
-        "name_a":     name_a, "type_a": type_a,
-        "name_b":     name_b, "type_b": type_b,
-        "similarity": round(sim, 4),
-        "decision":   result.get("decision", "different"),
-        "confidence": float(result.get("confidence", 0.0)),
-        "reason":     result.get("reason", ""),
-    }
+    try:
+        prompt = build_matchgpt_prompt(name_a, type_a, name_b, type_b)
+        result = call_llama_once(prompt)
+        if result is None:
+            result = {"decision": "different", "confidence": 0.0, "reason": "API 失敗"}
+        return {
+            "idx":        idx,
+            "name_a":     name_a, "type_a": type_a,
+            "name_b":     name_b, "type_b": type_b,
+            "similarity": round(sim, 4),
+            "decision":   result.get("decision", "different"),
+            "confidence": float(result.get("confidence", 0.0)),
+            "reason":     result.get("reason", ""),
+        }
+    except Exception as e:
+        print(f"  [WARN] judge_one_pair 內部錯誤 ({name_a} / {name_b}): {type(e).__name__}: {e}")
+        return {
+            "idx": idx,
+            "name_a": name_a,
+            "type_a": type_a,
+            "name_b": name_b,
+            "type_b": type_b,
+            "similarity": round(sim, 4),
+            "decision": "different",
+            "confidence": 0.0,
+            "reason": f"Internal Error: {type(e).__name__}: {e}",
+        }
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -261,14 +314,24 @@ def get_driver():
 
 def fetch_all_nodes(driver) -> list[dict]:
     with driver.session() as s:
-        result = s.run("MATCH (n:Entity) RETURN n.name AS name, n.type AS type")
-        return [{"name": r["name"], "type": r["type"]} for r in result]
+        return run_with_neo4j_retry(
+            lambda: [
+                {"name": r["name"], "type": r["type"]}
+                for r in s.run("MATCH (n:Entity) RETURN n.name AS name, n.type AS type")
+            ],
+            what="fetch_all_nodes",
+            max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+        )
 
 
 def restore_postvalidation(wipe=True):
     driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASS))
     try:
-        _nbr.restore(driver, str(POSTVAL_BACKUP), wipe=wipe)
+        run_with_neo4j_retry(
+            lambda: _nbr.restore(driver, str(POSTVAL_BACKUP), wipe=wipe),
+            what="restore_postvalidation",
+            max_attempts=3,
+        )
     finally:
         driver.close()
 
@@ -295,24 +358,37 @@ def execute_merges(driver, pairs_to_merge: list, pre_rel_count: int) -> dict:
                 cross_type += 1
                 continue
             try:
-                r = s.run(MERGE_CYPHER, name_a=p["name_a"], name_b=p["name_b"])
-                rec = r.single()
+                rec = run_with_neo4j_retry(
+                    lambda: s.run(
+                        MERGE_CYPHER,
+                        name_a=p["name_a"],
+                        name_b=p["name_b"],
+                    ).single(),
+                    what=f"merge {p['name_a']} / {p['name_b']}",
+                    max_attempts=NEO4J_WRITE_RETRY_ATTEMPTS,
+                )
                 if rec:
                     merged_pairs += 1
                 else:
                     skipped += 1
+            except RuntimeError:
+                raise
             except Exception as e:
                 print(f"  [WARN] merge 失敗 ({p['name_a']} / {p['name_b']}): {e}")
                 skipped += 1
 
     # 計算自環（合併後可能產生）
     with driver.session() as s:
-        self_loops = s.run(
-            "MATCH (n)-[r]->(n) RETURN count(r) AS c"
-        ).single()["c"]
-        post_rel_count = s.run(
-            "MATCH ()-[r]->() RETURN count(r) AS c"
-        ).single()["c"]
+        self_loops = run_with_neo4j_retry(
+            lambda: s.run("MATCH (n)-[r]->(n) RETURN count(r) AS c").single()["c"],
+            what="self_loops_after_merge",
+            max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+        )
+        post_rel_count = run_with_neo4j_retry(
+            lambda: s.run("MATCH ()-[r]->() RETURN count(r) AS c").single()["c"],
+            what="post_rel_count_after_merge",
+            max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+        )
 
     effective_rels = post_rel_count - self_loops
     preservation_rate = round(effective_rels / pre_rel_count, 4) if pre_rel_count else 1.0
@@ -331,11 +407,23 @@ def execute_merges(driver, pairs_to_merge: list, pre_rel_count: int) -> dict:
 def compute_metrics(driver, label: str) -> dict:
     stats = {}
     with driver.session() as s:
-        stats["node_count"] = s.run("MATCH (n) RETURN count(n) AS c").single()["c"]
-        stats["rel_count"]  = s.run("MATCH ()-[r]->() RETURN count(r) AS c").single()["c"]
-        stats["isolated_node_count"] = s.run(
-            "MATCH (n) WHERE NOT (n)--() RETURN count(n) AS c"
-        ).single()["c"]
+        stats["node_count"] = run_with_neo4j_retry(
+            lambda: s.run("MATCH (n) RETURN count(n) AS c").single()["c"],
+            what=f"{label} node_count",
+            max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+        )
+        stats["rel_count"] = run_with_neo4j_retry(
+            lambda: s.run("MATCH ()-[r]->() RETURN count(r) AS c").single()["c"],
+            what=f"{label} rel_count",
+            max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+        )
+        stats["isolated_node_count"] = run_with_neo4j_retry(
+            lambda: s.run(
+                "MATCH (n) WHERE NOT (n)--() RETURN count(n) AS c"
+            ).single()["c"],
+            what=f"{label} isolated_node_count",
+            max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+        )
         stats["avg_degree"] = round(
             (2 * stats["rel_count"]) / stats["node_count"]
             if stats["node_count"] > 0 else 0.0, 4
@@ -344,27 +432,64 @@ def compute_metrics(driver, label: str) -> dict:
     gname_wcc = f"wcc_{label}"
     try:
         with driver.session() as s:
-            s.run(f"CALL gds.graph.drop('{gname_wcc}', false)")
-            s.run(f"CALL gds.graph.project('{gname_wcc}', 'Entity', "
-                  f"{{RELATION: {{orientation: 'UNDIRECTED'}}}})")
-            stats["wcc_count"] = s.run(
-                f"CALL gds.wcc.stats('{gname_wcc}') YIELD componentCount"
-            ).single()["componentCount"]
-            s.run(f"CALL gds.graph.drop('{gname_wcc}', false)")
+            run_with_neo4j_retry(
+                lambda: s.run(f"CALL gds.graph.drop('{gname_wcc}', false)").consume(),
+                what=f"{label} gds.wcc.drop.before",
+                max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+            )
+            run_with_neo4j_retry(
+                lambda: s.run(f"CALL gds.graph.project('{gname_wcc}', 'Entity', "
+                              f"{{RELATION: {{orientation: 'UNDIRECTED'}}}})").consume(),
+                what=f"{label} gds.wcc.project",
+                max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+            )
+            stats["wcc_count"] = run_with_neo4j_retry(
+                lambda: s.run(
+                    f"CALL gds.wcc.stats('{gname_wcc}') YIELD componentCount"
+                ).single()["componentCount"],
+                what=f"{label} gds.wcc.stats",
+                max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+            )
+            run_with_neo4j_retry(
+                lambda: s.run(f"CALL gds.graph.drop('{gname_wcc}', false)").consume(),
+                what=f"{label} gds.wcc.drop.after",
+                max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+            )
+    except RuntimeError:
+        raise
     except Exception as e:
         stats["wcc_count"] = f"ERROR: {e}"
 
     gname_lei = f"leiden_{label}"
     try:
         with driver.session() as s:
-            s.run(f"CALL gds.graph.drop('{gname_lei}', false)")
-            s.run(f"CALL gds.graph.project('{gname_lei}', 'Entity', "
-                  f"{{RELATION: {{orientation: 'UNDIRECTED'}}}})")
-            stats["leiden_modularity_gamma1"] = round(
-                s.run(f"CALL gds.leiden.stats('{gname_lei}', {{gamma: 1.0}}) YIELD modularity"
-                      ).single()["modularity"], 6
+            run_with_neo4j_retry(
+                lambda: s.run(f"CALL gds.graph.drop('{gname_lei}', false)").consume(),
+                what=f"{label} gds.leiden.drop.before",
+                max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
             )
-            s.run(f"CALL gds.graph.drop('{gname_lei}', false)")
+            run_with_neo4j_retry(
+                lambda: s.run(f"CALL gds.graph.project('{gname_lei}', 'Entity', "
+                              f"{{RELATION: {{orientation: 'UNDIRECTED'}}}})").consume(),
+                what=f"{label} gds.leiden.project",
+                max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+            )
+            stats["leiden_modularity_gamma1"] = round(
+                run_with_neo4j_retry(
+                    lambda: s.run(
+                        f"CALL gds.leiden.stats('{gname_lei}', {{gamma: 1.0}}) YIELD modularity"
+                    ).single()["modularity"],
+                    what=f"{label} gds.leiden.stats",
+                    max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+                ), 6
+            )
+            run_with_neo4j_retry(
+                lambda: s.run(f"CALL gds.graph.drop('{gname_lei}', false)").consume(),
+                what=f"{label} gds.leiden.drop.after",
+                max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+            )
+    except RuntimeError:
+        raise
     except Exception as e:
         stats["leiden_modularity_gamma1"] = f"ERROR: {e}"
 
@@ -376,7 +501,11 @@ def do_backup_and_copy(dest_path: Path):
     out_path = str(MATCHGPT_DIR / f"neo4j_backup_{timestamp}.json")
     driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASS))
     try:
-        _nbr.backup(driver, out_path)
+        run_with_neo4j_retry(
+            lambda: _nbr.backup(driver, out_path),
+            what="do_backup_and_copy",
+            max_attempts=3,
+        )
     finally:
         driver.close()
     shutil.copy2(out_path, str(dest_path))
@@ -399,6 +528,26 @@ def main():
     if not POSTVAL_BACKUP.exists():
         print(f"[ERROR] 找不到 {POSTVAL_BACKUP}，請先完成步驟 1.3")
         sys.exit(1)
+    postval_stats_path = RESULTS_DIR / "post_validation_stats.json"
+    if not postval_stats_path.exists():
+        print(f"[ERROR] 找不到 {postval_stats_path}，請先完成 Post-validation 統計輸出")
+        sys.exit(1)
+
+    driver = None
+    try:
+        driver = get_driver()
+        with driver.session() as s:
+            run_with_neo4j_retry(
+                lambda: s.run("RETURN 1 AS ok").single()["ok"],
+                what="startup neo4j health check",
+                max_attempts=5,
+            )
+    except Exception as e:
+        print(f"[ERROR] Neo4j 連線檢查失敗：{e}")
+        sys.exit(1)
+    finally:
+        if driver is not None:
+            driver.close()
 
     # ── 2. 載入 embedding 快取 ───────────────────────────────────────────────
     print("\n[1/5] 載入 embedding 快取...")
@@ -419,6 +568,17 @@ def main():
 
     if missing:
         print(f"  呼叫 LM Studio（{EMBED_URL}）...")
+        try:
+            resp = requests.post(
+                EMBED_URL,
+                headers={"Content-Type": "application/json"},
+                json={"model": EMBED_MODEL, "input": "health check"},
+                timeout=10,
+            )
+            resp.raise_for_status()
+        except Exception as e:
+            print(f"[ERROR] Embedding endpoint health check failed（{EMBED_URL}）：{e}")
+            sys.exit(1)
         for i, n in enumerate(missing, 1):
             emb = get_embedding(n["name"])
             name_to_emb[n["name"]] = emb
@@ -542,10 +702,14 @@ def main():
 
     same_total = sum(1 for d in decisions if d and d["decision"] == "same")
     print(f"  判定 same：{same_total} / {len(decisions)}")
+    api_failures = sum(1 for d in decisions if d and d.get("reason") == "API 失敗")
+    internal_errors = sum(1 for d in decisions if d and str(d.get("reason", "")).startswith("Internal Error"))
+    print(f"[掃錯] api_failures={api_failures} internal_errors={internal_errors}")
+    if api_failures + internal_errors > 0:
+        print("[WARN] 這些對依政策屬技術性失敗、分析前需重跑（errors=0 才可用）。")
 
     # ── 7. 讀取 Post-validation 基線指標 ─────────────────────────────────────
     # 從 JSON 取「原始 build」數字（用於論文三欄對比表）
-    postval_stats_path = RESULTS_DIR / "post_validation_stats.json"
     with open(postval_stats_path, encoding="utf-8") as f:
         postval_stats = json.load(f)
     # 注：backup/restore 工具不保留同對節點多條邊，恢復後關係數略少（~39）
@@ -586,9 +750,11 @@ def main():
         # 從 DB 取還原後的實際關係數（用於 relation_preservation_rate）
         driver = get_driver()
         with driver.session() as s:
-            pre_rel_count = s.run(
-                "MATCH ()-[r]->() RETURN count(r) AS c"
-            ).single()["c"]
+            pre_rel_count = run_with_neo4j_retry(
+                lambda: s.run("MATCH ()-[r]->() RETURN count(r) AS c").single()["c"],
+                what=f"pre_rel_count_t{tstr}",
+                max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+            )
         driver.close()
         print(f"  還原後基線：節點 {pre_node_count}，關係 {pre_rel_count}")
 
