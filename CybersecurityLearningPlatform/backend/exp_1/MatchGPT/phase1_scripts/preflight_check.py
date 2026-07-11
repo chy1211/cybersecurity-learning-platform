@@ -25,10 +25,15 @@ NEO4J_PASS = os.getenv("NEO4J_PASSWORD", "")
 EMBED_URL   = os.getenv("EMBEDDING_BASE_URL", "http://127.0.0.1:1234/v1") + "/embeddings"
 EMBED_MODEL = "text-embedding-embeddinggemma-300m-qat"
 
+# 2026-07-11：動態掃描 NVIDIA_API_KEY_<N>，與 run_matchgpt.py 同步
+_KEY_PREFIX = "NVIDIA_API_KEY_"
 API_KEYS = [
-    key.strip()
-    for i in range(1, 8)
-    if (key := os.getenv(f"NVIDIA_API_KEY_{i}", "")).strip()
+    v.strip()
+    for _n, v in sorted(
+        (int(k[len(_KEY_PREFIX):]), v)
+        for k, v in os.environ.items()
+        if k.startswith(_KEY_PREFIX) and k[len(_KEY_PREFIX):].isdigit() and v.strip()
+    )
 ]
 LLAMA_MODEL = "meta/llama-3.3-70b-instruct"
 

@@ -110,22 +110,18 @@ def run_with_neo4j_retry(op, what="", max_attempts=NEO4J_READ_RETRY_ATTEMPTS):
             print(f"  [Neo4j 重試] {what}: {type(e).__name__}，第 {attempt}/{max_attempts} 次失敗，{wait_time}s 後重試...")
             time.sleep(wait_time)
 
-# ─── LLM API（6 把 NVIDIA key）────────────────────────────────────────────────
-_RAW_KEYS = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-]
+# ─── LLM API（NVIDIA key：動態掃描 .env）─────────────────────────────────────
+# 2026-07-11：動態掃描環境變數 NVIDIA_API_KEY_<N>（backend\.env 由檔頭
+# load_dotenv 載入），有幾把就用幾把、編號可跳號、依 N 排序；
+# LLM_WORKERS = key 數自動等比（見下方 ThreadPoolExecutor 併發設定）。
+_KEY_PREFIX = "NVIDIA_API_KEY_"
 API_KEYS = [
-    key
-    for i in range(7)
-    if (key := os.getenv(
-        f"NVIDIA_API_KEY_{i+1}",
-        _RAW_KEYS[i] if i < len(_RAW_KEYS) else "",
-    )).strip()  # 過濾需以解析後的值為準；原寫法以字面值過濾，去敏後恆為空
+    v.strip()
+    for _n, v in sorted(
+        (int(k[len(_KEY_PREFIX):]), v)
+        for k, v in os.environ.items()
+        if k.startswith(_KEY_PREFIX) and k[len(_KEY_PREFIX):].isdigit() and v.strip()
+    )
 ]
 LLAMA_MODEL = "meta/llama-3.3-70b-instruct"
 NVIDIA_BASE = "https://integrate.api.nvidia.com/v1"
