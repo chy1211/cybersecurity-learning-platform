@@ -120,9 +120,12 @@ _RAW_KEYS = [
     "",
 ]
 API_KEYS = [
-    os.getenv(f"NVIDIA_API_KEY_{i+1}", k)
-    for i, k in enumerate(_RAW_KEYS)
-    if k.strip()
+    key
+    for i in range(7)
+    if (key := os.getenv(
+        f"NVIDIA_API_KEY_{i+1}",
+        _RAW_KEYS[i] if i < len(_RAW_KEYS) else "",
+    )).strip()  # 過濾需以解析後的值為準；原寫法以字面值過濾，去敏後恆為空
 ]
 LLAMA_MODEL = "meta/llama-3.3-70b-instruct"
 NVIDIA_BASE = "https://integrate.api.nvidia.com/v1"

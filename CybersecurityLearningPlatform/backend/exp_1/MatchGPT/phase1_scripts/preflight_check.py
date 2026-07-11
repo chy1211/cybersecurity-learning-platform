@@ -26,8 +26,9 @@ EMBED_URL   = os.getenv("EMBEDDING_BASE_URL", "http://127.0.0.1:1234/v1") + "/em
 EMBED_MODEL = "text-embedding-embeddinggemma-300m-qat"
 
 API_KEYS = [
-    "",
-    "",
+    key.strip()
+    for i in range(1, 8)
+    if (key := os.getenv(f"NVIDIA_API_KEY_{i}", "")).strip()
 ]
 LLAMA_MODEL = "meta/llama-3.3-70b-instruct"
 
