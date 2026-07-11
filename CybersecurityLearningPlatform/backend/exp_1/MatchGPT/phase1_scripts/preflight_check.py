@@ -35,7 +35,8 @@ API_KEYS = [
         if k.startswith(_KEY_PREFIX) and k[len(_KEY_PREFIX):].isdigit() and v.strip()
     )
 ]
-LLAMA_MODEL = "meta/llama-3.3-70b-instruct"
+# 2026-07-11 拍板：與四階段驗證同款 3.1-70B（與 run_matchgpt.py 同步）
+LLAMA_MODEL = "meta/llama-3.1-70b-instruct"
 
 MATCHGPT_DIR = Path(__file__).resolve().parents[1]
 BACKEND_DIR = MATCHGPT_DIR.parents[1]

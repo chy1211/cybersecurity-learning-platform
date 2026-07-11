@@ -6,7 +6,7 @@ Phase 1 Step 1.4: MatchGPT Node Merging (t = 0.7)
   1. 從 Neo4j 載入所有 Post-validation 節點
   2. 計算 / 復用 embedding（LM Studio cache）
   3. Blocking：本體論類別分桶 + cosine ≥ 0.80 top-k=10
-  4. LLM 判定（Llama-3.3-70b，多 key 並行，一次跑完所有候選對）
+  4. LLM 判定（Llama-3.1-70b，與四階段驗證同款；多 key 並行，一次跑完所有候選對）
   5. 各 threshold（現行僅 0.7，見 THRESHOLDS 註解）：
        restore postvalidation_kg → 執行合併 → 取三層指標 → 備份
   6. 輸出 matchgpt_3layer_summary.json
@@ -123,7 +123,9 @@ API_KEYS = [
         if k.startswith(_KEY_PREFIX) and k[len(_KEY_PREFIX):].isdigit() and v.strip()
     )
 ]
-LLAMA_MODEL = "meta/llama-3.3-70b-instruct"
+# 2026-07-11 拍板：與四階段驗證（03_validate_and_import_fixed.py 之
+# LLAMA_MODEL_NAME）同款 3.1-70B，全鏈驗證/整併判定模型口徑一致。
+LLAMA_MODEL = "meta/llama-3.1-70b-instruct"
 NVIDIA_BASE = "https://integrate.api.nvidia.com/v1"
 
 LLAMA_CLIENTS = [
