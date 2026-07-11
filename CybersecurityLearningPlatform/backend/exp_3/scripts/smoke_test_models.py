@@ -19,8 +19,20 @@ from urllib.parse import urlparse
 
 DEFAULT_MODELS = ("e4b", "gptoss", "gemma31b", "llama70b")
 SUPPORTED_MODELS = set(DEFAULT_MODELS)
-NVIDIA_ENV_NAMES = tuple(f"NVIDIA_API_KEY_{i}" for i in range(1, 7))
 NVIDIA_BASE_URL = "https://integrate.api.nvidia.com/v1"
+
+
+def _nvidia_env_names() -> list[str]:
+    """動態列出已設定的 NVIDIA_API_KEY_<N>（依 N 排序，可跳號）；與 exp_3 pipeline 同款。"""
+    prefix = "NVIDIA_API_KEY_"
+    return [
+        name
+        for _n, name in sorted(
+            (int(name[len(prefix):]), name)
+            for name in os.environ
+            if name.startswith(prefix) and name[len(prefix):].isdigit() and (os.getenv(name) or "").strip()
+        )
+    ]
 
 
 def _ascii(value: object) -> str:
@@ -107,14 +119,11 @@ def _model_env_parts(model: str) -> tuple[bool, list[str]]:
         return primary_set, [primary, "fallback=" + fallback]
 
     if model == "llama70b":
-        parts: list[str] = []
-        set_count = 0
-        for name in NVIDIA_ENV_NAMES:
-            is_set, part = _env_status(name)
-            set_count += int(is_set)
-            parts.append(part)
-        parts.append(f"keys_set={set_count}/{len(NVIDIA_ENV_NAMES)}")
-        return set_count == len(NVIDIA_ENV_NAMES), parts
+        # 動態掃 .env 之 NVIDIA_API_KEY_<N>：有幾把用幾把，>=1 即通過（與 pipeline 動態金鑰口徑一致）。
+        env_names = _nvidia_env_names()
+        parts: list[str] = [part for _, part in (_env_status(n) for n in env_names)]
+        parts.append(f"keys_count={len(env_names)}")
+        return len(env_names) > 0, parts
 
     raise ValueError(f"unsupported model: {model}")
 

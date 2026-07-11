@@ -13,7 +13,7 @@
 - e4b      → LM Studio, env=LM_STUDIO_CHAT_URL, model_id=gemma-4-e4b-it
 - gptoss   → Groq @ api.groq.com/openai/v1, model_id=openai/gpt-oss-20b（2 key pool）
 - gemma31b → Google AI Studio 直連（GEMINI_API_KEYS 多金鑰, model_id=gemma-4-31b-it；2026-07-12 拍板，原 .80 LM Studio 部署之 model id 已漂移為 -qat）
-- llama70b → NVIDIA @ integrate.api.nvidia.com/v1, model_id=meta/llama-3.1-70b-instruct（6 key pool；2026-07-12 拍板 3.3→3.1）
+- llama70b → NVIDIA @ integrate.api.nvidia.com/v1, model_id=meta/llama-3.1-70b-instruct（動態 key pool＝.env 之 NVIDIA_API_KEY_<N>，worker 數等比；2026-07-12 拍板 3.3→3.1）
 
 用法：
     python exp_3_nf1_pipeline.py --model e4b --questions data/question_bank_329.json \
@@ -298,6 +298,20 @@ def _load_gemini_keys() -> list[str]:
     return keys
 
 
+def _load_nvidia_keys() -> list[str]:
+    """動態掃描 NVIDIA_API_KEY_<N>（可跳號、依 N 排序）；與 MatchGPT run_matchgpt.py 同款。
+    有幾把就用幾把，llama70b 之 worker 數等比自動跟隨（見 MODEL_WORKERS）。"""
+    prefix = "NVIDIA_API_KEY_"
+    return [
+        v.strip()
+        for _n, v in sorted(
+            (int(k[len(prefix):]), v)
+            for k, v in os.environ.items()
+            if k.startswith(prefix) and k[len(prefix):].isdigit() and v.strip()
+        )
+    ]
+
+
 class NVIDIAAdapter(BaseAdapter):
     def __init__(self, name: str, api_keys: list[str], model_id: str):
         self.name = name
@@ -392,14 +406,8 @@ def build_adapter(model_key: str) -> BaseAdapter:
             model_id="gemma-4-31b-it",
         )
     if model_key == "llama70b":
-        nv_keys = [
-            os.getenv("NVIDIA_API_KEY_1"),
-            os.getenv("NVIDIA_API_KEY_2"),
-            os.getenv("NVIDIA_API_KEY_3"),
-            os.getenv("NVIDIA_API_KEY_4"),
-            os.getenv("NVIDIA_API_KEY_5"),
-            os.getenv("NVIDIA_API_KEY_6"),
-        ]
+        # 動態讀 .env 之 NVIDIA_API_KEY_<N>（有幾把用幾把；與 MatchGPT 同款）。
+        nv_keys = _load_nvidia_keys()
         # 2026-07-12 使用者拍板：受測 70B 由 3.3 改 3.1（與全鏈判定模型同款）。
         return NVIDIAAdapter(name="llama-3.1-70b-instruct", api_keys=nv_keys,
                              model_id="meta/llama-3.1-70b-instruct")
@@ -411,8 +419,8 @@ MODEL_WORKERS = {
     "phi": 1,         # LM Studio @ .79 單機，reasoning model 較慢
     "e4b": 2,         # LM Studio @ .79 單機
     "gptoss": 4,      # Groq 2 keys，多 worker 競搶 keys
-    "gemma31b": 2,    # Google AI Studio 多金鑰 pool（2026-07-12 起；併發可再調）
-    "llama70b": 6,    # NVIDIA 6 keys
+    "gemma31b": len(_load_gemini_keys()) or 1,  # Gemma-4-31B (Google AI Studio)：worker 數 = GEMINI_API_KEYS 金鑰數（動態，與 MatchGPT 同款）
+    "llama70b": len(_load_nvidia_keys()) or 1,  # NVIDIA：worker 數 = .env 金鑰數（動態，與 MatchGPT 同款）
 }
 
 

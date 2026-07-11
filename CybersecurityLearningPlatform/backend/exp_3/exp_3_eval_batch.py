@@ -507,6 +507,20 @@ def _load_gemini_keys() -> list[str]:
     return keys
 
 
+def _load_nvidia_keys() -> list[str]:
+    """動態掃描 NVIDIA_API_KEY_<N>（可跳號、依 N 排序）；與 MatchGPT run_matchgpt.py 同款。
+    有幾把就用幾把，llama70b 之 worker 數等比自動跟隨（見 _MODEL_WORKER_DEFAULT）。"""
+    prefix = "NVIDIA_API_KEY_"
+    return [
+        v.strip()
+        for _n, v in sorted(
+            (int(k[len(prefix):]), v)
+            for k, v in os.environ.items()
+            if k.startswith(prefix) and k[len(prefix):].isdigit() and v.strip()
+        )
+    ]
+
+
 def build_adapter(model_key: str) -> BaseAdapter:
     if model_key == "phi":
         return LMStudioAdapter(
@@ -565,14 +579,8 @@ def build_adapter(model_key: str) -> BaseAdapter:
         ]
         return GroqAdapter(name="gpt-oss-20b", api_keys=groq_keys, model_id="openai/gpt-oss-20b")
     if model_key == "llama70b":
-        api_keys = [
-            os.getenv("NVIDIA_API_KEY_1"),
-            os.getenv("NVIDIA_API_KEY_2"),
-            os.getenv("NVIDIA_API_KEY_3"),
-            os.getenv("NVIDIA_API_KEY_4"),
-            os.getenv("NVIDIA_API_KEY_5"),
-            os.getenv("NVIDIA_API_KEY_6"),
-        ]
+        # 動態讀 .env 之 NVIDIA_API_KEY_<N>（有幾把用幾把；與 MatchGPT 同款）。
+        api_keys = _load_nvidia_keys()
         # 2026-07-12 使用者拍板：受測 70B 由 3.3 改 3.1（與全鏈判定模型同款；
         # NIM 端點與金鑰不變，B2 鏈已以同 id 大量實跑驗證）。
         return NVIDIAAdapter(name="llama-3.1-70b-instruct", api_keys=api_keys,
@@ -704,11 +712,11 @@ def main() -> int:
     _MODEL_WORKER_DEFAULT = {
         "phi": 1,
         "llama8b": 1,
-        "gemma": 2,
-        "llama70b": 6,
-        "e4b": 2,
+        "gemma": len(_load_gemini_keys()) or 1,     # Gemma-4-31B (Google AI Studio)：worker 數 = GEMINI_API_KEYS 金鑰數（動態）
+        "llama70b": len(_load_nvidia_keys()) or 1,  # NVIDIA：worker 數 = .env 金鑰數（動態，與 MatchGPT 同款）
+        "e4b": 2,                                    # Gemma-4-e4b：本機 LM Studio 單端點，維持固定 2（不隨金鑰數變）
         "gptoss": 2,
-        "gemma31b": 2,
+        "gemma31b": len(_load_gemini_keys()) or 1,  # Gemma-4-31B (Google AI Studio)：worker 數 = GEMINI_API_KEYS 金鑰數（動態）
     }
 
     def _model_thread(m):
