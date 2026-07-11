@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Phase 1 Step 1.2: Build Pre-validation Knowledge Graph
-- 從 Validated/ + Rejected/ 載入 original_raw_triple（共 5,593 筆）
+- 從 Validated/ + Rejected/ 載入 original_raw_triple（共 5,176 筆）
 - 僅做 normalize_entity_name（strip+lower）
 - Wipe Neo4j → MERGE 全部三元組（is_validated=false）
 - 計算結構指標 → pre_validation_stats.json
@@ -55,7 +55,7 @@ def normalize_entity_name(name: str) -> str:
 
 def load_triples_from_dir(directory: Path) -> list:
     """
-    從目錄樹中所有 chunk_*.json 載入三元組，使用 original_raw_triple 欄位。
+    從目錄樹中所有 *.json 載入三元組，使用 original_raw_triple 欄位。
     若 original_raw_triple 不存在則退而用頂層欄位（相容性 fallback）。
     """
     triples = []
@@ -63,7 +63,7 @@ def load_triples_from_dir(directory: Path) -> list:
     for source_dir in sorted(directory.iterdir()):
         if not source_dir.is_dir():
             continue
-        for chunk_file in sorted(source_dir.glob("chunk_*.json")):
+        for chunk_file in sorted(source_dir.glob("*.json")):
             try:
                 with open(chunk_file, encoding="utf-8") as f:
                     data = json.load(f)
@@ -247,7 +247,7 @@ def main():
     all_triples = validated + rejected
     print(f"  Validated: {len(validated)} 筆")
     print(f"  Rejected : {len(rejected)} 筆")
-    print(f"  合計     : {len(all_triples)} 筆（預期 5,593）")
+    print(f"  合計     : {len(all_triples)} 筆（預期 5,176）")
 
     # 2. 連接 Neo4j
     driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASS))

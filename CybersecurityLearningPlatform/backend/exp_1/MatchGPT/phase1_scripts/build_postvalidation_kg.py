@@ -14,7 +14,7 @@ except Exception:
     pass
 """
 Phase 1 Step 1.3: Build Post-validation Knowledge Graph
-- 從 Validated/ 載入 5,486 筆（頂層欄位，Step 2 已正規化）
+- 從 Validated/ 載入 4,559 筆（頂層欄位，Step 2 已正規化）
 - Wipe Neo4j → MERGE（is_validated=true，含 reasoning）
 - 計算結構指標 → post_validation_stats.json
 - 備份 → phase1_backups/postvalidation_kg.json（MatchGPT 三組 threshold 之共用 restore 來源）
@@ -57,7 +57,7 @@ def load_validated_triples(directory: Path) -> list:
     for source_dir in sorted(directory.iterdir()):
         if not source_dir.is_dir():
             continue
-        for chunk_file in sorted(source_dir.glob("chunk_*.json")):
+        for chunk_file in sorted(source_dir.glob("*.json")):
             try:
                 with open(chunk_file, encoding="utf-8") as f:
                     data = json.load(f)
@@ -231,7 +231,7 @@ def main():
     # 1. 載入
     print("\n[1/6] 載入 Validated 三元組（頂層欄位，Step 2 已正規化）...")
     triples = load_validated_triples(VALIDATED_DIR)
-    print(f"  載入：{len(triples)} 筆（預期 5,486）")
+    print(f"  載入：{len(triples)} 筆（預期 4,559）")
 
     # 2. 連接 Neo4j
     driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASS))

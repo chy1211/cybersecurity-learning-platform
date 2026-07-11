@@ -110,9 +110,10 @@ def restore_platform_format(driver):
         s.run("MATCH (n) DETACH DELETE n")
     print("  ✓ 清空完成")
 
-    # 收集所有 chunk 檔
-    files = sorted(VALIDATED_DIR.rglob("chunk_*.json"))
-    print(f"  共 {len(files)} 個 chunk 檔，開始匯入...")
+    # 收集所有 JSON 檔（is_file 過濾：question_corpus_scoped.json 是「資料夾」
+    # 名稱也符合 *.json 樣式，rglob 會把它一併列出，開檔會直接失敗）
+    files = sorted(p for p in VALIDATED_DIR.rglob("*.json") if p.is_file())
+    print(f"  共 {len(files)} 個 JSON 檔，開始匯入...")
 
     total = 0
     with driver.session() as session:
