@@ -553,6 +553,11 @@ def main():
         if driver is not None:
             driver.close()
 
+    print("\n[0/5] 開場還原 postvalidation 圖（中斷安全）...")
+    # 確保候選生成永遠基於 canonical postvalidation 圖；任何中斷點（含合併中斷、
+    # 1.5 之後誤重跑）重跑本腳本都等價於乾淨全跑，讓腳本整體冪等化。
+    restore_postvalidation(wipe=True)
+
     # ── 2. 載入 embedding 快取 ───────────────────────────────────────────────
     print("\n[1/5] 載入 embedding 快取...")
     load_embedding_cache()
@@ -872,5 +877,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
