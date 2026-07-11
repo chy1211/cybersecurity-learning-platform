@@ -12,7 +12,7 @@
 支援之模型（endpoint 由 .env 指定）：
 - e4b      → LM Studio, env=LM_STUDIO_CHAT_URL, model_id=gemma-4-e4b-it
 - gptoss   → Groq @ api.groq.com/openai/v1, model_id=openai/gpt-oss-20b（2 key pool）
-- gemma31b → LM Studio, env=LM_STUDIO_CHAT_URL_ALT, model_id=google/gemma-4-31b
+- gemma31b → Google AI Studio 直連（GEMINI_API_KEYS 多金鑰, model_id=gemma-4-31b-it；2026-07-12 拍板，原 .80 LM Studio 部署之 model id 已漂移為 -qat）
 - llama70b → NVIDIA @ integrate.api.nvidia.com/v1, model_id=meta/llama-3.3-70b-instruct（6 key pool）
 
 用法：
@@ -224,6 +224,80 @@ class GroqAdapter(BaseAdapter):
         return ""
 
 
+class GoogleAdapter(BaseAdapter):
+    """Google AI Studio 直連（GenAI SDK，多金鑰 round-robin pool）。
+    2026-07-12 使用者拍板：gemma31b 由 LM Studio(.80) 改直連 AI Studio
+    （gemma-4-31b-it 原始權重），與 ETL 02 萃取同路線。
+    Gemma API 不掛 response_format schema；靠 prompt 約束＋上層 JSON 萃取。"""
+
+    def __init__(self, name: str, api_keys: list[str], model_id: str):
+        self.name = name
+        self.api_keys = [k.strip() for k in (api_keys or []) if k and k.strip()]
+        if not self.api_keys:
+            raise RuntimeError("GoogleAdapter: no Gemini keys (set GEMINI_API_KEYS)")
+        self.model_id = model_id
+        self.endpoint = "https://generativelanguage.googleapis.com/v1beta"  # 資訊性
+        try:
+            from google import genai  # noqa
+        except ImportError as exc:
+            raise RuntimeError("google-genai not installed; pip install google-genai") from exc
+        from google import genai
+        self._client_q: queue.Queue = queue.Queue()
+        for k in self.api_keys:
+            self._client_q.put(genai.Client(api_key=k))
+
+    def call(self, system: str, user: str, schema: dict, max_tokens: int) -> str:
+        from google.genai import types
+        client = self._client_q.get()
+        attempt = 0
+        try:
+            while attempt < 4:
+                try:
+                    resp = client.models.generate_content(
+                        model=self.model_id,
+                        contents=user,
+                        config=types.GenerateContentConfig(
+                            system_instruction=system,
+                            temperature=TEMPERATURE,
+                            top_p=TOP_P,
+                            max_output_tokens=max_tokens,
+                        ),
+                    )
+                    return (resp.text or "") if hasattr(resp, "text") else ""
+                except Exception as e:
+                    err = str(e).lower()
+                    attempt += 1
+                    wait = min(2 ** attempt, 30)
+                    if ("429" in err or "rate" in err or "quota" in err
+                            or "resource_exhausted" in err):
+                        time.sleep(wait)
+                        # 額度/限流：換下一把金鑰再試（round-robin，同 02 萃取策略）
+                        self._client_q.put(client)
+                        client = self._client_q.get()
+                        continue
+                    if attempt >= 4:
+                        break
+                    time.sleep(wait)
+        finally:
+            self._client_q.put(client)
+        return ""
+
+
+def _load_gemini_keys() -> list[str]:
+    """GEMINI_API_KEYS（逗號/分號/換行分隔）＋單數名 fallback；與 ETL 02 同款。"""
+    keys: list[str] = []
+    multi = os.getenv("GEMINI_API_KEYS") or os.getenv("GOOGLE_API_KEYS") or ""
+    for part in re.split(r"[,\n;]", multi):
+        k = part.strip()
+        if k and k not in keys:
+            keys.append(k)
+    for env_name in ("GEMINI_API_KEY", "GOOGLE_API_KEY"):
+        k = (os.getenv(env_name) or "").strip()
+        if k and k not in keys:
+            keys.append(k)
+    return keys
+
+
 class NVIDIAAdapter(BaseAdapter):
     def __init__(self, name: str, api_keys: list[str], model_id: str):
         self.name = name
@@ -310,10 +384,12 @@ def build_adapter(model_key: str) -> BaseAdapter:
         ]
         return GroqAdapter(name="gpt-oss-20b", api_keys=groq_keys, model_id="openai/gpt-oss-20b")
     if model_key == "gemma31b":
-        return LMStudioAdapter(
+        # 2026-07-12 使用者拍板：改直連 Google AI Studio（gemma-4-31b-it 原始權重、
+        # GEMINI_API_KEYS 多金鑰），解掉 .80 model id 漂移（現掛 -qat 量化版）問題。
+        return GoogleAdapter(
             name="gemma-4-31b",
-            endpoint=os.getenv("LM_STUDIO_CHAT_URL_ALT", os.getenv("LM_STUDIO_CHAT_URL", "http://127.0.0.1:1234/v1/chat/completions")),
-            model_id="google/gemma-4-31b",
+            api_keys=_load_gemini_keys(),
+            model_id="gemma-4-31b-it",
         )
     if model_key == "llama70b":
         nv_keys = [
@@ -334,7 +410,7 @@ MODEL_WORKERS = {
     "phi": 1,         # LM Studio @ .79 單機，reasoning model 較慢
     "e4b": 2,         # LM Studio @ .79 單機
     "gptoss": 4,      # Groq 2 keys，多 worker 競搶 keys
-    "gemma31b": 2,    # LM Studio @ .80 單機
+    "gemma31b": 2,    # Google AI Studio 多金鑰 pool（2026-07-12 起；併發可再調）
     "llama70b": 6,    # NVIDIA 6 keys
 }
 

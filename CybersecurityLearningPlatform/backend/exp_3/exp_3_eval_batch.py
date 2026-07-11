@@ -249,55 +249,69 @@ class LMStudioAdapter(BaseAdapter):
 
 
 class GoogleAdapter(BaseAdapter):
-    """Google GenAI SDK（保留作為 Gemma 備援；2026-05-22 改用本地 LM Studio）."""
+    """Google AI Studio 直連（GenAI SDK，多金鑰 round-robin pool）。
+    2026-07-12 使用者拍板：gemma31b 改直連 AI Studio（gemma-4-31b-it 原始權重、
+    GEMINI_API_KEYS 多金鑰），與 ETL 02 萃取同路線；取代 9router 中繼與
+    .80 本地部署（該機 model id 已漂移為 -qat 量化版）。
+    Gemma API 不掛 response_format；輸出靠 parse_json_response 之 regex fallback。"""
 
-    def __init__(self, name: str, api_key: str, model_id: str):
+    def __init__(self, name: str, api_keys: list[str], model_id: str,
+                 max_output_tokens: int = 1024):
         self.name = name
-        self.api_key = api_key
+        self.api_keys = [k.strip() for k in (api_keys or []) if k and k.strip()]
+        if not self.api_keys:
+            raise RuntimeError("GoogleAdapter: no Gemini keys (set GEMINI_API_KEYS)")
         self.model_id = model_id
+        self.max_output_tokens = max_output_tokens
+        # 資訊性端點（smoke_test URL 檢查用；實際連線由 SDK 管理）
+        self.endpoint = "https://generativelanguage.googleapis.com/v1beta"
         try:
             from google import genai  # noqa
-            from google.genai import types  # noqa
         except ImportError as exc:
             raise RuntimeError("google-genai not installed; pip install google-genai") from exc
-        self._client = None
-
-    def _get_client(self):
-        if self._client is None:
-            from google import genai
-            self._client = genai.Client(api_key=self.api_key)
-        return self._client
+        from google import genai
+        self._client_q: queue.Queue = queue.Queue()
+        for k in self.api_keys:
+            self._client_q.put(genai.Client(api_key=k))
 
     def call(self, system: str, user: str) -> dict:
         from google.genai import types
-        client = self._get_client()
+        client = self._client_q.get()
         attempt = 0
         last_err = None
-        while attempt < 4:
-            try:
-                resp = client.models.generate_content(
-                    model=self.model_id,
-                    contents=user,
-                    config=types.GenerateContentConfig(
-                        system_instruction=system,
-                        temperature=0,
-                        max_output_tokens=1024,
-                    ),
-                )
-                content = (resp.text or "") if hasattr(resp, "text") else ""
-                parsed = parse_json_response(content)
-                parsed["raw"] = content[:1000]
-                return parsed
-            except Exception as e:
-                last_err = str(e)[:200]
-                attempt += 1
-                wait = min(2 ** attempt, 30)
-                if "429" in last_err.lower() or "rate" in last_err.lower():
+        try:
+            while attempt < 4:
+                try:
+                    resp = client.models.generate_content(
+                        model=self.model_id,
+                        contents=user,
+                        config=types.GenerateContentConfig(
+                            system_instruction=system,
+                            temperature=0,
+                            max_output_tokens=self.max_output_tokens,
+                        ),
+                    )
+                    content = (resp.text or "") if hasattr(resp, "text") else ""
+                    parsed = parse_json_response(content)
+                    parsed["raw"] = content[:1000]
+                    return parsed
+                except Exception as e:
+                    last_err = str(e)[:200]
+                    attempt += 1
+                    wait = min(2 ** attempt, 30)
+                    low = last_err.lower()
+                    if ("429" in low or "rate" in low or "quota" in low
+                            or "resource_exhausted" in low):
+                        time.sleep(wait)
+                        # 額度/限流：換下一把金鑰再試（round-robin，同 02 萃取策略）
+                        self._client_q.put(client)
+                        client = self._client_q.get()
+                        continue
+                    if attempt >= 4:
+                        break
                     time.sleep(wait)
-                    continue
-                if attempt >= 4:
-                    break
-                time.sleep(wait)
+        finally:
+            self._client_q.put(client)
         return {"answer": "", "reasoning": "", "raw": "", "_api_error": last_err or "unknown"}
 
 
@@ -420,6 +434,79 @@ class NVIDIAAdapter(BaseAdapter):
 
 
 # ─── Model registry ───────────────────────────────────────────────────────────
+class NineRouterAdapter(BaseAdapter):
+    """9Router OpenAI 相容閘道（Bearer 金鑰；用於 Gemini/Gemma 等雲端模型）.
+
+    非串流；gemma-4-31b-it 經 9router 會自行回乾淨 JSON，故不加 response_format
+    （Google 端未必支援 OpenAI json_schema strict）。以 requests 每次呼叫，thread-safe。
+    """
+
+    def __init__(self, name: str, base_url: str, api_key: str, model_id: str,
+                 max_tokens: int = 4096, timeout: int = 120):
+        self.name = name
+        self.base_url = (base_url or "").rstrip("/")
+        self.endpoint = self.base_url + "/chat/completions"
+        self.api_key = api_key
+        self.model_id = model_id
+        self.max_tokens = max_tokens
+        self.timeout = timeout
+
+    def call(self, system: str, user: str) -> dict:
+        import requests  # local
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {self.api_key}",
+        }
+        payload = {
+            "model": self.model_id,
+            "messages": [
+                {"role": "system", "content": system},
+                {"role": "user", "content": user},
+            ],
+            "temperature": 0,
+            "max_tokens": self.max_tokens,
+            "stream": False,
+        }
+        attempt = 0
+        last_err = None
+        while attempt < 4:
+            try:
+                resp = requests.post(self.endpoint, headers=headers,
+                                     json=payload, timeout=self.timeout)
+                resp.raise_for_status()
+                content = resp.json()["choices"][0]["message"]["content"] or ""
+                parsed = parse_json_response(content)
+                parsed["raw"] = content[:1000]
+                return parsed
+            except Exception as e:
+                last_err = str(e)[:200]
+                attempt += 1
+                wait = min(2 ** attempt, 30)
+                if "429" in last_err.lower() or "rate" in last_err.lower():
+                    time.sleep(wait)
+                    continue
+                if attempt >= 4:
+                    break
+                time.sleep(wait)
+        return {"answer": "", "reasoning": "", "raw": "", "_api_error": last_err or "unknown"}
+
+
+# ─── Model registry ───────────────────────────────────────────────────────────
+def _load_gemini_keys() -> list[str]:
+    """GEMINI_API_KEYS（逗號/分號/換行分隔）＋單數名 fallback；與 ETL 02 同款。"""
+    keys: list[str] = []
+    multi = os.getenv("GEMINI_API_KEYS") or os.getenv("GOOGLE_API_KEYS") or ""
+    for part in re.split(r"[,\n;]", multi):
+        k = part.strip()
+        if k and k not in keys:
+            keys.append(k)
+    for env_name in ("GEMINI_API_KEY", "GOOGLE_API_KEY"):
+        k = (os.getenv(env_name) or "").strip()
+        if k and k not in keys:
+            keys.append(k)
+    return keys
+
+
 def build_adapter(model_key: str) -> BaseAdapter:
     if model_key == "phi":
         return LMStudioAdapter(
@@ -436,12 +523,13 @@ def build_adapter(model_key: str) -> BaseAdapter:
             max_tokens=1024,
         )
     if model_key == "gemma":
-        # 2026-05-22 改：Google GenAI 額度耗盡，改用本地 LM Studio @ .80
-        return LMStudioAdapter(
+        # 2026-07-12 使用者拍板：改直連 Google AI Studio（gemma-4-31b-it 原始權重、
+        # GEMINI_API_KEYS 多金鑰 round-robin），與 ETL 02 萃取同路線；9router 中繼退役。
+        return GoogleAdapter(
             name="gemma-4-31b",
-            endpoint=os.getenv("LM_STUDIO_CHAT_URL_ALT", os.getenv("LM_STUDIO_CHAT_URL", "http://127.0.0.1:1234/v1/chat/completions")),
-            model_id="google/gemma-4-31b",
-            max_tokens=2048,  # Gemma 易跳針，給較多空間
+            api_keys=_load_gemini_keys(),
+            model_id="gemma-4-31b-it",
+            max_output_tokens=4096,  # gemma-4-31b-it 為 reasoning 變體，保留 thinking token 空間
         )
     if model_key == "e4b":
         return LMStudioAdapter(
@@ -451,11 +539,13 @@ def build_adapter(model_key: str) -> BaseAdapter:
             max_tokens=1024,
         )
     if model_key == "gemma31b":
-        return LMStudioAdapter(
+        # 2026-07-12 使用者拍板：B4 gemma 改直連 Google AI Studio（gemma-4-31b-it
+        # 原始權重、GEMINI_API_KEYS 多金鑰），同時解掉 .80 model id 漂移問題。
+        return GoogleAdapter(
             name="gemma-4-31b",
-            endpoint=os.getenv("LM_STUDIO_CHAT_URL_ALT", os.getenv("LM_STUDIO_CHAT_URL", "http://127.0.0.1:1234/v1/chat/completions")),
-            model_id="google/gemma-4-31b",
-            max_tokens=2048,
+            api_keys=_load_gemini_keys(),
+            model_id="gemma-4-31b-it",
+            max_output_tokens=4096,
         )
     if model_key == "gptoss":
         # 2026-05-23 改：Groq TPD 不足，改用本地 LM Studio @ .80
