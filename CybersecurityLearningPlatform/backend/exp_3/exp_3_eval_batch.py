@@ -379,7 +379,7 @@ class GroqAdapter(BaseAdapter):
 
 
 class NVIDIAAdapter(BaseAdapter):
-    """NVIDIA API（Llama-3.3-70B），多 key 並行池."""
+    """NVIDIA API（Llama 70B；2026-07-12 起受測版本＝3.1），多 key 並行池."""
 
     def __init__(self, name: str, api_keys: list[str], model_id: str):
         self.name = name
@@ -573,8 +573,10 @@ def build_adapter(model_key: str) -> BaseAdapter:
             os.getenv("NVIDIA_API_KEY_5"),
             os.getenv("NVIDIA_API_KEY_6"),
         ]
-        return NVIDIAAdapter(name="llama-3.3-70b-instruct", api_keys=api_keys,
-                             model_id="meta/llama-3.3-70b-instruct")
+        # 2026-07-12 使用者拍板：受測 70B 由 3.3 改 3.1（與全鏈判定模型同款；
+        # NIM 端點與金鑰不變，B2 鏈已以同 id 大量實跑驗證）。
+        return NVIDIAAdapter(name="llama-3.1-70b-instruct", api_keys=api_keys,
+                             model_id="meta/llama-3.1-70b-instruct")
     raise ValueError(f"unknown model: {model_key}")
 
 

@@ -40,7 +40,7 @@ MAIN_MODELS = [
 
 # 補充測試模型（附錄 A）
 SUPP_MODELS = [
-    {"key": "llama70b", "label": "Llama-3.3-70B-Instruct",
+    {"key": "llama70b", "label": "Llama-3.1-70B-Instruct",  # 2026-07-12 拍板 3.3→3.1
      "eval": "eval_llama70b_NF1.json", "sg": "subgraph_nf1_llama70b.json"},
 ]
 

@@ -13,7 +13,7 @@
 - e4b      → LM Studio, env=LM_STUDIO_CHAT_URL, model_id=gemma-4-e4b-it
 - gptoss   → Groq @ api.groq.com/openai/v1, model_id=openai/gpt-oss-20b（2 key pool）
 - gemma31b → Google AI Studio 直連（GEMINI_API_KEYS 多金鑰, model_id=gemma-4-31b-it；2026-07-12 拍板，原 .80 LM Studio 部署之 model id 已漂移為 -qat）
-- llama70b → NVIDIA @ integrate.api.nvidia.com/v1, model_id=meta/llama-3.3-70b-instruct（6 key pool）
+- llama70b → NVIDIA @ integrate.api.nvidia.com/v1, model_id=meta/llama-3.1-70b-instruct（6 key pool；2026-07-12 拍板 3.3→3.1）
 
 用法：
     python exp_3_nf1_pipeline.py --model e4b --questions data/question_bank_329.json \
@@ -400,8 +400,9 @@ def build_adapter(model_key: str) -> BaseAdapter:
             os.getenv("NVIDIA_API_KEY_5"),
             os.getenv("NVIDIA_API_KEY_6"),
         ]
-        return NVIDIAAdapter(name="llama-3.3-70b-instruct", api_keys=nv_keys,
-                             model_id="meta/llama-3.3-70b-instruct")
+        # 2026-07-12 使用者拍板：受測 70B 由 3.3 改 3.1（與全鏈判定模型同款）。
+        return NVIDIAAdapter(name="llama-3.1-70b-instruct", api_keys=nv_keys,
+                             model_id="meta/llama-3.1-70b-instruct")
     raise ValueError(f"unknown model: {model_key}")
 
 
