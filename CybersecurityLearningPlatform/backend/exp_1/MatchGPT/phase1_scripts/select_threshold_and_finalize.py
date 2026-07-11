@@ -13,8 +13,9 @@ try:
 except Exception:
     pass
 """
-Phase 1 Step 1.5: 最佳 threshold 選擇與 final 圖譜定版
-- 讀取三組 metrics，跨類別合併率=0% 前提下選結構改善最大者
+Phase 1 Step 1.5: threshold 選擇與 final 圖譜定版
+- 讀取各 threshold metrics（現行僅 0.7，見 THRESHOLDS 註解），
+  跨類別合併率=0% 前提下選結構改善最大者
 - 複製為 final_kg.json，restore 到 Neo4j
 - 輸出 threshold_selection_rationale.md
 """
@@ -33,7 +34,9 @@ BACKUPS_DIR  = MATCHGPT_DIR / "phase1_backups"
 NEO4J_URI    = os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687")
 NEO4J_USER   = "neo4j"
 NEO4J_PASS   = os.getenv("NEO4J_PASSWORD", "")
-THRESHOLDS   = [0.5, 0.7, 0.9]
+# 2026-07-11 拍板：永遠只跑論文口徑之 t=0.7（與 run_matchgpt.py 同步；
+# 舊 [0.5, 0.7, 0.9] 敏感性掃描屬舊圖 legacy，結果在 git 歷史）。
+THRESHOLDS   = [0.7]
 
 
 def load_metrics(threshold):
@@ -58,9 +61,10 @@ def main():
     with open(RESULTS_DIR / "post_validation_stats.json", encoding="utf-8") as f:
         baseline = json.load(f)
 
-    print("\n三組指標對比：")
-    print(f"{'指標':<30} {'t=0.5':>10} {'t=0.7':>10} {'t=0.9':>10}")
-    print("-" * 62)
+    print("\n各 threshold 指標對比：")
+    header = "".join(f" {('t=' + str(t)):>10}" for t in THRESHOLDS)
+    print(f"{'指標':<30}{header}")
+    print("-" * (30 + 11 * len(THRESHOLDS)))
 
     rows = {}
     for t in THRESHOLDS:
@@ -90,8 +94,8 @@ def main():
         ("關係保留率",   "rel_preservation"),
         ("合併對數",     "merged_pairs"),
     ]:
-        vals = [fmt(rows[t][key]) for t in THRESHOLDS]
-        print(f"  {label:<28} {vals[0]:>10} {vals[1]:>10} {vals[2]:>10}")
+        vals = "".join(f" {fmt(rows[t][key]):>10}" for t in THRESHOLDS)
+        print(f"  {label:<28}{vals}")
 
     # 選擇邏輯：
     # 1. 硬性前提：跨類別合併率 = 0%
@@ -138,7 +142,7 @@ def main():
 1. 硬性前提：跨類別合併率 = 0%（確保本體論一致性）
 2. 次要目標：節點縮減比最大（結構改善幅度最大）
 
-## 三組對比
+## 各 threshold 對比
 | threshold | 節點縮減比 | 跨類別合併率 | WCC 數 | Leiden modularity |
 |-----------|-----------|------------|--------|------------------|
 """

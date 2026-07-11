@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Phase 1 Step 1.4: MatchGPT Node Merging (Three Thresholds: 0.5 / 0.7 / 0.9)
+Phase 1 Step 1.4: MatchGPT Node Merging (t = 0.7)
 
 流程：
   1. 從 Neo4j 載入所有 Post-validation 節點
   2. 計算 / 復用 embedding（LM Studio cache）
   3. Blocking：本體論類別分桶 + cosine ≥ 0.80 top-k=10
-  4. LLM 判定（Llama-3.3-70b，6 key 並行，一次跑完所有候選對）
-  5. 三組 threshold（0.5/0.7/0.9）各自：
+  4. LLM 判定（Llama-3.3-70b，多 key 並行，一次跑完所有候選對）
+  5. 各 threshold（現行僅 0.7，見 THRESHOLDS 註解）：
        restore postvalidation_kg → 執行合併 → 取三層指標 → 備份
   6. 輸出 matchgpt_3layer_summary.json
 """
@@ -152,7 +152,10 @@ ENTITY_TYPES = [
 # ─── 超參數 ───────────────────────────────────────────────────────────────────
 EMBED_SIM_THRESHOLD = 0.80   # blocking cosine 下限
 TOP_K               = 10     # 每節點最多取幾個候選
-THRESHOLDS          = [0.5, 0.7, 0.9]
+# 2026-07-11 拍板：永遠只跑論文口徑之 t=0.7。原 [0.5, 0.7, 0.9] 敏感性掃描
+# 屬舊圖 legacy（結果在 git 歷史），論文定稿僅呈現 t=0.7；單一 threshold
+# 亦確保跑完後現行庫即 t=0.7 合併態、消除 1.5 誤選其他門檻的風險。
+THRESHOLDS          = [0.7]
 LLM_WORKERS         = len(LLAMA_CLIENTS)  # 並行執行緒數 = key 數
 LLM_BATCH_REPORT    = 50    # 每跑幾筆印一次進度
 
