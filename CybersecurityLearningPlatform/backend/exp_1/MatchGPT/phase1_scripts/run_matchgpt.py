@@ -2,6 +2,8 @@
 """
 Phase 1 Step 1.4: MatchGPT Node Merging (t = 0.7)
 
+重放模式：python run_matchgpt.py --replay-decisions（沿用既有 CSV，跳過 LLM）
+
 流程：
   1. 從 Neo4j 載入所有 Post-validation 節點
   2. 計算 / 復用 embedding（LM Studio cache）
@@ -12,6 +14,7 @@ Phase 1 Step 1.4: MatchGPT Node Merging (t = 0.7)
   6. 輸出 matchgpt_3layer_summary.json
 """
 
+import argparse
 import csv
 import json
 import os
@@ -381,28 +384,33 @@ def execute_merges(driver, pairs_to_merge: list, pre_rel_count: int) -> dict:
                 print(f"  [WARN] merge 失敗 ({p['name_a']} / {p['name_b']}): {e}")
                 skipped += 1
 
-    # 計算自環（合併後可能產生）
+    # 2026-07-11 拍板——實體解析合併後的自環（X→X）不承載語意，列為正式清理步驟；
+    # 刪除數記錄於 self_loops_removed。
     with driver.session() as s:
-        self_loops = run_with_neo4j_retry(
+        self_loops_removed = run_with_neo4j_retry(
             lambda: s.run("MATCH (n)-[r]->(n) RETURN count(r) AS c").single()["c"],
-            what="self_loops_after_merge",
+            what="self_loops_before_cleanup",
             max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
+        )
+        run_with_neo4j_retry(
+            lambda: s.run("MATCH (n)-[r]->(n) DELETE r").consume(),
+            what="delete_self_loops",
+            max_attempts=NEO4J_WRITE_RETRY_ATTEMPTS,
         )
         post_rel_count = run_with_neo4j_retry(
             lambda: s.run("MATCH ()-[r]->() RETURN count(r) AS c").single()["c"],
-            what="post_rel_count_after_merge",
+            what="post_rel_count_after_self_loop_cleanup",
             max_attempts=NEO4J_READ_RETRY_ATTEMPTS,
         )
 
-    effective_rels = post_rel_count - self_loops
-    preservation_rate = round(effective_rels / pre_rel_count, 4) if pre_rel_count else 1.0
+    preservation_rate = round(post_rel_count / pre_rel_count, 4) if pre_rel_count else 1.0
 
     return {
         "merged_pairs":          merged_pairs,
         "skipped_pairs":         skipped,
         "cross_type_blocked":    cross_type,
         "cross_type_merge_rate": round(cross_type / len(pairs_to_merge), 4) if pairs_to_merge else 0.0,
-        "self_loops_after":      self_loops,
+        "self_loops_removed":    self_loops_removed,
         "post_rel_count":        post_rel_count,
         "relation_preservation_rate": preservation_rate,
     }
@@ -520,7 +528,7 @@ def do_backup_and_copy(dest_path: Path):
 # Main
 # ═══════════════════════════════════════════════════════════════════════════════
 
-def main():
+def main(replay=False):
     print("=" * 65)
     print("Phase 1 Step 1.4: MatchGPT Node Merging")
     print("=" * 65)
@@ -553,176 +561,206 @@ def main():
         if driver is not None:
             driver.close()
 
-    print("\n[0/5] 開場還原 postvalidation 圖（中斷安全）...")
-    # 確保候選生成永遠基於 canonical postvalidation 圖；任何中斷點（含合併中斷、
-    # 1.5 之後誤重跑）重跑本腳本都等價於乾淨全跑，讓腳本整體冪等化。
-    restore_postvalidation(wipe=True)
-
-    # ── 2. 載入 embedding 快取 ───────────────────────────────────────────────
-    print("\n[1/5] 載入 embedding 快取...")
-    load_embedding_cache()
-
-    # ── 3. 從 Neo4j 取節點（當前應為 Post-validation 圖譜）──────────────────
-    print("\n[2/5] 從 Neo4j 載入所有節點...")
-    driver = get_driver()
-    nodes = fetch_all_nodes(driver)
-    driver.close()
-    print(f"  節點數：{len(nodes)}")
-
-    # ── 4. 計算 / 復用 embedding ─────────────────────────────────────────────
-    print("\n[3/5] 計算 embedding（有快取則復用）...")
-    name_to_emb: dict[str, list | None] = {}
-    missing = [n for n in nodes if n["name"] not in embedding_cache]
-    print(f"  快取命中：{len(nodes) - len(missing)}  需新算：{len(missing)}")
-
-    if missing:
-        print(f"  呼叫 LM Studio（{EMBED_URL}）...")
-        try:
-            resp = requests.post(
-                EMBED_URL,
-                headers={"Content-Type": "application/json"},
-                json={"model": EMBED_MODEL, "input": "health check"},
-                timeout=10,
-            )
-            resp.raise_for_status()
-        except Exception as e:
-            print(f"[ERROR] Embedding endpoint health check failed（{EMBED_URL}）：{e}")
-            sys.exit(1)
-        for i, n in enumerate(missing, 1):
-            emb = get_embedding(n["name"])
-            name_to_emb[n["name"]] = emb
-            if i % 100 == 0 or i == len(missing):
-                print(f"  embedding 進度：{i}/{len(missing)}", end="\r")
-        print()
-        save_embedding_cache()
-        print(f"  ✓ 快取已更新，共 {len(embedding_cache)} 筆")
-    else:
-        print("  全部命中快取，跳過 API 呼叫")
-
-    for n in nodes:
-        if n["name"] not in name_to_emb:
-            name_to_emb[n["name"]] = embedding_cache.get(n["name"])
-
-    # ── 5. Blocking：本體論分桶 + cosine ≥ 0.80 top-k=10 ────────────────────
-    print("\n[4/5] 抽取候選節點對（type 分桶 + cosine blocking）...")
-    candidate_pairs: list[tuple] = []  # (name_a, type_a, name_b, type_b, sim)
-
-    by_type: dict[str, list] = {t: [] for t in ENTITY_TYPES}
-    for n in nodes:
-        t = n["type"]
-        if t in by_type and name_to_emb.get(n["name"]) is not None:
-            by_type[t].append(n)
-
-    for etype, bucket in by_type.items():
-        if len(bucket) < 2:
-            continue
-        names = [n["name"] for n in bucket]
-        embs  = [name_to_emb[nm] for nm in names]
-
-        # 批次化 cosine：一次算出所有對（PyTorch 矩陣運算，速度遠快於 nested loop）
-        mat = torch.tensor(embs, dtype=torch.float32)           # (N, D)
-        mat = F.normalize(mat, dim=1)                            # L2 norm
-        sim_matrix = torch.mm(mat, mat.t())                      # (N, N)
-
-        seen = set()
-        N = len(names)
-        for i in range(N):
-            row = sim_matrix[i]
-            for j in range(i + 1, N):
-                sim_val = float(row[j].item())
-                if sim_val >= EMBED_SIM_THRESHOLD:
-                    key = (names[i], names[j])  # i < j，有序不重複
-                    if key not in seen:
-                        seen.add(key)
-                        candidate_pairs.append((names[i], etype, names[j], etype, sim_val))
-
-        # 若某節點候選超過 TOP_K，依 sim 降冪只保留最高的 TOP_K 個對
-        # （重組：已按 i<j 順序加入，需對每個節點重新篩）
-        if candidate_pairs:
-            from collections import defaultdict
-            node_cnt: dict[str, int] = defaultdict(int)
-            filtered = []
-            # 只針對此 etype 的對重新篩選（取本輪新加入的）
-            # 使用 seen set 已去重，直接對此 bucket 結果按 sim 降冪再 top-k
-            bucket_pairs = [(a, et_a, b, et_b, s) for (a, et_a, b, et_b, s) in candidate_pairs
-                            if et_a == etype]
-            candidate_pairs = [p for p in candidate_pairs if p[1] != etype]
-            bucket_pairs.sort(key=lambda x: x[4], reverse=True)
-            for p in bucket_pairs:
-                a, _, b, _, _ = p
-                if node_cnt[a] < TOP_K and node_cnt[b] < TOP_K:
-                    filtered.append(p)
-                    node_cnt[a] += 1
-                    node_cnt[b] += 1
-            candidate_pairs.extend(filtered)
-
-    print(f"  候選對數：{len(candidate_pairs)}")
-
-    # 儲存候選清單
     cand_path = RESULTS_DIR / "matchgpt_candidate_pairs.csv"
-    with open(cand_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["name_a", "type_a", "name_b", "type_b", "similarity"])
-        for row in candidate_pairs:
-            writer.writerow(row)
-    print(f"  ✓ 候選清單 → {cand_path}")
-
-    # ── 6. LLM 判定（6 key 並行，一次跑完所有候選對）────────────────────────
-    print(f"\n[5/5] LLM 判定（{len(candidate_pairs)} 對，{LLM_WORKERS} 執行緒）...")
-
-    tasks = [
-        (i, name_a, type_a, name_b, type_b, sim)
-        for i, (name_a, type_a, name_b, type_b, sim) in enumerate(candidate_pairs)
-    ]
-
-    decisions: list[dict] = [None] * len(tasks)
-    
-    # 建立輸出檔案，並寫入標頭 (Progressive saving - 避免中斷遺失資料)
     dec_path = RESULTS_DIR / "matchgpt_decisions.csv"
-    with open(dec_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["name_a", "type_a", "name_b", "type_b", "similarity",
-                         "decision", "confidence", "reason"])
 
-    from tqdm import tqdm
-    import threading
-    write_lock = threading.Lock()
+    if replay:
+        print("\n[重放] 載入既有候選對與判定結果，跳過 [0/5]~[5/5]...")
+        candidate_keys = {}
+        with open(cand_path, newline="", encoding="utf-8") as f:
+            for index, row in enumerate(csv.DictReader(f)):
+                key = (row["name_a"], row["name_b"])
+                if key in candidate_keys:
+                    print(f"[ERROR] candidate_pairs.csv 有重複鍵：{key}")
+                    sys.exit(1)
+                candidate_keys[key] = index
+        decisions = []
+        decision_keys = set()
+        with open(dec_path, newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                key = (row["name_a"], row["name_b"])
+                if key in decision_keys or key not in candidate_keys:
+                    print(f"[ERROR] decisions.csv 鍵不符或重複：{key}")
+                    sys.exit(1)
+                decision_keys.add(key)
+                row["similarity"] = float(row["similarity"])
+                row["confidence"] = float(row["confidence"])
+                decisions.append(row)
+        if len(candidate_keys) != len(decisions) or len(decision_keys) != len(candidate_keys):
+            print("[ERROR] candidate_pairs.csv 與 decisions.csv 筆數或鍵集合不一致")
+            sys.exit(1)
+        decisions.sort(key=lambda d: candidate_keys[(d["name_a"], d["name_b"])])
+    else:
+        print("\n[0/5] 開場還原 postvalidation 圖（中斷安全）...")
+        # 確保候選生成永遠基於 canonical postvalidation 圖；任何中斷點（含合併中斷、
+        # 1.5 之後誤重跑）重跑本腳本都等價於乾淨全跑，讓腳本整體冪等化。
+        restore_postvalidation(wipe=True)
 
-    with ThreadPoolExecutor(max_workers=LLM_WORKERS) as executor:
-        future_to_idx = {executor.submit(judge_one_pair, t): t[0] for t in tasks}
+        # ── 2. 載入 embedding 快取 ───────────────────────────────────────────────
+        print("\n[1/5] 載入 embedding 快取...")
+        load_embedding_cache()
+
+        # ── 3. 從 Neo4j 取節點（當前應為 Post-validation 圖譜）──────────────────
+        print("\n[2/5] 從 Neo4j 載入所有節點...")
+        driver = get_driver()
+        nodes = fetch_all_nodes(driver)
+        driver.close()
+        print(f"  節點數：{len(nodes)}")
+
+        # ── 4. 計算 / 復用 embedding ─────────────────────────────────────────────
+        print("\n[3/5] 計算 embedding（有快取則復用）...")
+        name_to_emb: dict[str, list | None] = {}
+        missing = [n for n in nodes if n["name"] not in embedding_cache]
+        print(f"  快取命中：{len(nodes) - len(missing)}  需新算：{len(missing)}")
+
+        if missing:
+            print(f"  呼叫 LM Studio（{EMBED_URL}）...")
+            try:
+                resp = requests.post(
+                    EMBED_URL,
+                    headers={"Content-Type": "application/json"},
+                    json={"model": EMBED_MODEL, "input": "health check"},
+                    timeout=10,
+                )
+                resp.raise_for_status()
+            except Exception as e:
+                print(f"[ERROR] Embedding endpoint health check failed（{EMBED_URL}）：{e}")
+                sys.exit(1)
+            for i, n in enumerate(missing, 1):
+                emb = get_embedding(n["name"])
+                name_to_emb[n["name"]] = emb
+                if i % 100 == 0 or i == len(missing):
+                    print(f"  embedding 進度：{i}/{len(missing)}", end="\r")
+            print()
+            save_embedding_cache()
+            print(f"  ✓ 快取已更新，共 {len(embedding_cache)} 筆")
+        else:
+            print("  全部命中快取，跳過 API 呼叫")
+
+        for n in nodes:
+            if n["name"] not in name_to_emb:
+                name_to_emb[n["name"]] = embedding_cache.get(n["name"])
+
+        # ── 5. Blocking：本體論分桶 + cosine ≥ 0.80 top-k=10 ────────────────────
+        print("\n[4/5] 抽取候選節點對（type 分桶 + cosine blocking）...")
+        candidate_pairs: list[tuple] = []  # (name_a, type_a, name_b, type_b, sim)
+
+        by_type: dict[str, list] = {t: [] for t in ENTITY_TYPES}
+        for n in nodes:
+            t = n["type"]
+            if t in by_type and name_to_emb.get(n["name"]) is not None:
+                by_type[t].append(n)
+
+        for etype, bucket in by_type.items():
+            if len(bucket) < 2:
+                continue
+            names = [n["name"] for n in bucket]
+            embs  = [name_to_emb[nm] for nm in names]
+
+            # 批次化 cosine：一次算出所有對（PyTorch 矩陣運算，速度遠快於 nested loop）
+            mat = torch.tensor(embs, dtype=torch.float32)           # (N, D)
+            mat = F.normalize(mat, dim=1)                            # L2 norm
+            sim_matrix = torch.mm(mat, mat.t())                      # (N, N)
+
+            seen = set()
+            N = len(names)
+            for i in range(N):
+                row = sim_matrix[i]
+                for j in range(i + 1, N):
+                    sim_val = float(row[j].item())
+                    if sim_val >= EMBED_SIM_THRESHOLD:
+                        key = (names[i], names[j])  # i < j，有序不重複
+                        if key not in seen:
+                            seen.add(key)
+                            candidate_pairs.append((names[i], etype, names[j], etype, sim_val))
+
+            # 若某節點候選超過 TOP_K，依 sim 降冪只保留最高的 TOP_K 個對
+            # （重組：已按 i<j 順序加入，需對每個節點重新篩）
+            if candidate_pairs:
+                from collections import defaultdict
+                node_cnt: dict[str, int] = defaultdict(int)
+                filtered = []
+                # 只針對此 etype 的對重新篩選（取本輪新加入的）
+                # 使用 seen set 已去重，直接對此 bucket 結果按 sim 降冪再 top-k
+                bucket_pairs = [(a, et_a, b, et_b, s) for (a, et_a, b, et_b, s) in candidate_pairs
+                                if et_a == etype]
+                candidate_pairs = [p for p in candidate_pairs if p[1] != etype]
+                bucket_pairs.sort(key=lambda x: x[4], reverse=True)
+                for p in bucket_pairs:
+                    a, _, b, _, _ = p
+                    if node_cnt[a] < TOP_K and node_cnt[b] < TOP_K:
+                        filtered.append(p)
+                        node_cnt[a] += 1
+                        node_cnt[b] += 1
+                candidate_pairs.extend(filtered)
+
+        print(f"  候選對數：{len(candidate_pairs)}")
+
+        # 儲存候選清單
+        cand_path = RESULTS_DIR / "matchgpt_candidate_pairs.csv"
+        with open(cand_path, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(["name_a", "type_a", "name_b", "type_b", "similarity"])
+            for row in candidate_pairs:
+                writer.writerow(row)
+        print(f"  ✓ 候選清單 → {cand_path}")
+
+        # ── 6. LLM 判定（6 key 並行，一次跑完所有候選對）────────────────────────
+        print(f"\n[5/5] LLM 判定（{len(candidate_pairs)} 對，{LLM_WORKERS} 執行緒）...")
+
+        tasks = [
+            (i, name_a, type_a, name_b, type_b, sim)
+            for i, (name_a, type_a, name_b, type_b, sim) in enumerate(candidate_pairs)
+        ]
+
+        decisions: list[dict] = [None] * len(tasks)
+    
+        # 建立輸出檔案，並寫入標頭 (Progressive saving - 避免中斷遺失資料)
+        dec_path = RESULTS_DIR / "matchgpt_decisions.csv"
+        with open(dec_path, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(["name_a", "type_a", "name_b", "type_b", "similarity",
+                             "decision", "confidence", "reason"])
+
+        from tqdm import tqdm
+        import threading
+        write_lock = threading.Lock()
+
+        with ThreadPoolExecutor(max_workers=LLM_WORKERS) as executor:
+            future_to_idx = {executor.submit(judge_one_pair, t): t[0] for t in tasks}
         
-        # 使用 tqdm 顯示進度條
-        for future in tqdm(as_completed(future_to_idx), total=len(tasks), desc="  LLM 判定進度"):
-            result = future.result()
-            decisions[result["idx"]] = result
+            # 使用 tqdm 顯示進度條
+            for future in tqdm(as_completed(future_to_idx), total=len(tasks), desc="  LLM 判定進度"):
+                result = future.result()
+                decisions[result["idx"]] = result
             
-            # 即時寫入 CSV (加上 Lock 避免多線程寫入衝突)
-            if result:
-                with write_lock:
-                    with open(dec_path, "a", newline="", encoding="utf-8") as f:
-                        writer = csv.writer(f)
-                        writer.writerow([
-                            result["name_a"], result["type_a"], result["name_b"], result["type_b"],
-                            result["similarity"], result["decision"], result["confidence"], result["reason"]
-                        ])
+                # 即時寫入 CSV (加上 Lock 避免多線程寫入衝突)
+                if result:
+                    with write_lock:
+                        with open(dec_path, "a", newline="", encoding="utf-8") as f:
+                            writer = csv.writer(f)
+                            writer.writerow([
+                                result["name_a"], result["type_a"], result["name_b"], result["type_b"],
+                                result["similarity"], result["decision"], result["confidence"], result["reason"]
+                            ])
 
-    print()
-    print(f"  ✓ 判定結果即時寫入完成 → {dec_path}")
+        print()
+        print(f"  ✓ 判定結果即時寫入完成 → {dec_path}")
 
-    same_total = sum(1 for d in decisions if d and d["decision"] == "same")
-    print(f"  判定 same：{same_total} / {len(decisions)}")
-    api_failures = sum(1 for d in decisions if d and d.get("reason") == "API 失敗")
-    internal_errors = sum(1 for d in decisions if d and str(d.get("reason", "")).startswith("Internal Error"))
-    print(f"[掃錯] api_failures={api_failures} internal_errors={internal_errors}")
-    if api_failures + internal_errors > 0:
-        print("[WARN] 這些對依政策屬技術性失敗、分析前需重跑（errors=0 才可用）。")
+        same_total = sum(1 for d in decisions if d and d["decision"] == "same")
+        print(f"  判定 same：{same_total} / {len(decisions)}")
+        api_failures = sum(1 for d in decisions if d and d.get("reason") == "API 失敗")
+        internal_errors = sum(1 for d in decisions if d and str(d.get("reason", "")).startswith("Internal Error"))
+        print(f"[掃錯] api_failures={api_failures} internal_errors={internal_errors}")
+        if api_failures + internal_errors > 0:
+            print("[WARN] 這些對依政策屬技術性失敗、分析前需重跑（errors=0 才可用）。")
 
     # ── 7. 讀取 Post-validation 基線指標 ─────────────────────────────────────
     # 從 JSON 取「原始 build」數字（用於論文三欄對比表）
     with open(postval_stats_path, encoding="utf-8") as f:
         postval_stats = json.load(f)
-    # 注：backup/restore 工具不保留同對節點多條邊，恢復後關係數略少（~39）
-    # 此處仍用原始 build 數字做節點縮減比基線（節點數不受影響）
+    # neo4j_backup_restore.py 已於 2026-07-11 修正（wipe 模式改 CREATE 精確複製，還原後關係數＝備份宣告值）
+    # pre_rel_count 仍以還原後 DB 實測為準
     pre_node_count = postval_stats["node_count"]   # 3703，從 build 取（精確）
 
     # ── 8. 三組 threshold 各自 restore → 合併 → 指標 → 備份 ─────────────────
@@ -876,5 +914,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
-
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--replay-decisions", action="store_true")
+    args = parser.parse_args()
+    main(replay=args.replay_decisions)

@@ -13,7 +13,13 @@ Neo4j Community Edition 完整備份與還原工具
   - 所有關係（含 type 與 properties）
 
 還原策略：
-  - MERGE on name（不重複建立節點）
+  - 節點：MERGE on name（不重複建立節點）
+  - 關係：--wipe 模式用 CREATE 逐條重建（精確複製備份，保留同對節點間的
+    平行邊）；非 wipe 模式維持 MERGE（避免往既有圖疊資料時重複累積）。
+    2026-07-11 修正：舊版一律 MERGE (s)-[r:TYPE]->(d)，會把同起訖同型別、
+    但 relation/reasoning/source 屬性互異的平行邊塌縮成一條（屬性由後寫者
+    覆蓋），造成還原後關係數少於備份宣告值（postvalidation 圖實測少 21 條
+    真三元組）。本鏈所有還原皆為 wipe 模式，故 CREATE 修法覆蓋全部場景。
   - 還原前可選擇是否先清空 DB（--wipe 旗標）
 """
 
@@ -194,7 +200,10 @@ def restore(driver, backup_path: str, wipe: bool = False):
         print(f"  → 節點還原：成功 {node_ok}，失敗 {node_err}")
 
         # 2. 還原關係
-        print(f"\n  正在還原 {len(rels)} 個關係...")
+        # wipe（DB 已清空）＝精確複製：CREATE 逐條重建，保留平行邊；
+        # 非 wipe（往既有圖疊資料）＝MERGE，避免重複累積。
+        rel_verb = "CREATE" if wipe else "MERGE"
+        print(f"\n  正在還原 {len(rels)} 個關係（{rel_verb} 模式）...")
         rel_ok = 0
         rel_err = 0
 
@@ -214,7 +223,7 @@ def restore(driver, backup_path: str, wipe: bool = False):
                 session.run(f"""
                     MATCH (s:{src_label} {{name: $src_name}})
                     MATCH (d:{dst_label} {{name: $dst_name}})
-                    MERGE (s)-[r:{rel_type}]->(d)
+                    {rel_verb} (s)-[r:{rel_type}]->(d)
                     SET r += $props
                 """, src_name=src_name, dst_name=dst_name, props=rel_props)
                 rel_ok += 1
