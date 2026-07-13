@@ -49,14 +49,34 @@ if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
 
 from prompts import load_prompt
+from exp_3.b4.entity_linker import EntityLinker, LinkerConfig
+from exp_3.b4.evidence_ranking import prompt_triples, rank_and_budget_evidence
+from exp_3.b4.mention_extraction import (
+    MentionExtractionError,
+    build_step1_input,
+    parse_mention_payload,
+)
+from exp_3.b4.model_node_linking import build_prompt as build_nodelink_prompt
+from exp_3.b4.model_node_linking import parse_choices as parse_node_choices
+from exp_3.b4.question_normalization import normalize_question_set
+from exp_3.b4.relation_selection import RelationSelectionError, parse_relation_selection
+from exp_3.b4.semantic_index import (
+    DEFAULT_EMBEDDING_MODEL,
+    OpenAIEmbeddingClient,
+    build_semantic_index,
+)
+from exp_3.b4.subgraph import expand_subgraph
 
 # ─── KG-GPT 對齊參數 ──────────────────────────────────────────────────────────
 TOP_K_RELATIONS = 10
-MAX_HOP = 3
+MAX_HOP = 2
+MAX_TRIPLES_PER_NODE = 50
+MAX_EVIDENCE_PER_QUESTION = 100
 TEMPERATURE = 0.0
 TOP_P = 1.0
-MAX_TOKENS_STEP1 = 1024
-MAX_TOKENS_STEP2 = 256
+MAX_TOKENS_STEP1 = 32768
+MAX_TOKENS_STEP2 = 32768
+MAX_TOKENS_NODELINK = 32768
 
 # ─── JSON Schemas ─────────────────────────────────────────────────────────────
 STEP1_SCHEMA = {
@@ -67,18 +87,37 @@ STEP1_SCHEMA = {
             "items": {
                 "type": "object",
                 "properties": {
-                    "sentence": {"type": "string", "minLength": 1},
-                    "entities": {
+                    "subclaim_id": {"type": "string", "minLength": 1},
+                    "text": {"type": "string", "minLength": 1},
+                    "mentions": {
                         "type": "array",
-                        "items": {"type": "string", "minLength": 1},
-                        "maxItems": 2,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "text": {"type": "string", "minLength": 1},
+                                "origin": {
+                                    "type": "string",
+                                    "enum": [
+                                        "stem",
+                                        "option_A",
+                                        "option_B",
+                                        "option_C",
+                                        "option_D",
+                                    ],
+                                },
+                                "source_span": {"type": "string", "minLength": 1},
+                            },
+                            "required": ["text", "origin", "source_span"],
+                            "additionalProperties": False,
+                        },
+                        "maxItems": 20,
                     },
                 },
-                "required": ["sentence", "entities"],
+                "required": ["subclaim_id", "text", "mentions"],
                 "additionalProperties": False,
             },
             "minItems": 1,
-            "maxItems": 6,
+            "maxItems": 10,
         },
     },
     "required": ["sub_claims"],
@@ -93,8 +132,32 @@ STEP2_SCHEMA = {
             "items": {"type": "string", "minLength": 1},
             "maxItems": TOP_K_RELATIONS,
         },
+        "decision_reason": {"type": "string", "minLength": 1},
     },
-    "required": ["selected_relations"],
+    "required": ["selected_relations", "decision_reason"],
+    "additionalProperties": False,
+}
+
+# Route-2 model-in-the-loop node linking: the evaluated model picks one node id
+# per pending mention from a bounded candidate set, or null (fail closed).
+NODELINK_SYSTEM = "你是嚴謹的資安知識圖譜實體連結器，只輸出符合 schema 的 JSON。"
+NODELINK_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "choices": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "index": {"type": "integer"},
+                    "element_id": {"type": ["string", "null"]},
+                },
+                "required": ["index", "element_id"],
+                "additionalProperties": False,
+            },
+        },
+    },
+    "required": ["choices"],
     "additionalProperties": False,
 }
 
@@ -102,8 +165,11 @@ STEP2_SCHEMA = {
 class BaseAdapter:
     name: str = "base"
 
-    def call(self, system: str, user: str, schema: dict, max_tokens: int) -> str:
-        """回傳 raw content（JSON 字串）；失敗回空。"""
+    def call(self, system: str, user: str, schema: dict, max_tokens: int,
+              temperature: float | None = None) -> str:
+        """回傳 raw content（JSON 字串）；失敗回空。temperature 未指定時各
+        adapter 用全域 TEMPERATURE；由外層重試（見 _call_and_parse）在偵測到
+        解析失敗時逐次微調帶入，用來跳出同參數必重現的確定性錯誤輸出。"""
         raise NotImplementedError
 
 
@@ -119,7 +185,8 @@ class LMStudioAdapter(BaseAdapter):
         self.use_strict_schema = use_strict_schema
         self.use_json_object = use_json_object
 
-    def call(self, system: str, user: str, schema: dict, max_tokens: int) -> str:
+    def call(self, system: str, user: str, schema: dict, max_tokens: int,
+              temperature: float | None = None) -> str:
         import requests
         payload = {
             "model": self.model_id,
@@ -127,7 +194,7 @@ class LMStudioAdapter(BaseAdapter):
                 {"role": "system", "content": system},
                 {"role": "user", "content": user},
             ],
-            "temperature": TEMPERATURE,
+            "temperature": TEMPERATURE if temperature is None else temperature,
             "top_p": TOP_P,
             "max_tokens": max_tokens,
         }
@@ -184,7 +251,8 @@ class GroqAdapter(BaseAdapter):
         from openai import OpenAI
         return OpenAI(base_url="https://api.groq.com/openai/v1", api_key=api_key)
 
-    def call(self, system: str, user: str, schema: dict, max_tokens: int) -> str:
+    def call(self, system: str, user: str, schema: dict, max_tokens: int,
+              temperature: float | None = None) -> str:
         client = self._client_q.get()
         attempt = 0
         try:
@@ -196,7 +264,7 @@ class GroqAdapter(BaseAdapter):
                             {"role": "system", "content": system},
                             {"role": "user", "content": user},
                         ],
-                        temperature=TEMPERATURE,
+                        temperature=TEMPERATURE if temperature is None else temperature,
                         top_p=TOP_P,
                         max_tokens=max_tokens,
                         response_format={
@@ -246,24 +314,43 @@ class GoogleAdapter(BaseAdapter):
         for k in self.api_keys:
             self._client_q.put(genai.Client(api_key=k))
 
-    def call(self, system: str, user: str, schema: dict, max_tokens: int) -> str:
+    def call(self, system: str, user: str, schema: dict, max_tokens: int,
+              temperature: float | None = None) -> str:
         from google.genai import types
         client = self._client_q.get()
         attempt = 0
+        base_temperature = TEMPERATURE if temperature is None else temperature
         try:
             while attempt < 4:
+                # gemma-4-31b-it 不支援關閉/限制 thinking_config；部分題目的思考長度
+                # 在同一 temperature 下會確定性地耗盡整個 max_output_tokens（finish_reason
+                # =MAX_TOKENS 且無實際輸出）。單純重試同參數必重現同一結果，故此處在偵測到
+                # 這種「全部預算燒在 thinking、無輸出」的情況時改用微調過的 temperature 重試，
+                # 以跳出該次確定性推理路徑。
+                call_temperature = (
+                    base_temperature if attempt == 0
+                    else min(base_temperature + 0.2 * attempt, 0.8)
+                )
                 try:
                     resp = client.models.generate_content(
                         model=self.model_id,
                         contents=user,
                         config=types.GenerateContentConfig(
                             system_instruction=system,
-                            temperature=TEMPERATURE,
+                            temperature=call_temperature,
                             top_p=TOP_P,
                             max_output_tokens=max_tokens,
                         ),
                     )
-                    return (resp.text or "") if hasattr(resp, "text") else ""
+                    text = (resp.text or "") if hasattr(resp, "text") else ""
+                    if text:
+                        return text
+                    candidates = getattr(resp, "candidates", None) or []
+                    finish_reason = str(candidates[0].finish_reason) if candidates else ""
+                    attempt += 1
+                    if "MAX_TOKENS" in finish_reason and attempt < 4:
+                        continue
+                    return ""
                 except Exception as e:
                     err = str(e).lower()
                     attempt += 1
@@ -330,7 +417,8 @@ class NVIDIAAdapter(BaseAdapter):
         from openai import OpenAI
         return OpenAI(base_url="https://integrate.api.nvidia.com/v1", api_key=api_key)
 
-    def call(self, system: str, user: str, schema: dict, max_tokens: int) -> str:
+    def call(self, system: str, user: str, schema: dict, max_tokens: int,
+              temperature: float | None = None) -> str:
         # NVIDIA Llama-70B 不支援 strict JSON schema，但能依 prompt 輸出 JSON
         # 用 OpenAI SDK 之 response_format={"type": "json_object"} 提示
         client = self._client_q.get()
@@ -344,7 +432,7 @@ class NVIDIAAdapter(BaseAdapter):
                             {"role": "system", "content": system + "\n請務必以 JSON 格式回答。"},
                             {"role": "user", "content": user},
                         ],
-                        temperature=TEMPERATURE,
+                        temperature=TEMPERATURE if temperature is None else temperature,
                         top_p=TOP_P,
                         max_tokens=max_tokens,
                     )
@@ -367,8 +455,7 @@ class NVIDIAAdapter(BaseAdapter):
 # ─── Model Registry ───────────────────────────────────────────────────────────
 def build_adapter(model_key: str) -> BaseAdapter:
     if model_key == "phi":
-        # strict=True：LM Studio 會收到請求，step1_ok=98%；中文輕微亂碼但 CONTAINS 模糊匹配仍可命中
-        # 英文 entities（SQL injection/GPU/VPN 等 ISN 技術詞）不受 decode 亂碼影響
+        # strict=True：保留結構化輸出契約；若回覆不符合 schema，交由硬錯誤處理。
         return LMStudioAdapter(
             name="phi-4-mini-reasoning",
             endpoint=os.getenv("LM_STUDIO_CHAT_URL", "http://127.0.0.1:1234/v1/chat/completions"),
@@ -376,10 +463,16 @@ def build_adapter(model_key: str) -> BaseAdapter:
             use_strict_schema=True,
         )
     if model_key == "e4b":
+        # 2026-07-13：non-strict 曾被嘗試（比照 gptoss）以解決少數候選數較多批次
+        # 的截斷 JSON，但正式 356 題跑批顯示 e4b（弱於 gptoss）在無 schema 引導下
+        # 大量吐出空回應（empty node-linking response，33% 錯誤率，遠高於
+        # strict schema 下建構集的 3.6%）。改回 strict：對 e4b 而言 schema 引導
+        # 帶來的合法輸出率提升，明顯壓過其偶發截斷 JSON 的代價。
         return LMStudioAdapter(
             name="gemma-4-e4b-it",
             endpoint=os.getenv("LM_STUDIO_CHAT_URL", "http://127.0.0.1:1234/v1/chat/completions"),
             model_id="gemma-4-e4b-it",
+            use_strict_schema=True,
         )
     if model_key == "gptoss":
         # 2026-05-23 改：Groq 之 200K TPD 不足；改用本地 LM Studio @ .80
@@ -398,13 +491,16 @@ def build_adapter(model_key: str) -> BaseAdapter:
         ]
         return GroqAdapter(name="gpt-oss-20b", api_keys=groq_keys, model_id="openai/gpt-oss-20b")
     if model_key == "gemma31b":
-        # 2026-07-12 使用者拍板：改直連 Google AI Studio（gemma-4-31b-it 原始權重、
-        # GEMINI_API_KEYS 多金鑰），解掉 .80 model id 漂移（現掛 -qat 量化版）問題。
-        return GoogleAdapter(
-            name="gemma-4-31b",
-            api_keys=_load_gemini_keys(),
-            model_id="gemma-4-31b-it",
-        )
+        # 2026-07-13：AI Studio 直連版對正式 356 題跑批不穩定（thinking 模式偶爾把
+        # 整個 max_output_tokens 燒在 reasoning、無文字輸出），改本地 LM Studio @ .80
+        # 非量化版後穩定但太慢（單機序列、5090 滿載，~5-6 分鐘/題，356 題估 11+ 小時）。
+        # 使用者確認 NVIDIA NIM 亦有代管 google/gemma-4-31b-it；實測兩次呼叫皆
+        # finish_reason=stop、content 正常（1.87s～30s，視 reasoning token 量），改走
+        # NVIDIA NIM，比照 llama70b 用同一組 NVIDIA_API_KEY_<N> 多金鑰並行池，
+        # 換取大幅平行化（本地單機序列 → 最多 7-way 並行）。
+        nv_keys = _load_nvidia_keys()
+        return NVIDIAAdapter(name="gemma-4-31b-it (NVIDIA NIM)", api_keys=nv_keys,
+                             model_id="google/gemma-4-31b-it")
     if model_key == "llama70b":
         # 動態讀 .env 之 NVIDIA_API_KEY_<N>（有幾把用幾把；與 MatchGPT 同款）。
         nv_keys = _load_nvidia_keys()
@@ -417,21 +513,21 @@ def build_adapter(model_key: str) -> BaseAdapter:
 # 並行度（受 endpoint 物理約束）
 MODEL_WORKERS = {
     "phi": 1,         # LM Studio @ .79 單機，reasoning model 較慢
-    "e4b": 2,         # LM Studio @ .79 單機
-    "gptoss": 4,      # Groq 2 keys，多 worker 競搶 keys
-    "gemma31b": len(_load_gemini_keys()) or 1,  # Gemma-4-31B (Google AI Studio)：worker 數 = GEMINI_API_KEYS 金鑰數（動態，與 MatchGPT 同款）
+    "e4b": 1,         # LM Studio @ .79 單機；2026-07-13 正式跑批實測 2 worker 併發
+                      # 會讓 .79 server log 出現 "Channel Error"、client 端收到空回應
+                      # （NodeLinkingError/MentionExtractionError: empty response），
+                      # 與 phi 同款單機同因，降為 1 避免併發搶連線。
+    "gptoss": 1,      # LM Studio @ .80 單機；實測 4 worker 併發會讓輸出偶爾交錯/截斷（invalid JSON），降為 1 避免併發問題
+    "gemma31b": len(_load_nvidia_keys()) or 1,  # 2026-07-13 改 NVIDIA NIM；worker 數 = .env 金鑰數（與 llama70b 共用同一組 key，llama70b 已跑完不衝突）
     "llama70b": len(_load_nvidia_keys()) or 1,  # NVIDIA：worker 數 = .env 金鑰數（動態，與 MatchGPT 同款）
 }
 
 
 # ─── Cypher utilities ─────────────────────────────────────────────────────────
-CYPHER_ENTITY_MATCH = """
+CYPHER_ALL_NODES = """
 MATCH (n:KGNode)
-WHERE toLower(n.name) = toLower($name)
-   OR toLower(n.name) CONTAINS toLower($name)
-   OR toLower($name) CONTAINS toLower(n.name)
-RETURN elementId(n) AS id, n.name AS name
-LIMIT 1
+RETURN elementId(n) AS element_id, n.name AS name, n.type AS type
+ORDER BY elementId(n)
 """
 
 CYPHER_RELATIONS_OF = """
@@ -457,10 +553,37 @@ LIMIT 50
 """
 
 
-def entity_match(driver, name: str) -> dict | None:
+def load_kg_nodes(driver) -> list[dict]:
     with driver.session() as sess:
-        rec = sess.run(CYPHER_ENTITY_MATCH, name=name).single()
-        return dict(rec) if rec else None
+        return [dict(row) for row in sess.run(CYPHER_ALL_NODES)]
+
+
+def build_entity_linker(
+    driver,
+    aliases_path: Path,
+    config_path: Path,
+    *,
+    nodes: list[dict] | None = None,
+    semantic_index=None,
+    semantic_client=None,
+) -> EntityLinker:
+    aliases_payload = json.loads(aliases_path.read_text(encoding="utf-8"))
+    config_payload = json.loads(config_path.read_text(encoding="utf-8"))
+    aliases = aliases_payload.get("aliases", {})
+    if not isinstance(aliases, dict):
+        raise ValueError("entity_aliases.json aliases must be an object")
+    nodes = nodes if nodes is not None else load_kg_nodes(driver)
+    semantic_provider = None
+    if semantic_index is not None or semantic_client is not None:
+        if semantic_index is None or semantic_client is None:
+            raise ValueError("semantic index and client must be configured together")
+        semantic_provider = semantic_index.provider(semantic_client)
+    return EntityLinker(
+        nodes,
+        aliases=aliases,
+        config=LinkerConfig.from_mapping(config_payload),
+        semantic_provider=semantic_provider,
+    )
 
 
 def relation_candidates(driver, entity_ids: list[str]) -> list[str]:
@@ -473,233 +596,280 @@ def relation_candidates(driver, entity_ids: list[str]) -> list[str]:
     return sorted(all_rels)
 
 
-def expand_triples(driver, entity_ids: list[str], relations: list[str]) -> list[tuple]:
-    triples: list[tuple] = []
+def neo4j_fetch_edges(driver, node_ids: list[str], relations: list[str]) -> list[dict]:
+    edges: list[dict] = []
     with driver.session() as sess:
-        for eid in entity_ids:
-            for rel in relations:
+        for eid in sorted(set(node_ids)):
+            for rel in sorted(set(relations)):
                 for row in sess.run(CYPHER_EXPAND_TRIPLES, head_id=eid, rel=rel):
-                    triples.append((row["head"], row["relation"], row["tail"],
-                                    row["head_id"], row["tail_id"]))
+                    edges.append(dict(row))
                 for row in sess.run(CYPHER_EXPAND_REVERSE, tail_id=eid, rel=rel):
-                    triples.append((row["head"], row["relation"], row["tail"],
-                                    row["head_id"], row["tail_id"]))
-    return triples
-
-
-# ─── graph_extractor (移植自 KG-GPT) ──────────────────────────────────────────
-def graph_extractor(target_list: list[tuple]) -> list[tuple]:
-    if not target_list:
-        return target_list
-    return_list = [target_list[0]]
-    filter_dict = {"head": {}, "tail": {}}
-    h0, r0, t0 = target_list[0][0], target_list[0][1], target_list[0][2]
-    filter_dict["head"][h0] = [r0]
-    filter_dict["tail"][t0] = [r0]
-    for tar in target_list[1:]:
-        h, r, t = tar[0], tar[1], tar[2]
-        if tar in return_list:
-            continue
-        if h in filter_dict["head"] and r in filter_dict["head"][h]:
-            continue
-        if t in filter_dict["tail"] and r in filter_dict["tail"][t]:
-            continue
-        return_list.append(tar)
-        filter_dict["head"].setdefault(h, []).append(r)
-        filter_dict["tail"].setdefault(t, []).append(r)
-    return return_list
-
-
-# ─── Step parsers (含 fallback) ───────────────────────────────────────────────
-def parse_step1(raw: str) -> list[dict]:
-    """JSON-first parse；失敗 fallback 至 free-text "1. (...) Entity set:[...]" 格式。"""
-    if not raw:
-        return []
-    # JSON 嘗試
-    for candidate in (raw, _extract_json_block(raw)):
-        if not candidate:
-            continue
-        try:
-            obj = json.loads(candidate)
-            arr = obj.get("sub_claims") if isinstance(obj, dict) else None
-            if isinstance(arr, list):
-                out = []
-                for it in arr:
-                    if not isinstance(it, dict):
-                        continue
-                    s = str(it.get("sentence", "")).strip()
-                    ents = it.get("entities", []) or []
-                    ents = [str(e).strip() for e in ents if str(e).strip()][:2]
-                    if s and ents:
-                        out.append({"sentence": s, "entities": ents})
-                if out:
-                    return out
-        except json.JSONDecodeError:
-            pass
-    # free-text fallback
-    out = []
-    for line in raw.splitlines():
-        line = line.strip()
-        m = re.match(r"^\d+\.\s*(.+?)\s*[,，]?\s*Entity\s*set\s*[:：]\s*\[(.*?)\]\s*$", line)
-        if not m:
-            continue
-        sent = m.group(1).strip().rstrip(",，。 ")
-        ents = [e.strip().strip("'\"") for e in m.group(2).split("##") if e.strip()]
-        ents = [e for e in ents if e][:2]
-        if sent and ents:
-            out.append({"sentence": sent, "entities": ents})
-    return out
-
-
-def parse_step2(raw: str, candidates: list[str]) -> list[str]:
-    """JSON-first parse；失敗 fallback 至 [...] 抽取。"""
-    if not raw:
-        return []
-    for cand_text in (raw, _extract_json_block(raw)):
-        if not cand_text:
-            continue
-        try:
-            obj = json.loads(cand_text)
-            if isinstance(obj, dict) and "selected_relations" in obj:
-                rels = obj["selected_relations"]
-                if isinstance(rels, list):
-                    out = [str(r).strip().strip("'\"") for r in rels if str(r).strip()]
-                    valid = [r for r in out if r in candidates]
-                    if valid:
-                        return valid[:TOP_K_RELATIONS]
-        except json.JSONDecodeError:
-            pass
-    # 抓 [ ... ] 之內容
-    m = re.search(r"\[([^\[\]]*)\]", raw, re.DOTALL)
-    if m:
-        parts = [s.strip().strip("'\"") for s in m.group(1).split(",") if s.strip()]
-        valid = [r for r in parts if r in candidates]
-        if valid:
-            return valid[:TOP_K_RELATIONS]
-    return []
-
-
-def _extract_json_block(text: str) -> str | None:
-    """從含 markdown 之回應抽 ```json ... ``` 或最外層 { ... }."""
-    if not text:
-        return None
-    m = re.search(r"```json\s*(.*?)\s*```", text, re.DOTALL)
-    if m:
-        return m.group(1)
-    m = re.search(r"\{.*\}", text, re.DOTALL)
-    if m:
-        return m.group()
-    return None
+                    edges.append(dict(row))
+    return edges
 
 
 # ─── 主管線：題目 → evidence triples ─────────────────────────────────────────
 STEP1_SYSTEM = load_prompt("exp_3/nf1_step1_system.md")
 STEP2_SYSTEM = load_prompt("exp_3/nf1_step2_system.md")
 
+PARSE_RETRY_ATTEMPTS = 10
+
+
+def _call_and_parse(adapter: BaseAdapter, system: str, user: str, schema: dict,
+                     max_tokens: int, parse_fn):
+    """呼叫模型並解析回應；解析失敗（非 schema 違規，而是模型偶發的空回應／
+    格式錯亂 JSON）時重打幾次。這類間歇性故障（gpt-oss 偶爾多吐一段文字、
+    gemma31b 少數題目思考預算仍不夠）在同一 adapter.call() 內部重試不保證能
+    修好，故在更高層對「呼叫+解析」整組重試。
+
+    溫度固定在 0 的 adapter（LM Studio／NVIDIA）對同一題目有時會確定性地
+    重現同一個格式錯誤（例如巢狀錯亂的 sub_claims，或 relation selection
+    堅持挑一個不在候選集內、聽起來合理的關係名），單純重打會拿到一模一樣
+    的壞輸出。故從第二次起微調 temperature，逼模型跳出該次確定性的解碼
+    路徑；2026-07-13 正式跑批發現部分個案在 0.8 上限內仍會每次收斂回同一個
+    錯誤答案，故拉高上限到 1.2、attempts 拉到 10 次，給更多機會跳脫。
+    GoogleAdapter 內部另有自己的 thinking-budget 專用重試，這裡傳入的
+    temperature 會再疊加上去，不衝突。"""
+
+    last_exc: Exception | None = None
+    for attempt in range(PARSE_RETRY_ATTEMPTS):
+        temperature = None if attempt == 0 else min(0.15 * attempt, 1.2)
+        raw = adapter.call(system, user, schema, max_tokens, temperature=temperature)
+        try:
+            return parse_fn(raw)
+        except Exception as exc:  # noqa: BLE001 - deliberately broad, re-raised below
+            last_exc = exc
+            continue
+    raise last_exc
+
 
 def process_one_question(question: dict, driver, adapter: BaseAdapter,
-                         prompt_step1: str, prompt_step2: str) -> dict:
+                         linker: EntityLinker, prompt_step1: str,
+                         prompt_step2: str, prompt_nodelink: str) -> dict:
     qid = question["qid"]
-    claim = question["stem"]
+    question_started = time.perf_counter()
 
-    # Step 1
-    s1_prompt = prompt_step1.replace("<<<<CLAIM>>>>", claim)
-    s1_raw = adapter.call(STEP1_SYSTEM, s1_prompt, STEP1_SCHEMA, MAX_TOKENS_STEP1)
-    sub_claims = parse_step1(s1_raw)
-    if not sub_claims:
-        sub_claims = [{"sentence": claim, "entities": []}]
-    step1_parse_ok = bool(parse_step1(s1_raw))
+    # Step 1: every evaluated model receives the same stem + A-D input, but
+    # produces its own source-aware mention set.
+    question_json = json.dumps(
+        build_step1_input(question), ensure_ascii=False, separators=(",", ":")
+    )
+    s1_prompt = prompt_step1.replace("<<<<QUESTION_JSON>>>>", question_json)
+    s1_started = time.perf_counter()
+    extracted = _call_and_parse(
+        adapter, STEP1_SYSTEM, s1_prompt, STEP1_SCHEMA, MAX_TOKENS_STEP1,
+        lambda raw: parse_mention_payload(raw, question),
+    )
+    step1_runtime_ms = round((time.perf_counter() - s1_started) * 1000, 3)
+    sub_claims = extracted["sub_claims"]
 
-    # Step 2 per sub-claim
-    all_evidence: list[tuple] = []
     matched_global: list[str] = []
     used_rels: list[str] = []
+    entity_links: list[dict] = []
+    relation_selections: list[dict] = []
+    seed_by_id: dict[str, dict] = {}
+    relations_by_node: dict[str, set[str]] = {}
+    all_relations: set[str] = set()
     step2b_calls = 0
     step2b_parse_ok = 0
+    step2b_runtime_ms = 0.0
+    nodelink_calls = 0
+    nodelink_runtime_ms = 0.0
 
+    # ── Linking phase 1: resolve exact/alias now; flag the rest for the model.
+    proposed_by_sc: dict[str, list[dict]] = {}
+    pending: list[dict] = []
     for sc in sub_claims:
-        entity_names = sc.get("entities", [])
-        sentence = sc.get("sentence", "")
-        if not entity_names:
-            continue
-        # Step 2a
-        matched = []
-        for ename in entity_names:
-            m = entity_match(driver, ename)
-            if m:
-                matched.append(m)
+        recs = []
+        for mention in sc["mentions"]:
+            rec = linker.propose(
+                qid=qid,
+                mention=mention["text"],
+                origin=mention["origin"],
+                source_span=mention["source_span"],
+            )
+            recs.append(rec)
+            if rec.get("needs_choice"):
+                pending.append(rec)
+        proposed_by_sc[sc["subclaim_id"]] = recs
+
+    # ── Linking phase 2: one batched model node-linking call for this question.
+    #    Non-exact mentions are decided by the same evaluated model choosing a
+    #    node from a bounded candidate set, or null (fail closed).
+    if pending:
+        requests = [linker.choice_request(p) for p in pending]
+        nl_prompt = build_nodelink_prompt(prompt_nodelink, requests)
+        nl_started = time.perf_counter()
+        decisions = _call_and_parse(
+            adapter, NODELINK_SYSTEM, nl_prompt, NODELINK_SCHEMA, MAX_TOKENS_NODELINK,
+            lambda raw: parse_node_choices(raw, requests),
+        )
+        nodelink_runtime_ms = round((time.perf_counter() - nl_started) * 1000, 3)
+        nodelink_calls = 1
+        for idx, p in enumerate(pending):
+            p["_chosen"] = decisions.get(idx)
+
+    # ── Linking phase 3: finalize every mention into a link record + seeds.
+    matched_by_sc: dict[str, dict[str, dict]] = {}
+    for sc in sub_claims:
+        matched_by_id: dict[str, dict] = {}
+        for rec in proposed_by_sc[sc["subclaim_id"]]:
+            chosen = rec.pop("_chosen", None) if rec.get("needs_choice") else None
+            link = linker.finalize_choice(rec, chosen)
+            link["subclaim_id"] = sc["subclaim_id"]
+            entity_links.append(link)
+            if link["status"] in {"exact", "alias", "model_pick"}:
+                node = dict(link["matched_node"] or {})
+                node_id = node.get("element_id")
+                if node_id:
+                    node["id"] = node_id
+                    matched_by_id[node_id] = node
+                    seed = seed_by_id.setdefault(
+                        node_id,
+                        {
+                            "element_id": node_id,
+                            "seed_node_ids": [node_id],
+                            "subclaim_ids": [],
+                            "origins": [],
+                            "link_statuses": [],
+                        },
+                    )
+                    for field, value in (
+                        ("subclaim_ids", sc["subclaim_id"]),
+                        ("origins", link["origin"]),
+                        ("link_statuses", link["status"]),
+                    ):
+                        if value not in seed[field]:
+                            seed[field].append(value)
+        matched_by_sc[sc["subclaim_id"]] = matched_by_id
+
+    # Step 2a + 2b per sub-claim over the resolved nodes.  No model output is
+    # allowed to bypass the linker or to fall back to arbitrary relation order.
+    for sc in sub_claims:
+        sentence = sc["text"]
+        matched = list(matched_by_sc[sc["subclaim_id"]].values())
         if not matched:
             continue
-        cands = relation_candidates(driver, [e["id"] for e in matched])
+        matched_global.extend(node["name"] for node in matched)
+        for node in matched:
+            relations_by_node.setdefault(node["id"], set())
+        cands = relation_candidates(driver, [node["id"] for node in matched])
         if not cands:
+            relation_selections.append(
+                {
+                    "subclaim_id": sc["subclaim_id"],
+                    "candidate_relations": [],
+                    "selected_relations": [],
+                    "status": "no_graph_relations",
+                    "decision_reason": "linked nodes have no adjacent graph relations",
+                }
+            )
             continue
-        matched_global.extend(e["name"] for e in matched)
 
-        # Step 2b
-        if len(cands) <= TOP_K_RELATIONS:
-            selected = cands
-        else:
-            s2_prompt = (prompt_step2
-                         .replace("<<<<TOP_K>>>>", str(TOP_K_RELATIONS))
-                         .replace("<<<<SENTENCE>>>>", sentence)
-                         .replace("<<<<RELATION_SET>>>>", str(cands)))
-            s2_raw = adapter.call(STEP2_SYSTEM, s2_prompt, STEP2_SCHEMA, MAX_TOKENS_STEP2)
-            step2b_calls += 1
-            picked = parse_step2(s2_raw, cands)
-            if picked:
-                step2b_parse_ok += 1
-                selected = picked
-            else:
-                selected = cands[:TOP_K_RELATIONS]
+        # The approved design calls Step 2b whenever there are candidates,
+        # even when the candidate set is smaller than TOP_K_RELATIONS.
+        s2_prompt = (prompt_step2
+                     .replace("<<<<TOP_K>>>>", str(TOP_K_RELATIONS))
+                     .replace("<<<<SENTENCE>>>>", sentence)
+                     .replace(
+                         "<<<<RELATION_SET>>>>",
+                         json.dumps(cands, ensure_ascii=False),
+                     ))
+        s2_started = time.perf_counter()
+
+        def _parse_step2b(raw: str) -> dict:
+            return parse_relation_selection(raw, cands, max_relations=TOP_K_RELATIONS)
+
+        try:
+            selection = _call_and_parse(
+                adapter, STEP2_SYSTEM, s2_prompt, STEP2_SCHEMA, MAX_TOKENS_STEP2,
+                _parse_step2b,
+            )
+        except RelationSelectionError as exc:
+            raise RelationSelectionError(
+                f"{qid}/{sc['subclaim_id']}: {exc}"
+            ) from exc
+        step2b_runtime_ms += (time.perf_counter() - s2_started) * 1000
+        step2b_calls += 1
+        step2b_parse_ok += 1
+        selection["subclaim_id"] = sc["subclaim_id"]
+        relation_selections.append(selection)
+        selected = selection["selected_relations"]
         used_rels.extend(selected)
+        for node in matched:
+            relations_by_node[node["id"]].update(selected)
+        all_relations.update(selected)
 
-        # 展開三元組
-        triples = expand_triples(driver, [e["id"] for e in matched], selected)
-        all_evidence.extend(triples)
-
-    # multi-hop chaining (1 階)
-    if MAX_HOP >= 2 and all_evidence:
-        tail_ids = {tr[4] for tr in all_evidence}
-        chain_rels = list(set(used_rels))[:TOP_K_RELATIONS]
-        for tail_id in list(tail_ids)[:30]:
-            with driver.session() as sess:
-                for rel in chain_rels:
-                    for row in sess.run(CYPHER_EXPAND_TRIPLES, head_id=tail_id, rel=rel):
-                        all_evidence.append((row["head"], row["relation"], row["tail"],
-                                             row["head_id"], row["tail_id"]))
-
-    # 去重 + graph_extractor
-    seen = set()
-    unique = []
-    for tr in all_evidence:
-        key = (tr[0], tr[1], tr[2])
-        if key in seen:
-            continue
-        seen.add(key)
-        unique.append(tr)
-    final = graph_extractor(unique)
-
-    context_text = "\n".join(f"{tr[0]} --[{tr[1]}]--> {tr[2]}" for tr in final) or "(無相關三元組)"
+    retrieval_started = time.perf_counter()
+    expanded = expand_subgraph(
+        list(seed_by_id.values()),
+        sorted(all_relations),
+        lambda node_ids, relations: neo4j_fetch_edges(driver, node_ids, relations),
+        relations_by_node=relations_by_node,
+        max_hops=MAX_HOP,
+        max_triples_per_node=MAX_TRIPLES_PER_NODE,
+        max_evidence_per_question=MAX_EVIDENCE_PER_QUESTION,
+    )
+    ranked = rank_and_budget_evidence(
+        expanded["evidence"], max_per_origin=10, max_total=30
+    )
+    final = ranked["evidence"]
+    retrieval_runtime_ms = round((time.perf_counter() - retrieval_started) * 1000, 3)
+    prompt_evidence = [
+        {"head": record["head"], "relation": record["relation"], "tail": record["tail"]}
+        for record in final
+    ]
+    context_text = (
+        "\n".join(
+            f"{record['head']} --[{record['relation']}]--> {record['tail']}"
+            for record in final
+        )
+        or "(無可靠三元組)"
+    )
 
     return {
         "qid": qid,
         "sub_claims": sub_claims,
+        "mentions": extracted["mentions"],
+        "entity_links": entity_links,
+        "relation_selections": relation_selections,
         "entities_matched": list(dict.fromkeys(matched_global)),
         "relations_used": list(dict.fromkeys(used_rels)),
-        "n_evidence_pre_extractor": len(unique),
+        "evidence_audit": {
+            "expansion": expanded,
+            "ranking": ranked,
+        },
+        "n_evidence_pre_extractor": expanded["n_before_question_cap"],
         "n_evidence_kept": len(final),
         "subgraph": {
-            "evidence": [
-                {"head": tr[0], "relation": tr[1], "tail": tr[2]}
-                for tr in final
-            ],
+            "evidence": prompt_evidence,
         },
         "context_text": context_text,
-        "n_nodes_kept": len({tr[0] for tr in final} | {tr[2] for tr in final}),
+        "n_nodes_kept": len(
+            {record["head_id"] for record in final}
+            | {record["tail_id"] for record in final}
+        ),
         "n_edges_kept": len(final),
-        "_step1_parse_ok": step1_parse_ok,
+        "_step1_parse_ok": True,
         "_step2b_calls": step2b_calls,
         "_step2b_parse_ok": step2b_parse_ok,
+        "_nodelink_calls": nodelink_calls,
+        "metrics": {
+            "model": adapter.name,
+            "phase": "extractor",
+            "question_runtime_ms": round((time.perf_counter() - question_started) * 1000, 3),
+            "step1_runtime_ms": step1_runtime_ms,
+            "step2b_runtime_ms": round(step2b_runtime_ms, 3),
+            "nodelink_runtime_ms": round(nodelink_runtime_ms, 3),
+            "retrieval_runtime_ms": retrieval_runtime_ms,
+            "step1_calls": 1,
+            "step2b_calls": step2b_calls,
+            "nodelink_calls": nodelink_calls,
+            "prompt_tokens": None,
+            "completion_tokens": None,
+            "total_tokens": None,
+            "cost_usd": None,
+        },
     }
 
 
@@ -710,6 +880,21 @@ def main() -> int:
                         choices=["phi", "e4b", "gptoss", "gptoss_groq", "gemma31b", "llama70b"])
     parser.add_argument("--questions", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument(
+        "--aliases",
+        type=Path,
+        default=BACKEND_DIR / "exp_3" / "config" / "entity_aliases.json",
+    )
+    parser.add_argument(
+        "--linker-config",
+        type=Path,
+        default=BACKEND_DIR / "exp_3" / "config" / "entity_linker_config.json",
+    )
+    parser.add_argument(
+        "--embedding-cache",
+        type=Path,
+        default=BACKEND_DIR / "exp_3" / "cache" / "b4_semantic_index.json",
+    )
     parser.add_argument("--uri", default=os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687"))
     parser.add_argument("--user", default="neo4j")
     parser.add_argument("--password", default=os.getenv("NEO4J_PASSWORD", ""))
@@ -719,6 +904,12 @@ def main() -> int:
                         help="僅跑前 N 題（smoke test 用），0=全跑")
     args = parser.parse_args()
 
+    linker_config = json.loads(args.linker_config.read_text(encoding="utf-8"))
+    # Route 2 (2026-07-12): no human threshold/margin calibration and no manual
+    # alias approval.  Non-exact mentions are resolved by the evaluated model
+    # choosing among embedding candidates (fail closed).  The freeze gate for
+    # the formal heldout run is enforced by preflight_b4 --mode freeze, not here.
+
     adapter = build_adapter(args.model)
     n_workers = args.n_workers or MODEL_WORKERS.get(args.model, 2)
     print(f"[NF1] model={args.model}  adapter={adapter.name}  workers={n_workers}")
@@ -726,8 +917,10 @@ def main() -> int:
 
     prompt_step1 = load_prompt("exp_3/nf1_step1_sentence_divide_json_zh.txt")
     prompt_step2 = load_prompt("exp_3/nf1_step2_relation_retrieval_json_zh.txt")
+    prompt_nodelink = load_prompt("exp_3/b4_node_linking.md")
 
-    qs = json.loads(args.questions.read_text(encoding="utf-8"))
+    raw_qs = json.loads(args.questions.read_text(encoding="utf-8"))
+    qs = normalize_question_set(raw_qs)
     if args.limit > 0:
         qs = qs[:args.limit]
     print(f"  題庫 {len(qs)} 題")
@@ -742,6 +935,23 @@ def main() -> int:
 
     from neo4j import GraphDatabase
     driver = GraphDatabase.driver(args.uri, auth=(args.user, args.password))
+    embedding_model = linker_config.get("embedding_model") or DEFAULT_EMBEDDING_MODEL
+    embedding_client = OpenAIEmbeddingClient(model=embedding_model)
+    nodes = load_kg_nodes(driver)
+    semantic_index = build_semantic_index(
+        nodes,
+        client=embedding_client,
+        cache_path=args.embedding_cache,
+    )
+    linker = build_entity_linker(
+        driver,
+        args.aliases,
+        args.linker_config,
+        nodes=nodes,
+        semantic_index=semantic_index,
+        semantic_client=embedding_client,
+    )
+    print(f"  KG nodes indexed for linker: {len(linker.nodes)}")
 
     todo = [q for q in qs if q["qid"] not in done_map]
     print(f"  待處理: {len(todo)} 題")
@@ -750,7 +960,10 @@ def main() -> int:
 
     def _worker(q: dict):
         try:
-            result = process_one_question(q, driver, adapter, prompt_step1, prompt_step2)
+            result = process_one_question(
+                q, driver, adapter, linker, prompt_step1, prompt_step2,
+                prompt_nodelink,
+            )
         except Exception as e:
             import traceback
             tb = traceback.format_exc()[:400]
@@ -761,6 +974,18 @@ def main() -> int:
                 "n_nodes_kept": 0,
                 "n_edges_kept": 0,
                 "subgraph": {"evidence": []},
+                "metrics": {
+                    "model": adapter.name,
+                    "phase": "extractor",
+                    "question_runtime_ms": None,
+                    "step1_runtime_ms": None,
+                    "step2b_runtime_ms": None,
+                    "retrieval_runtime_ms": None,
+                    "prompt_tokens": None,
+                    "completion_tokens": None,
+                    "total_tokens": None,
+                    "cost_usd": None,
+                },
             }
             print(f"  [err] {q['qid']}: {tb[:150]}")
         with write_lock:
@@ -800,5 +1025,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
-

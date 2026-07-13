@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""實驗 3 評估跑批：4 模型 × 2 條件 × 329 題 = 2,632 推理。
+"""B4 Graph RAG 評估跑批：4 模型 × 2 條件 × 356 題 = 2,848 推理。
 
 設計細節（D4-Q1~Q12 拍板於 2026-05-22；F1 定稿 2026-05-22）：
 - 純 LLM / Graph RAG 兩條件，皆告知模型題型（單選/複選）
@@ -45,6 +45,8 @@ if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
 
 from prompts import load_prompt
+from exp_3.b4.preflight import verify_freeze_manifest
+from exp_3.b4.question_normalization import normalize_question_set, retrieval_view
 
 # ─── 共用 schema / prompt ─────────────────────────────────────────────────────
 JSON_SCHEMA = {
@@ -72,6 +74,7 @@ _FEWSHOT_LLM_ONLY = load_prompt("exp_3/llm_only_fewshot.md")
 # 6 範例 few-shot，對齊 KG-GPT verify_claim_with_evidence.txt（Kim et al., 2023）
 # 涵蓋：evidence 直接支持 / evidence 不全 / evidence 部分支持 / evidence 為空 ×2 / 流程序列
 _FEWSHOT_GRAPH_RAG = load_prompt("exp_3/graph_rag_fewshot.md")
+B4_SYSTEM_TEMPLATE = load_prompt("exp_3/b4_eval_system.md")
 LLM_ONLY_SYSTEM_TEMPLATE = load_prompt("exp_3/eval_llm_only_system.md")
 GRAPH_RAG_SYSTEM_TEMPLATE = load_prompt("exp_3/eval_graph_rag_system.md")
 EVAL_USER_TEMPLATE = load_prompt("exp_3/eval_user.md")
@@ -79,50 +82,33 @@ EVAL_USER_TEMPLATE = load_prompt("exp_3/eval_user.md")
 
 def build_prompt(question: dict, condition: str, subgraph: dict | None) -> tuple[str, str]:
     """回傳 (system_msg, user_msg)."""
-    is_single = bool(question.get("is_single", True))
-    type_hint = "單選題" if is_single else "複選題（可選多個正確答案）"
-    opts = question["options"]
-    options_lines = "\n".join(f"({k}) {opts[k]}" for k in sorted(opts.keys()))
-
-    if condition == "llm_only":
-        system = LLM_ONLY_SYSTEM_TEMPLATE.format(
-            fewshot=_FEWSHOT_LLM_ONLY,
-            type_hint=type_hint,
-        )
-        user = EVAL_USER_TEMPLATE.format(
-            stem=question['stem'],
-            options=options_lines,
-            evidence_block="",
-        )
-    elif condition == "graph_rag":
-        # KG-GPT 風格 prompt（F1，2026-05-22）
-        # 對齊 KG-GPT verify_claim_with_evidence.txt（Kim et al., 2023）
-        # - evidence set 以三元組陣列形式呈現
-        # - 以 evidence set 為主要依據；若為空或無關則依專業知識作答
-        evidence_list = []
-        if subgraph:
-            sub = subgraph.get("subgraph", {})
-            for e in sub.get("evidence", []):
-                evidence_list.append([e.get("head"), e.get("relation"), e.get("tail")])
-            # fallback：若沒 evidence 欄位則從 context_text 解析
-            if not evidence_list and subgraph.get("context_text"):
-                for line in subgraph["context_text"].splitlines():
-                    m = re.match(r"^(.+?)\s*--\[(.+?)\]-->\s*(.+)$", line.strip())
-                    if m:
-                        evidence_list.append([m.group(1).strip(), m.group(2).strip(), m.group(3).strip()])
-        evidence_str = str(evidence_list) if evidence_list else "[]"
-
-        system = GRAPH_RAG_SYSTEM_TEMPLATE.format(
-            fewshot=_FEWSHOT_GRAPH_RAG,
-            type_hint=type_hint,
-        )
-        user = EVAL_USER_TEMPLATE.format(
-            stem=question['stem'],
-            options=options_lines,
-            evidence_block=f"Evidence set：{evidence_str}\n",
-        )
-    else:
+    if condition not in {"base", "rag", "llm_only", "graph_rag"}:
         raise ValueError(f"unknown condition: {condition}")
+    view = retrieval_view(question)
+    opts = view["options"]
+    options_lines = "\n".join(f"({k}) {opts[k]}" for k in "ABCD")
+
+    evidence_list = []
+    if condition in {"rag", "graph_rag"} and subgraph:
+        sub = subgraph.get("subgraph", {})
+        for evidence in sub.get("evidence", []):
+            if not isinstance(evidence, dict):
+                raise ValueError("subgraph evidence entries must be objects")
+            if not all(evidence.get(key) for key in ("head", "relation", "tail")):
+                raise ValueError("subgraph evidence entry is incomplete")
+            evidence_list.append(
+                [evidence["head"], evidence["relation"], evidence["tail"]]
+            )
+    evidence_str = json.dumps(evidence_list, ensure_ascii=False)
+    system = B4_SYSTEM_TEMPLATE.format(
+        fewshot=_FEWSHOT_GRAPH_RAG,
+        type_hint="單選題",
+    )
+    user = EVAL_USER_TEMPLATE.format(
+        stem=view["stem"],
+        options=options_lines,
+        evidence_block=f"Evidence set：{evidence_str}\n",
+    )
     return system, user
 
 
@@ -379,12 +365,18 @@ class GroqAdapter(BaseAdapter):
 
 
 class NVIDIAAdapter(BaseAdapter):
-    """NVIDIA API（Llama 70B；2026-07-12 起受測版本＝3.1），多 key 並行池."""
+    """NVIDIA API（Llama 70B；2026-07-12 起受測版本＝3.1；2026-07-13 起亦供
+    gptoss 借用 NVIDIA NIM 端點，多 key 並行池）."""
 
-    def __init__(self, name: str, api_keys: list[str], model_id: str):
+    def __init__(self, name: str, api_keys: list[str], model_id: str, max_tokens: int = 1024):
         self.name = name
         self.api_keys = [k.strip() for k in api_keys if k and k.strip()]
         self.model_id = model_id
+        # gpt-oss-20b 為 reasoning 模型，思考過程會吃掉大量 token；沿用本地版
+        # 曾經驗證過的 4096（見 gptoss 舊 LMStudioAdapter 設定），避免沿用
+        # llama70b（非 reasoning）的既有 1024 預設造成空回應——2026-07-13 已在
+        # gemma31b 上實測過同一類問題：預算不夠時思考吃光、答案變空。
+        self.max_tokens = max_tokens
         try:
             from openai import OpenAI  # noqa
         except ImportError as exc:
@@ -412,7 +404,7 @@ class NVIDIAAdapter(BaseAdapter):
                             {"role": "user", "content": user},
                         ],
                         temperature=0.0,
-                        max_tokens=1024,
+                        max_tokens=self.max_tokens,
                     )
                     content = resp.choices[0].message.content or ""
                     parsed = parse_json_response(content)
@@ -553,23 +545,21 @@ def build_adapter(model_key: str) -> BaseAdapter:
             max_tokens=1024,
         )
     if model_key == "gemma31b":
-        # 2026-07-12 使用者拍板：B4 gemma 改直連 Google AI Studio（gemma-4-31b-it
-        # 原始權重、GEMINI_API_KEYS 多金鑰），同時解掉 .80 model id 漂移問題。
-        return GoogleAdapter(
-            name="gemma-4-31b",
-            api_keys=_load_gemini_keys(),
-            model_id="gemma-4-31b-it",
-            max_output_tokens=4096,
-        )
+        # 2026-07-13：extraction 端已驗證 NVIDIA NIM 代管 google/gemma-4-31b-it
+        # 穩定且比 AI Studio 直連/本地 LM Studio 快 20-25 倍（多金鑰並行池）；
+        # 答題階段比照改走同一端點，取代 2026-07-12 曾拍板之 AI Studio 直連版。
+        api_keys = _load_nvidia_keys()
+        return NVIDIAAdapter(name="gemma-4-31b-it (NVIDIA NIM)", api_keys=api_keys,
+                             model_id="google/gemma-4-31b-it", max_tokens=4096)
     if model_key == "gptoss":
-        # 2026-05-23 改：Groq TPD 不足，改用本地 LM Studio @ .80
-        # 注意：gpt-oss-20b GGUF + 中文 strict schema 會 decode 亂碼，故關 strict schema
+        # 2026-07-13：gemma31b 已改走 NVIDIA NIM 完成正式跑批，本地 .80 GPU
+        # 不再被佔用，gptoss 改回本地 LM Studio @ .80（與 exp_3_nf1_pipeline.py
+        # extraction 端同一部署，比照原設定）。
         return LMStudioAdapter(
-            name="gpt-oss-20b (local)",
+            name="gpt-oss-20b (local .80)",
             endpoint=os.getenv("LM_STUDIO_CHAT_URL_ALT", os.getenv("LM_STUDIO_CHAT_URL", "http://127.0.0.1:1234/v1/chat/completions")),
             model_id="openai/gpt-oss-20b",
-            max_tokens=4096,  # reasoning model 需大量 thinking token
-            use_strict_schema=False,
+            max_tokens=4096,
         )
     if model_key == "gptoss_groq":
         # 備援：Groq endpoint
@@ -597,7 +587,7 @@ def run_one_model(
     n_workers: int = 1,
     conditions: list[str] | None = None,
 ):
-    conditions = conditions or ["llm_only", "graph_rag"]
+    conditions = conditions or ["base", "rag"]
     adapter = build_adapter(model_key)
     print(f"[{model_key}] adapter={adapter.name}  conditions={conditions}")
 
@@ -632,12 +622,23 @@ def run_one_model(
         cond, q = item
         subgraph = subgraphs.get(q["qid"])
         system, user = build_prompt(q, cond, subgraph)
+        started = time.perf_counter()
         result = adapter.call(system, user)
+        runtime_ms = round((time.perf_counter() - started) * 1000, 3)
         raw_ans = result.get("answer", "")
         norm_ans = normalize_answer(raw_ans)
         gold_norm = normalize_answer(q["answer"])
         is_correct = (norm_ans == gold_norm) and (norm_ans != "")
+        usage = result.get("usage") if isinstance(result.get("usage"), dict) else {}
         record = {
+            "model": adapter.name,
+            "phase": "answer",
+            "arm": cond,
+            "runtime_ms": runtime_ms,
+            "prompt_tokens": usage.get("prompt_tokens"),
+            "completion_tokens": usage.get("completion_tokens"),
+            "total_tokens": usage.get("total_tokens"),
+            "cost_usd": result.get("cost_usd"),
             "answer_raw": str(raw_ans)[:50],
             "answer_norm": norm_ans,
             "reasoning": (result.get("reasoning") or "")[:500],
@@ -662,9 +663,13 @@ def run_one_model(
                 for qid, by_cond in done.items():
                     for c, r in by_cond.items():
                         rows.append((c, r["correct"]))
-                acc_llm = sum(1 for c, ok in rows if c == "llm_only" and ok) / max(1, sum(1 for c, _ in rows if c == "llm_only"))
-                acc_rag = sum(1 for c, ok in rows if c == "graph_rag" and ok) / max(1, sum(1 for c, _ in rows if c == "graph_rag"))
-                print(f"  [{model_key}] {counter['done']}/{n_todo}  即時 Acc_LLM={acc_llm:.3f}  Acc_RAG={acc_rag:.3f}")
+                acc = {
+                    cond: sum(1 for c, ok in rows if c == cond and ok)
+                    / max(1, sum(1 for c, _ in rows if c == cond))
+                    for cond in conditions
+                }
+                acc_text = " ".join(f"Acc_{cond}={acc[cond]:.3f}" for cond in conditions)
+                print(f"  [{model_key}] {counter['done']}/{n_todo}  即時 {acc_text}")
         return q["qid"], cond
 
     if n_workers == 1:
@@ -686,16 +691,32 @@ def main() -> int:
     parser.add_argument("--output_dir", type=Path, required=True)
     parser.add_argument("--output_suffix", default="",
                         help="輸出檔之後綴，例：'_NF1' → eval_e4b_NF1.json")
-    parser.add_argument("--models", default="phi,llama8b,gemma,llama70b",
-                        help="comma-separated: phi/llama8b/gemma/llama70b/e4b/gptoss/gemma31b")
-    parser.add_argument("--conditions", default="llm_only,graph_rag")
+    parser.add_argument("--models", default="e4b,gptoss,gemma31b,llama70b",
+                        help="comma-separated evaluated B4 models")
+    parser.add_argument("--conditions", default="base,rag")
     parser.add_argument("--parallel_models", action="store_true",
                         help="4 模型並行（4 個 endpoints 互不衝突，可同時跑）")
     parser.add_argument("--workers_per_model", type=int, default=0,
                         help="每模型內部並行；0 = 採模型預設")
+    parser.add_argument(
+        "--freeze-manifest",
+        type=Path,
+        help="正式 356 題留測必須提供且通過 hash 驗證的 B4 freeze manifest",
+    )
+    parser.add_argument(
+        "--confirm-full-run",
+        action="store_true",
+        help="明確確認將執行正式 356 題留測；smoke set 不需要",
+    )
     args = parser.parse_args()
 
-    qs = json.loads(args.questions.read_text(encoding="utf-8"))
+    qs = normalize_question_set(json.loads(args.questions.read_text(encoding="utf-8")))
+    if len(qs) == 356:
+        if not args.confirm_full_run:
+            raise RuntimeError("formal 356-question run requires --confirm-full-run")
+        if not args.freeze_manifest:
+            raise RuntimeError("formal 356-question run requires --freeze-manifest")
+        verify_freeze_manifest(args.freeze_manifest)
     per_model_subgraph = "{model}" in args.subgraphs
     shared_sub = None
     if not per_model_subgraph:
@@ -716,7 +737,7 @@ def main() -> int:
         "llama70b": len(_load_nvidia_keys()) or 1,  # NVIDIA：worker 數 = .env 金鑰數（動態，與 MatchGPT 同款）
         "e4b": 2,                                    # Gemma-4-e4b：本機 LM Studio 單端點，維持固定 2（不隨金鑰數變）
         "gptoss": 2,
-        "gemma31b": len(_load_gemini_keys()) or 1,  # Gemma-4-31B (Google AI Studio)：worker 數 = GEMINI_API_KEYS 金鑰數（動態）
+        "gemma31b": len(_load_nvidia_keys()) or 1,  # 2026-07-13 改 NVIDIA NIM：worker 數 = .env 金鑰數（動態，與 llama70b/gptoss 共用同組 key）
     }
 
     def _model_thread(m):
@@ -776,5 +797,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
-
