@@ -102,56 +102,175 @@ class Neo4jService:
                 "description": record["description"],
                 "neighbors": [n for n in record["neighbors"] if n["name"] is not None]
             }
-    
-    def get_skill_tree_data(self):
-        """更新：使用 analysis_topological_layer 決定層級，並以原始關係呈現連線"""
-        import random
+
+    @staticmethod
+    def _as_source_list(value):
+        """source_file 可能是字串或字串陣列，統一成 list。"""
+        if isinstance(value, list):
+            return [str(item) for item in value if item]
+        return [str(value)] if value else []
+
+    @staticmethod
+    def _select_seeds(candidates, max_seeds):
+        """挑檢索種子，濾掉子字串巧合與過短的泛詞。
+
+        search_entities 的 partial 比對是 CONTAINS，會讓 "tor" 命中 "active directory"、
+        "history"；單字節點（如「牆」）也會因查詢包含它而拿到 80 分。兩者都會把
+        無關鄰域灌進上下文，因此這裡再過一層。
+        """
+        if not candidates:
+            return []
+        best = max(int(c.get("score") or 0) for c in candidates)
+        # 有夠強的命中（精確／查詢包含實體名）就不再收 60 分的模糊比對
+        threshold = 80 if best >= 80 else 60
+        filtered = [
+            c for c in candidates
+            if int(c.get("score") or 0) >= threshold and len((c.get("name") or "").strip()) >= 2
+        ]
+        return filtered[:max_seeds]
+
+    def get_graph_rag_subgraph(self, query, max_seeds=3, max_edges=60):
+        """以查詢命中的多個實體為種子，取其一跳鄰域組成子圖。
+
+        回傳的 nodes/edges 就是實際餵進 LLM 的內容，供前端如實揭露「用了哪些圖」。
+        """
+        candidates = self.search_entities(query)
+        if not candidates:
+            return None
+        seeds = self._select_seeds(candidates, max_seeds)
+        if not seeds:
+            return None
+        seed_names = [c["name"] for c in seeds]
+        seed_score = {c["name"]: c["score"] for c in seeds}
+
         with self.driver.session() as session:
-            # 獲取節點，使用 analysis_topological_layer 作為 level
-            nodes_result = session.run("""
-                MATCH (n)
-                WHERE n.content_type = 'course' AND n.analysis_topological_layer IS NOT NULL
-                RETURN n.name AS id, n.name AS label, n.analysis_topological_layer AS level,
-                       n.analysis_centrality_degree AS size,
-                       n.final_community AS community,
-                       n.top_3_units AS top_3_units
-                ORDER BY n.analysis_topological_layer, n.name
-            """)
-            nodes = []
-            for record in nodes_result:
-                level = record["level"]
-                nodes.append({
-                    "id": record["id"],
-                    "data": {
-                        "label": record["label"], 
-                        "level": level, 
-                        "unlocked": level == 0,
-                        "community": record["community"],
-                        "top_3_units": record["top_3_units"]
-                    },
-                    "position": {"x": random.randint(0, 800), "y": level * 150},
-                    "type": "default"
-                })
-            
-            # 獲取邊：僅保留從 低layer 指向 高layer 的原始關係
-            edges_result = session.run("""
-                MATCH (s)-[r]->(t)
-                WHERE s.content_type = 'course' AND t.content_type = 'course'
-                  AND s.analysis_topological_layer < t.analysis_topological_layer
-                RETURN s.name AS source, t.name AS target, type(r) AS rel
-            """)
-            edges = []
-            for i, record in enumerate(edges_result):
-                edges.append({
-                    "id": f"e{i}", 
-                    "source": record["source"], 
-                    "target": record["target"], 
-                    "label": record["rel"],
-                    "type": "smoothstep"
-                })
-            return {"nodes": nodes, "edges": edges}
-    
-    def search_entities(self, query):
+            rows = session.run("""
+                MATCH (s) WHERE s.name IN $seeds
+                MATCH (s)-[r]-(m)
+                RETURN startNode(r).name AS src, endNode(r).name AS dst,
+                       type(r) AS rel_type, r.relation AS rel_label,
+                       r.source_file AS rel_source,
+                       startNode(r).type AS src_type, endNode(r).type AS dst_type,
+                       m.name AS neighbor, m.type AS neighbor_type
+                LIMIT 600
+            """, seeds=seed_names)
+
+            seed_set = set(seed_names)
+            edge_map = {}
+            node_types = {}
+            for record in rows:
+                src, dst = record["src"], record["dst"]
+                if not src or not dst:
+                    continue
+                node_types.setdefault(src, record["src_type"])
+                node_types.setdefault(dst, record["dst_type"])
+                if record["neighbor"]:
+                    node_types.setdefault(record["neighbor"], record["neighbor_type"])
+                key = (src, record["rel_type"], dst)
+                if key in edge_map:
+                    continue
+                both_seeds = src in seed_set and dst in seed_set
+                edge_map[key] = {
+                    "source": src,
+                    "relation": record["rel_type"],
+                    "relation_label": record["rel_label"] or record["rel_type"],
+                    "target": dst,
+                    "source_files": self._as_source_list(record["rel_source"]),
+                    "links_two_seeds": both_seeds,
+                    # 排序權重：連接兩個種子最相關，其次看種子本身的比對分數
+                    "_rank": (
+                        0 if both_seeds else 1,
+                        -max(seed_score.get(src, 0), seed_score.get(dst, 0)),
+                        record["rel_type"] or "",
+                        src,
+                        dst,
+                    ),
+                }
+
+            all_edges = sorted(edge_map.values(), key=lambda e: e["_rank"])
+            total_found = len(all_edges)
+
+            # 每個種子輪流出邊：避免高連結度的種子（如「攻擊」）把額度吃光，
+            # 讓每個命中的知識點都在上下文裡有代表性。
+            buckets = {name: [] for name in seed_names}
+            for edge in all_edges:
+                owners = [n for n in (edge["source"], edge["target"]) if n in seed_set]
+                owner = max(owners, key=lambda n: seed_score.get(n, 0)) if owners else seed_names[0]
+                buckets[owner].append(edge)
+
+            kept = []
+            while len(kept) < max_edges and any(buckets.values()):
+                progressed = False
+                for name in seed_names:
+                    if not buckets[name]:
+                        continue
+                    kept.append(buckets[name].pop(0))
+                    progressed = True
+                    if len(kept) >= max_edges:
+                        break
+                if not progressed:
+                    break
+
+            kept.sort(key=lambda e: e["_rank"])
+            for edge in kept:
+                edge.pop("_rank", None)
+
+            used_names = set()
+            for edge in kept:
+                used_names.add(edge["source"])
+                used_names.add(edge["target"])
+            used_names.update(seed_names)
+
+            nodes = sorted(
+                (
+                    {
+                        "name": name,
+                        "type": node_types.get(name) or "unknown",
+                        "is_seed": name in seed_set,
+                    }
+                    for name in used_names
+                ),
+                key=lambda n: (not n["is_seed"], n["name"]),
+            )
+
+            return {
+                "seeds": [
+                    {
+                        "name": c["name"],
+                        "type": node_types.get(c["name"]) or "unknown",
+                        "score": c["score"],
+                        "match_type": c["match_type"],
+                    }
+                    for c in seeds
+                ],
+                "nodes": nodes,
+                "edges": kept,
+                "stats": {
+                    "seed_count": len(seeds),
+                    "node_count": len(nodes),
+                    "edge_count": len(kept),
+                    "total_edges_found": total_found,
+                    "truncated": total_found > len(kept),
+                },
+                "retrieval": {
+                    "mode": "multi_seed_one_hop",
+                    "max_seeds": max_seeds,
+                    "max_edges": max_edges,
+                    "candidates_considered": len(candidates),
+                },
+            }
+
+    @staticmethod
+    def _extract_search_terms(query):
+        if not isinstance(query, str):
+            return []
+        terms = re.findall(r"[A-Za-z][A-Za-z0-9+.#_-]{1,}|[\u4e00-\u9fff]{2,}", query.lower())
+        return list(dict.fromkeys(term for term in terms if len(term.strip()) >= 2))[:12]
+
+    def search_entities(self, query, limit=8, min_score=60):
+        terms = self._extract_search_terms(query)
+        if not terms:
+            return []
         with self.driver.session() as session:
             result = session.run("""
                 MATCH (e)
@@ -263,7 +382,15 @@ class Neo4jService:
     def get_node_neighbors(self, node_id, limit=20):
         """獲取特定節點的相鄰節點與關係"""
         with self.driver.session() as session:
-            result = session.run("""
+            node_count_record = session.run("MATCH (n) RETURN count(n) AS total_nodes").single()
+            edge_count_record = session.run("MATCH ()-[r]->() RETURN count(r) AS total_edges").single()
+            node_result = session.run("""
+                MATCH (n)
+                RETURN elementId(n) AS id, coalesce(n.name, elementId(n)) AS label,
+                       coalesce(n.type, labels(n)[0], 'unknown') AS type
+                ORDER BY id
+            """)
+            edge_result = session.run("""
                 MATCH (n)-[r]-(m)
                 WHERE n.name = $node_id
                 RETURN startNode(r).name AS source, type(r) AS relationship, endNode(r).name AS target
@@ -313,7 +440,8 @@ class Neo4jService:
                        n.communityId AS final_community,
                        n.outDegree_inCommunity AS degree,
                        n.nodeLayerInCommunity AS layer,
-                       labels(n) AS labels
+                       labels(n) AS labels,
+                       n.type AS type
                 ORDER BY n.outDegree_inCommunity DESC, n.name
             """
             params = {"unit": unit}
@@ -375,11 +503,15 @@ class Neo4jService:
                 RETURN n.name AS id,
                        coalesce(n.display_name, n.name) AS name,
                        n.source_file AS top_3_units,
+                    # 節點型別存在 n.type 屬性（B3 平台格式轉換後 label 僅 Entity/KGNode），
+                    # 前端 getNeo4jNodeType 優先吃這個欄位來上色與統計
+                    "type": r["type"],
                        n.communityId AS final_community,
                        n.outDegree_inCommunity AS degree,
                        n.betweenness_inCommunity AS betweenness,
                        n.nodeLayerInCommunity AS layer,
-                       labels(n) AS labels
+                       labels(n) AS labels,
+                       n.type AS type
                 ORDER BY n.outDegree_inCommunity DESC, n.name
             """
             params = {"community": comm_val}
@@ -440,6 +572,8 @@ class Neo4jService:
             communities = {}
             for record in intra_result:
                 comm_id = record["community"]
+                    # 同 get_chapter_graph：型別在 n.type，不在 label
+                    "type": r["type"],
                 communities[comm_id] = {
                     "community": comm_id,
                     "nodes": record["nodes"],

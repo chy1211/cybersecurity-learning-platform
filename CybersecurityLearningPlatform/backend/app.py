@@ -40,16 +40,10 @@ def chat():
         
         log_file = create_log_file('chat')
         
-        entities = db_service.search_entities(user_query)
-        if not entities:
-            entities = llm_service.identify_entities_in_query(user_query, log_file=log_file)
-        
-        context = None
-        if entities:
-            context = db_service.get_entity_context(entities[0])
-        
-        if context:
-            answer = llm_service.generate_answer_with_context(user_query, context, log_file=log_file)
+        graph_context = db_service.get_graph_rag_subgraph(user_query)
+
+        if graph_context and graph_context.get("edges"):
+            answer = llm_service.generate_answer_with_context(user_query, graph_context, log_file=log_file)
         else:
             answer = "抱歉，我在知識庫中沒有找到相關資訊。請問您能更具體地描述您的問題嗎？"
         
@@ -57,10 +51,27 @@ def chat():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-@app.route('/api/skill-tree', methods=['GET'])
-def get_skill_tree():
-    try:
-        return jsonify(db_service.get_skill_tree_data())
+        seeds = graph_context.get("seeds", []) if graph_context else []
+        edges = graph_context.get("edges", []) if graph_context else []
+        # evidence 直接由送進模型的邊轉出，確保「顯示的依據」＝「模型看到的內容」
+        evidence = [
+            {
+                "entity": edge["source"],
+                "relationship": edge["relation"],
+                "neighbor": edge["target"],
+                "source": edge.get("source_files", []),
+            }
+            for edge in edges
+        ]
+
+        return jsonify({
+            "answer": answer,
+            "context_entity": seeds[0]["name"] if seeds else None,
+            "candidate": seeds[0] if seeds else None,
+            "evidence": evidence,
+            "graph_context": graph_context,
+            "retrieval_mode": graph_context["retrieval"]["mode"] if graph_context else None,
+        })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

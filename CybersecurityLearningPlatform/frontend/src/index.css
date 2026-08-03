@@ -43,3 +43,79 @@ code {
   border-radius: 3px;
   clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0 50%);
 }
+
+/* ── 智慧導師回答的 Markdown 排版 ─────────────────────────────
+   react-markdown v9 已移除 className prop，樣式改由外層 .chat-markdown 提供；
+   表格需搭配 remark-gfm 才會被解析。 */
+.chat-markdown {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+}
+.chat-markdown > *:first-child { margin-top: 0; }
+.chat-markdown > *:last-child { margin-bottom: 0; }
+.chat-markdown h1,
+.chat-markdown h2,
+.chat-markdown h3,
+.chat-markdown h4 {
+  color: #f8fafc;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 1.1em 0 0.5em;
+}
+.chat-markdown h1 { font-size: 1.15rem; }
+.chat-markdown h2 { font-size: 1.08rem; }
+.chat-markdown h3 { font-size: 1rem; }
+.chat-markdown h4 { font-size: 0.95rem; color: #cbd5e1; }
+.chat-markdown p { margin: 0.6em 0; }
+.chat-markdown ul,
+.chat-markdown ol { margin: 0.6em 0; padding-left: 1.35em; }
+.chat-markdown ul { list-style: disc; }
+.chat-markdown ol { list-style: decimal; }
+.chat-markdown li { margin: 0.25em 0; }
+.chat-markdown li > ul,
+.chat-markdown li > ol { margin: 0.2em 0; }
+.chat-markdown strong { color: #ffffff; font-weight: 600; }
+.chat-markdown a { color: #93c5fd; text-decoration: underline; }
+.chat-markdown hr { border: 0; border-top: 1px solid #334155; margin: 1em 0; }
+.chat-markdown blockquote {
+  border-left: 3px solid #6366f1;
+  padding-left: 0.75rem;
+  margin: 0.7em 0;
+  color: #cbd5e1;
+}
+.chat-markdown code {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  font-size: 0.85em;
+}
+.chat-markdown pre {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 0.75rem;
+  overflow-x: auto;
+  margin: 0.7em 0;
+}
+.chat-markdown pre code { background: none; border: 0; padding: 0; font-size: 0.85rem; }
+/* 表格自己橫向捲動，不把聊天氣泡撐寬 */
+.chat-markdown table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 0.8em 0;
+  font-size: 0.85rem;
+}
+.chat-markdown th,
+.chat-markdown td {
+  border: 1px solid #334155;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+.chat-markdown th { background: #1e293b; color: #f1f5f9; font-weight: 600; white-space: nowrap; }
+.chat-markdown tbody tr:nth-child(even) { background: rgba(30, 41, 59, 0.4); }

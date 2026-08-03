@@ -16,11 +16,54 @@ class LLMService:
     def __init__(self):
         self.provider = Config.LLM_PROVIDER.lower()
         print(f"Initializing LLM Service with provider: {self.provider}")
-        self.nvidia_keys = [
-            Config.NVIDIA_API_KEY_1, Config.NVIDIA_API_KEY_2, 
-            Config.NVIDIA_API_KEY_3, Config.NVIDIA_API_KEY_4, 
-            Config.NVIDIA_API_KEY_5, Config.NVIDIA_API_KEY_6
-        ]
+        self.nvidia_keys = list(Config.NVIDIA_API_KEYS)
+        print(f"  NVIDIA keys available: {len(self.nvidia_keys)}")
+
+    def _nvidia_llm(self, api_key):
+        return ChatOpenAI(
+            base_url="https://integrate.api.nvidia.com/v1",
+            api_key=api_key,
+            model_name=Config.NVIDIA_MODEL,
+            temperature=0.7,
+            max_tokens=8192,
+            timeout=Config.LLM_TIMEOUT_SECONDS,
+            max_retries=Config.LLM_MAX_RETRIES,
+        )
+
+    @staticmethod
+    def _is_key_level_error(exc):
+        """金鑰失效／額度用盡：換一把金鑰重試才有意義的錯誤。"""
+        status = getattr(exc, "status_code", None) or getattr(
+            getattr(exc, "response", None), "status_code", None
+        )
+        if status in (401, 403, 429):
+            return True
+        text = str(exc)
+        return any(marker in text for marker in ("401", "403", "429", "Authorization failed"))
+
+    def _invoke(self, prompt, input_vars):
+        """呼叫模型；NVIDIA 端遇到金鑰層級錯誤自動換下一把金鑰。
+
+        六把金鑰中只要有一把失效（實測 KEY_2 已 403），原本的 random.choice
+        就會隨機讓使用者吃到 500，因此改成逐把 failover。
+        """
+        if self.provider != 'nvidia':
+            return (prompt | self.llm).invoke(input_vars)
+
+        keys = [k for k in self.nvidia_keys if k]
+        if not keys:
+            raise ValueError("No NVIDIA API keys configured.")
+
+        last_error = None
+        for api_key in random.sample(keys, len(keys)):
+            try:
+                return (prompt | self._nvidia_llm(api_key)).invoke(input_vars)
+            except Exception as exc:
+                if not self._is_key_level_error(exc):
+                    raise
+                last_error = exc
+                print(f"NVIDIA key rejected ({type(exc).__name__}); trying next key.")
+        raise last_error
 
     @property
     def llm(self):
@@ -28,15 +71,7 @@ class LLMService:
             valid_keys = [k for k in self.nvidia_keys if k]
             if not valid_keys:
                 raise ValueError("No NVIDIA API keys configured.")
-            
-            selected_key = random.choice(valid_keys)
-            return ChatOpenAI(
-                base_url="https://integrate.api.nvidia.com/v1",
-                api_key=selected_key,
-                model_name=Config.NVIDIA_MODEL,
-                temperature=0.7,
-                max_tokens=8192
-            )
+            return self._nvidia_llm(random.choice(valid_keys))
         elif self.provider == 'groq':
             if not ChatGroq:
                 raise ImportError("langchain-groq is not installed. Please install it to use Groq.")
@@ -92,7 +127,7 @@ class LLMService:
         }
         self._log_interaction(log_file, {"template": "explain_mistake", "input": input_vars}, "Waiting for response...")
         
-        response = chain.invoke(input_vars)
+        response = self._invoke(prompt, input_vars)
         
         # Log response
         self._log_interaction(log_file, {"template": "explain_mistake", "input": input_vars}, response.content)
@@ -109,7 +144,7 @@ class LLMService:
         input_vars = {"text": text}
         self._log_interaction(log_file, {"template": "extract_entities", "input": input_vars}, "Waiting for response...")
         
-        response = chain.invoke(input_vars)
+        response = self._invoke(prompt, input_vars)
         
         self._log_interaction(log_file, {"template": "extract_entities", "input": input_vars}, response.content)
         
@@ -133,7 +168,7 @@ class LLMService:
         input_vars = {"query": query}
         self._log_interaction(log_file, {"template": "identify_entities", "input": input_vars}, "Waiting for response...")
         
-        response = chain.invoke(input_vars)
+        response = self._invoke(prompt, input_vars)
         
         self._log_interaction(log_file, {"template": "identify_entities", "input": input_vars}, response.content)
         
@@ -146,11 +181,50 @@ class LLMService:
             return []
     
     def generate_answer_with_context(self, query, context, log_file=None):
-        context_str = f"主題: {context['entity']}\n說明: {context['description']}\n\n相關知識:\n"
-        for neighbor in context['neighbors']:
-            context_str += f"- {neighbor['name']}: {neighbor['description']}\n"
-        
+        if isinstance(context, dict) and "edges" in context:
+            context_str = self.build_graph_context_string(context)
+        else:
+            # 舊格式（單一實體＋鄰居清單）保留相容
+            context_str = f"主題: {context['entity']}\n說明: {context.get('description')}\n\n相關知識:\n"
+            for neighbor in context.get('neighbors', []):
+                context_str += f"- {neighbor['name']}: {neighbor.get('description')}\n"
+
         prompt = ChatPromptTemplate.from_messages([
+    @staticmethod
+    def build_graph_context_string(graph_context):
+        """把子圖攤成三元組文字，這份字串就是模型實際看到的圖內容。
+
+        平台格式的圖沒有 description 屬性，語意在關係型別與節點型別上，
+        因此 context 以「來源 --[關係]--> 目標」呈現，而非名稱＋描述。
+        """
+        seeds = graph_context.get("seeds") or []
+        edges = graph_context.get("edges") or []
+        stats = graph_context.get("stats") or {}
+
+        lines = ["【問題命中的知識點】"]
+        if seeds:
+            for seed in seeds:
+                lines.append(f"- {seed['name']}（類型：{seed.get('type') or 'unknown'}）")
+        else:
+            lines.append("- （無明確命中）")
+
+        lines.append("")
+        lines.append(f"【知識圖譜關係｜共 {len(edges)} 條，取自命中知識點的一跳鄰域】")
+        for index, edge in enumerate(edges, start=1):
+            sources = edge.get("source_files") or []
+            source_note = f"（來源：{'、'.join(sources)}）" if sources else ""
+            lines.append(
+                f"{index}. {edge['source']} --[{edge['relation']}]--> {edge['target']}{source_note}"
+            )
+
+        if stats.get("truncated"):
+            lines.append("")
+            lines.append(
+                f"（註：命中鄰域共 {stats.get('total_edges_found')} 條關係，"
+                f"已依相關性取前 {len(edges)} 條）"
+            )
+        return "\n".join(lines)
+
             ("system", load_prompt("platform/graph_rag_answer_system.md")),
             ("user", "{query}")
         ])
@@ -159,7 +233,7 @@ class LLMService:
         input_vars = {"query": query, "context": context_str}
         self._log_interaction(log_file, {"template": "generate_answer", "input": input_vars}, "Waiting for response...")
         
-        response = chain.invoke(input_vars)
+        response = self._invoke(prompt, input_vars)
         
         self._log_interaction(log_file, {"template": "generate_answer", "input": input_vars}, response.content)
         
@@ -185,7 +259,7 @@ class LLMService:
         input_vars = {"entity": entity_name, "context": context_str}
         self._log_interaction(log_file, {"template": "generate_quiz", "input": input_vars}, "Waiting for response...")
         
-        response = chain.invoke(input_vars)
+        response = self._invoke(prompt, input_vars)
         
         self._log_interaction(log_file, {"template": "generate_quiz", "input": input_vars}, response.content)
         
@@ -245,7 +319,7 @@ class LLMService:
         input_vars = {"context_str": full_context_str}
         self._log_interaction(log_file, {"template": "generate_batch_quiz", "input": input_vars}, "Waiting for response...")
         
-        response = chain.invoke(input_vars)
+        response = self._invoke(prompt, input_vars)
         
         self._log_interaction(log_file, {"template": "generate_batch_quiz", "input": input_vars}, response.content)
         

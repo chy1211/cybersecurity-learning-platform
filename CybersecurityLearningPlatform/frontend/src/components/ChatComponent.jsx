@@ -1,6 +1,68 @@
 import { useState, useEffect } from 'react'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import api from '../services/api'
+import { NEO4J_LABEL_COLORS } from './Neo4jGraphShell'
+
+const typeColor = (type) => NEO4J_LABEL_COLORS[type] || NEO4J_LABEL_COLORS.default
+
+/* 顯示這次回答實際用到的子圖：命中的知識點、送進模型的三元組與其來源 */
+function GraphContextPanel({ graphContext }) {
+  const seeds = graphContext?.seeds || []
+  const edges = graphContext?.edges || []
+  const nodes = graphContext?.nodes || []
+  const stats = graphContext?.stats || {}
+  if (edges.length === 0) return null
+
+  return (
+    <details className="mt-3 border-t border-slate-700 pt-2 text-xs text-slate-300" open>
+      <summary className="cursor-pointer text-indigo-300">
+        本次參考的知識圖譜（{nodes.length} 個知識點 · {edges.length} 條關係）
+      </summary>
+
+      <div className="mt-2 space-y-3">
+        <div>
+          <div className="text-slate-400 mb-1">命中的知識點</div>
+          <div className="flex flex-wrap gap-1.5">
+            {seeds.map((seed) => (
+              <span
+                key={seed.name}
+                className="px-2 py-0.5 rounded-full font-medium text-[#111827]"
+                style={{ backgroundColor: typeColor(seed.type) }}
+                title={`類型 ${seed.type}／比對 ${seed.match_type}`}
+              >
+                {seed.name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div className="text-slate-400 mb-1">送進模型的關係</div>
+          <ul className="space-y-1 max-h-64 overflow-y-auto pr-1">
+            {edges.map((edge, index) => (
+              <li key={`${edge.source}-${edge.relation}-${edge.target}-${index}`} className="leading-relaxed">
+                <span className="text-slate-200">{edge.source}</span>
+                <span className="mx-1 text-indigo-300">—[{edge.relation}]→</span>
+                <span className="text-slate-200">{edge.target}</span>
+                {edge.links_two_seeds && <span className="ml-1 text-emerald-400">·連接兩個命中點</span>}
+                {edge.source_files?.length > 0 && (
+                  <span className="text-slate-500">（來源：{edge.source_files.join('、')}）</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {stats.truncated && (
+          <p className="text-slate-500">
+            命中鄰域共 {stats.total_edges_found} 條關係，已依相關性取前 {edges.length} 條送進模型。
+          </p>
+        )}
+      </div>
+    </details>
+  )
+}
 
 export default function ChatComponent() {
   const [messages, setMessages] = useState([])
@@ -32,7 +94,13 @@ export default function ChatComponent() {
 
     try {
       const response = await api.sendChatMessage(input)
-      const aiMessage = { role: 'assistant', content: response.answer }
+      const aiMessage = {
+        role: 'assistant',
+        content: response.answer,
+        evidence: response.evidence || [],
+        graphContext: response.graph_context || null,
+        retrievalMode: response.retrieval_mode,
+      }
       setMessages(prev => [...prev, aiMessage])
     } catch (error) {
       console.error('發送訊息失敗:', error)
@@ -113,7 +181,29 @@ export default function ChatComponent() {
                   : 'bg-slate-800 text-slate-200'
               }`}>
                 {msg.role === 'assistant' ? (
-                  <ReactMarkdown className="prose prose-sm prose-invert max-w-none">{msg.content}</ReactMarkdown>
+                  <div>
+                    <div className="chat-markdown">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.content}</ReactMarkdown>
+                    </div>
+                    {msg.retrievalMode === 'multi_seed_one_hop' && (
+                      <p className="mt-3 text-xs text-slate-400">檢索模式：多命中點一跳子圖</p>
+                    )}
+                    {msg.graphContext ? (
+                      <GraphContextPanel graphContext={msg.graphContext} />
+                    ) : msg.evidence?.length > 0 && (
+                      <details className="mt-2 border-t border-slate-700 pt-2 text-xs text-slate-300">
+                        <summary className="cursor-pointer text-indigo-300">查看圖譜依據（{msg.evidence.length}）</summary>
+                        <ul className="mt-2 space-y-1">
+                          {msg.evidence.map((item, evidenceIndex) => (
+                            <li key={`${item.entity}-${item.relationship}-${item.neighbor}-${evidenceIndex}`}>
+                              {item.entity} — {item.relationship} → {item.neighbor}
+                              {item.source?.length > 0 && `（來源：${item.source.join('、')}）`}
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
+                    )}
+                  </div>
                 ) : (
                   <p className="whitespace-pre-wrap">{msg.content}</p>
                 )}

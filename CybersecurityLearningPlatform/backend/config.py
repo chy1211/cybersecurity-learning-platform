@@ -30,3 +30,13 @@ class Config:
     NEO4J_URI = os.getenv('NEO4J_URI', 'bolt://localhost:7687')
     NEO4J_USER = os.getenv('NEO4J_USER', 'neo4j')
     NEO4J_PASSWORD = os.getenv('NEO4J_PASSWORD')
+
+    # 動態掃描 NVIDIA_API_KEY_<N>（與 .env 註記一致），有幾把就用幾把；
+    # 寫死 1~6 會漏掉後來新增的金鑰。
+    NVIDIA_API_KEYS = [
+        value
+        for value in (
+            os.getenv(f'NVIDIA_API_KEY_{index}') for index in range(1, 33)
+        )
+        if value
+    ]

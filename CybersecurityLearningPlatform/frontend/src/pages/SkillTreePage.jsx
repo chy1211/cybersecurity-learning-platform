@@ -493,8 +493,8 @@ function PathPlannerView({ searchQuery, setSearchQuery, setSearchResults, search
       <div className="max-w-3xl mx-auto p-6">
         {/* Title */}
         <div className="mb-6 text-center">
-          <h2 className="text-2xl font-bold text-white mb-2">🧭 個人化學習路徑規劃</h2>
-          <p className="text-slate-400">輸入你想學的目標知識點，系統會根據你已掌握的知識，規劃一條最佳學習路徑。</p>
+          <h2 className="text-2xl font-bold text-white mb-2">🧭 目標概念結構導覽</h2>
+          <p className="text-slate-400">輸入目標知識點，系統會列出同一分群內的探索性排序。</p>
         </div>
 
         {/* Search Box */}
@@ -602,36 +602,23 @@ function PlannedPathResult({ result, learnedNodes, pathMode }) {
     )
   }
 
-  // Group nodes by community, preserving the order of first appearance
-  const communityOrder = []
-  const groups = {}
-  result.path.forEach(node => {
-    const cid = node.community ?? '未分類'
-    if (!groups[cid]) {
-      groups[cid] = []
-      communityOrder.push(cid)
-    }
-    groups[cid].push(node)
-  })
-
-  const targetNode = result.path.find(n => n.name === result.target)
-  const targetGroup = targetNode?.community ?? null
-  const targetGroupNodes = targetGroup != null ? (groups[targetGroup] || []) : []
-  const targetIndex = targetGroupNodes.findIndex(n => n.name === result.target)
-  const prereqNodes = targetIndex >= 0 ? targetGroupNodes.slice(0, targetIndex) : []
-  const prereqToLearn = prereqNodes.filter(n => !learnedNodes.has(n.name)).length
-  const fallbackLearned = targetGroupNodes.filter(n => learnedNodes.has(n.name)).length
-  const fallbackToLearn = targetGroupNodes.length - fallbackLearned
-  const toLearnDisplay = targetIndex >= 0 ? prereqToLearn : (targetGroupNodes.length > 0 ? fallbackToLearn : result.to_learn)
-  const scopeLabel = pathMode === 'chapter' ? '章節' : '社群'
-
+  const scopeLabel = pathMode === 'chapter' ? '章節' : '分群'
+  // 排序後排在目標之前、且尚未標記的節點數 ＝「大概還要學習幾個」
+  // （目標本身也在 items 內；若目標未進分析清單則退回整份清單的未標記數）
+  const targetIndex = items.findIndex((item) => item.name === result.target)
+  const nodesBeforeTarget = targetIndex >= 0 ? items.slice(0, targetIndex) : items
+  const remainingToTarget = nodesBeforeTarget.filter((item) => !learnedNodes.has(item.name)).length
   return (
     <div className="space-y-4">
       <div className="p-4 bg-indigo-950/30 rounded-xl border border-indigo-800/50">
         <h3 className="text-lg font-bold text-white mb-3">前往「{result.target}」的學習路徑</h3>
         <div className="space-y-1.5 text-sm">
-          <div className="text-emerald-400">✓ 已學會 <span className="font-bold">{result.already_learned}</span></div>
-          <div className="text-amber-400">📖 該{scopeLabel}需學習 <span className="font-bold">{toLearnDisplay}</span></div>
+          <div className="text-sky-400">
+            🎯 到「{result.target}」大概還要學習 <span className="font-bold">{remainingToTarget}</span> 個節點
+            {remainingToTarget === 0 && <span className="text-xs text-slate-400 ml-1">（排序在前的節點都已標記）</span>}
+          </div>
+          <div className="text-emerald-400">✓ 已標記瀏覽 <span className="font-bold">{result.already_reviewed ?? 0}</span></div>
+          <div className="text-amber-400">🧭 同{scopeLabel}分析節點 <span className="font-bold">{items.length}</span></div>
         </div>
       </div>
     </div>
