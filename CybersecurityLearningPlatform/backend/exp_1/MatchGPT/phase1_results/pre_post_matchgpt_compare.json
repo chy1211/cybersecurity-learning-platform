@@ -1,5 +1,8 @@
 {
   "description": "Pre-validation / Post-validation / Post-MatchGPT 三階段結構對比",
+  "run": "2026-07 rerun (B2 final graph)",
+  "generated_at": "2026-07-25T22:21:42",
+  "generated_by": "_tooling/ch4_qual_rewrite/update_prepost_compare.py",
   "final_threshold": 0.7,
   "columns": [
     "pre_validation",
@@ -8,48 +11,72 @@
   ],
   "metrics": {
     "node_count": {
-      "pre_validation": 4108,
-      "post_validation": 3703,
-      "post_matchgpt_t0.7": 2832
+      "pre_validation": 4138,
+      "post_validation": 3413,
+      "post_matchgpt_t0.7": 2763
     },
     "rel_count": {
-      "pre_validation": 5001,
-      "post_validation": 4837,
-      "post_matchgpt_t0.7": 4439
+      "pre_validation": 4782,
+      "post_validation": 4088,
+      "post_matchgpt_t0.7": 3803
     },
     "wcc_count": {
-      "pre_validation": 347,
-      "post_validation": 248,
-      "post_matchgpt_t0.7": 134
+      "pre_validation": 365,
+      "post_validation": 284,
+      "post_matchgpt_t0.7": 153
     },
     "avg_degree": {
-      "pre_validation": 2.4348,
-      "post_validation": 2.6125,
-      "post_matchgpt_t0.7": 3.1349
+      "pre_validation": 2.3113,
+      "post_validation": 2.3955,
+      "post_matchgpt_t0.7": 2.7528
     },
     "isolated_node_count": {
       "pre_validation": 0,
       "post_validation": 0,
-      "post_matchgpt_t0.7": 0
+      "post_matchgpt_t0.7": 1
     },
     "leiden_modularity_gamma1": {
-      "pre_validation": 0.807377,
-      "post_validation": 0.776492,
-      "post_matchgpt_t0.7": 0.689464
+      "pre_validation": null,
+      "post_validation": 0.809418,
+      "post_matchgpt_t0.7": 0.733269
     }
   },
   "delta_pre_to_post": {
-    "node_reduction": 405,
-    "node_reduction_pct": 9.86,
-    "rel_reduction": 164,
-    "wcc_reduction": 99
+    "node_reduction": 725,
+    "node_reduction_pct": -17.52,
+    "rel_reduction": 694,
+    "rel_reduction_pct": -14.51,
+    "wcc_reduction": 81,
+    "wcc_reduction_pct": -22.19,
+    "avg_degree_pct": 3.64
   },
   "delta_post_to_matchgpt": {
-    "node_reduction": 871,
-    "node_reduction_ratio": 0.2352,
-    "node_reduction_pct": 23.52,
-    "merged_pairs": 871,
-    "relation_preservation_rate": 0.9143
+    "node_reduction": 650,
+    "node_reduction_ratio": 0.1904,
+    "node_reduction_pct": -19.04,
+    "rel_reduction": 285,
+    "rel_reduction_pct": -6.97,
+    "wcc_reduction": 131,
+    "wcc_reduction_pct": -46.13,
+    "avg_degree_pct": 14.92,
+    "merged_pairs": 650,
+    "skipped_pairs": 509,
+    "cross_type_blocked": 0,
+    "cross_type_merge_rate": 0.0,
+    "self_loops_removed": 16,
+    "relation_preservation_rate": 0.9303
   },
+  "sources": {
+    "pre_validation": "recomputed offline by _tooling/ch4_qual_rewrite/compute_table11_metrics.py from ETL_module/{Validated,Rejected} original_raw_triple (5,176 candidates); replicates build_prevalidation_kg.py MERGE semantics",
+    "post_validation": "phase1_results/post_validation_stats.json (2026-07-11T17:14:30.244836)",
+    "post_matchgpt_t0.7": "phase1_results/matchgpt_t07_metrics.json (2026-07-11T22:07:21.129762); cross-checked against phase1_backups/postmatchgpt_t07.json"
+  },
+  "notes": [
+    "Supersedes the 2026-05 version of this file (4108/3703/2832, 5001/4837/4439, 347/248/134).",
+    "phase1_results/pre_validation_stats.json is STILL the 2026-05 run (timestamp 2026-05-19, total_input_triples 5593). Do NOT regenerate this compare file from it via exp_1_indicator3_prepost.py without first rebuilding the pre-validation graph.",
+    "leiden_modularity_gamma1 for pre_validation is null: requires Neo4j+GDS and build_prevalidation_kg.py wipes the database; not recomputed in this refresh.",
+    "avg_degree = 2 * rel_count / node_count (undirected degree), same formula as the phase1 scripts.",
+    "Thesis 表11 cites node/rel/wcc/avg_degree plus cross_type_merge_rate and relation_preservation_rate."
+  ],
   "matchgpt_3layer_summary_path": "backend/exp_1/MatchGPT/phase1_results/matchgpt_3layer_summary.json"
 }

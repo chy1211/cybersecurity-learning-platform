@@ -24,8 +24,9 @@ except Exception:
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 BACKEND_DIR = SCRIPT_DIR.parents[1]
-THESIS_DIR = SCRIPT_DIR.parents[3]
-DEFAULT_RESULT_DIR = THESIS_DIR / "實驗" / "Phase2_圖譜結構化" / "結果"
+REPO_ROOT = SCRIPT_DIR.parents[3]
+# 所有實驗結果統一收在 repo 的 result/ 底下（2026-08-04）
+DEFAULT_RESULT_DIR = REPO_ROOT / "result" / "exp2_leiden"
 
 DEFAULT_NEO4J_URI = os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687")
 DEFAULT_NEO4J_USER = "neo4j"
@@ -49,8 +50,12 @@ def now_iso() -> str:
     return datetime.now().isoformat(timespec="seconds")
 
 
-def default_output_path(filename: str) -> Path:
-    return DEFAULT_RESULT_DIR / filename
+def resolve_result_dir(result_dir: str | Path | None = None) -> Path:
+    return Path(result_dir) if result_dir is not None else DEFAULT_RESULT_DIR
+
+
+def default_output_path(filename: str, result_dir: str | Path | None = None) -> Path:
+    return resolve_result_dir(result_dir) / filename
 
 
 def ensure_parent(path: str | Path) -> Path:
