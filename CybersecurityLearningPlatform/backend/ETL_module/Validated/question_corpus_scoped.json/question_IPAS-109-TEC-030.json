@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "原始碼掃描",
+      "type": "technique",
+      "display_name": "原始碼掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "程式",
+      "type": "app",
+      "display_name": "程式"
+    },
+    "reasoning": "正確答案提到原始碼掃描可在「程式開發過程中」進行，這隱含了該技術是用於分析開發中的程式 (app)。這符合 Schema 中 ('technique', 'can_analyze', 'app') 的定義。",
+    "source_id": "question_IPAS-109-TEC-030",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'app' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "原始碼掃描是技術的合理實例，程式是應用程式的合理實例。",
+        "response": "correct",
+        "reason": "原始碼掃描可以分析程式，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為technique，規則5不適用，因為主體類別不是data，規則6不適用，因為關係不是deployed_in，規則7不適用，因為關係不是generates，規則8不適用，因為關係不是controls",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的原始碼掃描完全等價同義詞；受體與 Ldr 中的程式完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域中的具體概念，無法合併為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "原始碼掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "程式",
+        "type": "app"
+      },
+      "reasoning": "正確答案提到原始碼掃描可在「程式開發過程中」進行，這隱含了該技術是用於分析開發中的程式 (app)。這符合 Schema 中 ('technique', 'can_analyze', 'app') 的定義。",
+      "source_id": "question_IPAS-109-TEC-030",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "原始碼掃描",
+      "type": "technique",
+      "display_name": "原始碼掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "原始碼",
+      "type": "data",
+      "display_name": "原始碼"
+    },
+    "reasoning": "根據正確答案，主體為「原始碼掃描」，這是一種資安分析技術 (technique)，其分析的對象是「原始碼」，而原始碼屬於程式碼資訊，應歸類為資料 (data)。這符合 Schema 中 ('technique', 'can_analyze', 'data') 的定義。",
+    "source_id": "question_IPAS-109-TEC-030",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "原始碼掃描是技術的合理實例，原始碼是資料的合理實例。",
+        "response": "correct",
+        "reason": "原始碼掃描與原始碼的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的允許條件，且無其他規則違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "原始碼掃描與原始碼之間的關係是主體與受體之間的關係，而非同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "原始碼掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "原始碼",
+        "type": "data"
+      },
+      "reasoning": "根據正確答案，主體為「原始碼掃描」，這是一種資安分析技術 (technique)，其分析的對象是「原始碼」，而原始碼屬於程式碼資訊，應歸類為資料 (data)。這符合 Schema 中 ('technique', 'can_analyze', 'data') 的定義。",
+      "source_id": "question_IPAS-109-TEC-030",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

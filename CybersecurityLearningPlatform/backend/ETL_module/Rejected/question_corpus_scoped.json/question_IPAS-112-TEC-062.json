@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "vpn",
+      "type": "app",
+      "display_name": "VPN"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "中間人攻擊",
+      "type": "attack",
+      "display_name": "中間人攻擊"
+    },
+    "reasoning": "選項 D 提到使用公司 VPN 可確保網路環境在掌控範圍內以防範中間人攻擊，因此將 VPN 視為工具 (tool)，可緩解 (mitigates) 中間人攻擊。",
+    "source_id": "question_IPAS-112-TEC-062",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "VPN 是一種工具（tool），中間人攻擊是一種攻擊（attack），且 'mitigates' 的語意與工具與攻擊之間的關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 vpn 完全等價同義詞；受體與 Ldr 中的 中間人攻擊 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，但無法合併為同義詞。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): app -> mitigates -> attack (original: tool -> mitigates -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "VPN",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "中間人攻擊",
+        "type": "attack"
+      },
+      "reasoning": "選項 D 提到使用公司 VPN 可確保網路環境在掌控範圍內以防範中間人攻擊，因此將 VPN 視為工具 (tool)，可緩解 (mitigates) 中間人攻擊。",
+      "source_id": "question_IPAS-112-TEC-062",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 6
+    }
+  }
+]

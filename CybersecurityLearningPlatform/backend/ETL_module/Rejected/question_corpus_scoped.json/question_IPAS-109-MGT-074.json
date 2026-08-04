@@ -1,0 +1,98 @@
+[
+  {
+    "subject": {
+      "name": "組織",
+      "type": "system",
+      "display_name": "組織"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "風險評鑑",
+      "type": "technique",
+      "display_name": "風險評鑑"
+    },
+    "reasoning": "文本提到『經過風險評鑑...可能會被組織選擇接受』，顯示組織（securityTeam）使用風險評鑑（technique）這一流程來分析風險狀況。",
+    "source_id": "question_IPAS-109-MGT-074",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '組織' 可以被視為 'securityTeam' 的合理實例；受體名稱 '風險評鑑' 可以被視為 'technique' 的合理實例，考慮到 '風險評鑑' 是資安領域常見的風險評估技術。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「組織」完全等價同義詞；受體與 Ldr 中的「風險評鑑」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，無需進行標準化。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> uses -> technique (original: securityTeam -> uses -> technique)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "組織",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "風險評鑑",
+        "type": "technique"
+      },
+      "reasoning": "文本提到『經過風險評鑑...可能會被組織選擇接受』，顯示組織（securityTeam）使用風險評鑑（technique）這一流程來分析風險狀況。",
+      "source_id": "question_IPAS-109-MGT-074",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "組織",
+      "type": "system",
+      "display_name": "組織"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "風險接受",
+      "type": "policy",
+      "display_name": "風險接受"
+    },
+    "reasoning": "文本指出低風險或成本過高的項目『可能會被組織選擇接受』，風險接受是一種風險處理策略（policy），由組織（securityTeam）決定實作。",
+    "source_id": "question_IPAS-109-MGT-074",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 (securityTeam) 存在於 Lc,p 的 Classes 中，受體類別 (policy) 存在於 Lc,p 的 Classes 中，關係 (implements) 存在於 Lc,p 的 Properties 中。",
+        "step_2_alignment_check": "主體名稱 (組織) 合理對齊其類別 (securityTeam)，受體名稱 (風險接受) 合理對齊其類別 (policy)，考慮到資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且實體名稱與其類別合理對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「組織」完全等價同義詞；受體與 Ldr 中的「風險管理」具有廣義/狹義從屬關係，但不構成同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「組織」完全等價同義詞，但受體與 Ldr 中的「風險管理」不構成同義詞重複，故判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> implements -> policy (original: securityTeam -> implements -> policy)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "組織",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "風險接受",
+        "type": "policy"
+      },
+      "reasoning": "文本指出低風險或成本過高的項目『可能會被組織選擇接受』，風險接受是一種風險處理策略（policy），由組織（securityTeam）決定實作。",
+      "source_id": "question_IPAS-109-MGT-074",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

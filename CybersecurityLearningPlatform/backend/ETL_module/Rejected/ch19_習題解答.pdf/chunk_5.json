@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "雲端服務提供業者",
+      "type": "securityTeam",
+      "display_name": "雲端服務供應商"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "使用者資料",
+      "type": "data",
+      "display_name": "用戶隱私資料"
+    },
+    "reasoning": "文本描述供應商可能會存取原本屬於用戶的資訊並造成侵害，在此情境下，供應商扮演了威脅行為者 (attacker) 的角色，其行為可危害 (can_harm) 用戶的 data。",
+    "source_id": "chunk_5",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "雲端服務供應商 是 'attacker' 的合理實例，用戶隱私資料 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "雲端服務供應商 can_harm 用戶隱私資料 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「雲端服務提供業者」為同義詞；受體與 Ldr 中的「使用者資料」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "雲端服務提供業者",
+        "standard_object": "使用者資料",
+        "reason": "主體與受體分別與 Ldr 中的資源為同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): securityTeam -> can_harm -> data (original: attacker -> can_harm -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端服務供應商",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "用戶隱私資料",
+        "type": "data"
+      },
+      "reasoning": "文本描述供應商可能會存取原本屬於用戶的資訊並造成侵害，在此情境下，供應商扮演了威脅行為者 (attacker) 的角色，其行為可危害 (can_harm) 用戶的 data。",
+      "source_id": "chunk_5",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 5
+    }
+  }
+]

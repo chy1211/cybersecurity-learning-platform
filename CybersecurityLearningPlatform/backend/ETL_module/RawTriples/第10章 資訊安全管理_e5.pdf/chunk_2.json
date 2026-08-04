@@ -1,6 +1,96 @@
 [
   {
     "subject": {
+      "name": "合法使用者",
+      "type": "user"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料",
+      "type": "data"
+    },
+    "reasoning": "文本在描述『完整性』時提到，允許有權限的使用者可以修改資料內容，因此萃取出使用者使用資料的關係。",
+    "source_id": "chunk_2",
+    "source_file": "第10章 資訊安全管理_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "合法使用者",
+      "type": "user"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "系統",
+      "type": "system"
+    },
+    "reasoning": "文本在描述『可用性』時提到，合法使用者可以在適當的時間內獲得系統回應並獲得服務，因此萃取出使用者使用系統的關係。",
+    "source_id": "chunk_2",
+    "source_file": "第10章 資訊安全管理_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "無權限人員",
+      "type": "attacker"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料",
+      "type": "data"
+    },
+    "reasoning": "文本在描述『機密性』時提到，需避免資料暴露於無權限人員（攻擊者）之下而危害資安目標，因此萃取出攻擊者可危害資料的關係。",
+    "source_id": "chunk_2",
+    "source_file": "第10章 資訊安全管理_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "駭客攻擊",
+      "type": "attack"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "機密性",
+      "type": "principle"
+    },
+    "reasoning": "文本定義機密性為保護資料避免暴露於無權限人員，若發生未經授權的暴露（攻擊行為），即違反機密性原則。",
+    "source_id": "chunk_2",
+    "source_file": "第10章 資訊安全管理_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "駭客攻擊",
+      "type": "attack"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle"
+    },
+    "reasoning": "文本定義完整性為確保資料原狀態且僅限有權限者修改，任何未經授權的修改（攻擊行為）即違反完整性原則。",
+    "source_id": "chunk_2",
+    "source_file": "第10章 資訊安全管理_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "駭客攻擊",
+      "type": "attack"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle"
+    },
+    "reasoning": "文本定義可用性為確保資訊與系統能持續營運與正常使用，導致系統無法正常運作的攻擊行為即違反可用性原則。",
+    "source_id": "chunk_2",
+    "source_file": "第10章 資訊安全管理_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
       "name": "組織",
       "type": "securityTeam"
     },
@@ -9,97 +99,7 @@
       "name": "資訊安全政策",
       "type": "policy"
     },
-    "reasoning": "文本提到『資訊安全政策是組織建置資訊安全管理制度不可或缺的重要元素』，顯示組織（作為防禦實體）實作了資訊安全政策。",
-    "source_id": "chunk_2",
-    "source_file": "第10章 資訊安全管理_e5.pdf",
-    "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "組織",
-      "type": "securityTeam"
-    },
-    "relation": "controls",
-    "object": {
-      "name": "資訊安全管理制度",
-      "type": "system"
-    },
-    "reasoning": "組織建置並管理資訊安全管理制度（ISMS），在本體論中，管理制度可視為一種綜合性的 system，而組織則對其擁有控制權。",
-    "source_id": "chunk_2",
-    "source_file": "第10章 資訊安全管理_e5.pdf",
-    "source_index": 2
-  },
-  {
-    "subject": {
-      "name": "有權限的使用者",
-      "type": "user"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "資料內容",
-      "type": "data"
-    },
-    "reasoning": "文本在描述完整性時提到『只允許有權限的使用者可以修改資料內容』，這符合 user 使用 data 的關係。",
-    "source_id": "chunk_2",
-    "source_file": "第10章 資訊安全管理_e5.pdf",
-    "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "系統",
-      "type": "system"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "資訊",
-      "type": "data"
-    },
-    "reasoning": "文本在描述可用性時提到『確保資訊與系統能夠持續營運』，暗示系統的運作依賴於資訊（資料）的可用性。",
-    "source_id": "chunk_2",
-    "source_file": "第10章 資訊安全管理_e5.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "資訊安全政策",
-      "type": "policy"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "危害到資訊安全目標",
-      "type": "risk"
-    },
-    "reasoning": "文本提到採用安全機制（由政策定義）以避免暴露於無權限人員之下而『危害到資訊安全目標』，因此政策的作用是緩解此風險。",
-    "source_id": "chunk_2",
-    "source_file": "第10章 資訊安全管理_e5.pdf",
-    "source_index": 5
-  },
-  {
-    "subject": {
-      "name": "ISO/IEC 27001:2022",
-      "type": "policy"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "危害到資訊安全目標",
-      "type": "risk"
-    },
-    "reasoning": "ISO/IEC 27001 是資訊安全管理系統的標準（policy），其目的在於透過規範來降低資安風險（risk）。",
-    "source_id": "chunk_2",
-    "source_file": "第10章 資訊安全管理_e5.pdf",
-    "source_index": 6
-  },
-  {
-    "subject": {
-      "name": "ISO 27002:2022",
-      "type": "policy"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "危害到資訊安全目標",
-      "type": "risk"
-    },
-    "reasoning": "ISO 27002 提供資訊安全控制措施（policy），旨在緩解可能危害資安目標的風險。",
+    "reasoning": "文本提到資訊安全政策是組織建置資訊安全管理制度不可或缺的元素，代表組織（資安管理團隊）實作該政策。",
     "source_id": "chunk_2",
     "source_file": "第10章 資訊安全管理_e5.pdf",
     "source_index": 7

@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "subject": {
+      "name": "內部人員",
+      "type": "user",
+      "display_name": "內部人員"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "文本提到安全威脅來自內部人員，他們會盜取有價值資訊資產。在此情境下，內部人員扮演威脅行為者 (attacker)，對資料 (data) 造成危害。",
+    "source_id": "chunk_2",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '內部人員' 是 'attacker' 的合理實例，受體 '資訊資產' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「內部人員」完全等價同義詞；受體與 Ldr 中的「資訊資產」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，無需進行標準化。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): user -> can_harm -> system (original: attacker -> can_harm -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部人員",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資訊資產",
+        "type": "data"
+      },
+      "reasoning": "文本提到安全威脅來自內部人員，他們會盜取有價值資訊資產。在此情境下，內部人員扮演威脅行為者 (attacker)，對資料 (data) 造成危害。",
+      "source_id": "chunk_2",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "內部人員",
+      "type": "user",
+      "display_name": "內部人員"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "實體設施",
+      "type": "tool",
+      "display_name": "實體設施"
+    },
+    "reasoning": "文本提到內部人員對內部實體設施進行侵入。侵入行為在邏輯上屬於與系統 (system) 建立非授權的連接或進入。",
+    "source_id": "chunk_2",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '內部人員' 是 'attacker' 的合理實例，實體 '實體設施' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「內部人員」完全等價同義詞；受體與 Ldr 中的「實體設施」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，無需進一步判斷。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): user -> connects_to -> tool (original: attacker -> connects_to -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部人員",
+        "type": "attacker"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "實體設施",
+        "type": "system"
+      },
+      "reasoning": "文本提到內部人員對內部實體設施進行侵入。侵入行為在邏輯上屬於與系統 (system) 建立非授權的連接或進入。",
+      "source_id": "chunk_2",
+      "source_file": "第03章 實體安全_e5.pdf",
+      "source_index": 2
+    }
+  }
+]

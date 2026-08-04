@@ -1,0 +1,91 @@
+[
+  {
+    "subject": {
+      "name": "違反條款",
+      "type": "policy",
+      "display_name": "違反條款"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "攻擊"
+    },
+    "reasoning": "選項 A 提到『違反條款』作為嚇阻性控制的例子，條款屬於規範與策略 (policy)，其目的是緩解攻擊發生的可能性。",
+    "source_id": "question_IPAS-109-MGT-023",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '違反條款' 是 'policy' 的合理實例，實體名稱 '攻擊' 是 'attack' 的合理實例。",
+        "response": "violation",
+        "reason": "雖然主體類別、受體類別與關係都在 Lc,p 中，但 'policy' 的實例 '違反條款' 與 'mitigates' 的關係不符，應該是 'violates'。"
+      }
+    },
+    "reject_reason": "Step 1 (Class/Property Violation): 雖然主體類別、受體類別與關係都在 Lc,p 中，但 'policy' 的實例 '違反條款' 與 'mitigates' 的關係不符，應該是 'violates'。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "違反條款",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "選項 A 提到『違反條款』作為嚇阻性控制的例子，條款屬於規範與策略 (policy)，其目的是緩解攻擊發生的可能性。",
+      "source_id": "question_IPAS-109-MGT-023",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "門禁卡",
+      "type": "app",
+      "display_name": "門禁卡"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "攻擊"
+    },
+    "reasoning": "選項 C 將『門禁卡』作為預防性控制的例子，門禁卡是防止未經授權進入（一種物理攻擊/風險）的工具。",
+    "source_id": "question_IPAS-109-MGT-023",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "門禁卡是工具的合理實例，攻擊是攻擊的合理實例，且 'mitigates' 是描述工具與攻擊之間關係的合理關係。",
+        "response": "correct",
+        "reason": "門禁卡、攻擊與 'mitigates' 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): app -> mitigates -> attack (original: tool -> mitigates -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "門禁卡",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "選項 C 將『門禁卡』作為預防性控制的例子，門禁卡是防止未經授權進入（一種物理攻擊/風險）的工具。",
+      "source_id": "question_IPAS-109-MGT-023",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 6
+    }
+  }
+]

@@ -8,31 +8,31 @@
     "relation": "can_harm",
     "object": {
       "name": "資料庫",
-      "type": "app",
+      "type": "system",
       "display_name": "資料庫"
     },
-    "reasoning": "文本提到資料隱碼攻擊（SQL Injection）會對資料庫或資料表中的紀錄產生威脅，因此將其定義為 attack 對 system 的危害。",
+    "reasoning": "文本提到 SQL 指令可能對資料庫或資料表中的紀錄產生威脅，因此將『資料隱碼攻擊』定義為 attack，『資料庫』定義為 system，關係為 can_harm。",
     "source_id": "chunk_11",
     "source_file": "第08章 資料庫安全_e5.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "資料隱碼攻擊 (attack) 是攻擊的一種合理實例，資料庫 (system) 是系統的一種合理實例，'can_harm' 關係在資安領域中是合理的，描述攻擊對系統的影響。",
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資料隱碼攻擊 (attack) 是攻擊類別的合理實例，資料庫 (system) 是系統類別的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為攻擊類別，具有主動執行能力，符合規則8的允許條件。",
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
         "response": "correct",
-        "reason": "三元組中的主體（資料隱碼攻擊）與關係（can_harm）以及受體（資料庫）之間的關係，沒有明確違反語義限制清單中的任何規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
       },
       "step_2": {
         "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "主體與受體皆不與現有近似資源清單中的任何項目完全匹配，且無同義詞關係，故判定為 correct。"
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
@@ -45,7 +45,7 @@
         "name": "資料庫",
         "type": "system"
       },
-      "reasoning": "文本提到資料隱碼攻擊（SQL Injection）會對資料庫或資料表中的紀錄產生威脅，因此將其定義為 attack 對 system 的危害。",
+      "reasoning": "文本提到 SQL 指令可能對資料庫或資料表中的紀錄產生威脅，因此將『資料隱碼攻擊』定義為 attack，『資料庫』定義為 system，關係為 can_harm。",
       "source_id": "chunk_11",
       "source_file": "第08章 資料庫安全_e5.pdf",
       "source_index": 1
@@ -53,9 +53,9 @@
   },
   {
     "subject": {
-      "name": "過濾 sql 指令",
+      "name": "輸入過濾",
       "type": "technique",
-      "display_name": "過濾 SQL 指令"
+      "display_name": "輸入過濾"
     },
     "relation": "mitigates",
     "object": {
@@ -63,33 +63,33 @@
       "type": "attack",
       "display_name": "資料隱碼攻擊"
     },
-    "reasoning": "文本在『資料隱碼攻擊之預防』章節中提到要過濾隱含的 SQL 指令以防止攻擊，這是一種防禦技術 (technique) 用於緩解 (mitigates) 攻擊。",
+    "reasoning": "文本描述透過拒絕特定字元輸入、過濾 SQL 指令以及規範資料格式來預防資料隱碼攻擊，這是一種防禦技術 (technique) 用於緩解 (mitigates) 攻擊。",
     "source_id": "chunk_11",
     "source_file": "第08章 資料庫安全_e5.pdf",
     "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體的類別 'technique'、受體的類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "過濾 SQL 指令 是 'technique' 的合理實例，資料隱碼攻擊 是 'attack' 的合理實例，且 'mitigates' 的語意與過濾 SQL 指令 對資料隱碼攻擊 的關係相符。",
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "輸入過濾是 'technique' 的合理實例，資料隱碼攻擊是 'attack' 的合理實例。",
         "response": "correct",
-        "reason": "過濾 SQL 指令 與資料隱碼攻擊 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是過濾 SQL 指令，類別為 technique，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
         "response": "correct",
-        "reason": "三元組的主體是過濾 SQL 指令，類別為 technique，符合規則2的條件，且未發現其他明確違反的規則。"
+        "reason": "主體輸入過濾的類別是 technique，符合規則2的條件，代表合法。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體皆為完全等價同義詞",
-        "response": "correct",
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
         "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體與受體皆與現有近似資源清單中之資源完全相符，無需進行同義詞判定或合併。"
+        "standard_object": "資料隱碼攻擊",
+        "reason": "根據資安領域已知同義詞對照範例，資料隱碼攻擊是攻擊的一種，且與 Ldr 中的資料隱碼攻擊完全相同。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "過濾 SQL 指令",
+        "name": "輸入過濾",
         "type": "technique"
       },
       "relation": "mitigates",
@@ -97,7 +97,7 @@
         "name": "資料隱碼攻擊",
         "type": "attack"
       },
-      "reasoning": "文本在『資料隱碼攻擊之預防』章節中提到要過濾隱含的 SQL 指令以防止攻擊，這是一種防禦技術 (technique) 用於緩解 (mitigates) 攻擊。",
+      "reasoning": "文本描述透過拒絕特定字元輸入、過濾 SQL 指令以及規範資料格式來預防資料隱碼攻擊，這是一種防禦技術 (technique) 用於緩解 (mitigates) 攻擊。",
       "source_id": "chunk_11",
       "source_file": "第08章 資料庫安全_e5.pdf",
       "source_index": 2
@@ -105,51 +105,51 @@
   },
   {
     "subject": {
-      "name": "輸入資料規範",
-      "type": "technique",
-      "display_name": "輸入資料規範"
+      "name": "網頁",
+      "type": "app",
+      "display_name": "PHP 網頁"
     },
-    "relation": "mitigates",
+    "relation": "can_expose",
     "object": {
-      "name": "資料隱碼攻擊",
-      "type": "attack",
-      "display_name": "資料隱碼攻擊"
+      "name": "資訊洩漏弱點",
+      "type": "vulnerability",
+      "display_name": "資料隱碼弱點"
     },
-    "reasoning": "文本提到針對輸入條件作適當規範（如僅接受英數字、限制長度）來預防攻擊，這屬於一種防禦技術 (technique)。",
+    "reasoning": "文本提到檢測 PHP 網頁是否有資料隱碼弱點存在，表示應用程式 (app) 可能暴露 (can_expose) 漏洞 (vulnerability)。",
     "source_id": "chunk_11",
     "source_file": "第08章 資料庫安全_e5.pdf",
     "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
-        "step_2_alignment_check": "輸入資料規範 (technique) 可以合理地減輕 (mitigates) 資料隱碼攻擊 (attack)，因為輸入資料規範是一種技術 (technique)，而資料隱碼攻擊是一種攻擊 (attack)，這符合資安領域的常見實踐。",
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "PHP 網頁 是 'app' 的合理實例，資料隱碼弱點 是 'vulnerability' 的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是輸入資料規範，類別為 technique，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "因為三元組的主體是輸入資料規範，類別為 technique，符合規則2的條件，且未發現其他明確違反的規則。"
+        "reason": "主體類別為 app，符合規則3的特例允許，且關係為 can_expose，故不違反語義限制清單中的任何規則。"
       },
       "step_2": {
-        "granularity_analysis": "受體 \"資料隱碼攻擊\" 與 Ldr 中的 \"資料隱碼攻擊\" 完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+        "granularity_analysis": "主體與 Ldr 中的網頁為完全等價同義詞；受體與 Ldr 中的資訊洩漏弱點為同義詞",
+        "response": "duplicate",
+        "standard_subject": "網頁",
+        "standard_object": "資訊洩漏弱點",
+        "reason": "主體與 Ldr 中的網頁為完全等價同義詞；受體與 Ldr 中的資訊洩漏弱點為同義詞，與資料隱碼弱點指稱同一概念"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "輸入資料規範",
-        "type": "technique"
+        "name": "PHP 網頁",
+        "type": "app"
       },
-      "relation": "mitigates",
+      "relation": "can_expose",
       "object": {
-        "name": "資料隱碼攻擊",
-        "type": "attack"
+        "name": "資料隱碼弱點",
+        "type": "vulnerability"
       },
-      "reasoning": "文本提到針對輸入條件作適當規範（如僅接受英數字、限制長度）來預防攻擊，這屬於一種防禦技術 (technique)。",
+      "reasoning": "文本提到檢測 PHP 網頁是否有資料隱碼弱點存在，表示應用程式 (app) 可能暴露 (can_expose) 漏洞 (vulnerability)。",
       "source_id": "chunk_11",
       "source_file": "第08章 資料庫安全_e5.pdf",
       "source_index": 3
@@ -167,28 +167,28 @@
       "type": "vulnerability",
       "display_name": "資料隱碼弱點"
     },
-    "reasoning": "文本明確指出 RPVS 工具的功能是『檢測 PHP 網頁是否有資料隱碼弱點存在』，符合 tool 分析 vulnerability 的定義。",
+    "reasoning": "RPVS 用於檢測資料隱碼弱點是否存在，因此工具 (tool) 可以分析 (can_analyze) 漏洞 (vulnerability)。",
     "source_id": "chunk_11",
     "source_file": "第08章 資料庫安全_e5.pdf",
-    "source_index": 4,
+    "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "RPVS 是一種工具（tool），'can_analyze' 是一種合理的關係，'資料隱碼弱點' 是一種弱點（vulnerability），因此語意對齊是合理的。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "RPVS 是一種工具，能夠分析資料隱碼弱點，語意上合理對齊。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意上合理對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是can_analyze，而非mitigates。規則3適用，因為主體類別是tool，但can_analyze是主動行為，規則3主要限制vulnerability的主動行為，但這裡的主體是tool，因此不違反規則3。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組中的主體是RPVS（類別：tool），關係是can_analyze，受體是資料隱碼弱點（類別：vulnerability），這符合tool可以執行can_analyze動作的邏輯，沒有違反任何語義限制規則。"
+        "reason": "主體 RPVS 的類別是 tool，符合規則3 的允許條件，且關係 can_analyze 不違反任何規則。"
       },
       "step_2": {
-        "granularity_analysis": "受體 \"資料隱碼弱點\" 與 Ldr 中的 \"資訊洩漏弱點\" 關係：同義詞判定，兩者均指資訊洩漏或資料隱碼的弱點",
+        "granularity_analysis": "受體與 Ldr 中的資源「資料隱碼弱點」、「資訊洩漏弱點」、「密碼外洩弱點」均指稱資安領域中的弱點或漏洞，屬於同義詞範圍；主體 RPVS 與 Ldr 中的「rpvs」完全相同，屬於完全等價同義詞。",
         "response": "duplicate",
-        "standard_subject": "",
+        "standard_subject": "rpvs",
         "standard_object": "資訊洩漏弱點",
-        "reason": "根據同義詞判定，受體 \"資料隱碼弱點\" 與 Ldr 中的 \"資訊洩漏弱點\" 是同義詞，均指資訊洩漏或資料隱碼的弱點。"
+        "reason": "主體與 Ldr 中的「rpvs」完全相同，受體與 Ldr 中的「資訊洩漏弱點」、「資料隱碼弱點」、「密碼外洩弱點」均為同義詞，判定為 duplicate。"
       }
     },
     "original_raw_triple": {
@@ -201,62 +201,10 @@
         "name": "資料隱碼弱點",
         "type": "vulnerability"
       },
-      "reasoning": "文本明確指出 RPVS 工具的功能是『檢測 PHP 網頁是否有資料隱碼弱點存在』，符合 tool 分析 vulnerability 的定義。",
+      "reasoning": "RPVS 用於檢測資料隱碼弱點是否存在，因此工具 (tool) 可以分析 (can_analyze) 漏洞 (vulnerability)。",
       "source_id": "chunk_11",
       "source_file": "第08章 資料庫安全_e5.pdf",
-      "source_index": 4
-    }
-  },
-  {
-    "subject": {
-      "name": "absinthe",
-      "type": "tool",
-      "display_name": "Absinthe"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "資料隱碼弱點",
-      "type": "vulnerability",
-      "display_name": "資料隱碼弱點"
-    },
-    "reasoning": "文本指出 Absinthe 工具允許手動設定 SQL 指令組合來檢測網頁是否有資料隱碼弱點。",
-    "source_id": "chunk_11",
-    "source_file": "第08章 資料庫安全_e5.pdf",
-    "source_index": 6,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "Absinthe 是一種工具（tool），'資料隱碼弱點' 是一種弱點（vulnerability），'can_analyze' 關係在資安領域中合理適用於工具分析弱點的場景。",
-        "response": "correct",
-        "reason": "Absinthe 作為一種工具可以分析資料隱碼弱點，完全符合預先定義的類別與屬性清單。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則3：主體類別若為 tool 時，可以執行 can_analyze 動作，且 Absinthe 屬於 tool 類別，受體為資料隱碼弱點屬於 vulnerability 類別，符合規則允許的條件。",
-        "response": "correct",
-        "reason": "三元組中的 Absinthe 屬於 tool 類別，可以執行 can_analyze 動作，且受體為資料隱碼弱點屬於 vulnerability 類別，未發現明確且直接的違反項目。"
-      },
-      "step_2": {
-        "granularity_analysis": "受體 \"資料隱碼弱點\" 與 Ldr 中的 \"資料隱碼弱點\" 完全相同，主體 \"Absinthe\" 與 Ldr 中的 \"rpvs\" 和 \"lilith\" 不同，且 \"Absinthe\" 不是資安領域已知同義詞對照範例中的同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，不需進一步判定。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "Absinthe",
-        "type": "tool"
-      },
-      "relation": "can_analyze",
-      "object": {
-        "name": "資料隱碼弱點",
-        "type": "vulnerability"
-      },
-      "reasoning": "文本指出 Absinthe 工具允許手動設定 SQL 指令組合來檢測網頁是否有資料隱碼弱點。",
-      "source_id": "chunk_11",
-      "source_file": "第08章 資料庫安全_e5.pdf",
-      "source_index": 6
+      "source_index": 5
     }
   },
   {
@@ -271,28 +219,28 @@
       "type": "app",
       "display_name": "PHP 網頁"
     },
-    "reasoning": "文本提到 RPVS 檢測『PHP 網頁』，PHP 網頁在此為具體的應用程式 (app)，工具對其進行分析。",
+    "reasoning": "RPVS 被定義為檢測工具 (tool)，其功能是檢測 PHP 網頁 (app) 是否有弱點，符合 tool can_analyze app 的 Schema。",
     "source_id": "chunk_11",
     "source_file": "第08章 資料庫安全_e5.pdf",
-    "source_index": 7,
+    "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'app' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "RPVS 是一種工具（tool），可以分析 PHP 網頁（app），這符合語意對齊，且 'can_analyze' 關係在資安領域中是合理的。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'app' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "RPVS 是一種工具 (tool)，能夠分析 PHP 網頁 (app)，這符合語意對齊原則。",
         "response": "correct",
-        "reason": "RPVS 和 PHP 網頁的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "RPVS 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_analyze' 不在任何規則中被明確限制，且主體 'RPVS' 的類別 'tool' 具有主動執行能力，受體 'PHP 網頁' 的類別 'app' 可被分析。",
+        "step_1_rule_matching": "規則3不適用，因為主體RPVS的類別是tool，而非vulnerability。規則8不適用，因為關係can_analyze不符合規則8的條件。其他規則均不適用，因為不符合規則的條件。",
         "response": "correct",
-        "reason": "三元組不觸發任何語義限制清單中的規則，且主體和受體的類別符合關係 'can_analyze' 的邏輯。"
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
       },
       "step_2": {
-        "granularity_analysis": "RPVS 與 Ldr 中的 'rpvs' 完全等價同義詞，PHP 網頁與 Ldr 中的 '網站' 相關但不完全等價",
+        "granularity_analysis": "不相關",
         "response": "correct",
-        "standard_subject": "rpvs",
+        "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認與同義詞判定，RPVS 與 'rpvs' 完全匹配，但 PHP 網頁與 '網站' 不完全等價，故保留原狀。"
+        "reason": "主體 RPVS 與受體 PHP 網頁 不存在同義詞關係，且無法確認彼此之間的從屬關係。"
       }
     },
     "original_raw_triple": {
@@ -305,62 +253,114 @@
         "name": "PHP 網頁",
         "type": "app"
       },
-      "reasoning": "文本提到 RPVS 檢測『PHP 網頁』，PHP 網頁在此為具體的應用程式 (app)，工具對其進行分析。",
+      "reasoning": "RPVS 被定義為檢測工具 (tool)，其功能是檢測 PHP 網頁 (app) 是否有弱點，符合 tool can_analyze app 的 Schema。",
       "source_id": "chunk_11",
       "source_file": "第08章 資料庫安全_e5.pdf",
-      "source_index": 7
+      "source_index": 4
     }
   },
   {
     "subject": {
-      "name": "資料隱碼弱點",
-      "type": "vulnerability",
-      "display_name": "資料隱碼弱點"
+      "name": "lilith",
+      "type": "tool",
+      "display_name": "Lilith"
     },
-    "relation": "can_expose",
+    "relation": "can_detect",
     "object": {
-      "name": "資料庫紀錄威脅",
-      "type": "risk",
-      "display_name": "資料庫紀錄威脅"
+      "name": "資料隱碼攻擊",
+      "type": "attack",
+      "display_name": "資料隱碼攻擊"
     },
-    "reasoning": "文本提到隱含指令會對資料庫紀錄產生威脅，這意味著存在弱點 (vulnerability) 會導致潛在的風險 (risk)。",
+    "reasoning": "Lilith 透過輸入攻擊字串來檢測網頁是否有弱點，本質上是在偵測該攻擊 (attack) 是否可行，符合 tool can_detect attack。",
     "source_id": "chunk_11",
     "source_file": "第08章 資料庫安全_e5.pdf",
-    "source_index": 8,
+    "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體 '資料隱碼弱點' 是 'vulnerability' 的合理實例，'資料庫紀錄威脅' 是 'risk' 的合理實例，關係 'can_expose' 在資安領域中是合理的。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Lilith 是一種工具，能夠檢測資料隱碼攻擊，實體名稱與類別合理對齊。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但 'can_expose' (暴露) 動作是特例允許的。因此，三元組中的 'can_expose' 關係觸發了規則3的特例允許，代表不違反規則。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
         "response": "correct",
-        "reason": "三元組中的 'can_expose' 關係符合規則3的特例允許，且未發現其他明確且直接的違反項目。"
+        "reason": "主體 Lilith 的類別是 tool，符合規則2 和規則8 的允許條件。"
       },
       "step_2": {
-        "granularity_analysis": "資料隱碼弱點與資訊洩漏弱點在資安領域中可視為同義詞或相關概念，但根據給定的對照表和判斷準則，兩者並不完全等同，且無明確指出它們是同一概念的不同名稱，因此視為不完全相同的實體。",
-        "response": "correct",
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
         "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，資料隱碼弱點與資訊洩漏弱點不被視為完全相同的實體，因此判定為 correct。"
+        "standard_object": "資料隱碼攻擊",
+        "reason": "根據資安領域已知同義詞對照範例，資料隱碼攻擊是攻擊的一種，且與sql資料隱碼攻擊具有高度相似性，判定為duplicate。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "資料隱碼弱點",
-        "type": "vulnerability"
+        "name": "Lilith",
+        "type": "tool"
       },
-      "relation": "can_expose",
+      "relation": "can_detect",
       "object": {
-        "name": "資料庫紀錄威脅",
-        "type": "risk"
+        "name": "資料隱碼攻擊",
+        "type": "attack"
       },
-      "reasoning": "文本提到隱含指令會對資料庫紀錄產生威脅，這意味著存在弱點 (vulnerability) 會導致潛在的風險 (risk)。",
+      "reasoning": "Lilith 透過輸入攻擊字串來檢測網頁是否有弱點，本質上是在偵測該攻擊 (attack) 是否可行，符合 tool can_detect attack。",
       "source_id": "chunk_11",
       "source_file": "第08章 資料庫安全_e5.pdf",
-      "source_index": 8
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "absinthe",
+      "type": "tool",
+      "display_name": "Absinthe"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "資料隱碼攻擊",
+      "type": "attack",
+      "display_name": "資料隱碼攻擊"
+    },
+    "reasoning": "Absinthe 提供介面製作 SQL 指令組合來檢測網頁弱點，屬於使用工具 (tool) 偵測 (can_detect) 攻擊 (attack) 的行為。",
+    "source_id": "chunk_11",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Absinthe 是一種工具 (tool)，而 'can_detect' 資料隱碼攻擊 (attack) 合理對齊，因為 Absinthe 可以用於檢測攻擊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則5、規則8",
+        "response": "correct",
+        "reason": "三元組符合規則所允許的條件，且無明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「資料隱碼攻擊」完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資料隱碼攻擊",
+        "reason": "受體與 Ldr 中的「資料隱碼攻擊」完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Absinthe",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "資料隱碼攻擊",
+        "type": "attack"
+      },
+      "reasoning": "Absinthe 提供介面製作 SQL 指令組合來檢測網頁弱點，屬於使用工具 (tool) 偵測 (can_detect) 攻擊 (attack) 的行為。",
+      "source_id": "chunk_11",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 7
     }
   }
 ]

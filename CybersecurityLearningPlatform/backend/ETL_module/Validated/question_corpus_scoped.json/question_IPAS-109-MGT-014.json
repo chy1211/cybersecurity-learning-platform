@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "資訊安全管理系統 (isms)",
+      "type": "system",
+      "display_name": "資訊安全管理系統 (ISMS)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "根據題幹，資訊資產分級是在 ISMS 中進行的，這隱含了 ISMS 作為一個管理系統，其管理範圍包含（具有）資訊資產。將 ISMS 與資訊資產均視為 system 以符合 ('system', 'has_a', 'system') 的 Schema。",
+    "source_id": "question_IPAS-109-MGT-014",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "主體 '資訊安全管理系統 (ISMS)' 的類別 'system' 合理對齊，受體 '資訊資產' 的類別 'system' 合理對齊，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係為 has_a，與規則6無關；受體資訊資產的類別為 system，符合規則6的條件，但關係不符，無法觸發此規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在完全等價同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖然相似，但無法確認完全等價同義詞關係，故預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全管理系統 (ISMS)",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "reasoning": "根據題幹，資訊資產分級是在 ISMS 中進行的，這隱含了 ISMS 作為一個管理系統，其管理範圍包含（具有）資訊資產。將 ISMS 與資訊資產均視為 system 以符合 ('system', 'has_a', 'system') 的 Schema。",
+      "source_id": "question_IPAS-109-MGT-014",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資料分級",
+      "type": "technique",
+      "display_name": "資訊資產分級"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "資訊資產分級是一種對資產進行評估與分類的方法，屬於 technique。它透過分析資訊資產（system）來決定其等級，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+    "source_id": "question_IPAS-109-MGT-014",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '資訊資產分級' 可被視為 'technique' 的合理實例；受體 '資訊資產' 可被視為 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 system，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「資料分級」為同義詞；受體與 Ldr 中的「資訊資產」完全相同。",
+        "response": "duplicate",
+        "standard_subject": "資料分級",
+        "standard_object": "資訊資產",
+        "reason": "主體與 Ldr 中的「資料分級」為同義詞；受體與 Ldr 中的「資訊資產」完全相同，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產分級",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "reasoning": "資訊資產分級是一種對資產進行評估與分類的方法，屬於 technique。它透過分析資訊資產（system）來決定其等級，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+      "source_id": "question_IPAS-109-MGT-014",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "機敏性",
+      "type": "feature",
+      "display_name": "機敏性"
+    },
+    "reasoning": "正確答案指出「機敏性」是分級的評估面向。機敏性是資訊資產的一個屬性（attribute），因此將其定義為 feature，並與資訊資產建立 ('system', 'has_a', 'feature') 的關係。",
+    "source_id": "question_IPAS-109-MGT-014",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '資訊資產' 可被視為 'system' 的合理實例；受體 '機敏性' 可被視為 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：無關。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法在資安領域已知同義詞對照範例中找到相符的同義詞關係，且無法確認主體與受體之間的從屬關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "機敏性",
+        "type": "feature"
+      },
+      "reasoning": "正確答案指出「機敏性」是分級的評估面向。機敏性是資訊資產的一個屬性（attribute），因此將其定義為 feature，並與資訊資產建立 ('system', 'has_a', 'feature') 的關係。",
+      "source_id": "question_IPAS-109-MGT-014",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

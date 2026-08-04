@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "根據題幹與正確答案，『機密性』的定義是確保資源、通訊、資料或資訊只能由經授權的使用者使用。這描述了使用者與資料之間的互動關係，符合 Schema 中 ('user', 'uses', 'data') 的合法邊界。",
+    "source_id": "question_IPAS-NULL-MGT-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '使用者' 合理對齊其類別 'user'，實體名稱 '資料' 合理對齊其類別 'data'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「使用者」完全等價同義詞；受體與 Ldr 中的「資料」完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "使用者",
+        "standard_object": "資料",
+        "reason": "主體與受體均與 Ldr 中的資源完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "根據題幹與正確答案，『機密性』的定義是確保資源、通訊、資料或資訊只能由經授權的使用者使用。這描述了使用者與資料之間的互動關係，符合 Schema 中 ('user', 'uses', 'data') 的合法邊界。",
+      "source_id": "question_IPAS-NULL-MGT-002",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

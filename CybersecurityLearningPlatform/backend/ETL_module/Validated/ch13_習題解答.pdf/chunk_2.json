@@ -1,6 +1,58 @@
 [
   {
     "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "背景查核",
+      "type": "policy",
+      "display_name": "背景查核"
+    },
+    "reasoning": "文本提到必須查核過去經歷與背景，這是一種由負責管理的人員（資安或人事團隊）執行的功能性動作，因此將其定義為 securityTeam implements function。",
+    "source_id": "chunk_2",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 可以實施 (implements) 背景查核 (function)，這是合理的語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別是securityTeam，而非vulnerability。規則8不適用，因為關係是implements，而非controls。其他規則均不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，故無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "背景查核",
+        "type": "function"
+      },
+      "reasoning": "文本提到必須查核過去經歷與背景，這是一種由負責管理的人員（資安或人事團隊）執行的功能性動作，因此將其定義為 securityTeam implements function。",
+      "source_id": "chunk_2",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
       "name": "聘僱政策",
       "type": "policy",
       "display_name": "聘僱政策"
@@ -11,28 +63,28 @@
       "type": "risk",
       "display_name": "風險"
     },
-    "reasoning": "文本提到『必須查核過去經歷與背景，以降低風險』，查核背景是聘僱政策的一環，其目的是為了緩解（mitigates）潛在的人員風險。",
+    "reasoning": "文本明確指出『查核過去經歷與背景，以降低風險』，這表示一套聘僱查核的規範（policy）是用來緩解風險（risk）的。",
     "source_id": "chunk_2",
     "source_file": "ch13_習題解答.pdf",
-    "source_index": 1,
+    "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "聘僱政策 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊。",
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "聘僱政策 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 的語意與政策與風險之間的關係相符。",
         "response": "correct",
-        "reason": "聘僱政策與風險的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '聘僱政策' 屬於類別 'policy'，因此符合規則2的條件。其他規則與三元組無直接關聯。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
         "response": "correct",
-        "reason": "三元組中的主體 '聘僱政策' 屬於類別 'policy'，符合規則2的條件，且未發現其他明確違反的規則。"
+        "reason": "主體為 policy，符合規則2所允許的條件，代表合法。"
       },
       "step_2": {
-        "granularity_analysis": "受體與 Ldr 中的「風險」完全等價同義詞",
-        "response": "correct",
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
         "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+        "standard_object": "風險",
+        "reason": "根據資安領域已知同義詞對照範例，風險是唯一完全匹配的實體。"
       }
     },
     "original_raw_triple": {
@@ -45,59 +97,7 @@
         "name": "風險",
         "type": "risk"
       },
-      "reasoning": "文本提到『必須查核過去經歷與背景，以降低風險』，查核背景是聘僱政策的一環，其目的是為了緩解（mitigates）潛在的人員風險。",
-      "source_id": "chunk_2",
-      "source_file": "ch13_習題解答.pdf",
-      "source_index": 1
-    }
-  },
-  {
-    "subject": {
-      "name": "安全保密協議",
-      "type": "policy",
-      "display_name": "安全保密協議"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "風險",
-      "type": "risk",
-      "display_name": "風險"
-    },
-    "reasoning": "安全保密協議是一種規範（policy），旨在防止資訊外洩，從而緩解（mitigates）資安風險。",
-    "source_id": "chunk_2",
-    "source_file": "ch13_習題解答.pdf",
-    "source_index": 2,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
-        "step_2_alignment_check": "安全保密協議 (policy) 是一種合理的保密政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊。",
-        "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是安全保密協議（policy），符合規則2的條件。其他規則不直接適用於此三元組。",
-        "response": "correct",
-        "reason": "三元組符合規則2的允許條件，且未發現其他明確違反的規則。因此，根據無罪推定原則，判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "受體 \"風險\" 與 Ldr 中的 \"風險\" 完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "安全保密協議",
-        "type": "policy"
-      },
-      "relation": "mitigates",
-      "object": {
-        "name": "風險",
-        "type": "risk"
-      },
-      "reasoning": "安全保密協議是一種規範（policy），旨在防止資訊外洩，從而緩解（mitigates）資安風險。",
+      "reasoning": "文本明確指出『查核過去經歷與背景，以降低風險』，這表示一套聘僱查核的規範（policy）是用來緩解風險（risk）的。",
       "source_id": "chunk_2",
       "source_file": "ch13_習題解答.pdf",
       "source_index": 2
@@ -105,113 +105,9 @@
   },
   {
     "subject": {
-      "name": "離職人員",
-      "type": "user",
-      "display_name": "離職人員"
-    },
-    "relation": "implements",
-    "object": {
       "name": "安全保密協議",
       "type": "policy",
       "display_name": "安全保密協議"
-    },
-    "reasoning": "文本提到離職人員負有保密責任並需遵守安全保密協議，這符合使用者（user）實作/執行（implements）規範（policy）的邏輯。",
-    "source_id": "chunk_2",
-    "source_file": "ch13_習題解答.pdf",
-    "source_index": 3,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "離職人員是 'user' 的合理實例，安全保密協議是 'policy' 的合理實例，實現關係 'implements' 在此語境下是合理的。",
-        "response": "correct",
-        "reason": "離職人員實現安全保密協議的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。實際上，離職人員 (user) 實施安全保密協議 (policy) 的動作，沒有明確違反任何一條規則。",
-        "response": "correct",
-        "reason": "三元組中，離職人員實施安全保密協議的動作，沒有觸發語義限制清單中的任何規則，因此判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，離職人員與安全保密協議之間沒有直接的同義詞或從屬關係，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "離職人員",
-        "type": "user"
-      },
-      "relation": "implements",
-      "object": {
-        "name": "安全保密協議",
-        "type": "policy"
-      },
-      "reasoning": "文本提到離職人員負有保密責任並需遵守安全保密協議，這符合使用者（user）實作/執行（implements）規範（policy）的邏輯。",
-      "source_id": "chunk_2",
-      "source_file": "ch13_習題解答.pdf",
-      "source_index": 3
-    }
-  },
-  {
-    "subject": {
-      "name": "離職人員",
-      "type": "user",
-      "display_name": "離職人員"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "系統",
-      "type": "system",
-      "display_name": "系統"
-    },
-    "reasoning": "文本提到離職時必須『停止所有權限』，這隱含了該使用者（user）先前使用（uses）過公司系統（system）或資源。",
-    "source_id": "chunk_2",
-    "source_file": "ch13_習題解答.pdf",
-    "source_index": 4,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "離職人員是 'user' 的合理實例，系統是 'system' 的合理實例，'uses' 關係在此語境下合理。",
-        "response": "correct",
-        "reason": "離職人員使用系統的三元組完全符合預先定義的類別與屬性清單。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 user，不是 data，因此不觸發違規。規則6：不適用。規則7：不適用。規則8：不適用。",
-        "response": "correct",
-        "reason": "三元組中的主體為離職人員，關係為 uses，受體為系統，沒有觸發任何語義限制清單中的規則，因此判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "受體 (Object) 的名稱 \"系統\" 與 Ldr 中的 \"系統\" 完全匹配，為完全等價同義詞。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "系統",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "離職人員",
-        "type": "user"
-      },
-      "relation": "uses",
-      "object": {
-        "name": "系統",
-        "type": "system"
-      },
-      "reasoning": "文本提到離職時必須『停止所有權限』，這隱含了該使用者（user）先前使用（uses）過公司系統（system）或資源。",
-      "source_id": "chunk_2",
-      "source_file": "ch13_習題解答.pdf",
-      "source_index": 4
-    }
-  },
-  {
-    "subject": {
-      "name": "人員管理政策",
-      "type": "policy",
-      "display_name": "人員管理政策"
     },
     "relation": "mitigates",
     "object": {
@@ -219,33 +115,33 @@
       "type": "risk",
       "display_name": "風險"
     },
-    "reasoning": "文本將聘僱查核與離職處理歸類在『人員管理』中，這是一套管理規範（policy），其整體目標是降低（mitigates）組織面臨的風險。",
+    "reasoning": "安全保密協議是一種規範（policy），其目的是為了防止資訊外洩等負面後果（risk）。",
     "source_id": "chunk_2",
     "source_file": "ch13_習題解答.pdf",
-    "source_index": 5,
+    "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "人員管理政策 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊。",
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '安全保密協議' 是 'policy' 的合理實例，受體名稱 '風險' 是 'risk' 的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是人員管理政策，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
         "response": "correct",
-        "reason": "三元組符合規則2的允許條件，且未發現其他明確違反的規則，因此判定為正確。"
+        "reason": "主體為安全保密協議（policy），符合規則2的條件，代表合法。"
       },
       "step_2": {
-        "granularity_analysis": "人員管理政策與聘僱政策、安全管理政策等相關政策類別比較，風險與項目風險、資訊風險等相關風險類別比較，發現人員管理政策與聘僱政策的相似度較高，但非完全等價同義詞；風險為完全匹配的同義詞。",
+        "granularity_analysis": "主體與 Ldr 中的資源沒有完全相同的名稱，受體與 Ldr 中的資源有完全相同的名稱",
         "response": "correct",
         "standard_subject": "",
-        "standard_object": "風險",
-        "reason": "根據同義詞判定，風險為完全匹配的同義詞，人員管理政策與現有政策類別比較後，無完全匹配的同義詞，故判定為 correct。"
+        "standard_object": "",
+        "reason": "根據前提確認判斷準則，若 Ldr 中有資源的 name 字串完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "人員管理政策",
+        "name": "安全保密協議",
         "type": "policy"
       },
       "relation": "mitigates",
@@ -253,10 +149,166 @@
         "name": "風險",
         "type": "risk"
       },
-      "reasoning": "文本將聘僱查核與離職處理歸類在『人員管理』中，這是一套管理規範（policy），其整體目標是降低（mitigates）組織面臨的風險。",
+      "reasoning": "安全保密協議是一種規範（policy），其目的是為了防止資訊外洩等負面後果（risk）。",
+      "source_id": "chunk_2",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "非志願離職人員",
+      "type": "user",
+      "display_name": "非志願離職人員"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "文本提到對非志願離職人員需要採取『防範措施』，暗示這類使用者可能成為內部威脅的弱點（vulnerability）。",
+    "source_id": "chunk_2",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '非志願離職人員' 可被視為 'user' 的合理實例；受體名稱 '弱點' 可被視為 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 user，非 vulnerability，且關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，'弱點'、'漏洞'、'脆弱性' 均指 vulnerability，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "非志願離職人員",
+        "type": "user"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到對非志願離職人員需要採取『防範措施』，暗示這類使用者可能成為內部威脅的弱點（vulnerability）。",
       "source_id": "chunk_2",
       "source_file": "ch13_習題解答.pdf",
       "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "離職處理政策",
+      "type": "policy",
+      "display_name": "離職處理政策"
+    },
+    "reasoning": "文本提到離職時必須歸還財產與停止權限，這是離職人員（user）必須遵守並執行的規範（policy）。",
+    "source_id": "chunk_2",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例；受體名稱 '離職處理政策' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的網路使用者為同義詞；受體與 Ldr 中的聘僱政策無直接關係，但類別相同，可能是廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的網路使用者類似，但受體與 Ldr 中的聘僱政策無直接關係，且無法確定是否為同義詞，因此預設保留原名"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "離職處理政策",
+        "type": "policy"
+      },
+      "reasoning": "文本提到離職時必須歸還財產與停止權限，這是離職人員（user）必須遵守並執行的規範（policy）。",
+      "source_id": "chunk_2",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "離職防範措施",
+      "type": "technique",
+      "display_name": "離職防範措施"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "攻擊"
+    },
+    "reasoning": "針對非志願離職人員的防範措施是一種技術手段（technique），旨在緩解可能發生的報復性攻擊（attack）。",
+    "source_id": "chunk_2",
+    "source_file": "ch13_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '離職防範措施' 是 'technique' 的合理實例，受體 '攻擊' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 technique，符合規則2所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "攻擊",
+        "reason": "根據資安領域已知同義詞對照範例，攻擊是攻擊事件的同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "離職防範措施",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "針對非志願離職人員的防範措施是一種技術手段（technique），旨在緩解可能發生的報復性攻擊（attack）。",
+      "source_id": "chunk_2",
+      "source_file": "ch13_習題解答.pdf",
+      "source_index": 6
     }
   }
 ]

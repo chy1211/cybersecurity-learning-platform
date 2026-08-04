@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "節點 n1",
+      "type": "system",
+      "display_name": "節點 N1"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "節點 n5",
+      "type": "system",
+      "display_name": "節點 N5"
+    },
+    "reasoning": "題幹指出『其他節點皆必須透過節點 N5 才能與外界進行網際網路連結』，這意味著 N1 必須先連接至 N5。根據 Schema，系統間的連線使用 connects_to。",
+    "source_id": "question_IPAS-111-TEC-023",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "節點 N1 與節點 N5 的名稱與其類別 'system' 合理對齊，符合資安領域的常見用法。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 connects_to，與規則6無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "節點 N1 與節點 n1 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "節點 n1",
+        "standard_object": "",
+        "reason": "節點 N1 與節點 n1 名稱完全相同，判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "節點 N1",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "節點 N5",
+        "type": "system"
+      },
+      "reasoning": "題幹指出『其他節點皆必須透過節點 N5 才能與外界進行網際網路連結』，這意味著 N1 必須先連接至 N5。根據 Schema，系統間的連線使用 connects_to。",
+      "source_id": "question_IPAS-111-TEC-023",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "節點 n2",
+      "type": "system",
+      "display_name": "節點 N2"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "節點 n5",
+      "type": "system",
+      "display_name": "節點 N5"
+    },
+    "reasoning": "題幹指出『其他節點皆必須透過節點 N5 才能與外界進行網際網路連結』，這意味著 N2 必須先連接至 N5。根據 Schema，系統間的連線使用 connects_to。",
+    "source_id": "question_IPAS-111-TEC-023",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "節點 N2 與節點 N5 的名稱未提供，但基於同義詞寬容原則，假設節點名稱與 'system' 類別合理對齊。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且假設節點名稱與 'system' 類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 connects_to，與規則6無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "節點 N2 與節點 n2 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "節點 n2",
+        "standard_object": "",
+        "reason": "節點 N2 與節點 n2 名稱完全相同，判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "節點 N2",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "節點 N5",
+        "type": "system"
+      },
+      "reasoning": "題幹指出『其他節點皆必須透過節點 N5 才能與外界進行網際網路連結』，這意味著 N2 必須先連接至 N5。根據 Schema，系統間的連線使用 connects_to。",
+      "source_id": "question_IPAS-111-TEC-023",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "節點 n5",
+      "type": "system",
+      "display_name": "節點 N5"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "題幹明確指出『只有節點 N5 具備有向外連網能力』，因此 N5 與網際網路之間存在連接關係。根據 Schema，兩個系統之間的連線使用 connects_to。",
+    "source_id": "question_IPAS-111-TEC-023",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "節點 N5 可以被視為系統的一部分，網際網路也是一個系統，因此這些名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意上是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 connects_to，與規則6無關；受體的類別是 system，符合規則6的條件，但主體的類別不是 policy, technique 或 tool，因此不違反規則2；其他規則均不適用。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "節點 n5",
+        "standard_object": "網際網路",
+        "reason": "主體與受體均為資安領域已知同義詞對照範例中的同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "節點 N5",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "題幹明確指出『只有節點 N5 具備有向外連網能力』，因此 N5 與網際網路之間存在連接關係。根據 Schema，兩個系統之間的連線使用 connects_to。",
+      "source_id": "question_IPAS-111-TEC-023",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "節點 n3",
+      "type": "system",
+      "display_name": "節點 N3"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "節點 n5",
+      "type": "system",
+      "display_name": "節點 N5"
+    },
+    "reasoning": "題幹指出『其他節點皆必須透過節點 N5 才能與外界進行網際網路連結』，這意味著 N3 必須先連接至 N5。根據 Schema，系統間的連線使用 connects_to。",
+    "source_id": "question_IPAS-111-TEC-023",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "節點 N3 與節點 N5 的名稱與其類別 'system' 合理對齊，符合資安領域的常見用法。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 connects_to，與規則6無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "節點 N3 與節點 n3 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "節點 n3",
+        "standard_object": "",
+        "reason": "節點 N3 與節點 n3 名稱完全相同，判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "節點 N3",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "節點 N5",
+        "type": "system"
+      },
+      "reasoning": "題幹指出『其他節點皆必須透過節點 N5 才能與外界進行網際網路連結』，這意味著 N3 必須先連接至 N5。根據 Schema，系統間的連線使用 connects_to。",
+      "source_id": "question_IPAS-111-TEC-023",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "節點 n4",
+      "type": "system",
+      "display_name": "節點 N4"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "節點 n5",
+      "type": "system",
+      "display_name": "節點 N5"
+    },
+    "reasoning": "題幹指出『其他節點皆必須透過節點 N5 才能與外界進行網際網路連結』，這意味著 N4 必須先連接至 N5。根據 Schema，系統間的連線使用 connects_to。",
+    "source_id": "question_IPAS-111-TEC-023",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "節點 N4 與節點 N5 的名稱與其類別 'system' 合理對齊，符合資安領域的常見用法。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 connects_to，與規則6無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "節點 N4 與節點 n4 完全等價同義詞，節點 N5 與節點 n5 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "節點 n4",
+        "standard_object": "節點 n5",
+        "reason": "節點 N4 與節點 n4、節點 N5 與節點 n5 名稱完全相同，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "節點 N4",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "節點 N5",
+        "type": "system"
+      },
+      "reasoning": "題幹指出『其他節點皆必須透過節點 N5 才能與外界進行網際網路連結』，這意味著 N4 必須先連接至 N5。根據 Schema，系統間的連線使用 connects_to。",
+      "source_id": "question_IPAS-111-TEC-023",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  }
+]

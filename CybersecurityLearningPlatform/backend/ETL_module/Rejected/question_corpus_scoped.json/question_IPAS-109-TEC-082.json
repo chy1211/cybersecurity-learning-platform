@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "惡意軟體分析工具",
+      "type": "tool",
+      "display_name": "惡意軟體分析工具"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "惡意軟體",
+      "type": "attack",
+      "display_name": "惡意程式樣本"
+    },
+    "reasoning": "分析工具是用來分析截取到的樣本（資料），符合 tool -> can_analyze -> data。",
+    "source_id": "question_IPAS-109-TEC-082",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '惡意軟體分析工具' 合理對齊其類別 'tool'，受體名稱 '惡意程式樣本' 合理對齊其類別 'data'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源「惡意軟體分析工具」完全相同，受體與資安領域已知同義詞對照範例中的「惡意程式樣本」對應的「惡意軟體」、「惡意程式」、「惡意代碼」具有相同意義。",
+        "response": "duplicate",
+        "standard_subject": "惡意軟體分析工具",
+        "standard_object": "惡意軟體",
+        "reason": "主體與 Ldr 中的資源完全相同，受體與資安領域已知同義詞對照範例中的詞語具有相同意義。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> can_analyze -> attack (original: tool -> can_analyze -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意軟體分析工具",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "惡意程式樣本",
+        "type": "data"
+      },
+      "reasoning": "分析工具是用來分析截取到的樣本（資料），符合 tool -> can_analyze -> data。",
+      "source_id": "question_IPAS-109-TEC-082",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

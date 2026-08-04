@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "生理特徵認證設備",
+      "type": "tool",
+      "display_name": "生物特徵認證儀器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "交點錯誤率",
+      "type": "feature",
+      "display_name": "交點錯誤率"
+    },
+    "reasoning": "根據題幹，生物特徵認證儀器的靈敏度需調整至『交點錯誤率 (Crossover Error Rate)』，這顯示該錯誤率是衡量此工具性能的一個特徵屬性。符合 Schema 中 ('tool', 'has_a', 'feature') 的定義。",
+    "source_id": "question_IPAS-110-MGT-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "生物特徵認證儀器 是 'tool' 的合理實例；交點錯誤率 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則5、規則6、規則7、規則8不適用。無明確規則限制主體為tool時不能與feature建立has_a關係。",
+        "response": "correct",
+        "reason": "無明確規則限制主體為tool時不能與feature建立has_a關係。"
+      },
+      "step_2": {
+        "granularity_analysis": "Ldr 中的「生理特徵認證設備」與主體「生物特徵認證儀器」是同義詞",
+        "response": "duplicate",
+        "standard_subject": "生理特徵認證設備",
+        "standard_object": "",
+        "reason": "根據同義詞判定，「生物特徵認證儀器」與「生理特徵認證設備」是同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "生物特徵認證儀器",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "交點錯誤率",
+        "type": "feature"
+      },
+      "reasoning": "根據題幹，生物特徵認證儀器的靈敏度需調整至『交點錯誤率 (Crossover Error Rate)』，這顯示該錯誤率是衡量此工具性能的一個特徵屬性。符合 Schema 中 ('tool', 'has_a', 'feature') 的定義。",
+      "source_id": "question_IPAS-110-MGT-080",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "生物特徵認證儀器",
+      "type": "tool",
+      "display_name": "生物特徵認證儀器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "誤殺",
+      "type": "feature",
+      "display_name": "誤殺"
+    },
+    "reasoning": "題幹提到『誤殺 (False Reject)』是調整儀器靈敏度時參考的曲線之一，屬於該工具性能評估的特徵。符合 Schema 中 ('tool', 'has_a', 'feature') 的定義。",
+    "source_id": "question_IPAS-110-MGT-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '生物特徵認證儀器' 可被視為 'tool' 的合理實例；受體 '誤殺' 可被視為 'feature' 的合理實例（同義詞寬容：誤殺可能與生物特徵認證儀器的功能或特性相關）。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則5、規則8",
+        "response": "correct",
+        "reason": "三元組符合規則所允許的條件，且無明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「生理特徵認證設備」為同義詞；受體與 Ldr 中的「交點錯誤率」不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖然相似，但無法確認完全等價同義詞；受體與 Ldr 中的資源不相關，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "生物特徵認證儀器",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "誤殺",
+        "type": "feature"
+      },
+      "reasoning": "題幹提到『誤殺 (False Reject)』是調整儀器靈敏度時參考的曲線之一，屬於該工具性能評估的特徵。符合 Schema 中 ('tool', 'has_a', 'feature') 的定義。",
+      "source_id": "question_IPAS-110-MGT-080",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

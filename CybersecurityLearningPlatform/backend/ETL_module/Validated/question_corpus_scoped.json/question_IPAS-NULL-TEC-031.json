@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "蠕蟲",
+      "type": "tool",
+      "display_name": "蠕蟲"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "自行擴散",
+      "type": "function",
+      "display_name": "自行擴散"
+    },
+    "reasoning": "根據正確答案，蠕蟲會自行擴散。在此將『蠕蟲』視為一種惡意工具 (tool)，而『自行擴散』是該工具具備的特定能力或動作 (function)，符合 Schema 中 ('tool', 'has_a', 'function') 的定義。",
+    "source_id": "question_IPAS-NULL-TEC-031",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "蠕蟲 (tool) 可以有自行擴散 (function) 的功能，符合語意對齊原則。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 tool，具有主動執行能力，符合規則8的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "蠕蟲與自行擴散之間的關係不在同義詞對照範例中，且無法確認為同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "蠕蟲",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "自行擴散",
+        "type": "function"
+      },
+      "reasoning": "根據正確答案，蠕蟲會自行擴散。在此將『蠕蟲』視為一種惡意工具 (tool)，而『自行擴散』是該工具具備的特定能力或動作 (function)，符合 Schema 中 ('tool', 'has_a', 'function') 的定義。",
+      "source_id": "question_IPAS-NULL-TEC-031",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "電腦病毒",
+      "type": "tool",
+      "display_name": "病毒"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "使用者操作",
+      "type": "technique",
+      "display_name": "使用者操作"
+    },
+    "reasoning": "根據正確答案，病毒通常透過使用者操作傳播。在此將『病毒』視為一種惡意工具 (tool)，而『使用者操作』是其達成傳播目的所利用的方法或流程 (technique)，符合 Schema 中 ('tool', 'uses', 'technique') 的定義。",
+    "source_id": "question_IPAS-NULL-TEC-031",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "病毒 (tool) 使用使用者操作 (technique) 的語意對齊是合理的，因為病毒常常利用特定的使用者操作來實現其攻擊目的。",
+        "response": "correct",
+        "reason": "病毒 (tool) 使用使用者操作 (technique) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 tool，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "病毒與電腦病毒之間存在著同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "電腦病毒",
+        "standard_object": "",
+        "reason": "病毒與電腦病毒是同義詞，根據資安領域已知同義詞對照範例，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "病毒",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "使用者操作",
+        "type": "technique"
+      },
+      "reasoning": "根據正確答案，病毒通常透過使用者操作傳播。在此將『病毒』視為一種惡意工具 (tool)，而『使用者操作』是其達成傳播目的所利用的方法或流程 (technique)，符合 Schema 中 ('tool', 'uses', 'technique') 的定義。",
+      "source_id": "question_IPAS-NULL-TEC-031",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "有線等效加密 (wep)",
+      "type": "feature",
+      "display_name": "有線等效加密 (WEP)"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "題幹詢問何種加密方法強度最弱，正確答案為 WEP。在資安語境中，「強度最弱」意味著該協定/特徵存在嚴重的安全性缺陷或漏洞。根據 Schema，協定（如 WEP）屬於 feature，且 feature 可以 can_expose vulnerability。",
+    "source_id": "question_IPAS-109-TEC-057",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '有線等效加密 (WEP)' 是 'feature' 的合理實例；關係 'can_expose' 合理地連接 'feature' 與 'vulnerability'；受體 '弱點' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 feature，受體類別為 vulnerability，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，'弱點'、'漏洞'、'脆弱性' 均指 vulnerability，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "有線等效加密 (WEP)",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "題幹詢問何種加密方法強度最弱，正確答案為 WEP。在資安語境中，「強度最弱」意味著該協定/特徵存在嚴重的安全性缺陷或漏洞。根據 Schema，協定（如 WEP）屬於 feature，且 feature 可以 can_expose vulnerability。",
+      "source_id": "question_IPAS-109-TEC-057",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "資訊分類",
+      "type": "function",
+      "display_name": "資訊分類"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "重要資訊外洩",
+      "type": "risk",
+      "display_name": "重要資訊外洩"
+    },
+    "reasoning": "根據題幹與正確答案 C，實施「資訊分類」的主要目的是確保組織重要的資訊受到適切等級的保護。在資安本體論中，「資訊分類」屬於一種管理規範或策略 (policy)，而「確保保護」的最終目標是為了降低或緩解 (mitigates) 資訊被非法揭露或損毀的風險 (risk)，因此將其萃取為 policy -> mitigates -> risk。",
+    "source_id": "question_IPAS-112-MGT-020",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '資訊分類' 可被視為 'policy' 的合理實例；受體名稱 '重要資訊外洩' 可被視為 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '資訊分類' 完全等價同義詞；受體與 Ldr 中的資源 '資料外洩'、'機密外洩'、'認證資訊外洩'、'金鑰外洩'、'機敏性資料外洩'、'個資外洩'、'機密資料外洩風險'、'信用卡資料外洩' 均為同義詞重複，但考慮到資安領域已知同義詞對照範例中沒有明確指出 '重要資訊外洩' 與上述任一項完全等價，因此受體判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "受體 '重要資訊外洩' 雖然與 Ldr 中的多個資源具有相似性，但無法確定完全等價同義詞關係，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): function -> mitigates -> risk (original: policy -> mitigates -> risk)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊分類",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "重要資訊外洩",
+        "type": "risk"
+      },
+      "reasoning": "根據題幹與正確答案 C，實施「資訊分類」的主要目的是確保組織重要的資訊受到適切等級的保護。在資安本體論中，「資訊分類」屬於一種管理規範或策略 (policy)，而「確保保護」的最終目標是為了降低或緩解 (mitigates) 資訊被非法揭露或損毀的風險 (risk)，因此將其萃取為 policy -> mitigates -> risk。",
+      "source_id": "question_IPAS-112-MGT-020",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

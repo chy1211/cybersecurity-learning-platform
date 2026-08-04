@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "資料分級",
+      "type": "technique",
+      "display_name": "資訊資產分級"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "資訊資產分級是一種管理技術/方法，其目的是分析並評估資訊資產（系統/設備）的價值與重要性，符合 (technique, can_analyze, system) 的 Schema。",
+    "source_id": "question_IPAS-108-MGT-015",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '資訊資產分級' 合理對齊其類別 'technique'，受體名稱 '資訊資產' 合理對齊其類別 'system'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 system，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊資產分級與資料分級為同義詞",
+        "response": "duplicate",
+        "standard_subject": "資料分級",
+        "standard_object": "",
+        "reason": "根據同義詞對照範例，資料分級與資訊資產分級為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產分級",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "reasoning": "資訊資產分級是一種管理技術/方法，其目的是分析並評估資訊資產（系統/設備）的價值與重要性，符合 (technique, can_analyze, system) 的 Schema。",
+      "source_id": "question_IPAS-108-MGT-015",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "支援流程",
+      "type": "function",
+      "display_name": "支援流程"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資產等級",
+      "type": "feature",
+      "display_name": "資產等級"
+    },
+    "reasoning": "根據選項 C，資產所支援流程的重要性與資產等級有關。在知識圖譜中，可將「支援流程」視為系統執行的功能 (function)，而「資產等級」則是該功能所對應的重要性特徵 (feature)，符合 (function, has_a, feature) 的 Schema。",
+    "source_id": "question_IPAS-108-MGT-015",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '支援流程' 的類別 'function' 合理對齊，受體 '資產等級' 的類別 'feature' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8 都不適用於此三元組，因為主體類別是 function、關係是 has_a、受體類別是 feature。無明確規則限制此三元組。",
+        "response": "correct",
+        "reason": "無明確規則限制此三元組，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "支援流程",
+        "type": "function"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資產等級",
+        "type": "feature"
+      },
+      "reasoning": "根據選項 C，資產所支援流程的重要性與資產等級有關。在知識圖譜中，可將「支援流程」視為系統執行的功能 (function)，而「資產等級」則是該功能所對應的重要性特徵 (feature)，符合 (function, has_a, feature) 的 Schema。",
+      "source_id": "question_IPAS-108-MGT-015",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

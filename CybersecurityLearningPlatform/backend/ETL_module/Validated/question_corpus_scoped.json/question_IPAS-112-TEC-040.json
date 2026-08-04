@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "syslog",
+      "type": "tool",
+      "display_name": "Syslog"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "port 514",
+      "type": "feature",
+      "display_name": "UDP port 514"
+    },
+    "reasoning": "題幹提到公司以 'UDP port 514 的方式' 蒐集 'Syslog'，這表示 Syslog 服務在此情境下具有 UDP port 514 這個連接埠特徵。根據 Schema，('app', 'has_a', 'feature') 是合法的。",
+    "source_id": "question_IPAS-112-TEC-040",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Syslog 是一種日誌系統，通常會使用 UDP port 514 進行傳輸，因此 'Syslog' 是 'app' 的合理實例，而 'UDP port 514' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "Syslog 與 UDP port 514 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "三元組符合規則所允許的條件，且無明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "Syslog 與 syslog 完全等價同義詞；UDP port 514 與 port 514 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "syslog",
+        "standard_object": "port 514",
+        "reason": "Syslog 與 syslog、UDP port 514 與 port 514 分別為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Syslog",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "UDP port 514",
+        "type": "feature"
+      },
+      "reasoning": "題幹提到公司以 'UDP port 514 的方式' 蒐集 'Syslog'，這表示 Syslog 服務在此情境下具有 UDP port 514 這個連接埠特徵。根據 Schema，('app', 'has_a', 'feature') 是合法的。",
+      "source_id": "question_IPAS-112-TEC-040",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "udp port 514",
+      "type": "feature",
+      "display_name": "UDP port 514"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "封包遺失",
+      "type": "vulnerability",
+      "display_name": "封包遺失"
+    },
+    "reasoning": "正確答案 B 指出在網路流量大時，使用 UDP 可能導致『遺失封包(資料)』。在資安知識圖譜中，UDP 的不可靠傳輸特性（特徵）會導致封包遺失的弱點/風險。根據 Schema，('feature', 'can_expose', 'vulnerability') 是合法的，此處將『封包遺失』視為該傳輸方式所暴露的漏洞/弱點。",
+    "source_id": "question_IPAS-112-TEC-040",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'UDP port 514' 是 'feature' 的合理實例，受體 '封包遺失' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 feature，受體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 'port 514' 名稱相似，但非完全等價同義詞；受體 '封包遺失' 名稱完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源 'port 514' 名稱相似，但非完全等價同義詞；受體 '封包遺失' 名稱完全等價同義詞，但根據規則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "UDP port 514",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "封包遺失",
+        "type": "vulnerability"
+      },
+      "reasoning": "正確答案 B 指出在網路流量大時，使用 UDP 可能導致『遺失封包(資料)』。在資安知識圖譜中，UDP 的不可靠傳輸特性（特徵）會導致封包遺失的弱點/風險。根據 Schema，('feature', 'can_expose', 'vulnerability') 是合法的，此處將『封包遺失』視為該傳輸方式所暴露的漏洞/弱點。",
+      "source_id": "question_IPAS-112-TEC-040",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

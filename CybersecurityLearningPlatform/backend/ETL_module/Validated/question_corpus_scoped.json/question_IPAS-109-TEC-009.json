@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "電子郵件安全規範",
+      "type": "policy",
+      "display_name": "電子郵件安全規範"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料外洩",
+      "type": "risk",
+      "display_name": "資料外洩"
+    },
+    "reasoning": "正確選項(1)限制機密公文傳送及(2)要求敏感資訊加密，其核心目的在於緩解（mitigates）機密或敏感資料外洩（risk）的風險。",
+    "source_id": "question_IPAS-109-TEC-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "電子郵件安全規範是 'policy' 的合理實例，資料外洩是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "電子郵件安全規範與資料外洩的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "電子郵件安全規範作為主體，具有policy類別，符合規則2的允許條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「機密資料外洩風險」、「機密外洩」、「個資外洩」、「信用卡資料外洩」等相關風險概念存在廣義/狹義從屬關係，但無完全等價同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "受體與 Ldr 中的相關風險概念存在廣義/狹義從屬關係，無完全等價同義詞關係，依據判斷準則 3 預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子郵件安全規範",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料外洩",
+        "type": "risk"
+      },
+      "reasoning": "正確選項(1)限制機密公文傳送及(2)要求敏感資訊加密，其核心目的在於緩解（mitigates）機密或敏感資料外洩（risk）的風險。",
+      "source_id": "question_IPAS-109-TEC-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "電子郵件安全規範",
+      "type": "policy",
+      "display_name": "電子郵件安全規範"
+    },
+    "reasoning": "題幹要求使用者「遵循下列事項」以確保安全性，這些事項（如機密公文傳送限制、加密要求）構成了電子郵件安全規範（policy），而使用者需實作（implements）這些規範。",
+    "source_id": "question_IPAS-109-TEC-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例；關係 'implements' 合理地連接 '使用者' 與 '電子郵件安全規範'；受體名稱 '電子郵件安全規範' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確定為同義詞，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "電子郵件安全規範",
+        "type": "policy"
+      },
+      "reasoning": "題幹要求使用者「遵循下列事項」以確保安全性，這些事項（如機密公文傳送限制、加密要求）構成了電子郵件安全規範（policy），而使用者需實作（implements）這些規範。",
+      "source_id": "question_IPAS-109-TEC-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "電子郵件",
+      "type": "app",
+      "display_name": "電子郵件"
+    },
+    "reasoning": "題幹討論「電子郵件使用的安全性」，隱含使用者在操作電子郵件此應用程式。",
+    "source_id": "question_IPAS-109-TEC-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例，受體名稱 '電子郵件' 是 'app' 的合理實例（電子郵件是一種應用程式）。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "電子郵件",
+        "type": "app"
+      },
+      "reasoning": "題幹討論「電子郵件使用的安全性」，隱含使用者在操作電子郵件此應用程式。",
+      "source_id": "question_IPAS-109-TEC-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "電子簽章",
+      "type": "tool",
+      "display_name": "電子簽章"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "使用者身分識別",
+      "type": "function",
+      "display_name": "身份辨識"
+    },
+    "reasoning": "正確選項(4)明確指出電子簽章可用於「確保身份辨識」，因此電子簽章工具具有身份辨識的功能（function）。",
+    "source_id": "question_IPAS-109-TEC-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "電子簽章 (tool) 合理、身份辨識 (function) 合理。",
+        "response": "correct",
+        "reason": "電子簽章 (tool) 與 身份辨識 (function) 透過 'has_a' 關係連結，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「使用者身分識別」為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "使用者身分識別",
+        "reason": "根據資安領域已知同義詞對照範例，身分辨識與使用者身分識別為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子簽章",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "身份辨識",
+        "type": "function"
+      },
+      "reasoning": "正確選項(4)明確指出電子簽章可用於「確保身份辨識」，因此電子簽章工具具有身份辨識的功能（function）。",
+      "source_id": "question_IPAS-109-TEC-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "電子簽章",
+      "type": "tool",
+      "display_name": "電子簽章"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "不可否認性",
+      "type": "function",
+      "display_name": "不可否認性"
+    },
+    "reasoning": "正確選項(4)指出電子簽章可用於「達成不可否認性」，在此脈絡下將不可否認性視為電子簽章工具所提供的一項安全功能（function）。",
+    "source_id": "question_IPAS-109-TEC-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "電子簽章 (tool) 合理實例為 tool 類別；不可否認性 (function) 合理實例為 function 類別。",
+        "response": "correct",
+        "reason": "電子簽章與不可否認性之間的 'has_a' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體電子簽章是tool類別，具有主動執行能力，且關係has_a不在規則中有明確限制，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "電子簽章與現有近似資源清單中的電子簽章完全等價同義詞；不可否認性與現有近似資源清單中沒有完全匹配的同義詞，但與使用者身分識別無直接關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "電子簽章與不可否認性無法在資安領域已知同義詞對照範例中找到直接關聯，且無法確認為同義詞或子類型關係，因此預設保留原狀態。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子簽章",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "不可否認性",
+        "type": "function"
+      },
+      "reasoning": "正確選項(4)指出電子簽章可用於「達成不可否認性」，在此脈絡下將不可否認性視為電子簽章工具所提供的一項安全功能（function）。",
+      "source_id": "question_IPAS-109-TEC-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  }
+]

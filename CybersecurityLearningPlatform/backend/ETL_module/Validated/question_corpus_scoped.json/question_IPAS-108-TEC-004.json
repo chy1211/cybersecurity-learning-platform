@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "smtp",
+      "type": "feature",
+      "display_name": "SMTP"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "明文傳輸"
+    },
+    "reasoning": "正確答案指出 SMTP 在傳輸過程中『並未對內容進行加密處理』，在資安領域中，未加密的傳輸即為『明文傳輸』之漏洞，符合 Schema Edge ('feature', 'can_expose', 'vulnerability')。",
+    "source_id": "question_IPAS-108-TEC-004",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SMTP 是一種郵件傳輸協議，屬於 'feature' 的合理實例。明文傳輸是一種常見的安全漏洞，屬於 'vulnerability' 的合理實例。關係 'can_expose' 說明 SMTP 可能會暴露明文傳輸的風險，這是語意上合理的。",
+        "response": "correct",
+        "reason": "SMTP、can_expose、明文傳輸 三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體SMTP的類別是feature，與規則3無關；受體明文傳輸的類別是vulnerability，但規則3允許vulnerability發起can_expose動作。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源具有完全等價同義詞關係；受體與資安領域已知同義詞對照範例中具有完全等價同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "smtp",
+        "standard_object": "漏洞",
+        "reason": "主體與 Ldr 中的資源名稱相同，受體與資安領域已知同義詞對照範例中具有完全等價同義詞關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SMTP",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "明文傳輸",
+        "type": "vulnerability"
+      },
+      "reasoning": "正確答案指出 SMTP 在傳輸過程中『並未對內容進行加密處理』，在資安領域中，未加密的傳輸即為『明文傳輸』之漏洞，符合 Schema Edge ('feature', 'can_expose', 'vulnerability')。",
+      "source_id": "question_IPAS-108-TEC-004",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

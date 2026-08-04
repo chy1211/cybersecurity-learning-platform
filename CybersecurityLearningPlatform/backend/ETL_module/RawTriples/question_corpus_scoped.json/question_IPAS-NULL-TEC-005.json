@@ -1,0 +1,32 @@
+[
+  {
+    "subject": {
+      "name": "管理員",
+      "type": "securityTeam"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "IP 封包",
+      "type": "data"
+    },
+    "reasoning": "題幹提到管理員在『監控網路上的 IP 封包』，監控封包標頭以識別協定屬於分析網路資料的行為，因此將管理員歸類為 securityTeam，IP 封包歸類為 data，關係為 can_analyze。",
+    "source_id": "question_IPAS-NULL-TEC-005",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "ICMP",
+      "type": "feature"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "IP 封包",
+      "type": "data"
+    },
+    "reasoning": "根據題幹與正確答案，當 IP 封包的協定欄位值為 1 時，該封包屬於 ICMP 協定。這表示 ICMP 協定使用 IP 封包作為其傳輸載體。根據定義，協定屬於 feature，封包屬於 data，且 Schema 允許 ('feature', 'uses', 'data')。",
+    "source_id": "question_IPAS-NULL-TEC-005",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2
+  }
+]

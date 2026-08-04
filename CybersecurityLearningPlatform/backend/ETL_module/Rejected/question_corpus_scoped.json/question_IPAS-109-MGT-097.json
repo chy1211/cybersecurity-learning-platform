@@ -1,0 +1,98 @@
+[
+  {
+    "subject": {
+      "name": "組織",
+      "type": "system",
+      "display_name": "組織"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "營運持續演練",
+      "type": "technique",
+      "display_name": "營運持續演練"
+    },
+    "reasoning": "根據題幹與正確答案，組織透過『進行營運持續演練』來確認計畫的有效性，因此組織（在此扮演安全管理角色）使用了該技術。符合 Schema: (securityTeam, uses, technique)。",
+    "source_id": "question_IPAS-109-MGT-097",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '組織' 合理對齊其類別 'securityTeam'，受體名稱 '營運持續演練' 合理對齊其類別 'technique'，考慮到資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「組織」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> uses -> technique (original: securityTeam -> uses -> technique)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "組織",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "營運持續演練",
+        "type": "technique"
+      },
+      "reasoning": "根據題幹與正確答案，組織透過『進行營運持續演練』來確認計畫的有效性，因此組織（在此扮演安全管理角色）使用了該技術。符合 Schema: (securityTeam, uses, technique)。",
+      "source_id": "question_IPAS-109-MGT-097",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "組織",
+      "type": "system",
+      "display_name": "組織"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "營運持續計畫",
+      "type": "policy",
+      "display_name": "營運持續計畫"
+    },
+    "reasoning": "題目討論如何確認『營運持續計畫』的有效性，這隱含了組織必須先實作該計畫（政策）才能進行驗證。符合 Schema: (securityTeam, implements, policy)。",
+    "source_id": "question_IPAS-109-MGT-097",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '組織' 合理對齊其類別 'securityTeam'，實體名稱 '營運持續計畫' 合理對齊其類別 'policy'，關係 'implements' 合理描述安全團隊與政策之間的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「組織」完全等價同義詞；受體與 Ldr 中的「營運持續計畫」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體在 Ldr 中找到完全等價同義詞，但根據判斷準則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> implements -> policy (original: securityTeam -> implements -> policy)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "組織",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "營運持續計畫",
+        "type": "policy"
+      },
+      "reasoning": "題目討論如何確認『營運持續計畫』的有效性，這隱含了組織必須先實作該計畫（政策）才能進行驗證。符合 Schema: (securityTeam, implements, policy)。",
+      "source_id": "question_IPAS-109-MGT-097",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

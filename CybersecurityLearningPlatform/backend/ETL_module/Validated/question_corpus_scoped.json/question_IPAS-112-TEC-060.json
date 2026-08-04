@@ -1,0 +1,60 @@
+[
+  {
+    "subject": {
+      "name": "位址解析協定 (arp)",
+      "type": "feature",
+      "display_name": "位址解析協定 (ARP)"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "媒體存取控制 (mac) 位址",
+      "type": "data",
+      "display_name": "媒體存取控制 (MAC) 位址"
+    },
+    "reasoning": "ARP 的運作目標是獲取相對應的 MAC 位址，因此它在運作過程中涉及 MAC 位址的處理。MAC 位址屬於網路資訊，分類為 data。符合 Schema Edge: ('feature', 'uses', 'data')。",
+    "source_id": "question_IPAS-112-TEC-060",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "位址解析協定 (ARP) 是一種網路協定，可以被歸類為 'feature'，而媒體存取控制 (MAC) 位址是一種網路位址，可以被歸類為 'data'，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體 (ARP) 的類別是 feature，而非 data，且關係為 uses，受體 (MAC 位址) 的類別是 data，違反規則5。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體 (ARP) 的類別是 feature，而非 data，且關係為 uses，受體 (MAC 位址) 的類別是 data，違反規則5。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "位址解析協定 (ARP)",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "媒體存取控制 (MAC) 位址",
+        "type": "data"
+      },
+      "reasoning": "ARP 的運作目標是獲取相對應的 MAC 位址，因此它在運作過程中涉及 MAC 位址的處理。MAC 位址屬於網路資訊，分類為 data。符合 Schema Edge: ('feature', 'uses', 'data')。",
+      "source_id": "question_IPAS-112-TEC-060",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

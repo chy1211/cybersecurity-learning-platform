@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "物聯網設備",
+      "type": "system",
+      "display_name": "IoT 設備"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "高強度密碼",
+      "type": "feature",
+      "display_name": "高強度密碼"
+    },
+    "reasoning": "根據選項 A（正確知識），IoT 設備在設計開發階段應採用高強度密碼。在此將 'IoT 設備' 視為 system，而 '高強度密碼' 是其安全屬性，故歸類為 feature。",
+    "source_id": "question_IPAS-NULL-TEC-049",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "IoT 設備 可以被視為 'system' 的合理實例，高強度密碼 可以被視為 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 has_a，與規則6無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "IoT 設備與 Ldr 中的「物聯網設備」為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "物聯網設備",
+        "standard_object": "",
+        "reason": "根據同義詞判定準則，IoT 設備與「物聯網設備」為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IoT 設備",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "高強度密碼",
+        "type": "feature"
+      },
+      "reasoning": "根據選項 A（正確知識），IoT 設備在設計開發階段應採用高強度密碼。在此將 'IoT 設備' 視為 system，而 '高強度密碼' 是其安全屬性，故歸類為 feature。",
+      "source_id": "question_IPAS-NULL-TEC-049",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "最新安全的作業系統",
+      "type": "tool",
+      "display_name": "最新安全的作業系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "漏洞修補",
+      "type": "function",
+      "display_name": "漏洞修補"
+    },
+    "reasoning": "根據選項 B（正確知識），採用最新安全的作業系統可確保漏洞已修補。將 '最新安全的作業系統' 視為提供安全能力的 tool，而 '漏洞修補' 是其執行的功能 function。",
+    "source_id": "question_IPAS-NULL-TEC-049",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '最新安全的作業系統' 可以被視為 'tool' 的合理實例；受體 '漏洞修補' 可以被視為 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 tool，具有主動執行能力，符合規則8。關係為 has_a，不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中無直接相關資源；受體與 Ldr 中無直接相關資源，但與已知同義詞對照範例中無直接對應關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，且無法與已知同義詞對照範例中找到直接對應關係，依據前提確認判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "最新安全的作業系統",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "漏洞修補",
+        "type": "function"
+      },
+      "reasoning": "根據選項 B（正確知識），採用最新安全的作業系統可確保漏洞已修補。將 '最新安全的作業系統' 視為提供安全能力的 tool，而 '漏洞修補' 是其執行的功能 function。",
+      "source_id": "question_IPAS-NULL-TEC-049",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

@@ -1,48 +1,50 @@
 [
   {
     "subject": {
-      "name": "環境安全",
-      "type": "feature",
-      "display_name": "環境安全"
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
     },
-    "relation": "mitigates",
+    "relation": "connects_to",
     "object": {
-      "name": "攻擊",
-      "type": "attack",
-      "display_name": "攻擊"
+      "name": "硬體密碼模組",
+      "type": "tool",
+      "display_name": "硬體密碼模組"
     },
-    "reasoning": "環境安全的目標是透過建立障礙來限制攻擊者啟動攻擊的機會，符合規範中 policy mitigates attack 的定義。",
+    "reasoning": "文本提到伺服器與硬體密碼模組之間透過 API 通訊，描述了兩個系統之間的連接關係。符合 Schema: (system, connects_to, system)。",
     "source_id": "chunk_12",
     "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 6,
+    "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "環境安全 (policy) 和 攻擊 (attack) 的名稱與其被賦予的類別合理對齊，且符合資安領域的常見用語。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "伺服器 (server) 是系統 (system) 的合理實例，硬體密碼模組 (hardware security module) 也是系統 (system) 的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "伺服器與硬體密碼模組之間的連接關係符合預先定義的類別與屬性清單。"
       },
-      "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。待檢查三元組的主體是環境安全（feature），不符合規則2的條件，可能觸發違規。",
-        "response": "violation",
-        "reason": "因為主體環境安全（feature）不符合規則2中對mitigates動作的主體限制，故判定為違規。"
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的伺服器完全等價同義詞；受體與 Ldr 中的硬體密碼模組完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域中具體的實體名稱，無法合併為同義詞。"
       }
     },
-    "reject_reason": "Step 3 (Semantic Violation): 因為主體環境安全（feature）不符合規則2中對mitigates動作的主體限制，故判定為違規。",
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> connects_to -> tool (original: system -> connects_to -> system)",
     "original_raw_triple": {
       "subject": {
-        "name": "環境安全",
-        "type": "policy"
+        "name": "伺服器",
+        "type": "system"
       },
-      "relation": "mitigates",
+      "relation": "connects_to",
       "object": {
-        "name": "攻擊",
-        "type": "attack"
+        "name": "硬體密碼模組",
+        "type": "system"
       },
-      "reasoning": "環境安全的目標是透過建立障礙來限制攻擊者啟動攻擊的機會，符合規範中 policy mitigates attack 的定義。",
+      "reasoning": "文本提到伺服器與硬體密碼模組之間透過 API 通訊，描述了兩個系統之間的連接關係。符合 Schema: (system, connects_to, system)。",
       "source_id": "chunk_12",
       "source_file": "第17章 密碼模組安全_e5.pdf",
-      "source_index": 6
+      "source_index": 4
     }
   },
   {
@@ -53,42 +55,44 @@
     },
     "relation": "mitigates",
     "object": {
-      "name": "攻擊",
+      "name": "攻擊事件",
       "type": "attack",
-      "display_name": "攻擊"
+      "display_name": "攻擊事件"
     },
-    "reasoning": "操作安全透過各種措施保護使用者（例如防止 PIN 被竊取），本質上是緩解攻擊 (attack) 的影響。",
+    "reasoning": "操作安全透過各種措施保護使用者，防止如 PIN 被竊取等攻擊行為。符合 Schema: (technique, mitigates, attack)。",
     "source_id": "chunk_12",
     "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 8,
+    "source_index": 7,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
-        "step_2_alignment_check": "操作安全 (policy) 是一種合理的政策實例，攻擊 (attack) 是一種合理的攻擊實例，且 'mitigates' 關係在資安領域中是合理的。",
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '操作安全' 是 'technique' 的合理實例，受體 '攻擊事件' 是 'attack' 的合理實例。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
-      "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。待檢查三元組的主體是 '操作安全'，類別是 'feature'，不符合規則2的要求，可能觸發違規。",
-        "response": "violation",
-        "reason": "因為 '操作安全' 的類別是 'feature'，不符合規則2中對 mitigates 動作的主體類別要求。"
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「操作安全」完全等價同義詞；受體與 Ldr 中的「攻擊事件」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域中的具體概念，無法合併為同義詞。"
       }
     },
-    "reject_reason": "Step 3 (Semantic Violation): 因為 '操作安全' 的類別是 'feature'，不符合規則2中對 mitigates 動作的主體類別要求。",
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> mitigates -> attack (original: technique -> mitigates -> attack)",
     "original_raw_triple": {
       "subject": {
         "name": "操作安全",
-        "type": "policy"
+        "type": "technique"
       },
       "relation": "mitigates",
       "object": {
-        "name": "攻擊",
+        "name": "攻擊事件",
         "type": "attack"
       },
-      "reasoning": "操作安全透過各種措施保護使用者（例如防止 PIN 被竊取），本質上是緩解攻擊 (attack) 的影響。",
+      "reasoning": "操作安全透過各種措施保護使用者，防止如 PIN 被竊取等攻擊行為。符合 Schema: (technique, mitigates, attack)。",
       "source_id": "chunk_12",
       "source_file": "第17章 密碼模組安全_e5.pdf",
-      "source_index": 8
+      "source_index": 7
     }
   }
 ]

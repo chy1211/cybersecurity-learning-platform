@@ -1,15 +1,15 @@
 [
   {
     "subject": {
+      "name": "主金鑰",
+      "type": "data"
+    },
+    "relation": "deployed_in",
+    "object": {
       "name": "非揮發性記憶體 (NVRAM)",
       "type": "system"
     },
-    "relation": "uses",
-    "object": {
-      "name": "主金鑰 (master key)",
-      "type": "data"
-    },
-    "reasoning": "文本提到 NVRAM 用於儲存敏感性資料如主金鑰。在 Schema 中，硬體組件可視為 system，且 system 與 data 之間可以使用 uses 關係。",
+    "reasoning": "文本提到 NVRAM 用於儲存敏感性資料例如主金鑰。根據 Schema，資料 (data) 可以部署於 (deployed_in) 系統 (system) 中。",
     "source_id": "chunk_11",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 1
@@ -21,88 +21,28 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "實體安全機制",
-      "type": "tool"
+      "name": "實體安全",
+      "type": "feature"
     },
-    "reasoning": "硬體密碼模組包含實體安全機制。將模組視為 system，將其內建的安全機制視為 tool，符合 ('system', 'has_a', 'tool') 的 Schema。",
+    "reasoning": "文本指出硬體密碼模組需要考量安全機制，其中包含實體安全。實體安全是該系統的一個屬性或組成部分，因此使用 system has_a feature。",
     "source_id": "chunk_11",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "實體安全機制",
-      "type": "tool"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "竄改證據 (tamper evidence)",
-      "type": "function"
-    },
-    "reasoning": "文本明確指出實體安全包含竄改證據功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
-    "source_id": "chunk_11",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "實體安全機制",
-      "type": "tool"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "對抗竄改 (tamper resistance)",
-      "type": "function"
-    },
-    "reasoning": "文本明確指出實體安全包含對抗竄改功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
-    "source_id": "chunk_11",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "實體安全機制",
-      "type": "tool"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "竄改偵測 (tamper detection)",
-      "type": "function"
-    },
-    "reasoning": "文本明確指出實體安全包含竄改偵測功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
-    "source_id": "chunk_11",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 5
-  },
-  {
-    "subject": {
-      "name": "實體安全機制",
-      "type": "tool"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "竄改回應 (tamper response)",
-      "type": "function"
-    },
-    "reasoning": "文本明確指出實體安全包含竄改回應功能。符合 ('tool', 'has_a', 'function') 的 Schema。",
-    "source_id": "chunk_11",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 6
-  },
-  {
-    "subject": {
-      "name": "實體安全機制",
-      "type": "tool"
+      "name": "實體安全",
+      "type": "feature"
     },
     "relation": "can_detect",
     "object": {
       "name": "實體攻擊",
       "type": "attack"
     },
-    "reasoning": "文本提到實體安全是用於偵測非授權的實體存取（實體攻擊）。符合 ('tool', 'can_detect', 'attack') 的 Schema。",
+    "reasoning": "文本提到實體安全旨在保護資訊免於實體攻擊，並設置障礙以偵測非授權的實體存取。符合 feature can_detect attack 的定義。",
     "source_id": "chunk_11",
     "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 7
+    "source_index": 3
   },
   {
     "subject": {
@@ -114,10 +54,25 @@
       "name": "邏輯安全",
       "type": "feature"
     },
-    "reasoning": "硬體密碼模組需要考量邏輯安全機制。將其視為系統的一個特徵，符合 ('system', 'has_a', 'feature') 的 Schema。",
+    "reasoning": "邏輯安全被列為硬體密碼模組的安全機制之一，屬於系統的特徵 (feature)。",
     "source_id": "chunk_11",
     "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 8
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "邏輯安全",
+      "type": "feature"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "非授權存取",
+      "type": "attack"
+    },
+    "reasoning": "文本提到邏輯安全是用於避免經由操作系統或軟體進行非授權存取的機制。非授權存取視為一種攻擊 (attack)，邏輯安全特徵可用於偵測或防止此行為。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 5
   },
   {
     "subject": {
@@ -129,10 +84,10 @@
       "name": "環境安全",
       "type": "feature"
     },
-    "reasoning": "硬體密碼模組需要考量環境安全機制。符合 ('system', 'has_a', 'feature') 的 Schema。",
+    "reasoning": "環境安全是硬體密碼模組安全分類中的一項，定義為系統的特徵 (feature)。",
     "source_id": "chunk_11",
     "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 9
+    "source_index": 6
   },
   {
     "subject": {
@@ -144,22 +99,67 @@
       "name": "操作安全",
       "type": "feature"
     },
-    "reasoning": "硬體密碼模組需要考量操作安全機制。符合 ('system', 'has_a', 'feature') 的 Schema。",
+    "reasoning": "操作安全是硬體密碼模組安全分類中的一項，定義為系統的特徵 (feature)。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "竄改偵測",
+      "type": "function"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "實體攻擊",
+      "type": "attack"
+    },
+    "reasoning": "竄改偵測是實體安全的一項功能 (function)，其目的是偵測到竄改（實體攻擊的一種）。符合 function can_detect attack。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "對抗竄改",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "實體攻擊",
+      "type": "attack"
+    },
+    "reasoning": "對抗竄改透過化學保護材料或保護罩來防止攻擊，這是一種防禦技術 (technique)，用於緩解 (mitigates) 實體攻擊。",
+    "source_id": "chunk_11",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "竄改證據",
+      "type": "technique"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "實體攻擊",
+      "type": "attack"
+    },
+    "reasoning": "竄改證據透過化學或機械機制在竄改發生時留下證據，這是一種偵測技術 (technique)，可用於偵測 (can_detect) 實體攻擊。",
     "source_id": "chunk_11",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 10
   },
   {
     "subject": {
+      "name": "竄改回應",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
       "name": "實體攻擊",
       "type": "attack"
     },
-    "relation": "can_harm",
-    "object": {
-      "name": "敏感資訊",
-      "type": "data"
-    },
-    "reasoning": "文本提到實體安全的目標是保護裝置免於被攻擊導致資料被非法竊取或修改。這意味著實體攻擊可危害資料。符合 ('attack', 'can_harm', 'data') 的 Schema。",
+    "reasoning": "竄改回應在偵測到竄改後破壞敏感資訊，以防止資訊外洩，這是一種緩解 (mitigates) 實體攻擊後果的技術 (technique)。",
     "source_id": "chunk_11",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 11

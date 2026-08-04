@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "證據保管鏈",
+      "type": "technique",
+      "display_name": "證據保管鏈"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "sha-256",
+      "type": "tool",
+      "display_name": "SHA-256"
+    },
+    "reasoning": "題幹指出證據保管鏈（一種程序/技術）可用 SHA-256 來確保資訊的完整性，這表示該技術在執行完整性驗證時依賴於 SHA-256 這個工具。",
+    "source_id": "question_IPAS-108-MGT-038",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "證據保管鏈 (Evidence Chain) 是一種技術 (technique)，SHA-256 是一種工具 (tool)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "證據保管鏈與 SHA-256 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "證據保管鏈與SHA-256屬於不同類別且無同義詞關係"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "證據保管鏈",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "SHA-256",
+        "type": "tool"
+      },
+      "reasoning": "題幹指出證據保管鏈（一種程序/技術）可用 SHA-256 來確保資訊的完整性，這表示該技術在執行完整性驗證時依賴於 SHA-256 這個工具。",
+      "source_id": "question_IPAS-108-MGT-038",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "證據保管鏈",
+      "type": "technique",
+      "display_name": "證據保管鏈"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "證據記載之資訊",
+      "type": "data",
+      "display_name": "證據記載之資訊"
+    },
+    "reasoning": "證據保管鏈程序涉及對證據紀錄（包含蒐集人、時、地、保管人等資料）的記錄與驗證，符合 technique can_analyze data 的定義。",
+    "source_id": "question_IPAS-108-MGT-038",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "證據保管鏈 是一種合理的技術（technique），證據記載之資訊 是一種合理的資料（data），且 'can_analyze' 關係與技術分析資料的語意相符。",
+        "response": "correct",
+        "reason": "證據保管鏈、can_analyze 與 證據記載之資訊 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不觸發，因為主體類別是technique，而規則3只檢查主體類別為vulnerability。規則5不觸發，因為主體類別不是data。規則8不觸發，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "證據保管鏈與證據記載之資訊之間的關係不在同義詞對照範例中，且無法確認為子類型或母類關係，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "證據保管鏈",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "證據記載之資訊",
+        "type": "data"
+      },
+      "reasoning": "證據保管鏈程序涉及對證據紀錄（包含蒐集人、時、地、保管人等資料）的記錄與驗證，符合 technique can_analyze data 的定義。",
+      "source_id": "question_IPAS-108-MGT-038",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "sha-256",
+      "type": "tool",
+      "display_name": "SHA-256"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料竄改",
+      "type": "risk",
+      "display_name": "資料竄改"
+    },
+    "reasoning": "題幹提到使用 SHA-256 是為了「確保證據記載之資訊的完整性」，在資安本體論中，確保完整性的目的即是為了緩解（mitigates）資料被竄改（risk）的風險。",
+    "source_id": "question_IPAS-108-MGT-038",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SHA-256 是一種密碼雜湊函數，通常用於數據完整性驗證，屬於 'tool' 的合理實例。'資料竄改' 是一種常見的安全風險，屬於 'risk' 的合理實例。'mitigates' 關係描述了 SHA-256 可以減少資料竄改的風險，因此語意對齊。",
+        "response": "correct",
+        "reason": "SHA-256、'mitigates' 與 '資料竄改' 三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "SHA-256 是一種工具（tool），因此符合規則2的條件，允許執行 mitigates 動作。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "SHA-256 是一個特定的工具，資料竄改是一種風險，兩者之間沒有直接的同義詞關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SHA-256",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料竄改",
+        "type": "risk"
+      },
+      "reasoning": "題幹提到使用 SHA-256 是為了「確保證據記載之資訊的完整性」，在資安本體論中，確保完整性的目的即是為了緩解（mitigates）資料被竄改（risk）的風險。",
+      "source_id": "question_IPAS-108-MGT-038",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

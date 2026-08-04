@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "用戶",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "外圍層",
+      "type": "feature",
+      "display_name": "外部層"
+    },
+    "reasoning": "文本提到外部層是使用者與系統間的介面層次，且使用者能操作該系統，因此萃取為 ('user', 'uses', 'system')。",
+    "source_id": "chunk_3",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例，受體名稱 '外部層' 可以被視為 'system' 的合理實例，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係都符合 Lc,p 的規定，且實體名稱與其類別合理對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「用戶」為同義詞；受體與 Ldr 中的「外圍層」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "用戶",
+        "standard_object": "外圍層",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): user -> uses -> feature (original: user -> uses -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "外部層",
+        "type": "system"
+      },
+      "reasoning": "文本提到外部層是使用者與系統間的介面層次，且使用者能操作該系統，因此萃取為 ('user', 'uses', 'system')。",
+      "source_id": "chunk_3",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

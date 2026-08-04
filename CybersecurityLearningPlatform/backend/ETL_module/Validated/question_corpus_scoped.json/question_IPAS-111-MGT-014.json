@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "raid 5",
+      "type": "tool",
+      "display_name": "RAID 5"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "硬碟故障",
+      "type": "risk",
+      "display_name": "硬碟損毀"
+    },
+    "reasoning": "根據題幹與正確答案，RAID 5 可以容忍 1 顆硬碟損毀而不會導致資料遺失，這表示 RAID 5 作為一種硬體/軟體實作工具 (tool)，能夠緩解 (mitigates) 硬碟損毀 (risk) 所帶來的風險。",
+    "source_id": "question_IPAS-111-MGT-014",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "RAID 5 是一種資料備份技術，合理歸類為 'tool'。'硬碟損毀' 是一種資料安全風險，合理歸類為 'risk'。'mitigates' 關係描述了 RAID 5 如何減少硬碟損毀的風險，語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 RAID 5 的類別是 tool，符合規則2所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 RAID 5 與 Ldr 中的 raid 5 完全等價同義詞；受體 硬碟損毀 與 Ldr 中的 硬碟故障 非完全等價同義詞，但相似度高達 0.8504，仍可視為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "raid 5",
+        "standard_object": "硬碟故障",
+        "reason": "主體與受體皆與 Ldr 中的資源具有高相似度，且可視為同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RAID 5",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "硬碟損毀",
+        "type": "risk"
+      },
+      "reasoning": "根據題幹與正確答案，RAID 5 可以容忍 1 顆硬碟損毀而不會導致資料遺失，這表示 RAID 5 作為一種硬體/軟體實作工具 (tool)，能夠緩解 (mitigates) 硬碟損毀 (risk) 所帶來的風險。",
+      "source_id": "question_IPAS-111-MGT-014",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "raid 5",
+      "type": "tool",
+      "display_name": "RAID 5"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "raid",
+      "type": "system",
+      "display_name": "RAID"
+    },
+    "reasoning": "RAID 5 是磁碟陣列 (Redundant Array of Independent Disks, RAID) 中的一種具體實作方式。在此將 RAID 視為一種儲存基礎設施系統 (system)，而 RAID 5 是其下的一個具體工具/配置 (tool)，符合 ('tool', 'is_part_of', 'system') 的 Schema。",
+    "source_id": "question_IPAS-111-MGT-014",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "RAID 5 是一種工具（tool），而 RAID 是一種系統（system），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8 都不適用於此三元組，因為主體是 tool，關係是 is_part_of，受體是 system，沒有違反任何規則。",
+        "response": "correct",
+        "reason": "此三元組沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "RAID 5 是 RAID 的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "RAID 5 是 RAID 的子類型，因此不應合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RAID 5",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "RAID",
+        "type": "system"
+      },
+      "reasoning": "RAID 5 是磁碟陣列 (Redundant Array of Independent Disks, RAID) 中的一種具體實作方式。在此將 RAID 視為一種儲存基礎設施系統 (system)，而 RAID 5 是其下的一個具體工具/配置 (tool)，符合 ('tool', 'is_part_of', 'system') 的 Schema。",
+      "source_id": "question_IPAS-111-MGT-014",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

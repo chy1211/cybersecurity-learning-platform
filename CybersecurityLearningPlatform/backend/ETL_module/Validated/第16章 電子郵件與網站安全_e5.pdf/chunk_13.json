@@ -1,6 +1,58 @@
 [
   {
     "subject": {
+      "name": "aicpa 與 cica",
+      "type": "securityTeam",
+      "display_name": "AICPA 與 CICA"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "webtrust",
+      "type": "tool",
+      "display_name": "WebTrust"
+    },
+    "reasoning": "文本提到 AICPA 與 CICA 提供 WebTrust 認證服務。在此將認證服務框架視為一種工具 (tool)，而提供該服務的專業協會視為安全團隊 (securityTeam)。",
+    "source_id": "chunk_13",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "AICPA 與 CICA 是資安領域的組織，合理對應 'securityTeam' 類別；WebTrust 是一種安全審核工具，合理對應 'tool' 類別。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 AICPA 與 CICA 不是同義詞，且與 Ldr 中的資源無直接關係；受體 WebTrust 與 Ldr 中的 webtrust 是完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "webtrust",
+        "reason": "受體 WebTrust 與 Ldr 中的 webtrust 是完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "AICPA 與 CICA",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "WebTrust",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 AICPA 與 CICA 提供 WebTrust 認證服務。在此將認證服務框架視為一種工具 (tool)，而提供該服務的專業協會視為安全團隊 (securityTeam)。",
+      "source_id": "chunk_13",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
       "name": "webtrust",
       "type": "tool",
       "display_name": "WebTrust"
@@ -11,28 +63,28 @@
       "type": "system",
       "display_name": "資訊系統"
     },
-    "reasoning": "文本提到 WebTrust 包含對網站的資訊系統進行完整稽核，稽核在本體論中對應於分析能力，因此選擇 tool (認證工具/服務) can_analyze system。",
+    "reasoning": "文本指出 WebTrust 包含對網站的資訊系統進行完整稽核，稽核即是一種分析過程，符合 tool can_analyze system。",
     "source_id": "chunk_13",
     "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-    "source_index": 1,
+    "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "WebTrust 是一種工具（tool），可以分析（can_analyze）資訊系統（system），這符合語意對齊與同義詞寬容原則。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "WebTrust 是一種安全審查工具，合理對齊 'tool' 類別；'資訊系統' 是一種系統，合理對齊 'system' 類別。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，但注意到 'can_analyze' 關係下，主體 'WebTrust' 的類別是 'tool'，這符合一般工具可以進行分析的邏輯，沒有直接違反任何規則。",
+        "step_1_rule_matching": "規則2、規則3、規則5、規則8",
         "response": "correct",
-        "reason": "三元組中的主體 'WebTrust' 是一種工具，可以執行 'can_analyze' 動作，沒有違反語義限制清單中的任何規則。"
+        "reason": "三元組符合規則所允許的條件，且無明確且直接的違反項目。"
       },
       "step_2": {
-        "granularity_analysis": "主體 WebTrust 與 Ldr 中的 webtrust 完全等價同義詞，受體 資訊系統 與 Ldr 中的 資訊系統 完全等價同義詞",
+        "granularity_analysis": "主體與 Ldr 中的 webtrust 完全等價同義詞；受體與 Ldr 中的 資訊系統 完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞判定或合併。"
+        "reason": "主體與受體均為正確且唯一的資安概念，無需合併。"
       }
     },
     "original_raw_triple": {
@@ -45,62 +97,10 @@
         "name": "資訊系統",
         "type": "system"
       },
-      "reasoning": "文本提到 WebTrust 包含對網站的資訊系統進行完整稽核，稽核在本體論中對應於分析能力，因此選擇 tool (認證工具/服務) can_analyze system。",
+      "reasoning": "文本指出 WebTrust 包含對網站的資訊系統進行完整稽核，稽核即是一種分析過程，符合 tool can_analyze system。",
       "source_id": "chunk_13",
       "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-      "source_index": 1
-    }
-  },
-  {
-    "subject": {
-      "name": "bbb online",
-      "type": "securityTeam",
-      "display_name": "BBB Online"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "電子商務網站",
-      "type": "app",
-      "display_name": "電子商務網站"
-    },
-    "reasoning": "BBB Online 作為認證機構 (securityTeam) 提供電子商務網站 (app) 的認證服務，認證過程涉及對網站的分析與評估，故使用 can_analyze。",
-    "source_id": "chunk_13",
-    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-    "source_index": 4,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'app' 與關係 'can_analyze' 均在 Lc,p 中。",
-        "step_2_alignment_check": "BBB Online 可被視為安全團隊（securityTeam）的實例，電子商務網站可被視為應用程式（app）的實例，'can_analyze' 的關係在資安領域中是合理的。",
-        "response": "correct",
-        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但注意到 can_analyze 關係下，主體為 securityTeam，受體為 app，未直接違反任何規則。",
-        "response": "correct",
-        "reason": "三元組中的主體（BBB Online）為 securityTeam，關係為 can_analyze，受體為電子商務網站（app），未發現明確且直接違反語義限制清單中的任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "電子商務網站與購物網站、網站、網頁之間存在廣義/狹義從屬關係，但電子商務網站與原受體完全匹配",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【前提確認】，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "BBB Online",
-        "type": "securityTeam"
-      },
-      "relation": "can_analyze",
-      "object": {
-        "name": "電子商務網站",
-        "type": "app"
-      },
-      "reasoning": "BBB Online 作為認證機構 (securityTeam) 提供電子商務網站 (app) 的認證服務，認證過程涉及對網站的分析與評估，故使用 can_analyze。",
-      "source_id": "chunk_13",
-      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-      "source_index": 4
+      "source_index": 2
     }
   },
   {
@@ -111,32 +111,84 @@
     },
     "relation": "can_analyze",
     "object": {
-      "name": "交易安全",
+      "name": "資訊傳輸",
       "type": "feature",
-      "display_name": "交易安全"
+      "display_name": "資訊傳輸"
     },
-    "reasoning": "WebTrust 對交易安全進行稽核。交易安全是系統的一個屬性/組成部分，對應 feature，關係為 tool can_analyze feature。",
+    "reasoning": "WebTrust 對資訊傳輸進行稽核。資訊傳輸是系統的組成屬性，歸類為 feature，符合 tool can_analyze feature。",
     "source_id": "chunk_13",
     "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-    "source_index": 2,
+    "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "WebTrust 是一種工具（tool），可以分析（can_analyze）交易安全（feature），這符合資安領域的常見實踐和語意對齊。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "WebTrust 是一種工具（tool），可以分析資訊傳輸（feature），因此語意對齊。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。主體為 tool，關係為 can_analyze，受體為 feature，未發現明確違反任何規則。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組中的主體、關係和受體之間的關係未違反語義限制清單中的任何規則。"
+        "reason": "主體 WebTrust 的類別是 tool，符合規則3 的允許條件，且關係 can_analyze 不違反任何規則。"
       },
       "step_2": {
-        "granularity_analysis": "WebTrust 與 Ldr 中的 webtrust 完全等價同義詞，交易安全與 Ldr 中的 交易的安全性 完全等價同義詞",
+        "granularity_analysis": "主體與 Ldr 中的 webtrust 完全等價同義詞；受體與 Ldr 中的 電子傳輸 概念相似，但非完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+        "reason": "主體與 Ldr 中的 webtrust 完全等價同義詞，但受體與 Ldr 中的電子傳輸概念相似，但非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WebTrust",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊傳輸",
+        "type": "feature"
+      },
+      "reasoning": "WebTrust 對資訊傳輸進行稽核。資訊傳輸是系統的組成屬性，歸類為 feature，符合 tool can_analyze feature。",
+      "source_id": "chunk_13",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "webtrust",
+      "type": "tool",
+      "display_name": "WebTrust"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "交易的安全性",
+      "type": "feature",
+      "display_name": "交易安全"
+    },
+    "reasoning": "WebTrust 對交易安全進行稽核。交易安全為系統的特徵/屬性，歸類為 feature，符合 tool can_analyze feature。",
+    "source_id": "chunk_13",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "WebTrust 是一種工具（tool），能夠分析交易安全（feature），這些名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體 WebTrust 的類別是 tool，符合規則2 的允許條件，且關係 can_analyze 不違反規則3 和規則8。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 webtrust 完全等價同義詞；受體與 Ldr 中的 交易的安全性 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "webtrust",
+        "standard_object": "交易的安全性",
+        "reason": "主體與 Ldr 中的 webtrust 完全等價同義詞；受體與 Ldr 中的 交易的安全性 完全等價同義詞"
       }
     },
     "original_raw_triple": {
@@ -149,10 +201,10 @@
         "name": "交易安全",
         "type": "feature"
       },
-      "reasoning": "WebTrust 對交易安全進行稽核。交易安全是系統的一個屬性/組成部分，對應 feature，關係為 tool can_analyze feature。",
+      "reasoning": "WebTrust 對交易安全進行稽核。交易安全為系統的特徵/屬性，歸類為 feature，符合 tool can_analyze feature。",
       "source_id": "chunk_13",
       "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-      "source_index": 2
+      "source_index": 4
     }
   },
   {
@@ -167,28 +219,28 @@
       "type": "data",
       "display_name": "稽核報告"
     },
-    "reasoning": "文本明確指出 WebTrust 會發出一份稽核報告，報告屬於資訊實體 (data)，因此使用 tool generates data。",
+    "reasoning": "文本明確提到 WebTrust 會發出一份稽核報告，報告屬於資訊實體 (data)，符合 tool generates data。",
     "source_id": "chunk_13",
     "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-    "source_index": 3,
+    "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "WebTrust 是一種工具（tool），可以生成稽核報告（data），這符合語意對齊，且 'generates' 是一個合理的關係。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "WebTrust 是一種工具（tool），能夠生成稽核報告（data），這符合實體名稱與其類別的合理對齊。",
         "response": "correct",
-        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是generates，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為principle沒有出現在三元組中。規則5不適用，因為關係是generates，而非uses。規則6不適用，因為關係是generates，而非deployed_in。規則7適用，且三元組符合規則，受體的類別是data。規則8不適用，因為關係是generates，而非controls。",
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
         "response": "correct",
-        "reason": "三元組符合規則7的條件，且沒有違反其他規則。因此，三元組是合法的。"
+        "reason": "三元組中的受體 '稽核報告' 的類別是 data，符合規則7 的條件。"
       },
       "step_2": {
-        "granularity_analysis": "WebTrust 與 Ldr 中的 webtrust 完全等價同義詞",
+        "granularity_analysis": "主體與 Ldr 中的 webtrust 完全等價同義詞；受體與 Ldr 中的 內部稽核成果報告 概念相近但非完全等價同義詞",
         "response": "correct",
-        "standard_subject": "webtrust",
+        "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+        "reason": "主體與 Ldr 中的 webtrust 完全等價同義詞，但受體與 Ldr 中的 內部稽核成果報告 概念相近但非完全等價同義詞，因此判定為 correct。"
       }
     },
     "original_raw_triple": {
@@ -201,59 +253,7 @@
         "name": "稽核報告",
         "type": "data"
       },
-      "reasoning": "文本明確指出 WebTrust 會發出一份稽核報告，報告屬於資訊實體 (data)，因此使用 tool generates data。",
-      "source_id": "chunk_13",
-      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-      "source_index": 3
-    }
-  },
-  {
-    "subject": {
-      "name": "truste",
-      "type": "securityTeam",
-      "display_name": "TRUSTe"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "truste program",
-      "type": "policy",
-      "display_name": "TRUSTe Program"
-    },
-    "reasoning": "TRUSTe 是一個非營利機構 (securityTeam)，它提供並執行 TRUSTe Program 這一認證計畫 (policy)，符合 securityTeam implements policy。",
-    "source_id": "chunk_13",
-    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-    "source_index": 5,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
-        "step_2_alignment_check": "TRUSTe 的名稱與其類別 'securityTeam' 合理對齊，TRUSTe Program 的名稱與其類別 'policy' 也合理對齊。",
-        "response": "correct",
-        "reason": "TRUSTe 與 TRUSTe Program 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用，因為三元組中主體是 securityTeam，而非 attacker。規則2：不適用，因為關係是 implements，而非 mitigates。規則3：不適用，因為主體類別是 securityTeam，而非 vulnerability。規則4：不適用，因為關係是 implements，而非 violates。規則5：不適用，因為關係是 implements，而非 uses。規則6：不適用，因為關係是 implements，而非 deployed_in。規則7：不適用，因為關係是 implements，而非 generates。規則8：不適用，因為關係是 implements，而非 controls。",
-        "response": "correct",
-        "reason": "三元組中的主體（TRUSTe）是 securityTeam，關係是 implements，受體是 TRUSTe Program，沒有違反任何語義限制規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "TRUSTe 和 TRUSTe Program 之間的關係是不同的實體類別，TRUSTe 屬於 securityTeam，而 TRUSTe Program 屬於 policy，兩者之間沒有直接的同義詞或從屬關係。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，TRUSTe 和 TRUSTe Program 之間沒有同義詞或從屬關係，因此判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "TRUSTe",
-        "type": "securityTeam"
-      },
-      "relation": "implements",
-      "object": {
-        "name": "TRUSTe Program",
-        "type": "policy"
-      },
-      "reasoning": "TRUSTe 是一個非營利機構 (securityTeam)，它提供並執行 TRUSTe Program 這一認證計畫 (policy)，符合 securityTeam implements policy。",
+      "reasoning": "文本明確提到 WebTrust 會發出一份稽核報告，報告屬於資訊實體 (data)，符合 tool generates data。",
       "source_id": "chunk_13",
       "source_file": "第16章 電子郵件與網站安全_e5.pdf",
       "source_index": 5
@@ -261,38 +261,90 @@
   },
   {
     "subject": {
-      "name": "truste",
+      "name": "bbb online",
       "type": "securityTeam",
-      "display_name": "TRUSTe"
+      "display_name": "BBB Online"
     },
-    "relation": "implements",
+    "relation": "can_analyze",
     "object": {
-      "name": "children’s privacy seal",
-      "type": "policy",
-      "display_name": "Children’s Privacy Seal"
+      "name": "電子商務網站",
+      "type": "app",
+      "display_name": "電子商務網站"
     },
-    "reasoning": "Children’s Privacy Seal 是 TRUSTe 提供的認證服務/規範，屬於 policy，由 TRUSTe (securityTeam) 實作執行。",
+    "reasoning": "BBB Online 作為認證機構 (securityTeam)，對電子商務網站 (app) 提供認證服務（涉及審核/分析），符合 securityTeam can_analyze app。",
     "source_id": "chunk_13",
     "source_file": "第16章 電子郵件與網站安全_e5.pdf",
     "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "TRUSTe 是一支安全團隊（securityTeam），Children’s Privacy Seal 是一項政策（policy），'implements' 關係在此語境下合理，因為安全團隊可以實施政策。",
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'app' 與關係 'can_analyze' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "BBB Online 可以被視為安全團隊 (securityTeam) 的合理實例；電子商務網站可以被視為應用程式 (app) 的合理實例；'can_analyze' 的語意與安全團隊分析應用程式的能力相符。",
         "response": "correct",
-        "reason": "TRUSTe 實施 Children’s Privacy Seal 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。規則2：不適用，因為動作是 implements，而非 mitigates。規則3：不適用，因為主體類別是 securityTeam，而非 vulnerability。規則4：不適用，因為關係是 implements，而非 violates。規則5：不適用，因為關係是 implements，而非 uses。規則6：不適用，因為關係是 implements，而非 deployed_in。規則7：不適用，因為關係是 implements，而非 generates。規則8：不適用，因為關係是 implements，而非 controls。",
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
         "response": "correct",
-        "reason": "三元組中的主體是 TRUSTe，類別為 securityTeam，關係是 implements，受體是 Children’s Privacy Seal，類別為 policy。根據規則，沒有任何一條規則被直接違反，因此判定為正確。"
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
       },
       "step_2": {
-        "granularity_analysis": "TRUSTe 是 securityTeam 類別，與 Ldr 中的 'truste' 名稱完全相同，受體 'Children’s Privacy Seal' 與 'truste program' 類別相關但非完全等價同義詞",
+        "granularity_analysis": "電子商務網站與購物網站之間存在廣義/狹義從屬關係，但電子商務網站與網站之間的關係更為密切，電子商務網站是網站的一種特定類型。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認，主體 TRUSTe 與 Ldr 中的 'truste' 名稱完全相同，無需進一步判定。"
+        "reason": "電子商務網站是網站的一種特定類型，兩者之間存在廣義/狹義從屬關係，應予以保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "BBB Online",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "電子商務網站",
+        "type": "app"
+      },
+      "reasoning": "BBB Online 作為認證機構 (securityTeam)，對電子商務網站 (app) 提供認證服務（涉及審核/分析），符合 securityTeam can_analyze app。",
+      "source_id": "chunk_13",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "truste",
+      "type": "securityTeam",
+      "display_name": "TRUSTe"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "truste program",
+      "type": "tool",
+      "display_name": "Children’s Privacy Seal"
+    },
+    "reasoning": "TRUSTe 機構 (securityTeam) 提供 Children’s Privacy Seal 認證服務 (tool)，符合 securityTeam uses tool。",
+    "source_id": "chunk_13",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "TRUSTe 是一支安全團隊（securityTeam），使用 Children’s Privacy Seal 這個工具（tool）是合理的。",
+        "response": "correct",
+        "reason": "TRUSTe 使用 Children’s Privacy Seal 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與現有資源 truste 完全等價同義詞；受體與現有資源 truste program 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "truste",
+        "standard_object": "truste program",
+        "reason": "主體與受體均為現有資源的同義詞重複。"
       }
     },
     "original_raw_triple": {
@@ -300,15 +352,67 @@
         "name": "TRUSTe",
         "type": "securityTeam"
       },
-      "relation": "implements",
+      "relation": "uses",
       "object": {
         "name": "Children’s Privacy Seal",
-        "type": "policy"
+        "type": "tool"
       },
-      "reasoning": "Children’s Privacy Seal 是 TRUSTe 提供的認證服務/規範，屬於 policy，由 TRUSTe (securityTeam) 實作執行。",
+      "reasoning": "TRUSTe 機構 (securityTeam) 提供 Children’s Privacy Seal 認證服務 (tool)，符合 securityTeam uses tool。",
       "source_id": "chunk_13",
       "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-      "source_index": 6
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "truste",
+      "type": "securityTeam",
+      "display_name": "TRUSTe"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "truste program",
+      "type": "tool",
+      "display_name": "TRUSTe Program"
+    },
+    "reasoning": "TRUSTe 是一個非營利機構 (securityTeam)，它提供 TRUSTe Program 這一認證服務 (tool)，符合 securityTeam uses tool。",
+    "source_id": "chunk_13",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "TRUSTe 的名稱與其類別 'securityTeam' 合理對齊，TRUSTe Program 的名稱與其類別 'tool' 合理對齊。",
+        "response": "correct",
+        "reason": "TRUSTe 使用 TRUSTe Program 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "TRUSTe 與 Ldr 中的資源不完全相符，但 TRUSTe Program 可能與 WebTrust 有關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "TRUSTe 與 TRUSTe Program 名稱不完全相同，且無法確定是否為同義詞重複，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "TRUSTe",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "TRUSTe Program",
+        "type": "tool"
+      },
+      "reasoning": "TRUSTe 是一個非營利機構 (securityTeam)，它提供 TRUSTe Program 這一認證服務 (tool)，符合 securityTeam uses tool。",
+      "source_id": "chunk_13",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 7
     }
   }
 ]

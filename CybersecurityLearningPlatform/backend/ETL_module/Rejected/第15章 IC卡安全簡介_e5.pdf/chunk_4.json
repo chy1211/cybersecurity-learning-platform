@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "sim卡",
+      "type": "tool",
+      "display_name": "GSM SIM"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "使用者資料",
+      "type": "data",
+      "display_name": "用戶資料"
+    },
+    "reasoning": "文本指出 GSM SIM 卡可以保存用戶資料，表示該系統使用/儲存此類資料，符合 ('system', 'uses', 'data') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體的類別 'system'、受體的類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "GSM SIM 是 'system' 的合理實例，'用戶資料' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 'sim卡' 和 'gsm' 均為同義詞，受體與 Ldr 中的 '使用者資料' 均為同義詞",
+        "response": "duplicate",
+        "standard_subject": "sim卡",
+        "standard_object": "使用者資料",
+        "reason": "主體與受體均與 Ldr 中的資源具有完全等價同義詞關係"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> uses -> data (original: system -> uses -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "GSM SIM",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "用戶資料",
+        "type": "data"
+      },
+      "reasoning": "文本指出 GSM SIM 卡可以保存用戶資料，表示該系統使用/儲存此類資料，符合 ('system', 'uses', 'data') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 5
+    }
+  }
+]

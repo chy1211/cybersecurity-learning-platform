@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "wep",
+      "type": "tool",
+      "display_name": "WEP"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "wep 安全弱點",
+      "type": "vulnerability",
+      "display_name": "WEP 安全弱點"
+    },
+    "reasoning": "文本明確指出 WEP 存有安全弱點且容易被破解。為了符合 Schema 中 ('feature', 'can_expose', 'vulnerability') 的定義，將 WEP 視為系統特徵。",
+    "source_id": "chunk_8",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "WEP 是一個無線網路安全協定的特徵（feature），而 'WEP 安全弱點' 是一個合理的弱點（vulnerability）實例。關係 'can_expose' 語意上也合理，因為 WEP 的特徵可能會暴露其安全弱點。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 WEP 與 Ldr 中的資源 wep 名稱完全相同，受體 WEP 安全弱點 與 Ldr 中的資源 wep安全疑慮 名稱相似，但不完全相同，且後者是前者的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 WEP 與 Ldr 中的資源 wep 名稱完全相同，但受體 WEP 安全弱點 與 Ldr 中的資源 wep安全疑慮 名稱不完全相同，且後者是前者的子類型，因此判定為 correct"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> can_expose -> vulnerability (original: feature -> can_expose -> vulnerability)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "WEP",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "WEP 安全弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確指出 WEP 存有安全弱點且容易被破解。為了符合 Schema 中 ('feature', 'can_expose', 'vulnerability') 的定義，將 WEP 視為系統特徵。",
+      "source_id": "chunk_8",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 2
+    }
+  }
+]

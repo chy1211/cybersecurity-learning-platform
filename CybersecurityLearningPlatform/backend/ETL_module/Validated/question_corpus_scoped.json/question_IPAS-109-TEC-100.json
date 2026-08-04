@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "物聯網節點",
+      "type": "system",
+      "display_name": "物聯網節點"
+    },
+    "reasoning": "題幹明確提到『攻擊者控制了物聯網其中一個節點』，因此建立 attacker controls system 的關係。",
+    "source_id": "question_IPAS-109-TEC-100",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，物聯網節點 (system) 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體攻擊者具有主動執行能力，符合規則8的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源具有完全等價同義詞關係；受體與 Ldr 中的資源具有廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖然具有完全等價同義詞關係，但受體與 Ldr 中的資源具有廣義/狹義從屬關係，因此禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "物聯網節點",
+        "type": "system"
+      },
+      "reasoning": "題幹明確提到『攻擊者控制了物聯網其中一個節點』，因此建立 attacker controls system 的關係。",
+      "source_id": "question_IPAS-109-TEC-100",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "黑洞攻擊",
+      "type": "attack",
+      "display_name": "黑洞攻擊"
+    },
+    "reasoning": "根據題幹描述的行為與正確答案 D，攻擊者執行此行為即是在實作『黑洞攻擊』。",
+    "source_id": "question_IPAS-109-TEC-100",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 可以實施 (implements) 黑洞攻擊 (attack)，這是一種合理的語意對齊，符合資安領域的常見用法。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '攻擊者' 完全等價同義詞；受體 '黑洞攻擊' 與 Ldr 中的資源 '攻擊' 關係為廣義/狹義從屬",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全等價同義詞，但受體與 Ldr 中的資源關係為廣義/狹義從屬，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "黑洞攻擊",
+        "type": "attack"
+      },
+      "reasoning": "根據題幹描述的行為與正確答案 D，攻擊者執行此行為即是在實作『黑洞攻擊』。",
+      "source_id": "question_IPAS-109-TEC-100",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "黑洞攻擊",
+      "type": "attack",
+      "display_name": "黑洞攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "物聯網節點",
+      "type": "system",
+      "display_name": "物聯網節點"
+    },
+    "reasoning": "黑洞攻擊透過控制節點並丟棄封包，導致該系統節點無法正常運作，造成危害。",
+    "source_id": "question_IPAS-109-TEC-100",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "黑洞攻擊 (黑洞攻擊) 是攻擊 (attack) 的合理實例，物聯網節點 (物聯網節點) 是系統 (system) 的合理實例。",
+        "response": "correct",
+        "reason": "黑洞攻擊 (attack) 與物聯網節點 (system) 的三元組完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為黑洞攻擊不是攻擊者或安全團隊。規則2不適用，因為黑洞攻擊不是policy、technique或tool。規則3不適用，因為黑洞攻擊不是漏洞。規則4不適用，因為黑洞攻擊不是資安原則。規則5不適用，因為關係不是uses或主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，無任何規則適用。",
+        "response": "correct",
+        "reason": "無任何規則適用，且無明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "黑洞攻擊與攻擊之間存在廣義/狹義從屬關係，黑洞攻擊是攻擊的一種子類型；黑洞攻擊與 Ldr 中的攻擊事件、密碼攻擊、駭客攻擊等存在類似關係，但不完全等價；黑洞攻擊與 Ldr 中的黑洞攻擊完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "黑洞攻擊是攻擊的一種子類型，且與 Ldr 中的黑洞攻擊完全相同，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "黑洞攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "物聯網節點",
+        "type": "system"
+      },
+      "reasoning": "黑洞攻擊透過控制節點並丟棄封包，導致該系統節點無法正常運作，造成危害。",
+      "source_id": "question_IPAS-109-TEC-100",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "黑洞攻擊",
+      "type": "attack",
+      "display_name": "黑洞攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "封包",
+      "type": "data",
+      "display_name": "封包"
+    },
+    "reasoning": "黑洞攻擊的核心行為是『丟棄(Drop)所有傳送至此節點的封包』，直接對傳輸資料造成損害。",
+    "source_id": "question_IPAS-109-TEC-100",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "黑洞攻擊 (attack) 是一種攻擊手法，封包 (data) 是一種數據單位，'can_harm' 關係描述了攻擊對數據的危害，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "黑洞攻擊 (attack) 與封包 (data) 的三元組完全符合預先定義的類別與屬性清單 (Lc,p)，且語意對齊是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為attack，不是vulnerability。規則4不適用，因為主體類別不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。規則1和規則2不適用，因為主體類別不是attacker或securityTeam，也不是policy、technique或tool。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "黑洞攻擊與攻擊之間存在廣義/狹義從屬關係，黑洞攻擊是攻擊的一種；而封包與ip封包、網路封包、資料封包之間存在狹義/廣義從屬關係，封包是這些類型的父類別。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "黑洞攻擊與攻擊之間存在廣義/狹義從屬關係，封包與ip封包、網路封包、資料封包之間存在狹義/廣義從屬關係，無法合併為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "黑洞攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "封包",
+        "type": "data"
+      },
+      "reasoning": "黑洞攻擊的核心行為是『丟棄(Drop)所有傳送至此節點的封包』，直接對傳輸資料造成損害。",
+      "source_id": "question_IPAS-109-TEC-100",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

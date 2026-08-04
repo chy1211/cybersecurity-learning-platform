@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "未適當處理詳細錯誤訊息和未處理的異常",
+      "type": "vulnerability",
+      "display_name": "未適當處理詳細錯誤訊息和未處理的異常"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料外洩",
+      "type": "risk",
+      "display_name": "資訊洩露"
+    },
+    "reasoning": "根據題幹與正確答案，程式中對錯誤訊息與異常處理不當屬於系統缺陷（vulnerability），而這種缺陷會導致資訊洩露（Information Disclosure）這一負面後果（risk）。這符合 Schema 中 ('vulnerability', 'can_expose', 'risk') 的定義。",
+    "source_id": "question_IPAS-110-TEC-076",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '未適當處理詳細錯誤訊息和未處理的異常' 合理對齊其類別 'vulnerability'，受體名稱 '資訊洩露' 合理對齊其類別 'risk'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，但關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間存在同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資料外洩",
+        "reason": "主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間存在同義詞關係，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "未適當處理詳細錯誤訊息和未處理的異常",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "資訊洩露",
+        "type": "risk"
+      },
+      "reasoning": "根據題幹與正確答案，程式中對錯誤訊息與異常處理不當屬於系統缺陷（vulnerability），而這種缺陷會導致資訊洩露（Information Disclosure）這一負面後果（risk）。這符合 Schema 中 ('vulnerability', 'can_expose', 'risk') 的定義。",
+      "source_id": "question_IPAS-110-TEC-076",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

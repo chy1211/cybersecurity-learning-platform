@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "wuauclt",
+      "type": "tool",
+      "display_name": "wuauclt"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "作業系統更新",
+      "type": "function",
+      "display_name": "作業系統更新"
+    },
+    "reasoning": "根據題目，這是一個否定式提問（何者『不』是），正確答案為 C (update)，因此選項 A (wuauclt) 是正確的作業系統更新指令。wuauclt 作為一個指令工具 (tool)，具有執行作業系統更新的功能 (function)，符合 Schema Edge ('tool', 'has_a', 'function')。",
+    "source_id": "question_IPAS-111-TEC-012",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "wuauclt 是一種工具（tool），與其類別對齊；作業系統更新是功能（function），與其類別對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體 wuauclt 的類別是 tool，具有主動執行能力，符合規則8。關係 has_a 不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "wuauclt",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "作業系統更新",
+        "type": "function"
+      },
+      "reasoning": "根據題目，這是一個否定式提問（何者『不』是），正確答案為 C (update)，因此選項 A (wuauclt) 是正確的作業系統更新指令。wuauclt 作為一個指令工具 (tool)，具有執行作業系統更新的功能 (function)，符合 Schema Edge ('tool', 'has_a', 'function')。",
+      "source_id": "question_IPAS-111-TEC-012",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "apt-get",
+      "type": "tool",
+      "display_name": "apt-get"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "作業系統更新",
+      "type": "function",
+      "display_name": "作業系統更新"
+    },
+    "reasoning": "根據題目，這是一個否定式提問，正確答案為 C (update)，因此選項 B (apt-get) 是正確的作業系統更新指令。apt-get 作為一個指令工具 (tool)，具有執行作業系統更新的功能 (function)，符合 Schema Edge ('tool', 'has_a', 'function')。",
+    "source_id": "question_IPAS-111-TEC-012",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "apt-get 是一種工具（tool），而 '作業系統更新' 可以被視為一種功能（function），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體 (apt-get) 是 tool，關係 (has_a) 不違反任何規則，受體 (作業系統更新) 的類別 (function) 也沒有違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源無直接關係；受體與 Ldr 中的資源完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源無直接關係，受體與 Ldr 中的資源雖然相似，但無法確認是否完全等價同義詞，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "apt-get",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "作業系統更新",
+        "type": "function"
+      },
+      "reasoning": "根據題目，這是一個否定式提問，正確答案為 C (update)，因此選項 B (apt-get) 是正確的作業系統更新指令。apt-get 作為一個指令工具 (tool)，具有執行作業系統更新的功能 (function)，符合 Schema Edge ('tool', 'has_a', 'function')。",
+      "source_id": "question_IPAS-111-TEC-012",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "yum",
+      "type": "tool",
+      "display_name": "yum"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "作業系統更新",
+      "type": "function",
+      "display_name": "作業系統更新"
+    },
+    "reasoning": "根據題目，這是一個否定式提問，正確答案為 C (update)，因此選項 D (yum) 是正確的作業系統更新指令。yum 作為一個指令工具 (tool)，具有執行作業系統更新的功能 (function)，符合 Schema Edge ('tool', 'has_a', 'function')。",
+    "source_id": "question_IPAS-111-TEC-012",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'yum' 是一個工具，受體 '作業系統更新' 是一個功能，兩者之間的關係 'has_a' 合理，符合語意對齊原則。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊原則成立。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體是 tool，關係是 has_a，受體是作業系統更新，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源無完全等價同義詞關係；受體與 Ldr 中的資源完全等價同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源無完全等價同義詞關係，受體與 Ldr 中的資源雖然有完全等價同義詞關係，但根據規則 1，若 Ldr 中有完全相同的 name，則判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "yum",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "作業系統更新",
+        "type": "function"
+      },
+      "reasoning": "根據題目，這是一個否定式提問，正確答案為 C (update)，因此選項 D (yum) 是正確的作業系統更新指令。yum 作為一個指令工具 (tool)，具有執行作業系統更新的功能 (function)，符合 Schema Edge ('tool', 'has_a', 'function')。",
+      "source_id": "question_IPAS-111-TEC-012",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

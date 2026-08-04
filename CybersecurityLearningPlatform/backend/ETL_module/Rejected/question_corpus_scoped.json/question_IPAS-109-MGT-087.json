@@ -1,0 +1,98 @@
+[
+  {
+    "subject": {
+      "name": "實體安全",
+      "type": "system",
+      "display_name": "實體安全"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "金鑰遺失或銷毀",
+      "type": "risk",
+      "display_name": "金鑰遺失或銷毀"
+    },
+    "reasoning": "根據選項 A，使用實體安全來保護設備可以避免金鑰遭受不當修改、不慎遺失或銷毀。實體安全在此被視為一種安全策略 (policy)，而金鑰遺失或銷毀屬於風險 (risk)，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
+    "source_id": "question_IPAS-109-MGT-087",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體安全 (policy) 合理對齊於 'policy'，金鑰遺失或銷毀 (risk) 合理對齊於 'risk'，且 'mitigates' 是一種合理的關係描述。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體安全與基礎設施安全雖然相似，但無法確認完全等價同義詞，故預設保留。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> mitigates -> risk (original: policy -> mitigates -> risk)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體安全",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "金鑰遺失或銷毀",
+        "type": "risk"
+      },
+      "reasoning": "根據選項 A，使用實體安全來保護設備可以避免金鑰遭受不當修改、不慎遺失或銷毀。實體安全在此被視為一種安全策略 (policy)，而金鑰遺失或銷毀屬於風險 (risk)，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
+      "source_id": "question_IPAS-109-MGT-087",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "憑證機構",
+      "type": "tool",
+      "display_name": "憑證機構"
+    },
+    "reasoning": "根據選項 B，在建置或選用憑證機構 (CA) 時，應綜合考量其技術、管理、人員及財務的安全風險。這隱含了負責評估的資安團隊 (securityTeam) 需要分析該系統 (system) 的風險，符合 ('securityTeam', 'can_analyze', 'system') 的 Schema。",
+    "source_id": "question_IPAS-109-MGT-087",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員是安全團隊的合理實例，憑證機構是系統的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): securityTeam -> can_analyze -> tool (original: securityTeam -> can_analyze -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "憑證機構",
+        "type": "system"
+      },
+      "reasoning": "根據選項 B，在建置或選用憑證機構 (CA) 時，應綜合考量其技術、管理、人員及財務的安全風險。這隱含了負責評估的資安團隊 (securityTeam) 需要分析該系統 (system) 的風險，符合 ('securityTeam', 'can_analyze', 'system') 的 Schema。",
+      "source_id": "question_IPAS-109-MGT-087",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

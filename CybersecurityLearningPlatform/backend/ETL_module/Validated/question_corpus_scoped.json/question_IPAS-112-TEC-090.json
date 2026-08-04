@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "資安鑑識",
+      "type": "technique",
+      "display_name": "資安鑑識"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "windows event log",
+      "type": "data",
+      "display_name": "Windows Event Log"
+    },
+    "reasoning": "題幹明確指出 Windows Event Log 是重要的資安鑑識記錄檔，因此在知識圖譜中，資安鑑識（technique）具備分析 Windows Event Log（data）的能力。",
+    "source_id": "question_IPAS-112-TEC-090",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安鑑識是 'technique' 的合理實例，Windows Event Log 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別是technique，而非vulnerability；規則5不適用，因為主體類別不是data；規則6不適用，因為關係不是deployed_in；規則7不適用，因為關係不是generates；規則8不適用，因為關係不是controls；其他規則不適用，因為不涉及相關類別或關係。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安鑑識",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "Windows Event Log",
+        "type": "data"
+      },
+      "reasoning": "題幹明確指出 Windows Event Log 是重要的資安鑑識記錄檔，因此在知識圖譜中，資安鑑識（technique）具備分析 Windows Event Log（data）的能力。",
+      "source_id": "question_IPAS-112-TEC-090",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "windows event log",
+      "type": "data",
+      "display_name": "Windows Event Log"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "%systemroot%\\system32\\winevt\\logs\\",
+      "type": "system",
+      "display_name": "%SystemRoot%\\System32\\winevt\\Logs\\"
+    },
+    "reasoning": "本題為否定式提問，正確答案 C 為錯誤敘述，因此選項 A 為正確知識。選項 A 指出 Windows Event Log 的預設存放路徑，因此將其視為資料（data）部署於系統路徑（system）中。",
+    "source_id": "question_IPAS-112-TEC-090",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'Windows Event Log' 是 'data' 的合理實例，受體 '%SystemRoot%\\System32\\winevt\\Logs\\' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，受體的類別是system，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源具有相同概念，但名稱略有不同；受體為系統路徑，無需標準化。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱雖然與 Ldr 中的資源名稱不完全相同，但兩者概念相同，且無法確定是否為同義詞，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Windows Event Log",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "%SystemRoot%\\System32\\winevt\\Logs\\",
+        "type": "system"
+      },
+      "reasoning": "本題為否定式提問，正確答案 C 為錯誤敘述，因此選項 A 為正確知識。選項 A 指出 Windows Event Log 的預設存放路徑，因此將其視為資料（data）部署於系統路徑（system）中。",
+      "source_id": "question_IPAS-112-TEC-090",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資安鑑識",
+      "type": "technique",
+      "display_name": "資安鑑識"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "security.evtx",
+      "type": "data",
+      "display_name": "Security.evtx"
+    },
+    "reasoning": "選項 D 為正確知識，指出 Security.evtx 包含安全事件 log（如 Login/Logout 資訊）。結合題幹中 Windows Event Log 用於資安鑑識的陳述，可推論資安鑑識（technique）可分析 Security.evtx（data）。",
+    "source_id": "question_IPAS-112-TEC-090",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '資安鑑識' 是 'technique' 的合理實例；受體 'Security.evtx' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別是technique，而規則3只檢查主體類別為vulnerability。規則5不適用，因為關係不是uses。規則8不適用，因為關係不是controls。其他規則不相關。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間不存在完全等價同義詞關係，且無法確認為子類型或母類關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安鑑識",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "Security.evtx",
+        "type": "data"
+      },
+      "reasoning": "選項 D 為正確知識，指出 Security.evtx 包含安全事件 log（如 Login/Logout 資訊）。結合題幹中 Windows Event Log 用於資安鑑識的陳述，可推論資安鑑識（technique）可分析 Security.evtx（data）。",
+      "source_id": "question_IPAS-112-TEC-090",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "hkey_local_machine\\system\\currentcontrolset\\services\\eventlog",
+      "type": "system",
+      "display_name": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Eventlog"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "windows event log 設定",
+      "type": "feature",
+      "display_name": "Windows Event Log 設定"
+    },
+    "reasoning": "選項 B 為正確知識，指出 Windows Event Log 的設定位於該登錄檔路徑。該路徑屬於系統配置（system），而設定屬於系統的屬性（feature），符合 (system, has_a, feature) 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-090",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'HKEY_LOCAL_MACHINE/system/CurrentControlSet/Services/Eventlog' 的名稱與其類別 'system' 合理對齊；受體 'Windows Event Log 設定' 的名稱與其類別 'feature' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊正確。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因主體類別為system；規則4不適用，因主體類別非principle；規則5不適用，因主體類別非data；規則6不適用，因關係非deployed_in；規則7不適用，因關係非generates；規則8不適用，因關係非controls；無其他相關規則。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源不完全相同，但受體與 Ldr 中的資源具有類似概念",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源不完全相同，受體雖然與 Ldr 中的資源具有類似概念，但無法確定為完全等價同義詞，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Eventlog",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Windows Event Log 設定",
+        "type": "feature"
+      },
+      "reasoning": "選項 B 為正確知識，指出 Windows Event Log 的設定位於該登錄檔路徑。該路徑屬於系統配置（system），而設定屬於系統的屬性（feature），符合 (system, has_a, feature) 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-090",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

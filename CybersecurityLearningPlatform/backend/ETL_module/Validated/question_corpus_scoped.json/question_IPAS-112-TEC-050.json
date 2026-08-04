@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "密碼管理",
+      "type": "policy",
+      "display_name": "密碼管理"
+    },
+    "reasoning": "根據考題處理規則第 4 點（否定式提問），正確答案 C 是不好的習慣，而選項 D「實行良好的密碼管理」是正確的知識。在本體論中，使用者執行安全管理實務或準則符合 (user, implements, policy) 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-050",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例，受體名稱 '密碼管理' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認是否為同義詞，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "密碼管理",
+        "type": "policy"
+      },
+      "reasoning": "根據考題處理規則第 4 點（否定式提問），正確答案 C 是不好的習慣，而選項 D「實行良好的密碼管理」是正確的知識。在本體論中，使用者執行安全管理實務或準則符合 (user, implements, policy) 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-050",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "帳戶活動記錄",
+      "type": "data",
+      "display_name": "帳戶活動記錄"
+    },
+    "reasoning": "根據考題處理規則第 4 點，選項 A「監控自己的帳戶是否有任何可疑活動」是正確的知識。監控活動涉及對帳戶日誌或活動資料的查看與使用，符合 (user, uses, data) 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-050",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 合理對齊其類別 'user'，受體名稱 '帳戶活動記錄' 合理對齊其類別 'data'，關係 'uses' 合理描述使用者與帳戶活動記錄之間的關係。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「使用者」完全等價同義詞；受體與 Ldr 中的「操作行為記錄」具有廣義/狹義從屬關係，但不構成同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「使用者」完全匹配，受體與 Ldr 中的「操作行為記錄」不構成同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "帳戶活動記錄",
+        "type": "data"
+      },
+      "reasoning": "根據考題處理規則第 4 點，選項 A「監控自己的帳戶是否有任何可疑活動」是正確的知識。監控活動涉及對帳戶日誌或活動資料的查看與使用，符合 (user, uses, data) 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-050",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

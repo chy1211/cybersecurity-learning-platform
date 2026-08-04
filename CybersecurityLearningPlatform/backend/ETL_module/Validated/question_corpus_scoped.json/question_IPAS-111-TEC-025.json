@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "minikatz",
+      "type": "tool",
+      "display_name": "Minikatz"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "windows credentials",
+      "type": "data",
+      "display_name": "Windows credentials"
+    },
+    "reasoning": "根據題幹與正確答案，Minikatz 是一種用於攻擊或竊取 Windows 認證資訊 (credentials) 的工具。在本體論中，Minikatz 屬於 tool，Windows credentials 屬於 data，而工具對資料的竊取/提取行為在合法 Schema Edges 中最符合的關係是 can_analyze。",
+    "source_id": "question_IPAS-111-TEC-025",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Minikatz 是一種工具 (tool)，能夠分析 Windows 認證資料 (data)，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2不適用，因為can_analyze不是mitigates動作。規則3不適用，因為主體Minikatz類別是tool，而非vulnerability。規則4不適用，因為主體Minikatz類別是tool，而非principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Minikatz",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "Windows credentials",
+        "type": "data"
+      },
+      "reasoning": "根據題幹與正確答案，Minikatz 是一種用於攻擊或竊取 Windows 認證資訊 (credentials) 的工具。在本體論中，Minikatz 屬於 tool，Windows credentials 屬於 data，而工具對資料的竊取/提取行為在合法 Schema Edges 中最符合的關係是 can_analyze。",
+      "source_id": "question_IPAS-111-TEC-025",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

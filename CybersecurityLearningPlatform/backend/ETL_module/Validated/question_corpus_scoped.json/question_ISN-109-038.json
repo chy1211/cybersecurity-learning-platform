@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "稽核人員",
+      "type": "securityTeam",
+      "display_name": "稽核員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "稽核",
+      "type": "technique",
+      "display_name": "資訊安全稽核"
+    },
+    "reasoning": "文本提到『執行資訊安全的稽核時』，說明稽核員（屬於 securityTeam）使用資訊安全稽核（一種評估安全狀態的方法/流程，屬於 technique）來達成目的。根據 Schema，securityTeam 可以 uses technique。",
+    "source_id": "question_ISN-109-038",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '稽核員' 是 'securityTeam' 的合理實例；受體名稱 '資訊安全稽核' 是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：無關，但主體 securityTeam 使用 uses 動作，與規則8無直接關係，但符合規則8的主動執行能力描述。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且主體 securityTeam 使用 uses 動作符合主動執行能力描述。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「稽核人員」為同義詞；受體與 Ldr 中的「稽核」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "稽核人員",
+        "standard_object": "稽核",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "稽核員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資訊安全稽核",
+        "type": "technique"
+      },
+      "reasoning": "文本提到『執行資訊安全的稽核時』，說明稽核員（屬於 securityTeam）使用資訊安全稽核（一種評估安全狀態的方法/流程，屬於 technique）來達成目的。根據 Schema，securityTeam 可以 uses technique。",
+      "source_id": "question_ISN-109-038",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "稽核員",
+      "type": "securityTeam",
+      "display_name": "稽核員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "有效溝通",
+      "type": "function",
+      "display_name": "有效溝通"
+    },
+    "reasoning": "文本強調稽核員能否與受稽人員進行『有效的溝通及互動』會影響稽核結果，這將溝通視為稽核員在執行任務時必須具備並實踐的能力（屬於 function）。根據 Schema，securityTeam 可以 implements function。",
+    "source_id": "question_ISN-109-038",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '稽核員' 是 'securityTeam' 的合理實例；受體名稱 '有效溝通' 是 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，關係為 implements，受體類別為 function，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中的資源名稱雖然相似，但無法確認完全等價同義詞關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "稽核員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "有效溝通",
+        "type": "function"
+      },
+      "reasoning": "文本強調稽核員能否與受稽人員進行『有效的溝通及互動』會影響稽核結果，這將溝通視為稽核員在執行任務時必須具備並實踐的能力（屬於 function）。根據 Schema，securityTeam 可以 implements function。",
+      "source_id": "question_ISN-109-038",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

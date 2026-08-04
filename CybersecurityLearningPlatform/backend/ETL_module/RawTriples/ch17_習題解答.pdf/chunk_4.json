@@ -6,10 +6,10 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "實體安全",
+      "name": "實體安全機制",
       "type": "feature"
     },
-    "reasoning": "文本提到硬體密碼模組在設計上需要考量的安全機制包含實體安全，實體安全是該工具的一個屬性/組成部分，因此選擇 tool -> has_a -> feature。",
+    "reasoning": "文本提到安全等級二包含實體安全機制，且硬體密碼模組在設計上需考量實體安全，因此將硬體密碼模組視為工具(tool)，實體安全機制視為其特徵(feature)。",
     "source_id": "chunk_4",
     "source_file": "ch17_習題解答.pdf",
     "source_index": 1
@@ -19,12 +19,12 @@
       "name": "硬體密碼模組",
       "type": "tool"
     },
-    "relation": "has_a",
+    "relation": "can_detect",
     "object": {
-      "name": "邏輯安全",
-      "type": "feature"
+      "name": "實體攻擊",
+      "type": "attack"
     },
-    "reasoning": "文本提到硬體密碼模組的安全機制包含邏輯安全，屬於其設計特徵，因此選擇 tool -> has_a -> feature。",
+    "reasoning": "文本提到安全等級三能夠偵測出試圖破解實體安全的動作，這屬於工具(tool)偵測攻擊(attack)的行為。",
     "source_id": "chunk_4",
     "source_file": "ch17_習題解答.pdf",
     "source_index": 2
@@ -36,62 +36,62 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "環境安全",
-      "type": "feature"
+      "name": "秘密參數歸零",
+      "type": "function"
     },
-    "reasoning": "文本提到硬體密碼模組的安全機制包含環境安全，屬於其設計特徵，因此選擇 tool -> has_a -> feature。",
+    "reasoning": "文本明確指出安全等級三的密碼模組必須擁有將秘密參數歸零的功能，因此將其定義為工具(tool)具有某項功能(function)。",
     "source_id": "chunk_4",
     "source_file": "ch17_習題解答.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "硬體密碼模組",
-      "type": "tool"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "操作安全",
+      "name": "實體安全機制",
       "type": "feature"
     },
-    "reasoning": "文本提到硬體密碼模組的安全機制包含操作安全，屬於其設計特徵，因此選擇 tool -> has_a -> feature。",
+    "relation": "can_detect",
+    "object": {
+      "name": "非授權的實體存取",
+      "type": "attack"
+    },
+    "reasoning": "文本提到實體安全是設置障礙以偵測非授權的實體存取，符合特徵(feature)偵測攻擊(attack)的 Schema。",
     "source_id": "chunk_4",
     "source_file": "ch17_習題解答.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "硬體密碼模組",
-      "type": "tool"
+      "name": "邏輯安全機制",
+      "type": "feature"
     },
-    "relation": "has_a",
+    "relation": "can_detect",
     "object": {
-      "name": "秘密參數歸零功能",
-      "type": "function"
+      "name": "非授權存取資料",
+      "type": "attack"
     },
-    "reasoning": "文本提到安全等級三的密碼模組必須擁有將秘密參數歸零的功能，這是一個具體的動作能力，因此選擇 tool -> has_a -> function。",
+    "reasoning": "文本提到邏輯安全是避免非授權存取資料的機制，在 Schema 中，防禦特徵對應攻擊的行為可使用 can_detect。",
     "source_id": "chunk_4",
     "source_file": "ch17_習題解答.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "實體安全",
-      "type": "feature"
+      "name": "操作錯誤",
+      "type": "vulnerability"
     },
-    "relation": "can_detect",
+    "relation": "can_expose",
     "object": {
-      "name": "實體攻擊",
-      "type": "attack"
+      "name": "重大損失",
+      "type": "risk"
     },
-    "reasoning": "文本提到實體安全機制是用於「保護資訊免於實體攻擊」並「偵測非授權的實體存取」，因此實體安全特徵可偵測實體攻擊，符合 feature -> can_detect -> attack。",
+    "reasoning": "文本提到系統不因操作錯誤而造成重大損失。操作錯誤可視為一種系統/人的弱點(vulnerability)，而重大損失則是其導致的風險(risk)。",
     "source_id": "chunk_4",
     "source_file": "ch17_習題解答.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "單一晶片模組",
+      "name": "部分晶片",
       "type": "tool"
     },
     "relation": "is_part_of",
@@ -99,10 +99,25 @@
       "name": "硬體密碼模組",
       "type": "tool"
     },
-    "reasoning": "文本將單一晶片模組列為硬體密碼模組的型式之一，屬於其子類別或組成部分，符合 tool -> is_part_of -> tool。",
+    "reasoning": "文本將部分晶片列為硬體密碼模組的型式之一，符合工具(tool)屬於工具(tool)的層級關係。",
     "source_id": "chunk_4",
     "source_file": "ch17_習題解答.pdf",
     "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "單一晶片",
+      "type": "tool"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "硬體密碼模組",
+      "type": "tool"
+    },
+    "reasoning": "文本將單一晶片列為硬體密碼模組的型式之一，符合工具(tool)屬於工具(tool)的層級關係。",
+    "source_id": "chunk_4",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 8
   },
   {
     "subject": {
@@ -114,37 +129,22 @@
       "name": "硬體密碼模組",
       "type": "tool"
     },
-    "reasoning": "文本將多晶片內嵌式模組列為硬體密碼模組的型式之一，符合 tool -> is_part_of -> tool。",
-    "source_id": "chunk_4",
-    "source_file": "ch17_習題解答.pdf",
-    "source_index": 8
-  },
-  {
-    "subject": {
-      "name": "硬體密碼模組",
-      "type": "tool"
-    },
-    "relation": "deployed_in",
-    "object": {
-      "name": "銀行",
-      "type": "system"
-    },
-    "reasoning": "文本提到安全等級四（嚴格防護的硬體密碼模組）適用的環境範圍如銀行，因此該工具部署於銀行系統中，符合 tool -> deployed_in -> system。",
+    "reasoning": "文本將多晶片內嵌式模組列為硬體密碼模組的型式之一，符合工具(tool)屬於工具(tool)的層級關係。",
     "source_id": "chunk_4",
     "source_file": "ch17_習題解答.pdf",
     "source_index": 9
   },
   {
     "subject": {
+      "name": "多晶片獨立模組",
+      "type": "tool"
+    },
+    "relation": "is_part_of",
+    "object": {
       "name": "硬體密碼模組",
       "type": "tool"
     },
-    "relation": "deployed_in",
-    "object": {
-      "name": "政府",
-      "type": "system"
-    },
-    "reasoning": "文本提到安全等級四的適用環境包含政府，因此該工具部署於政府系統中，符合 tool -> deployed_in -> system。",
+    "reasoning": "文本將多晶片獨立模組列為硬體密碼模組的型式之一，符合工具(tool)屬於工具(tool)的層級關係。",
     "source_id": "chunk_4",
     "source_file": "ch17_習題解答.pdf",
     "source_index": 10

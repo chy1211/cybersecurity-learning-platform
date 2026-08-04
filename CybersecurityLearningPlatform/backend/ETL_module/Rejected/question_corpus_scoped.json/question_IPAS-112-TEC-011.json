@@ -1,0 +1,242 @@
+[
+  {
+    "subject": {
+      "name": "ssl",
+      "type": "feature",
+      "display_name": "SSL"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "根據選項 B，SSL 是對網際網路通訊提供安全性的協定，將其視為一種工具並屬於網際網路系統之組成部分。",
+    "source_id": "question_IPAS-112-TEC-011",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SSL 是一種工具（tool），網際網路是一種系統（system），且 'is_part_of' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "SSL 是網際網路的一部分，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "SSL 是一種安全通訊協定，與 HTTPS、TLS 等概念相關，但在此處的 Ldr 中，SSL 的同義詞為 ssl/tls 加密，且與網際網路之間的關係是網際網路使用 SSL/TLS 進行安全通訊。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "SSL 與網際網路之間的關係是使用關係，而非同義詞或廣義/狹義從屬關係。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> is_part_of -> system (original: tool -> is_part_of -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSL",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "根據選項 B，SSL 是對網際網路通訊提供安全性的協定，將其視為一種工具並屬於網際網路系統之組成部分。",
+      "source_id": "question_IPAS-112-TEC-011",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "ssl",
+      "type": "feature",
+      "display_name": "SSL"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "驗證",
+      "type": "technique",
+      "display_name": "驗證"
+    },
+    "reasoning": "根據選項 B，SSL 提供驗證功能，符合 (tool, has_a, function) 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-011",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SSL 是一種工具（tool），驗證是一種功能（function），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "SSL 擁有驗證功能的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "SSL 是一種安全通訊協定，與驗證是不同的概念，但 SSL 可以用於驗證過程中。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "SSL 和 驗證 是不同的概念，雖然 SSL 可以用於驗證過程中，但它們不是同義詞。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> technique (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSL",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "驗證",
+        "type": "function"
+      },
+      "reasoning": "根據選項 B，SSL 提供驗證功能，符合 (tool, has_a, function) 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-011",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "ssl",
+      "type": "feature",
+      "display_name": "SSL"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "加密"
+    },
+    "reasoning": "根據選項 B，SSL 提供隱私（通常透過加密實現），將其對應至加密功能，符合 (tool, has_a, function) 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-011",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SSL 是一種工具（tool），加密是其功能（function），因此語意對齊。",
+        "response": "correct",
+        "reason": "SSL 擁有加密功能的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 SSL 與 Ldr 中的 ssl/tls 加密、加密連線、加密 均有關聯，但受體 加密 與 Ldr 中的 加密連線、加密 均有關聯，且主體 SSL 與受體 加密 均有對應的同義詞重複",
+        "response": "duplicate",
+        "standard_subject": "ssl",
+        "standard_object": "加密",
+        "reason": "主體 SSL 與受體 加密 均有對應的同義詞重複，且與 Ldr 中的資源有關聯"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> feature (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSL",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密",
+        "type": "function"
+      },
+      "reasoning": "根據選項 B，SSL 提供隱私（通常透過加密實現），將其對應至加密功能，符合 (tool, has_a, function) 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-011",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "tls",
+      "type": "feature",
+      "display_name": "TLS"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "根據選項 D，TLS 是標準網際網路通訊協定，將其視為一種工具並屬於網際網路系統。",
+    "source_id": "question_IPAS-112-TEC-011",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "TLS 是一種工具（tool），網際網路是一種系統（system），且 'is_part_of' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (TLS) 與 Ldr 中的資源 (tls) 完全等價同義詞；受體 (網際網路) 與 Ldr 中的資源 (網際網路) 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為正確且唯一的資安概念，無需合併或替換。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> is_part_of -> system (original: tool -> is_part_of -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "TLS",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "根據選項 D，TLS 是標準網際網路通訊協定，將其視為一種工具並屬於網際網路系統。",
+      "source_id": "question_IPAS-112-TEC-011",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "tls",
+      "type": "feature",
+      "display_name": "TLS"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料外洩",
+      "type": "risk",
+      "display_name": "資料外洩"
+    },
+    "reasoning": "根據選項 D，TLS 確保郵件在傳輸過程中安全不外洩，即緩解了資料外洩的風險。",
+    "source_id": "question_IPAS-112-TEC-011",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "TLS 是一種工具（tool），能夠減輕（mitigates）資料外洩的風險（risk），因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "TLS、'mitigates' 與資料外洩的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (TLS) 與 Ldr 中的資源 (tls) 完全等價同義詞；受體 (資料外洩) 與 Ldr 中的資源 (資料外洩) 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "tls",
+        "standard_object": "資料外洩",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> mitigates -> risk (original: tool -> mitigates -> risk)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "TLS",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料外洩",
+        "type": "risk"
+      },
+      "reasoning": "根據選項 D，TLS 確保郵件在傳輸過程中安全不外洩，即緩解了資料外洩的風險。",
+      "source_id": "question_IPAS-112-TEC-011",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 7
+    }
+  }
+]

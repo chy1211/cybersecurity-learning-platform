@@ -1,15 +1,15 @@
 [
   {
     "subject": {
-      "name": "營運持續管理",
-      "type": "system"
+      "name": "資安人員",
+      "type": "securityTeam"
     },
-    "relation": "has_a",
+    "relation": "implements",
     "object": {
-      "name": "風險管理",
-      "type": "system"
+      "name": "營運持續管理作業要點",
+      "type": "policy"
     },
-    "reasoning": "文本提到營運持續管理包含風險管理。將營運持續管理視為一個管理體系 (system)，其包含的風險管理亦視為其子系統 (system)，符合 ('system', 'has_a', 'system') 的 Schema。",
+    "reasoning": "文本提到『依據營運持續管理作業要點實施』，實施的主體雖然未明寫，但在資安情境下是由安全團隊或資安人員執行，而『作業要點』屬於規範與策略 (policy)。",
     "source_id": "chunk_2",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 1
@@ -17,14 +17,14 @@
   {
     "subject": {
       "name": "營運持續管理",
-      "type": "system"
+      "type": "tool"
     },
     "relation": "has_a",
     "object": {
-      "name": "災害管理",
-      "type": "system"
+      "name": "風險管理",
+      "type": "function"
     },
-    "reasoning": "文本提到營運持續管理包含災害管理。將其定義為系統與子系統的包含關係，符合 ('system', 'has_a', 'system')。",
+    "reasoning": "文本明確指出營運持續管理『包含』風險管理。將營運持續管理視為一種管理框架(tool)，而風險管理是其執行的能力/動作(function)，符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_2",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 2
@@ -32,14 +32,14 @@
   {
     "subject": {
       "name": "營運持續管理",
-      "type": "system"
+      "type": "tool"
     },
     "relation": "has_a",
     "object": {
-      "name": "緊急事件管理",
-      "type": "system"
+      "name": "災害管理",
+      "type": "function"
     },
-    "reasoning": "文本提到營運持續管理包含緊急事件管理。將其定義為系統與子系統的包含關係，符合 ('system', 'has_a', 'system')。",
+    "reasoning": "文本指出營運持續管理包含災害管理，符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_2",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 3
@@ -47,29 +47,29 @@
   {
     "subject": {
       "name": "營運持續管理",
-      "type": "system"
+      "type": "tool"
     },
     "relation": "has_a",
     "object": {
-      "name": "營運持續計畫",
-      "type": "tool"
+      "name": "設備管理",
+      "type": "function"
     },
-    "reasoning": "營運持續管理體系透過建構『營運持續計畫 (BCP)』來實作。將 BCP 視為達成管理目標的工具 (tool)，符合 ('system', 'has_a', 'tool')。",
+    "reasoning": "文本指出營運持續管理包含設備管理，符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_2",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "營運持續計畫",
+      "name": "營運持續管理",
       "type": "tool"
     },
     "relation": "has_a",
     "object": {
-      "name": "營運衝擊分析",
+      "name": "緊急事件管理",
       "type": "function"
     },
-    "reasoning": "文本指出營運持續計畫的步驟包含營運衝擊分析。計畫 (tool) 包含其執行的分析功能 (function)，符合 ('tool', 'has_a', 'function')。",
+    "reasoning": "文本指出營運持續管理包含緊急事件管理，符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_2",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 5
@@ -79,12 +79,12 @@
       "name": "營運持續計畫",
       "type": "tool"
     },
-    "relation": "has_a",
+    "relation": "uses",
     "object": {
-      "name": "回復策略",
-      "type": "function"
+      "name": "營運衝擊分析",
+      "type": "technique"
     },
-    "reasoning": "文本指出營運持續計畫的步驟包含回復策略。計畫 (tool) 包含其定義的策略功能 (function)，符合 ('tool', 'has_a', 'function')。",
+    "reasoning": "營運衝擊分析 (BIA) 是建構營運持續計畫的步驟/方法，將計畫視為工具 (tool)，分析過程視為技術 (technique)，符合 ('tool', 'uses', 'technique')。",
     "source_id": "chunk_2",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 6
@@ -94,12 +94,12 @@
       "name": "營運持續計畫",
       "type": "tool"
     },
-    "relation": "has_a",
+    "relation": "uses",
     "object": {
-      "name": "計畫維護與訓練",
-      "type": "function"
+      "name": "回復策略",
+      "type": "technique"
     },
-    "reasoning": "文本指出營運持續計畫的步驟包含計畫維護與訓練。計畫 (tool) 包含其維護功能 (function)，符合 ('tool', 'has_a', 'function')。",
+    "reasoning": "回復策略是建構營運持續計畫的關鍵步驟/方法，符合 ('tool', 'uses', 'technique')。",
     "source_id": "chunk_2",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 7
@@ -114,7 +114,7 @@
       "name": "災害復原計畫",
       "type": "tool"
     },
-    "reasoning": "文本提到營運持續計畫 (BCP) 是統合性計畫，與災害復原計畫 (DRP) 有關聯。將兩者皆視為管理工具 (tool)，符合 ('tool', 'has_a', 'tool')。",
+    "reasoning": "文本提到營運持續計畫 (BCP) 是統合性計畫，與災害復原計畫 (DRP) 有關聯。將 BCP 視為大工具，DRP 視為其包含的子計畫工具，符合 ('tool', 'has_a', 'tool')。",
     "source_id": "chunk_2",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 8
@@ -129,9 +129,24 @@
       "name": "網域事件回應計畫",
       "type": "tool"
     },
-    "reasoning": "文本提到營運持續計畫 (BCP) 與網域事件回應計畫 (CIRP) 有關聯。將兩者皆視為管理工具 (tool)，符合 ('tool', 'has_a', 'tool')。",
+    "reasoning": "文本提到 BCP 與網域事件回應計畫 (CIRP) 有關聯，符合 ('tool', 'has_a', 'tool')。",
     "source_id": "chunk_2",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "營運持續計畫",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "營運恢復計畫",
+      "type": "tool"
+    },
+    "reasoning": "文本提到 BCP 與營運恢復計畫 (BRP) 有關聯，符合 ('tool', 'has_a', 'tool')。",
+    "source_id": "chunk_2",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 10
   }
 ]

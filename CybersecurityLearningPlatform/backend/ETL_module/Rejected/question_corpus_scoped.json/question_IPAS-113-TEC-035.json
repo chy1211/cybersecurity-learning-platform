@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "base64",
+      "type": "feature",
+      "display_name": "Base64"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "非明文字串",
+      "type": "data",
+      "display_name": "非明文字串"
+    },
+    "reasoning": "根據題幹與正確答案，該『非明文字串』是使用 Base64 編碼方式產生的。在本體論中，Base64 編碼器可視為一種執行特定功能的工具 (tool)，而其運作產出的結果為編碼後的資料 (data)，因此符合 ('tool', 'generates', 'data') 的合法邊界。",
+    "source_id": "question_IPAS-113-TEC-035",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Base64 是一種編碼工具，能夠生成非明文字串，因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "base64",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> generates -> data (original: tool -> generates -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "Base64",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "非明文字串",
+        "type": "data"
+      },
+      "reasoning": "根據題幹與正確答案，該『非明文字串』是使用 Base64 編碼方式產生的。在本體論中，Base64 編碼器可視為一種執行特定功能的工具 (tool)，而其運作產出的結果為編碼後的資料 (data)，因此符合 ('tool', 'generates', 'data') 的合法邊界。",
+      "source_id": "question_IPAS-113-TEC-035",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

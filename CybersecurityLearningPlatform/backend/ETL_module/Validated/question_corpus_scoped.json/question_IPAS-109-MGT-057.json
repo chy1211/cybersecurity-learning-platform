@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "個人",
+      "type": "user",
+      "display_name": "個人"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "自有資訊",
+      "type": "data",
+      "display_name": "自有資訊"
+    },
+    "reasoning": "文本提到個人保護『自有資訊』，這建立了使用者（user）與其所擁有的資訊資料（data）之間的關聯，符合 Schema 中的 ('user', 'uses', 'data')。",
+    "source_id": "question_IPAS-109-MGT-057",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '個人' 是 'user' 的合理實例，受體名稱 '自有資訊' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "自有資訊",
+        "type": "data"
+      },
+      "reasoning": "文本提到個人保護『自有資訊』，這建立了使用者（user）與其所擁有的資訊資料（data）之間的關聯，符合 Schema 中的 ('user', 'uses', 'data')。",
+      "source_id": "question_IPAS-109-MGT-057",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

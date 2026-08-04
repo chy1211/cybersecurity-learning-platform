@@ -1,0 +1,146 @@
+[
+  {
+    "subject": {
+      "name": "資訊安全管理系統 (isms)",
+      "type": "system",
+      "display_name": "資訊安全管理系統 (ISMS)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "題幹明確指出 ISMS 是用來『降低其損失的風險』，因此 ISMS (作為管理規範/策略 policy) 與風險 (risk) 之間存在 mitigates 關係。",
+    "source_id": "question_IPAS-110-MGT-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊安全管理系統 (ISMS) 是一種合理的 'policy' 實例，風險是 'risk' 的合理實例，'mitigates' 是描述 'policy' 與 'risk' 間關係的合理屬性。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源「資訊安全管理系統 (isms)」完全等價同義詞；受體與 Ldr 中的資源「風險」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體在 Ldr 中找到完全等價同義詞，但根據判斷準則 3，若一個實體是另一個的子類型或具體概念 vs 泛稱，判定為 correct，禁止合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> mitigates -> risk (original: policy -> mitigates -> risk)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全管理系統 (ISMS)",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "題幹明確指出 ISMS 是用來『降低其損失的風險』，因此 ISMS (作為管理規範/策略 policy) 與風險 (risk) 之間存在 mitigates 關係。",
+      "source_id": "question_IPAS-110-MGT-002",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊安全管理系統 (isms)",
+      "type": "system",
+      "display_name": "資訊安全管理系統 (ISMS)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊安全事件",
+      "type": "attack",
+      "display_name": "資訊安全事件"
+    },
+    "reasoning": "題幹指出 ISMS 是用來『預防資訊安全事件』，資訊安全事件在此脈絡下視為 attack，因此選擇 policy mitigates attack。",
+    "source_id": "question_IPAS-110-MGT-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊安全管理系統 (ISMS) 是一種 'policy'，資訊安全事件 是一種 'attack'，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「資訊安全管理系統 (isms)」完全等價同義詞；受體與 Ldr 中的「資訊安全事件」完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "資訊安全管理系統 (isms)",
+        "standard_object": "資訊安全事件",
+        "reason": "主體與 Ldr 中的「資訊安全管理系統 (isms)」完全等價同義詞；受體與 Ldr 中的「資訊安全事件」完全等價同義詞。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> mitigates -> attack (original: policy -> mitigates -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全管理系統 (ISMS)",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊安全事件",
+        "type": "attack"
+      },
+      "reasoning": "題幹指出 ISMS 是用來『預防資訊安全事件』，資訊安全事件在此脈絡下視為 attack，因此選擇 policy mitigates attack。",
+      "source_id": "question_IPAS-110-MGT-002",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "管理階層",
+      "type": "securityTeam",
+      "display_name": "管理階層"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資訊安全管理系統 (isms)",
+      "type": "system",
+      "display_name": "資訊安全管理系統 (ISMS)"
+    },
+    "reasoning": "選項 A (正確知識) 提到 ISMS 需要管理階層的承諾與支持，這意味著管理階層 (作為安全管理角色 securityTeam) 負責執行/實作 (implements) 該管理系統 (policy)。",
+    "source_id": "question_IPAS-110-MGT-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '管理階層' 合理對齊其類別 'securityTeam'，受體名稱 '資訊安全管理系統 (ISMS)' 合理對齊其類別 'policy'，考慮到資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): securityTeam -> implements -> system (original: securityTeam -> implements -> policy)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理階層",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資訊安全管理系統 (ISMS)",
+        "type": "policy"
+      },
+      "reasoning": "選項 A (正確知識) 提到 ISMS 需要管理階層的承諾與支持，這意味著管理階層 (作為安全管理角色 securityTeam) 負責執行/實作 (implements) 該管理系統 (policy)。",
+      "source_id": "question_IPAS-110-MGT-002",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

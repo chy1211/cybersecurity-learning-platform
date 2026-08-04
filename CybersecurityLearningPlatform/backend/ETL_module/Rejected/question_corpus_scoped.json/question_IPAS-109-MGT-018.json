@@ -1,0 +1,180 @@
+[
+  {
+    "subject": {
+      "name": "資訊安全風險評鑑過程",
+      "type": "technique",
+      "display_name": "資訊安全風險評鑑過程"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "正確答案指出風險評鑑過程是用於『識別』風險。在本體論中，識別潛在威脅的流程屬於技術(technique)，而識別動作對應至 can_detect，受體『風險』映射為 attack 以符合 ('technique', 'can_detect', 'attack') 的合法邊界。",
+    "source_id": "question_IPAS-109-MGT-018",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '資訊安全風險評鑑過程' 是 'technique' 的合理實例；關係 'can_detect' 合理地連接主體與受體；受體 '風險' 是 'attack' 的合理實例（同義詞寬容原則下，'風險' 可視為 'attack' 的同義詞）。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「風險監控過程」具有相似性，但不完全等價；受體與 Ldr 中的「風險」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源不完全等價同義詞，受體雖然與 Ldr 中的「風險」完全等價，但根據規則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> can_detect -> risk (original: technique -> can_detect -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全風險評鑑過程",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "風險",
+        "type": "attack"
+      },
+      "reasoning": "正確答案指出風險評鑑過程是用於『識別』風險。在本體論中，識別潛在威脅的流程屬於技術(technique)，而識別動作對應至 can_detect，受體『風險』映射為 attack 以符合 ('technique', 'can_detect', 'attack') 的合法邊界。",
+      "source_id": "question_IPAS-109-MGT-018",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "風險",
+      "type": "attack",
+      "display_name": "風險"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "文本提到風險與完整性相關聯。為了符合 Schema 邊界 ('attack', 'violates', 'principle')，將『風險』映射為 attack，並將『完整性』定義為 principle。",
+    "source_id": "question_IPAS-109-MGT-018",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '風險' 的類別 'attack' 合理對齊，但 '風險' 較常被歸類為 'risk'，而非 'attack'。受體 '完整性' 的類別 'principle' 合理對齊。",
+        "response": "violation",
+        "reason": "主體 '風險' 的類別 'attack' 未完全合理對齊，建議修正為 'risk'。"
+      }
+    },
+    "reject_reason": "Step 1 (Class/Property Violation): 主體 '風險' 的類別 'attack' 未完全合理對齊，建議修正為 'risk'。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "文本提到風險與完整性相關聯。為了符合 Schema 邊界 ('attack', 'violates', 'principle')，將『風險』映射為 attack，並將『完整性』定義為 principle。",
+      "source_id": "question_IPAS-109-MGT-018",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "風險",
+      "type": "attack",
+      "display_name": "風險"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "機密性",
+      "type": "principle",
+      "display_name": "機密性"
+    },
+    "reasoning": "文本提到風險與機密性相關聯。在資安本體論中，只有 attack 類型可以違反(violates)資安原則(principle)，因此將『風險』映射為 attack 以建立與『機密性』的合法關聯。",
+    "source_id": "question_IPAS-109-MGT-018",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '風險' 的類別 'attack' 合理對齊，但 '風險' 較常被歸類為 'risk'，而非 'attack'。受體 '機密性' 的類別 'principle' 合理對齊。",
+        "response": "violation",
+        "reason": "主體 '風險' 的類別 'attack' 不完全合理對齊，建議修正為 'risk'。"
+      }
+    },
+    "reject_reason": "Step 1 (Class/Property Violation): 主體 '風險' 的類別 'attack' 不完全合理對齊，建議修正為 'risk'。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "機密性",
+        "type": "principle"
+      },
+      "reasoning": "文本提到風險與機密性相關聯。在資安本體論中，只有 attack 類型可以違反(violates)資安原則(principle)，因此將『風險』映射為 attack 以建立與『機密性』的合法關聯。",
+      "source_id": "question_IPAS-109-MGT-018",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "文本提到風險與可用性相關聯。為了符合 Schema 邊界 ('attack', 'violates', 'principle')，將『風險』映射為 attack，並將『可用性』定義為 principle。",
+    "source_id": "question_IPAS-109-MGT-018",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '風險' 的類別 'attack' 合理對齊，風險通常是攻擊的結果；受體 '可用性' 的類別 'principle' 合理對齊，安全原則通常包含可用性。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): risk -> violates -> principle (original: attack -> violates -> principle)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "文本提到風險與可用性相關聯。為了符合 Schema 邊界 ('attack', 'violates', 'principle')，將『風險』映射為 attack，並將『可用性』定義為 principle。",
+      "source_id": "question_IPAS-109-MGT-018",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  }
+]

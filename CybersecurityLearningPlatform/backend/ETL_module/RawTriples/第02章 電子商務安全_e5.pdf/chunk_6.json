@@ -1,63 +1,18 @@
 [
   {
     "subject": {
-      "name": "假冒商家",
-      "type": "attacker"
+      "name": "客戶端",
+      "type": "system"
     },
-    "relation": "can_harm",
+    "relation": "connects_to",
     "object": {
-      "name": "買方資料",
-      "type": "data"
+      "name": "伺服器",
+      "type": "system"
     },
-    "reasoning": "文本提到假冒商家會騙取買方的資料，這屬於攻擊者對資料造成損害或非法獲取，符合 ('attacker', 'can_harm', 'data')。",
+    "reasoning": "文本提到 SSL/TLS 在『客戶端與伺服器之間建立安全的連線』，因此定義為兩個系統之間的連接。",
     "source_id": "chunk_6",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "駭客",
-      "type": "attacker"
-    },
-    "relation": "can_harm",
-    "object": {
-      "name": "客戶資料庫",
-      "type": "data"
-    },
-    "reasoning": "文本明確指出客戶資料庫遭到駭客盜取，符合 ('attacker', 'can_harm', 'data')。",
-    "source_id": "chunk_6",
-    "source_file": "第02章 電子商務安全_e5.pdf",
-    "source_index": 2
-  },
-  {
-    "subject": {
-      "name": "電子商務系統",
-      "type": "system"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "系統漏洞",
-      "type": "vulnerability"
-    },
-    "reasoning": "文本提到系統設計有瑕疵或漏洞，表示系統本身可能暴露漏洞，符合 ('system', 'can_expose', 'vulnerability')。",
-    "source_id": "chunk_6",
-    "source_file": "第02章 電子商務安全_e5.pdf",
-    "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "假冒買方",
-      "type": "attacker"
-    },
-    "relation": "can_harm",
-    "object": {
-      "name": "電子商務系統",
-      "type": "system"
-    },
-    "reasoning": "文本提到假冒買方會擾亂電子商務之交易，這是一種對系統運作的干擾與危害，符合 ('attacker', 'can_harm', 'system')。",
-    "source_id": "chunk_6",
-    "source_file": "第02章 電子商務安全_e5.pdf",
-    "source_index": 4
   },
   {
     "subject": {
@@ -69,10 +24,10 @@
       "name": "加密",
       "type": "function"
     },
-    "reasoning": "文本提到 SSL/TLS 使資料傳輸受到加密的保護，加密是其核心功能，符合 ('tool', 'has_a', 'function')。",
+    "reasoning": "文本指出 SSL/TLS 使『資料傳輸受到加密的保護』，將 SSL/TLS 視為安全工具，其具備加密功能。",
     "source_id": "chunk_6",
     "source_file": "第02章 電子商務安全_e5.pdf",
-    "source_index": 5
+    "source_index": 2
   },
   {
     "subject": {
@@ -84,39 +39,114 @@
       "name": "資料竊取",
       "type": "attack"
     },
-    "reasoning": "文本指出 SSL/TLS 是為了防止信用卡號碼與客戶資料在網路傳輸時遭到竊取，符合 ('tool', 'mitigates', 'attack')。",
+    "reasoning": "文本提到使用 SSL/TLS 是為了『以防買方輸入的信用卡號碼與客戶資料在網路傳輸時遭到竊取』，因此該工具可緩解資料竊取攻擊。",
+    "source_id": "chunk_6",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "瀏覽器",
+      "type": "app"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "SSL/TLS",
+      "type": "feature"
+    },
+    "reasoning": "文本描述瀏覽器會根據 SSL/TLS 檢查結果顯示綠色或紅色標示，顯示 SSL/TLS 支援是瀏覽器的一項特徵。",
+    "source_id": "chunk_6",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "假冒商家",
+      "type": "attacker"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "買方資料",
+      "type": "data"
+    },
+    "reasoning": "文本提到假冒商家會『騙取買方的資料與金錢』，這屬於攻擊者對資料的危害。",
+    "source_id": "chunk_6",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "客戶資料庫",
+      "type": "data"
+    },
+    "reasoning": "文本明確提到『客戶資料庫遭到駭客盜取』，符合攻擊者危害資料的定義。",
     "source_id": "chunk_6",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "網頁瀏覽器",
-      "type": "app"
+      "name": "電子商務系統",
+      "type": "system"
     },
-    "relation": "has_a",
+    "relation": "can_expose",
     "object": {
-      "name": "SSL/TLS",
-      "type": "tool"
+      "name": "系統漏洞",
+      "type": "vulnerability"
     },
-    "reasoning": "文本描述瀏覽器會根據 SSL/TLS 檢查結果顯示綠色或紅色標示，表示瀏覽器整合了此安全工具，符合 ('app', 'has_a', 'tool')。",
+    "reasoning": "文本提到賣方面臨的威脅包括『系統設計有瑕疵或漏洞』，表示系統可能暴露漏洞。",
     "source_id": "chunk_6",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 7
   },
   {
     "subject": {
-      "name": "攻擊者",
+      "name": "駭客",
       "type": "attacker"
     },
-    "relation": "implements",
+    "relation": "can_exploit",
     "object": {
-      "name": "詐騙",
-      "type": "attack"
+      "name": "系統漏洞",
+      "type": "vulnerability"
     },
-    "reasoning": "文本提到利用竊取的資料對買方進行詐騙，詐騙在此為具體的攻擊行為，符合 ('attacker', 'implements', 'attack')。",
+    "reasoning": "雖然文本未直接寫出『利用』二字，但將『系統漏洞』與『駭客盜取資料』並列在威脅中，邏輯上駭客會利用漏洞來達成目的。",
     "source_id": "chunk_6",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "系統漏洞",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk"
+    },
+    "reasoning": "文本將系統瑕疵/漏洞與資料被盜取並列，漏洞的存在會導致個資外洩的風險。",
+    "source_id": "chunk_6",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "假冒買方",
+      "type": "attacker"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "電子商務系統",
+      "type": "system"
+    },
+    "reasoning": "文本提到假冒買方會『擾亂電子商務之交易』，這對整個交易系統的運作造成危害。",
+    "source_id": "chunk_6",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 10
   }
 ]

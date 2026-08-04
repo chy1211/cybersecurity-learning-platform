@@ -1,48 +1,290 @@
 [
   {
     "subject": {
+      "name": "公開金鑰基礎建設",
+      "type": "system",
+      "display_name": "公開金鑰基礎建設"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "reasoning": "文本指出電子簽章的普遍應用需要『公開金鑰基礎建設 (PKI)』，PKI 作為一個基礎設施系統 (system)，包含或提供了數位簽章 (tool) 的運作機制。",
+    "source_id": "chunk_5",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '公開金鑰基礎建設' 合理對齊其類別 'system'，受體名稱 '數位簽章' 合理對齊其類別 'tool'，且考慮到資安領域常見的同義詞、縮寫與翻譯後仍然合理。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且實體名稱與其類別合理對齊，故此三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> has_a -> data (original: system -> has_a -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "公開金鑰基礎建設",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "數位簽章",
+        "type": "tool"
+      },
+      "reasoning": "文本指出電子簽章的普遍應用需要『公開金鑰基礎建設 (PKI)』，PKI 作為一個基礎設施系統 (system)，包含或提供了數位簽章 (tool) 的運作機制。",
+      "source_id": "chunk_5",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "雜湊函數",
+      "type": "tool",
+      "display_name": "雜湊函數"
+    },
+    "reasoning": "數位簽章的流程中明確包含使用『雜湊函數』來計算訊息摘要，因此數位簽章這個工具 (tool) 包含/使用了雜湊函數這個工具 (tool)。",
+    "source_id": "chunk_5",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "數位簽章是工具的合理實例，雜湊函數也是工具的合理實例。",
+        "response": "correct",
+        "reason": "數位簽章與雜湊函數之間的 'has_a' 關係是合理的，且符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然數位簽章與雜湊函數相關，但無法確認完全等價同義詞關係，故判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): data -> has_a -> tool (original: tool -> has_a -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位簽章",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "雜湊函數",
+        "type": "tool"
+      },
+      "reasoning": "數位簽章的流程中明確包含使用『雜湊函數』來計算訊息摘要，因此數位簽章這個工具 (tool) 包含/使用了雜湊函數這個工具 (tool)。",
+      "source_id": "chunk_5",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "公開金鑰簽章演算法",
+      "type": "technique",
+      "display_name": "公開金鑰簽章演算法"
+    },
+    "reasoning": "數位簽章的簽章與驗章流程均依賴『公開金鑰簽章演算法』進行加密與解密運算，因此該演算法是數位簽章工具 (tool) 的組成部分。",
+    "source_id": "chunk_5",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "數位簽章為工具 (tool) 的合理實例，公開金鑰簽章演算法也為工具 (tool) 的合理實例。",
+        "response": "correct",
+        "reason": "數位簽章與公開金鑰簽章演算法之間的 'has_a' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): data -> has_a -> technique (original: tool -> has_a -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位簽章",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "公開金鑰簽章演算法",
+        "type": "tool"
+      },
+      "reasoning": "數位簽章的簽章與驗章流程均依賴『公開金鑰簽章演算法』進行加密與解密運算，因此該演算法是數位簽章工具 (tool) 的組成部分。",
+      "source_id": "chunk_5",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "電子文件",
+      "type": "data",
+      "display_name": "電子文件"
+    },
+    "reasoning": "在驗章流程中，數位簽章機制需要對『原始文件』進行雜湊計算以比對摘要，這屬於工具 (tool) 分析資料 (data) 的行為。",
+    "source_id": "chunk_5",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "數位簽章是工具的合理實例，電子文件是數據的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「數位簽章」完全等價同義詞；受體與 Ldr 中的「檔案」具有廣義/狹義從屬關係，但無法確認是否完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「數位簽章」完全等價同義詞，但受體與 Ldr 中的「檔案」關係不明確，因此預設保留原名。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): data -> can_analyze -> data (original: tool -> can_analyze -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位簽章",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "電子文件",
+        "type": "data"
+      },
+      "reasoning": "在驗章流程中，數位簽章機制需要對『原始文件』進行雜湊計算以比對摘要，這屬於工具 (tool) 分析資料 (data) 的行為。",
+      "source_id": "chunk_5",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "訊息摘要",
+      "type": "data",
+      "display_name": "訊息摘要"
+    },
+    "reasoning": "驗章流程的最後一步是將兩個『訊息摘要』進行比對，這屬於工具 (tool) 分析/比對資料 (data) 的行為。",
+    "source_id": "chunk_5",
+    "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "數位簽章是工具的合理實例，訊息摘要是資料的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): data -> can_analyze -> data (original: tool -> can_analyze -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "數位簽章",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "訊息摘要",
+        "type": "data"
+      },
+      "reasoning": "驗章流程的最後一步是將兩個『訊息摘要』進行比對，這屬於工具 (tool) 分析/比對資料 (data) 的行為。",
+      "source_id": "chunk_5",
+      "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
       "name": "數位簽章",
       "type": "data",
       "display_name": "數位簽章"
     },
     "relation": "mitigates",
     "object": {
-      "name": "篡改",
+      "name": "文件修改",
       "type": "attack",
-      "display_name": "篡改"
+      "display_name": "文件修改"
     },
-    "reasoning": "文本提到驗章成功表示『文件沒有被修改過』，這意味著數位簽章技術可用於緩解/防禦對文件的篡改攻擊。",
+    "reasoning": "文本提到驗章成功表示『文件沒有被修改過』，這說明數位簽章工具 (tool) 能有效防禦/緩解 (mitigates) 針對文件完整性的篡改攻擊 (attack)。",
     "source_id": "chunk_5",
     "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
-    "source_index": 4,
+    "source_index": 8,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "數位簽章是 technique 的合理實例，篡改是 attack 的合理實例，且 'mitigates' 是合理的關係描述。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '數位簽章' 是 'tool' 的合理實例，受體 '文件修改' 是 'attack' 的合理實例。",
         "response": "correct",
-        "reason": "數位簽章（technique）與篡改（attack）之間的 'mitigates' 關係完全符合預先定義的類別與屬性清單。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
-      "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。待檢查三元組的主體是數位簽章（類別：data），不符合規則2的要求，觸發違規檢查。",
-        "response": "violation",
-        "reason": "數位簽章（類別：data）執行 mitigates 動作，違反規則2的限制。"
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源名稱完全相同，直接判定 correct。"
       }
     },
-    "reject_reason": "Step 3 (Semantic Violation): 數位簽章（類別：data）執行 mitigates 動作，違反規則2的限制。",
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): data -> mitigates -> attack (original: tool -> mitigates -> attack)",
     "original_raw_triple": {
       "subject": {
         "name": "數位簽章",
-        "type": "technique"
+        "type": "tool"
       },
       "relation": "mitigates",
       "object": {
-        "name": "篡改",
+        "name": "文件修改",
         "type": "attack"
       },
-      "reasoning": "文本提到驗章成功表示『文件沒有被修改過』，這意味著數位簽章技術可用於緩解/防禦對文件的篡改攻擊。",
+      "reasoning": "文本提到驗章成功表示『文件沒有被修改過』，這說明數位簽章工具 (tool) 能有效防禦/緩解 (mitigates) 針對文件完整性的篡改攻擊 (attack)。",
       "source_id": "chunk_5",
       "source_file": "第04章 資訊安全法律與倫理_e5.pdf",
-      "source_index": 4
+      "source_index": 8
     }
   }
 ]

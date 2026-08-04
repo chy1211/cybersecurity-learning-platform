@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "應用層",
+      "type": "feature",
+      "display_name": "應用層"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "smtp",
+      "type": "feature",
+      "display_name": "SMTP"
+    },
+    "reasoning": "題幹指出 SMTP 是『應用層的通訊協定』。根據實體定義，協定屬於 feature，而為了符合 Schema Edge ('system', 'has_a', 'feature')，將應用層（架構分層）視為 system，以此建立包含關係。",
+    "source_id": "question_IPAS-108-TEC-004",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '應用層' 的類別 'system' 合理對齊，受體 'SMTP' 的類別 'feature' 合理對齊，因為 SMTP 是一種電子郵件傳輸協議，可以被視為系統的一個功能特徵。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域已知概念，但無法確認為同義詞或子類型關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> feature (original: system -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用層",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "SMTP",
+        "type": "feature"
+      },
+      "reasoning": "題幹指出 SMTP 是『應用層的通訊協定』。根據實體定義，協定屬於 feature，而為了符合 Schema Edge ('system', 'has_a', 'feature')，將應用層（架構分層）視為 system，以此建立包含關係。",
+      "source_id": "question_IPAS-108-TEC-004",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

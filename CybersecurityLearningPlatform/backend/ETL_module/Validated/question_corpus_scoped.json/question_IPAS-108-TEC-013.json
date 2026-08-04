@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "雜湊",
+      "type": "function",
+      "display_name": "雜湊"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "信件",
+      "type": "data",
+      "display_name": "信件"
+    },
+    "reasoning": "文本提到信件以雜湊演算，雜湊是一種對資料進行分析以產生摘要的功能，因此選擇 function 與 data，關係為 can_analyze。",
+    "source_id": "question_IPAS-108-TEC-013",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雜湊是 function 的合理實例，信件是 data 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "雜湊 (類別: function) 不是漏洞 (vulnerability)，因此不受規則3的限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雜湊",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "信件",
+        "type": "data"
+      },
+      "reasoning": "文本提到信件以雜湊演算，雜湊是一種對資料進行分析以產生摘要的功能，因此選擇 function 與 data，關係為 can_analyze。",
+      "source_id": "question_IPAS-108-TEC-013",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "雜湊",
+      "type": "function",
+      "display_name": "雜湊"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "內容簒改",
+      "type": "attack",
+      "display_name": "內容簒改"
+    },
+    "reasoning": "文本指出雜湊是用來確認內容未遭簒改，內容簒改是一種攻擊行為，雜湊功能可用於偵測此類攻擊，符合 (function, can_detect, attack) 的 Schema。",
+    "source_id": "question_IPAS-108-TEC-013",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'attack' 與關係 'can_detect' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雜湊 (Hash) 是一種常見的 'function'，內容簒改 (Content Spoofing) 是一種常見的 'attack'，而 'can_detect' 的語意與這兩個實體的關係是合理的。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體雜湊與Ldr中雜湊完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與Ldr中某資源的name字串完全相同，直接判定correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雜湊",
+        "type": "function"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "內容簒改",
+        "type": "attack"
+      },
+      "reasoning": "文本指出雜湊是用來確認內容未遭簒改，內容簒改是一種攻擊行為，雜湊功能可用於偵測此類攻擊，符合 (function, can_detect, attack) 的 Schema。",
+      "source_id": "question_IPAS-108-TEC-013",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

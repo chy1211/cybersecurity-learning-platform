@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "vpn",
+      "type": "app",
+      "display_name": "VPN"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "機密資料外洩",
+      "type": "risk",
+      "display_name": "機密資料外洩"
+    },
+    "reasoning": "選項 A、C、D 均將 VPN 作為連線公司資源的必要安全措施，旨在確保傳輸安全並降低外洩風險。符合 ('tool', 'mitigates', 'risk') 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-047",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "VPN 是一種工具（tool），機密資料外洩是一種風險（risk），且 'mitigates' 的語意與工具降低風險的意義相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「機密資料外洩」完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "機密資料外洩",
+        "reason": "受體與 Ldr 中的「機密資料外洩」完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): app -> mitigates -> risk (original: tool -> mitigates -> risk)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "VPN",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "機密資料外洩",
+        "type": "risk"
+      },
+      "reasoning": "選項 A、C、D 均將 VPN 作為連線公司資源的必要安全措施，旨在確保傳輸安全並降低外洩風險。符合 ('tool', 'mitigates', 'risk') 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-047",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  }
+]

@@ -9,7 +9,7 @@
       "name": "機密資料",
       "type": "data"
     },
-    "reasoning": "文本提到『公開金鑰對某些機密資料做加密』，公開金鑰作為加密系統的特徵(feature)，被用於處理機密資料(data)。符合 Schema: (feature, uses, data)。",
+    "reasoning": "文本提到公開金鑰對機密資料做加密，在 Schema 中，feature (特徵) 可以 uses data (資料)。",
     "source_id": "chunk_17",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 1
@@ -24,69 +24,99 @@
       "name": "機密資料",
       "type": "data"
     },
-    "reasoning": "文本提到『使用自己的私密金鑰解密而讀取該機密資料』，私密金鑰作為系統特徵(feature)，被用於處理機密資料(data)。符合 Schema: (feature, uses, data)。",
+    "reasoning": "文本提到收訊人使用私密金鑰解密讀取機密資料，在 Schema 中，feature (特徵) 可以 uses data (資料)。",
     "source_id": "chunk_17",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
+      "name": "對稱演算法",
+      "type": "technique"
+    },
+    "relation": "is_part_of",
+    "object": {
       "name": "數位信封",
       "type": "technique"
     },
-    "relation": "depends_on",
-    "object": {
-      "name": "對稱式演算法",
-      "type": "tool"
-    },
-    "reasoning": "數位信封是一種結合對稱與非對稱加密的技術(technique)，其核心流程依賴於對稱式演算法(在此視為執行加密的工具 tool)來提高效率。符合 Schema: (technique, depends_on, tool)。",
+    "reasoning": "數位信封的實作流程中首先使用了對稱演算法來加密訊息本文，因此對稱演算法是數位信封這項技術的一部分。Schema 允許 technique is_part_of technique。",
     "source_id": "chunk_17",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "數位憑證",
-      "type": "data"
+      "name": "公開金鑰加密",
+      "type": "technique"
     },
-    "relation": "deployed_in",
+    "relation": "is_part_of",
     "object": {
-      "name": "個人電腦",
-      "type": "system"
+      "name": "數位信封",
+      "type": "technique"
     },
-    "reasoning": "文本提到『數位憑證是一份編碼檔案，在個人電腦上檢視』，將數位憑證視為資料(data)，部署/存放於個人電腦(system)中。符合 Schema: (data, deployed_in, system)。",
+    "reasoning": "數位信封利用公開金鑰加密技術來加密對稱式機密金鑰，因此公開金鑰加密是數位信封技術的組成部分。Schema 允許 technique is_part_of technique。",
     "source_id": "chunk_17",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "憑證機構 (CA)",
-      "type": "securityTeam"
+      "name": "對稱式機密金鑰",
+      "type": "feature"
     },
-    "relation": "can_analyze",
+    "relation": "uses",
     "object": {
-      "name": "數位憑證",
+      "name": "訊息本文",
       "type": "data"
     },
-    "reasoning": "憑證機構 (CA) 作為安全團隊/組織(securityTeam)，負責核發並管理數位憑證(data)，包含對憑證內容的分析與驗證。符合 Schema: (securityTeam, can_analyze, data)。",
+    "reasoning": "文本指出利用對稱式機密金鑰對訊息本文加密，對稱金鑰作為加密系統的特徵 (feature) 使用資料 (data)。",
     "source_id": "chunk_17",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "使用者",
-      "type": "user"
+      "name": "公開金鑰",
+      "type": "feature"
     },
-    "relation": "uses",
+    "relation": "is_part_of",
     "object": {
       "name": "數位憑證",
-      "type": "data"
+      "type": "tool"
     },
-    "reasoning": "文本提到其他人若要傳送資料給憑證持有人，可以使用其憑證內之公開金鑰，即使用者(user)使用數位憑證(data)來獲取金鑰。符合 Schema: (user, uses, data)。",
+    "reasoning": "文本明確提到『數位憑證內含有憑證持有者的公開金鑰』，將數位憑證視為一種身分驗證工具 (tool)，公開金鑰則是其組成特徵 (feature)。Schema 允許 feature is_part_of tool。",
     "source_id": "chunk_17",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "憑證機構",
+      "type": "securityTeam"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "數位憑證",
+      "type": "tool"
+    },
+    "reasoning": "數位憑證由公正第三者憑證機構 (CA) 公告與管理，因此 CA (securityTeam) 控制/管理數位憑證 (tool)。Schema 允許 securityTeam controls tool。",
+    "source_id": "chunk_17",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "數位憑證",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "身分辨識",
+      "type": "function"
+    },
+    "reasoning": "文本提到數位憑證『用來辨識使用者的身分』，這代表數位憑證這個工具具有身分辨識的功能。Schema 允許 tool has_a function。",
+    "source_id": "chunk_17",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 8
   }
 ]

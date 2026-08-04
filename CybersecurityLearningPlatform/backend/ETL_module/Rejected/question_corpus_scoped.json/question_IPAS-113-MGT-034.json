@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "資料庫",
+      "type": "system",
+      "display_name": "資料庫"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "透明資料加密 (tde)",
+      "type": "function",
+      "display_name": "透明資料加密 (TDE)"
+    },
+    "reasoning": "本題為否定式提問（何者『不』是），根據處理規則第 4 點，未被選為答案的選項 B 是正確知識。透明資料加密 (TDE) 是資料庫的一種加密能力，因此將資料庫視為 tool，TDE 視為其具有的 function，符合 Schema Edge ('tool', 'has_a', 'function')。",
+    "source_id": "question_IPAS-113-MGT-034",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資料庫 (tool) 可以有透明資料加密 (TDE) 這個功能，因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「資料庫」完全等價同義詞；受體「透明資料加密」與 Ldr 中無直接對應關係，但可視為資料加密的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「資料庫」完全等價同義詞，但受體「透明資料加密」為資料加密的子類型，依據廣義/狹義一律保留原則，判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> has_a -> function (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料庫",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "透明資料加密 (TDE)",
+        "type": "function"
+      },
+      "reasoning": "本題為否定式提問（何者『不』是），根據處理規則第 4 點，未被選為答案的選項 B 是正確知識。透明資料加密 (TDE) 是資料庫的一種加密能力，因此將資料庫視為 tool，TDE 視為其具有的 function，符合 Schema Edge ('tool', 'has_a', 'function')。",
+      "source_id": "question_IPAS-113-MGT-034",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

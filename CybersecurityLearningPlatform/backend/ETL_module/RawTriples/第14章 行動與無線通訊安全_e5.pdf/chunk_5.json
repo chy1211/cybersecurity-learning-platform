@@ -1,15 +1,15 @@
 [
   {
     "subject": {
-      "name": "5G",
+      "name": "5G 系統",
       "type": "system"
     },
-    "relation": "has_a",
+    "relation": "can_expose",
     "object": {
-      "name": "物聯網 (IoT)",
-      "type": "system"
+      "name": "3G/4G 既有風險",
+      "type": "vulnerability"
     },
-    "reasoning": "文本提到 5G 規格將應用於物聯網 (IoT) 等需求，將物聯網視為 5G 系統生態中包含的子系統。",
+    "reasoning": "文本提到 5G 系統建置初期將繼承 3G、4G 系統既有之風險。在 Schema 中，系統導致漏洞暴露使用 ('system', 'can_expose', 'vulnerability')。",
     "source_id": "chunk_5",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 1
@@ -24,7 +24,7 @@
       "name": "邊緣運算伺服器",
       "type": "system"
     },
-    "reasoning": "文本明確指出邊緣運算伺服器存在遭受阻斷服務攻擊 (DoS) 的風險，符合 attack can_harm system 的定義。",
+    "reasoning": "文本提到邊緣運算伺服器遭受阻斷服務攻擊風險。這符合 ('attack', 'can_harm', 'system') 的定義。",
     "source_id": "chunk_5",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 2
@@ -39,40 +39,55 @@
       "name": "基地台",
       "type": "system"
     },
-    "reasoning": "文本明確指出基地台存在遭受阻斷服務攻擊 (DoS) 的風險，符合 attack can_harm system 的定義。",
+    "reasoning": "文本提到基地台遭受阻斷服務攻擊風險。這符合 ('attack', 'can_harm', 'system') 的定義。",
     "source_id": "chunk_5",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "偽造的基地台",
-      "type": "tool"
-    },
-    "relation": "controls",
-    "object": {
-      "name": "物聯網設備",
+      "name": "基地台",
       "type": "system"
     },
-    "reasoning": "偽造的基地台是一種攻擊工具，其目的是誘導設備連接以達成控制或攔截，符合 tool controls system 的定義。",
+    "relation": "can_expose",
+    "object": {
+      "name": "隱私洩漏風險",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到基地台與物聯網設備之間傳輸訊號有隱私洩漏風險。將此風險視為系統可能暴露的漏洞，符合 ('system', 'can_expose', 'vulnerability')。",
     "source_id": "chunk_5",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "外界網路",
-      "type": "system"
+      "name": "攻擊者",
+      "type": "attacker"
     },
-    "relation": "can_expose",
+    "relation": "uses",
     "object": {
-      "name": "弱點",
-      "type": "vulnerability"
+      "name": "偽造的基地台服務",
+      "type": "tool"
     },
-    "reasoning": "文本提到來自外界網路的威脅，在資安邏輯中，外部網路的連接通常會暴露系統內部的弱點，符合 system can_expose vulnerability。",
+    "reasoning": "文本提到『偽造的基地台服務』作為一種威脅手段。雖然文本未明寫攻擊者，但邏輯上此工具由攻擊者使用，符合 ('attacker', 'uses', 'tool')。",
     "source_id": "chunk_5",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "物聯網設備",
+      "type": "system"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "5G 系統",
+      "type": "system"
+    },
+    "reasoning": "文本提到 5G 規格應用於物聯網 (IoT) 等裝置間的通訊需求，表示物聯網設備連接至 5G 系統，符合 ('system', 'connects_to', 'system')。",
+    "source_id": "chunk_5",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 6
   },
   {
     "subject": {
@@ -84,10 +99,10 @@
       "name": "ISM 頻段",
       "type": "feature"
     },
-    "reasoning": "NFC 作為一種無線通訊系統，其工作頻率屬於 ISM 頻段，將頻段視為該系統的技術特徵，符合 system has_a feature。",
+    "reasoning": "文本提到 NFC 所使用之工作頻率屬於 ISM 頻段。將 NFC 視為一種通訊系統，其頻段為其特徵，符合 ('system', 'has_a', 'feature')。",
     "source_id": "chunk_5",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-    "source_index": 6
+    "source_index": 7
   },
   {
     "subject": {
@@ -99,9 +114,24 @@
       "name": "IEEE 802.11",
       "type": "feature"
     },
-    "reasoning": "IEEE 802.11 是無線區域網路的通用標準，可視為該系統所採用的核心技術特徵，符合 system has_a feature。",
+    "reasoning": "文本提到 IEEE 802.11 是無線區域網路通用的標準。將此標準視為該系統的技術特徵，符合 ('system', 'has_a', 'feature')。",
     "source_id": "chunk_5",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-    "source_index": 7
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "外界網路",
+      "type": "system"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "5G 系統漏洞",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到來自外界網路的威脅。外界網路作為攻擊來源，可導致 5G 系統的漏洞被觸發或暴露，符合 ('system', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_5",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 9
   }
 ]

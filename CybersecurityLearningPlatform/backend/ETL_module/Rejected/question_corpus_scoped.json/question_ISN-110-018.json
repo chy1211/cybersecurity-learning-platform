@@ -1,0 +1,146 @@
+[
+  {
+    "subject": {
+      "name": "sql injection",
+      "type": "technique",
+      "display_name": "SQL Injection"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "注入攻擊",
+      "type": "attack",
+      "display_name": "注入攻擊 (Injection)"
+    },
+    "reasoning": "文本明確提到注入攻擊（Injection）中常見的為 SQL Injection，因此 SQL Injection 是注入攻擊的一種子類別。",
+    "source_id": "question_ISN-110-018",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SQL Injection 是攻擊類別 'attack' 的合理實例，注入攻擊也是攻擊類別 'attack' 的合理實例，兩者之間的 'is_part_of' 關係是合理的。",
+        "response": "correct",
+        "reason": "SQL Injection 與注入攻擊之間的 'is_part_of' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "sql injection",
+        "standard_object": "注入攻擊",
+        "reason": "根據資安領域已知同義詞對照範例，SQL Injection ≡ SQL注入 ≡ SQL注入攻擊，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> is_part_of -> attack (original: attack -> is_part_of -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "注入攻擊 (Injection)",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到注入攻擊（Injection）中常見的為 SQL Injection，因此 SQL Injection 是注入攻擊的一種子類別。",
+      "source_id": "question_ISN-110-018",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "sql injection",
+      "type": "technique",
+      "display_name": "SQL Injection"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到 SQL Injection 會『造成系統被攻擊』，因此該攻擊行為會對系統造成危害。",
+    "source_id": "question_ISN-110-018",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SQL Injection 是 'attack' 的合理實例，系統是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 'sql injection' 完全等價同義詞；受體與 Ldr 中的 '系統' 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體都有完全等價同義詞，但根據資安領域已知同義詞對照範例，'SQL Injection' 與 '系統' 分別是不同的概念，無法合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> can_harm -> system (original: attack -> can_harm -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到 SQL Injection 會『造成系統被攻擊』，因此該攻擊行為會對系統造成危害。",
+      "source_id": "question_ISN-110-018",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "參數化查詢 (prepared statement)",
+      "type": "technique",
+      "display_name": "參數化查詢 (Prepared Statement)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "sql injection",
+      "type": "technique",
+      "display_name": "SQL Injection"
+    },
+    "reasoning": "正確答案 C 指出使用 Prepare Statement 建立參數化查詢是防禦 SQL Injection 的方式，因此這是一種緩解/防禦該攻擊的技術。",
+    "source_id": "question_ISN-110-018",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "參數化查詢 (Prepared Statement) 是一種合理的 'technique' 實例，SQL Injection 是一種合理的 'attack' 實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "sql injection",
+        "reason": "參數化查詢與 SQL Injection 是資安領域已知同義詞對照範例中的同義詞對"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> mitigates -> technique (original: technique -> mitigates -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "參數化查詢 (Prepared Statement)",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "SQL Injection",
+        "type": "attack"
+      },
+      "reasoning": "正確答案 C 指出使用 Prepare Statement 建立參數化查詢是防禦 SQL Injection 的方式，因此這是一種緩解/防禦該攻擊的技術。",
+      "source_id": "question_ISN-110-018",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

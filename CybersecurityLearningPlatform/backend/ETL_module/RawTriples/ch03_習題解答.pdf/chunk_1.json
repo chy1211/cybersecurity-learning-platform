@@ -6,10 +6,10 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "實體安全技術",
+      "name": "實體安全管理面",
       "type": "feature"
     },
-    "reasoning": "文本提到實體安全涵蓋的層面包含實體安全技術。將實體安全視為一個整體的安全系統 (system)，而其涵蓋的層面視為其特徵或組成部分 (feature)。",
+    "reasoning": "文本提到實體安全涵蓋的層面包含實體安全管理面。將實體安全視為一個整體的安全系統 (system)，其管理面為其組成特徵 (feature)。",
     "source_id": "chunk_1",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 1
@@ -22,57 +22,27 @@
     "relation": "has_a",
     "object": {
       "name": "監視系統",
-      "type": "system"
+      "type": "tool"
     },
-    "reasoning": "文本將監視系統列為實體安全的議題/組成部分。根據 Schema，system 可以 has_a 另一個 system。",
+    "reasoning": "文本將監視系統列為實體安全的議題/組成部分。監視系統是一種具體的工具 (tool)，屬於實體安全系統 (system) 的一部分。",
     "source_id": "chunk_1",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "安全測試",
-      "type": "technique"
+      "name": "人員安全",
+      "type": "policy"
     },
-    "relation": "can_analyze",
+    "relation": "mitigates",
     "object": {
-      "name": "弱點",
-      "type": "vulnerability"
+      "name": "人員風險",
+      "type": "risk"
     },
-    "reasoning": "文本指出安全測試可用於辨識設備或機制的弱點。在 Schema 中，technique 可以 can_analyze vulnerability。",
+    "reasoning": "文本指出人員安全是最重要的議題，因為員工是重要資產。人員安全作為一種管理策略 (policy)，旨在緩解 (mitigates) 與人員相關的資安風險 (risk)。",
     "source_id": "chunk_1",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "安全小組",
-      "type": "securityTeam"
-    },
-    "relation": "can_detect",
-    "object": {
-      "name": "安全弱點",
-      "type": "vulnerability"
-    },
-    "reasoning": "文本提到測試報告送交安全小組評估並找出安全弱點。安全小組屬於 securityTeam，其行為符合 can_detect vulnerability。",
-    "source_id": "chunk_1",
-    "source_file": "ch03_習題解答.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "安全小組",
-      "type": "securityTeam"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "測試報告",
-      "type": "data"
-    },
-    "reasoning": "文本提到安全小組對測試報告進行評估。測試報告為 data，securityTeam 對其進行評估符合 can_analyze data。",
-    "source_id": "chunk_1",
-    "source_file": "ch03_習題解答.pdf",
-    "source_index": 5
   },
   {
     "subject": {
@@ -84,22 +54,52 @@
       "name": "火災",
       "type": "risk"
     },
-    "reasoning": "文本列舉了針對不同類別火災的滅火器材。滅火器材為 tool，火災在此情境下為一種負面事件/風險 (risk)，符合 tool mitigates risk。",
+    "reasoning": "文本列舉了針對不同類別火災的滅火器材。滅火器材是工具 (tool)，其目的是緩解或消除火災這一風險 (risk)。",
+    "source_id": "chunk_1",
+    "source_file": "ch03_習題解答.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "安全測試",
+      "type": "technique"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到安全測試可辨識設備或機制的弱點。安全測試是一種技術 (technique)，其功能是分析 (can_analyze) 系統中的弱點 (vulnerability)。",
+    "source_id": "chunk_1",
+    "source_file": "ch03_習題解答.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "安全小組",
+      "type": "securityTeam"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "測試報告",
+      "type": "data"
+    },
+    "reasoning": "文本提到測試報告會送給安全小組進行評估。安全小組 (securityTeam) 執行分析測試報告 (data) 的動作。",
     "source_id": "chunk_1",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "警衛",
-      "type": "securityTeam"
+      "name": "測試人員缺乏管制",
+      "type": "vulnerability"
     },
-    "relation": "controls",
+    "relation": "can_expose",
     "object": {
-      "name": "出入口",
-      "type": "system"
+      "name": "機密外洩",
+      "type": "risk"
     },
-    "reasoning": "文本提到警衛負責「管制人員出入」。警衛作為防禦角色 (securityTeam)，對出入口這一基礎設施 (system) 進行控制，符合 securityTeam controls system。",
+    "reasoning": "文本提到測試人員若不受管制，公司恐有遭到機密外洩的危險。將「缺乏管制」視為一種管理漏洞 (vulnerability)，它會導致機密外洩這一風險 (risk) 的暴露。",
     "source_id": "chunk_1",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 7
@@ -114,7 +114,7 @@
       "name": "閉路電視監視器",
       "type": "tool"
     },
-    "reasoning": "文本提到警衛監看閉路電視監視器。警衛 (securityTeam) 使用監視器 (tool) 來執行工作，符合 securityTeam uses tool。",
+    "reasoning": "文本提到警衛的工作包含監看閉路電視監視器。警衛 (securityTeam) 使用 (uses) 監視器這個工具 (tool)。",
     "source_id": "chunk_1",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 8
@@ -129,7 +129,7 @@
       "name": "警報系統",
       "type": "tool"
     },
-    "reasoning": "文本提到警衛留意警報系統。警衛 (securityTeam) 使用警報系統 (tool) 進行監控，符合 securityTeam uses tool。",
+    "reasoning": "文本提到警衛需要留意警報系統。警衛 (securityTeam) 使用 (uses) 警報系統這個工具 (tool)。",
     "source_id": "chunk_1",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 9

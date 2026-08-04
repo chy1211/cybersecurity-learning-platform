@@ -1,6 +1,58 @@
 [
   {
     "subject": {
+      "name": "公開金鑰密碼系統",
+      "type": "system",
+      "display_name": "公開金鑰密碼系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "s/mime",
+      "type": "tool",
+      "display_name": "S/MIME"
+    },
+    "reasoning": "文本提到 S/MIME 建立於公開金鑰密碼系統之上。將公開金鑰密碼系統視為基礎設施 (system)，S/MIME 作為其實現的標準/工具 (tool)，符合 ('system', 'has_a', 'tool') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '公開金鑰密碼系統' 合理對齊其類別 'system'，受體名稱 'S/MIME' 合理對齊其類別 'tool'，且考慮到資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，且無法確定其關聯性。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "公開金鑰密碼系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "S/MIME",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 S/MIME 建立於公開金鑰密碼系統之上。將公開金鑰密碼系統視為基礎設施 (system)，S/MIME 作為其實現的標準/工具 (tool)，符合 ('system', 'has_a', 'tool') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
       "name": "電子郵件軟體",
       "type": "app",
       "display_name": "電子郵件軟體"
@@ -11,28 +63,28 @@
       "type": "tool",
       "display_name": "S/MIME"
     },
-    "reasoning": "文本提到在電子郵件軟體中設定加密與簽章功能，且使用 S/MIME 格式傳輸，因此電子郵件軟體包含（實作）了 S/MIME 這一標準工具。",
+    "reasoning": "文本指出電子郵件軟體中需設定加密與簽章功能，並使用 S/MIME 格式傳輸。因此電子郵件軟體 (app) 包含/具有 S/MIME (tool) 功能，符合 ('app', 'has_a', 'tool') 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-    "source_index": 1,
+    "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'app'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "電子郵件軟體 (app) 可能具有 S/MIME (tool) 的功能，兩者之間的關係 'has_a' 在語意上是合理的，因為 S/MIME 是一種電子郵件加密技術，可以被電子郵件軟體支援。",
+        "step_1_list_check": "主體類別 'app'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "電子郵件軟體 (app) 可以有 S/MIME (tool) 的功能，因此語意對齊是合理的。",
         "response": "correct",
-        "reason": "電子郵件軟體 (app) 與 S/MIME (tool) 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "電子郵件軟體 (app) 有 S/MIME (tool) 的功能，完全符合預先定義的類別與屬性清單。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為主體類別不是 data。檢查規則6：無關，因為關係不是 deployed_in。檢查規則7：無關，因為關係不是 generates。檢查規則8：無關，因為關係不是 controls。檢查規則，發現沒有明確違反任何規則。",
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
         "response": "correct",
-        "reason": "三元組中的主體（電子郵件軟體）和受體（S/MIME）通過 has_a 關係，沒有違反語義限制清單中的任何規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "電子郵件軟體與電子郵件用戶端之間存在語義上的相似性，但非完全等價同義詞，兩者皆指電子郵件的軟體或應用，但用戶端更強調使用者端的應用",
+        "granularity_analysis": "不相關",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "電子郵件軟體與電子郵件用戶端之間的關係是廣義/狹義從屬，電子郵件軟體是一個更廣泛的類別，包含了電子郵件用戶端，但兩者並非完全等價同義詞。"
+        "reason": "電子郵件軟體與 S/MIME 之間沒有明確的同義詞或從屬關係"
       }
     },
     "original_raw_triple": {
@@ -45,10 +97,62 @@
         "name": "S/MIME",
         "type": "tool"
       },
-      "reasoning": "文本提到在電子郵件軟體中設定加密與簽章功能，且使用 S/MIME 格式傳輸，因此電子郵件軟體包含（實作）了 S/MIME 這一標準工具。",
+      "reasoning": "文本指出電子郵件軟體中需設定加密與簽章功能，並使用 S/MIME 格式傳輸。因此電子郵件軟體 (app) 包含/具有 S/MIME (tool) 功能，符合 ('app', 'has_a', 'tool') 的 Schema。",
       "source_id": "chunk_4",
       "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-      "source_index": 1
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "s/mime",
+      "type": "tool",
+      "display_name": "S/MIME"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "pkcs#7",
+      "type": "feature",
+      "display_name": "PKCS#7"
+    },
+    "reasoning": "文本提到 S/MIME 使用 PKCS#7 標準。PKCS#7 是 S/MIME 協定中的一個技術特徵/標準 (feature)，符合 ('tool', 'has_a', 'feature') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "S/MIME 是一種電子郵件安全標準，通常被歸類為工具 (tool)，而 PKCS#7 是一種加密標準，通常被視為安全功能 (feature) 的一部分，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "S/MIME 與 s/mime 完全等價同義詞；PKCS#7 與 加密 不相關，但 PKCS#7 是一種加密技術標準，屬於加密的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "S/MIME 與 s/mime 完全等價同義詞，但 PKCS#7 與 加密 屬於廣義/狹義從屬關係，因此不合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "S/MIME",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "PKCS#7",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 S/MIME 使用 PKCS#7 標準。PKCS#7 是 S/MIME 協定中的一個技術特徵/標準 (feature)，符合 ('tool', 'has_a', 'feature') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 5
     }
   },
   {
@@ -63,28 +167,28 @@
       "type": "feature",
       "display_name": "加密"
     },
-    "reasoning": "S/MIME 被定義為電子郵件加密與簽章標準，因此它具有加密的功能。",
+    "reasoning": "S/MIME 提供電子郵件加密功能。S/MIME 作為工具 (tool)，加密為其執行的功能 (function)，符合 ('tool', 'has_a', 'function') 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-    "source_index": 2,
+    "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "S/MIME 是一種安全郵件協定，屬於 'tool' 類別；'加密' 是一種 'function'，兩者名稱與其類別相符，且符合資安領域的常見用語。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "S/MIME 是一種工具（tool），具有加密功能（function），因此實體名稱與其類別合理對齊。",
         "response": "correct",
-        "reason": "S/MIME 與 '加密' 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "規則2、規則8",
         "response": "correct",
-        "reason": "三元組中的主體 'S/MIME' 是一種工具（tool），關係 'has_a' 表示它具有某種特徵（feature），在這裡是 '加密'，這不違反任何語義限制清單中的規則。"
+        "reason": "三元組符合規則2的允許條件，tool 可以執行 has_a 動作；且主體 tool 符合規則8的主動執行能力要求。"
       },
       "step_2": {
-        "granularity_analysis": "S/MIME 是一種工具，與資源清單中的 's/mime' 完全相同；'加密' 是一種功能，與資源清單中的 '加密' 完全相同，兩者均為完全等價同義詞。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據前提確認和同義詞判定，S/MIME 和加密分別與資源清單中的 's/mime' 和 '加密' 完全相同，故判定為 correct。"
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "s/mime",
+        "standard_object": "加密",
+        "reason": "根據資安領域已知同義詞對照範例，加密 ≡ 資料加密（作為動詞/技術時），判定為 duplicate。"
       }
     },
     "original_raw_triple": {
@@ -97,59 +201,7 @@
         "name": "加密",
         "type": "function"
       },
-      "reasoning": "S/MIME 被定義為電子郵件加密與簽章標準，因此它具有加密的功能。",
-      "source_id": "chunk_4",
-      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-      "source_index": 2
-    }
-  },
-  {
-    "subject": {
-      "name": "s/mime",
-      "type": "tool",
-      "display_name": "S/MIME"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "數位簽章",
-      "type": "data",
-      "display_name": "數位簽章"
-    },
-    "reasoning": "S/MIME 被定義為電子郵件加密與簽章標準，因此它具有數位簽章的功能。",
-    "source_id": "chunk_4",
-    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-    "source_index": 3,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "S/MIME 是一種安全郵件協定，包含數位簽章功能，故其名稱與類別 'tool' 對齊，且 '數位簽章' 是 'function' 的合理實例。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 tool，而不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則沒有發現明確違反。",
-        "response": "correct",
-        "reason": "三元組中的主體是 S/MIME，類別為 tool，關係是 has_a，受體是數位簽章，類別為 data。根據規則，沒有發現明確違反的項目，因此判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "S/MIME 與 s/mime 完全等價同義詞，數位簽章為完全匹配",
-        "response": "correct",
-        "standard_subject": "s/mime",
-        "standard_object": "數位簽章",
-        "reason": "主體與受體分別與現有資源完全匹配或為同義詞，故判定為正確。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "S/MIME",
-        "type": "tool"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "數位簽章",
-        "type": "function"
-      },
-      "reasoning": "S/MIME 被定義為電子郵件加密與簽章標準，因此它具有數位簽章的功能。",
+      "reasoning": "S/MIME 提供電子郵件加密功能。S/MIME 作為工具 (tool)，加密為其執行的功能 (function)，符合 ('tool', 'has_a', 'function') 的 Schema。",
       "source_id": "chunk_4",
       "source_file": "第16章 電子郵件與網站安全_e5.pdf",
       "source_index": 3
@@ -157,210 +209,54 @@
   },
   {
     "subject": {
-      "name": "電子郵件用戶端",
-      "type": "app",
-      "display_name": "電子郵件軟體"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "數位憑證",
+      "name": "s/mime",
       "type": "tool",
-      "display_name": "數位憑證"
+      "display_name": "S/MIME"
     },
-    "reasoning": "文本明確指出「使用加密與簽章功能前需要先安裝數位憑證」，而該功能是在電子郵件軟體中執行的，因此 app 使用了憑證資料。",
+    "relation": "generates",
+    "object": {
+      "name": "s/mime 格式電子郵件",
+      "type": "data",
+      "display_name": "S/MIME 格式電子郵件"
+    },
+    "reasoning": "S/MIME 工具在運作時會產生符合其標準的加密電子郵件 (data)，符合 ('tool', 'generates', 'data') 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-    "source_index": 4,
+    "source_index": 8,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "電子郵件軟體是 'app' 的合理實例，數位憑證是 'data' 的合理實例，且 'uses' 關係在資安領域中是合理的。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "S/MIME 是一種工具（tool），能夠生成 S/MIME 格式電子郵件（data），因此語意對齊。",
         "response": "correct",
-        "reason": "電子郵件軟體使用數位憑證的三元組完全符合預先定義的類別與屬性清單。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體的類別是 'app'，不違反規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
         "response": "correct",
-        "reason": "三元組中的主體是 '電子郵件軟體'，類別為 'app'，與 '數位憑證' 的關係是 'uses'，這不違反任何語義限制清單中的規則。"
+        "reason": "三元組符合規則7所允許的條件，受體的類別是data，代表合法。"
       },
       "step_2": {
-        "granularity_analysis": "電子郵件軟體與電子郵件用戶端為同義詞，數位憑證為完全匹配",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
-        "standard_subject": "電子郵件用戶端",
-        "standard_object": "數位憑證",
-        "reason": "根據同義詞判定準則，電子郵件軟體與電子郵件用戶端為同義詞，數位憑證為完全匹配，故判定為 correct。"
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱雖然相似，但根據資安領域已知同義詞對照範例，無法判定為同義詞重複。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "電子郵件軟體",
-        "type": "app"
+        "name": "S/MIME",
+        "type": "tool"
       },
-      "relation": "uses",
+      "relation": "generates",
       "object": {
-        "name": "數位憑證",
+        "name": "S/MIME 格式電子郵件",
         "type": "data"
       },
-      "reasoning": "文本明確指出「使用加密與簽章功能前需要先安裝數位憑證」，而該功能是在電子郵件軟體中執行的，因此 app 使用了憑證資料。",
+      "reasoning": "S/MIME 工具在運作時會產生符合其標準的加密電子郵件 (data)，符合 ('tool', 'generates', 'data') 的 Schema。",
       "source_id": "chunk_4",
       "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-      "source_index": 4
-    }
-  },
-  {
-    "subject": {
-      "name": "s/mime",
-      "type": "tool",
-      "display_name": "S/MIME"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "公開金鑰密碼系統",
-      "type": "system",
-      "display_name": "公開金鑰密碼系統"
-    },
-    "reasoning": "文本提到 S/MIME 「建立於公開金鑰密碼系統」，表示 S/MIME 是該密碼系統體系中的一部分。",
-    "source_id": "chunk_4",
-    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-    "source_index": 5,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
-        "step_2_alignment_check": "S/MIME 是一種郵件加密工具，合理對齊 'tool' 類別；公開金鑰密碼系統是一種加密系統，合理對齊 'system' 類別。",
-        "response": "correct",
-        "reason": "S/MIME 和公開金鑰密碼系統的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
-        "response": "correct",
-        "reason": "三元組中的主體（S/MIME）和受體（公開金鑰密碼系統）之間的關係（is_part_of）沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "S/MIME 是一種工具，公開金鑰密碼系統是其底層使用的系統之一，兩者之間存在著廣義/狹義的從屬關係，但根據給定的資安領域已知同義詞對照範例和判斷準則，S/MIME 和公開金鑰密碼系統不被視為同義詞或完全等價的概念。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據廣義/狹義一律保留的判斷準則，S/MIME 和公開金鑰密碼系統之間的關係不被視為同義詞或完全等價，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "S/MIME",
-        "type": "tool"
-      },
-      "relation": "is_part_of",
-      "object": {
-        "name": "公開金鑰密碼系統",
-        "type": "system"
-      },
-      "reasoning": "文本提到 S/MIME 「建立於公開金鑰密碼系統」，表示 S/MIME 是該密碼系統體系中的一部分。",
-      "source_id": "chunk_4",
-      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-      "source_index": 5
-    }
-  },
-  {
-    "subject": {
-      "name": "s/mime",
-      "type": "tool",
-      "display_name": "S/MIME"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "pkcs#7",
-      "type": "tool",
-      "display_name": "PKCS#7"
-    },
-    "reasoning": "文本指出 S/MIME 格式的電子郵件使用 PKCS#7 標準進行封裝，因此 S/MIME 包含或使用了 PKCS#7 這一標準工具。",
-    "source_id": "chunk_4",
-    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-    "source_index": 6,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "S/MIME 和 PKCS#7 都是資安領域中常見的工具，分別是一種安全郵件標準和加密格式，與其被賦予的 'tool' 類別合理對齊。",
-        "response": "correct",
-        "reason": "S/MIME 和 PKCS#7 的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
-        "response": "correct",
-        "reason": "三元組中的主體和受體皆為工具，且關係為has_a，未觸發任何語義限制清單中的規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "S/MIME 與 s/mime 完全等價同義詞，PKCS#7 與數位憑證無直接關係，但 S/MIME 使用 PKCS#7 格式，因此主體與受體之間存在技術上的相關性，但不構成同義詞或廣義/狹義從屬關係。",
-        "response": "correct",
-        "standard_subject": "s/mime",
-        "standard_object": "",
-        "reason": "根據同義詞判定，S/MIME 與 s/mime 完全等價，但 PKCS#7 與數位憑證無直接同義詞關係，且不構成廣義/狹義從屬關係，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "S/MIME",
-        "type": "tool"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "PKCS#7",
-        "type": "tool"
-      },
-      "reasoning": "文本指出 S/MIME 格式的電子郵件使用 PKCS#7 標準進行封裝，因此 S/MIME 包含或使用了 PKCS#7 這一標準工具。",
-      "source_id": "chunk_4",
-      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-      "source_index": 6
-    }
-  },
-  {
-    "subject": {
-      "name": "數位信封",
-      "type": "technique",
-      "display_name": "數位信封"
-    },
-    "relation": "depends_on",
-    "object": {
-      "name": "pkcs#7",
-      "type": "tool",
-      "display_name": "PKCS#7"
-    },
-    "reasoning": "文本提到使用 PKCS#7 標準的「數位信封格式」封裝，表示數位信封這種封裝技術依賴於 PKCS#7 標準的實作。",
-    "source_id": "chunk_4",
-    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-    "source_index": 7,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
-        "step_2_alignment_check": "數位信封 (Digital Envelope) 可被視為一種技術 (technique)，而 PKCS#7 是一種工具 (tool)，兩者之間的 'depends_on' 關係在資安領域中是合理的，因為數位信封可能依賴於 PKCS#7 進行加密或解密操作。",
-        "response": "correct",
-        "reason": "數位信封與 PKCS#7 之間的 'depends_on' 關係在資安領域中是合理的，且符合預先定義的類別與屬性清單。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
-        "response": "correct",
-        "reason": "三元組中的關係 'depends_on' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違規。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與受體皆有相近資源，但主體「數位信封」與 Ldr 中的「數位信封」完全匹配，受體「PKCS#7」與 Ldr 中的「pkcs#7」同義",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體與 Ldr 中的資源完全匹配，受體與 Ldr 中的資源同義，但根據規則 3，廣義/狹義一律保留，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "數位信封",
-        "type": "technique"
-      },
-      "relation": "depends_on",
-      "object": {
-        "name": "PKCS#7",
-        "type": "tool"
-      },
-      "reasoning": "文本提到使用 PKCS#7 標準的「數位信封格式」封裝，表示數位信封這種封裝技術依賴於 PKCS#7 標準的實作。",
-      "source_id": "chunk_4",
-      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
-      "source_index": 7
+      "source_index": 8
     }
   }
 ]

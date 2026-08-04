@@ -1,63 +1,18 @@
 [
   {
     "subject": {
-      "name": "資訊部門",
-      "type": "securityTeam"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "應用軟體開發與測試",
-      "type": "function"
-    },
-    "reasoning": "文本提到資訊部門負責設計、開發與測試應用軟體，這屬於一種職能執行，因此將資訊部門設為 securityTeam，將開發測試設為 function，關係為 implements。",
-    "source_id": "chunk_7",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 1
-  },
-  {
-    "subject": {
       "name": "非生產環境",
       "type": "system"
     },
     "relation": "can_expose",
     "object": {
-      "name": "系統弱點",
+      "name": "弱點",
       "type": "vulnerability"
     },
-    "reasoning": "文本指出非生產環境同樣存在風險。根據 Schema，system 不能直接連到 risk，必須透過 can_expose 連結到 vulnerability，再由 vulnerability 連結到 risk。此處萃取系統暴露弱點的關聯。",
+    "reasoning": "文本提到非生產環境存在風險，且轉移到雲端後更揭露其風險。在本體論中，系統(system)透過暴露弱點(vulnerability)來導致風險，因此萃取此關聯。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 2
-  },
-  {
-    "subject": {
-      "name": "企業用戶",
-      "type": "user"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "雲端服務",
-      "type": "system"
-    },
-    "reasoning": "文本提到企業用戶將環境轉移到雲端，表示使用者使用了雲端系統，符合 (\"user\", \"uses\", \"system\")。",
-    "source_id": "chunk_7",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "雲端服務",
-      "type": "system"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "安全防護缺失",
-      "type": "vulnerability"
-    },
-    "reasoning": "文本提到雲端服務若缺少安全防護會揭露風險，這代表系統存在漏洞/弱點，符合 (\"system\", \"can_expose\", \"vulnerability\")。",
-    "source_id": "chunk_7",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 4
+    "source_index": 1
   },
   {
     "subject": {
@@ -66,32 +21,32 @@
     },
     "relation": "can_harm",
     "object": {
-      "name": "發展環境",
+      "name": "非生產環境",
       "type": "system"
     },
-    "reasoning": "文本明確提到發展環境可能會有來自外部的攻擊，攻擊會對系統造成危害，符合 (\"attack\", \"can_harm\", \"system\")。",
+    "reasoning": "文本明確指出發展環境（非生產環境）可能會有來自外部的攻擊，攻擊(attack)會對系統(system)造成危害。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 5
+    "source_index": 2
   },
   {
     "subject": {
-      "name": "資訊探測",
+      "name": "資訊取得探測",
       "type": "attack"
     },
     "relation": "can_harm",
     "object": {
-      "name": "發展環境",
+      "name": "非生產環境",
       "type": "system"
     },
-    "reasoning": "文本將對於資訊取得的探測視為一種風險/攻擊行為，會危害發展環境，符合 (\"attack\", \"can_harm\", \"system\")。",
+    "reasoning": "文本將「對於資訊取得的探測」與外部攻擊並列為雲端服務的風險，這是一種針對系統的惡意行為，故歸類為 attack 並對 system 造成危害。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 6
+    "source_index": 3
   },
   {
     "subject": {
-      "name": "大數據技術",
+      "name": "大數據",
       "type": "system"
     },
     "relation": "has_a",
@@ -99,14 +54,14 @@
       "name": "Volume (資料量)",
       "type": "feature"
     },
-    "reasoning": "大數據的 4V 是其基本特性。將大數據技術視為一個整體系統，其特性為 feature，符合 (\"system\", \"has_a\", \"feature\")。",
+    "reasoning": "文本定義大數據具有 4V 特性，Volume 是其之一。大數據在此被視為一種綜合的資訊環境(system)，而 Volume 是其屬性(feature)。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 7
+    "source_index": 4
   },
   {
     "subject": {
-      "name": "大數據技術",
+      "name": "大數據",
       "type": "system"
     },
     "relation": "has_a",
@@ -114,14 +69,14 @@
       "name": "Velocity (速度)",
       "type": "feature"
     },
-    "reasoning": "同上，速度是大數據技術的組成特性，符合 (\"system\", \"has_a\", \"feature\")。",
+    "reasoning": "Velocity 是大數據 4V 特性之一，屬於系統的特徵(feature)。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 8
+    "source_index": 5
   },
   {
     "subject": {
-      "name": "大數據技術",
+      "name": "大數據",
       "type": "system"
     },
     "relation": "has_a",
@@ -129,14 +84,14 @@
       "name": "Variety (多樣性)",
       "type": "feature"
     },
-    "reasoning": "同上，多樣性是大數據技術的組成特性，符合 (\"system\", \"has_a\", \"feature\")。",
+    "reasoning": "Variety 是大數據 4V 特性之一，屬於系統的特徵(feature)。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 9
+    "source_index": 6
   },
   {
     "subject": {
-      "name": "大數據技術",
+      "name": "大數據",
       "type": "system"
     },
     "relation": "has_a",
@@ -144,10 +99,10 @@
       "name": "Value (價值)",
       "type": "feature"
     },
-    "reasoning": "同上，價值是大數據技術的組成特性，符合 (\"system\", \"has_a\", \"feature\")。",
+    "reasoning": "Value 是大數據 4V 特性之一，屬於系統的特徵(feature)。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 10
+    "source_index": 7
   },
   {
     "subject": {
@@ -159,10 +114,10 @@
       "name": "網路日誌",
       "type": "data"
     },
-    "reasoning": "文本提到多樣性包含網路日誌等資料，在 Schema 中，feature 可以 uses data 來描述其包含的資料類型，符合 (\"feature\", \"uses\", \"data\")。",
+    "reasoning": "文本提到資料類型多樣包含網路日誌。在 Schema 中，特徵(feature)可以使用或包含特定類型的資料(data)。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 11
+    "source_index": 8
   },
   {
     "subject": {
@@ -171,27 +126,27 @@
     },
     "relation": "uses",
     "object": {
-      "name": "視訊圖片",
+      "name": "視訊",
       "type": "data"
     },
-    "reasoning": "同上，多樣性特徵涉及視訊與圖片資料，符合 (\"feature\", \"uses\", \"data\")。",
+    "reasoning": "文本提到多樣性包含視訊資料，符合 feature -> uses -> data 的定義。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 12
+    "source_index": 9
   },
   {
     "subject": {
-      "name": "Google",
-      "type": "app"
+      "name": "Variety (多樣性)",
+      "type": "feature"
     },
     "relation": "uses",
     "object": {
-      "name": "大數據",
+      "name": "圖片",
       "type": "data"
     },
-    "reasoning": "文本舉例 Google 每天處理巨大資料量，表示該應用程式使用/處理大數據，符合 (\"app\", \"uses\", \"data\")。",
+    "reasoning": "文本提到多樣性包含圖片資料，符合 feature -> uses -> data 的定義。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 13
+    "source_index": 10
   }
 ]

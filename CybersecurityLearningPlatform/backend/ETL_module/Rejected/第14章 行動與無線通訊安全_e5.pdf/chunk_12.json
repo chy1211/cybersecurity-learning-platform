@@ -1,32 +1,95 @@
 [
   {
     "subject": {
-      "name": "sta",
-      "type": "user",
-      "display_name": "STA"
-    },
-    "relation": "connects_to",
-    "object": {
-      "name": "ap",
+      "name": "ieee 802.11i",
       "type": "system",
-      "display_name": "AP"
+      "display_name": "IEEE 802.11i"
     },
-    "reasoning": "文本明確提到 STA (用戶) 與 AP (存取點) 之間的無線連線，符合 user 與 system 之間的連接關係。",
+    "relation": "has_a",
+    "object": {
+      "name": "身分認證",
+      "type": "function",
+      "display_name": "身分認證"
+    },
+    "reasoning": "文本提到 IEEE 802.11i 定義了身分認證等安全服務。將 IEEE 802.11i 視為一套安全工具/協定集 (tool)，其包含身分認證功能 (function)。",
+    "source_id": "chunk_12",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "IEEE 802.11i 是一種無線網路安全協定，屬於 'tool' 的合理實例。身分認證是一種安全功能，屬於 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> has_a -> function (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "IEEE 802.11i",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "身分認證",
+        "type": "function"
+      },
+      "reasoning": "文本提到 IEEE 802.11i 定義了身分認證等安全服務。將 IEEE 802.11i 視為一套安全工具/協定集 (tool)，其包含身分認證功能 (function)。",
+      "source_id": "chunk_12",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "ieee 802.11i",
+      "type": "system",
+      "display_name": "IEEE 802.11i"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "存取控制",
+      "type": "technique",
+      "display_name": "存取控制"
+    },
+    "reasoning": "文本提到 IEEE 802.11i 定義了存取控制等安全服務。將 IEEE 802.11i 視為工具 (tool)，其包含存取控制功能 (function)。",
     "source_id": "chunk_12",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 2,
-    "reject_reason": "Phase 1 (Schema Edge Violation): user -> connects_to -> system",
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "IEEE 802.11i 是一種無線網路安全協定，屬於 'tool' 的合理實例；'存取控制' 是一種安全功能，屬於 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 'ieee 802.11i' 完全等價同義詞；受體與 Ldr 中的 '存取控制' 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的 'ieee 802.11i' 完全等價同義詞，但受體與 Ldr 中的 '存取控制' 也是完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> has_a -> technique (original: tool -> has_a -> function)",
     "original_raw_triple": {
       "subject": {
-        "name": "STA",
-        "type": "user"
+        "name": "IEEE 802.11i",
+        "type": "tool"
       },
-      "relation": "connects_to",
+      "relation": "has_a",
       "object": {
-        "name": "AP",
-        "type": "system"
+        "name": "存取控制",
+        "type": "function"
       },
-      "reasoning": "文本明確提到 STA (用戶) 與 AP (存取點) 之間的無線連線，符合 user 與 system 之間的連接關係。",
+      "reasoning": "文本提到 IEEE 802.11i 定義了存取控制等安全服務。將 IEEE 802.11i 視為工具 (tool)，其包含存取控制功能 (function)。",
       "source_id": "chunk_12",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 2
@@ -38,31 +101,135 @@
       "type": "user",
       "display_name": "STA"
     },
-    "relation": "connects_to",
+    "relation": "uses",
     "object": {
-      "name": "as",
+      "name": "ap",
       "type": "system",
-      "display_name": "AS"
+      "display_name": "AP"
     },
-    "reasoning": "文本提到用戶 (STA) 與驗證伺服器 (AS) 之間的相互認證，這隱含了兩者之間存在通訊連接。",
+    "reasoning": "文本描述 STA 與 AP 之間的通訊與連線，STA 作為使用者端設備 (user) 使用/連接至 AP 系統 (system)。",
     "source_id": "chunk_12",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 3,
-    "reject_reason": "Phase 1 (Schema Edge Violation): user -> connects_to -> system",
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 'STA' 可能是 'Security Team Agent' 的縮寫，與 'user' 類別不完全對齊；受體名稱 'AP' 可能是 'Access Point' 的縮寫，與 'system' 類別對齊。",
+        "response": "violation",
+        "reason": "主體名稱 'STA' 與 'user' 類別不完全對齊，可能導致語意不明確。"
+      }
+    },
+    "reject_reason": "Step 1 (Class/Property Violation): 主體名稱 'STA' 與 'user' 類別不完全對齊，可能導致語意不明確。",
     "original_raw_triple": {
       "subject": {
         "name": "STA",
         "type": "user"
       },
-      "relation": "connects_to",
+      "relation": "uses",
       "object": {
-        "name": "AS",
+        "name": "AP",
         "type": "system"
       },
-      "reasoning": "文本提到用戶 (STA) 與驗證伺服器 (AS) 之間的相互認證，這隱含了兩者之間存在通訊連接。",
+      "reasoning": "文本描述 STA 與 AP 之間的通訊與連線，STA 作為使用者端設備 (user) 使用/連接至 AP 系統 (system)。",
       "source_id": "chunk_12",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "竄改",
+      "type": "attack",
+      "display_name": "竄改"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "資料完整性",
+      "type": "feature",
+      "display_name": "資料完整性"
+    },
+    "reasoning": "竄改是一種惡意行為 (attack)，它直接破壞了資安三要素中的完整性 (principle)。",
+    "source_id": "chunk_12",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '竄改' 是 'attack' 的合理實例，受體 '資料完整性' 是 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attack -> violates -> feature (original: attack -> violates -> principle)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "竄改",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "資料完整性",
+        "type": "principle"
+      },
+      "reasoning": "竄改是一種惡意行為 (attack)，它直接破壞了資安三要素中的完整性 (principle)。",
+      "source_id": "chunk_12",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "ieee 802.11i",
+      "type": "system",
+      "display_name": "IEEE 802.11i"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "竄改",
+      "type": "attack",
+      "display_name": "竄改"
+    },
+    "reasoning": "IEEE 802.11i 透過 MIC 等機制來確保資料未被竄改，因此該工具 (tool) 可緩解/防禦竄改攻擊 (attack)。",
+    "source_id": "chunk_12",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "IEEE 802.11i 是一種無線網路安全協定，合理歸類為 'tool'。竄改是一種攻擊手法，合理歸類為 'attack'。",
+        "response": "correct",
+        "reason": "IEEE 802.11i 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 'ieee 802.11i' 完全等價同義詞；受體與 Ldr 中的 '竄改' 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體在 Ldr 中找到完全等價同義詞，但根據判斷準則 1，若 Ldr 中找到完全相同的 name，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> mitigates -> attack (original: tool -> mitigates -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "IEEE 802.11i",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "竄改",
+        "type": "attack"
+      },
+      "reasoning": "IEEE 802.11i 透過 MIC 等機制來確保資料未被竄改，因此該工具 (tool) 可緩解/防禦竄改攻擊 (attack)。",
+      "source_id": "chunk_12",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 7
     }
   }
 ]

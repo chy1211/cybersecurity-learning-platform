@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "分散式攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到封包過濾防火牆『難以抵禦大量封包的分散式攻擊』，這隱含了分散式攻擊是一種會對受保護系統造成危害的威脅，因此萃取 attack can_harm system。",
+    "source_id": "question_IPAS-108-TEC-006",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '分散式攻擊' 是 'attack' 的合理實例，受體名稱 '系統' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是attacker或securityTeam。規則2不適用，因為主體不是policy, technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，無任何規則適用。",
+        "response": "correct",
+        "reason": "無任何規則適用，且無明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「攻擊」具有完全等價同義詞關係；受體與 Ldr 中的「系統」具有完全等價同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "攻擊",
+        "standard_object": "系統",
+        "reason": "主體與受體均與 Ldr 中的資源具有完全等價同義詞關係，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "分散式攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到封包過濾防火牆『難以抵禦大量封包的分散式攻擊』，這隱含了分散式攻擊是一種會對受保護系統造成危害的威脅，因此萃取 attack can_harm system。",
+      "source_id": "question_IPAS-108-TEC-006",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "封包過濾防火牆",
+      "type": "tool",
+      "display_name": "封包過濾防火牆"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "封包標頭",
+      "type": "feature",
+      "display_name": "封包標頭"
+    },
+    "reasoning": "文本明確指出封包過濾防火牆會『針對封包標頭進行檢查』，因此封包過濾防火牆（工具）具備分析封包標頭（網路封包的屬性/特徵）的能力。",
+    "source_id": "question_IPAS-108-TEC-006",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '封包過濾防火牆' 是 'tool' 的合理實例；受體名稱 '封包標頭' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2不適用，因為can_analyze不是mitigates動作。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。規則1不適用，因為主體不是attacker或securityTeam。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「過濾型防火牆」、「過濾型網路防火牆」、「防火牆」、「網路層防火牆」、「代理型防火牆」均為相關概念，但非完全等價同義詞；受體「封包標頭」與 Ldr 中無直接相關資源。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖相關，但非完全等價同義詞；受體無直接相關資源，依據判斷準則預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "封包過濾防火牆",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "封包標頭",
+        "type": "feature"
+      },
+      "reasoning": "文本明確指出封包過濾防火牆會『針對封包標頭進行檢查』，因此封包過濾防火牆（工具）具備分析封包標頭（網路封包的屬性/特徵）的能力。",
+      "source_id": "question_IPAS-108-TEC-006",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

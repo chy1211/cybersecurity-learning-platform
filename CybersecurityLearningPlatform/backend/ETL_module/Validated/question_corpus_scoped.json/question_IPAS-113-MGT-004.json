@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "審查",
+      "type": "technique",
+      "display_name": "審查"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "公開資訊",
+      "type": "data",
+      "display_name": "公開資訊"
+    },
+    "reasoning": "根據正確答案 D，組織的公開資訊在公布前需要經過『審查』。審查是一種用以驗證資料完整性的技術方法，因此將『審查』定義為 technique，『公開資訊』定義為 data，兩者關係為 can_analyze，符合 Schema 中的 ('technique', 'can_analyze', 'data')。",
+    "source_id": "question_IPAS-113-MGT-004",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '審查' 可以被視為 'technique' 的合理實例，'公開資訊' 可以被視為 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 data，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「審查」與 Ldr 中的「檢查」、「資料審核」、「稽核程序」等相關概念存在相似性，但無法確定完全等價同義詞關係；受體「公開資訊」與 Ldr 中的「資訊」、「公開憑證」等相關概念存在相似性，但無法確定完全等價同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體與 Ldr 中的資源之間的完全等價同義詞關係，依據判斷準則預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "審查",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "公開資訊",
+        "type": "data"
+      },
+      "reasoning": "根據正確答案 D，組織的公開資訊在公布前需要經過『審查』。審查是一種用以驗證資料完整性的技術方法，因此將『審查』定義為 technique，『公開資訊』定義為 data，兩者關係為 can_analyze，符合 Schema 中的 ('technique', 'can_analyze', 'data')。",
+      "source_id": "question_IPAS-113-MGT-004",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

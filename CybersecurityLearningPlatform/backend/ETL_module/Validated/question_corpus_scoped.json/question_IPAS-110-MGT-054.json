@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "檔案毀損",
+      "type": "attack",
+      "display_name": "檔案毀損"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "根據題幹與正確答案，檔案遭毀損會影響資料完整性。在本體論中，唯一能指向 'principle' (資安原則) 的合法關係是 'violates'，且其主體必須為 'attack'。因此將『檔案毀損』視為一種攻擊行為（或導致損害的惡意事件），其違反了『完整性』原則。",
+    "source_id": "question_IPAS-110-MGT-054",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "檔案毀損 是一種攻擊行為，屬於 'attack' 的合理實例；完整性 是一種安全原則，屬於 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。",
+        "response": "correct",
+        "reason": "主體為檔案毀損，類別為 attack，與受體完整性，類別為 principle，符合規則4所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認是否為同義詞，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "檔案毀損",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "根據題幹與正確答案，檔案遭毀損會影響資料完整性。在本體論中，唯一能指向 'principle' (資安原則) 的合法關係是 'violates'，且其主體必須為 'attack'。因此將『檔案毀損』視為一種攻擊行為（或導致損害的惡意事件），其違反了『完整性』原則。",
+      "source_id": "question_IPAS-110-MGT-054",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

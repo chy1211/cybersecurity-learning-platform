@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "組織",
+      "type": "system",
+      "display_name": "組織"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "營運恢復計畫",
+      "type": "policy",
+      "display_name": "營運恢復計畫"
+    },
+    "reasoning": "文本指出組織必須啟動營運恢復計畫，組織在此扮演執行資安/營運管理的角色，因此將其歸類為 securityTeam，執行 policy。符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+    "source_id": "chunk_8",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '組織' 可以被視為 'securityTeam' 的合理實例；受體名稱 '營運恢復計畫' 可以被視為 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「組織營運」、「企業組織」、「組織基礎設施」存在廣義/狹義從屬關係，但受體與 Ldr 中的「災害復原計畫」、「備份和恢復計劃」存在同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源存在廣義/狹義從屬關係，受體與 Ldr 中的資源存在同義詞關係，但根據判斷準則，廣義/狹義一律保留，故判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> implements -> policy (original: securityTeam -> implements -> policy)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "組織",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "營運恢復計畫",
+        "type": "policy"
+      },
+      "reasoning": "文本指出組織必須啟動營運恢復計畫，組織在此扮演執行資安/營運管理的角色，因此將其歸類為 securityTeam，執行 policy。符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+      "source_id": "chunk_8",
+      "source_file": "第12章 營運持續計畫_e5.pdf",
+      "source_index": 2
+    }
+  }
+]

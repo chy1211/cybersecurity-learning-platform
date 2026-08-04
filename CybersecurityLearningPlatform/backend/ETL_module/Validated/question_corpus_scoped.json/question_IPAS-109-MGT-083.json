@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "根據正確答案 C，提到『成功登入系統後』，這隱含了使用者使用系統的行為，符合 Schema 中 ('user', 'uses', 'system') 的定義。",
+    "source_id": "question_IPAS-109-MGT-083",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例，受體名稱 '系統' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5不觸發，因為主體類別不是data；規則6不觸發，因為關係不是deployed_in；規則7不觸發，因為關係不是generates；規則8不觸發，因為關係不是controls；其他規則不適用。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「使用者」完全等價同義詞；受體與 Ldr 中的「系統」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體在 Ldr 中找到完全等價同義詞，但根據判斷準則 3，若一個實體是另一個的子類型或具體概念 vs 泛稱，應一律保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "根據正確答案 C，提到『成功登入系統後』，這隱含了使用者使用系統的行為，符合 Schema 中 ('user', 'uses', 'system') 的定義。",
+      "source_id": "question_IPAS-109-MGT-083",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "操作行為記錄",
+      "type": "data",
+      "display_name": "操作行為記錄"
+    },
+    "reasoning": "正確答案 C 指出『對於使用者的操作行為必須完整的記錄』，這意味著系統在運作過程中會產生操作行為的記錄（日誌資料），符合 Schema 中 ('system', 'generates', 'data') 的定義。",
+    "source_id": "question_IPAS-109-MGT-083",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "系統可以生成操作行為記錄，這是系統類別的合理實例，且 'generates' 關係與系統生成資料的概念相符。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
+        "response": "correct",
+        "reason": "三元組符合規則7所允許的條件，主體為系統，關係為generates，受體為操作行為記錄，且受體的類別是data。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "操作行為記錄",
+        "type": "data"
+      },
+      "reasoning": "正確答案 C 指出『對於使用者的操作行為必須完整的記錄』，這意味著系統在運作過程中會產生操作行為的記錄（日誌資料），符合 Schema 中 ('system', 'generates', 'data') 的定義。",
+      "source_id": "question_IPAS-109-MGT-083",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

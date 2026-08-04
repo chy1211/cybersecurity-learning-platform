@@ -1,92 +1,137 @@
 [
   {
     "subject": {
-      "name": "Trusted XENIX 系統",
+      "name": "Solaris 8",
       "type": "system"
     },
     "relation": "has_a",
     "object": {
-      "name": "強制進入管制",
+      "name": "B1 強制進入管制",
       "type": "feature"
     },
-    "reasoning": "文本提到 Trusted XENIX 系統對應 B1 等級，而 B1 包含『強制進入管制』。在本體論中，系統的保護特性可視為其 feature，且 (system, has_a, feature) 是合法的邊界。",
+    "reasoning": "文本提到 Solaris 8 作為 B1 強制進入管制與資料安全標示的例子，因此 Solaris 8 是系統 (system)，而 B1 是其具備的安全特徵 (feature)。",
     "source_id": "chunk_7",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "Trusted XENIX 系統",
+      "name": "Trusted XENIX",
       "type": "system"
     },
     "relation": "has_a",
     "object": {
-      "name": "資料安全標示",
+      "name": "結構化系統保護設計",
       "type": "feature"
     },
-    "reasoning": "文本提到 Trusted XENIX 系統對應 B1 等級，而 B1 包含『資料安全標示』。這屬於系統的組成屬性，故選擇 (system, has_a, feature)。",
+    "reasoning": "文本將 Trusted XENIX 作為結構化系統保護設計的例子，因此將其視為系統 (system)，其保護設計為特徵 (feature)。",
     "source_id": "chunk_7",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "Solaris 8 作業系統",
+      "name": "DOS",
       "type": "system"
     },
     "relation": "has_a",
     "object": {
-      "name": "使用者決定系統保護",
+      "name": "無保護措施",
       "type": "feature"
     },
-    "reasoning": "文本將 Solaris 8 作為 C 等級（使用者決定系統保護）的例子。此保護機制是該系統的特徵，符合 (system, has_a, feature)。",
+    "reasoning": "文本指出 DOS 作業系統屬於無保護措施的類別，因此 DOS 是系統 (system)，而『無保護措施』是其屬性特徵 (feature)。",
     "source_id": "chunk_7",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "Solaris 8 作業系統",
+      "name": "Common Criteria (CC)",
       "type": "system"
     },
     "relation": "has_a",
     "object": {
-      "name": "使用者決定資料保護措施",
+      "name": "功能需求",
       "type": "feature"
     },
-    "reasoning": "文本提到 C1 等級為『使用者決定資料保護措施』，且 Solaris 8 被列為 C 等級範例，因此該系統具有此特徵，符合 (system, has_a, feature)。",
+    "reasoning": "CC 共通準則被視為一個綜合性的評估框架系統 (system)，而『功能需求』是其組成的一部分，屬於特徵 (feature)。",
     "source_id": "chunk_7",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "系統管理者",
-      "type": "securityTeam"
+      "name": "Common Criteria (CC)",
+      "type": "system"
     },
-    "relation": "implements",
+    "relation": "has_a",
     "object": {
-      "name": "稽核措施",
-      "type": "function"
+      "name": "安全保證需求",
+      "type": "feature"
     },
-    "reasoning": "文本指出『系統管理者可對使用者實施稽核措施』。系統管理者屬於資安維運角色 (securityTeam)，稽核是其執行的動作/能力 (function)，符合 (securityTeam, implements, function)。",
+    "reasoning": "CC 共通準則框架 (system) 包含『安全保證需求』這一組成部分，因此定義為特徵 (feature)。",
     "source_id": "chunk_7",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "DOS 作業系統",
+      "name": "Common Criteria (CC)",
       "type": "system"
     },
     "relation": "has_a",
     "object": {
-      "name": "無安全保護措施",
-      "type": "feature"
+      "name": "TCSEC",
+      "type": "system"
     },
-    "reasoning": "文本將 DOS 作為 D 等級（無保護措施）的例子。雖然是『無』保護，但在知識圖譜中這仍是該系統的一個狀態特徵，符合 (system, has_a, feature)。",
+    "reasoning": "文本提到 CC 涵蓋了 TCSEC 等準則，在知識圖譜中，這種框架對前置準則的包含關係可表示為 system has_a system。",
     "source_id": "chunk_7",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "Common Criteria (CC)",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ITSEC",
+      "type": "system"
+    },
+    "reasoning": "CC 涵蓋了 ITSEC 準則，將 CC 與 ITSEC 均視為標準體系 (system)，並以 has_a 表示涵蓋關係。",
+    "source_id": "chunk_7",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "Common Criteria (CC)",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "CTCPEC",
+      "type": "system"
+    },
+    "reasoning": "CC 涵蓋了 CTCPEC 準則，將 CC 與 CTCPEC 均視為標準體系 (system)，並以 has_a 表示涵蓋關係。",
+    "source_id": "chunk_7",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "資安評估人員",
+      "type": "securityTeam"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "功能需求",
+      "type": "feature"
+    },
+    "reasoning": "文本提到功能需求可由『使用者』透過觀察或交談加以偵測。在 CC 評估情境中，此使用者是指評估人員 (securityTeam)，而偵測功能需求即為分析 (can_analyze) 該特徵 (feature)。",
+    "source_id": "chunk_7",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 9
   }
 ]

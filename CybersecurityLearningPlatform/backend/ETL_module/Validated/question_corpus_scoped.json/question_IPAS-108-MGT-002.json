@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本提到『只有擁有權限的使用者才能修改』，這表明使用者會對資料進行操作（修改），在 Schema 中這符合 user uses data 的關係。",
+    "source_id": "question_IPAS-108-MGT-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例，受體名稱 '資料' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「使用者」完全等價同義詞；受體與 Ldr 中的「資料」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，但無需合併為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到『只有擁有權限的使用者才能修改』，這表明使用者會對資料進行操作（修改），在 Schema 中這符合 user uses data 的關係。",
+      "source_id": "question_IPAS-108-MGT-002",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "未經授權的修改",
+      "type": "attack",
+      "display_name": "未經授權的修改"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "題目將『完整性』定義為『對資料修改權的約束與限制』，這意味著任何違反此限制的行為（即未經授權的修改）即是對『完整性』原則的違反，符合 attack violates principle 的關係。",
+    "source_id": "question_IPAS-108-MGT-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '未經授權的修改' 是 'attack' 的合理實例；關係 'violates' 合理地連接主體與受體；受體 '完整性' 是 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。",
+        "response": "correct",
+        "reason": "主體為攻擊者(attack)，受體為完整性(principle)，符合規則4的描述，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認為同義詞關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "未經授權的修改",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "題目將『完整性』定義為『對資料修改權的約束與限制』，這意味著任何違反此限制的行為（即未經授權的修改）即是對『完整性』原則的違反，符合 attack violates principle 的關係。",
+      "source_id": "question_IPAS-108-MGT-002",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

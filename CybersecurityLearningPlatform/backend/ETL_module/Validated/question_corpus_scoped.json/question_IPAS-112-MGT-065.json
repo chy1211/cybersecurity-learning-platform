@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "資安團隊",
+      "type": "securityTeam",
+      "display_name": "資安團隊"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "定期資產盤點",
+      "type": "policy",
+      "display_name": "定期資產盤點"
+    },
+    "reasoning": "根據題幹與正確答案（B. 定期進行），可重建陳述句為『資訊資產盤點應該定期進行』。由於『定期進行』是一種管理上的要求、規則或指導方針，因此將『定期資產盤點』定義為 policy；而執行此類管理規範的實體為資安團隊 (securityTeam)，兩者之間符合 Schema 中的 ('securityTeam', 'implements', 'policy') 關係。",
+    "source_id": "question_IPAS-112-MGT-065",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安團隊 (securityTeam) 可以實施 (implements) 定期資產盤點 (policy)，這是合理的語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，關係為 implements，受體類別為 policy，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，且無法合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安團隊",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "定期資產盤點",
+        "type": "policy"
+      },
+      "reasoning": "根據題幹與正確答案（B. 定期進行），可重建陳述句為『資訊資產盤點應該定期進行』。由於『定期進行』是一種管理上的要求、規則或指導方針，因此將『定期資產盤點』定義為 policy；而執行此類管理規範的實體為資安團隊 (securityTeam)，兩者之間符合 Schema 中的 ('securityTeam', 'implements', 'policy') 關係。",
+      "source_id": "question_IPAS-112-MGT-065",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

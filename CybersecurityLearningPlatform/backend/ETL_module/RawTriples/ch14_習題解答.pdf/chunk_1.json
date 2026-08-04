@@ -9,7 +9,7 @@
       "name": "無線通訊",
       "type": "system"
     },
-    "reasoning": "文本明確提到『行動通訊是一種無線通訊的技術』，因此將行動通訊視為無線通訊系統的一個子集或組成部分，符合 ('system', 'is_part_of', 'system') 的 Schema。",
+    "reasoning": "文本明確提到『行動通訊是一種無線通訊的技術』，因此將行動通訊視為無線通訊系統的一個子集或組成部分。",
     "source_id": "chunk_1",
     "source_file": "ch14_習題解答.pdf",
     "source_index": 1
@@ -24,7 +24,7 @@
       "name": "無線通訊",
       "type": "system"
     },
-    "reasoning": "文本提到近場通訊 (NFC) 是『新一代的感應與無線通訊技術』，因此將其歸類為無線通訊系統的一種，符合 ('system', 'is_part_of', 'system') 的 Schema。",
+    "reasoning": "文本提到近場通訊 (NFC) 是『新一代的感應與無線通訊技術』，因此將其歸類為無線通訊系統的一種。",
     "source_id": "chunk_1",
     "source_file": "ch14_習題解答.pdf",
     "source_index": 2
@@ -39,7 +39,7 @@
       "name": "認證",
       "type": "feature"
     },
-    "reasoning": "文本指出 2G 行動通訊的安全機制包含認證。雖然認證在功能上是 function，但為了符合 ('system', 'has_a', 'feature') 的 Schema，將其視為系統的安全特徵。",
+    "reasoning": "文本指出第二代行動通訊的安全性機制『包含有：認證』。在此將認證視為系統的一項安全特徵 (feature)。",
     "source_id": "chunk_1",
     "source_file": "ch14_習題解答.pdf",
     "source_index": 3
@@ -54,7 +54,7 @@
       "name": "認證",
       "type": "function"
     },
-    "reasoning": "文本提到認證採用驗證演算法 A3 為基礎，表示該工具實作了認證功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "reasoning": "文本提到認證『採用驗證演算法A3』，演算法是執行認證功能的工具，符合 (tool, has_a, function) 的 Schema。",
     "source_id": "chunk_1",
     "source_file": "ch14_習題解答.pdf",
     "source_index": 4
@@ -69,14 +69,14 @@
       "name": "加密",
       "type": "feature"
     },
-    "reasoning": "文本指出 2G 行動通訊的安全機制包含加密，將其視為系統的安全特徵，符合 ('system', 'has_a', 'feature') 的 Schema。",
+    "reasoning": "文本指出第二代行動通訊的安全性機制『包含有：加密』。在此將加密視為系統的一項安全特徵 (feature)。",
     "source_id": "chunk_1",
     "source_file": "ch14_習題解答.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "演算法 A8",
+      "name": "加密演算法 A8",
       "type": "tool"
     },
     "relation": "generates",
@@ -84,7 +84,7 @@
       "name": "加密金鑰 Kc",
       "type": "data"
     },
-    "reasoning": "文本明確提到『採用加密演算法 A8...以產生加密金鑰 Kc』，符合 ('tool', 'generates', 'data') 的 Schema。",
+    "reasoning": "文本明確提到『採用加密演算法 A8...以產生加密金鑰 Kc』，符合 (tool, generates, data) 的 Schema。",
     "source_id": "chunk_1",
     "source_file": "ch14_習題解答.pdf",
     "source_index": 6
@@ -94,30 +94,15 @@
       "name": "演算法 A5",
       "type": "tool"
     },
-    "relation": "can_analyze",
+    "relation": "has_a",
     "object": {
-      "name": "使用者資料",
-      "type": "data"
+      "name": "加密",
+      "type": "function"
     },
-    "reasoning": "演算法 A5 用於對資料進行加密，加密過程是對資料的處理/分析，符合 ('tool', 'can_analyze', 'data') 的 Schema。",
+    "reasoning": "文本提到使用演算法 A5『對資料進行加密』，因此 A5 演算法這個工具具有加密的功能。",
     "source_id": "chunk_1",
     "source_file": "ch14_習題解答.pdf",
     "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "國際移動用戶識別碼(IMSI)",
-      "type": "data"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "弱點",
-      "type": "vulnerability"
-    },
-    "reasoning": "文本提到攻擊者利用竊取的 IMSI 來辨別使用者，這意味著 IMSI 資料的洩漏會暴露身分識別的弱點，符合 ('data', 'can_expose', 'vulnerability') 的 Schema。",
-    "source_id": "chunk_1",
-    "source_file": "ch14_習題解答.pdf",
-    "source_index": 8
   },
   {
     "subject": {
@@ -129,7 +114,22 @@
       "name": "資料完整性",
       "type": "feature"
     },
-    "reasoning": "文本提到 3G 系統的安全特性包含資料完整性。雖然完整性是 principle，但在此作為系統的特性描述，符合 ('system', 'has_a', 'feature') 的 Schema。",
+    "reasoning": "文本將『資料完整性』列為第三代行動通訊系統的安全特性，因此將其視為系統的 feature。",
+    "source_id": "chunk_1",
+    "source_file": "ch14_習題解答.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "第三代行動通訊系統",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "應用程式安全",
+      "type": "feature"
+    },
+    "reasoning": "文本將『應用程式安全』列為第三代行動通訊系統的安全特性，因此將其視為系統的 feature。",
     "source_id": "chunk_1",
     "source_file": "ch14_習題解答.pdf",
     "source_index": 9

@@ -1,0 +1,83 @@
+[
+  {
+    "subject": {
+      "name": "資訊安全管理系統",
+      "type": "system",
+      "display_name": "資訊安全管理系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "風險識別",
+      "type": "function",
+      "display_name": "風險識別"
+    },
+    "reasoning": "根據題幹，風險識別是資訊安全管理系統 (ISMS) 中的一個組成部分或執行能力，因此將 ISMS 定義為 system，風險識別定義為 function，關係為 has_a。",
+    "source_id": "question_IPAS-109-MGT-072",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "reject_reason": "Phase 1 (Schema Edge Violation): system -> has_a -> function",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全管理系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "風險識別",
+        "type": "function"
+      },
+      "reasoning": "根據題幹，風險識別是資訊安全管理系統 (ISMS) 中的一個組成部分或執行能力，因此將 ISMS 定義為 system，風險識別定義為 function，關係為 has_a。",
+      "source_id": "question_IPAS-109-MGT-072",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "風險識別",
+      "type": "technique",
+      "display_name": "風險識別"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "威脅",
+      "type": "risk",
+      "display_name": "威脅"
+    },
+    "reasoning": "選項 C（評估環境或新技術帶來的威脅）為正確知識。在資安本體論中，威脅 (Threat) 通常對應於潛在的攻擊 (attack)，而風險識別的功能是偵測/評估這些威脅，符合 Schema 中 ('function', 'can_detect', 'attack') 的定義。",
+    "source_id": "question_IPAS-109-MGT-072",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "風險識別 (風險識別) 是 function 的合理實例，威脅 (威脅) 是 attack 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> can_detect -> risk (original: function -> can_detect -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險識別",
+        "type": "function"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "威脅",
+        "type": "attack"
+      },
+      "reasoning": "選項 C（評估環境或新技術帶來的威脅）為正確知識。在資安本體論中，威脅 (Threat) 通常對應於潛在的攻擊 (attack)，而風險識別的功能是偵測/評估這些威脅，符合 Schema 中 ('function', 'can_detect', 'attack') 的定義。",
+      "source_id": "question_IPAS-109-MGT-072",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "保管單位",
+      "type": "securityTeam",
+      "display_name": "保管單位"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資產處置",
+      "type": "function",
+      "display_name": "資產保管"
+    },
+    "reasoning": "根據考題，這是一個否定式提問（詢問何者『不』正確），因此選項 B（保管單位負有善盡保管之責任義務）為正確知識。保管單位在此扮演資安維運角色，對應 securityTeam，而『善盡保管』是一種管理功能，對應 function。符合 Schema Edge: (securityTeam, implements, function)。",
+    "source_id": "question_IPAS-110-MGT-066",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "保管單位 (securityTeam) 可以實施資產保管 (function)，語意合理對齊。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，受體類別為 function，關係為 implements，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "資產保管與資產處置為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資產處置",
+        "reason": "根據同義詞判定，資產保管與資產處置是同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "保管單位",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資產保管",
+        "type": "function"
+      },
+      "reasoning": "根據考題，這是一個否定式提問（詢問何者『不』正確），因此選項 B（保管單位負有善盡保管之責任義務）為正確知識。保管單位在此扮演資安維運角色，對應 securityTeam，而『善盡保管』是一種管理功能，對應 function。符合 Schema Edge: (securityTeam, implements, function)。",
+      "source_id": "question_IPAS-110-MGT-066",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "使用單位",
+      "type": "user",
+      "display_name": "使用單位"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "合理使用政策",
+      "type": "policy",
+      "display_name": "合理使用政策"
+    },
+    "reasoning": "根據考題，選項 C（使用單位負有合理使用的義務）為正確知識。使用單位對應 user，而『合理使用的義務』屬於一種行為規範或指導方針，對應 policy。符合 Schema Edge: (user, implements, policy)。",
+    "source_id": "question_IPAS-110-MGT-066",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用單位' 可以被視為 'user' 的合理實例；受體名稱 '合理使用政策' 可以被視為 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為user，而規則3只檢查主體類別為vulnerability。規則4不適用，因為主體類別為user，而規則4只限制principle。規則5不適用，因為關係為implements，而規則5只檢查uses關係。規則6不適用，因為關係為implements，而規則6只檢查deployed_in關係。規則7不適用，因為關係為implements，而規則7只檢查generates關係。規則8不適用，因為關係為implements，而規則8只檢查controls關係。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用單位",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "合理使用政策",
+        "type": "policy"
+      },
+      "reasoning": "根據考題，選項 C（使用單位負有合理使用的義務）為正確知識。使用單位對應 user，而『合理使用的義務』屬於一種行為規範或指導方針，對應 policy。符合 Schema Edge: (user, implements, policy)。",
+      "source_id": "question_IPAS-110-MGT-066",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

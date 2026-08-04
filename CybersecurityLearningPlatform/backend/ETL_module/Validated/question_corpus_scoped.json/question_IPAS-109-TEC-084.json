@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "確認送達傳遞方式",
+      "type": "policy",
+      "display_name": "確認送達傳遞方式"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "根據題目否定式提問規則，選項 A 為正確知識。文中提到高風險個資無論內外部傳輸皆應採用確認送達方式（如親送），這是一種管理政策，旨在緩解個資外洩的風險。",
+    "source_id": "question_IPAS-109-TEC-084",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '確認送達傳遞方式' 可以被視為 'policy' 的合理實例，受體名稱 '個資外洩' 可以被視為 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩與 Ldr 中的個資外洩完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "確認送達傳遞方式",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "根據題目否定式提問規則，選項 A 為正確知識。文中提到高風險個資無論內外部傳輸皆應採用確認送達方式（如親送），這是一種管理政策，旨在緩解個資外洩的風險。",
+      "source_id": "question_IPAS-109-TEC-084",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "電子檔案傳輸保護",
+      "type": "technique",
+      "display_name": "電子檔案傳輸保護"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "加密 ftp",
+      "type": "tool",
+      "display_name": "加密 FTP"
+    },
+    "reasoning": "根據選項 B，傳送電子檔案可透過加密 FTP 進行保護，這表示實現電子檔案傳輸保護的技術手段依賴於加密 FTP 這一工具。",
+    "source_id": "question_IPAS-109-TEC-084",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "電子檔案傳輸保護 是一種合理的 'technique' 實例，且加密 FTP 是一種合理的 'tool' 實例。",
+        "response": "correct",
+        "reason": "電子檔案傳輸保護 依賴於 加密 FTP 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體電子檔案傳輸保護的類別是technique，符合規則2的條件，且關係depends_on不在規則3和規則8的限制範圍內。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間存在著技術與工具之間的關係，電子檔案傳輸保護是一種技術，使用加密FTP作為工具實現",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "電子檔案傳輸保護與加密FTP之間的關係是技術與工具之間的關係，而非同義詞或廣義/狹義從屬關係"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子檔案傳輸保護",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "加密 FTP",
+        "type": "tool"
+      },
+      "reasoning": "根據選項 B，傳送電子檔案可透過加密 FTP 進行保護，這表示實現電子檔案傳輸保護的技術手段依賴於加密 FTP 這一工具。",
+      "source_id": "question_IPAS-109-TEC-084",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "電子檔案傳輸保護",
+      "type": "technique",
+      "display_name": "電子檔案傳輸保護"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "專線",
+      "type": "tool",
+      "display_name": "專線"
+    },
+    "reasoning": "根據選項 B，傳送電子檔案可透過專線進行保護，這表示實現電子檔案傳輸保護的技術手段依賴於專線（作為通訊工具/設施）。",
+    "source_id": "question_IPAS-109-TEC-084",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "電子檔案傳輸保護 是 'technique' 的合理實例，專線 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "電子檔案傳輸保護 與 專線 的類別與屬性完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體是 technique，關係是 depends_on，受體是 tool，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的電子檔案傳輸保護完全等價同義詞；受體與 Ldr 中的加密 ftp 無直接關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的電子檔案傳輸保護完全等價同義詞，但受體與 Ldr 中的加密 ftp 無直接關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子檔案傳輸保護",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "專線",
+        "type": "tool"
+      },
+      "reasoning": "根據選項 B，傳送電子檔案可透過專線進行保護，這表示實現電子檔案傳輸保護的技術手段依賴於專線（作為通訊工具/設施）。",
+      "source_id": "question_IPAS-109-TEC-084",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊揭露最小化原則",
+      "type": "policy",
+      "display_name": "資訊揭露最小化原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "根據選項 D，個資對外傳送時應遵守資訊揭露最小化原則（如遮蔽資訊），這是一種安全政策，用以緩解因過度揭露而導致的個資外洩風險。",
+    "source_id": "question_IPAS-109-TEC-084",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '資訊揭露最小化原則' 是 'policy' 的合理實例，受體 '個資外洩' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩與 Ldr 中的個資外洩完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊揭露最小化原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "根據選項 D，個資對外傳送時應遵守資訊揭露最小化原則（如遮蔽資訊），這是一種安全政策，用以緩解因過度揭露而導致的個資外洩風險。",
+      "source_id": "question_IPAS-109-TEC-084",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

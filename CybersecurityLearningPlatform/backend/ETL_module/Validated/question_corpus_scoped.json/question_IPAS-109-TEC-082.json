@@ -1,0 +1,211 @@
+[
+  {
+    "subject": {
+      "name": "防毒軟體",
+      "type": "tool",
+      "display_name": "防毒軟體"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "多型病毒",
+      "type": "attack",
+      "display_name": "多型病毒"
+    },
+    "reasoning": "題幹提到防毒軟體無法盡早發現多型病毒，這隱含了防毒軟體的功能是偵測此類攻擊，符合 tool -> can_detect -> attack。",
+    "source_id": "question_IPAS-109-TEC-082",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防毒軟體是 tool 的合理實例，多型病毒是 attack 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 tool，關係為 can_detect，符合規則2和規則8的描述，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖然相似，但無法確認完全等價同義詞關係，故預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防毒軟體",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "多型病毒",
+        "type": "attack"
+      },
+      "reasoning": "題幹提到防毒軟體無法盡早發現多型病毒，這隱含了防毒軟體的功能是偵測此類攻擊，符合 tool -> can_detect -> attack。",
+      "source_id": "question_IPAS-109-TEC-082",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "多型病毒",
+      "type": "attack",
+      "display_name": "多型病毒"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意軟體",
+      "type": "attack",
+      "display_name": "惡意軟體"
+    },
+    "reasoning": "根據題幹與正確答案，多型病毒 (Polymorphic Virus) 是惡意軟體的一種具體類型，因此使用 attack -> is_part_of -> attack。",
+    "source_id": "question_IPAS-109-TEC-082",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "多型病毒 是惡意軟體的一種常見攻擊手法，'多型病毒' 可以被視為 'attack' 的合理實例；'惡意軟體' 也是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且實體名稱與其類別合理對齊。"
+      },
+      "step_2_selfloop_reverted": true,
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體與受體皆不具有攻擊者與安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "惡意程式",
+        "standard_object": "惡意程式",
+        "reason": "主體與受體均為惡意軟體的同義詞，依據資安領域已知同義詞對照範例，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "多型病毒",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "惡意軟體",
+        "type": "attack"
+      },
+      "reasoning": "根據題幹與正確答案，多型病毒 (Polymorphic Virus) 是惡意軟體的一種具體類型，因此使用 attack -> is_part_of -> attack。",
+      "source_id": "question_IPAS-109-TEC-082",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "多型病毒",
+      "type": "attack",
+      "display_name": "多型病毒"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "企業網路",
+      "type": "system",
+      "display_name": "企業網路"
+    },
+    "reasoning": "題幹提到企業網路中爆發惡意軟體（多型病毒），表示該攻擊對系統造成危害，符合 attack -> can_harm -> system。",
+    "source_id": "question_IPAS-109-TEC-082",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '多型病毒' 是 'attack' 的合理實例；受體名稱 '企業網路' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「多型病毒」完全等價同義詞；受體與 Ldr 中的「企業網路」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，無需進一步合併或替換。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "多型病毒",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "企業網路",
+        "type": "system"
+      },
+      "reasoning": "題幹提到企業網路中爆發惡意軟體（多型病毒），表示該攻擊對系統造成危害，符合 attack -> can_harm -> system。",
+      "source_id": "question_IPAS-109-TEC-082",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資安管理人員",
+      "type": "securityTeam",
+      "display_name": "資安管理人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "惡意軟體分析工具",
+      "type": "tool",
+      "display_name": "惡意軟體分析工具"
+    },
+    "reasoning": "題幹明確指出資安管理人員使用專門的惡意軟體分析工具，符合 securityTeam -> uses -> tool。",
+    "source_id": "question_IPAS-109-TEC-082",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安管理人員是 securityTeam 的合理實例，惡意軟體分析工具是 tool 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），本案例中的主體是 securityTeam，符合規則。",
+        "response": "correct",
+        "reason": "主體 (Subject) 類別為 securityTeam，符合規則8 的條件，且無其他規則違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間不存在直接關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間雖然存在同義詞關係，但受體與 Ldr 中的資源之間不存在直接關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安管理人員",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "惡意軟體分析工具",
+        "type": "tool"
+      },
+      "reasoning": "題幹明確指出資安管理人員使用專門的惡意軟體分析工具，符合 securityTeam -> uses -> tool。",
+      "source_id": "question_IPAS-109-TEC-082",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

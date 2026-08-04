@@ -1,0 +1,228 @@
+[
+  {
+    "subject": {
+      "name": "資訊安全管理系統 (isms)",
+      "type": "system",
+      "display_name": "資訊安全管理系統 (ISMS)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資產清單",
+      "type": "feature",
+      "display_name": "資產清單"
+    },
+    "reasoning": "根據題幹，資產清單是資訊安全管理系統 (ISMS) 的一部分。ISMS 作為一個管理體系 (system)，其資產清單可視為其組成特徵或元件 (feature)。",
+    "source_id": "question_IPAS-109-MGT-065",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '資訊安全管理系統 (ISMS)' 是 'system' 的合理實例；受體 '資產清單' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3、規則6、規則8",
+        "response": "correct",
+        "reason": "三元組中的主體 ISMS (類別: system) 與受體資產清單 (類別: feature) 透過 has_a 關係，未違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全管理系統 (ISMS)",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資產清單",
+        "type": "feature"
+      },
+      "reasoning": "根據題幹，資產清單是資訊安全管理系統 (ISMS) 的一部分。ISMS 作為一個管理體系 (system)，其資產清單可視為其組成特徵或元件 (feature)。",
+      "source_id": "question_IPAS-109-MGT-065",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資產清單",
+      "type": "feature",
+      "display_name": "資產清單"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資產保管人",
+      "type": "data",
+      "display_name": "資產保管人"
+    },
+    "reasoning": "本題為否定式提問，選項 B (資產保管人) 是成立的正確知識。資產清單 (feature) 使用/包含資產保管人這項資訊 (data)。",
+    "source_id": "question_IPAS-109-MGT-065",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資產清單 (feature) 使用資產保管人 (data) 的語意合理對齊，資產清單是資產的特徵，資產保管人是資產的管理者，這是資安領域中的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體為資產清單 (類別: feature)，與規則5不符，規則5要求主體類別為data。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體為資產清單 (類別: feature)，與規則5不符，規則5要求主體類別為data。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產清單",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資產保管人",
+        "type": "data"
+      },
+      "reasoning": "本題為否定式提問，選項 B (資產保管人) 是成立的正確知識。資產清單 (feature) 使用/包含資產保管人這項資訊 (data)。",
+      "source_id": "question_IPAS-109-MGT-065",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資產清單",
+      "type": "feature",
+      "display_name": "資產清單"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資產價值",
+      "type": "data",
+      "display_name": "資產價值"
+    },
+    "reasoning": "本題為否定式提問，選項 D (資產價值) 是成立的正確知識。資產清單 (feature) 使用/包含資產價值這項資訊 (data)。",
+    "source_id": "question_IPAS-109-MGT-065",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資產清單 (feature) 使用資產價值 (data) 合理對齊，資產清單與資產價值是資安領域中常見的實體名稱與類別組合。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體類別為 feature，與規則5不符，觸發違規判定。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體類別為 feature，與規則5不符，觸發違規判定。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產清單",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資產價值",
+        "type": "data"
+      },
+      "reasoning": "本題為否定式提問，選項 D (資產價值) 是成立的正確知識。資產清單 (feature) 使用/包含資產價值這項資訊 (data)。",
+      "source_id": "question_IPAS-109-MGT-065",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資產清單",
+      "type": "feature",
+      "display_name": "資產清單"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資產名稱",
+      "type": "data",
+      "display_name": "資產名稱"
+    },
+    "reasoning": "本題為否定式提問，正確答案 C (資產外觀) 為排除項，因此選項 A (資產名稱) 是成立的知識。資產清單 (feature) 使用/包含資產名稱這項資訊 (data)。",
+    "source_id": "question_IPAS-109-MGT-065",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資產清單 (feature) 使用資產名稱 (data) 是合理的，資產清單通常包含資產名稱，屬於資安領域的常見實踐。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體類別為 feature，與規則5不符，且關係為 uses，受體類別為 data，違反規則5。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體類別為 feature，與規則5不符，且關係為 uses，受體類別為 data，違反規則5。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產清單",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資產名稱",
+        "type": "data"
+      },
+      "reasoning": "本題為否定式提問，正確答案 C (資產外觀) 為排除項，因此選項 A (資產名稱) 是成立的知識。資產清單 (feature) 使用/包含資產名稱這項資訊 (data)。",
+      "source_id": "question_IPAS-109-MGT-065",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

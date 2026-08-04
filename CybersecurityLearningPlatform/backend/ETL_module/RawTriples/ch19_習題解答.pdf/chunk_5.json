@@ -6,13 +6,43 @@
     },
     "relation": "mitigates",
     "object": {
-      "name": "法律爭議",
+      "name": "法律保障缺失",
       "type": "risk"
     },
-    "reasoning": "文本提到歐盟對資料儲存要求嚴謹，目的是為了在法律保障上避免爭議。因此將其定義為 policy (規範) 緩解 (mitigates) risk (風險)。",
+    "reasoning": "文本提到歐盟對資料儲存要求嚴謹，旨在避免爭議發生時無法得到法律保障。因此將其視為一種 policy 用於緩解 (mitigates) 法律保障缺失的 risk。",
     "source_id": "chunk_5",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "業務持續營運計畫",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "營運中斷風險",
+      "type": "risk"
+    },
+    "reasoning": "文本指出業務持續營運確保企業營運安全，這是一種管理策略 (policy) 用於降低災害導致的營運中斷風險 (risk)。",
+    "source_id": "chunk_5",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "企業",
+      "type": "securityTeam"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "傳統資訊基礎設施",
+      "type": "system"
+    },
+    "reasoning": "文本提到在傳統系統中，基礎設施在企業可管理的範圍內，因此 securityTeam (企業資安管理方) 對於 system (基礎設施) 具有控制權 (controls)。",
+    "source_id": "chunk_5",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 3
   },
   {
     "subject": {
@@ -21,28 +51,28 @@
     },
     "relation": "uses",
     "object": {
-      "name": "雲端服務供應商",
+      "name": "雲端服務供應商環境",
       "type": "system"
     },
-    "reasoning": "文本描述企業在雲端環境中依賴供應商提供的環境，因此企業 (user) 使用 (uses) 雲端服務供應商 (system)。",
+    "reasoning": "在雲端環境中，企業不再擁有基礎設施而必須依賴供應商提供的環境，此時企業扮演雲端系統的使用者 (user) 角色，使用 (uses) 該 system。",
     "source_id": "chunk_5",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 2
+    "source_index": 4
   },
   {
     "subject": {
       "name": "雲端服務供應商",
-      "type": "system"
+      "type": "attacker"
     },
-    "relation": "uses",
+    "relation": "can_harm",
     "object": {
-      "name": "用戶資訊",
+      "name": "用戶隱私資料",
       "type": "data"
     },
-    "reasoning": "文本提到服務供應商可能會存取原本屬於用戶擁有的資訊，因此 system (供應商) 使用 (uses) data (用戶資訊)。",
+    "reasoning": "文本描述供應商可能會存取原本屬於用戶的資訊並造成侵害，在此情境下，供應商扮演了威脅行為者 (attacker) 的角色，其行為可危害 (can_harm) 用戶的 data。",
     "source_id": "chunk_5",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 3
+    "source_index": 5
   },
   {
     "subject": {
@@ -51,13 +81,13 @@
     },
     "relation": "can_harm",
     "object": {
-      "name": "用戶資訊",
+      "name": "用戶隱私資料",
       "type": "data"
     },
-    "reasoning": "將供應商為了商業利益再次利用資料定義為一種惡意行為 (attack)，該行為會危害 (can_harm) 到資料 (data) 的所有權與隱私。",
+    "reasoning": "將資料販賣給行銷業者或內部使用被定義為一種惡意或未經授權的行為 (attack)，這會直接危害 (can_harm) 到用戶的隱私資料 (data)。",
     "source_id": "chunk_5",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 4
+    "source_index": 6
   },
   {
     "subject": {
@@ -69,10 +99,10 @@
       "name": "隱私權",
       "type": "principle"
     },
-    "reasoning": "文本明確指出再次利用資料的行為會對資訊擁有者造成隱私權上的侵犯，因此 attack (資料再利用) 違反 (violates) principle (隱私權)。",
+    "reasoning": "文本明確提到資料再利用的行為會對資訊擁有者造成隱私權上的侵犯，因此該 attack 違反 (violates) 了隱私權這一資安原則 (principle)。",
     "source_id": "chunk_5",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 5
+    "source_index": 7
   },
   {
     "subject": {
@@ -84,37 +114,7 @@
       "name": "資料",
       "type": "data"
     },
-    "reasoning": "文本提到企業可以依資料重要性做分級，這是一種處理資料的技術 (technique)，用於分析 (can_analyze) 資料 (data) 的屬性。",
-    "source_id": "chunk_5",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 6
-  },
-  {
-    "subject": {
-      "name": "雲端服務環境",
-      "type": "system"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "隱私控制缺陷",
-      "type": "vulnerability"
-    },
-    "reasoning": "文本提到在雲端環境中，供應商可存取用戶資訊且服務條款對用戶保障不足，這構成了一種系統性的缺陷 (vulnerability)。",
-    "source_id": "chunk_5",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "隱私控制缺陷",
-      "type": "vulnerability"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "隱私侵害",
-      "type": "risk"
-    },
-    "reasoning": "由於缺乏適當的控制 (vulnerability)，導致用戶面臨隱私被侵害的風險 (risk)。",
+    "reasoning": "企業依資料重要性做分級是一種管理技術 (technique)，其過程涉及對資料 (data) 的分析與分類 (can_analyze)。",
     "source_id": "chunk_5",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 8

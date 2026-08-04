@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "subject": {
+      "name": "網路層",
+      "type": "feature",
+      "display_name": "網路層"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "應用層",
+      "type": "feature",
+      "display_name": "應用層"
+    },
+    "reasoning": "文本提到網路層的功能是將感測資訊傳遞至應用層，代表兩者之間存在網路連接。符合 ('system', 'connects_to', 'system') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '網路層' 與類別 'system' 合理對齊，受體名稱 '應用層' 與類別 'system' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的網路層完全等價同義詞；受體與 Ldr 中的應用層完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體在 Ldr 中找到完全等價同義詞，但根據資安領域已知同義詞對照範例與禁止合併的母類/子類與易混淆概念範例，網路層與應用層是 OSI 模型中的不同層級，無法合併，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> connects_to -> feature (original: system -> connects_to -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路層",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "應用層",
+        "type": "system"
+      },
+      "reasoning": "文本提到網路層的功能是將感測資訊傳遞至應用層，代表兩者之間存在網路連接。符合 ('system', 'connects_to', 'system') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "應用系統",
+      "type": "app",
+      "display_name": "應用系統"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "應用層",
+      "type": "feature",
+      "display_name": "應用層"
+    },
+    "reasoning": "文本提到應用層是由企業建置的應用系統組成。符合 ('app', 'is_part_of', 'system') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "應用系統 (app) 可被視為系統 (system) 的一部分，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
+      },
+      "step_2": {
+        "granularity_analysis": "應用系統與應用層之間存在著廣義/狹義從屬關係，應用系統是應用層的一部分，但兩者並非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "應用系統與應用層之間存在著廣義/狹義從屬關係，應用系統是應用層的一部分，但兩者並非完全等價同義詞。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): app -> is_part_of -> feature (original: app -> is_part_of -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用系統",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "應用層",
+        "type": "system"
+      },
+      "reasoning": "文本提到應用層是由企業建置的應用系統組成。符合 ('app', 'is_part_of', 'system') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

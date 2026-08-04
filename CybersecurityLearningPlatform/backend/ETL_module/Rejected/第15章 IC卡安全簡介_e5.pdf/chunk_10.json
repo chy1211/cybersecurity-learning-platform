@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "八達通",
+      "type": "tool",
+      "display_name": "八達通"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ic卡",
+      "type": "system",
+      "display_name": "IC卡"
+    },
+    "reasoning": "文本提到八達通採用 IC 卡技術，IC 卡在此處描述為該工具的技術特性，因此選擇 feature 並使用 has_a 關係。",
+    "source_id": "chunk_10",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "八達通是一種工具（tool），IC卡是一種特徵（feature），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的某資源不完全相同，但受體與 Ldr 中的某資源完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的某資源不完全相同，受體與 Ldr 中的某資源完全相同，但無法確定為同義詞重複，因此預設保留。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> has_a -> system (original: tool -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "八達通",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "IC卡",
+        "type": "feature"
+      },
+      "reasoning": "文本提到八達通採用 IC 卡技術，IC 卡在此處描述為該工具的技術特性，因此選擇 feature 並使用 has_a 關係。",
+      "source_id": "chunk_10",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 2
+    }
+  }
+]

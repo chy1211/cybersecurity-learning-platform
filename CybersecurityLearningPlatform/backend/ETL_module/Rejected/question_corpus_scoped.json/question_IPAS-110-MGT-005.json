@@ -1,0 +1,98 @@
+[
+  {
+    "subject": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "機敏性",
+      "type": "feature",
+      "display_name": "機敏性"
+    },
+    "reasoning": "根據選項 C，個人資料外洩是機敏性面臨的風險。在資安本體論中，資料外洩（Data Breach）可視為一種攻擊事件（attack），而此類事件會直接違反（violates）機敏性（confidentiality）這一資安原則（principle）。",
+    "source_id": "question_IPAS-110-MGT-005",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "個資外洩 是攻擊 (attack) 的合理實例，機敏性 是資安原則 (principle) 的合理實例。",
+        "response": "correct",
+        "reason": "個資外洩攻擊違反機敏性原則的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩與機敏性之間的關係是個資外洩的風險特徵",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "個資外洩與機敏性之間的關係是個資外洩的風險特徵，不是同義詞重複。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): risk -> violates -> feature (original: attack -> violates -> principle)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "個資外洩",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "機敏性",
+        "type": "principle"
+      },
+      "reasoning": "根據選項 C，個人資料外洩是機敏性面臨的風險。在資安本體論中，資料外洩（Data Breach）可視為一種攻擊事件（attack），而此類事件會直接違反（violates）機敏性（confidentiality）這一資安原則（principle）。",
+      "source_id": "question_IPAS-110-MGT-005",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "個人資料",
+      "type": "data",
+      "display_name": "個人資料"
+    },
+    "reasoning": "根據選項 C，個資外洩涉及帳號、密碼、信用卡卡號等個人資料。將個資外洩視為攻擊事件（attack）時，其行為會對受影響的個人資料（data）造成危害（can_harm）。",
+    "source_id": "question_IPAS-110-MGT-005",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "個資外洩 是攻擊 (attack) 的合理實例，個人資料 是資料 (data) 的合理實例。",
+        "response": "correct",
+        "reason": "個資外洩 (attack) 與 個人資料 (data) 透過 can_harm 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): risk -> can_harm -> data (original: attack -> can_harm -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "個資外洩",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "個人資料",
+        "type": "data"
+      },
+      "reasoning": "根據選項 C，個資外洩涉及帳號、密碼、信用卡卡號等個人資料。將個資外洩視為攻擊事件（attack）時，其行為會對受影響的個人資料（data）造成危害（can_harm）。",
+      "source_id": "question_IPAS-110-MGT-005",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

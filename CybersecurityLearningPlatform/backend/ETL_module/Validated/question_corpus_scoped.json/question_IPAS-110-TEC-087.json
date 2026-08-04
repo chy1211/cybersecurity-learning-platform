@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "syslog",
+      "type": "tool",
+      "display_name": "Syslog"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "port 514",
+      "type": "feature",
+      "display_name": "port 514"
+    },
+    "reasoning": "文本提到 Syslog 使用 port 514 進行遠端蒐集，連接埠 (port) 是系統或應用程式的組成屬性，符合 ('app', 'has_a', 'feature')。",
+    "source_id": "question_IPAS-110-TEC-087",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Syslog 是一種日誌系統，通常會有特定的端口號，因此 'Syslog' 可以被視為 'app' 的合理實例；'port 514' 是 Syslog 的預設端口號，因此 'port 514' 可以被視為 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "Syslog 與 port 514 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "三元組 Syslog (tool) has_a port 514 (feature) 未違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Syslog 是 Ldr 中的 syslog 的完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "syslog",
+        "standard_object": "",
+        "reason": "Syslog 與 syslog 是完全相同的實體名稱，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Syslog",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "port 514",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 Syslog 使用 port 514 進行遠端蒐集，連接埠 (port) 是系統或應用程式的組成屬性，符合 ('app', 'has_a', 'feature')。",
+      "source_id": "question_IPAS-110-TEC-087",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "udp",
+      "type": "feature",
+      "display_name": "UDP"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "封包遺失",
+      "type": "vulnerability",
+      "display_name": "封包遺失"
+    },
+    "reasoning": "正確答案 B 指出 UDP 在網路流量大時有可能遺失封包，這描述了 UDP 協定不保證傳遞的特性（缺陷），在資安知識圖譜中可視為一種弱點/漏洞，符合 ('feature', 'can_expose', 'vulnerability')。",
+    "source_id": "question_IPAS-110-TEC-087",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'UDP' 是 'feature' 的合理實例，受體 '封包遺失' 是 'vulnerability' 的合理實例，關係 'can_expose' 合理描述了 'feature' 與 'vulnerability' 之間的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體 UDP 的類別是 feature，受體 封包遺失 的類別是 vulnerability，關係 can_expose 符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 UDP 與 Ldr 中的 udp 完全等價同義詞；受體 封包遺失 與 Ldr 中無直接對應的同義詞，但可視為與網路傳輸相關的概念，然而無法確定其是否與 Ldr 中的資源完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 UDP 與 Ldr 中的 udp 完全等價同義詞，但受體 封包遺失 與 Ldr 中無直接對應的同義詞，且無法確定其是否與 Ldr 中的資源完全相同，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "UDP",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "封包遺失",
+        "type": "vulnerability"
+      },
+      "reasoning": "正確答案 B 指出 UDP 在網路流量大時有可能遺失封包，這描述了 UDP 協定不保證傳遞的特性（缺陷），在資安知識圖譜中可視為一種弱點/漏洞，符合 ('feature', 'can_expose', 'vulnerability')。",
+      "source_id": "question_IPAS-110-TEC-087",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "syslog",
+      "type": "tool",
+      "display_name": "Syslog"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "udp",
+      "type": "feature",
+      "display_name": "UDP"
+    },
+    "reasoning": "文本提到使用使用者資料報協定 (UDP) 來蒐集 Syslog，UDP 作為傳輸協定是 Syslog 實作中的一個特徵，符合 ('app', 'has_a', 'feature')。",
+    "source_id": "question_IPAS-110-TEC-087",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Syslog 是一種系統日誌收集工具，通常會使用 UDP 協議進行傳輸，因此 Syslog 的類別 'app' 與 UDP 的類別 'feature' 合理對齊。",
+        "response": "correct",
+        "reason": "Syslog 與 UDP 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "Syslog 與 Ldr 中的 syslog 完全等價同義詞；UDP 與 Ldr 中的 udp 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Syslog 與 UDP 分別為 tool 與 feature，無法合併為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Syslog",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "UDP",
+        "type": "feature"
+      },
+      "reasoning": "文本提到使用使用者資料報協定 (UDP) 來蒐集 Syslog，UDP 作為傳輸協定是 Syslog 實作中的一個特徵，符合 ('app', 'has_a', 'feature')。",
+      "source_id": "question_IPAS-110-TEC-087",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

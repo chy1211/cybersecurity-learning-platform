@@ -9,29 +9,14 @@
       "name": "內部威脅",
       "type": "attack"
     },
-    "reasoning": "文本提到內部人員（包含授權與非授權）是內部威脅 (insider threats) 的來源，因此將內部人員定義為 attacker，其執行的惡意行為為 attack。",
+    "reasoning": "文本提到『內部人員... 內部威脅 (insider threats) 是所有攻擊類型中首位』，說明內部人員是執行內部威脅攻擊的行為者，符合 ('attacker', 'implements', 'attack') 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "第01章 資訊安全_e5.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "內部威脅",
-      "type": "attack"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "駭客攻擊",
-      "type": "attack"
-    },
-    "reasoning": "文本指出內部威脅是『所有攻擊類型中首位』，顯示內部威脅是攻擊 (attack) 這一大類中的一種，符合 attack is_part_of attack 的定義。",
-    "source_id": "chunk_2",
-    "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 2
-  },
-  {
-    "subject": {
-      "name": "作業系統",
+      "name": "系統",
       "type": "system"
     },
     "relation": "can_expose",
@@ -39,10 +24,10 @@
       "name": "弱點",
       "type": "vulnerability"
     },
-    "reasoning": "文本明確提到『有些作業系統存在許多的弱點』，符合 system can_expose vulnerability 的 Schema。",
+    "reasoning": "文本明確指出『系統存在弱點』，這符合 ('system', 'can_expose', 'vulnerability') 的定義。",
     "source_id": "chunk_2",
     "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 3
+    "source_index": 2
   },
   {
     "subject": {
@@ -54,7 +39,22 @@
       "name": "風險",
       "type": "risk"
     },
-    "reasoning": "文本提到『系統存在弱點，導致風險提高』，符合 vulnerability can_expose risk 的邏輯。",
+    "reasoning": "文本提到『由於... 系統存在弱點，導致風險提高』，表示弱點的存在會導致風險暴露，符合 ('vulnerability', 'can_expose', 'risk') 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本舉例『有些作業系統存在許多的弱點』，將作業系統視為 system，弱點視為 vulnerability，符合 ('system', 'can_expose', 'vulnerability')。",
     "source_id": "chunk_2",
     "source_file": "第01章 資訊安全_e5.pdf",
     "source_index": 4
@@ -66,57 +66,27 @@
     },
     "relation": "can_harm",
     "object": {
-      "name": "作業系統",
+      "name": "系統",
       "type": "system"
     },
-    "reasoning": "文本提到『某些病毒針對這些弱點以感染系統』，感染系統即為造成損害，符合 attack can_harm system。",
+    "reasoning": "文本提到『某些病毒針對這些弱點以感染系統』，感染行為屬於對系統的危害，將病毒視為 attack，符合 ('attack', 'can_harm', 'system') 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "第01章 資訊安全_e5.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "非授權存取",
-      "type": "attack"
+      "name": "電子郵件",
+      "type": "app"
     },
-    "relation": "violates",
+    "relation": "is_part_of",
     "object": {
-      "name": "機密性",
-      "type": "principle"
+      "name": "資訊系統",
+      "type": "system"
     },
-    "reasoning": "文本定義機密性是要防止資訊被非授權人員存取，因此『非授權存取』這種攻擊行為會違反 (violates) 機密性原則。",
+    "reasoning": "文本在說明可用性時，將『電子郵件、應用系統』作為『資訊系統』的例子，因此電子郵件是資訊系統的一部分，符合 ('app', 'is_part_of', 'system')。",
     "source_id": "chunk_2",
     "source_file": "第01章 資訊安全_e5.pdf",
     "source_index": 6
-  },
-  {
-    "subject": {
-      "name": "資料竄改",
-      "type": "attack"
-    },
-    "relation": "violates",
-    "object": {
-      "name": "完整性",
-      "type": "principle"
-    },
-    "reasoning": "文本定義完整性是確保資料不被非授權人員竄改，因此『資料竄改』行為會違反 (violates) 完整性原則。",
-    "source_id": "chunk_2",
-    "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "服務中斷",
-      "type": "attack"
-    },
-    "relation": "violates",
-    "object": {
-      "name": "可用性",
-      "type": "principle"
-    },
-    "reasoning": "文本定義可用性是確保系統能持續正常提供服務，因此導致服務無法獲得回應的攻擊（如服務中斷）會違反 (violates) 可用性原則。",
-    "source_id": "chunk_2",
-    "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 8
   }
 ]

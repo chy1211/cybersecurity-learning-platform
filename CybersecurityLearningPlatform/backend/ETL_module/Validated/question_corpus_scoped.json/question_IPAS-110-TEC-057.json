@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "tor",
+      "type": "tool",
+      "display_name": "Tor"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "匿名通信",
+      "type": "function",
+      "display_name": "匿名通信"
+    },
+    "reasoning": "根據選項 A，Tor 是一個實現匿名通信的軟體。匿名通信是 Tor 提供的一項核心能力/功能，因此選擇 tool -> has_a -> function。",
+    "source_id": "question_IPAS-110-TEC-057",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Tor 是一種工具，匿名通信是一種功能，兩者之間的 'has_a' 關係合理，Tor 可以提供匿名通信的功能。",
+        "response": "correct",
+        "reason": "Tor 與匿名通信的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體 Tor 是 tool，具有主動執行能力，且關係 has_a 不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Tor",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "匿名通信",
+        "type": "function"
+      },
+      "reasoning": "根據選項 A，Tor 是一個實現匿名通信的軟體。匿名通信是 Tor 提供的一項核心能力/功能，因此選擇 tool -> has_a -> function。",
+      "source_id": "question_IPAS-110-TEC-057",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "tor",
+      "type": "tool",
+      "display_name": "Tor"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "匿名通信",
+      "type": "function",
+      "display_name": "秘密通信"
+    },
+    "reasoning": "根據選項 B，Tor 保障用戶進行秘密通信的能力。秘密通信可視為 Tor 提供的功能，因此選擇 tool -> has_a -> function。",
+    "source_id": "question_IPAS-110-TEC-057",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Tor 是一種工具，秘密通信是其功能之一，合理對齊。",
+        "response": "correct",
+        "reason": "Tor 與 秘密通信 的類別與屬性完全符合預先定義的清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則5、規則8",
+        "response": "correct",
+        "reason": "三元組符合規則所允許的條件，且無明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Tor 與 Ldr 中的 tor 完全等價同義詞；受體 秘密通信 與 Ldr 中的 匿名通信 關係為同義詞",
+        "response": "duplicate",
+        "standard_subject": "tor",
+        "standard_object": "匿名通信",
+        "reason": "主體 Tor 與 Ldr 中的 tor 完全等價同義詞；受體 秘密通信 與 Ldr 中的 匿名通信 關係為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Tor",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "秘密通信",
+        "type": "function"
+      },
+      "reasoning": "根據選項 B，Tor 保障用戶進行秘密通信的能力。秘密通信可視為 Tor 提供的功能，因此選擇 tool -> has_a -> function。",
+      "source_id": "question_IPAS-110-TEC-057",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "tor",
+      "type": "tool",
+      "display_name": "Tor"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "根據選項 B，Tor 可以保障用戶的個人隱私。在資安本體論中，「保障隱私」等同於「緩解個資外洩的風險」，因此選擇 tool -> mitigates -> risk。",
+    "source_id": "question_IPAS-110-TEC-057",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Tor 是一種工具（tool），個資外洩是一種風險（risk），且 'mitigates' 的語意與工具降低風險的意義相符。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 Tor 的類別是 tool，符合規則2所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "個資外洩與資料外洩之間存在著廣義/狹義從屬關係，但個資外洩與機密外洩、認證資訊外洩之間的關係不明確，無法確定為同義詞或子類型關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定個資外洩與其他資源之間的關係，預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Tor",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "根據選項 B，Tor 可以保障用戶的個人隱私。在資安本體論中，「保障隱私」等同於「緩解個資外洩的風險」，因此選擇 tool -> mitigates -> risk。",
+      "source_id": "question_IPAS-110-TEC-057",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

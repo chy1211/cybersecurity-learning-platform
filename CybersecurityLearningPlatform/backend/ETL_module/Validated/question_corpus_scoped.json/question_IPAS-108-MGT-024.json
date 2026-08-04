@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "權限異動申請政策",
+      "type": "policy",
+      "display_name": "權限異動申請政策"
+    },
+    "reasoning": "題幹明確提到『公司規定系統權限異動應書面申請,並經主管核准方可執行』，這定義了一項權限管理政策。使用者在申請權限時必須遵循並執行此流程，因此符合 user implements policy 的 Schema。",
+    "source_id": "question_IPAS-108-MGT-024",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例；受體名稱 '權限異動申請政策' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不受規則3限制。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認是否為同義詞，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "權限異動申請政策",
+        "type": "policy"
+      },
+      "reasoning": "題幹明確提到『公司規定系統權限異動應書面申請,並經主管核准方可執行』，這定義了一項權限管理政策。使用者在申請權限時必須遵循並執行此流程，因此符合 user implements policy 的 Schema。",
+      "source_id": "question_IPAS-108-MGT-024",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊部門",
+      "type": "securityTeam",
+      "display_name": "資訊主管"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "根據選項 B（在否定式提問中為正確實踐），資訊主管申請『管理者權限』。在資安領域中，擁有管理者權限即代表對該系統具有控制權，資訊主管作為管理角色可歸類為 securityTeam，符合 securityTeam controls system 的 Schema。",
+    "source_id": "question_IPAS-108-MGT-024",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體名稱 '資訊主管' 是 'securityTeam' 的合理實例，實體名稱 '系統' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為資訊主管 (類別: securityTeam)，符合規則8所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '資訊部門' 關係：同義詞重複；受體與 Ldr 中的資源 '系統' 關係：完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "資訊部門",
+        "standard_object": "系統",
+        "reason": "主體與 Ldr 中的 '資訊部門' 同義詞重複，受體與 Ldr 中的 '系統' 完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊主管",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "根據選項 B（在否定式提問中為正確實踐），資訊主管申請『管理者權限』。在資安領域中，擁有管理者權限即代表對該系統具有控制權，資訊主管作為管理角色可歸類為 securityTeam，符合 securityTeam controls system 的 Schema。",
+      "source_id": "question_IPAS-108-MGT-024",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "財會人員",
+      "type": "user",
+      "display_name": "財會人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "根據選項 C（在否定式提問中為正確實踐），財會人員申請『系統月結權限』，這表示該使用者在執行其職務時需要使用該系統的功能，符合 user uses system 的 Schema。",
+    "source_id": "question_IPAS-108-MGT-024",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "財會人員 是 user 的合理實例，系統 是 system 的合理實例。",
+        "response": "correct",
+        "reason": "財會人員 使用 系統 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用；規則2：不適用；規則3：不適用；規則4：不適用；規則5：不適用；規則6：不適用；規則7：不適用；規則8：不適用",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「使用者」完全等價同義詞；受體與 Ldr 中的「系統」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的「使用者」完全等價同義詞，但受體與 Ldr 中的「系統」完全等價同義詞，然而根據判斷準則，若一個實體是另一個的子類型或具體概念 vs 泛稱，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "財會人員",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "根據選項 C（在否定式提問中為正確實踐），財會人員申請『系統月結權限』，這表示該使用者在執行其職務時需要使用該系統的功能，符合 user uses system 的 Schema。",
+      "source_id": "question_IPAS-108-MGT-024",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "稽核人員",
+      "type": "securityTeam",
+      "display_name": "稽核主管"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "根據選項 D（在否定式提問中為正確實踐），稽核主管申請『所有模組的查詢權限』。稽核的主要功能是透過查詢資料來分析系統的合規性與安全性，稽核角色屬於 securityTeam，符合 securityTeam can_analyze system 的 Schema。",
+    "source_id": "question_IPAS-108-MGT-024",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '稽核主管' 可被視為 'securityTeam' 的合理實例；受體名稱 '系統' 可被視為 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是攻擊者；規則2不適用，因為關係不是mitigates；規則3不適用，因為主體不是漏洞；規則4不適用，因為主體不是資安原則；規則5不適用，因為關係不是uses且主體不是data；規則6不適用，因為關係不是deployed_in；規則7不適用，因為關係不是generates；規則8不適用，因為關係不是controls；因此無明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "無明確且直接的違反項目，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「稽核人員」為同義詞；受體與 Ldr 中的「系統」完全相同。",
+        "response": "duplicate",
+        "standard_subject": "稽核人員",
+        "standard_object": "系統",
+        "reason": "主體與 Ldr 中的「稽核人員」為同義詞；受體與 Ldr 中的「系統」完全相同，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "稽核主管",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "根據選項 D（在否定式提問中為正確實踐），稽核主管申請『所有模組的查詢權限』。稽核的主要功能是透過查詢資料來分析系統的合規性與安全性，稽核角色屬於 securityTeam，符合 securityTeam can_analyze system 的 Schema。",
+      "source_id": "question_IPAS-108-MGT-024",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

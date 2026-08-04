@@ -9,7 +9,7 @@
       "name": "Microsoft SDL",
       "type": "technique"
     },
-    "reasoning": "文本提到 Microsoft SDL 流程模式由 7 個部分組成，其中包含安全培訓。SDL 是一種開發流程（符合 technique 定義），其組成步驟亦可視為技術流程，因此使用 is_part_of。",
+    "reasoning": "文本提到 Microsoft SDL 流程模式由 7 個部分組成，其中包含安全培訓。將 SDL 視為一種安全開發技術/流程 (technique)，其組成步驟同樣視為技術步驟，符合 ('technique', 'is_part_of', 'technique') 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 1
@@ -24,7 +24,7 @@
       "name": "Microsoft SDL",
       "type": "technique"
     },
-    "reasoning": "需求分析是 Microsoft SDL 流程模式的組成部分，兩者均屬於開發方法/流程 (technique)。",
+    "reasoning": "需求分析是 Microsoft SDL 流程模式的組成部分，符合 ('technique', 'is_part_of', 'technique')。",
     "source_id": "chunk_4",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 2
@@ -39,7 +39,7 @@
       "name": "Microsoft SDL",
       "type": "technique"
     },
-    "reasoning": "系統設計（含威脅建模）是 Microsoft SDL 流程模式的組成部分。",
+    "reasoning": "系統設計（包含威脅建模）是 Microsoft SDL 流程模式的組成部分，符合 ('technique', 'is_part_of', 'technique')。",
     "source_id": "chunk_4",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 3
@@ -54,7 +54,7 @@
       "name": "Microsoft SDL",
       "type": "technique"
     },
-    "reasoning": "實作（安全程式開發）是 Microsoft SDL 流程模式的組成部分。",
+    "reasoning": "實作（安全程式開發）是 Microsoft SDL 流程模式的組成部分，符合 ('technique', 'is_part_of', 'technique')。",
     "source_id": "chunk_4",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 4
@@ -69,7 +69,7 @@
       "name": "Microsoft SDL",
       "type": "technique"
     },
-    "reasoning": "驗證（黑箱/白箱測試）是 Microsoft SDL 流程模式的組成部分。",
+    "reasoning": "驗證（黑箱/白箱測試）是 Microsoft SDL 流程模式的組成部分，符合 ('technique', 'is_part_of', 'technique')。",
     "source_id": "chunk_4",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 5
@@ -84,7 +84,7 @@
       "name": "Microsoft SDL",
       "type": "technique"
     },
-    "reasoning": "發行（最後檢查）是 Microsoft SDL 流程模式的組成部分。",
+    "reasoning": "發行（最後檢查確認）是 Microsoft SDL 流程模式的組成部分，符合 ('technique', 'is_part_of', 'technique')。",
     "source_id": "chunk_4",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 6
@@ -99,7 +99,7 @@
       "name": "Microsoft SDL",
       "type": "technique"
     },
-    "reasoning": "回應（問題回應與缺失追踪）是 Microsoft SDL 流程模式的組成部分。",
+    "reasoning": "回應（問題回應與缺失追蹤）是 Microsoft SDL 流程模式的組成部分，符合 ('technique', 'is_part_of', 'technique')。",
     "source_id": "chunk_4",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 7
@@ -114,7 +114,7 @@
       "name": "缺陷管理",
       "type": "function"
     },
-    "reasoning": "文本明確指出 JIRA 是一款針對缺陷管理、任務追蹤和專案管理的軟體，缺陷管理是其提供的功能 (function)。",
+    "reasoning": "文本明確指出 JIRA 是針對缺陷管理、任務追蹤和專案管理的軟體。將 JIRA 視為工具 (tool)，其提供的能力視為功能 (function)，符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_4",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 8
@@ -129,7 +129,7 @@
       "name": "任務追蹤",
       "type": "function"
     },
-    "reasoning": "任務追蹤是 JIRA 這款工具所具備的功能 (function)。",
+    "reasoning": "JIRA 提供任務追蹤能力，符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_4",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 9
@@ -144,22 +144,22 @@
       "name": "專案管理",
       "type": "function"
     },
-    "reasoning": "專案管理是 JIRA 這款工具所具備的功能 (function)。",
+    "reasoning": "JIRA 提供專案管理能力，符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_4",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 10
   },
   {
     "subject": {
-      "name": "JIRA",
+      "name": "Microsoft Project",
       "type": "tool"
     },
-    "relation": "can_analyze",
+    "relation": "has_a",
     "object": {
-      "name": "計畫缺失",
-      "type": "vulnerability"
+      "name": "排程",
+      "type": "function"
     },
-    "reasoning": "文本提到 JIRA 可以追蹤計畫缺失。在軟體開發脈絡中，缺失/缺陷對應於 vulnerability，而追蹤與分析對應於 can_analyze。",
+    "reasoning": "文本提到 Microsoft Project 能改善排程，將其視為工具 (tool) 具有排程功能 (function)，符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_4",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 11
@@ -171,27 +171,12 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "專案計畫管理",
+      "name": "專案管理",
       "type": "function"
     },
-    "reasoning": "Microsoft Project 被定義為一套專案計畫管理軟體，其核心能力為專案計畫管理功能 (function)。",
+    "reasoning": "Microsoft Project 是一套專案計畫管理軟體，符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_4",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 12
-  },
-  {
-    "subject": {
-      "name": "Microsoft Project",
-      "type": "tool"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "專案金三角 (經費, 時間, 範圍)",
-      "type": "feature"
-    },
-    "reasoning": "文本提到 Microsoft Project 強調在經費、時間、範圍之間取得平衡。這些屬性是專案的特徵 (feature)，而工具透過管理與調整來分析這些特徵。",
-    "source_id": "chunk_4",
-    "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 13
   }
 ]

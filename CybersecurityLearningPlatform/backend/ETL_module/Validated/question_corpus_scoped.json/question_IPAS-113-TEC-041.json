@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵偵測與防禦系統 (IDPS)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "威脅",
+      "type": "risk",
+      "display_name": "威脅"
+    },
+    "reasoning": "根據題幹與選項 C，IDPS 可以主動反應並即時阻擋偵測到的威脅。在 Schema 中，工具 (tool) 緩解/防禦 攻擊 (attack) 是合法的邊界。",
+    "source_id": "question_IPAS-113-TEC-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測與防禦系統 (IDPS) 是一種工具 (tool)，而 '入侵偵測與防禦系統' 這個名稱與 'tool' 類別是合理對齊的；威脅是攻擊 (attack)，而 '威脅' 這個名稱與 'attack' 類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 tool，符合規則2的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「入侵偵測系統 (ids)」為同義詞重複，受體與 Ldr 中的「威脅」完全相同。",
+        "response": "duplicate",
+        "standard_subject": "入侵偵測系統 (ids)",
+        "standard_object": "威脅",
+        "reason": "主體與 Ldr 中的「入侵偵測系統 (ids)」為同義詞重複，受體與 Ldr 中的「威脅」完全相同，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測與防禦系統 (IDPS)",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "威脅",
+        "type": "attack"
+      },
+      "reasoning": "根據題幹與選項 C，IDPS 可以主動反應並即時阻擋偵測到的威脅。在 Schema 中，工具 (tool) 緩解/防禦 攻擊 (attack) 是合法的邊界。",
+      "source_id": "question_IPAS-113-TEC-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵偵測與防禦系統 (IDPS)"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "警報訊息",
+      "type": "data",
+      "display_name": "入侵警告訊息"
+    },
+    "reasoning": "本題為否定式提問，選項 A 為正確知識。IDPS 發出警告訊息屬於產生資料的行為。在 Schema 中，工具 (tool) 產生 資料 (data) 是合法的邊界。",
+    "source_id": "question_IPAS-113-TEC-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "入侵偵測與防禦系統 (IDPS) 是工具 (tool) 的合理實例，入侵警告訊息是資料 (data) 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
+        "response": "correct",
+        "reason": "三元組符合規則7所允許的條件，入侵偵測與防禦系統 (IDPS) 產生入侵警告訊息，受體的類別是 data，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「入侵偵測系統 (ids)」為同義詞重複，受體與 Ldr 中的「警報訊息」為同義詞重複。",
+        "response": "duplicate",
+        "standard_subject": "入侵偵測系統 (ids)",
+        "standard_object": "警報訊息",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測與防禦系統 (IDPS)",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "入侵警告訊息",
+        "type": "data"
+      },
+      "reasoning": "本題為否定式提問，選項 A 為正確知識。IDPS 發出警告訊息屬於產生資料的行為。在 Schema 中，工具 (tool) 產生 資料 (data) 是合法的邊界。",
+      "source_id": "question_IPAS-113-TEC-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵偵測與防禦系統 (IDPS)"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "資訊安全事故記錄",
+      "type": "data",
+      "display_name": "入侵事件記錄"
+    },
+    "reasoning": "本題為否定式提問，選項 B 為正確知識。IDPS 記錄入侵事件屬於產生日誌/資料的行為。在 Schema 中，工具 (tool) 產生 資料 (data) 是合法的邊界。",
+    "source_id": "question_IPAS-113-TEC-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "入侵偵測與防禦系統 (IDPS) 是 'tool' 的合理實例，入侵事件記錄是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 generates，受體的類別是 data，符合規則7的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「入侵偵測系統 (ids)」為同義詞；受體與 Ldr 中的「資訊安全事故記錄」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "入侵偵測系統 (ids)",
+        "standard_object": "資訊安全事故記錄",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵偵測與防禦系統 (IDPS)",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "入侵事件記錄",
+        "type": "data"
+      },
+      "reasoning": "本題為否定式提問，選項 B 為正確知識。IDPS 記錄入侵事件屬於產生日誌/資料的行為。在 Schema 中，工具 (tool) 產生 資料 (data) 是合法的邊界。",
+      "source_id": "question_IPAS-113-TEC-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

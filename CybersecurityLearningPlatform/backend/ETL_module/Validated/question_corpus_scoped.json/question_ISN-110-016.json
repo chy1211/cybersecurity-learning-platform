@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "個人資料處理",
+      "type": "function",
+      "display_name": "個人資料處理"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資料運送",
+      "type": "feature",
+      "display_name": "資料運送"
+    },
+    "reasoning": "根據考題題幹與正確答案，將紙本資料運送至倉庫的行為被歸類為個人資料保護生命週期中的「處理」環節。因此，「個人資料處理」這一功能/階段包含了「資料運送」這個特徵/組成部分。",
+    "source_id": "question_ISN-110-016",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '個人資料處理' 是 'function' 的合理實例，受體 '資料運送' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法在資安領域已知同義詞對照範例中找到相符的同義詞關係，且無法確認兩個實體之間的從屬關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人資料處理",
+        "type": "function"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資料運送",
+        "type": "feature"
+      },
+      "reasoning": "根據考題題幹與正確答案，將紙本資料運送至倉庫的行為被歸類為個人資料保護生命週期中的「處理」環節。因此，「個人資料處理」這一功能/階段包含了「資料運送」這個特徵/組成部分。",
+      "source_id": "question_ISN-110-016",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "物流業者",
+      "type": "user",
+      "display_name": "物流業者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "紙本申請資料",
+      "type": "data",
+      "display_name": "紙本申請資料"
+    },
+    "reasoning": "物流業者在運送過程中接觸並處理紙本申請資料，符合使用者（user）使用/操作資料（data）的邏輯關係。",
+    "source_id": "question_ISN-110-016",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '物流業者' 是 'user' 的合理實例，受體 '紙本申請資料' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "物流業者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "紙本申請資料",
+        "type": "data"
+      },
+      "reasoning": "物流業者在運送過程中接觸並處理紙本申請資料，符合使用者（user）使用/操作資料（data）的邏輯關係。",
+      "source_id": "question_ISN-110-016",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "個人資料保留政策",
+      "type": "policy",
+      "display_name": "個人資料保護政策"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "題幹提到擔心「違反個人資料保護相關要求」以及資料散落在道路上（即個資外洩），這隱含了個人資料保護政策（policy）的目的在於緩解或防禦個資外洩（risk）的風險。",
+    "source_id": "question_ISN-110-016",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '個人資料保護政策' 是 'policy' 的合理實例；受體名稱 '個資外洩' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「個人資料保留政策」為同義詞；受體與 Ldr 中的「個資外洩」完全相同。",
+        "response": "duplicate",
+        "standard_subject": "個人資料保留政策",
+        "standard_object": "個資外洩",
+        "reason": "主體與 Ldr 中的「個人資料保留政策」為同義詞；受體與 Ldr 中的「個資外洩」完全相同，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人資料保護政策",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "題幹提到擔心「違反個人資料保護相關要求」以及資料散落在道路上（即個資外洩），這隱含了個人資料保護政策（policy）的目的在於緩解或防禦個資外洩（risk）的風險。",
+      "source_id": "question_ISN-110-016",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

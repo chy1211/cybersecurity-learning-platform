@@ -1,0 +1,164 @@
+[
+  {
+    "subject": {
+      "name": "登入 cookie 唯一性原則",
+      "type": "policy",
+      "display_name": "登入 Cookie 唯一性原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "會議連線劫持",
+      "type": "attack",
+      "display_name": "會議連線劫持"
+    },
+    "reasoning": "根據選項 A，登入 Cookie 必須是唯一的且每個用戶不相同，這是一種安全策略（policy），旨在防止攻擊者透過預測或重複使用 Cookie 來進行會議連線劫持（attack），因此選擇 mitigates 關係。",
+    "source_id": "question_ISN-107-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "登入 Cookie 唯一性原則 是 'policy' 的合理實例，會議連線劫持 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "登入 Cookie 唯一性原則、會議連線劫持 與 mitigates 符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體登入 Cookie 唯一性原則的類別為 policy，符合規則2的條件，允許執行 mitigates 動作。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源無直接關係，受體與 Ldr 中的資源有相似性，但不完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "受體與 Ldr 中的資源雖有相似性，但不完全等價，且無法確定為同義詞，因此預設保留原名"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "登入 Cookie 唯一性原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "會議連線劫持",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 A，登入 Cookie 必須是唯一的且每個用戶不相同，這是一種安全策略（policy），旨在防止攻擊者透過預測或重複使用 Cookie 來進行會議連線劫持（attack），因此選擇 mitigates 關係。",
+      "source_id": "question_ISN-107-019",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "封包偽冒",
+      "type": "technique",
+      "display_name": "封包偽冒"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "會議連線劫持",
+      "type": "attack",
+      "display_name": "會議連線劫持"
+    },
+    "reasoning": "根據選項 C，連線劫持與偽冒的回應封包及檔頭有關。偽冒封包是一種攻擊技術（technique），用於實作或達成會議連線劫持（attack）的過程，因此選擇 implements 關係。",
+    "source_id": "question_ISN-107-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '封包偽冒' 是 'technique' 的合理實例，受體 '會議連線劫持' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，未違反規則3。"
+      },
+      "step_2": {
+        "granularity_analysis": "會議連線劫持與連線劫持之間存在著狹義關係，會議連線劫持是連線劫持的一種特定情況。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "會議連線劫持是連線劫持的一種子類型，因此不應合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "封包偽冒",
+        "type": "technique"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "會議連線劫持",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 C，連線劫持與偽冒的回應封包及檔頭有關。偽冒封包是一種攻擊技術（technique），用於實作或達成會議連線劫持（attack）的過程，因此選擇 implements 關係。",
+      "source_id": "question_ISN-107-019",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "跨站腳本攻擊",
+      "type": "technique",
+      "display_name": "跨站腳本攻擊"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "會議連線劫持",
+      "type": "attack",
+      "display_name": "會議連線劫持"
+    },
+    "reasoning": "根據選項 B，跨站腳本攻擊（XSS）可造成連線劫持。在此脈絡下，XSS 是達成連線劫持目的的一種手段或技術（technique），因此使用 implements 關係將其與目標攻擊（attack）連結。",
+    "source_id": "question_ISN-107-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "跨站腳本攻擊是 'technique' 的合理實例，會議連線劫持是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體為 technique，關係為 implements，受體為 attack，違反規則3：主體類別為 technique，原則上不可發起主動行為 implements。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體為 technique，關係為 implements，受體為 attack，違反規則3：主體類別為 technique，原則上不可發起主動行為 implements。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "跨站腳本攻擊",
+        "type": "technique"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "會議連線劫持",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 B，跨站腳本攻擊（XSS）可造成連線劫持。在此脈絡下，XSS 是達成連線劫持目的的一種手段或技術（technique），因此使用 implements 關係將其與目標攻擊（attack）連結。",
+      "source_id": "question_ISN-107-019",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

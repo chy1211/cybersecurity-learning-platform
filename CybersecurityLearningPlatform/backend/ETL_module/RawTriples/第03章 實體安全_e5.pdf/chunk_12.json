@@ -6,55 +6,55 @@
     },
     "relation": "can_detect",
     "object": {
-      "name": "入侵",
+      "name": "入侵訊息",
       "type": "attack"
     },
-    "reasoning": "文本提到入侵偵測設備利用多種原理來偵測入侵訊息，因此將設備定義為 tool，入侵定義為 attack，關係為 can_detect。",
+    "reasoning": "文本提到入侵偵測設備利用多種原理來『偵測到入侵訊息』。入侵訊息在此代表一種攻擊事件，因此選擇 tool -> can_detect -> attack。",
     "source_id": "chunk_12",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "敏感金屬薄片",
-      "type": "feature"
-    },
-    "relation": "is_part_of",
-    "object": {
       "name": "入侵偵測設備",
       "type": "tool"
     },
-    "reasoning": "敏感金屬薄片是入侵偵測設備中實現『阻斷和產生電流』原理的組成部分，因此定義為 feature 並使用 is_part_of。",
+    "relation": "has_a",
+    "object": {
+      "name": "敏感金屬薄片",
+      "type": "feature"
+    },
+    "reasoning": "敏感金屬薄片是入侵偵測設備中實現『阻斷和產生電流』原理的組成部分，屬於其特徵，因此選擇 tool -> has_a -> feature。",
     "source_id": "chunk_12",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "光學設施",
-      "type": "feature"
-    },
-    "relation": "is_part_of",
-    "object": {
       "name": "入侵偵測設備",
       "type": "tool"
     },
-    "reasoning": "光學設施是入侵偵測設備中實現『中斷光線』原理的組成部分，因此定義為 feature 並使用 is_part_of。",
+    "relation": "has_a",
+    "object": {
+      "name": "光學設施",
+      "type": "feature"
+    },
+    "reasoning": "光學設施是入侵偵測設備中實現『中斷光線』原理的組成部分，屬於其特徵，因此選擇 tool -> has_a -> feature。",
     "source_id": "chunk_12",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "敏感性麥克風",
-      "type": "feature"
-    },
-    "relation": "is_part_of",
-    "object": {
       "name": "入侵偵測設備",
       "type": "tool"
     },
-    "reasoning": "敏感性麥克風是入侵偵測設備中實現『偵測聲音』原理的組成部分，因此定義為 feature 並使用 is_part_of。",
+    "relation": "has_a",
+    "object": {
+      "name": "敏感性麥克風",
+      "type": "feature"
+    },
+    "reasoning": "敏感性麥克風是入侵偵測設備中實現『偵測聲音』原理的組成部分，屬於其特徵，因此選擇 tool -> has_a -> feature。",
     "source_id": "chunk_12",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 4
@@ -64,12 +64,12 @@
       "name": "警衛",
       "type": "securityTeam"
     },
-    "relation": "uses",
+    "relation": "implements",
     "object": {
-      "name": "監視器",
-      "type": "tool"
+      "name": "管制人員出入",
+      "type": "function"
     },
-    "reasoning": "文本提到警衛的工作包含『監看閉路電視的監視器』，因此警衛為 securityTeam，監視器為 tool，關係為 uses。",
+    "reasoning": "文本明確指出警衛的工作內容包含『管制人員出入』，這是一種安全管理功能，因此選擇 securityTeam -> implements -> function。",
     "source_id": "chunk_12",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 5
@@ -81,10 +81,10 @@
     },
     "relation": "uses",
     "object": {
-      "name": "警報系統",
+      "name": "閉路電視",
       "type": "tool"
     },
-    "reasoning": "文本提到警衛需要『留意警報系統』，因此警衛為 securityTeam，警報系統為 tool，關係為 uses。",
+    "reasoning": "警衛需要『監看閉路電視的監視器』，閉路電視是其執行任務所使用的工具，因此選擇 securityTeam -> uses -> tool。",
     "source_id": "chunk_12",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 6
@@ -94,27 +94,27 @@
       "name": "警衛",
       "type": "securityTeam"
     },
-    "relation": "implements",
+    "relation": "uses",
     "object": {
-      "name": "人員出入管制",
-      "type": "function"
+      "name": "警報系統",
+      "type": "tool"
     },
-    "reasoning": "文本提到警衛可以『管制人員出入』，這是一種安全管理功能，因此定義為 function，關係為 implements。",
+    "reasoning": "警衛的工作包含『留意警報系統』，警報系統是其使用的工具，因此選擇 securityTeam -> uses -> tool。",
     "source_id": "chunk_12",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 7
   },
   {
     "subject": {
-      "name": "資料檔案保險櫃",
-      "type": "system"
+      "name": "警衛",
+      "type": "securityTeam"
     },
-    "relation": "mitigates",
+    "relation": "uses",
     "object": {
-      "name": "資料損毀風險",
-      "type": "risk"
+      "name": "電擊棒",
+      "type": "tool"
     },
-    "reasoning": "保險櫃具備防火、防盜、防爆措施，旨在降低資料遺失或損毀的風險。為了符合 Schema 中 data deployed_in system 的定義，將保險櫃視為一種物理儲存系統 (system)，其功能是緩解風險 (mitigates risk)。",
+    "reasoning": "文本提到警衛可能配備『電擊棒』作為防護配備，因此選擇 securityTeam -> uses -> tool。",
     "source_id": "chunk_12",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 8
@@ -129,24 +129,54 @@
       "name": "資料檔案保險櫃",
       "type": "system"
     },
-    "reasoning": "文本明確指出『重要的備份資料需要儲存於資料檔案保險櫃』，符合 (data, deployed_in, system) 的 Schema。",
+    "reasoning": "文本指出『重要的備份資料需要儲存於資料檔案保險櫃』。將保險櫃視為一種物理儲存系統，符合 data -> deployed_in -> system 的 Schema。",
     "source_id": "chunk_12",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 9
   },
   {
     "subject": {
+      "name": "資料檔案保險櫃",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
       "name": "防火措施",
       "type": "feature"
     },
-    "relation": "is_part_of",
-    "object": {
-      "name": "資料檔案保險櫃",
-      "type": "tool"
-    },
-    "reasoning": "防火、防盜、防爆是保險櫃的安全需求/屬性，將其定義為 feature，保險櫃在此視為 tool (安全工具)，關係為 is_part_of。",
+    "reasoning": "保險櫃需要具備『防火』等措施，這是該系統的屬性/特徵，因此選擇 system -> has_a -> feature。",
     "source_id": "chunk_12",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 10
+  },
+  {
+    "subject": {
+      "name": "資料檔案保險櫃",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "防盜措施",
+      "type": "feature"
+    },
+    "reasoning": "保險櫃需要具備『防盜』等措施，這是該系統的屬性/特徵，因此選擇 system -> has_a -> feature。",
+    "source_id": "chunk_12",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 11
+  },
+  {
+    "subject": {
+      "name": "資料檔案保險櫃",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "防爆措施",
+      "type": "feature"
+    },
+    "reasoning": "保險櫃需要具備『防爆』等措施，這是該系統的屬性/特徵，因此選擇 system -> has_a -> feature。",
+    "source_id": "chunk_12",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 12
   }
 ]

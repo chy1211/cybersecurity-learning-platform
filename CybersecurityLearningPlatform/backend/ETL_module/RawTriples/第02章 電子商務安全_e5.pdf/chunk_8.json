@@ -9,7 +9,7 @@
       "name": "網路櫃員機",
       "type": "system"
     },
-    "reasoning": "文本明確指出 'WebATM 是網路櫃員機'，將 WebATM 視為提供服務的應用程式 (app)，而網路櫃員機為其所屬的系統體系 (system)。",
+    "reasoning": "文本明確指出 WebATM 是網路櫃員機的一種服務形式，將其視為應用程式 (app) 屬於網路櫃員機系統 (system) 符合 Schema。",
     "source_id": "chunk_8",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 1
@@ -24,25 +24,10 @@
       "name": "讀卡機",
       "type": "tool"
     },
-    "reasoning": "文本提到 WebATM '需要配備讀卡機'，讀卡機是執行該應用功能所需的硬體工具 (tool)。",
+    "reasoning": "文本提到 WebATM 需要配備讀卡機才能使用，讀卡機為硬體工具 (tool)，符合 ('app', 'has_a', 'tool') 的 Schema。",
     "source_id": "chunk_8",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 2
-  },
-  {
-    "subject": {
-      "name": "使用者",
-      "type": "user"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "WebATM",
-      "type": "app"
-    },
-    "reasoning": "文本描述客戶（使用者）在電腦前使用 WebATM 進行轉帳操作。",
-    "source_id": "chunk_8",
-    "source_file": "第02章 電子商務安全_e5.pdf",
-    "source_index": 3
   },
   {
     "subject": {
@@ -54,7 +39,22 @@
       "name": "銀行支付結算系統",
       "type": "system"
     },
-    "reasoning": "文本提到第三方支付提供 '與銀行支付結算系統介面的交易支持平臺'，表示該應用程式與銀行系統之間存在網路連線與通訊。",
+    "reasoning": "文本描述第三方支付提供與銀行支付結算系統介面的交易支持平臺，代表兩者之間存在網路連線/通訊，符合 ('app', 'connects_to', 'system')。",
+    "source_id": "chunk_8",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "第三方支付",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "詐騙",
+      "type": "attack"
+    },
+    "reasoning": "文本提到第三方支付能減少詐騙事件發生。為了符合 Schema ('tool', 'mitigates', 'attack')，將第三方支付在此情境下定義為一種防禦工具 (tool)，詐騙定義為攻擊 (attack)。",
     "source_id": "chunk_8",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 4
@@ -69,7 +69,7 @@
       "name": "密碼電子貨幣",
       "type": "tool"
     },
-    "reasoning": "文本將比特幣作為密碼電子貨幣的例子，且將密碼電子貨幣定義為 '支付工具'，因此兩者均設為 tool，且比特幣屬於密碼電子貨幣的一種。",
+    "reasoning": "比特幣是密碼電子貨幣的一個具體實例，兩者均可視為支付工具 (tool)，符合 ('tool', 'is_part_of', 'tool')。",
     "source_id": "chunk_8",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 5
@@ -84,14 +84,14 @@
       "name": "密碼學",
       "type": "feature"
     },
-    "reasoning": "文本指出密碼電子貨幣 '基於密碼學的原理而設計'，密碼學在此作為該工具的核心技術特徵 (feature)。",
+    "reasoning": "文本指出密碼電子貨幣是基於密碼學原理而設計，密碼學在此作為其核心技術特徵 (feature)，符合 ('tool', 'has_a', 'feature')。",
     "source_id": "chunk_8",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "缺乏管理規範",
+      "name": "尚未納入管理規範",
       "type": "vulnerability"
     },
     "relation": "can_expose",
@@ -99,7 +99,7 @@
       "name": "洗錢",
       "type": "risk"
     },
-    "reasoning": "文本提到密碼電子貨幣 '尚未納入管理規範' (漏洞/缺陷)，且 '也會有洗錢的潛在風險' (風險)，符合漏洞導致風險暴露的邏輯。",
+    "reasoning": "文本提到密碼電子貨幣尚未納入管理規範，因此會產生洗錢的潛在風險。將「缺乏規範」視為系統性漏洞 (vulnerability)，將「洗錢」視為風險 (risk)，符合 ('vulnerability', 'can_expose', 'risk')。",
     "source_id": "chunk_8",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 7

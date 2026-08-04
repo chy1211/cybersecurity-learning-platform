@@ -2,14 +2,14 @@
   {
     "subject": {
       "name": "屬性加密 (ABE)",
-      "type": "technique"
+      "type": "tool"
     },
     "relation": "mitigates",
     "object": {
-      "name": "非授權存取",
-      "type": "attack"
+      "name": "資料外洩",
+      "type": "risk"
     },
-    "reasoning": "文本提到 ABE 是為了確保只有被授權者才可以存取資料，這是一種防止非授權存取攻擊的技術，符合 (technique, mitigates, attack) 的 Schema。",
+    "reasoning": "文本提到 ABE 是為了確保只有被授權者可以存取資料，其目的是防止未授權存取導致的資料外洩風險。根據 Schema，tool 可以 mitigates risk。",
     "source_id": "chunk_11",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 1
@@ -17,14 +17,14 @@
   {
     "subject": {
       "name": "細粒度存取控制",
-      "type": "technique"
+      "type": "policy"
     },
     "relation": "mitigates",
     "object": {
-      "name": "非授權存取",
-      "type": "attack"
+      "name": "資料外洩",
+      "type": "risk"
     },
-    "reasoning": "文本明確指出細粒度存取控制是為了確保資料不會被非授權者所存取，符合 (technique, mitigates, attack) 的 Schema。",
+    "reasoning": "文本指出存取控制必須細緻化以確保資料不會被非授權者存取，這是一種管理策略。根據 Schema，policy 可以 mitigates risk。",
     "source_id": "chunk_11",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 2
@@ -34,27 +34,27 @@
       "name": "人事資料系統",
       "type": "app"
     },
-    "relation": "can_expose",
+    "relation": "generates",
     "object": {
-      "name": "存取控制不足",
-      "type": "vulnerability"
+      "name": "敏感資料",
+      "type": "data"
     },
-    "reasoning": "文本舉例若人事資料系統僅通過密碼認證即可存取所有資料，這描述了一種系統設定上的缺陷（漏洞），符合 (app, can_expose, vulnerability) 的 Schema。",
+    "reasoning": "文本提到存取人事資料系統的敏感資料，表示該應用程式產生或持有此類資料。根據 Schema，app 可以 generates data。",
     "source_id": "chunk_11",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "存取控制不足",
-      "type": "vulnerability"
+      "name": "人事資料系統",
+      "type": "app"
     },
     "relation": "can_expose",
     "object": {
-      "name": "資料外洩",
-      "type": "risk"
+      "name": "系統設定錯誤",
+      "type": "vulnerability"
     },
-    "reasoning": "文本指出在大數據環境下，若存取控制不夠細緻（漏洞），將會提高資料外洩之風險，符合 (vulnerability, can_expose, risk) 的 Schema。",
+    "reasoning": "文本提到若僅通過密碼認證即可存取所有資料會提高風險，這暗示了系統在認證機制上的缺陷（弱點）。根據 Schema，app 可以 can_expose vulnerability。",
     "source_id": "chunk_11",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 4
@@ -69,7 +69,7 @@
       "name": "資料洩漏",
       "type": "risk"
     },
-    "reasoning": "文本提到儲存與交易紀錄的策略必須符合安全需求，以避免資料洩漏之風險，符合 (policy, mitigates, risk) 的 Schema。",
+    "reasoning": "文本明確提到資料儲存與交易紀錄的策略若處理不當會有洩漏風險，反之則是用於緩解風險。根據 Schema，policy 可以 mitigates risk。",
     "source_id": "chunk_11",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 5
@@ -84,7 +84,7 @@
       "name": "車牌號碼辨識資料",
       "type": "data"
     },
-    "reasoning": "文本提到該系統處理的資料包含車牌號碼辨識，代表該應用程式會產生或處理此類資料，符合 (app, generates, data) 的 Schema。",
+    "reasoning": "文本提到交通流量分析系統處理的資料包含車牌號碼辨識，表示該系統產生或處理此資料。根據 Schema，app 可以 generates data。",
     "source_id": "chunk_11",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 6
@@ -99,22 +99,22 @@
       "name": "入侵事件",
       "type": "attack"
     },
-    "reasoning": "文本明確指出透過稽核可以發現已經發生的入侵事件，符合 (technique, can_detect, attack) 的 Schema。",
+    "reasoning": "文本提到透過稽核可以發現已經發生的入侵事件。根據 Schema，technique 可以 can_detect attack。",
     "source_id": "chunk_11",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 7
   },
   {
     "subject": {
-      "name": "資料來源分析 (Data Provenance)",
+      "name": "資料來源管理",
       "type": "technique"
     },
     "relation": "can_analyze",
     "object": {
-      "name": "需求報告資料",
+      "name": "資料",
       "type": "data"
     },
-    "reasoning": "文本提到資料來源分析是用來確保資料正確性（如金屬業需求報告），以避免錯誤分析，符合 (technique, can_analyze, data) 的 Schema。",
+    "reasoning": "資料來源 (Data Provenance) 是一種追蹤與分析資料來源的技術，以確保分析結果正確。根據 Schema，technique 可以 can_analyze data。",
     "source_id": "chunk_11",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 8
@@ -124,14 +124,29 @@
       "name": "終端輸入驗證與過濾",
       "type": "technique"
     },
-    "relation": "can_analyze",
+    "relation": "mitigates",
     "object": {
-      "name": "蒐集資料",
-      "type": "data"
+      "name": "駭客攻擊",
+      "type": "attack"
     },
-    "reasoning": "該技術旨在驗證與過濾輸入的資料以確保其正確性，符合 (technique, can_analyze, data) 的 Schema。",
+    "reasoning": "輸入驗證與過濾是資安中防止注入攻擊等惡意行為的標準技術。根據 Schema，technique 可以 mitigates attack。",
     "source_id": "chunk_11",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "系統設定錯誤",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料外洩",
+      "type": "risk"
+    },
+    "reasoning": "文本中提到認證不足（弱點）會導致資料外洩（風險）。根據 Schema，vulnerability 可以 can_expose risk。",
+    "source_id": "chunk_11",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 10
   }
 ]

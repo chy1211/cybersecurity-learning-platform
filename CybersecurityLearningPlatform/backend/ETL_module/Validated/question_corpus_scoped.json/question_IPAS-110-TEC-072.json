@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "有心人士",
+      "type": "attacker",
+      "display_name": "有心人士"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "無憑證檢查",
+      "type": "vulnerability",
+      "display_name": "無憑證檢查"
+    },
+    "reasoning": "根據題幹與正確答案，『無憑證檢查』被定義為一個漏洞，而『有心人士』（攻擊者）可以利用此漏洞來發動攻擊，因此符合 (attacker, can_exploit, vulnerability) 的 Schema。",
+    "source_id": "question_IPAS-110-TEC-072",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '有心人士' 是 'attacker' 的合理實例，受體 '無憑證檢查' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，受體類別為 vulnerability，關係為 can_exploit，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無憑證檢查為漏洞的同義詞，但主體有心人士不在同義詞對照範例中，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "有心人士",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "無憑證檢查",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據題幹與正確答案，『無憑證檢查』被定義為一個漏洞，而『有心人士』（攻擊者）可以利用此漏洞來發動攻擊，因此符合 (attacker, can_exploit, vulnerability) 的 Schema。",
+      "source_id": "question_IPAS-110-TEC-072",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "有心人士",
+      "type": "attacker",
+      "display_name": "有心人士"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "中間人攻擊",
+      "type": "attack",
+      "display_name": "中間人攻擊"
+    },
+    "reasoning": "題幹提到有心人士發動『中間人攻擊 (MITM)』，這代表攻擊者實作了該攻擊行為，符合 (attacker, implements, attack) 的 Schema。",
+    "source_id": "question_IPAS-110-TEC-072",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '有心人士' 是 'attacker' 的合理實例，受體 '中間人攻擊' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，未違反規則3。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "有心人士",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "中間人攻擊",
+        "type": "attack"
+      },
+      "reasoning": "題幹提到有心人士發動『中間人攻擊 (MITM)』，這代表攻擊者實作了該攻擊行為，符合 (attacker, implements, attack) 的 Schema。",
+      "source_id": "question_IPAS-110-TEC-072",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

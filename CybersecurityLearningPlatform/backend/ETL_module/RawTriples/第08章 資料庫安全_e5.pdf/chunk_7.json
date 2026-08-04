@@ -1,48 +1,63 @@
 [
   {
     "subject": {
-      "name": "資料庫系統",
-      "type": "system"
+      "name": "使用者",
+      "type": "user"
     },
     "relation": "uses",
     "object": {
-      "name": "重要資料",
-      "type": "data"
+      "name": "資料庫系統",
+      "type": "app"
     },
-    "reasoning": "文本提到資料庫儲存有大量資料，且重點在於保護其中的重要資料，因此資料庫系統與資料之間存在使用/包含關係。",
+    "reasoning": "文本提到使用者在使用資料庫系統時需被授予權限，因此使用者是資料庫系統的使用者。",
     "source_id": "chunk_7",
     "source_file": "第08章 資料庫安全_e5.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "攻擊",
-      "type": "attack"
+      "name": "資料庫系統",
+      "type": "app"
     },
-    "relation": "violates",
+    "relation": "generates",
     "object": {
-      "name": "可用性",
-      "type": "principle"
+      "name": "重要資料",
+      "type": "data"
     },
-    "reasoning": "文本在表 8-5 中明確提到可用性是指『資料庫遭受攻擊造成損毀時，應有迅速恢復正常運作的能力』，這表示攻擊會違反可用性原則。",
+    "reasoning": "文本提到資料庫儲存有大量資料且包含重要資料，資料庫作為應用程式會產生並管理這些資料。",
     "source_id": "chunk_7",
     "source_file": "第08章 資料庫安全_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "防火牆",
-      "type": "tool"
+      "name": "資料庫系統",
+      "type": "app"
     },
-    "relation": "mitigates",
+    "relation": "deployed_in",
     "object": {
-      "name": "攻擊",
-      "type": "attack"
+      "name": "隔離區 (DMZ)",
+      "type": "system"
     },
-    "reasoning": "文本將防火牆列為確保資料庫安全的措施，其目的是為了防禦惡意管道的存取，符合 tool mitigates attack 的定義。",
+    "reasoning": "文本在安全措施中提到『劃定隔離區 (DMZ)』，在資安實務中，資料庫或伺服器會部署於 DMZ 中以增加安全性。",
     "source_id": "chunk_7",
     "source_file": "第08章 資料庫安全_e5.pdf",
     "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "網路環境",
+      "type": "system"
+    },
+    "reasoning": "文本提到架設防火牆作為安全措施，且資料庫安全分為網路環境等層面，防火牆是用於控制網路環境流量的工具。",
+    "source_id": "chunk_7",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 4
   },
   {
     "subject": {
@@ -54,54 +69,84 @@
       "name": "攻擊",
       "type": "attack"
     },
-    "reasoning": "入侵偵測系統 (IDS) 的核心功能即為偵測惡意攻擊，文本將其列為安全措施。",
-    "source_id": "chunk_7",
-    "source_file": "第08章 資料庫安全_e5.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "使用者",
-      "type": "user"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "資料庫系統",
-      "type": "system"
-    },
-    "reasoning": "文本提到『進入資料庫使用前，先識別身份』以及『使用者在使用資料庫系統時』，明確描述了使用者與系統的互動。",
+    "reasoning": "文本提到安裝入侵偵測系統 (IDS)，其核心功能即是偵測惡意攻擊行為。",
     "source_id": "chunk_7",
     "source_file": "第08章 資料庫安全_e5.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "資料庫系統",
-      "type": "app"
+      "name": "防毒軟體",
+      "type": "tool"
     },
-    "relation": "deployed_in",
+    "relation": "mitigates",
     "object": {
-      "name": "DMZ",
-      "type": "system"
+      "name": "攻擊",
+      "type": "attack"
     },
-    "reasoning": "文本提到安全措施包含『劃定隔離區 (DMZ)』，在資安架構中，資料庫等應用服務會被部署在 DMZ 或其後方的安全區域中。",
+    "reasoning": "文本將防毒軟體列為安全措施，防毒軟體旨在緩解或防禦由惡意程式引起的攻擊。",
     "source_id": "chunk_7",
     "source_file": "第08章 資料庫安全_e5.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "使用者",
-      "type": "user"
+      "name": "攻擊",
+      "type": "attack"
     },
-    "relation": "can_expose",
+    "relation": "violates",
     "object": {
-      "name": "弱點",
-      "type": "vulnerability"
+      "name": "可用性",
+      "type": "principle"
     },
-    "reasoning": "文本提到『應防範被有意或無意的使用者破壞或篡改資料』，這暗示使用者的操作行為（如權限過大或誤操作）可能暴露系統的弱點。",
+    "reasoning": "文本在表 8-5 中明確提到『可用性：資料庫遭受攻擊造成損毀時...』，這表示攻擊會破壞可用性原則。",
     "source_id": "chunk_7",
     "source_file": "第08章 資料庫安全_e5.pdf",
     "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "驗證",
+      "type": "function"
+    },
+    "reasoning": "文本提到資料庫安全需求需要要求『驗證 (authentication)』，這項功能由負責安全維運的團隊實作。",
+    "source_id": "chunk_7",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "授權",
+      "type": "function"
+    },
+    "reasoning": "文本提到資料庫安全需求需要要求『授權 (authorization)』，這項功能由負責安全維運的團隊實作。",
+    "source_id": "chunk_7",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "系統安裝修正檔",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本將『系統安裝修正檔』列為確保資料庫安全所需的措施，修正檔（補丁）是用於修補漏洞以緩解攻擊風險的策略。",
+    "source_id": "chunk_7",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 10
   }
 ]

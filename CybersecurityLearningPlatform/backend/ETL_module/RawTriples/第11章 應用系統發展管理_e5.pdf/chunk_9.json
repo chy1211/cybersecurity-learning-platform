@@ -4,90 +4,150 @@
       "name": "軟體工程師",
       "type": "user"
     },
-    "relation": "implements",
+    "relation": "can_expose",
     "object": {
-      "name": "撰寫軟體的安全原則",
-      "type": "policy"
+      "name": "檔案及群組不當的存取控制",
+      "type": "vulnerability"
     },
-    "reasoning": "文本提到軟體工程師在撰寫程式時應遵循安全原則，這符合使用者(user)執行/實作規範(policy)的邏輯。",
+    "reasoning": "文本提到軟體工程師在撰寫程式時應避免此問題，暗示若未避免則會導致該漏洞。符合 ('user', 'can_expose', 'vulnerability') 模式。",
     "source_id": "chunk_9",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "應用程式",
-      "type": "app"
+      "name": "軟體工程師",
+      "type": "user"
     },
     "relation": "can_expose",
     "object": {
-      "name": "緩衝區溢位",
+      "name": "權限競爭情況",
       "type": "vulnerability"
     },
-    "reasoning": "緩衝區溢位被列為撰寫軟體時常見的安全問題，即應用程式(app)可能暴露的漏洞(vulnerability)。",
+    "reasoning": "文本提到軟體工程師在撰寫程式時應避免此問題，暗示若未避免則會導致該漏洞。符合 ('user', 'can_expose', 'vulnerability') 模式。",
     "source_id": "chunk_9",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "應用程式",
-      "type": "app"
+      "name": "軟體工程師",
+      "type": "user"
     },
     "relation": "can_expose",
     "object": {
-      "name": "權限競爭",
+      "name": "緩衝區溢位",
       "type": "vulnerability"
     },
-    "reasoning": "權限競爭(Race Condition)是軟體開發中常見的漏洞(vulnerability)，由應用程式(app)引起。",
+    "reasoning": "緩衝區溢位是典型的軟體漏洞，由工程師撰寫不當程式碼引起。符合 ('user', 'can_expose', 'vulnerability') 模式。",
     "source_id": "chunk_9",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "應用程式",
-      "type": "app"
+      "name": "軟體工程師",
+      "type": "user"
     },
     "relation": "can_expose",
     "object": {
-      "name": "不當的存取控制",
+      "name": "暫存檔案的問題",
       "type": "vulnerability"
     },
-    "reasoning": "檔案及群組不當的存取控制被定義為軟體安全問題，屬於應用程式(app)可暴露的漏洞(vulnerability)。",
+    "reasoning": "文本提到軟體工程師在撰寫程式時應避免此問題，暗示若未避免則會導致該漏洞。符合 ('user', 'can_expose', 'vulnerability') 模式。",
     "source_id": "chunk_9",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "應用程式",
-      "type": "app"
+      "name": "軟體工程師",
+      "type": "user"
     },
     "relation": "can_expose",
     "object": {
-      "name": "不安全的系統呼叫",
+      "name": "程式碼過度複雜或不必要",
       "type": "vulnerability"
     },
-    "reasoning": "不安全的系統呼叫是軟體撰寫中應避免的缺陷，屬於應用程式(app)可暴露的漏洞(vulnerability)。",
+    "reasoning": "過度複雜的程式碼被視為一種弱點，容易隱藏漏洞。符合 ('user', 'can_expose', 'vulnerability') 模式。",
     "source_id": "chunk_9",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "服務等級合約",
-      "type": "policy"
+      "name": "軟體工程師",
+      "type": "user"
     },
-    "relation": "mitigates",
+    "relation": "can_expose",
     "object": {
-      "name": "服務品質風險",
-      "type": "risk"
+      "name": "不安全的系統呼叫",
+      "type": "vulnerability"
     },
-    "reasoning": "文本指出為了確保服務品質而訂立 SLA，這意味著透過規範(policy)來緩解(mitigates)服務品質不佳的風險(risk)。",
+    "reasoning": "使用不安全的系統呼叫會導致系統漏洞。符合 ('user', 'can_expose', 'vulnerability') 模式。",
     "source_id": "chunk_9",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "軟體工程師",
+      "type": "user"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "程式碼含有密碼或重要資訊",
+      "type": "vulnerability"
+    },
+    "reasoning": "硬編碼密碼是嚴重的安全漏洞。符合 ('user', 'can_expose', 'vulnerability') 模式。",
+    "source_id": "chunk_9",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "安全的軟體部署與維運",
+      "type": "technique"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "作業系統",
+      "type": "system"
+    },
+    "reasoning": "文本指出在安全的部署與維運中需要考量作業系統方面，這是一種分析與評估的過程。符合 ('technique', 'can_analyze', 'system') 模式。",
+    "source_id": "chunk_9",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "安全的軟體部署與維運",
+      "type": "technique"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "網頁或應用程式伺服器",
+      "type": "app"
+    },
+    "reasoning": "文本指出在安全的部署與維運中需要考量伺服器方面。符合 ('technique', 'can_analyze', 'app') 模式。",
+    "source_id": "chunk_9",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "安全的軟體部署與維運",
+      "type": "technique"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料庫",
+      "type": "app"
+    },
+    "reasoning": "文本指出在安全的部署與維運中需要考量資料庫方面。符合 ('technique', 'can_analyze', 'app') 模式。",
+    "source_id": "chunk_9",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 10
   },
   {
     "subject": {
@@ -99,10 +159,40 @@
       "name": "系統上線時間",
       "type": "feature"
     },
-    "reasoning": "系統上線時間是 SLA 中考量的系統屬性，因此將其定義為系統(system)具有的特徵(feature)。",
+    "reasoning": "系統上線時間是系統運作的一個屬性/特徵。符合 ('system', 'has_a', 'feature') 模式。",
     "source_id": "chunk_9",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 7
+    "source_index": 11
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "尖峰容量",
+      "type": "feature"
+    },
+    "reasoning": "尖峰容量是描述系統性能的特徵。符合 ('system', 'has_a', 'feature') 模式。",
+    "source_id": "chunk_9",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 12
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "平均負載",
+      "type": "feature"
+    },
+    "reasoning": "平均負載是描述系統性能的特徵。符合 ('system', 'has_a', 'feature') 模式。",
+    "source_id": "chunk_9",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 13
   },
   {
     "subject": {
@@ -114,39 +204,9 @@
       "name": "故障復原時間",
       "type": "feature"
     },
-    "reasoning": "故障復原時間是衡量系統性能的指標，屬於系統(system)的特徵(feature)。",
+    "reasoning": "故障復原時間是系統可用性相關的特徵。符合 ('system', 'has_a', 'feature') 模式。",
     "source_id": "chunk_9",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 8
-  },
-  {
-    "subject": {
-      "name": "應用程式",
-      "type": "app"
-    },
-    "relation": "deployed_in",
-    "object": {
-      "name": "作業系統",
-      "type": "system"
-    },
-    "reasoning": "文本在討論安全的軟體部署時提到需考量作業系統，表示應用程式(app)部署於(deployed_in)作業系統(system)中。",
-    "source_id": "chunk_9",
-    "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 9
-  },
-  {
-    "subject": {
-      "name": "應用程式",
-      "type": "app"
-    },
-    "relation": "deployed_in",
-    "object": {
-      "name": "應用程式伺服器",
-      "type": "system"
-    },
-    "reasoning": "文本提到部署時需考量伺服器方面，表示應用程式(app)部署於(deployed_in)伺服器系統(system)中。",
-    "source_id": "chunk_9",
-    "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 10
+    "source_index": 14
   }
 ]

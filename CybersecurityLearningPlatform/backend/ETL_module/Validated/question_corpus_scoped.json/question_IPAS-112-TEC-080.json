@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "ioc",
+      "type": "feature",
+      "display_name": "IOC"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "攻擊"
+    },
+    "reasoning": "根據選項 A，IOC (Indicators of Compromise) 被稱為入侵威脅指標。在資安實務中，這些指標是攻擊行為留下的特徵 (feature)，用於偵測 (can_detect) 惡意攻擊 (attack)。",
+    "source_id": "question_IPAS-112-TEC-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "IOC 是 'feature' 的合理實例，'攻擊' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別是feature，而非vulnerability；規則8不適用，因為關係不是controls；其他規則不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (IOC) 與 Ldr 中的資源 (ike, i/o, cer) 不是完全等價同義詞，且無廣義/狹義從屬關係；受體 (攻擊) 與 Ldr 中的資源 (攻擊) 完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "攻擊",
+        "reason": "受體 (攻擊) 與 Ldr 中的資源 (攻擊) 完全相同，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "IOC",
+        "type": "feature"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 A，IOC (Indicators of Compromise) 被稱為入侵威脅指標。在資安實務中，這些指標是攻擊行為留下的特徵 (feature)，用於偵測 (can_detect) 惡意攻擊 (attack)。",
+      "source_id": "question_IPAS-112-TEC-080",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "威脅行為者",
+      "type": "attacker",
+      "display_name": "威脅行為者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "ttps",
+      "type": "technique",
+      "display_name": "TTPs"
+    },
+    "reasoning": "根據選項 B，TTPs 指的是戰術、技術與程序。這在資安領域中定義了攻擊者 (attacker) 執行攻擊時所使用的具體方法或技術 (technique)，因此使用 'uses' 關係。",
+    "source_id": "question_IPAS-112-TEC-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '威脅行為者' 是 'attacker' 的合理實例，受體名稱 'TTPs' 是 'technique' 的合理實例（TTPs 是 'Tactics, Techniques, and Procedures' 的縮寫，資安領域常見）。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：無關。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無法判定為違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中的資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "威脅行為者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "TTPs",
+        "type": "technique"
+      },
+      "reasoning": "根據選項 B，TTPs 指的是戰術、技術與程序。這在資安領域中定義了攻擊者 (attacker) 執行攻擊時所使用的具體方法或技術 (technique)，因此使用 'uses' 關係。",
+      "source_id": "question_IPAS-112-TEC-080",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "zero trust security",
+      "type": "policy",
+      "display_name": "Zero Trust Security"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "根據選項 D，Zero Trust Security 是一種惡意程式防護手段。Zero Trust 是一種安全架構/策略 (policy)，其目的在於緩解或防禦 (mitigates) 惡意程式 (attack) 造成的危害。",
+    "source_id": "question_IPAS-112-TEC-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Zero Trust Security 是一種安全政策，惡意程式是一種攻擊手法，兩者名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 Zero Trust Security 的類別是 policy，符合規則2所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "惡意程式",
+        "reason": "根據資安領域已知同義詞對照範例，惡意程式 ≡ 惡意軟體 ≡ 惡意代碼（均指 malware），因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Zero Trust Security",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 D，Zero Trust Security 是一種惡意程式防護手段。Zero Trust 是一種安全架構/策略 (policy)，其目的在於緩解或防禦 (mitigates) 惡意程式 (attack) 造成的危害。",
+      "source_id": "question_IPAS-112-TEC-080",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

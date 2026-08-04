@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "windows smb",
+      "type": "feature",
+      "display_name": "Windows SMB"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "永恆之藍 (eternalblue)",
+      "type": "vulnerability",
+      "display_name": "永恆之藍 (EternalBlue)"
+    },
+    "reasoning": "根據題幹與正確答案，永恆之藍 (EternalBlue) 弱點是基於 Windows SMB 機制所產生。在本體論中，SMB 是一種協定/特徵 (feature)，而 EternalBlue 是漏洞 (vulnerability)，兩者之間符合 'feature can_expose vulnerability' 的合法 Schema Edge。",
+    "source_id": "question_IPAS-110-TEC-064",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'Windows SMB' 是 'feature' 的合理實例，受體 '永恆之藍 (EternalBlue)' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體 Windows SMB 的類別是 feature，而非 vulnerability，因此不受規則3的限制。另外，關係 can_expose 符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間存在特定關係：主體是受體的特定類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Windows SMB 是一個特定的功能，而永恆之藍（EternalBlue）是一個特定的漏洞，兩者之間存在特定關係，但不是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Windows SMB",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "永恆之藍 (EternalBlue)",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據題幹與正確答案，永恆之藍 (EternalBlue) 弱點是基於 Windows SMB 機制所產生。在本體論中，SMB 是一種協定/特徵 (feature)，而 EternalBlue 是漏洞 (vulnerability)，兩者之間符合 'feature can_expose vulnerability' 的合法 Schema Edge。",
+      "source_id": "question_IPAS-110-TEC-064",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

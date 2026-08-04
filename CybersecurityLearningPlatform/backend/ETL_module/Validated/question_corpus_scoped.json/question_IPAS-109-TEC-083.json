@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "邏輯瑕疵",
+      "type": "vulnerability",
+      "display_name": "邏輯瑕疵"
+    },
+    "reasoning": "本題為否定式提問（何者『不』正確），正確答案為 B (1)(2)(4)，意味著選項 (3)『滲透測試可以檢測出邏輯瑕疵』是正確的知識陳述。在本體論中，『滲透測試』屬於 technique，『邏輯瑕疵』屬於 vulnerability。根據 Schema Edges，(technique, can_analyze, vulnerability) 是合法的關聯，因此將『檢測』映射為『can_analyze』。",
+    "source_id": "question_IPAS-109-TEC-083",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試 (technique) 可以分析邏輯瑕疵 (vulnerability)，語意上合理對齊。",
+        "response": "correct",
+        "reason": "滲透測試可以分析邏輯瑕疵的三元組完全符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，受體類別為 vulnerability，符合規則3的特例允許，且關係為 can_analyze，故不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "滲透測試與驗收測試之間存在狹義/廣義關係，但滲透測試與邏輯瑕疵之間不存在直接關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "滲透測試與邏輯瑕疵之間不存在直接關係，因此無法進行實體對齊與資源重複檢查"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "邏輯瑕疵",
+        "type": "vulnerability"
+      },
+      "reasoning": "本題為否定式提問（何者『不』正確），正確答案為 B (1)(2)(4)，意味著選項 (3)『滲透測試可以檢測出邏輯瑕疵』是正確的知識陳述。在本體論中，『滲透測試』屬於 technique，『邏輯瑕疵』屬於 vulnerability。根據 Schema Edges，(technique, can_analyze, vulnerability) 是合法的關聯，因此將『檢測』映射為『can_analyze』。",
+      "source_id": "question_IPAS-109-TEC-083",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

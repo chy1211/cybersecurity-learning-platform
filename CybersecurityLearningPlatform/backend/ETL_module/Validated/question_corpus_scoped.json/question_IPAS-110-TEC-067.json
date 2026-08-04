@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "使用單一弱密碼嘗試登入",
+      "type": "technique",
+      "display_name": "使用單一弱密碼嘗試登入"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "密碼潑灑",
+      "type": "attack",
+      "display_name": "密碼潑灑 (Password Spraying)"
+    },
+    "reasoning": "根據正確答案，密碼潑灑攻擊的具體作法是『用單一弱密碼，嘗試登入系統』。這是一種達成攻擊目的的方法，因此將其定義為技術 (technique)，並使用 implements 關係指向該攻擊名稱 (attack)。",
+    "source_id": "question_IPAS-110-TEC-067",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '使用單一弱密碼嘗試登入' 可以被視為 'technique' 的合理實例；受體名稱 '密碼潑灑 (Password Spraying)' 可以被視為 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，未違反規則3。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "密碼潑灑",
+        "reason": "主體與受體之間存在同義詞關係，受體為已知同義詞「密碼潑灑」"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用單一弱密碼嘗試登入",
+        "type": "technique"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "密碼潑灑 (Password Spraying)",
+        "type": "attack"
+      },
+      "reasoning": "根據正確答案，密碼潑灑攻擊的具體作法是『用單一弱密碼，嘗試登入系統』。這是一種達成攻擊目的的方法，因此將其定義為技術 (technique)，並使用 implements 關係指向該攻擊名稱 (attack)。",
+      "source_id": "question_IPAS-110-TEC-067",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼潑灑 (password spraying)",
+      "type": "attack",
+      "display_name": "密碼潑灑 (Password Spraying)"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "密碼潑灑攻擊的目的是嘗試非法登入系統以獲取權限，這對系統的安全與完整性構成威脅，因此符合 attack can_harm system 的邏輯。",
+    "source_id": "question_IPAS-110-TEC-067",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "密碼潑灑 (Password Spraying) 是一種攻擊手法，屬於 'attack' 類別；系統 (system) 是一個系統，屬於 'system' 類別。語意對齊合理。",
+        "response": "correct",
+        "reason": "密碼潑灑攻擊可以對系統造成傷害，三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8 都不適用於此三元組，因為主體是攻擊類別 (attack)，關係是 can_harm，受體是系統 (system)，不涉及任何規則的限制條件。",
+        "response": "correct",
+        "reason": "此三元組不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「密碼潑灑」完全等價同義詞；受體與 Ldr 中的「系統」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體都有完全等價同義詞，但根據資安領域已知同義詞對照範例，「密碼潑灑」與「系統」不屬於同義詞關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼潑灑 (Password Spraying)",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "密碼潑灑攻擊的目的是嘗試非法登入系統以獲取權限，這對系統的安全與完整性構成威脅，因此符合 attack can_harm system 的邏輯。",
+      "source_id": "question_IPAS-110-TEC-067",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

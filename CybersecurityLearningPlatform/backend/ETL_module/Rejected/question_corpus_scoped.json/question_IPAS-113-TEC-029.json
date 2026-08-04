@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "any.run",
+      "type": "tool",
+      "display_name": "ANY.RUN"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點管理"
+    },
+    "reasoning": "題幹指出這些工具可用於『弱點管理』，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "question_IPAS-113-TEC-029",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "ANY.RUN 是一種工具（tool），其名稱與類別合理對齊；'弱點管理' 是一種功能（function），其名稱與類別合理對齊，尤其在資安領域中，'弱點管理' 是一種常見的功能。",
+        "response": "correct",
+        "reason": "ANY.RUN 與 弱點管理 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_2": {
+        "granularity_analysis": "ANY.RUN 與 any.run 完全等價同義詞；弱點管理與弱點為同義詞",
+        "response": "duplicate",
+        "standard_subject": "any.run",
+        "standard_object": "弱點",
+        "reason": "ANY.RUN 與 any.run 完全等價同義詞；弱點管理與弱點為同義詞，應合併為標準名稱"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> has_a -> vulnerability (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "ANY.RUN",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "弱點管理",
+        "type": "function"
+      },
+      "reasoning": "題幹指出這些工具可用於『弱點管理』，符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "question_IPAS-113-TEC-029",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

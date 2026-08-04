@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "未做好輸入查驗",
+      "type": "vulnerability",
+      "display_name": "未做好輸入查驗"
+    },
+    "reasoning": "根據選項 A 與 B，應用程式撰寫上的疏忽導致未做好輸入查驗，這是一種系統缺陷（漏洞）。符合 Schema: (app, can_expose, vulnerability)。",
+    "source_id": "question_IPAS-113-TEC-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '應用程式' 是 'app' 的合理實例，受體 '未做好輸入查驗' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 app，與規則3無關；受體類別為 vulnerability，但主體發起的動作是 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "未做好輸入查驗",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據選項 A 與 B，應用程式撰寫上的疏忽導致未做好輸入查驗，這是一種系統缺陷（漏洞）。符合 Schema: (app, can_expose, vulnerability)。",
+      "source_id": "question_IPAS-113-TEC-019",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

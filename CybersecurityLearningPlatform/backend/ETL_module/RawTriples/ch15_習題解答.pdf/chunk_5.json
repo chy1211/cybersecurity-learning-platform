@@ -9,55 +9,10 @@
       "name": "模組裝置",
       "type": "system"
     },
-    "reasoning": "文本提到邏輯性攻擊是對模組裝置進行的攻擊，雖然沒有實體損壞，但其目的在於獲取資訊，符合 attack can_harm system 的邏輯。",
+    "reasoning": "文本提到邏輯性攻擊是對模組裝置進行的攻擊（雖然沒有實體損壞），因此符合 attack can_harm system 的邏輯。",
     "source_id": "chunk_5",
     "source_file": "ch15_習題解答.pdf",
     "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "攻擊者",
-      "type": "attacker"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "相關設備",
-      "type": "tool"
-    },
-    "reasoning": "文本提到『可採用相關設備收集...訊號』，暗示攻擊者使用這些設備作為工具來執行攻擊，符合 attacker uses tool。",
-    "source_id": "chunk_5",
-    "source_file": "ch15_習題解答.pdf",
-    "source_index": 2
-  },
-  {
-    "subject": {
-      "name": "相關設備",
-      "type": "tool"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "電磁輻射",
-      "type": "feature"
-    },
-    "reasoning": "相關設備被用來收集電磁輻射訊號以重建資料，這是一種分析系統特徵的行為，符合 tool can_analyze feature。",
-    "source_id": "chunk_5",
-    "source_file": "ch15_習題解答.pdf",
-    "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "攻擊者",
-      "type": "attacker"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "時間特徵",
-      "type": "feature"
-    },
-    "reasoning": "文本提到『利用執行加解密運算所耗費之時間特徵』，攻擊者利用系統的運作特徵來推導金鑰，符合 attacker uses feature。",
-    "source_id": "chunk_5",
-    "source_file": "ch15_習題解答.pdf",
-    "source_index": 4
   },
   {
     "subject": {
@@ -66,10 +21,55 @@
     },
     "relation": "can_harm",
     "object": {
-      "name": "私密金鑰",
+      "name": "資料",
       "type": "data"
     },
-    "reasoning": "攻擊的目的是推導出私密金鑰，這會導致機密資料外洩，符合 attack can_harm data。",
+    "reasoning": "文本提到邏輯性攻擊可透過收集訊號來『重建資料』，這屬於對資料完整性或機密性的侵害，符合 attack can_harm data。",
+    "source_id": "chunk_5",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "邏輯性攻擊",
+      "type": "attack"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "相關設備",
+      "type": "tool"
+    },
+    "reasoning": "文本指出『可採用相關設備收集電磁輻射等訊號』，表示該攻擊手段依賴特定工具執行，符合 attack depends_on tool。",
+    "source_id": "chunk_5",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "敵對者",
+      "type": "attacker"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "電磁輻射",
+      "type": "feature"
+    },
+    "reasoning": "文本描述利用電磁輻射等訊號來重建資料，電磁輻射在此為系統洩漏的特徵，攻擊者利用此特徵進行攻擊，符合 attacker uses feature。",
+    "source_id": "chunk_5",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "敵對者",
+      "type": "attacker"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "時間特徵",
+      "type": "feature"
+    },
+    "reasoning": "文本提到『利用執行加解密運算所耗費之時間特徵』來推導金鑰，時間特徵為系統屬性，符合 attacker uses feature。",
     "source_id": "chunk_5",
     "source_file": "ch15_習題解答.pdf",
     "source_index": 5
@@ -81,10 +81,10 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "接觸點",
+      "name": "VCC",
       "type": "feature"
     },
-    "reasoning": "IC卡包含多個接觸點，接觸點是該系統的組成部分，符合 system has_a feature。",
+    "reasoning": "VCC 是 IC 卡接觸點的名稱，屬於該系統的硬體組成部分/特徵，符合 system has_a feature。",
     "source_id": "chunk_5",
     "source_file": "ch15_習題解答.pdf",
     "source_index": 6
@@ -96,10 +96,10 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "VCC",
+      "name": "RTS",
       "type": "feature"
     },
-    "reasoning": "VCC 是 IC 卡接觸點中的一個具體組成部分，符合 system has_a feature。",
+    "reasoning": "RTS 是 IC 卡接觸點的名稱，屬於該系統的硬體組成部分/特徵，符合 system has_a feature。",
     "source_id": "chunk_5",
     "source_file": "ch15_習題解答.pdf",
     "source_index": 7
@@ -111,10 +111,10 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "RTS",
+      "name": "CLK",
       "type": "feature"
     },
-    "reasoning": "RTS 是 IC 卡接觸點中的一個具體組成部分，符合 system has_a feature。",
+    "reasoning": "CLK 是 IC 卡接觸點的名稱，屬於該系統的硬體組成部分/特徵，符合 system has_a feature。",
     "source_id": "chunk_5",
     "source_file": "ch15_習題解答.pdf",
     "source_index": 8
@@ -126,10 +126,10 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "CLK",
+      "name": "GND",
       "type": "feature"
     },
-    "reasoning": "CLK 是 IC 卡接觸點中的一個具體組成部分，符合 system has_a feature。",
+    "reasoning": "GND 是 IC 卡接觸點的名稱，屬於該系統的硬體組成部分/特徵，符合 system has_a feature。",
     "source_id": "chunk_5",
     "source_file": "ch15_習題解答.pdf",
     "source_index": 9
@@ -141,12 +141,27 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "I/O",
+      "name": "VPP",
       "type": "feature"
     },
-    "reasoning": "I/O 是 IC 卡接觸點中的一個具體組成部分，符合 system has_a feature。",
+    "reasoning": "VPP 是 IC 卡接觸點的名稱，屬於該系統的硬體組成部分/特徵，符合 system has_a feature。",
     "source_id": "chunk_5",
     "source_file": "ch15_習題解答.pdf",
     "source_index": 10
+  },
+  {
+    "subject": {
+      "name": "IC卡",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "I/O",
+      "type": "feature"
+    },
+    "reasoning": "I/O 是 IC 卡接觸點的名稱，屬於該系統的硬體組成部分/特徵，符合 system has_a feature。",
+    "source_id": "chunk_5",
+    "source_file": "ch15_習題解答.pdf",
+    "source_index": 11
   }
 ]

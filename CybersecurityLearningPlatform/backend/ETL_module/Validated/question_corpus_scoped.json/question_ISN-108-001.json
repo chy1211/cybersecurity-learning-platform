@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "異地備援方案",
+      "type": "policy",
+      "display_name": "異地備援方案"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "重大災害",
+      "type": "risk",
+      "display_name": "重大災害"
+    },
+    "reasoning": "題幹提到異地備援方案是用於當發生重大災害時回復服務，因此該方案（policy）旨在緩解重大災害（risk）帶來的影響。",
+    "source_id": "question_ISN-108-001",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "異地備援方案 是一種合理的 policy 實例，重大災害 是一種合理的 risk 實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "重大災害是重大損失的子類型，但與備援計畫無直接關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "備援計畫與重大災害無直接關係，且無同義詞重複"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "異地備援方案",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "重大災害",
+        "type": "risk"
+      },
+      "reasoning": "題幹提到異地備援方案是用於當發生重大災害時回復服務，因此該方案（policy）旨在緩解重大災害（risk）帶來的影響。",
+      "source_id": "question_ISN-108-001",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "熱備援 (hot backup site)",
+      "type": "tool",
+      "display_name": "熱備援 (hot sites)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "重大災害",
+      "type": "risk",
+      "display_name": "重大災害"
+    },
+    "reasoning": "正確答案指出熱備援是實現該備援目標的具體手段，作為一種備援設施（tool），它能緩解重大災害（risk）導致的服務中斷。",
+    "source_id": "question_ISN-108-001",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "熱備援 (hot sites) 是一種工具 (tool)，與其類別相符；重大災害 (major disaster) 是一種風險 (risk)，與其類別相符。",
+        "response": "correct",
+        "reason": "熱備援 (hot sites) 的類別與屬性完全符合預先定義的類別與屬性清單 (Lc,p)，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "熱備援 (hot sites) 是一種工具 (tool)，因此可以執行 mitigates 動作，符合規則2。"
+      },
+      "step_2": {
+        "granularity_analysis": "熱備援 (hot sites) 與熱備援 (hot backup site) 是完全等價同義詞；重大災害 (類別: risk) 與重大災害 (類別: risk) 是完全相同的實體",
+        "response": "duplicate",
+        "standard_subject": "熱備援 (hot backup site)",
+        "standard_object": "重大災害",
+        "reason": "熱備援 (hot sites) 與熱備援 (hot backup site) 是完全等價同義詞；重大災害 (類別: risk) 與重大災害 (類別: risk) 是完全相同的實體"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "熱備援 (hot sites)",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "重大災害",
+        "type": "risk"
+      },
+      "reasoning": "正確答案指出熱備援是實現該備援目標的具體手段，作為一種備援設施（tool），它能緩解重大災害（risk）導致的服務中斷。",
+      "source_id": "question_ISN-108-001",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "熱備援 (hot sites)",
+      "type": "tool",
+      "display_name": "熱備援 (hot sites)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "回復系統服務",
+      "type": "function",
+      "display_name": "回復系統服務"
+    },
+    "reasoning": "熱備援設施具備在短時間內（3~6 小時）執行回復系統服務（function）的能力。",
+    "source_id": "question_ISN-108-001",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "熱備援 (hot sites) 是一種工具 (tool)，回復系統服務是系統功能 (function)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "熱備援 (hot sites) 與回復系統服務的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "熱備援 (hot sites) 是 tool 類別，具有主動執行能力，符合規則8。且關係為 has_a，不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的熱備援 (hot backup site) 名稱相似，但受體與 Ldr 中的恢復系統功能名稱相似，且兩者概念上相關但不完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的熱備援 (hot backup site) 名稱相似，但受體與 Ldr 中的恢復系統功能名稱相似，且兩者概念上相關但不完全等價，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "熱備援 (hot sites)",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "回復系統服務",
+        "type": "function"
+      },
+      "reasoning": "熱備援設施具備在短時間內（3~6 小時）執行回復系統服務（function）的能力。",
+      "source_id": "question_ISN-108-001",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

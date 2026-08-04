@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "網路犯罪分子",
+      "type": "attacker",
+      "display_name": "網路犯罪分子"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "金鑰竊取攻擊",
+      "type": "attack",
+      "display_name": "金鑰淪陷攻擊"
+    },
+    "reasoning": "根據題幹與正確答案，網路犯罪分子執行（實作）了金鑰淪陷攻擊。符合 Schema 中 ('attacker', 'implements', 'attack') 的定義。",
+    "source_id": "question_IPAS-109-TEC-098",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '網路犯罪分子' 是 'attacker' 的合理實例；受體名稱 '金鑰淪陷攻擊' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的金鑰竊取攻擊為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "金鑰竊取攻擊",
+        "reason": "根據資安領域已知同義詞對照範例，金鑰淪陷攻擊與金鑰竊取攻擊為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路犯罪分子",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "金鑰淪陷攻擊",
+        "type": "attack"
+      },
+      "reasoning": "根據題幹與正確答案，網路犯罪分子執行（實作）了金鑰淪陷攻擊。符合 Schema 中 ('attacker', 'implements', 'attack') 的定義。",
+      "source_id": "question_IPAS-109-TEC-098",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "網路犯罪分子",
+      "type": "attacker",
+      "display_name": "網路犯罪分子"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "金鑰",
+      "type": "tool",
+      "display_name": "金鑰"
+    },
+    "reasoning": "文本提到犯罪分子將竊得的金鑰用於解譯資料，即攻擊者使用了金鑰工具。符合 Schema 中 ('attacker', 'uses', 'tool') 的定義。",
+    "source_id": "question_IPAS-109-TEC-098",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "網路犯罪分子 是 attacker 的合理實例，金鑰 是 tool 的合理實例。",
+        "response": "correct",
+        "reason": "網路犯罪分子使用金鑰的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的網路犯罪分子完全等價同義詞；受體與 Ldr 中的私密金鑰具有廣義/狹義從屬關係，但不構成完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的網路犯罪分子完全匹配，但受體與 Ldr 中的私密金鑰不構成完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路犯罪分子",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "金鑰",
+        "type": "tool"
+      },
+      "reasoning": "文本提到犯罪分子將竊得的金鑰用於解譯資料，即攻擊者使用了金鑰工具。符合 Schema 中 ('attacker', 'uses', 'tool') 的定義。",
+      "source_id": "question_IPAS-109-TEC-098",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "金鑰竊取攻擊",
+      "type": "attack",
+      "display_name": "金鑰淪陷攻擊"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "私密金鑰",
+      "type": "tool",
+      "display_name": "金鑰"
+    },
+    "reasoning": "金鑰淪陷攻擊的核心在於竊取並使用金鑰，因此該攻擊依賴於金鑰這個工具。符合 Schema 中 ('attack', 'depends_on', 'tool') 的定義。",
+    "source_id": "question_IPAS-109-TEC-098",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "金鑰淪陷攻擊 是攻擊類別的合理實例，金鑰 是工具類別的合理實例。",
+        "response": "correct",
+        "reason": "金鑰淪陷攻擊與金鑰之間的 'depends_on' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別不是vulnerability；規則4不適用，因為主體類別不是principle；規則5不適用，因為關係不是uses或主體類別不是data；規則6不適用，因為關係不是deployed_in；規則7不適用，因為關係不是generates；規則8不適用，因為關係不是controls；",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「金鑰竊取攻擊」為同義詞重複，受體與 Ldr 中的「私密金鑰」為同義詞重複",
+        "response": "duplicate",
+        "standard_subject": "金鑰竊取攻擊",
+        "standard_object": "私密金鑰",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞重複，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "金鑰淪陷攻擊",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "金鑰",
+        "type": "tool"
+      },
+      "reasoning": "金鑰淪陷攻擊的核心在於竊取並使用金鑰，因此該攻擊依賴於金鑰這個工具。符合 Schema 中 ('attack', 'depends_on', 'tool') 的定義。",
+      "source_id": "question_IPAS-109-TEC-098",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "金鑰竊取攻擊",
+      "type": "attack",
+      "display_name": "金鑰淪陷攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "加密資料",
+      "type": "data",
+      "display_name": "加密過的資料"
+    },
+    "reasoning": "金鑰淪陷攻擊的目的在於解譯加密資料，導致資料的機密性受損，即對資料造成危害。符合 Schema 中 ('attack', 'can_harm', 'data') 的定義。",
+    "source_id": "question_IPAS-109-TEC-098",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "金鑰淪陷攻擊是 'attack' 的合理實例，且加密過的資料是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "金鑰淪陷攻擊可以對加密過的資料造成傷害，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "無明確規則限制主體為攻擊類別(attack)的實體執行 can_harm 動作，受體為加密過的資料(data)。",
+        "response": "correct",
+        "reason": "無法在語義限制清單中找到相關規則限制此三元組的組合，故無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「金鑰竊取攻擊」為同義詞；受體與 Ldr 中的「加密資料」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "金鑰竊取攻擊",
+        "standard_object": "加密資料",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "金鑰淪陷攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "加密過的資料",
+        "type": "data"
+      },
+      "reasoning": "金鑰淪陷攻擊的目的在於解譯加密資料，導致資料的機密性受損，即對資料造成危害。符合 Schema 中 ('attack', 'can_harm', 'data') 的定義。",
+      "source_id": "question_IPAS-109-TEC-098",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

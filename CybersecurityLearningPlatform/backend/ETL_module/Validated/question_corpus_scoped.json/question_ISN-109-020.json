@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "第二者稽核",
+      "type": "technique",
+      "display_name": "第二者稽核"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "外部資訊廠商",
+      "type": "system",
+      "display_name": "外部資訊廠商"
+    },
+    "reasoning": "第二者稽核的目的是對外部廠商進行評估與分析。將外部資訊廠商視為被稽核的對象（其基礎設施與環境），對應至 system 類型，而稽核技術（technique）對系統進行分析，符合 'can_analyze' 關係。",
+    "source_id": "question_ISN-109-020",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '第二者稽核' 可被視為 'technique' 的合理實例；受體 '外部資訊廠商' 可被視為 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的規範，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別是technique，而非vulnerability；規則4不適用，因為主體類別是technique，而非principle；規則5不適用，因為關係不是uses；規則6不適用，因為關係不是deployed_in；規則7不適用，因為關係不是generates；規則8不適用，因為關係不是controls；",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「稽核」和「第二者稽核」是相關概念，但「第二者稽核」是「稽核」的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體是受體的子類型，禁止合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "第二者稽核",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "外部資訊廠商",
+        "type": "system"
+      },
+      "reasoning": "第二者稽核的目的是對外部廠商進行評估與分析。將外部資訊廠商視為被稽核的對象（其基礎設施與環境），對應至 system 類型，而稽核技術（technique）對系統進行分析，符合 'can_analyze' 關係。",
+      "source_id": "question_ISN-109-020",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "公司",
+      "type": "securityTeam",
+      "display_name": "公司"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "第二者稽核",
+      "type": "technique",
+      "display_name": "第二者稽核"
+    },
+    "reasoning": "根據題幹與正確答案，公司發動（執行）第二者稽核。在資安本體論中，執行稽核的角色可視為 securityTeam，而稽核方法屬於 technique，因此使用 'uses' 關係。",
+    "source_id": "question_ISN-109-020",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '公司' 可以被視為 'securityTeam' 的合理實例，受體 '第二者稽核' 可以被視為 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：無關，但主體 securityTeam 使用第二者稽核 (technique) 合理。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且主體 securityTeam 使用第二者稽核 (technique) 合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「公司」完全等價同義詞；受體與 Ldr 中的「稽核」相關但非完全等價同義詞，受體「第二者稽核」是「稽核」的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「公司」完全等價同義詞，但受體「第二者稽核」是「稽核」的子類型，依據判斷準則 3，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "公司",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "第二者稽核",
+        "type": "technique"
+      },
+      "reasoning": "根據題幹與正確答案，公司發動（執行）第二者稽核。在資安本體論中，執行稽核的角色可視為 securityTeam，而稽核方法屬於 technique，因此使用 'uses' 關係。",
+      "source_id": "question_ISN-109-020",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

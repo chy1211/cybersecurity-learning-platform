@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "網站伺服器",
+      "type": "system",
+      "display_name": "網站伺服器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "raid 5",
+      "type": "tool",
+      "display_name": "RAID 5"
+    },
+    "reasoning": "題幹提到公司將網站伺服器內的硬碟作 RAID 5，表示該系統配置了 RAID 5 這種冗餘機制。在本體論中，RAID 5 作為一種實現資料可用性的機制，可歸類為 tool，且 system 與 tool 之間存在 has_a 關係。",
+    "source_id": "question_IPAS-110-TEC-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "網站伺服器是系統的合理實例，RAID 5 是工具的合理實例。",
+        "response": "correct",
+        "reason": "網站伺服器與 RAID 5 的類別與屬性完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的網站伺服器完全等價同義詞；受體與 Ldr 中的 raid 5 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "網站伺服器",
+        "standard_object": "raid 5",
+        "reason": "主體與 Ldr 中的網站伺服器完全等價同義詞；受體與 Ldr 中的 raid 5 完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站伺服器",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "RAID 5",
+        "type": "tool"
+      },
+      "reasoning": "題幹提到公司將網站伺服器內的硬碟作 RAID 5，表示該系統配置了 RAID 5 這種冗餘機制。在本體論中，RAID 5 作為一種實現資料可用性的機制，可歸類為 tool，且 system 與 tool 之間存在 has_a 關係。",
+      "source_id": "question_IPAS-110-TEC-036",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "raid 5",
+      "type": "tool",
+      "display_name": "RAID 5"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "rebuild",
+      "type": "function",
+      "display_name": "Rebuild"
+    },
+    "reasoning": "正確答案指出在硬碟故障後應執行 Rebuild。Rebuild 是 RAID 5 機制中用來恢復冗餘狀態的內建能力，因此將其定義為 RAID 5 (tool) 具有的 function。",
+    "source_id": "question_IPAS-110-TEC-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "RAID 5 是一種資料儲存技術工具，因此其類別 'tool' 合理；Rebuild 是一種功能，因此其類別 'function' 合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "無明確匹配的規則，檢查規則1~8皆不觸發。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "RAID 5 與 Ldr 中的 raid 5 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RAID 5",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Rebuild",
+        "type": "function"
+      },
+      "reasoning": "正確答案指出在硬碟故障後應執行 Rebuild。Rebuild 是 RAID 5 機制中用來恢復冗餘狀態的內建能力，因此將其定義為 RAID 5 (tool) 具有的 function。",
+      "source_id": "question_IPAS-110-TEC-036",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "rebuild",
+      "type": "function",
+      "display_name": "Rebuild"
+    },
+    "reasoning": "題目詢問應採取何種處理方式，正確答案為執行 Rebuild。這意味著負責維運的資安人員或系統管理員 (securityTeam) 需執行/實作 (implements) 此項恢復功能 (function)。",
+    "source_id": "question_IPAS-110-TEC-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 可以實施 (implements) Rebuild 這個功能 (function)，這是合理的實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中的資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "Rebuild",
+        "type": "function"
+      },
+      "reasoning": "題目詢問應採取何種處理方式，正確答案為執行 Rebuild。這意味著負責維運的資安人員或系統管理員 (securityTeam) 需執行/實作 (implements) 此項恢復功能 (function)。",
+      "source_id": "question_IPAS-110-TEC-036",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "raid 5",
+      "type": "tool",
+      "display_name": "RAID 5"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "硬碟故障",
+      "type": "risk",
+      "display_name": "硬碟故障"
+    },
+    "reasoning": "RAID 5 的核心目的在於提供容錯能力，即使單顆硬碟故障，系統仍能運作且資料不遺失，因此 RAID 5 (tool) 能緩解硬碟故障 (risk) 帶來的風險。",
+    "source_id": "question_IPAS-110-TEC-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "RAID 5 是一種資料儲存技術，合理歸類為 'tool'。硬碟故障是一種常見的風險，合理歸類為 'risk'。關係 'mitigates' 表示 RAID 5 可以減少硬碟故障的風險，這是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 RAID 5 的類別是 tool，符合規則2所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "RAID 5 與 硬碟故障 分別是工具與風險，無法判定為同義詞或子類型關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RAID 5",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "硬碟故障",
+        "type": "risk"
+      },
+      "reasoning": "RAID 5 的核心目的在於提供容錯能力，即使單顆硬碟故障，系統仍能運作且資料不遺失，因此 RAID 5 (tool) 能緩解硬碟故障 (risk) 帶來的風險。",
+      "source_id": "question_IPAS-110-TEC-036",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

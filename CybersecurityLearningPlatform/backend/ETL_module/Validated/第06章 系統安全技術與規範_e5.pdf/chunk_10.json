@@ -1,51 +1,51 @@
 [
   {
     "subject": {
-      "name": "安全密鑰儲存和提供機制",
+      "name": "組技術",
       "type": "tool",
-      "display_name": "安全密鑰儲存和提供機制"
+      "display_name": "組技術"
     },
     "relation": "has_a",
     "object": {
-      "name": "組技術",
-      "type": "feature",
-      "display_name": "組技術"
+      "name": "安全密鑰儲存和提供機制",
+      "type": "function",
+      "display_name": "安全密鑰儲存和提供機制"
     },
-    "reasoning": "文本描述了一種『安全密鑰儲存和提供機制』，其『為基礎』的內容是『組技術』（推測為硬體模組技術之片段）。在本體論中，該機制可視為一個工具 (tool)，而其底層依賴的技術特徵可視為特徵 (feature)，兩者關係符合 ('tool', 'has_a', 'feature') 的合法邊界。",
+    "reasoning": "文本描述了一種『以組技術為基礎』的『安全密鑰儲存和提供機制』。在資安本體論中，這種儲存與提供密鑰的能力屬於系統或工具的『功能 (function)』，而提供此功能的基礎技術可視為『工具 (tool)』。根據 Schema，('tool', 'has_a', 'function') 是合法的關聯。",
     "source_id": "chunk_10",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "安全密鑰儲存和提供機制 可以被視為 'tool' 的合理實例，'組技術' 可以被視為 'feature' 的合理實例，考慮到同義詞寬容原則。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "主體 '組技術' 可以被視為 'tool' 的合理實例；受體 '安全密鑰儲存和提供機制' 可以被視為 'function' 的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查每條規則，發現規則1、2、3、4、5、6、7、8均不直接適用於此三元組，因為此三元組的關係是has_a，且主體是tool，受體是feature，沒有明顯違反任何規則。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
         "response": "correct",
-        "reason": "此三元組的組合（安全密鑰儲存和提供機制 has_a 組技術）在給定的語義限制清單中沒有直接觸發任何違規條件。"
+        "reason": "主體為 tool，具有主動執行能力，符合規則8。關係為 has_a，不違反任何規則。"
       },
       "step_2": {
-        "granularity_analysis": "完全不相關",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據判斷準則，Ldr為空，直接判定correct。"
+        "reason": "Ldr 為空，直接判定 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "安全密鑰儲存和提供機制",
+        "name": "組技術",
         "type": "tool"
       },
       "relation": "has_a",
       "object": {
-        "name": "組技術",
-        "type": "feature"
+        "name": "安全密鑰儲存和提供機制",
+        "type": "function"
       },
-      "reasoning": "文本描述了一種『安全密鑰儲存和提供機制』，其『為基礎』的內容是『組技術』（推測為硬體模組技術之片段）。在本體論中，該機制可視為一個工具 (tool)，而其底層依賴的技術特徵可視為特徵 (feature)，兩者關係符合 ('tool', 'has_a', 'feature') 的合法邊界。",
+      "reasoning": "文本描述了一種『以組技術為基礎』的『安全密鑰儲存和提供機制』。在資安本體論中，這種儲存與提供密鑰的能力屬於系統或工具的『功能 (function)』，而提供此功能的基礎技術可視為『工具 (tool)』。根據 Schema，('tool', 'has_a', 'function') 是合法的關聯。",
       "source_id": "chunk_10",
       "source_file": "第06章 系統安全技術與規範_e5.pdf",
       "source_index": 1

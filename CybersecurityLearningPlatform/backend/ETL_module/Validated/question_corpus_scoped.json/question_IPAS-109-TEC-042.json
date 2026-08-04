@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "接收端軟體",
+      "type": "tool",
+      "display_name": "接收端軟體"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "正規化",
+      "type": "technique",
+      "display_name": "正規化 (Normalization)"
+    },
+    "reasoning": "文本提到接收端軟體需要日誌經過正規化處理才能辨識與讀懂，這表示該工具在處理流程中使用了正規化技術。",
+    "source_id": "question_IPAS-109-TEC-042",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '接收端軟體' 可被視為 'tool' 的合理實例；關係 'uses' 合理地連接 'tool' 與 'technique'；受體 '正規化' 可被視為 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2不適用，因為uses不是mitigates；規則3不適用，因為主體類別不是vulnerability；規則4不適用，因為主體類別不是principle；規則5不適用，因為主體類別不是data；規則6不適用，因為關係不是deployed_in；規則7不適用，因為關係不是generates；規則8不適用，因為關係不是controls；",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "正規化",
+        "reason": "根據資安領域已知同義詞對照範例，正規化 (Normalization) 是一個已知的同義詞，與 Ldr 中的資源完全等價。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "接收端軟體",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "正規化 (Normalization)",
+        "type": "technique"
+      },
+      "reasoning": "文本提到接收端軟體需要日誌經過正規化處理才能辨識與讀懂，這表示該工具在處理流程中使用了正規化技術。",
+      "source_id": "question_IPAS-109-TEC-042",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "正規化 (normalization)",
+      "type": "technique",
+      "display_name": "正規化 (Normalization)"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌 (logs)",
+      "type": "data",
+      "display_name": "日誌 (Logs)"
+    },
+    "reasoning": "根據題幹與正確答案，為了方便分析不同格式的日誌，應採取『正規化』處理。因此，正規化是一種可用於分析日誌資料的技術。",
+    "source_id": "question_IPAS-109-TEC-042",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '正規化 (Normalization)' 是 'technique' 的合理實例；受體 '日誌 (Logs)' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別是technique，而非vulnerability。規則5不適用，因為主體類別不是data。規則8不適用，因為關係不是controls。其他規則不相關。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "正規化 (Normalization)",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "日誌 (Logs)",
+        "type": "data"
+      },
+      "reasoning": "根據題幹與正確答案，為了方便分析不同格式的日誌，應採取『正規化』處理。因此，正規化是一種可用於分析日誌資料的技術。",
+      "source_id": "question_IPAS-109-TEC-042",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "接收端軟體",
+      "type": "tool",
+      "display_name": "接收端軟體"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌 (logs)",
+      "type": "data",
+      "display_name": "日誌 (Logs)"
+    },
+    "reasoning": "題幹指出處理日誌格式的目的，是為了讓接收端軟體能夠辨識、讀懂並方便分析日誌。",
+    "source_id": "question_IPAS-109-TEC-042",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '接收端軟體' 是 'tool' 的合理實例，受體 '日誌' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2不適用，因為can_analyze不是mitigates動作。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為principle不是主體或受體。規則5不適用，因為關係不是uses或主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。規則1不適用，因為主體和受體沒有攻擊者和安全團隊的身分。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "日誌 (Logs) 與 日誌 (logs) 名稱雖然相似，但根據前提確認原則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "接收端軟體",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "日誌 (Logs)",
+        "type": "data"
+      },
+      "reasoning": "題幹指出處理日誌格式的目的，是為了讓接收端軟體能夠辨識、讀懂並方便分析日誌。",
+      "source_id": "question_IPAS-109-TEC-042",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

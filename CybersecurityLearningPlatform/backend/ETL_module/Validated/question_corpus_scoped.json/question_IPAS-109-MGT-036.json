@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "拔除網路線",
+      "type": "technique",
+      "display_name": "拔除網路線"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "病毒入侵",
+      "type": "attack",
+      "display_name": "病毒入侵"
+    },
+    "reasoning": "根據選項 A，在疑似病毒入侵時拔除網路線可以避免病毒擴散，這是一種用來緩解（mitigates）攻擊（attack）的技術手段（technique）。",
+    "source_id": "question_IPAS-109-MGT-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '拔除網路線' 是 'technique' 的合理實例，受體 '病毒入侵' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 '拔除網路線' 的類別是 'technique'，符合規則2所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體均不在 Ldr 中，但受體「病毒入侵」與 Ldr 中的「入侵」、「病毒程式」、「駭客攻擊」相似，但不完全等價同義詞；主體「拔除網路線」與 Ldr 中無直接關聯。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體的同義詞關係，且不符合廣義/狹義從屬關係，預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "拔除網路線",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "病毒入侵",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 A，在疑似病毒入侵時拔除網路線可以避免病毒擴散，這是一種用來緩解（mitigates）攻擊（attack）的技術手段（technique）。",
+      "source_id": "question_IPAS-109-MGT-036",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "災害應變規範",
+      "type": "policy",
+      "display_name": "災害應變規範"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "天然災害",
+      "type": "risk",
+      "display_name": "天然災害"
+    },
+    "reasoning": "根據選項 B，在天然災害發生時應攜帶重要資料離開，這是一種應對風險的指導方針或規範（policy），旨在緩解（mitigates）天然災害（risk）帶來的影響。",
+    "source_id": "question_IPAS-109-MGT-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '災害應變規範' 合理對齊其類別 'policy'，受體名稱 '天然災害' 合理對齊其類別 'risk'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為災害應變規範（policy），符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法在已知同義詞對照範例中找到相符的詞彙，且無法確認兩個實體之間的從屬關係，預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "災害應變規範",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "天然災害",
+        "type": "risk"
+      },
+      "reasoning": "根據選項 B，在天然災害發生時應攜帶重要資料離開，這是一種應對風險的指導方針或規範（policy），旨在緩解（mitigates）天然災害（risk）帶來的影響。",
+      "source_id": "question_IPAS-109-MGT-036",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "數位證據",
+      "type": "data",
+      "display_name": "事件證據"
+    },
+    "reasoning": "根據選項 D，保留事件證據是為了利於後續分析，這隱含了資安分析師或安全團隊（securityTeam）具備分析（can_analyze）這些證據資料（data）的能力。",
+    "source_id": "question_IPAS-109-MGT-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員是 securityTeam 的合理實例，事件證據是 data 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為securityTeam，非vulnerability。規則8不適用，因為關係不是controls。其他規則不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間存在同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "資安人員",
+        "standard_object": "數位證據",
+        "reason": "主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間存在同義詞關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "事件證據",
+        "type": "data"
+      },
+      "reasoning": "根據選項 D，保留事件證據是為了利於後續分析，這隱含了資安分析師或安全團隊（securityTeam）具備分析（can_analyze）這些證據資料（data）的能力。",
+      "source_id": "question_IPAS-109-MGT-036",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

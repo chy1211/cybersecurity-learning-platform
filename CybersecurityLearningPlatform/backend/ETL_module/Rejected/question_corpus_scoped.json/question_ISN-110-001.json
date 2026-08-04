@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "https",
+      "type": "feature",
+      "display_name": "HTTPS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "連接埠 443",
+      "type": "feature",
+      "display_name": "連接埠 443"
+    },
+    "reasoning": "根據題幹與正確答案，HTTPS 服務的預設連接埠為 443。在本體論中，HTTPS 服務被視為一種應用服務 (app)，而連接埠 (Port) 被定義為系統或網路的屬性 (feature)，兩者之間使用 has_a 關係來表示包含或具有該屬性，符合 Schema Edge 中的 ('app', 'has_a', 'feature')。",
+    "source_id": "question_ISN-110-001",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "HTTPS 是一種應用程式協議，連接埠 443 是 HTTPS 的標準連接埠，因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "HTTPS 的類別為 'app'、連接埠 443 的類別為 'feature'，且 'has_a' 關係在 Lc,p 中，且語意對齊，故此三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間存在著廣義/狹義從屬關係，HTTPS 通常使用連接埠 443，但連接埠 443 也可以用於其他協議",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "HTTPS 與連接埠 443 之間存在著廣義/狹義從屬關係，HTTPS 通常使用連接埠 443，但連接埠 443 也可以用於其他協議，因此不應該合併"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> feature (original: app -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "HTTPS",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "連接埠 443",
+        "type": "feature"
+      },
+      "reasoning": "根據題幹與正確答案，HTTPS 服務的預設連接埠為 443。在本體論中，HTTPS 服務被視為一種應用服務 (app)，而連接埠 (Port) 被定義為系統或網路的屬性 (feature)，兩者之間使用 has_a 關係來表示包含或具有該屬性，符合 Schema Edge 中的 ('app', 'has_a', 'feature')。",
+      "source_id": "question_ISN-110-001",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

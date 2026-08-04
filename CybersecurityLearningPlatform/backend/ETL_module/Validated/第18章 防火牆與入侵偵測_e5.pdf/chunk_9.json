@@ -2,7 +2,7 @@
   {
     "subject": {
       "name": "utm",
-      "type": "tool",
+      "type": "system",
       "display_name": "UTM"
     },
     "relation": "has_a",
@@ -11,28 +11,28 @@
       "type": "tool",
       "display_name": "防火牆"
     },
-    "reasoning": "文本提到 UTM 將防火牆等獨立資安產品整合在同一台裝置上。將 UTM 視為一個綜合安全系統 (system)，防火牆為其包含的工具 (tool)，符合 ('system', 'has_a', 'tool') 的 Schema。",
+    "reasoning": "文本提到 UTM 將防火牆等獨立資安產品整合在同一台裝置上。UTM 作為整合設備被定義為 system，防火牆為其包含的具體工具 tool。",
     "source_id": "chunk_9",
     "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "UTM 是一個 'system' 的合理實例，防火牆是 'tool' 的合理實例，且 'has_a' 關係在資安領域中是合理的，例如系統具有防火牆工具。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'UTM' 是 'system' 的合理實例，受體 '防火牆' 是 'tool' 的合理實例（同義詞寬容原則下，防火牆是資安領域常見的工具）。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但需注意 'has_a' 關係的合法性，根據給定的三元組，'UTM' 是一種工具，'has_a' 關係表示它具有防火牆的功能，這在資安知識圖譜中是一種合理的關係設定。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的 'has_a' 關係描述了 UTM 工具具備防火牆功能，這符合資安知識圖譜的描述邏輯，沒有違反給定的語義限制清單中的任何規則。"
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
       },
       "step_2": {
-        "granularity_analysis": "主體 (UTM) 與受體 (防火牆) 分別與 Ldr 中的資源進行比對，發現 UTM 完全匹配 Ldr 中的 'utm'，而防火牆與 Ldr 中的 '防火牆' 完全匹配，且兩者皆為工具類別，無廣義或狹義從屬關係。",
+        "granularity_analysis": "受體與 Ldr 中的某些資源具有高度相似性，但無法確認完全等價同義詞關係",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，且無同義詞重複或從屬關係，故判定為 correct。"
+        "reason": "受體與 Ldr 中的資源雖然相似，但無法確認完全等價同義詞關係，依據判斷準則預設保留原名"
       }
     },
     "original_raw_triple": {
@@ -45,7 +45,7 @@
         "name": "防火牆",
         "type": "tool"
       },
-      "reasoning": "文本提到 UTM 將防火牆等獨立資安產品整合在同一台裝置上。將 UTM 視為一個綜合安全系統 (system)，防火牆為其包含的工具 (tool)，符合 ('system', 'has_a', 'tool') 的 Schema。",
+      "reasoning": "文本提到 UTM 將防火牆等獨立資安產品整合在同一台裝置上。UTM 作為整合設備被定義為 system，防火牆為其包含的具體工具 tool。",
       "source_id": "chunk_9",
       "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
       "source_index": 1
@@ -54,37 +54,37 @@
   {
     "subject": {
       "name": "utm",
-      "type": "tool",
+      "type": "system",
       "display_name": "UTM"
     },
     "relation": "has_a",
     "object": {
       "name": "入侵偵測",
-      "type": "technique",
+      "type": "tool",
       "display_name": "入侵偵測"
     },
-    "reasoning": "文本提到 UTM 整合了入侵偵測功能。將其定義為系統包含的工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
+    "reasoning": "文本提到 UTM 整合了入侵偵測功能。將其視為整合系統中的一個安全工具 tool。",
     "source_id": "chunk_9",
     "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
     "source_index": 2,
     "validation_history": {
       "step_1": {
         "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "UTM 可被視為系統（system），入侵偵測可被視為工具（tool），且 'has_a' 關係在資安領域中合理，表示系統具有某種工具或功能。",
+        "step_2_alignment_check": "主體 'UTM' 是 'system' 的合理實例，受體 '入侵偵測' 是 'tool' 的合理實例（入侵偵測是資安領域常見的工具）。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 'UTM' 的類別 'tool' 與受體 '入侵偵測' 的類別 'technique' 沒有直接違反任何規則。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
         "response": "correct",
-        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+        "reason": "三元組中的主體 UTM 是 system 類別，關係是 has_a，受體是入侵偵測 (tool)，符合規則6和規則8的描述，無法直接判定違反任何規則。"
       },
       "step_2": {
-        "granularity_analysis": "主體 UTM 與 Ldr 中的 utm 完全等價同義詞，受體 入侵偵測 與 Ldr 中的 入侵偵測 完全等價同義詞",
+        "granularity_analysis": "主體 UTM 與 Ldr 中的 utm 名稱完全相同，受體 入侵偵測 與 Ldr 中的 入侵偵測 名稱完全相同，均為完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "主體與受體皆與現有近似資源清單中之資源完全匹配，無需進行同義詞替換。"
+        "reason": "主體與受體名稱與 Ldr 中的資源名稱完全相同，無需進行同義詞合併。"
       }
     },
     "original_raw_triple": {
@@ -97,7 +97,7 @@
         "name": "入侵偵測",
         "type": "tool"
       },
-      "reasoning": "文本提到 UTM 整合了入侵偵測功能。將其定義為系統包含的工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
+      "reasoning": "文本提到 UTM 整合了入侵偵測功能。將其視為整合系統中的一個安全工具 tool。",
       "source_id": "chunk_9",
       "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
       "source_index": 2
@@ -106,7 +106,7 @@
   {
     "subject": {
       "name": "utm",
-      "type": "tool",
+      "type": "system",
       "display_name": "UTM"
     },
     "relation": "has_a",
@@ -115,28 +115,28 @@
       "type": "tool",
       "display_name": "防毒"
     },
-    "reasoning": "文本提到 UTM 整合了防毒產品。將其定義為系統包含的工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
+    "reasoning": "文本提到 UTM 整合了防毒產品。將其視為整合系統中的一個安全工具 tool。",
     "source_id": "chunk_9",
     "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
     "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "UTM 是一種 'system'，防毒是 'tool' 的合理實例，且 'has_a' 關係在資安領域中常見於系統具有某種工具或功能的描述，因此語意對齊。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'UTM' 是 'system' 的合理實例，受體 '防毒' 是 'tool' 的合理實例（同義詞寬容原則下，'防毒' 可視為 'antivirus' 的翻譯）。",
         "response": "correct",
-        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查每條規則，發現規則5與規則8可能相關，但主體UTM的類別是tool，關係是has_a，受體是防毒，同樣是tool類別，無法直接觸發規則5的違反條件，因為data類別未出現在主體位置；規則8關注的是controls關係，與has_a無關。其他規則均不直接適用於此三元組。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的主體和受體均為tool類別，關係為has_a，未觸發語義限制清單中的任何違規條件。"
+        "reason": "三元組中的關係是 has_a，而非 deployed_in，因此不觸發規則6。"
       },
       "step_2": {
-        "granularity_analysis": "主體 (UTM) 與受體 (防毒) 分別與 Ldr 中的資源 'utm' 和 '防毒' 完全等價，且兩者皆為 tool 類別，但無直接同義詞關係或從屬關係。",
+        "granularity_analysis": "主體 UTM 與 Ldr 中的 utm 名稱完全相同，受體 防毒 與 Ldr 中的 防毒 名稱完全相同，兩者均為完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據判斷準則，UTM 和 防毒 雖然都是 tool 類別，但無直接同義詞關係或從屬關係，故判定為 correct。"
+        "reason": "主體與受體名稱與 Ldr 中的名稱完全相同，無需進行標準化。"
       }
     },
     "original_raw_triple": {
@@ -149,7 +149,7 @@
         "name": "防毒",
         "type": "tool"
       },
-      "reasoning": "文本提到 UTM 整合了防毒產品。將其定義為系統包含的工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
+      "reasoning": "文本提到 UTM 整合了防毒產品。將其視為整合系統中的一個安全工具 tool。",
       "source_id": "chunk_9",
       "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
       "source_index": 3
@@ -158,59 +158,7 @@
   {
     "subject": {
       "name": "utm",
-      "type": "tool",
-      "display_name": "UTM"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "整合式管理平台",
-      "type": "tool",
-      "display_name": "整合式管理平台"
-    },
-    "reasoning": "文本提到 UTM 構成一個標準的整合式管理平台。將其視為系統內建的管理工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
-    "source_id": "chunk_9",
-    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
-    "source_index": 5,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "UTM 可以被視為系統（system）的實例，而 '整合式管理平台' 可以被視為工具（tool）的實例，兩者之間的 'has_a' 關係在語意上是合理的，因為系統可能包含或具有工具。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
-        "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與主體 'UTM' 和受體 '整合式管理平台' 的類別 'tool' 沒有直接違反任何語義限制清單中的規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "UTM 與 utm 產品為同一工具的不同稱呼，整合式管理平台與防火牆、內容過濾等為不同工具，無直接同義詞關係",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，UTM 與整合式管理平台無同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "UTM",
-        "type": "system"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "整合式管理平台",
-        "type": "tool"
-      },
-      "reasoning": "文本提到 UTM 構成一個標準的整合式管理平台。將其視為系統內建的管理工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
-      "source_id": "chunk_9",
-      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
-      "source_index": 5
-    }
-  },
-  {
-    "subject": {
-      "name": "utm",
-      "type": "tool",
+      "type": "system",
       "display_name": "UTM"
     },
     "relation": "has_a",
@@ -219,28 +167,28 @@
       "type": "tool",
       "display_name": "內容過濾"
     },
-    "reasoning": "文本提到 UTM 整合了內容過濾產品。將其定義為系統包含的工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
+    "reasoning": "文本提到 UTM 整合了內容過濾產品。將其視為整合系統中的一個安全工具 tool。",
     "source_id": "chunk_9",
     "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
     "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "UTM 是一種 'system'，內容過濾是 'tool' 的合理實例，且 'has_a' 關係在系統與工具之間是合理的。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'UTM' 是 'system' 的合理實例，受體 '內容過濾' 是 'tool' 的合理實例，且關係 'has_a' 合理描述了 UTM 與 內容過濾 之間的關係。",
         "response": "correct",
-        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，但需注意 'has_a' 關係的合法性，根據給定的三元組，'UTM' 是一種工具（tool），'內容過濾' 也是一種工具（tool），這裡的 'has_a' 關係可能意味著 UTM 具有內容過濾的功能，然而這種關係在給定的規則中沒有明確的限制或定義。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "由於沒有明確的規則直接限制 'has_a' 關係在工具之間的使用，且根據 '無罪推定' 原則，若未發現明確且直接的違反項目，應判定為正確。"
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
       },
       "step_2": {
-        "granularity_analysis": "主體 (UTM) 與受體 (內容過濾) 分別與 Ldr 中的資源 'utm' 和 '內容過濾' 完全匹配，且均為工具類別，無同義詞或廣義/狹義關係。",
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "主體與受體名稱與 Ldr 中的資源完全匹配，無同義詞或廣義/狹義關係，直接判定 correct。"
+        "reason": "主體 UTM 與 Ldr 中的 utm 完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
@@ -253,7 +201,7 @@
         "name": "內容過濾",
         "type": "tool"
       },
-      "reasoning": "文本提到 UTM 整合了內容過濾產品。將其定義為系統包含的工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
+      "reasoning": "文本提到 UTM 整合了內容過濾產品。將其視為整合系統中的一個安全工具 tool。",
       "source_id": "chunk_9",
       "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
       "source_index": 4
@@ -262,37 +210,37 @@
   {
     "subject": {
       "name": "utm",
-      "type": "tool",
+      "type": "system",
       "display_name": "UTM"
     },
     "relation": "can_expose",
     "object": {
-      "name": "單一點失敗",
+      "name": "vulnerability",
       "type": "vulnerability",
       "display_name": "單一點失敗"
     },
-    "reasoning": "文本指出 UTM 過度集中在同一個設備會帶來風險，其中提到「單一點失敗」。單一點失敗是一種設計上的缺陷/弱點 (vulnerability)，符合 ('system', 'can_expose', 'vulnerability') 的 Schema。",
+    "reasoning": "文本提到 UTM 過度集中在同一個設備會帶來風險，且「單一點失敗」是其結構上的缺陷，因此將其定義為 vulnerability，並由 system 暴露。",
     "source_id": "chunk_9",
     "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
     "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "UTM 是一個 'system'，單一點失敗是一種 'vulnerability'，而 'can_expose' 是一個合理的關係，因為系統可能會暴露弱點。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'UTM' 是 'system' 的合理實例，受體 '單一點失敗' 是 'vulnerability' 的合理實例，關係 'can_expose' 合理描述了 'system' 與 'vulnerability' 之間的關係。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但允許 'can_expose' 動作。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
         "response": "correct",
-        "reason": "三元組中的主體 'UTM' 是工具，關係 'can_expose' 是允許的動作，受體 '單一點失敗' 是漏洞，符合規則3的特例允許。因此，三元組不違反任何語義限制規則。"
+        "reason": "主體 UTM 的類別是 system，符合規則3 的特例允許，且關係 can_expose 符合規則3 的允許條件。"
       },
       "step_2": {
-        "granularity_analysis": "UTM 是一個工具，Ldr 中的 'utm' 是完全等價的同義詞，兩者指的是同一概念。",
-        "response": "correct",
+        "granularity_analysis": "主體與 Ldr 中的資源為同一概念，但名稱略有不同；受體與現有資安領域已知同義詞對照範例中『漏洞 ≡ 弱點 ≡ 脆弱性』相符。",
+        "response": "duplicate",
         "standard_subject": "utm",
-        "standard_object": "",
-        "reason": "根據同義詞判定，UTM 和 utm 是同義詞，因此判定為 correct。"
+        "standard_object": "vulnerability",
+        "reason": "主體與 Ldr 中的資源為同一概念，受體與現有資安領域已知同義詞對照範例中『漏洞 ≡ 弱點 ≡ 脆弱性』相符，判定為 duplicate。"
       }
     },
     "original_raw_triple": {
@@ -305,7 +253,7 @@
         "name": "單一點失敗",
         "type": "vulnerability"
       },
-      "reasoning": "文本指出 UTM 過度集中在同一個設備會帶來風險，其中提到「單一點失敗」。單一點失敗是一種設計上的缺陷/弱點 (vulnerability)，符合 ('system', 'can_expose', 'vulnerability') 的 Schema。",
+      "reasoning": "文本提到 UTM 過度集中在同一個設備會帶來風險，且「單一點失敗」是其結構上的缺陷，因此將其定義為 vulnerability，並由 system 暴露。",
       "source_id": "chunk_9",
       "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
       "source_index": 6
@@ -323,28 +271,28 @@
       "type": "risk",
       "display_name": "網路無法運作"
     },
-    "reasoning": "文本明確指出「單一點失敗將造成網路無法運作的風險」。這描述了漏洞導致的負面後果 (risk)，符合 ('vulnerability', 'can_expose', 'risk') 的 Schema。",
+    "reasoning": "文本指出「單一點失敗將造成網路無法運作的風險」，符合 vulnerability can_expose risk 的 Schema 定義。",
     "source_id": "chunk_9",
     "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
     "source_index": 7,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "單一點失敗 可以被視為 'vulnerability' 的合理實例，網路無法運作 可以被視為 'risk' 的合理實例，'can_expose' 的關係在資安領域中是合理的。",
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '單一點失敗' 是 'vulnerability' 的合理實例，受體名稱 '網路無法運作' 是 'risk' 的合理實例。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
         "response": "correct",
-        "reason": "三元組符合規則3的特例允許，未發現明確且直接的違反項目。"
+        "reason": "主體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
       },
       "step_2": {
-        "granularity_analysis": "單一點失敗與現有近似資源清單中的單一點失敗完全相同，網路無法運作與現有近似資源清單中沒有直接匹配的項目，但根據資安領域已知同義詞對照範例，沒有直接相關的同義詞",
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是同義詞重複，受體與 Ldr 中的資源之間的關係是無關",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認，實體名稱與Ldr中某資源的name字串完全相同，直接判定correct。"
+        "reason": "主體與 Ldr 中的資源之間的關係是同義詞重複，但受體與 Ldr 中的資源之間的關係是無關，因此判定為 correct。"
       }
     },
     "original_raw_triple": {
@@ -357,7 +305,7 @@
         "name": "網路無法運作",
         "type": "risk"
       },
-      "reasoning": "文本明確指出「單一點失敗將造成網路無法運作的風險」。這描述了漏洞導致的負面後果 (risk)，符合 ('vulnerability', 'can_expose', 'risk') 的 Schema。",
+      "reasoning": "文本指出「單一點失敗將造成網路無法運作的風險」，符合 vulnerability can_expose risk 的 Schema 定義。",
       "source_id": "chunk_9",
       "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
       "source_index": 7

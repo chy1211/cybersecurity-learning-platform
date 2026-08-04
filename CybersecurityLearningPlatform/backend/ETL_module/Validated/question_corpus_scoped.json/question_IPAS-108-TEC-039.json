@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "正規化",
+      "type": "technique",
+      "display_name": "正規化"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌檔",
+      "type": "data",
+      "display_name": "日誌檔"
+    },
+    "reasoning": "根據題幹與正確答案，當日誌檔結構因開發者個人喜好而不同時，最合適的管理處理方式是『正規化』。在資安知識中，正規化是一種將異質資料統一格式的技術 (technique)，其目的是為了讓後續的分析與管理變得可能，因此符合 ('technique', 'can_analyze', 'data') 的 Schema 邊界。",
+    "source_id": "question_IPAS-108-TEC-039",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '正規化' 是 'technique' 的合理實例；受體 '日誌檔' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認為同義詞關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "正規化",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "日誌檔",
+        "type": "data"
+      },
+      "reasoning": "根據題幹與正確答案，當日誌檔結構因開發者個人喜好而不同時，最合適的管理處理方式是『正規化』。在資安知識中，正規化是一種將異質資料統一格式的技術 (technique)，其目的是為了讓後續的分析與管理變得可能，因此符合 ('technique', 'can_analyze', 'data') 的 Schema 邊界。",
+      "source_id": "question_IPAS-108-TEC-039",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "保險公司",
+      "type": "user",
+      "display_name": "保險公司"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "醫療記錄",
+      "type": "data",
+      "display_name": "醫療記錄"
+    },
+    "reasoning": "根據考題規則 4，選項 C 為正確之資安實務。保險公司在出險流程中要求被保險人提供醫療記錄，此行為符合使用者（user）使用（uses）資料（data）的邏輯關係。",
+    "source_id": "question_IPAS-113-MGT-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "保險公司 (user) 使用 醫療記錄 (data) 的情況下，保險公司與醫療記錄的名稱與其類別是合理對齊的，保險公司是使用者 (user)，醫療記錄是資料 (data)。",
+        "response": "correct",
+        "reason": "保險公司使用醫療記錄的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "保險公司",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "醫療記錄",
+        "type": "data"
+      },
+      "reasoning": "根據考題規則 4，選項 C 為正確之資安實務。保險公司在出險流程中要求被保險人提供醫療記錄，此行為符合使用者（user）使用（uses）資料（data）的邏輯關係。",
+      "source_id": "question_IPAS-113-MGT-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

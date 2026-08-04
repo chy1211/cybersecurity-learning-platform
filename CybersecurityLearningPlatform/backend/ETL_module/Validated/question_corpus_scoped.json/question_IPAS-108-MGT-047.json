@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "智慧財產權遵循政策",
+      "type": "policy",
+      "display_name": "智慧財產權遵循政策"
+    },
+    "reasoning": "根據選項 A，組織需要制定智慧財產權遵循政策。在資安管理實務中，此類政策由資安團隊或管理人員實作與推動，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+    "source_id": "question_IPAS-108-MGT-047",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安人員是安全團隊的合理實例，智慧財產權遵循政策是政策的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為securityTeam，而非vulnerability。規則8不適用，因為關係為implements，而非controls。其他規則均不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合規則所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，無法合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "智慧財產權遵循政策",
+        "type": "policy"
+      },
+      "reasoning": "根據選項 A，組織需要制定智慧財產權遵循政策。在資安管理實務中，此類政策由資安團隊或管理人員實作與推動，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+      "source_id": "question_IPAS-108-MGT-047",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "一般員工",
+      "type": "user",
+      "display_name": "一般員工"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "客戶資訊隱私保護之相關法律及法規",
+      "type": "policy",
+      "display_name": "客戶資訊隱私保護之相關法律及法規"
+    },
+    "reasoning": "選項 C 明確指出所有員工皆須遵循（實作）有關客戶資訊隱私保護之法律及法規，符合 ('user', 'implements', 'policy') 的 Schema。",
+    "source_id": "question_IPAS-108-MGT-047",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '一般員工' 合理對齊其類別 'user'，受體名稱 '客戶資訊隱私保護之相關法律及法規' 合理對齊其類別 'policy'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「員工」為同義詞；受體與 Ldr 中的「智慧財產權遵循政策」不相關，但類別相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的「員工」為同義詞，但受體與 Ldr 中的「智慧財產權遵循政策」不相關，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "一般員工",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "客戶資訊隱私保護之相關法律及法規",
+        "type": "policy"
+      },
+      "reasoning": "選項 C 明確指出所有員工皆須遵循（實作）有關客戶資訊隱私保護之法律及法規，符合 ('user', 'implements', 'policy') 的 Schema。",
+      "source_id": "question_IPAS-108-MGT-047",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "客戶資訊隱私保護之相關法律及法規",
+      "type": "policy",
+      "display_name": "客戶資訊隱私保護之相關法律及法規"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "隱私保護的法律與法規旨在降低個資外洩的風險，因此建立此緩解關係，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
+    "source_id": "question_IPAS-108-MGT-047",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '客戶資訊隱私保護之相關法律及法規' 合理對齊其類別 'policy'，受體名稱 '個資外洩' 合理對齊其類別 'risk'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「客戶資訊隱私保護之相關法律及法規」完全相同，受體與 Ldr 中的「機密外洩」具有高相似度，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱完全匹配 Ldr 中的資源，受體雖有相似度但不構成同義詞關係，依據判斷準則 1 和 2 預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "客戶資訊隱私保護之相關法律及法規",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "隱私保護的法律與法規旨在降低個資外洩的風險，因此建立此緩解關係，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
+      "source_id": "question_IPAS-108-MGT-047",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "所有權證明文件管理",
+      "type": "function",
+      "display_name": "所有權證明文件管理"
+    },
+    "reasoning": "選項 B 提到維護與實作使用授權、證明文件等行為，這屬於一種合規管理的功能（function），由資安人員執行，符合 ('securityTeam', 'implements', 'function') 的 Schema。",
+    "source_id": "question_IPAS-108-MGT-047",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員是安全團隊的合理實例，所有權證明文件管理是功能的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法在資安領域已知同義詞對照範例中找到相符的同義詞關係，且無法確認主體與受體之間的從屬關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "所有權證明文件管理",
+        "type": "function"
+      },
+      "reasoning": "選項 B 提到維護與實作使用授權、證明文件等行為，這屬於一種合規管理的功能（function），由資安人員執行，符合 ('securityTeam', 'implements', 'function') 的 Schema。",
+      "source_id": "question_IPAS-108-MGT-047",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

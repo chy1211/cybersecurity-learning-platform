@@ -1,0 +1,164 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "角色與職責",
+      "type": "policy",
+      "display_name": "角色與職責"
+    },
+    "reasoning": "文本指出存取權限的賦予應與「角色與職責」相符，這屬於基於角色的存取控制 (RBAC) 策略，因此將其定義為 policy，且由使用者在權限賦予過程中實作。",
+    "source_id": "question_IPAS-111-MGT-066",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '使用者' 合理對齊其類別 'user'，實體名稱 '角色與職責' 合理對齊其類別 'policy'，關係 'implements' 合理描述使用者與角色與職責之間的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認是否為同義詞，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "角色與職責",
+        "type": "policy"
+      },
+      "reasoning": "文本指出存取權限的賦予應與「角色與職責」相符，這屬於基於角色的存取控制 (RBAC) 策略，因此將其定義為 policy，且由使用者在權限賦予過程中實作。",
+      "source_id": "question_IPAS-111-MGT-066",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "套裝軟體",
+      "type": "app",
+      "display_name": "套裝軟體"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "存取權限",
+      "type": "feature",
+      "display_name": "存取權限"
+    },
+    "reasoning": "存取權限是套裝軟體中用來管理訪問控制的屬性或組成部分，符合 feature 的定義。",
+    "source_id": "question_IPAS-111-MGT-066",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '套裝軟體' 是 'app' 的合理實例；受體 '存取權限' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「軟體」和「套裝軟體」之間存在狹義關係；受體與 Ldr 中的「檔案存取權限」之間存在同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「軟體」和「套裝軟體」之間存在狹義關係，受體與 Ldr 中的「檔案存取權限」之間雖然存在同義詞關係，但主體不符同義詞判定，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "套裝軟體",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "存取權限",
+        "type": "feature"
+      },
+      "reasoning": "存取權限是套裝軟體中用來管理訪問控制的屬性或組成部分，符合 feature 的定義。",
+      "source_id": "question_IPAS-111-MGT-066",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "套裝軟體",
+      "type": "app",
+      "display_name": "套裝軟體"
+    },
+    "reasoning": "文本提到「個人使用之套裝軟體」，明確描述了使用者 (user) 與應用程式 (app) 之間的使用關係。",
+    "source_id": "question_IPAS-111-MGT-066",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是類別 'user' 的合理實例；受體名稱 '套裝軟體' 是類別 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5僅當關係為uses且主體(Subject)的類別是data時，才違反本規則。主體類別不是data時本規則一律不觸發——即使受體(Object)是data也完全合法。規則8當關係為controls(控制)時，主體(Subject)必須是具有主動執行能力的角色或工具（如attacker,securityTeam,tool），不可是被動資料或特徵。使用者(user)不符合規則8的限制條件。",
+        "response": "violation",
+        "reason": "使用者(user)不符合規則8的限制條件，且關係為uses，主體類別不是data，故不觸發規則5。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "使用者(user)不符合規則8的限制條件，且關係為uses，主體類別不是data，故不觸發規則5。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "套裝軟體",
+        "type": "app"
+      },
+      "reasoning": "文本提到「個人使用之套裝軟體」，明確描述了使用者 (user) 與應用程式 (app) 之間的使用關係。",
+      "source_id": "question_IPAS-111-MGT-066",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

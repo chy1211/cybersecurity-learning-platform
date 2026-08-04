@@ -7,32 +7,32 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "堆疊",
+      "name": "堆積 (heap)",
       "type": "feature",
-      "display_name": "堆疊"
+      "display_name": "堆積 (Heap)"
     },
-    "reasoning": "文本明確指出電腦系統中記憶體配置有堆疊 (Stack)，因此堆疊是系統的一個特徵。",
+    "reasoning": "文本提到電腦系統中記憶體配置有堆積 (Heap)，因此將電腦系統視為 system，堆積視為其組成特徵 feature。",
     "source_id": "chunk_4",
     "source_file": "ch07_習題解答.pdf",
     "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "電腦系統可以被視為一個系統（system），而堆疊（stack）是電腦系統中的一個特徵（feature），因此實體名稱與其類別是合理對齊的。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "電腦系統 (system) 可以有堆積 (Heap) (feature)，這是一種合理的實體名稱與類別對齊關係。",
         "response": "correct",
         "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。無直接相關規則觸發違規。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組（電腦系統 has_a 堆疊）未觸發語義限制清單中的任何規則，故判定為正確。"
+        "reason": "三元組中的關係為 has_a，與規則6無關。"
       },
       "step_2": {
-        "granularity_analysis": "電腦系統與現有近似資源清單中的「電腦系統」完全匹配，受體「堆疊」與現有近似資源清單中的「緩衝區」不完全匹配，但無法確定為同義詞或子類型關係。",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據判斷準則，電腦系統與現有近似資源清單中的「電腦系統」完全匹配，且無法確定「堆疊」與「緩衝區」之間的關係，因此預設保留。"
+        "reason": "主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
@@ -42,10 +42,10 @@
       },
       "relation": "has_a",
       "object": {
-        "name": "堆疊",
+        "name": "堆積 (Heap)",
         "type": "feature"
       },
-      "reasoning": "文本明確指出電腦系統中記憶體配置有堆疊 (Stack)，因此堆疊是系統的一個特徵。",
+      "reasoning": "文本提到電腦系統中記憶體配置有堆積 (Heap)，因此將電腦系統視為 system，堆積視為其組成特徵 feature。",
       "source_id": "chunk_4",
       "source_file": "ch07_習題解答.pdf",
       "source_index": 2
@@ -59,84 +59,32 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "堆積",
+      "name": "堆疊 (stack)",
       "type": "feature",
-      "display_name": "堆積"
+      "display_name": "堆疊 (Stack)"
     },
-    "reasoning": "文本明確指出電腦系統中記憶體配置有堆積 (Heap)，因此堆積是系統的一個特徵。",
-    "source_id": "chunk_4",
-    "source_file": "ch07_習題解答.pdf",
-    "source_index": 3,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "電腦系統可以被視為一個系統（system），而堆積（feature）可以被理解為系統的一個特徵或功能，因此語意對齊是合理的。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的項目。",
-        "response": "correct",
-        "reason": "三元組中的主體、關係和受體之間的關係沒有明確違反語義限制清單中的任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "電腦系統與現有近似資源清單中的「電腦系統」完全相同，堆積與現有近似資源清單中的「堆疊」具有相似的概念，但不完全相同",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【前提確認】，電腦系統與現有近似資源清單中的「電腦系統」完全相同，因此判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "電腦系統",
-        "type": "system"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "堆積",
-        "type": "feature"
-      },
-      "reasoning": "文本明確指出電腦系統中記憶體配置有堆積 (Heap)，因此堆積是系統的一個特徵。",
-      "source_id": "chunk_4",
-      "source_file": "ch07_習題解答.pdf",
-      "source_index": 3
-    }
-  },
-  {
-    "subject": {
-      "name": "電腦系統",
-      "type": "system",
-      "display_name": "電腦系統"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "緩衝區",
-      "type": "feature",
-      "display_name": "緩衝區"
-    },
-    "reasoning": "文本提到緩衝區是指在記憶體中宣告的一個區域，屬於電腦系統記憶體管理的一個特徵/組成部分。",
+    "reasoning": "文本提到電腦系統中記憶體配置有堆疊 (Stack)，因此將電腦系統視為 system，堆疊視為其組成特徵 feature。",
     "source_id": "chunk_4",
     "source_file": "ch07_習題解答.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "電腦系統可以被視為一個系統（system），而緩衝區可以被視為系統的一個特徵（feature），因此實體名稱與其類別是合理對齊的。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '電腦系統' 是 'system' 的合理實例，受體 '堆疊' 是 'feature' 的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 '電腦系統' 的類別 'system' 與受體 '緩衝區' 的類別 'feature' 之間的關係 'has_a' 在給定的規則中沒有被明確禁止或限制。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與主體、受體的類別組合在給定的語義限制清單中沒有被明確禁止或限制，故判定為合法。"
+        "reason": "三元組中的關係是 has_a，而非 deployed_in，因此不觸發規則6。"
       },
       "step_2": {
-        "granularity_analysis": "主體「電腦系統」與 Ldr 中的「系統」為同義詞，受體「緩衝區」與 Ldr 中的「緩衝區」完全匹配",
+        "granularity_analysis": "不相關",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據同義詞判定準則，主體與 Ldr 中的「系統」為同義詞，但受體「緩衝區」已經是完全匹配，無需進一步標準化。"
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，且無法在資安領域找到相關的同義詞對照範例。"
       }
     },
     "original_raw_triple": {
@@ -146,10 +94,10 @@
       },
       "relation": "has_a",
       "object": {
-        "name": "緩衝區",
+        "name": "堆疊 (Stack)",
         "type": "feature"
       },
-      "reasoning": "文本提到緩衝區是指在記憶體中宣告的一個區域，屬於電腦系統記憶體管理的一個特徵/組成部分。",
+      "reasoning": "文本提到電腦系統中記憶體配置有堆疊 (Stack)，因此將電腦系統視為 system，堆疊視為其組成特徵 feature。",
       "source_id": "chunk_4",
       "source_file": "ch07_習題解答.pdf",
       "source_index": 1
@@ -157,38 +105,91 @@
   },
   {
     "subject": {
-      "name": "緩衝區溢位攻擊",
-      "type": "attack",
-      "display_name": "堆疊溢位"
+      "name": "系統程式",
+      "type": "app",
+      "display_name": "系統程式"
     },
-    "relation": "is_part_of",
+    "relation": "can_expose",
     "object": {
-      "name": "緩衝區溢位攻擊",
-      "type": "attack",
-      "display_name": "緩衝區溢位"
+      "name": "未做範圍檢查",
+      "type": "vulnerability",
+      "display_name": "未做範圍檢查"
     },
-    "reasoning": "文本將堆疊溢位描述為一種常見的攻擊法，而其本質屬於緩衝區溢位攻擊的一種具體形式。",
+    "reasoning": "文本提到『程式未對存入堆疊的變數做範圍檢查』，這是一種系統缺陷，因此將系統程式視為 app，未做範圍檢查視為 vulnerability。",
     "source_id": "chunk_4",
     "source_file": "ch07_習題解答.pdf",
     "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "堆疊溢位與緩衝區溢位都是攻擊的合理實例，且 'is_part_of' 關係在資安領域中常用於描述攻擊之間的關聯，因此語意對齊是合理的。",
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "系統程式 (app) 可能會暴露未做範圍檢查 (vulnerability)，這是合理的語意對齊。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別之間具有合理的語意對齊。"
+        "reason": "主體類別、受體類別與關係都符合 Lc,p 的規定，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關。檢查規則6：無關。檢查規則7：無關。檢查規則8：無關。關係 'is_part_of' 不在任何規則中被明確限制，因此不觸發任何違規。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
         "response": "correct",
-        "reason": "三元組中的關係 'is_part_of' 不在語義限制清單中被明確限制，且主體和受體的類別與給定的規則無直接衝突。"
+        "reason": "主體類別為 app，受體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
       },
       "step_2": {
-        "granularity_analysis": "堆疊溢位與緩衝區溢位攻擊是同義詞，指稱同一概念",
+        "granularity_analysis": "主體與 Ldr 中的資源為同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的資源相似，但根據規則，若無法確定，預設 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統程式",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "未做範圍檢查",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『程式未對存入堆疊的變數做範圍檢查』，這是一種系統缺陷，因此將系統程式視為 app，未做範圍檢查視為 vulnerability。",
+      "source_id": "chunk_4",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "堆疊溢位",
+      "type": "attack",
+      "display_name": "堆疊溢位"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "緩衝區溢位",
+      "type": "attack",
+      "display_name": "緩衝區溢位"
+    },
+    "reasoning": "堆疊溢位是緩衝區溢位的一種具體且常見的攻擊形式，符合 attack is_part_of attack。",
+    "source_id": "chunk_4",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "堆疊溢位 (Stack Overflow) 與緩衝區溢位 (Buffer Overflow) 都是攻擊類別 (attack) 的合理實例，語意對齊正常。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊正常。"
+      },
+      "step_2_selfloop_reverted": true,
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關；規則2：無關；規則3：無關；規則4：無關；規則5：無關；規則6：無關；規則7：無關；規則8：無關；",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "堆疊溢位與緩衝區溢位是同義詞",
         "response": "duplicate",
-        "standard_subject": "緩衝區溢位攻擊",
-        "standard_object": "緩衝區溢位攻擊",
-        "reason": "根據資安領域已知同義詞對照範例，堆疊溢位與緩衝區溢位攻擊是同義詞，判定為 duplicate。"
+        "standard_subject": "緩衝區溢位",
+        "standard_object": "緩衝區溢位",
+        "reason": "堆疊溢位與緩衝區溢位是資安領域中的同義詞，均指程式或系統中緩衝區的溢位問題。"
       }
     },
     "original_raw_triple": {
@@ -201,46 +202,202 @@
         "name": "緩衝區溢位",
         "type": "attack"
       },
-      "reasoning": "文本將堆疊溢位描述為一種常見的攻擊法，而其本質屬於緩衝區溢位攻擊的一種具體形式。",
+      "reasoning": "堆疊溢位是緩衝區溢位的一種具體且常見的攻擊形式，符合 attack is_part_of attack。",
       "source_id": "chunk_4",
       "source_file": "ch07_習題解答.pdf",
-      "source_index": 4
+      "source_index": 6
     }
   },
   {
     "subject": {
-      "name": "緩衝區溢位攻擊",
-      "type": "attack",
-      "display_name": "緩衝區溢位"
+      "name": "c語言的指標",
+      "type": "feature",
+      "display_name": "C語言的指標"
     },
-    "relation": "can_harm",
+    "relation": "can_expose",
     "object": {
-      "name": "資料",
-      "type": "data",
-      "display_name": "資料"
+      "name": "未做範圍檢查",
+      "type": "vulnerability",
+      "display_name": "未做範圍檢查"
     },
-    "reasoning": "文本提到資料溢位後會覆蓋到其他的資料，造成錯誤，這符合攻擊危害資料的定義。",
+    "reasoning": "文本將 C 語言的指標作為程式語言本身的漏洞示例，指標特性可能導致範圍檢查失效，符合 feature can_expose vulnerability。",
     "source_id": "chunk_4",
     "source_file": "ch07_習題解答.pdf",
     "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "緩衝區溢位是一種攻擊（attack），資料（data）是攻擊的合理目標，'can_harm' 關係在資安領域中是合理的，表示攻擊可以對資料造成傷害。",
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'C語言的指標' 是 'feature' 的合理實例，受體 '未做範圍檢查' 是 'vulnerability' 的合理實例。",
         "response": "correct",
-        "reason": "緩衝區溢位攻擊可以對資料造成傷害，完全符合預先定義的類別與屬性清單。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 attack，而非 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但需要注意 can_harm 關係的主體是攻擊者，可能涉及主動行為，但未直接違反規則8。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
         "response": "correct",
-        "reason": "三元組中的主體是緩衝區溢位（攻擊），關係是 can_harm，受體是資料，未發現明確且直接違反語義限制清單中的任何規則。"
+        "reason": "主體類別為 feature，受體類別為 vulnerability，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體皆有相近的資源，但主體為類別 attack 的緩衝區溢位，與 Ldr 中的緩衝區溢位攻擊（同義詞）相符；受體為類別 data 的資料，與 Ldr 中的資料完全匹配。",
+        "granularity_analysis": "主體與 Ldr 中的資源無直接關係；受體與 Ldr 中的資源完全等價同義詞。",
         "response": "correct",
-        "standard_subject": "緩衝區溢位攻擊",
-        "standard_object": "資料",
-        "reason": "主體與 Ldr 中的資源為同義詞，受體與 Ldr 中的資源完全匹配，故判定為 correct。"
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源無直接關係，受體雖與 Ldr 中的資源完全等價同義詞，但根據規則 1，若 Ldr 中已有完全相同的 name，則直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "C語言的指標",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "未做範圍檢查",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本將 C 語言的指標作為程式語言本身的漏洞示例，指標特性可能導致範圍檢查失效，符合 feature can_expose vulnerability。",
+      "source_id": "chunk_4",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "未做範圍檢查",
+      "type": "vulnerability",
+      "display_name": "未做範圍檢查"
+    },
+    "reasoning": "文本提到『利用程式語言本身的漏洞...輸入大量資料』，雖然未明寫駭客，但此行為由 attacker 發起，利用 vulnerability 進行攻擊。",
+    "source_id": "chunk_4",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker' 存在於 Lc,p 的 'Classes' 中，但實際上應該是 'attacker' 的同義詞 '駭客'，而 'attacker' 的正確類別應該是 'attacker'。關係 'can_exploit' 存在於 'Properties' 中。受體類別 'vulnerability' 存在於 Lc,p 的 'Classes' 中。",
+        "step_2_alignment_check": "主體名稱 '駭客' 是 'attacker' 的合理實例，受體名稱 '未做範圍檢查' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "雖然主體類別 'attacker' 的名稱 '駭客' 需要寬容同義詞，但整體而言，三元組仍然符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，受體類別為 vulnerability，符合規則3的特例允許，且關係為 can_exploit，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "未做範圍檢查",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『利用程式語言本身的漏洞...輸入大量資料』，雖然未明寫駭客，但此行為由 attacker 發起，利用 vulnerability 進行攻擊。",
+      "source_id": "chunk_4",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "堆疊溢位",
+      "type": "attack",
+      "display_name": "堆疊溢位"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "電腦系統",
+      "type": "system",
+      "display_name": "電腦系統"
+    },
+    "reasoning": "文本提到堆疊溢位會造成『區段錯誤 (Segmentation fault)』，這會導致系統程式崩潰或異常，符合 attack can_harm system。",
+    "source_id": "chunk_4",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "堆疊溢位 是攻擊的合理實例，電腦系統 是系統的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「堆疊溢位」完全等價同義詞；受體與 Ldr 中的「電腦系統」具有廣義/狹義從屬關係，但不構成同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中的資源完全相同，受體雖然與 Ldr 中的資源相關，但不構成同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "堆疊溢位",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "電腦系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到堆疊溢位會造成『區段錯誤 (Segmentation fault)』，這會導致系統程式崩潰或異常，符合 attack can_harm system。",
+      "source_id": "chunk_4",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "緩衝區溢位",
+      "type": "attack",
+      "display_name": "緩衝區溢位"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "使用者資料",
+      "type": "data",
+      "display_name": "使用者資料"
+    },
+    "reasoning": "文本提到『資料溢位後會覆蓋到其他的資料，造成錯誤』，表示此攻擊會損害資料的完整性，符合 attack can_harm data。",
+    "source_id": "chunk_4",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "緩衝區溢位是 'attack' 的合理實例，使用者資料是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "緩衝區溢位攻擊可以傷害使用者資料，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為attack，不是vulnerability。規則4不適用，因為主體類別不是principle。規則5不適用，因為關係不是uses或主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
@@ -250,221 +407,71 @@
       },
       "relation": "can_harm",
       "object": {
-        "name": "資料",
+        "name": "使用者資料",
         "type": "data"
       },
-      "reasoning": "文本提到資料溢位後會覆蓋到其他的資料，造成錯誤，這符合攻擊危害資料的定義。",
+      "reasoning": "文本提到『資料溢位後會覆蓋到其他的資料，造成錯誤』，表示此攻擊會損害資料的完整性，符合 attack can_harm data。",
       "source_id": "chunk_4",
       "source_file": "ch07_習題解答.pdf",
-      "source_index": 5
+      "source_index": 8
     }
   },
   {
     "subject": {
-      "name": "電腦系統",
-      "type": "system",
-      "display_name": "電腦系統"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "漏洞",
-      "type": "vulnerability",
-      "display_name": "程式語言本身的漏洞"
-    },
-    "reasoning": "文本提到利用程式語言本身的漏洞（如 C 語言指標），說明系統所使用的語言特性可能暴露漏洞。",
-    "source_id": "chunk_4",
-    "source_file": "ch07_習題解答.pdf",
-    "source_index": 6,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "電腦系統可以暴露程式語言本身的漏洞，這是資安領域中合理的語意對齊，'system' 和 'vulnerability' 的名稱與其類別相符。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但主體類別為 system，不是 vulnerability，因此不違反。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
-        "response": "correct",
-        "reason": "三元組中的主體是電腦系統，關係是 can_expose，受體是程式語言本身的漏洞，沒有違反任何語義限制清單中的規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體「電腦系統」與 Ldr 中的「電腦系統」完全相同，受體「程式語言本身的漏洞」與 Ldr 中的「漏洞」同義詞重複",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "漏洞",
-        "reason": "主體名稱與 Ldr 中某資源的 name 字串完全相同，且受體為同義詞重複，依據判斷準則 1 和 2 判定。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "電腦系統",
-        "type": "system"
-      },
-      "relation": "can_expose",
-      "object": {
-        "name": "程式語言本身的漏洞",
-        "type": "vulnerability"
-      },
-      "reasoning": "文本提到利用程式語言本身的漏洞（如 C 語言指標），說明系統所使用的語言特性可能暴露漏洞。",
-      "source_id": "chunk_4",
-      "source_file": "ch07_習題解答.pdf",
-      "source_index": 6
-    }
-  },
-  {
-    "subject": {
-      "name": "緩衝區溢位",
-      "type": "attack",
-      "display_name": "緩衝區溢位"
-    },
-    "relation": "violates",
-    "object": {
-      "name": "完整性",
-      "type": "principle",
-      "display_name": "完整性"
-    },
-    "reasoning": "文本提到溢位會「覆蓋到其他的資料」，這在資安原則中直接違反了資料的完整性 (Integrity)。",
-    "source_id": "chunk_4",
-    "source_file": "ch07_習題解答.pdf",
-    "source_index": 9,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體的類別 'attack'、受體的類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "緩衝區溢位是一種攻擊（attack），完整性是一種原則（principle），攻擊違反原則的語意是合理的。",
-        "response": "correct",
-        "reason": "緩衝區溢位攻擊違反完整性原則的三元組完全符合預先定義的類別與屬性清單。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：觸發，主體為攻擊類別，受體為原則，符合規則允許的條件。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
-        "response": "correct",
-        "reason": "三元組中的主體（緩衝區溢位）與受體（完整性）之間的關係（violates）符合語義限制清單中的規則，尤其是規則4允許原則（principle）作為被違反的受體。因此，該三元組不違反任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與受體皆有相近的資源存在於 Ldr 中，但無直接同義詞關係，主體與受體之間的關係不明確，無法確定為同義詞或從屬關係。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "無法確定主體與受體之間的關係，依據判斷準則預設保留。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "緩衝區溢位",
-        "type": "attack"
-      },
-      "relation": "violates",
-      "object": {
-        "name": "完整性",
-        "type": "principle"
-      },
-      "reasoning": "文本提到溢位會「覆蓋到其他的資料」，這在資安原則中直接違反了資料的完整性 (Integrity)。",
-      "source_id": "chunk_4",
-      "source_file": "ch07_習題解答.pdf",
-      "source_index": 9
-    }
-  },
-  {
-    "subject": {
-      "name": "攻擊者",
-      "type": "attacker",
-      "display_name": "攻擊者"
-    },
-    "relation": "can_exploit",
-    "object": {
-      "name": "程式語言本身的漏洞",
-      "type": "vulnerability",
-      "display_name": "程式語言本身的漏洞"
-    },
-    "reasoning": "文本提到「利用程式語言本身的漏洞」來造成堆疊溢位，雖然未明寫「攻擊者」一詞，但「攻擊法」隱含了攻擊者的行為。",
-    "source_id": "chunk_4",
-    "source_file": "ch07_習題解答.pdf",
-    "source_index": 7,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，程式語言本身的漏洞 (vulnerability) 是 'vulnerability' 的合理實例，'can_exploit' 是描述攻擊者與漏洞之間關係的合理屬性。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用，因為三元組中沒有同時具有攻擊者和安全團隊的身分。規則2：不適用，因為三元組中沒有提到mitigates動作。規則3：不適用，因為三元組中的主體類別是攻擊者，而不是漏洞。規則4：不適用，因為三元組中沒有提到principle。規則5：不適用，因為三元組中的關係不是uses。規則6：不適用，因為三元組中的關係不是deployed_in。規則7：不適用，因為三元組中的關係不是generates。規則8：不適用，因為三元組中的關係不是controls，但can_exploit與控制相關，需進一步分析。進一步分析後發現，can_exploit與控制相關，但攻擊者可以利用漏洞，因此不違反規則8。",
-        "response": "correct",
-        "reason": "三元組中的攻擊者可以利用程式語言本身的漏洞，沒有違反任何規則。因此，該三元組是合法的。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與受體皆有相近的同義詞對照，但無直接完全等價同義詞關係，惟主體「攻擊者」與「attacker」完全匹配，受體「漏洞」與「vulnerability」同義",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體與受體皆無直接同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "攻擊者",
-        "type": "attacker"
-      },
-      "relation": "can_exploit",
-      "object": {
-        "name": "程式語言本身的漏洞",
-        "type": "vulnerability"
-      },
-      "reasoning": "文本提到「利用程式語言本身的漏洞」來造成堆疊溢位，雖然未明寫「攻擊者」一詞，但「攻擊法」隱含了攻擊者的行為。",
-      "source_id": "chunk_4",
-      "source_file": "ch07_習題解答.pdf",
-      "source_index": 7
-    }
-  },
-  {
-    "subject": {
-      "name": "堆疊",
+      "name": "堆疊 (stack)",
       "type": "feature",
-      "display_name": "堆疊"
+      "display_name": "堆疊 (Stack)"
     },
     "relation": "uses",
     "object": {
-      "name": "暫存記憶",
+      "name": "使用者資料",
       "type": "data",
-      "display_name": "暫存記憶"
+      "display_name": "使用者資料"
     },
-    "reasoning": "文本提到暫存記憶存在堆疊中，在 Schema 中 feature 與 data 的關聯使用 uses 來描述其承載或使用關係。",
+    "reasoning": "文本指出緩衝區（在記憶體中）用來存放使用者資料，且參數、暫存記憶等存在堆疊中，符合 feature uses data 的定義。",
     "source_id": "chunk_4",
     "source_file": "ch07_習題解答.pdf",
-    "source_index": 8,
+    "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "堆疊 (feature) 使用 暫存記憶 (data) 是合理的，因為堆疊可以使用暫存記憶來暫存資料，符合資安領域的常見實踐。",
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "堆疊 (Stack) 是 'feature' 的合理實例，使用者資料是 'data' 的合理實例。",
         "response": "correct",
-        "reason": "主體、關係和受體都符合預先定義的類別和屬性清單，並且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，給定的三元組中，主體是堆疊（類別：feature），而非data，因此不觸發規則5的違規條件。其他規則與給定的三元組無直接關聯。",
-        "response": "correct",
-        "reason": "由於三元組中的主體是堆疊（類別：feature），使用暫存記憶（類別：data）不違反任何語義限制清單中的規則。因此，該三元組是合法的。"
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體類別為 feature，與規則5不符，且關係為 uses，受體類別為 data。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體類別為 feature，與規則5不符，且關係為 uses，受體類別為 data。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
       },
       "step_2": {
-        "granularity_analysis": "堆疊與堆積之間存在語義相似性，但非完全等價同義詞；堆疊與緩衝區之間可能存在廣義/狹義從屬關係，但無法確定；暫存記憶與資料之間可能存在語義相似性，但非完全等價同義詞。",
         "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "無法確定主體或受體與現有近似資源清單中的資源之間的完全等價同義詞關係，依據不確定時預設保留原則，判定為 correct。"
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "堆疊",
+        "name": "堆疊 (Stack)",
         "type": "feature"
       },
       "relation": "uses",
       "object": {
-        "name": "暫存記憶",
+        "name": "使用者資料",
         "type": "data"
       },
-      "reasoning": "文本提到暫存記憶存在堆疊中，在 Schema 中 feature 與 data 的關聯使用 uses 來描述其承載或使用關係。",
+      "reasoning": "文本指出緩衝區（在記憶體中）用來存放使用者資料，且參數、暫存記憶等存在堆疊中，符合 feature uses data 的定義。",
       "source_id": "chunk_4",
       "source_file": "ch07_習題解答.pdf",
-      "source_index": 8
+      "source_index": 3
     }
   }
 ]

@@ -1,22 +1,7 @@
 [
   {
     "subject": {
-      "name": "Enigma",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "加密工具",
-      "type": "tool"
-    },
-    "reasoning": "文本提到 Enigma 是一台加密機器，將其視為一個系統 (system)，而該系統包含執行加密功能的工具 (tool)。符合 ('system', 'has_a', 'tool')。",
-    "source_id": "chunk_2",
-    "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "加密工具",
+      "name": "凱撒加密法",
       "type": "tool"
     },
     "relation": "has_a",
@@ -24,7 +9,22 @@
       "name": "加密",
       "type": "function"
     },
-    "reasoning": "加密工具的核心能力是執行加密動作。符合 ('tool', 'has_a', 'function')。",
+    "reasoning": "文本提到凱撒加密法是一種單字母替換的密碼系統，其核心目的是執行加密功能。根據 Schema，工具 (tool) 可以具有功能 (function)。",
+    "source_id": "chunk_2",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "Enigma",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "function"
+    },
+    "reasoning": "Enigma 被描述為一種加密機器，用於傳達作戰訊息，因此它是一個提供加密功能的工具。",
     "source_id": "chunk_2",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 2
@@ -36,32 +36,17 @@
     },
     "relation": "can_analyze",
     "object": {
-      "name": "Enigma",
-      "type": "system"
+      "name": "作戰訊息",
+      "type": "data"
     },
-    "reasoning": "文本提到 Enigma 在戰爭後期被盟軍破解，破解過程涉及對該系統的分析。將盟軍視為防禦/分析方 (securityTeam)。符合 ('securityTeam', 'can_analyze', 'system')。",
+    "reasoning": "文本提到 Enigma 的訊息被盟軍破解。破解加密訊息在本質上是安全團隊對加密資料進行分析。符合 (securityTeam, can_analyze, data)。",
     "source_id": "chunk_2",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "凱撒加密法",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "替換工具",
-      "type": "tool"
-    },
-    "reasoning": "文本將其描述為一種「密碼系統」，且基於單字母替換。將其視為系統 (system) 並包含一個替換工具 (tool)。符合 ('system', 'has_a', 'tool')。",
-    "source_id": "chunk_2",
-    "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "替換工具",
+      "name": "DES",
       "type": "tool"
     },
     "relation": "has_a",
@@ -69,37 +54,52 @@
       "name": "加密",
       "type": "function"
     },
-    "reasoning": "替換工具是用於實現加密功能的手段。符合 ('tool', 'has_a', 'function')。",
+    "reasoning": "DES (資料加密標準) 是一種加密演算法，其目的是實現加密功能。",
+    "source_id": "chunk_2",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "電腦系統",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "DES",
+      "type": "tool"
+    },
+    "reasoning": "文本指出 DES 作為電腦系統和網路應用的加密標準，意即電腦系統中採用/包含此加密工具。符合 (system, has_a, tool)。",
     "source_id": "chunk_2",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "資料加密標準 (DES)",
-      "type": "policy"
+      "name": "AES",
+      "type": "tool"
     },
-    "relation": "mitigates",
+    "relation": "has_a",
     "object": {
-      "name": "個資外洩",
-      "type": "risk"
+      "name": "加密",
+      "type": "function"
     },
-    "reasoning": "DES 作為國家標準 (policy)，其目的是透過加密來降低資料被非法讀取的風險 (risk)。符合 ('policy', 'mitigates', 'risk')。",
+    "reasoning": "AES (新一代加密標準) 是用來取代 DES 的加密演算法，同樣提供加密功能。",
     "source_id": "chunk_2",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "新一代加密標準 (AES)",
-      "type": "policy"
+      "name": "AES",
+      "type": "tool"
     },
     "relation": "mitigates",
     "object": {
-      "name": "個資外洩",
+      "name": "安全風險",
       "type": "risk"
     },
-    "reasoning": "AES 是為了取代 DES 並提升安全性而公布的標準 (policy)，旨在緩解安全風險 (risk)。符合 ('policy', 'mitigates', 'risk')。",
+    "reasoning": "文本提到基於安全性的考量而公布 AES 以取代 DES，這意味著 AES 旨在緩解舊標準可能帶來的安全風險。符合 (tool, mitigates, risk)。",
     "source_id": "chunk_2",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 7
@@ -114,37 +114,37 @@
       "name": "加密",
       "type": "function"
     },
-    "reasoning": "演算法在實作上可視為一種邏輯工具 (tool)，其提供加密與解密的功能 (function)。符合 ('tool', 'has_a', 'function')。",
+    "reasoning": "非對稱金鑰演算法是一種加密工具，提供加密功能。",
     "source_id": "chunk_2",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 8
   },
   {
     "subject": {
-      "name": "數位簽章",
+      "name": "非對稱金鑰演算法",
       "type": "tool"
     },
     "relation": "has_a",
     "object": {
-      "name": "身分驗證",
+      "name": "解密",
       "type": "function"
     },
-    "reasoning": "數位簽章是一種技術工具 (tool)，用來實現身分驗證與資料驗證的功能 (function)。符合 ('tool', 'has_a', 'function')。",
+    "reasoning": "文本明確提到非對稱金鑰演算法涉及加密和解密使用不同的金鑰，因此它同時具有這兩種功能。",
     "source_id": "chunk_2",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 9
   },
   {
     "subject": {
-      "name": "網路應用",
-      "type": "app"
+      "name": "數位簽章",
+      "type": "technique"
     },
-    "relation": "is_part_of",
+    "relation": "can_analyze",
     "object": {
-      "name": "電腦系統",
-      "type": "system"
+      "name": "資料",
+      "type": "data"
     },
-    "reasoning": "文本提到 DES 作為電腦系統和網路應用的標準，邏輯上網路應用程式 (app) 是電腦系統 (system) 的一部分。符合 ('app', 'is_part_of', 'system')。",
+    "reasoning": "數位簽章用於「資料驗證」，驗證過程即是對資料進行分析以確認其完整性或來源。符合 (technique, can_analyze, data)。",
     "source_id": "chunk_2",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 10

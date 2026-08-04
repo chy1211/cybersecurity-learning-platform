@@ -1,9 +1,9 @@
 [
   {
     "subject": {
-      "name": "測試",
+      "name": "設計",
       "type": "technique",
-      "display_name": "測試"
+      "display_name": "設計"
     },
     "relation": "is_part_of",
     "object": {
@@ -11,249 +11,41 @@
       "type": "technique",
       "display_name": "瀑布模式"
     },
-    "reasoning": "文本將瀑布模式描述為一種系統發展流程，而『測試』是該流程中的一個具體階段。在本體論中，開發模式與其階段均可視為 technique，且符合 ('technique', 'is_part_of', 'technique') 的 Schema。",
-    "source_id": "chunk_2",
-    "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 1,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
-        "step_2_alignment_check": "測試與瀑布模式皆為合理的 'technique' 實例，考慮到資安領域的同義詞、縮寫與翻譯寬容原則。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'is_part_of'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
-        "response": "correct",
-        "reason": "三元組中的關係 'is_part_of' 沒有在語義限制清單中被明確限制，且主體和受體的類別與給定的規則不衝突。因此，根據無罪推定原則，判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體 \"測試\" 與 Ldr 中的 \"軟體測試\"、\"滲透測試\" 等相關，但非完全等價同義詞；受體 \"瀑布模式\" 在 Ldr 中出現，且完全匹配。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，主體與受體皆不完全等價同義詞，且無廣義/狹義從屬關係，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "測試",
-        "type": "technique"
-      },
-      "relation": "is_part_of",
-      "object": {
-        "name": "瀑布模式",
-        "type": "technique"
-      },
-      "reasoning": "文本將瀑布模式描述為一種系統發展流程，而『測試』是該流程中的一個具體階段。在本體論中，開發模式與其階段均可視為 technique，且符合 ('technique', 'is_part_of', 'technique') 的 Schema。",
-      "source_id": "chunk_2",
-      "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 1
-    }
-  },
-  {
-    "subject": {
-      "name": "風險分析",
-      "type": "function",
-      "display_name": "風險分析"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "大型系統",
-      "type": "system",
-      "display_name": "大型系統"
-    },
-    "reasoning": "風險分析是螺旋模式中的一個核心功能，用於對可行方案進行評估並解決系統存在的風險，符合 ('function', 'can_analyze', 'system') 的 Schema。",
-    "source_id": "chunk_2",
-    "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 3,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'function'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "風險分析 (Risk Analysis) 是 function 的合理實例，大型系統 (Large System) 是 system 的合理實例，且 'can_analyze' 關係在資安領域中是合理的。",
-        "response": "correct",
-        "reason": "風險分析可以分析大型系統，完全符合預先定義的類別與屬性清單。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_analyze'，而主體是 '風險分析'，這不直接違反任何給定的規則。",
-        "response": "correct",
-        "reason": "三元組不直接違反語義限制清單中的任何規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與受體皆有相近的資源存在於 Ldr 中，但需進一步判定同義詞關係與子類型關係。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，主體 '風險分析' 與 '風險管理' 雖有相似性，但無法確認為完全同義詞；受體 '大型系統' 與 '系統' 亦有廣義狹義關係，但不應合併，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "風險分析",
-        "type": "function"
-      },
-      "relation": "can_analyze",
-      "object": {
-        "name": "大型系統",
-        "type": "system"
-      },
-      "reasoning": "風險分析是螺旋模式中的一個核心功能，用於對可行方案進行評估並解決系統存在的風險，符合 ('function', 'can_analyze', 'system') 的 Schema。",
-      "source_id": "chunk_2",
-      "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 3
-    }
-  },
-  {
-    "subject": {
-      "name": "瀑布模式",
-      "type": "technique",
-      "display_name": "瀑布模式"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "螺旋模式",
-      "type": "technique",
-      "display_name": "螺旋模式"
-    },
-    "reasoning": "文本提到螺旋模式的第三階段（發展與驗證）會『應用瀑布模式進行發展與測試』，這意味著瀑布模式被整合為螺旋模式的一個子流程，符合 ('technique', 'is_part_of', 'technique') 的 Schema。",
-    "source_id": "chunk_2",
-    "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 4,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
-        "step_2_alignment_check": "瀑布模式與螺旋模式都是軟件開發方法，合理對齊於 'technique' 類別，且 'is_part_of' 關係在此語境下合理。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：無關，規則2：無關，規則3：無關，規則4：無關，規則5：無關，規則6：無關，規則7：無關，規則8：無關。三元組中的關係 'is_part_of' 不在任何規則中被明確限制或定義，因此無法直接判定為違規。",
-        "response": "correct",
-        "reason": "由於三元組不觸發任何語義限制清單中的規則，且無明確違反項目，因此判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "瀑布模式和螺旋模式是兩種不同的軟體開發技術，沒有明確的同義詞關係或從屬關係。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，兩個實體沒有同義詞關係或從屬關係，預設保留為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "瀑布模式",
-        "type": "technique"
-      },
-      "relation": "is_part_of",
-      "object": {
-        "name": "螺旋模式",
-        "type": "technique"
-      },
-      "reasoning": "文本提到螺旋模式的第三階段（發展與驗證）會『應用瀑布模式進行發展與測試』，這意味著瀑布模式被整合為螺旋模式的一個子流程，符合 ('technique', 'is_part_of', 'technique') 的 Schema。",
-      "source_id": "chunk_2",
-      "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 4
-    }
-  },
-  {
-    "subject": {
-      "name": "cmmi",
-      "type": "policy",
-      "display_name": "CMMI"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "風險",
-      "type": "risk",
-      "display_name": "風險"
-    },
-    "reasoning": "CMMI 作為一套整合模式與指引（policy），旨在透過流程改善目標與最佳實踐來降低軟體工程開發中的不確定性與風險，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
-    "source_id": "chunk_2",
-    "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 5,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "CMMI 是一種 'policy'，風險是 'risk' 的合理實例，'mitigates' 關係在資安領域中指的是減輕或緩解風險，因此語意對齊。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 CMMI 類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
-        "response": "correct",
-        "reason": "三元組符合規則2的允許條件，且未發現其他明確且直接的違反項目。因此，根據無罪推定原則，判定為合法。"
-      },
-      "step_2": {
-        "granularity_analysis": "受體 \"風險\" 與 Ldr 中的 \"風險\" 完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "風險",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "CMMI",
-        "type": "policy"
-      },
-      "relation": "mitigates",
-      "object": {
-        "name": "風險",
-        "type": "risk"
-      },
-      "reasoning": "CMMI 作為一套整合模式與指引（policy），旨在透過流程改善目標與最佳實踐來降低軟體工程開發中的不確定性與風險，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
-      "source_id": "chunk_2",
-      "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 5
-    }
-  },
-  {
-    "subject": {
-      "name": "螺旋模式",
-      "type": "technique",
-      "display_name": "螺旋模式"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "大型系統",
-      "type": "system",
-      "display_name": "大型系統"
-    },
-    "reasoning": "文本明確指出螺旋模式適用於『大型系統級的軟體開發』，且其核心流程包含風險分析與評估，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+    "reasoning": "文本提到瀑布模式包含分析、設計、實作、測試等階段，因此將設計視為瀑布模式這一開發技術中的一個子階段。",
     "source_id": "chunk_2",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "螺旋模式 (Spiral Model) 是一種軟體開發方法，可以視為 'technique' 的實例；大型系統 (Large System) 可以被分析，與 'system' 類別相符，且 'can_analyze' 關係在資安領域中是合理的，因為某些技術可以分析系統。",
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '設計' 可被視為 'technique' 的合理實例；受體 '瀑布模式' 可被視為 'technique' 的合理實例。",
         "response": "correct",
-        "reason": "螺旋模式與大型系統之間的 'can_analyze' 關係在資安領域中是合理的，且符合預先定義的類別與屬性清單。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "step_1_rule_matching": "無明確匹配的規則，檢查規則1~8後均未發現直接違反的項目。",
         "response": "correct",
-        "reason": "三元組（螺旋模式 can_analyze 大型系統）未觸發語義限制清單中的任何規則，故判定為合法。"
+        "reason": "未發現明確且直接的違反項目，依無罪推定原則判定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "螺旋模式與瀑布模式是不同軟件開發技術，螺旋模式與瀑布模式之間沒有明確的同義詞關係；大型系統與系統之間存在廣義/狹義從屬關係，但根據規則3，禁止合併",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據規則3，禁止合併廣義/狹義從屬關係的實體"
+        "reason": "主體與受體均為資安領域中的技術類別，且無法確認為同義詞或子類型關係，因此預設保留原名。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "螺旋模式",
+        "name": "設計",
         "type": "technique"
       },
-      "relation": "can_analyze",
+      "relation": "is_part_of",
       "object": {
-        "name": "大型系統",
-        "type": "system"
+        "name": "瀑布模式",
+        "type": "technique"
       },
-      "reasoning": "文本明確指出螺旋模式適用於『大型系統級的軟體開發』，且其核心流程包含風險分析與評估，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+      "reasoning": "文本提到瀑布模式包含分析、設計、實作、測試等階段，因此將設計視為瀑布模式這一開發技術中的一個子階段。",
       "source_id": "chunk_2",
       "source_file": "第11章 應用系統發展管理_e5.pdf",
       "source_index": 2
@@ -261,54 +53,418 @@
   },
   {
     "subject": {
-      "name": "雛型",
-      "type": "tool",
-      "display_name": "雛型"
+      "name": "分析",
+      "type": "technique",
+      "display_name": "分析"
     },
     "relation": "is_part_of",
     "object": {
-      "name": "大型系統",
-      "type": "system",
-      "display_name": "大型系統"
+      "name": "瀑布模式",
+      "type": "technique",
+      "display_name": "瀑布模式"
     },
-    "reasoning": "雛型（Prototype）是開發大型系統過程中的初步實作版本，在實體分類中可視為開發工具或系統的初步形式，符合 ('tool', 'is_part_of', 'system') 的 Schema。",
+    "reasoning": "文本提到瀑布模式包含分析、設計、實作、測試等階段，因此將分析視為瀑布模式這一開發技術中的一個子階段。",
+    "source_id": "chunk_2",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '分析' 是 'technique' 的合理實例，受體 '瀑布模式' 也是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為分析 (類別: technique)，關係為 is_part_of，受體為瀑布模式 (類別: technique)，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '分析 (analysis)' 名稱完全相同，受體 '瀑布模式' 與 Ldr 中的資源 '瀑布模式' 名稱完全相同，兩者均為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源名稱完全相同，受體與 Ldr 中的資源名稱完全相同，無需進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "分析",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "瀑布模式",
+        "type": "technique"
+      },
+      "reasoning": "文本提到瀑布模式包含分析、設計、實作、測試等階段，因此將分析視為瀑布模式這一開發技術中的一個子階段。",
+      "source_id": "chunk_2",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "實作",
+      "type": "technique",
+      "display_name": "實作"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "瀑布模式",
+      "type": "technique",
+      "display_name": "瀑布模式"
+    },
+    "reasoning": "文本提到瀑布模式包含分析、設計、實作、測試等階段，因此將實作視為瀑布模式這一開發技術中的一個子階段。",
+    "source_id": "chunk_2",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實作 (technique) 可被視為瀑布模式 (technique) 的合理實例，兩者皆為軟體開發方法論的實踐或技術，故語意對齊。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的規範，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體是實作 (類別: technique)，關係是 is_part_of，受體是瀑布模式 (類別: technique)，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間的關係是不同的實體",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實作與瀑布模式是不同的軟體開發技術，無法合併為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實作",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "瀑布模式",
+        "type": "technique"
+      },
+      "reasoning": "文本提到瀑布模式包含分析、設計、實作、測試等階段，因此將實作視為瀑布模式這一開發技術中的一個子階段。",
+      "source_id": "chunk_2",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "決定目標",
+      "type": "technique",
+      "display_name": "決定目標"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "螺旋模式",
+      "type": "technique",
+      "display_name": "螺旋模式"
+    },
+    "reasoning": "文本明確指出螺旋模式包含四個階段，其中第一階段為決定目標、可行方案與限制。",
+    "source_id": "chunk_2",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '決定目標' 與類別 'technique' 合理對齊，受體名稱 '螺旋模式' 與類別 'technique' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：無關。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "螺旋模式與瀑布模式是軟體開發中的兩種不同的開發模型，螺旋模式著重於風險管理和迭代開發，而瀑布模式則是線性的開發方法，兩者之間沒有直接的同義詞關係，但螺旋模式與瀑布模式都屬於軟體開發技術（technique）",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "螺旋模式與瀑布模式是不同的軟體開發模型，無法合併為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "決定目標",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "螺旋模式",
+        "type": "technique"
+      },
+      "reasoning": "文本明確指出螺旋模式包含四個階段，其中第一階段為決定目標、可行方案與限制。",
+      "source_id": "chunk_2",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "風險分析",
+      "type": "technique",
+      "display_name": "風險分析"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "螺旋模式",
+      "type": "technique",
+      "display_name": "螺旋模式"
+    },
+    "reasoning": "文本明確指出螺旋模式包含四個階段，其中第二階段為風險分析與開發雛型。",
     "source_id": "chunk_2",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
     "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "雛型 (tool) 可被視為工具的一種實例，大型系統 (system) 也是一個合理的系統實例，'is_part_of' 關係在資安領域中描述工具與系統之間的關係是合理的。",
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "風險分析是技術的合理實例，螺旋模式是技術的合理實例。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：當關係為 deployed_in 時，受體的類別必須是 system，然而給定的關係是 is_part_of，不是 deployed_in，因此不違反規則6。檢查規則7：不適用。檢查規則8：不適用。另外，關係 is_part_of 的主體是 tool，受體是 system，這符合一般的系統組成邏輯，沒有明顯違反給定的規則。",
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8 都不適用於此三元組，因為主體是風險分析，關係是 is_part_of，受體是螺旋模式，且主體類別是 technique，受體類別也是 technique。",
         "response": "correct",
-        "reason": "三元組中的主體和受體之間的關係是合理的，沒有違反給定的語義限制清單中的任何規則。"
+        "reason": "無法找到任何明確且直接的違反項目，故判定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "受體與 Ldr 中的「大型系統」完全等價同義詞",
+        "granularity_analysis": "主體與 Ldr 中的「風險評估」、「風險評鑑」、「風險識別」、「分析」等資源存在一定程度的相似性，但無法確定完全等價同義詞關係；受體「螺旋模式」在 Ldr 中存在完全相同的名稱。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+        "reason": "無法確定主體與 Ldr 中的資源之間的完全等價同義詞關係，且受體在 Ldr 中存在完全相同的名稱，因此判定為 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "雛型",
-        "type": "tool"
+        "name": "風險分析",
+        "type": "technique"
       },
       "relation": "is_part_of",
       "object": {
-        "name": "大型系統",
-        "type": "system"
+        "name": "螺旋模式",
+        "type": "technique"
       },
-      "reasoning": "雛型（Prototype）是開發大型系統過程中的初步實作版本，在實體分類中可視為開發工具或系統的初步形式，符合 ('tool', 'is_part_of', 'system') 的 Schema。",
+      "reasoning": "文本明確指出螺旋模式包含四個階段，其中第二階段為風險分析與開發雛型。",
       "source_id": "chunk_2",
       "source_file": "第11章 應用系統發展管理_e5.pdf",
       "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "發展與驗證",
+      "type": "technique",
+      "display_name": "發展與驗證"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "螺旋模式",
+      "type": "technique",
+      "display_name": "螺旋模式"
+    },
+    "reasoning": "文本明確指出螺旋模式包含四個階段，其中第三階段為發展與驗證下一階層產品。",
+    "source_id": "chunk_2",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '發展與驗證' 可被視為 'technique' 的合理實例；受體 '螺旋模式' 可被視為 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8 均不適用於此三元組，因為主體類別是 technique、關係是 is_part_of、受體類別是 technique，無法觸發任何規則的限制條件。",
+        "response": "correct",
+        "reason": "無法觸發任何規則的限制條件，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「開發」具有高度相似性，但非完全等價同義詞；受體與 Ldr 中的「螺旋模式」完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「開發」雖然相似，但非完全等價同義詞；受體與 Ldr 中的「螺旋模式」完全相同，但根據規則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "發展與驗證",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "螺旋模式",
+        "type": "technique"
+      },
+      "reasoning": "文本明確指出螺旋模式包含四個階段，其中第三階段為發展與驗證下一階層產品。",
+      "source_id": "chunk_2",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "規劃下一階段",
+      "type": "technique",
+      "display_name": "規劃下一階段"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "螺旋模式",
+      "type": "technique",
+      "display_name": "螺旋模式"
+    },
+    "reasoning": "文本明確指出螺旋模式包含四個階段，其中第四階段為規劃下一階段。",
+    "source_id": "chunk_2",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '規劃下一階段' 可以被視為 'technique' 的合理實例，受體名稱 '螺旋模式' 也可以被視為 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8 都不適用於此三元組，因為它們的條件都不符合此三元組的屬性。",
+        "response": "correct",
+        "reason": "此三元組不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中的技術類別，且受體「螺旋模式」與 Ldr 中的「螺旋模式」完全相同，主體「規劃下一階段」與 Ldr 中的「設計階段」相似，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體非完全等價同義詞，且無法確認為廣義/狹義從屬關係，故預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "規劃下一階段",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "螺旋模式",
+        "type": "technique"
+      },
+      "reasoning": "文本明確指出螺旋模式包含四個階段，其中第四階段為規劃下一階段。",
+      "source_id": "chunk_2",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "瀑布模式",
+      "type": "technique",
+      "display_name": "瀑布模式"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "發展與驗證",
+      "type": "technique",
+      "display_name": "發展與驗證"
+    },
+    "reasoning": "文本提到在螺旋模式的發展與驗證階段中，「應用瀑布模式進行發展與測試」，因此瀑布模式被包含在該階段的執行流程中。",
+    "source_id": "chunk_2",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "瀑布模式是軟體開發方法的一種，屬於 'technique' 的合理實例；發展與驗證也是軟體開發過程的一部分，同樣屬於 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關；規則2：無關；規則3：無關；規則4：無關；規則5：無關；規則6：無關；規則7：無關；規則8：無關；",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無法觸發任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中的技術類別，且兩者之間存在著相似的概念關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體之間存在著相似的概念關係，但根據資安領域的知識圖譜，瀑布模式與發展與驗證是兩個不同的技術類別，無法合併為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "瀑布模式",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "發展與驗證",
+        "type": "technique"
+      },
+      "reasoning": "文本提到在螺旋模式的發展與驗證階段中，「應用瀑布模式進行發展與測試」，因此瀑布模式被包含在該階段的執行流程中。",
+      "source_id": "chunk_2",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "cmmi",
+      "type": "tool",
+      "display_name": "CMMI"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "流程改善",
+      "type": "function",
+      "display_name": "流程改善"
+    },
+    "reasoning": "CMMI 被描述為一套整合模式（在此視為管理工具/框架），其目的是訂立流程改善目標，因此 CMMI 具有流程改善的功能。",
+    "source_id": "chunk_2",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "CMMI 是一種工具（tool），流程改善是一種功能（function），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體 CMMI 是 tool，具有主動執行能力，且關係 has_a 不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認主體與受體之間的同義詞關係，且無法在現有近似資源清單中找到完全匹配的資源，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CMMI",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "流程改善",
+        "type": "function"
+      },
+      "reasoning": "CMMI 被描述為一套整合模式（在此視為管理工具/框架），其目的是訂立流程改善目標，因此 CMMI 具有流程改善的功能。",
+      "source_id": "chunk_2",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 10
     }
   }
 ]

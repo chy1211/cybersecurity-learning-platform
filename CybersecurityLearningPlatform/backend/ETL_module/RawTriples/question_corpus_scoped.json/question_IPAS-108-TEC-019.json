@@ -1,0 +1,77 @@
+[
+  {
+    "subject": {
+      "name": "SQL 查詢程式碼",
+      "type": "app"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "SQL Injection 漏洞",
+      "type": "vulnerability"
+    },
+    "reasoning": "題幹中的程式碼片段直接將使用者輸入 (request.getParameter) 拼接至 SQL 查詢字串中，這是一種典型的安全瑕疵，會導致系統暴露於 SQL Injection 漏洞之中。",
+    "source_id": "question_IPAS-108-TEC-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "SQL Injection 漏洞",
+      "type": "vulnerability"
+    },
+    "reasoning": "考題詢問如何達成 SQL Injection 攻擊，隱含了攻擊者可以利用 (exploit) 該程式碼中的漏洞來執行惡意操作。",
+    "source_id": "question_IPAS-108-TEC-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "SQL Injection 攻擊",
+      "type": "attack"
+    },
+    "reasoning": "攻擊者透過輸入特定的惡意字串來實作 (implements) SQL Injection 攻擊。",
+    "source_id": "question_IPAS-108-TEC-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "SQL Injection 攻擊",
+      "type": "attack"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "' or '1'='1",
+      "type": "tool"
+    },
+    "reasoning": "正確答案 D 提供了達成攻擊所需的特定 Payload (' or '1'='1')，此 Payload 在此情境下可視為執行攻擊所需的工具 (tool)。",
+    "source_id": "question_IPAS-108-TEC-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "SQL Injection 攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料",
+      "type": "data"
+    },
+    "reasoning": "SQL Injection 攻擊的目的通常是為了非法存取、修改或刪除資料庫中的資料，因此會對資料造成危害。",
+    "source_id": "question_IPAS-108-TEC-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5
+  }
+]

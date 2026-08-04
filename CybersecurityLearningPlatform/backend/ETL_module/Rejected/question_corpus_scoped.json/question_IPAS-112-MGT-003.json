@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "組織",
+      "type": "system",
+      "display_name": "組織"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資訊安全政策",
+      "type": "policy",
+      "display_name": "資訊安全政策"
+    },
+    "reasoning": "題幹與正確答案提到『資訊安全政策是資訊安全管理系統中的最高指導原則』且『建立的資訊安全政策必須與組織的目的及資安目標相容一致』。這隱含了組織（作為資安管理實體/securityTeam）實作並執行該資訊安全政策（policy）的行為，符合 Schema 中 ('securityTeam', 'implements', 'policy') 的定義。",
+    "source_id": "question_IPAS-112-MGT-003",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '組織' 合理對齊其類別 'securityTeam'，實體名稱 '資訊安全政策' 合理對齊其類別 'policy'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> implements -> policy (original: securityTeam -> implements -> policy)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "組織",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資訊安全政策",
+        "type": "policy"
+      },
+      "reasoning": "題幹與正確答案提到『資訊安全政策是資訊安全管理系統中的最高指導原則』且『建立的資訊安全政策必須與組織的目的及資安目標相容一致』。這隱含了組織（作為資安管理實體/securityTeam）實作並執行該資訊安全政策（policy）的行為，符合 Schema 中 ('securityTeam', 'implements', 'policy') 的定義。",
+      "source_id": "question_IPAS-112-MGT-003",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "產品階段",
+      "type": "system",
+      "display_name": "產品階段"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全隱患",
+      "type": "vulnerability",
+      "display_name": "安全性問題"
+    },
+    "reasoning": "題目討論在『產品階段』修正『安全性問題』的成本最高，這隱含了在產品部署後的系統環境（即產品階段的系統）中會暴露安全性問題（漏洞）。為了符合 Schema Edges 中 ('system', 'can_expose', 'vulnerability') 的定義，將『產品階段』視為生產環境系統，將『安全性問題』視為 vulnerability。",
+    "source_id": "question_IPAS-109-TEC-024",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '產品階段' 的類別 'system' 合理對齊，受體 '安全性問題' 的類別 'vulnerability' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 system，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "安全隱患",
+        "reason": "根據資安領域已知同義詞對照範例，安全性問題與安全隱患是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "產品階段",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全性問題",
+        "type": "vulnerability"
+      },
+      "reasoning": "題目討論在『產品階段』修正『安全性問題』的成本最高，這隱含了在產品部署後的系統環境（即產品階段的系統）中會暴露安全性問題（漏洞）。為了符合 Schema Edges 中 ('system', 'can_expose', 'vulnerability') 的定義，將『產品階段』視為生產環境系統，將『安全性問題』視為 vulnerability。",
+      "source_id": "question_IPAS-109-TEC-024",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "產品階段",
+      "type": "technique",
+      "display_name": "產品階段"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "系統發展生命週期 (sdlc)",
+      "type": "technique",
+      "display_name": "軟體開發生命週期 (SDLC)"
+    },
+    "reasoning": "題幹明確指出『產品階段』是『軟體開發生命週期 (SDLC)』中的一個階段。在本體論中，SDLC 是一種開發流程/方法論，屬於 technique，而其階段亦可視為該流程中的子技術或步驟，因此使用 is_part_of 關係。",
+    "source_id": "question_IPAS-109-TEC-024",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '產品階段' 可被視為 'technique' 的合理實例，受體 '軟體開發生命週期 (SDLC)' 也可被視為 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體均為資安領域中的技術類別，且受體與 Ldr 中的「系統發展生命週期 (sdlc)」高度相似，實際上是同一概念的不同稱呼。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "系統發展生命週期 (sdlc)",
+        "reason": "受體與 Ldr 中的「系統發展生命週期 (sdlc)」是同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "產品階段",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "軟體開發生命週期 (SDLC)",
+        "type": "technique"
+      },
+      "reasoning": "題幹明確指出『產品階段』是『軟體開發生命週期 (SDLC)』中的一個階段。在本體論中，SDLC 是一種開發流程/方法論，屬於 technique，而其階段亦可視為該流程中的子技術或步驟，因此使用 is_part_of 關係。",
+      "source_id": "question_IPAS-109-TEC-024",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

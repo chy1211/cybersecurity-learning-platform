@@ -1,142 +1,38 @@
 [
   {
     "subject": {
-      "name": "資訊部門",
-      "type": "securityTeam",
-      "display_name": "資訊部門"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "應用軟體開發與測試",
-      "type": "function",
-      "display_name": "應用軟體開發與測試"
-    },
-    "reasoning": "文本提到資訊部門負責設計、開發與測試應用軟體，這屬於一種職能執行，因此將資訊部門設為 securityTeam，將開發測試設為 function，關係為 implements。",
-    "source_id": "chunk_7",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 1,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "資訊部門 (securityTeam) 實施 (implements) 應用軟體開發與測試 (function) 在語意上是合理的，因為資訊部門可能會實施各種功能或系統，包括應用軟體開發與測試。",
-        "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且在語意上是合理的。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：不適用，因為三元組中的動作是 implements，不是 mitigates。檢查規則3：不適用，因為主體類別是 securityTeam，不是 vulnerability。檢查規則4：不適用，因為主體類別是 securityTeam，不是 principle。檢查規則5：不適用，因為關係是 implements，不是 uses。檢查規則6：不適用，因為關係是 implements，不是 deployed_in。檢查規則7：不適用，因為關係是 implements，不是 generates。檢查規則8：不適用，因為關係是 implements，不是 controls。",
-        "response": "correct",
-        "reason": "三元組中的主體是資訊部門（securityTeam），關係是 implements，受體是應用軟體開發與測試（function），這符合一般的資安實踐邏輯，沒有違反任何語義限制清單中的規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與受體分別與 Ldr 中的資源有高度相似度，但無直接同義詞關係",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，無法直接判定為同義詞或廣義/狹義從屬關係，故預設保留。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "資訊部門",
-        "type": "securityTeam"
-      },
-      "relation": "implements",
-      "object": {
-        "name": "應用軟體開發與測試",
-        "type": "function"
-      },
-      "reasoning": "文本提到資訊部門負責設計、開發與測試應用軟體，這屬於一種職能執行，因此將資訊部門設為 securityTeam，將開發測試設為 function，關係為 implements。",
-      "source_id": "chunk_7",
-      "source_file": "ch19_習題解答.pdf",
-      "source_index": 1
-    }
-  },
-  {
-    "subject": {
-      "name": "雲端服務",
-      "type": "system",
-      "display_name": "雲端服務"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "安全防護缺失",
-      "type": "vulnerability",
-      "display_name": "安全防護缺失"
-    },
-    "reasoning": "文本提到雲端服務若缺少安全防護會揭露風險，這代表系統存在漏洞/弱點，符合 (\"system\", \"can_expose\", \"vulnerability\")。",
-    "source_id": "chunk_7",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 4,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "雲端服務 (cloud service) 是系統 (system) 的合理實例，安全防護缺失 (security vulnerability) 是漏洞 (vulnerability) 的合理實例，'can_expose' 的語意與雲端服務可能暴露安全漏洞的概念相符。",
-        "response": "correct",
-        "reason": "雲端服務與安全防護缺失的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體類別為system，關係為can_expose，受體為vulnerability，未觸發其他規則的違規條件。",
-        "response": "correct",
-        "reason": "三元組符合規則3的特例允許，且未違反其他規則。因此，該三元組不違反語義限制清單中的任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體「雲端服務」與 Ldr 中的「雲端服務」完全相同，受體「安全防護缺失」與 Ldr 中的「安全隱患」或「系統弱點」可視為同義詞，但需注意「安全防護缺失」更接近「漏洞」或「弱點」的概念，與「安全隱患」或「系統弱點」有相似之處，但不完全相同。然而，考慮到「安全防護缺失」與「漏洞」或「弱點」在資安領域的使用習慣，兩者可被視為同一概念的不同表達。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據資安領域已知同義詞對照範例，雖然「安全防護缺失」與「安全隱患」或「系統弱點」有相似之處，但不完全相同，且無法直接判定為 duplicate，因此預設保留，判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "雲端服務",
-        "type": "system"
-      },
-      "relation": "can_expose",
-      "object": {
-        "name": "安全防護缺失",
-        "type": "vulnerability"
-      },
-      "reasoning": "文本提到雲端服務若缺少安全防護會揭露風險，這代表系統存在漏洞/弱點，符合 (\"system\", \"can_expose\", \"vulnerability\")。",
-      "source_id": "chunk_7",
-      "source_file": "ch19_習題解答.pdf",
-      "source_index": 4
-    }
-  },
-  {
-    "subject": {
       "name": "非生產環境",
       "type": "system",
       "display_name": "非生產環境"
     },
     "relation": "can_expose",
     "object": {
-      "name": "系統弱點",
+      "name": "漏洞",
       "type": "vulnerability",
-      "display_name": "系統弱點"
+      "display_name": "弱點"
     },
-    "reasoning": "文本指出非生產環境同樣存在風險。根據 Schema，system 不能直接連到 risk，必須透過 can_expose 連結到 vulnerability，再由 vulnerability 連結到 risk。此處萃取系統暴露弱點的關聯。",
+    "reasoning": "文本提到非生產環境存在風險，且轉移到雲端後更揭露其風險。在本體論中，系統(system)透過暴露弱點(vulnerability)來導致風險，因此萃取此關聯。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 2,
+    "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "主體 '非生產環境' 可被視為 'system' 的合理實例，受體 '系統弱點' 可被視為 'vulnerability' 的合理實例，關係 'can_expose' 在資安領域中是合理的。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '非生產環境' 可被視為系統的一部分，受體 '弱點' 是資安領域中常見的與 'vulnerability' 同義的詞彙。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：允許 vulnerability 發起 'can_expose' 動作，符合此規則。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組中的主體為非生產環境，關係為 can_expose，受體為系統弱點，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+        "reason": "主體類別為 system，符合規則3的特例允許，且關係為 can_expose，受體類別為 vulnerability，無法觸發規則3的限制。"
       },
       "step_2": {
-        "granularity_analysis": "受體與現有近似資源清單中的「系統弱點」和「弱點」均指同一概念，屬於同義詞重複",
-        "response": "correct",
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
         "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據資安領域已知同義詞對照範例，「弱點」是「漏洞」、「脆弱性」的同義詞，與「系統弱點」指稱同一概念，但因為「系統弱點」是「弱點」的子類型，依據【廣義/狹義一律保留】判斷準則，判定為 correct。"
+        "standard_object": "漏洞",
+        "reason": "根據資安領域已知同義詞對照範例，弱點與漏洞是同義詞。"
       }
     },
     "original_raw_triple": {
@@ -146,205 +42,49 @@
       },
       "relation": "can_expose",
       "object": {
-        "name": "系統弱點",
+        "name": "弱點",
         "type": "vulnerability"
       },
-      "reasoning": "文本指出非生產環境同樣存在風險。根據 Schema，system 不能直接連到 risk，必須透過 can_expose 連結到 vulnerability，再由 vulnerability 連結到 risk。此處萃取系統暴露弱點的關聯。",
+      "reasoning": "文本提到非生產環境存在風險，且轉移到雲端後更揭露其風險。在本體論中，系統(system)透過暴露弱點(vulnerability)來導致風險，因此萃取此關聯。",
       "source_id": "chunk_7",
       "source_file": "ch19_習題解答.pdf",
-      "source_index": 2
+      "source_index": 1
     }
   },
   {
     "subject": {
-      "name": "企業用戶",
-      "type": "user",
-      "display_name": "企業用戶"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "雲端服務",
-      "type": "system",
-      "display_name": "雲端服務"
-    },
-    "reasoning": "文本提到企業用戶將環境轉移到雲端，表示使用者使用了雲端系統，符合 (\"user\", \"uses\", \"system\")。",
-    "source_id": "chunk_7",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 3,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "企業用戶 (user) 是 'user' 的合理實例，雲端服務 (system) 是 'system' 的合理實例，關係 'uses' 在此語境下是合理的。",
-        "response": "correct",
-        "reason": "企業用戶使用雲端服務的三元組完全符合預先定義的類別與屬性清單。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，三元組不觸發任何違規。",
-        "response": "correct",
-        "reason": "三元組中的主體是企業用戶，關係是uses，受體是雲端服務，沒有違反任何語義限制清單中的規則。因此，該三元組是合法的。"
-      },
-      "step_2": {
-        "granularity_analysis": "企業用戶與用戶、企業等近似資源存在同義詞關係，雲端服務與雲端運算服務、雲端環境等近似資源存在同義詞關係",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據同義詞判定準則，企業用戶與用戶、企業等近似資源存在同義詞關係，但根據廣義/狹義一律保留的判斷準則，無法合併，因此預設保留。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "企業用戶",
-        "type": "user"
-      },
-      "relation": "uses",
-      "object": {
-        "name": "雲端服務",
-        "type": "system"
-      },
-      "reasoning": "文本提到企業用戶將環境轉移到雲端，表示使用者使用了雲端系統，符合 (\"user\", \"uses\", \"system\")。",
-      "source_id": "chunk_7",
-      "source_file": "ch19_習題解答.pdf",
-      "source_index": 3
-    }
-  },
-  {
-    "subject": {
-      "name": "資訊探測",
-      "type": "attack",
-      "display_name": "資訊探測"
-    },
-    "relation": "can_harm",
-    "object": {
-      "name": "發展環境",
-      "type": "system",
-      "display_name": "發展環境"
-    },
-    "reasoning": "文本將對於資訊取得的探測視為一種風險/攻擊行為，會危害發展環境，符合 (\"attack\", \"can_harm\", \"system\")。",
-    "source_id": "chunk_7",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 6,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "資訊探測 (attack) 可能對發展環境 (system) 造成傷害，符合語意對齊，且 '資訊探測' 是 'attack' 的合理實例，同樣 '發展環境' 是 'system' 的合理實例。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_harm'，發現無直接相關規則限制主體 '資訊探測' 的類別 'attack' 與受體 '發展環境' 的類別 'system' 的組合。",
-        "response": "correct",
-        "reason": "三元組 '資訊探測'、'can_harm'、'發展環境' 未觸發語義限制清單中的任何規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "發展環境與發展環境為完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【前提確認】，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "資訊探測",
-        "type": "attack"
-      },
-      "relation": "can_harm",
-      "object": {
-        "name": "發展環境",
-        "type": "system"
-      },
-      "reasoning": "文本將對於資訊取得的探測視為一種風險/攻擊行為，會危害發展環境，符合 (\"attack\", \"can_harm\", \"system\")。",
-      "source_id": "chunk_7",
-      "source_file": "ch19_習題解答.pdf",
-      "source_index": 6
-    }
-  },
-  {
-    "subject": {
-      "name": "大數據技術",
-      "type": "system",
-      "display_name": "大數據技術"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "volume (資料量)",
-      "type": "feature",
-      "display_name": "Volume (資料量)"
-    },
-    "reasoning": "大數據的 4V 是其基本特性。將大數據技術視為一個整體系統，其特性為 feature，符合 (\"system\", \"has_a\", \"feature\")。",
-    "source_id": "chunk_7",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 7,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "大數據技術 (Big Data) 是 'system' 的合理實例，Volume (資料量) 是 'feature' 的合理實例，符合語意對齊與同義詞寬容原則。",
-        "response": "correct",
-        "reason": "大數據技術與 Volume 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體類別是 system，不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則沒有發現明確違反。",
-        "response": "correct",
-        "reason": "三元組中的主體和關係沒有觸發任何語義限制清單中的規則，因此判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "不相關",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體與受體皆不在近似資源清單中，且無同義詞關係，依據判斷準則預設保留。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "大數據技術",
-        "type": "system"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "Volume (資料量)",
-        "type": "feature"
-      },
-      "reasoning": "大數據的 4V 是其基本特性。將大數據技術視為一個整體系統，其特性為 feature，符合 (\"system\", \"has_a\", \"feature\")。",
-      "source_id": "chunk_7",
-      "source_file": "ch19_習題解答.pdf",
-      "source_index": 7
-    }
-  },
-  {
-    "subject": {
-      "name": "外部攻擊",
+      "name": "攻擊",
       "type": "attack",
       "display_name": "外部攻擊"
     },
     "relation": "can_harm",
     "object": {
-      "name": "發展環境",
+      "name": "非生產環境",
       "type": "system",
-      "display_name": "發展環境"
+      "display_name": "非生產環境"
     },
-    "reasoning": "文本明確提到發展環境可能會有來自外部的攻擊，攻擊會對系統造成危害，符合 (\"attack\", \"can_harm\", \"system\")。",
+    "reasoning": "文本明確指出發展環境（非生產環境）可能會有來自外部的攻擊，攻擊(attack)會對系統(system)造成危害。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 5,
+    "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "外部攻擊 (attack) 是攻擊類別的合理實例，發展環境 (system) 是系統類別的合理實例，且 'can_harm' 關係在資安領域中是合理的。",
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "主體 '外部攻擊' 是 'attack' 的合理實例，受體 '非生產環境' 是 'system' 的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為三元組中的主體類別不是vulnerability。規則4不適用，因為三元組中的關係不是violates，且主體不是principle。規則5不適用，因為三元組中的關係不是uses。規則6不適用，因為三元組中的關係不是deployed_in。規則7不適用，因為三元組中的關係不是generates。規則8不適用，因為三元組中的關係不是controls。因此，三元組不觸發任何違規。",
+        "step_1_rule_matching": "規則1不適用，因為主體不是attacker或securityTeam。規則2不適用，因為主體不是policy, technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
         "response": "correct",
-        "reason": "三元組中的主體、關係和受體之間的關係合理，沒有違反任何語義限制清單中的規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "外部攻擊與入侵攻擊、攻擊、駭客攻擊等存在相似性，但非完全等價同義詞，且外部攻擊可視為攻擊的子類型",
-        "response": "correct",
-        "standard_subject": "",
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "攻擊",
         "standard_object": "",
-        "reason": "外部攻擊是攻擊的子類型，根據廣義/狹義一律保留原則，判定為 correct。"
+        "reason": "主體 '外部攻擊' 與 Ldr 中的 '攻擊' 是同義詞"
       }
     },
     "original_raw_triple": {
@@ -354,20 +94,124 @@
       },
       "relation": "can_harm",
       "object": {
-        "name": "發展環境",
+        "name": "非生產環境",
         "type": "system"
       },
-      "reasoning": "文本明確提到發展環境可能會有來自外部的攻擊，攻擊會對系統造成危害，符合 (\"attack\", \"can_harm\", \"system\")。",
+      "reasoning": "文本明確指出發展環境（非生產環境）可能會有來自外部的攻擊，攻擊(attack)會對系統(system)造成危害。",
       "source_id": "chunk_7",
       "source_file": "ch19_習題解答.pdf",
-      "source_index": 5
+      "source_index": 2
     }
   },
   {
     "subject": {
-      "name": "大數據技術",
+      "name": "大數據",
       "type": "system",
-      "display_name": "大數據技術"
+      "display_name": "大數據"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "volume (資料量)",
+      "type": "feature",
+      "display_name": "Volume (資料量)"
+    },
+    "reasoning": "文本定義大數據具有 4V 特性，Volume 是其之一。大數據在此被視為一種綜合的資訊環境(system)，而 Volume 是其屬性(feature)。",
+    "source_id": "chunk_7",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '大數據' 可以被視為 'system' 的合理實例，受體名稱 'Volume' 可以被視為 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體不具有同義詞關係，且無法確認彼此之間的從屬關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "大數據",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Volume (資料量)",
+        "type": "feature"
+      },
+      "reasoning": "文本定義大數據具有 4V 特性，Volume 是其之一。大數據在此被視為一種綜合的資訊環境(system)，而 Volume 是其屬性(feature)。",
+      "source_id": "chunk_7",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊取得探測",
+      "type": "attack",
+      "display_name": "資訊取得探測"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "非生產環境",
+      "type": "system",
+      "display_name": "非生產環境"
+    },
+    "reasoning": "文本將「對於資訊取得的探測」與外部攻擊並列為雲端服務的風險，這是一種針對系統的惡意行為，故歸類為 attack 並對 system 造成危害。",
+    "source_id": "chunk_7",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資訊取得探測 是一種攻擊手法，屬於 'attack' 的合理實例；非生產環境 是一個系統，屬於 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是attacker或securityTeam。規則2不適用，因為主體不是policy, technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的攻擊無直接關係，受體與 Ldr 中的非生產環境完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的攻擊無直接關係，受體與 Ldr 中的非生產環境完全等價同義詞，但根據規則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊取得探測",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "非生產環境",
+        "type": "system"
+      },
+      "reasoning": "文本將「對於資訊取得的探測」與外部攻擊並列為雲端服務的風險，這是一種針對系統的惡意行為，故歸類為 attack 並對 system 造成危害。",
+      "source_id": "chunk_7",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "大數據",
+      "type": "system",
+      "display_name": "大數據"
     },
     "relation": "has_a",
     "object": {
@@ -375,33 +219,33 @@
       "type": "feature",
       "display_name": "Velocity (速度)"
     },
-    "reasoning": "同上，速度是大數據技術的組成特性，符合 (\"system\", \"has_a\", \"feature\")。",
+    "reasoning": "Velocity 是大數據 4V 特性之一，屬於系統的特徵(feature)。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 8,
+    "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "大數據技術 (system) 可以有 Velocity (速度) 這個 feature，因此語意對齊合理。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "主體 '大數據' 的類別 'system' 合理對齊，受體 'Velocity' 的類別 'feature' 合理對齊，考慮到資安領域常見的同義詞、縮寫與翻譯。",
         "response": "correct",
-        "reason": "大數據技術與 Velocity 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'has_a'，主體 '大數據技術' 的類別是 'system'，受體 'Velocity' 的類別是 'feature'，未發現明確違反任何規則。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與主體 '大數據技術' 和受體 'Velocity' 的類別組合未觸發語義限制清單中的任何規則，故判定為正確。"
+        "reason": "三元組中的關係是 has_a，與規則6無關。"
       },
       "step_2": {
-        "granularity_analysis": " Velocity (速度) 與 volume (資料量) 不是同義詞，且 Velocity (速度) 不在 Ldr 中，但主體大數據技術在 Ldr 中",
+        "granularity_analysis": "不相關",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據【前提確認】，主體大數據技術在 Ldr 中，且 Velocity (速度) 不是 volume (資料量) 的同義詞，判定為 correct。"
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，且無法合併。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "大數據技術",
+        "name": "大數據",
         "type": "system"
       },
       "relation": "has_a",
@@ -409,17 +253,17 @@
         "name": "Velocity (速度)",
         "type": "feature"
       },
-      "reasoning": "同上，速度是大數據技術的組成特性，符合 (\"system\", \"has_a\", \"feature\")。",
+      "reasoning": "Velocity 是大數據 4V 特性之一，屬於系統的特徵(feature)。",
       "source_id": "chunk_7",
       "source_file": "ch19_習題解答.pdf",
-      "source_index": 8
+      "source_index": 5
     }
   },
   {
     "subject": {
-      "name": "大數據技術",
+      "name": "大數據",
       "type": "system",
-      "display_name": "大數據技術"
+      "display_name": "大數據"
     },
     "relation": "has_a",
     "object": {
@@ -427,33 +271,33 @@
       "type": "feature",
       "display_name": "Variety (多樣性)"
     },
-    "reasoning": "同上，多樣性是大數據技術的組成特性，符合 (\"system\", \"has_a\", \"feature\")。",
+    "reasoning": "Variety 是大數據 4V 特性之一，屬於系統的特徵(feature)。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 9,
+    "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "大數據技術 (類別: system) 的名稱與其類別 'system' 合理對齊；Variety (多樣性) 的名稱與其類別 'feature' 合理對齊，因為在資安領域，'feature' 可以指代系統的特性或特徵，'Variety' 可以理解為系統中資料的多樣性特徵。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '大數據' 可以被視為 'system' 的合理實例；受體名稱 'Variety (多樣性)' 可以被視為 'feature' 的合理實例，尤其是在大數據的背景下，'Variety' 是大數據的特徵之一。",
         "response": "correct",
-        "reason": "大數據技術與 Variety 的類別與屬性完全符合預先定義的清單，且名稱與類別合理對齊。"
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與主體 '大數據技術' 和受體 'Variety' 的組合，沒有明確違反語義限制清單中的任何規則。"
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
       },
       "step_2": {
-        "granularity_analysis": " Variety (多樣性) 是大數據技術的特徵之一，與 volume (資料量)、velocity (速度) 並列為大數據的 3V 特徵， Variety 指的是大數據的多樣性和多變性，與現有近似資源清單中的 volume 和 velocity 類別相同，皆為大數據的特徵",
+        "granularity_analysis": "不相關",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": " Variety (多樣性) 與 volume (資料量)、velocity (速度) 皆為大數據的特徵，無同義詞重複，且 Variety 不是現有近似資源清單中的任何一個 name，故判定為 correct。"
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，且無法合併。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "大數據技術",
+        "name": "大數據",
         "type": "system"
       },
       "relation": "has_a",
@@ -461,10 +305,62 @@
         "name": "Variety (多樣性)",
         "type": "feature"
       },
-      "reasoning": "同上，多樣性是大數據技術的組成特性，符合 (\"system\", \"has_a\", \"feature\")。",
+      "reasoning": "Variety 是大數據 4V 特性之一，屬於系統的特徵(feature)。",
       "source_id": "chunk_7",
       "source_file": "ch19_習題解答.pdf",
-      "source_index": 9
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "大數據",
+      "type": "system",
+      "display_name": "大數據"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "value (價值)",
+      "type": "feature",
+      "display_name": "Value (價值)"
+    },
+    "reasoning": "Value 是大數據 4V 特性之一，屬於系統的特徵(feature)。",
+    "source_id": "chunk_7",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '大數據' 可被視為 'system' 的合理實例；受體 'Value' 可被視為 'feature' 的合理實例（同義詞寬容：'Value' 可理解為 '特徵' 或 '屬性'）。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "大數據與 Ldr 中的「大數據」完全相同，受體「Value (價值)」與 Ldr 中的「volume (資料量)」、「velocity (速度)」、「variety (多樣性)」無直接關係，但「Value」在資安領域中可能與「volume」、「velocity」、「variety」等特徵相關聯，然而這些關係不夠明確，因此無法判定為同義詞或廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定實體之間的明確關係，因此預設保留原狀。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "大數據",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Value (價值)",
+        "type": "feature"
+      },
+      "reasoning": "Value 是大數據 4V 特性之一，屬於系統的特徵(feature)。",
+      "source_id": "chunk_7",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 7
     }
   },
   {
@@ -479,28 +375,28 @@
       "type": "data",
       "display_name": "網路日誌"
     },
-    "reasoning": "文本提到多樣性包含網路日誌等資料，在 Schema 中，feature 可以 uses data 來描述其包含的資料類型，符合 (\"feature\", \"uses\", \"data\")。",
+    "reasoning": "文本提到資料類型多樣包含網路日誌。在 Schema 中，特徵(feature)可以使用或包含特定類型的資料(data)。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 11,
+    "source_index": 8,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": " Variety (多樣性) 可以被視為 'feature' 的合理實例，'網路日誌' 是 'data' 的合理實例，'uses' 關係在此語境下是合理的。",
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 'Variety' 合理對齊其類別 'feature'，受體名稱 '網路日誌' 合理對齊其類別 'data'，且關係 'uses' 合理描述主體與受體之間的關係。",
         "response": "correct",
-        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則5指出當關係為 uses 時，如果主體 (Subject) 的類別是 data，則為違反；但如果 data 僅是出現在受體 (Object) 位置，則屬合法。然而，待檢查三元組的主體是 Variety (多樣性)，類別為 feature，而非 data，因此不觸發規則5的違規條件。其他規則與此三元組無直接關聯。",
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "由於三元組的主體類別是 feature，而非 data，且未觸發語義限制清單中的任何違規條件，故判定為正確。"
+        "reason": "主體 Variety 的類別是 feature，而非 data，因此不觸發規則5。"
       },
       "step_2": {
-        "granularity_analysis": " Variety (多樣性) 與 Ldr 中的 variety (多樣性) 完全等價同義詞",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": " Variety (多樣性) 與 Ldr 中的 variety (多樣性) 名稱完全相同，直接判定 correct。"
+        "reason": "主體 Variety (多樣性) 與 Ldr 中的 variety (多樣性) 名稱完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
@@ -513,10 +409,10 @@
         "name": "網路日誌",
         "type": "data"
       },
-      "reasoning": "文本提到多樣性包含網路日誌等資料，在 Schema 中，feature 可以 uses data 來描述其包含的資料類型，符合 (\"feature\", \"uses\", \"data\")。",
+      "reasoning": "文本提到資料類型多樣包含網路日誌。在 Schema 中，特徵(feature)可以使用或包含特定類型的資料(data)。",
       "source_id": "chunk_7",
       "source_file": "ch19_習題解答.pdf",
-      "source_index": 11
+      "source_index": 8
     }
   },
   {
@@ -527,32 +423,38 @@
     },
     "relation": "uses",
     "object": {
-      "name": "視訊圖片",
+      "name": "視訊",
       "type": "data",
-      "display_name": "視訊圖片"
+      "display_name": "視訊"
     },
-    "reasoning": "同上，多樣性特徵涉及視訊與圖片資料，符合 (\"feature\", \"uses\", \"data\")。",
+    "reasoning": "文本提到多樣性包含視訊資料，符合 feature -> uses -> data 的定義。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 12,
+    "source_index": 9,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": " Variety (多樣性) 可以被視為 'feature' 的合理實例，'視訊圖片' 可以被視為 'data' 的合理實例，'uses' 的關係在此語境下是合理的。",
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 'Variety' 可以被視為 'feature' 的合理實例，受體名稱 '視訊' 可以被視為 'data' 的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，待檢查三元組的主體是Variety（多樣性），類別為feature，而非data，因此不觸發規則5的違規條件。其他規則與此三元組無直接關聯。",
-        "response": "correct",
-        "reason": "由於三元組的主體類別為feature，關係為uses，受體類別為data，沒有觸發語義限制清單中的任何違規條件。"
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體 Variety 的類別是 feature，而非 data，且關係是 uses，受體是視訊的類別是 data，違反規則5。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體 Variety 的類別是 feature，而非 data，且關係是 uses，受體是視訊的類別是 data，違反規則5。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
       },
       "step_2": {
-        "granularity_analysis": " Variety (多樣性) 與 Ldr 中的 variety (多樣性) 完全等價同義詞，視訊圖片與 Ldr 中的網路日誌不相關",
         "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": " Variety (多樣性) 與 Ldr 中的 variety (多樣性) 完全等價同義詞，但視訊圖片與 Ldr 中的網路日誌不相關，故判定為 correct。"
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
       }
     },
     "original_raw_triple": {
@@ -562,117 +464,71 @@
       },
       "relation": "uses",
       "object": {
-        "name": "視訊圖片",
+        "name": "視訊",
         "type": "data"
       },
-      "reasoning": "同上，多樣性特徵涉及視訊與圖片資料，符合 (\"feature\", \"uses\", \"data\")。",
+      "reasoning": "文本提到多樣性包含視訊資料，符合 feature -> uses -> data 的定義。",
       "source_id": "chunk_7",
       "source_file": "ch19_習題解答.pdf",
-      "source_index": 12
+      "source_index": 9
     }
   },
   {
     "subject": {
-      "name": "大數據技術",
-      "type": "system",
-      "display_name": "大數據技術"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "value (價值)",
+      "name": "variety (多樣性)",
       "type": "feature",
-      "display_name": "Value (價值)"
+      "display_name": "Variety (多樣性)"
     },
-    "reasoning": "同上，價值是大數據技術的組成特性，符合 (\"system\", \"has_a\", \"feature\")。",
+    "relation": "uses",
+    "object": {
+      "name": "圖片",
+      "type": "data",
+      "display_name": "圖片"
+    },
+    "reasoning": "文本提到多樣性包含圖片資料，符合 feature -> uses -> data 的定義。",
     "source_id": "chunk_7",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 10,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "大數據技術 (類別: system) 和 Value (價值) (類別: feature) 的名稱與其被賦予的類別合理對齊，'system' 可以有 'feature'，且 'Value' 可以被視為 'feature' 的一種實例。",
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'Variety' 可以被視為 'feature' 的合理實例，受體 '圖片' 可以被視為 'data' 的合理實例。",
         "response": "correct",
-        "reason": "大數據技術 (類別: system) 與 Value (價值) (類別: feature) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的項目。",
-        "response": "correct",
-        "reason": "三元組中的主體 '大數據技術' 與關係 'has_a'、受體 'Value (價值)' 不違反任何語義限制清單中的規則。"
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體 Variety 的類別是 feature，而非 data，因此違反規則5。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體 Variety 的類別是 feature，而非 data，因此違反規則5。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
       },
       "step_2": {
-        "granularity_analysis": "主體 '大數據技術' 與 Ldr 中的 '大數據技術' 完全等價同義詞，受體 'Value (價值)' 與 Ldr 中的 'volume (資料量)'、'velocity (速度)'、'variety (多樣性)' 不相關，但 'Value' 可能與 'volume'、'velocity'、'variety' 的英文原意 'value' 相關，然而這裡的 'Value' 指的是 '價值'，因此不相關。",
         "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體 '大數據技術' 與 Ldr 中的 '大數據技術' 完全匹配，受體 'Value (價值)' 與 Ldr 中的資源不相關，因此判定為 correct。"
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "大數據技術",
-        "type": "system"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "Value (價值)",
+        "name": "Variety (多樣性)",
         "type": "feature"
-      },
-      "reasoning": "同上，價值是大數據技術的組成特性，符合 (\"system\", \"has_a\", \"feature\")。",
-      "source_id": "chunk_7",
-      "source_file": "ch19_習題解答.pdf",
-      "source_index": 10
-    }
-  },
-  {
-    "subject": {
-      "name": "google",
-      "type": "app",
-      "display_name": "Google"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "大數據",
-      "type": "data",
-      "display_name": "大數據"
-    },
-    "reasoning": "文本舉例 Google 每天處理巨大資料量，表示該應用程式使用/處理大數據，符合 (\"app\", \"uses\", \"data\")。",
-    "source_id": "chunk_7",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 13,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "Google 是 'app' 的合理實例，大數據是 'data' 的合理實例，且 'uses' 是描述 app 與 data 關係的合理關係。",
-        "response": "correct",
-        "reason": "Google 作為 'app' 使用 'data' 的大數據，完全符合預先定義的類別與屬性清單 Lc,p。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為關係是uses且主體類別是app，但受體類別是data，符合規則允許的條件。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
-        "response": "correct",
-        "reason": "三元組中的主體是Google（類別：app），關係是uses，受體是大數據（類別：data），這符合規則5的允許條件，且未觸發其他規則的違規條件。"
-      },
-      "step_2": {
-        "granularity_analysis": "不相關",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體與受體皆不在近似資源清單中，且無同義詞關係，依據判斷準則預設保留。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "Google",
-        "type": "app"
       },
       "relation": "uses",
       "object": {
-        "name": "大數據",
+        "name": "圖片",
         "type": "data"
       },
-      "reasoning": "文本舉例 Google 每天處理巨大資料量，表示該應用程式使用/處理大數據，符合 (\"app\", \"uses\", \"data\")。",
+      "reasoning": "文本提到多樣性包含圖片資料，符合 feature -> uses -> data 的定義。",
       "source_id": "chunk_7",
       "source_file": "ch19_習題解答.pdf",
-      "source_index": 13
+      "source_index": 10
     }
   }
 ]

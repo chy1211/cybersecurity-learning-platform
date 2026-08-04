@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "社交工程",
+      "type": "attack",
+      "display_name": "社交工程"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "題幹提到社交工程將惡意程式隱藏在郵件中來誘騙使用者，表示此攻擊手段依賴 (depends_on) 惡意程式 (tool) 來達成目的。",
+    "source_id": "question_IPAS-111-TEC-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "社交工程是 'attack' 的合理實例，惡意程式是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "社交工程與惡意程式之間的 'depends_on' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "社交工程與惡意程式在資安領域中是兩個不同的概念，前者是攻擊類型，後者是攻擊工具/手段，無法互換使用。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "社交工程與惡意程式是不同概念，無法合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attack -> depends_on -> attack (original: attack -> depends_on -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "社交工程",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "惡意程式",
+        "type": "tool"
+      },
+      "reasoning": "題幹提到社交工程將惡意程式隱藏在郵件中來誘騙使用者，表示此攻擊手段依賴 (depends_on) 惡意程式 (tool) 來達成目的。",
+      "source_id": "question_IPAS-111-TEC-080",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "資安管理團隊",
+      "type": "securityTeam",
+      "display_name": "資安管理團隊"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資訊安全事故處理程序",
+      "type": "policy",
+      "display_name": "資訊安全事故處理程序"
+    },
+    "reasoning": "根據正確答案 A，組織必須建立資訊安全事故發生時的實施程序。在資安本體論中，負責建立並執行此類程序的實體為資安團隊 (securityTeam)，而實施程序屬於規範與策略 (policy)，因此使用 implements 關係。",
+    "source_id": "question_IPAS-112-MGT-091",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '資安管理團隊' 是 'securityTeam' 的合理實例，實體名稱 '資訊安全事故處理程序' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為securityTeam，非vulnerability。規則8不適用，因為關係為implements，非controls。無其他相關規則。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，故無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的資源之間存在同義詞關係，但根據規則，若一個實體是另一個的子類型或具體模型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安管理團隊",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資訊安全事故處理程序",
+        "type": "policy"
+      },
+      "reasoning": "根據正確答案 A，組織必須建立資訊安全事故發生時的實施程序。在資安本體論中，負責建立並執行此類程序的實體為資安團隊 (securityTeam)，而實施程序屬於規範與策略 (policy)，因此使用 implements 關係。",
+      "source_id": "question_IPAS-112-MGT-091",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊安全事故處理程序",
+      "type": "policy",
+      "display_name": "資訊安全事故處理程序"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊安全事故",
+      "type": "attack",
+      "display_name": "資訊安全事故"
+    },
+    "reasoning": "資訊安全事故處理程序的目的是為了在事故發生時能有效應對並降低損害。因此，該政策 (policy) 旨在緩解 (mitigates) 資訊安全事故 (attack) 帶來的影響。",
+    "source_id": "question_IPAS-112-MGT-091",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '資訊安全事故處理程序' 是 'policy' 的合理實例；受體 '資訊安全事故' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為資訊安全事故處理程序（policy），符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間不存在完全等價同義詞關係，且無法確認為子類型或母類關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全事故處理程序",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊安全事故",
+        "type": "attack"
+      },
+      "reasoning": "資訊安全事故處理程序的目的是為了在事故發生時能有效應對並降低損害。因此，該政策 (policy) 旨在緩解 (mitigates) 資訊安全事故 (attack) 帶來的影響。",
+      "source_id": "question_IPAS-112-MGT-091",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資安管理人員",
+      "type": "securityTeam",
+      "display_name": "資安管理團隊"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "事故管理責任",
+      "type": "function",
+      "display_name": "事故管理責任"
+    },
+    "reasoning": "正確答案 A 提到須建立『管理責任』。管理責任在資安運作中是一種管理功能 (function)，由資安團隊 (securityTeam) 負責實作 (implements) 並定義。",
+    "source_id": "question_IPAS-112-MGT-091",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安管理團隊 (securityTeam) 可以實施事故管理責任 (function)，這是合理的實例關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，未違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "資安管理人員",
+        "standard_object": "",
+        "reason": "根據同義詞對照表，資安管理團隊與資安管理人員是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安管理團隊",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "事故管理責任",
+        "type": "function"
+      },
+      "reasoning": "正確答案 A 提到須建立『管理責任』。管理責任在資安運作中是一種管理功能 (function)，由資安團隊 (securityTeam) 負責實作 (implements) 並定義。",
+      "source_id": "question_IPAS-112-MGT-091",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

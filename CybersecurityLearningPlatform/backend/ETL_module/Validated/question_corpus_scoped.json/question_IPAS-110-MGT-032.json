@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "認證資訊",
+      "type": "data",
+      "display_name": "認證資訊"
+    },
+    "reasoning": "根據選項 C，使用者需輸入帳號及密碼（屬於認證資訊 data）來進行身分鑑別，符合 (user, uses, data) 的 Schema。",
+    "source_id": "question_IPAS-110-MGT-032",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例；受體名稱 '認證資訊' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "認證資訊",
+        "type": "data"
+      },
+      "reasoning": "根據選項 C，使用者需輸入帳號及密碼（屬於認證資訊 data）來進行身分鑑別，符合 (user, uses, data) 的 Schema。",
+      "source_id": "question_IPAS-110-MGT-032",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "ic卡管理原則",
+      "type": "policy",
+      "display_name": "IC卡管理原則"
+    },
+    "reasoning": "根據選項 A，使用者應妥善保管 IC 卡且不可外借，這是一種安全行為規範（policy），符合 (user, implements, policy) 的 Schema。",
+    "source_id": "question_IPAS-110-MGT-032",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例；受體名稱 'IC卡管理原則' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「使用者」完全等價同義詞；受體與 Ldr 中的「帳號管理原則」具有廣義/狹義從屬關係，但不構成同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「使用者」完全等價同義詞，但受體與 Ldr 中的「帳號管理原則」不構成同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "IC卡管理原則",
+        "type": "policy"
+      },
+      "reasoning": "根據選項 A，使用者應妥善保管 IC 卡且不可外借，這是一種安全行為規範（policy），符合 (user, implements, policy) 的 Schema。",
+      "source_id": "question_IPAS-110-MGT-032",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "帳號清理政策",
+      "type": "policy",
+      "display_name": "帳號清理政策"
+    },
+    "reasoning": "根據選項 D，專案或工作結束時應刪除無關帳號，這屬於帳號生命週期管理的一項政策（policy），由資安人員執行，符合 (securityTeam, implements, policy) 的 Schema。",
+    "source_id": "question_IPAS-110-MGT-032",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '資安人員' 是 'securityTeam' 的合理實例；受體 '帳號清理政策' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別是securityTeam，而非vulnerability。規則8不適用，因為關係是implements，而非controls。其他規則不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合規則所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖然相似，但無法確認完全等價同義詞關係，故預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "帳號清理政策",
+        "type": "policy"
+      },
+      "reasoning": "根據選項 D，專案或工作結束時應刪除無關帳號，這屬於帳號生命週期管理的一項政策（policy），由資安人員執行，符合 (securityTeam, implements, policy) 的 Schema。",
+      "source_id": "question_IPAS-110-MGT-032",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "身分認證",
+      "type": "function",
+      "display_name": "身分鑑別"
+    },
+    "reasoning": "根據選項 C，系統需執行身分鑑別以確認使用者身分，這是一項資安功能（function），由資安團隊實作與管理，符合 (securityTeam, implements, function) 的 Schema。",
+    "source_id": "question_IPAS-110-MGT-032",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員是安全團隊的合理實例，身分鑑別是功能的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為securityTeam，而規則3只檢查主體類別為vulnerability。規則8不適用，因為關係為implements，而規則8只檢查關係為controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源存在同義詞關係，受體與 Ldr 中的資源存在同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "資安人員",
+        "standard_object": "身分認證",
+        "reason": "主體與 Ldr 中的資源存在同義詞關係，受體與 Ldr 中的資源存在同義詞關係，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "身分鑑別",
+        "type": "function"
+      },
+      "reasoning": "根據選項 C，系統需執行身分鑑別以確認使用者身分，這是一項資安功能（function），由資安團隊實作與管理，符合 (securityTeam, implements, function) 的 Schema。",
+      "source_id": "question_IPAS-110-MGT-032",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

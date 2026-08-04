@@ -1,51 +1,51 @@
 [
   {
     "subject": {
-      "name": "csp (密碼服務提供模組)",
-      "type": "tool",
-      "display_name": "CSP (密碼服務提供模組)"
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
     },
-    "relation": "deployed_in",
+    "relation": "has_a",
     "object": {
-      "name": "windows 作業系統",
-      "type": "system",
-      "display_name": "Windows 作業系統"
+      "name": "cryptoapi",
+      "type": "tool",
+      "display_name": "CryptoAPI"
     },
-    "reasoning": "文本明確提到『密碼服務提供模組 (CSP)... 提供密碼模組掛載在 Windows 作業系統』，因此 CSP 作為工具部署於 Windows 系統中，符合 (tool, deployed_in, system) 的 Schema。",
+    "reasoning": "文本提到應用程式呼叫並使用 CryptoAPI 作為其密碼介面。在 Schema 中，app 與 tool 之間合法的關聯為 has_a。",
     "source_id": "chunk_1",
     "source_file": "ch17_習題解答.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體的類別 'tool' 和受體的類別 'system' 都存在於 Lc,p 的 'Classes' 中，關係 'deployed_in' 也存在於 'Properties' 中。",
-        "step_2_alignment_check": "CSP (密碼服務提供模組) 是 'tool' 的合理實例，Windows 作業系統是 'system' 的合理實例。",
+        "step_1_list_check": "主體類別 'app'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '應用程式' 是 'app' 的合理實例；受體 'CryptoAPI' 是 'tool' 的合理實例。",
         "response": "correct",
-        "reason": "主體、關係和受體的類別和屬性都符合預先定義的清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，此三元組符合此規則，主體為 CSP (密碼服務提供模組)，類別為 tool，關係為 deployed_in，受體為 Windows 作業系統，類別為 system。",
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
         "response": "correct",
-        "reason": "三元組符合規則6的條件，受體的類別是 system，故不違反語義限制清單中的任何規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "受體 (Object) 的名稱 \"Windows 作業系統\" 與 Ldr 中的 \"作業系統\" 類別相同，且 similarity_score 較高，表示兩者可能是同義詞或廣義/狹義從屬關係，但根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct。",
+        "granularity_analysis": "應用程式與網路應用程式、網頁應用程式之間存在廣義/狹義從屬關係，但應用程式與 CryptoAPI 之間不相關",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據判斷準則 3，受體 (Object) 的名稱 \"Windows 作業系統\" 是 \"作業系統\" 的子類型，故判定為 correct。"
+        "reason": "應用程式與 CryptoAPI 之間不存在同義詞關係或從屬關係，且無法確定其關係，因此預設保留原名"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "CSP (密碼服務提供模組)",
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "CryptoAPI",
         "type": "tool"
       },
-      "relation": "deployed_in",
-      "object": {
-        "name": "Windows 作業系統",
-        "type": "system"
-      },
-      "reasoning": "文本明確提到『密碼服務提供模組 (CSP)... 提供密碼模組掛載在 Windows 作業系統』，因此 CSP 作為工具部署於 Windows 系統中，符合 (tool, deployed_in, system) 的 Schema。",
+      "reasoning": "文本提到應用程式呼叫並使用 CryptoAPI 作為其密碼介面。在 Schema 中，app 與 tool 之間合法的關聯為 has_a。",
       "source_id": "chunk_1",
       "source_file": "ch17_習題解答.pdf",
       "source_index": 1
@@ -57,34 +57,34 @@
       "type": "tool",
       "display_name": "CryptoAPI"
     },
-    "relation": "is_part_of",
+    "relation": "has_a",
     "object": {
-      "name": "windows 作業系統",
-      "type": "system",
-      "display_name": "Windows 作業系統"
+      "name": "csp (cryptographic service provider)",
+      "type": "tool",
+      "display_name": "CSP (Cryptographic Service Provider)"
     },
-    "reasoning": "CryptoAPI 是 Microsoft 定義的介面且與 Windows 作業系統緊密結合提供服務，可視為系統的一部分，符合 (tool, is_part_of, system) 的 Schema。",
+    "reasoning": "文本描述 CryptoAPI 的架構中，最底層為密碼服務提供模組層 (CSP)，表示 CryptoAPI 包含或擁有 CSP 這一組件。",
     "source_id": "chunk_1",
     "source_file": "ch17_習題解答.pdf",
     "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "CryptoAPI 是一種工具（tool），Windows 作業系統是一種系統（system），因此實體名稱與其類別合理對齊。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'CryptoAPI' 是 'tool' 的合理實例，受體 'CSP (Cryptographic Service Provider)' 也是 'tool' 的合理實例，考慮到資安領域常見的同義詞、縮寫與翻譯。",
         "response": "correct",
-        "reason": "CryptoAPI 和 Windows 作業系統的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。由於沒有任何規則被觸發，三元組不違反任何語義限制。",
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
         "response": "correct",
-        "reason": "三元組中的主體CryptoAPI是一個工具，關係是is_part_of，受體是Windows作業系統，沒有違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
       },
       "step_2": {
-        "granularity_analysis": "受體 'Windows 作業系統' 與 Ldr 中的 'windows 作業系統' 完全等價同義詞",
+        "granularity_analysis": "主體 CryptoAPI 與 Ldr 中的 cryptoapi 名稱相似，但考慮到 CryptoAPI 是一個特定的工具，與 CSP 是不同的工具，因此不構成完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
-        "standard_object": "windows 作業系統",
-        "reason": "受體 'Windows 作業系統' 與 Ldr 中的 'windows 作業系統' 名稱相似度高達 0.99，視為同義詞。"
+        "standard_object": "",
+        "reason": "主體 CryptoAPI 與 Ldr 中的 cryptoapi 名稱相似，但不構成完全等價同義詞，且 CSP 是不同的工具，因此判定為 correct。"
       }
     },
     "original_raw_triple": {
@@ -92,12 +92,12 @@
         "name": "CryptoAPI",
         "type": "tool"
       },
-      "relation": "is_part_of",
+      "relation": "has_a",
       "object": {
-        "name": "Windows 作業系統",
-        "type": "system"
+        "name": "CSP (Cryptographic Service Provider)",
+        "type": "tool"
       },
-      "reasoning": "CryptoAPI 是 Microsoft 定義的介面且與 Windows 作業系統緊密結合提供服務，可視為系統的一部分，符合 (tool, is_part_of, system) 的 Schema。",
+      "reasoning": "文本描述 CryptoAPI 的架構中，最底層為密碼服務提供模組層 (CSP)，表示 CryptoAPI 包含或擁有 CSP 這一組件。",
       "source_id": "chunk_1",
       "source_file": "ch17_習題解答.pdf",
       "source_index": 2
@@ -105,8 +105,60 @@
   },
   {
     "subject": {
+      "name": "csp (cryptographic service provider)",
+      "type": "tool",
+      "display_name": "CSP (Cryptographic Service Provider)"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "windows",
+      "type": "system",
+      "display_name": "Windows"
+    },
+    "reasoning": "文本明確指出 CSP 密碼模組掛載在 Windows 作業系統中，符合 tool deployed_in system 的定義。",
+    "source_id": "chunk_1",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "CSP (Cryptographic Service Provider) 是 'tool' 的合理實例，Windows 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的受體 (Windows) 的類別是 system，符合規則6的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (CSP) 與 Ldr 中的 cryptoapi 不是完全等價同義詞，但 CSP 是 cryptoapi 的具體實現；受體 (Windows) 與 Ldr 中的 作業系統 是完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源不完全相同，且無法確認為同義詞；受體雖然與 Ldr 中的資源相同，但根據規則，若 Ldr 中的資源與實體名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CSP (Cryptographic Service Provider)",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "Windows",
+        "type": "system"
+      },
+      "reasoning": "文本明確指出 CSP 密碼模組掛載在 Windows 作業系統中，符合 tool deployed_in system 的定義。",
+      "source_id": "chunk_1",
+      "source_file": "ch17_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
       "name": "pkcs#11",
-      "type": "feature",
+      "type": "system",
       "display_name": "PKCS#11"
     },
     "relation": "uses",
@@ -115,148 +167,44 @@
       "type": "data",
       "display_name": "金鑰物件"
     },
-    "reasoning": "文本描述 PKCS#11 的組織包含資料、金鑰與憑證物件，這表示該標準介面（特徵）定義並使用了這些資料實體，符合 (feature, uses, data) 的 Schema。",
+    "reasoning": "PKCS#11 作為一種標準介面/框架（此處視為 system），其組織中包含並使用金鑰物件（data）來進行運算。",
     "source_id": "chunk_1",
     "source_file": "ch17_習題解答.pdf",
-    "source_index": 3,
+    "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "PKCS#11 是一種密碼編譯標準，合理地被歸類為 'feature'，而 '金鑰物件' 是一種資料，合理地被歸類為 'data'，且 'uses' 關係在資安領域中常見，表示某個功能或特性使用某種資料或技術。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "PKCS#11 是一個密碼編譯標準，通常被視為一個系統（system），而金鑰物件（key object）是密碼編譯中的一個基本概念，可以被視為資料（data）。因此，實體名稱與其類別是合理對齊的。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別是合理對齊的。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則5指出當關係為uses時，如果主體的類別是data，則為違反；但如果data僅是出現在受體位置，則屬合法。然而，待檢查三元組的主體是PKCS#11，類別為feature，而非data，因此不觸發規則5的違規條件。其他規則與待檢查三元組的主體、關係、受體不直接相關，無法觸發違規。",
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "由於待檢查三元組的主體PKCS#11類別為feature，關係為uses，受體為金鑰物件，無法觸發語義限制清單中的任何違規條件。因此，根據無罪推定原則，判定為正確。"
+        "reason": "主體 PKCS#11 的類別是 system，而非 data，因此不觸發規則5。"
       },
       "step_2": {
-        "granularity_analysis": "完全不相關",
+        "granularity_analysis": "不相關",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據判斷準則，Ldr 為空，直接判定 correct。"
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，且無法在資安領域找到相關對照範例。"
       }
     },
     "original_raw_triple": {
       "subject": {
         "name": "PKCS#11",
-        "type": "feature"
+        "type": "system"
       },
       "relation": "uses",
       "object": {
         "name": "金鑰物件",
         "type": "data"
       },
-      "reasoning": "文本描述 PKCS#11 的組織包含資料、金鑰與憑證物件，這表示該標準介面（特徵）定義並使用了這些資料實體，符合 (feature, uses, data) 的 Schema。",
-      "source_id": "chunk_1",
-      "source_file": "ch17_習題解答.pdf",
-      "source_index": 3
-    }
-  },
-  {
-    "subject": {
-      "name": "廠商",
-      "type": "user",
-      "display_name": "廠商"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "fips 140",
-      "type": "policy",
-      "display_name": "FIPS 140"
-    },
-    "reasoning": "文本提到『密碼模組產品廠商依據廠商需求，開發製作其密碼模組』且需『遵守 FIPS 140 製定規範需求』，這代表廠商（使用者/實體）實作了該規範（政策），符合 (user, implements, policy) 的 Schema。",
-    "source_id": "chunk_1",
-    "source_file": "ch17_習題解答.pdf",
-    "source_index": 4,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "廠商 (user) 實施 FIPS 140 (policy) 的情境下，'user' 與 'policy' 的名稱與類別對齊是合理的，尤其是在資安領域中，廠商實施安全政策是一種常見的做法。",
-        "response": "correct",
-        "reason": "廠商實施 FIPS 140 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。實體 '廠商' 的類別為 'user'，與 'implements' 關係和 'FIPS 140' 的類別 'policy' 組成的三元組，未直接違反任何規則。",
-        "response": "correct",
-        "reason": "三元組中，'廠商' 作為主體，'implements' 作為關係，'FIPS 140' 作為受體，未發現明確且直接違反語義限制清單中的任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "完全不相關，因為 Ldr 為空，且主體與受體名稱無直接同義詞關係。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據前提確認，Ldr 為空，直接判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "廠商",
-        "type": "user"
-      },
-      "relation": "implements",
-      "object": {
-        "name": "FIPS 140",
-        "type": "policy"
-      },
-      "reasoning": "文本提到『密碼模組產品廠商依據廠商需求，開發製作其密碼模組』且需『遵守 FIPS 140 製定規範需求』，這代表廠商（使用者/實體）實作了該規範（政策），符合 (user, implements, policy) 的 Schema。",
+      "reasoning": "PKCS#11 作為一種標準介面/框架（此處視為 system），其組織中包含並使用金鑰物件（data）來進行運算。",
       "source_id": "chunk_1",
       "source_file": "ch17_習題解答.pdf",
       "source_index": 4
-    }
-  },
-  {
-    "subject": {
-      "name": "fips 140",
-      "type": "policy",
-      "display_name": "FIPS 140"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "密碼模組風險",
-      "type": "risk",
-      "display_name": "密碼模組風險"
-    },
-    "reasoning": "FIPS 140 作為密碼模組的檢測規範，其核心目的是透過標準化要求來降低密碼模組在實作時可能產生的安全風險，符合 (policy, mitigates, risk) 的 Schema。",
-    "source_id": "chunk_1",
-    "source_file": "ch17_習題解答.pdf",
-    "source_index": 6,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "FIPS 140 是一種安全政策（policy），'密碼模組風險' 是一種風險（risk），'mitigates' 是一種合理的關係，因為安全政策可以減輕風險。",
-        "response": "correct",
-        "reason": "主體、受體和關係都符合預先定義的類別和屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是 FIPS 140，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
-        "response": "correct",
-        "reason": "三元組的主體 FIPS 140 屬於 policy 類別，符合規則2的允許條件，且未發現其他明確違反的規則。因此，該三元組不違反語義限制清單中的任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "受體「密碼模組風險」與 Ldr 中的「風險」、「資訊風險」、「項目風險」為廣義/狹義從屬關係，但無法確定完全等價同義詞或直接從屬關係",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "無法確定完全等價同義詞或直接從屬關係，依據判斷準則預設保留。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "FIPS 140",
-        "type": "policy"
-      },
-      "relation": "mitigates",
-      "object": {
-        "name": "密碼模組風險",
-        "type": "risk"
-      },
-      "reasoning": "FIPS 140 作為密碼模組的檢測規範，其核心目的是透過標準化要求來降低密碼模組在實作時可能產生的安全風險，符合 (policy, mitigates, risk) 的 Schema。",
-      "source_id": "chunk_1",
-      "source_file": "ch17_習題解答.pdf",
-      "source_index": 6
     }
   },
   {
@@ -267,32 +215,32 @@
     },
     "relation": "can_analyze",
     "object": {
-      "name": "密碼模組產品",
-      "type": "app",
-      "display_name": "密碼模組產品"
+      "name": "密碼模組",
+      "type": "system",
+      "display_name": "密碼模組"
     },
-    "reasoning": "文本指出『檢測實驗室依據測試者需求，測試送來檢驗』，這表示安全團隊對密碼模組產品（應用程式/軟體）進行分析與測試，符合 (securityTeam, can_analyze, app) 的 Schema。",
+    "reasoning": "文本提到檢測實驗室依據需求對送來檢驗的密碼模組進行測試。將密碼模組視為 system，符合 securityTeam can_analyze system 的定義。",
     "source_id": "chunk_1",
     "source_file": "ch17_習題解答.pdf",
-    "source_index": 5,
+    "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'app' 與關係 'can_analyze' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "檢測實驗室是 securityTeam 的合理實例，密碼模組產品是 app 的合理實例，'can_analyze' 關係在資安領域中是合理的。",
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "檢測實驗室 (securityTeam) 可以分析密碼模組 (system)，這是合理的實例關係。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+        "reason": "檢測實驗室可以分析密碼模組的三元組完全符合預先定義的類別與屬性清單。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用，因為主體是檢測實驗室，類別是securityTeam，沒有同時具有攻擊者與安全團隊的身分。檢查規則2：不適用，因為關係是can_analyze，不是mitigates。檢查規則3：不適用，因為主體類別是securityTeam，不是vulnerability。檢查規則4：不適用，因為關係是can_analyze，不是violates，且主體不是principle。檢查規則5：不適用，因為關係是can_analyze，不是uses。檢查規則6：不適用，因為關係是can_analyze，不是deployed_in。檢查規則7：不適用，因為關係是can_analyze，不是generates。檢查規則8：不適用，因為關係是can_analyze，不是controls。",
+        "step_1_rule_matching": "規則3不適用，因為主體類別是securityTeam，而非vulnerability。規則4不適用，因為主體類別是securityTeam，而非principle。規則5不適用，因為關係不是uses，且主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
         "response": "correct",
-        "reason": "三元組（檢測實驗室 can_analyze 密碼模組產品）沒有違反任何語義限制清單中的規則，且主體為securityTeam，具有分析能力，符合語義一致性檢查的要求。"
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
       },
       "step_2": {
-        "granularity_analysis": "完全不相關",
+        "granularity_analysis": "不相關",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "Ldr 為空，且主體與受體無同義詞關係，直接判定 correct。"
+        "reason": "檢測實驗室與密碼模組之間沒有明顯的同義詞或從屬關係"
       }
     },
     "original_raw_triple": {
@@ -302,10 +250,166 @@
       },
       "relation": "can_analyze",
       "object": {
-        "name": "密碼模組產品",
+        "name": "密碼模組",
+        "type": "system"
+      },
+      "reasoning": "文本提到檢測實驗室依據需求對送來檢驗的密碼模組進行測試。將密碼模組視為 system，符合 securityTeam can_analyze system 的定義。",
+      "source_id": "chunk_1",
+      "source_file": "ch17_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "windows",
+      "type": "system",
+      "display_name": "Windows"
+    },
+    "reasoning": "文本提到應用程式透過掛載在 Windows 上的 CSP 來獲取密碼服務，因此應用程式的運作依賴於該系統環境。",
+    "source_id": "chunk_1",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '應用程式' 是 'app' 的合理實例，受體 'Windows' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 depends_on，而非 deployed_in，因此不違反規則6。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「應用程式」完全等價同義詞；受體與 Ldr 中的「windows」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，但無法合併為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
         "type": "app"
       },
-      "reasoning": "文本指出『檢測實驗室依據測試者需求，測試送來檢驗』，這表示安全團隊對密碼模組產品（應用程式/軟體）進行分析與測試，符合 (securityTeam, can_analyze, app) 的 Schema。",
+      "relation": "depends_on",
+      "object": {
+        "name": "Windows",
+        "type": "system"
+      },
+      "reasoning": "文本提到應用程式透過掛載在 Windows 上的 CSP 來獲取密碼服務，因此應用程式的運作依賴於該系統環境。",
+      "source_id": "chunk_1",
+      "source_file": "ch17_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "fips 140",
+      "type": "policy",
+      "display_name": "FIPS 140"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "攻擊"
+    },
+    "reasoning": "FIPS 140 是密碼模組的安全規範，其目的是透過制定標準來降低安全風險並防禦攻擊，符合 policy mitigates attack 的邏輯。",
+    "source_id": "chunk_1",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "FIPS 140 是一項安全政策，與 'policy' 類別對齊；'攻擊' 是一種攻擊手法，與 'attack' 類別對齊；'mitigates' 關係描述了 FIPS 140 如何減輕攻擊風險，語意合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 FIPS 140 的類別是 policy，符合規則2 的允許條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "攻擊",
+        "reason": "攻擊是資安領域已知同義詞對照範例中的一部分，與其他同義詞（如駭客攻擊、攻擊事件等）指稱同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "FIPS 140",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "FIPS 140 是密碼模組的安全規範，其目的是透過制定標準來降低安全風險並防禦攻擊，符合 policy mitigates attack 的邏輯。",
+      "source_id": "chunk_1",
+      "source_file": "ch17_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "pkcs#11",
+      "type": "system",
+      "display_name": "PKCS#11"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "憑證物件",
+      "type": "data",
+      "display_name": "憑證物件"
+    },
+    "reasoning": "同上，PKCS#11 的物件組織中包含憑證物件，符合 system uses data 的定義。",
+    "source_id": "chunk_1",
+    "source_file": "ch17_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'PKCS#11' 是一種密碼編譯標準，通常與系統安全相關，因此其類別 'system' 合理。受體 '憑證物件' 是一種數據，通常與資料安全相關，因此其類別 'data' 合理。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體 PKCS#11 的類別是 system，而非 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 PKCS#11 與 Ldr 中的 pkcs#11 完全等價同義詞；受體 憑證物件 與 Ldr 中的 憑證 高度相似，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 PKCS#11 與 Ldr 中的 pkcs#11 完全等價同義詞，但受體 憑證物件 與 Ldr 中的 憑證 高度相似，但非完全等價同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "PKCS#11",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "憑證物件",
+        "type": "data"
+      },
+      "reasoning": "同上，PKCS#11 的物件組織中包含憑證物件，符合 system uses data 的定義。",
       "source_id": "chunk_1",
       "source_file": "ch17_習題解答.pdf",
       "source_index": 5

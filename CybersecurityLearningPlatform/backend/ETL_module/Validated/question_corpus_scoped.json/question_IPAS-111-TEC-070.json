@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "mimikatz",
+      "type": "tool",
+      "display_name": "mimikatz"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "帳號與密碼",
+      "type": "data",
+      "display_name": "帳號密碼"
+    },
+    "reasoning": "根據題幹與正確答案，mimikatz 是一款可以傾倒 (dump) 帳號密碼的工具。在 Schema 中，工具對資料的提取與分析行為對應於 'can_analyze' 關係，而帳號密碼屬於 'data'。",
+    "source_id": "question_IPAS-111-TEC-070",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "mimikatz 是一種工具（tool），其名稱與類別合理對齊；帳號密碼是資料（data），其名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為tool，而規則3只檢查主體類別為vulnerability。規則8不適用，因為關係不是controls。其他規則不相關。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "帳號密碼與 Ldr 中的「帳號與密碼」為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "帳號與密碼",
+        "reason": "根據同義詞判定準則，帳號密碼與帳號與密碼是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "mimikatz",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "帳號密碼",
+        "type": "data"
+      },
+      "reasoning": "根據題幹與正確答案，mimikatz 是一款可以傾倒 (dump) 帳號密碼的工具。在 Schema 中，工具對資料的提取與分析行為對應於 'can_analyze' 關係，而帳號密碼屬於 'data'。",
+      "source_id": "question_IPAS-111-TEC-070",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "mimikatz",
+      "type": "tool",
+      "display_name": "mimikatz"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "記憶體",
+      "type": "feature",
+      "display_name": "記憶體"
+    },
+    "reasoning": "題幹指出 mimikatz 是從『記憶體』中傾倒資訊。記憶體是系統的組成部分，因此歸類為 'feature'；工具對系統組成部分的分析行為對應於 'can_analyze'。",
+    "source_id": "question_IPAS-111-TEC-070",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "mimikatz 是一種工具（tool），記憶體是系統的一個特徵（feature），而 'can_analyze' 的關係描述了 mimikatz 對記憶體的分析能力，語意上合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體mimikatz的類別是tool，而非vulnerability。規則8不適用，因為關係can_analyze不符合規則8的條件。其他規則均不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合規則所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間的關係是完全等價同義詞，但根據規則，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "mimikatz",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "記憶體",
+        "type": "feature"
+      },
+      "reasoning": "題幹指出 mimikatz 是從『記憶體』中傾倒資訊。記憶體是系統的組成部分，因此歸類為 'feature'；工具對系統組成部分的分析行為對應於 'can_analyze'。",
+      "source_id": "question_IPAS-111-TEC-070",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

@@ -1,0 +1,194 @@
+[
+  {
+    "subject": {
+      "name": "10.0.0.1",
+      "type": "feature",
+      "display_name": "10.0.0.1"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "10.0.0.2",
+      "type": "system",
+      "display_name": "10.0.0.2"
+    },
+    "reasoning": "根據題目為否定式提問（何者不正確），正確答案 C 為錯誤敘述，因此選項 A 與 B 為正確知識。選項 A 與 B 均指出 10.0.0.1 可以通往 10.0.0.2，故建立 system 之間的 connects_to 關係。",
+    "source_id": "question_IPAS-110-TEC-001",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '10.0.0.1' 與 '10.0.0.2' 都是 IP 地址，與其類別 'system' 合理對齊，符合資安領域常見的實體名稱與類別對應關係。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且實體名稱與類別合理對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間沒有任何關係或同義詞對應，無法進行合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> connects_to -> system (original: system -> connects_to -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "10.0.0.1",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "10.0.0.2",
+        "type": "system"
+      },
+      "reasoning": "根據題目為否定式提問（何者不正確），正確答案 C 為錯誤敘述，因此選項 A 與 B 為正確知識。選項 A 與 B 均指出 10.0.0.1 可以通往 10.0.0.2，故建立 system 之間的 connects_to 關係。",
+      "source_id": "question_IPAS-110-TEC-001",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "10.0.0.2",
+      "type": "system",
+      "display_name": "10.0.0.2"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "10.0.0.1",
+      "type": "feature",
+      "display_name": "10.0.0.1"
+    },
+    "reasoning": "根據否定式提問規則，選項 D 為正確知識，指出 10.0.0.2 可以通往 10.0.0.1，故建立 system 之間的 connects_to 關係。",
+    "source_id": "question_IPAS-110-TEC-001",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '10.0.0.2' 與 '10.0.0.1' 都是 IP 地址，與其類別 'system' 合理對齊，因為系統通常會被指派 IP 地址。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，且無法確定其關係，因此預設保留原狀。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> connects_to -> feature (original: system -> connects_to -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "10.0.0.2",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "10.0.0.1",
+        "type": "system"
+      },
+      "reasoning": "根據否定式提問規則，選項 D 為正確知識，指出 10.0.0.2 可以通往 10.0.0.1，故建立 system 之間的 connects_to 關係。",
+      "source_id": "question_IPAS-110-TEC-001",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "10.0.0.1",
+      "type": "feature",
+      "display_name": "10.0.0.1"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "443 埠",
+      "type": "feature",
+      "display_name": "443 埠"
+    },
+    "reasoning": "選項 D 提到 10.0.0.2 可以通往 10.0.0.1 的 443 埠，這意味著 10.0.0.1 系統具有 443 埠這個特徵。符合 (system, has_a, feature) 的 Schema。",
+    "source_id": "question_IPAS-110-TEC-001",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '10.0.0.1' 可以被視為 'system' 的合理實例，受體 '443埠' 可以被視為 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源不完全等價同義詞，受體與 Ldr 中的資源完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源不完全等價同義詞，受體與 Ldr 中的資源完全等價同義詞，但根據判斷準則，若無法確定，預設 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> feature (original: system -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "10.0.0.1",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "443 埠",
+        "type": "feature"
+      },
+      "reasoning": "選項 D 提到 10.0.0.2 可以通往 10.0.0.1 的 443 埠，這意味著 10.0.0.1 系統具有 443 埠這個特徵。符合 (system, has_a, feature) 的 Schema。",
+      "source_id": "question_IPAS-110-TEC-001",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "封包過濾防火牆",
+      "type": "tool",
+      "display_name": "封包過濾防火牆"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "10.0.0.1",
+      "type": "feature",
+      "display_name": "10.0.0.1"
+    },
+    "reasoning": "題幹提到這是關於封包過濾防火牆的規則，防火牆透過規則控制系統間的流量，因此防火牆 (tool) 對於受控系統 (system) 具有 controls 關係。",
+    "source_id": "question_IPAS-110-TEC-001",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '封包過濾防火牆' 是 'tool' 的合理實例，受體名稱 '10.0.0.1' 是 'system' 的合理實例（IP 位址是一種系統的識別符號）。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> controls -> feature (original: tool -> controls -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "封包過濾防火牆",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "10.0.0.1",
+        "type": "system"
+      },
+      "reasoning": "題幹提到這是關於封包過濾防火牆的規則，防火牆透過規則控制系統間的流量，因此防火牆 (tool) 對於受控系統 (system) 具有 controls 關係。",
+      "source_id": "question_IPAS-110-TEC-001",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 6
+    }
+  }
+]

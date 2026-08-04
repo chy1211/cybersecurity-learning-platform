@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "後門",
+      "type": "attack",
+      "display_name": "後門"
+    },
+    "reasoning": "題幹提到攻擊者下載外部後門，意指攻擊者使用後門作為其攻擊工具。符合 Schema Edge: ('attacker', 'uses', 'tool')。",
+    "source_id": "question_IPAS-111-TEC-067",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，後門 (tool) 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "攻擊者",
+        "standard_object": "後門",
+        "reason": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attacker -> uses -> attack (original: attacker -> uses -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "後門",
+        "type": "tool"
+      },
+      "reasoning": "題幹提到攻擊者下載外部後門，意指攻擊者使用後門作為其攻擊工具。符合 Schema Edge: ('attacker', 'uses', 'tool')。",
+      "source_id": "question_IPAS-111-TEC-067",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

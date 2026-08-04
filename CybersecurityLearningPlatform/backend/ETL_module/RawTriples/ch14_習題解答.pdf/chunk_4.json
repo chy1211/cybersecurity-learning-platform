@@ -1,63 +1,108 @@
 [
   {
     "subject": {
-      "name": "IEEE 802.11",
-      "type": "system"
+      "name": "身分認證",
+      "type": "technique"
     },
-    "relation": "has_a",
+    "relation": "is_part_of",
     "object": {
-      "name": "RC4",
-      "type": "tool"
+      "name": "基本網路安全服務",
+      "type": "technique"
     },
-    "reasoning": "文本提到 IEEE 802.11 使用 RC4 做加密，因此 RC4 是該系統所包含的工具。",
+    "reasoning": "文本提到基本網路安全服務包含身分認證。將兩者均視為 technique 以符合 ('technique', 'is_part_of', 'technique') 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "ch14_習題解答.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "IEEE 802.11",
-      "type": "system"
+      "name": "資料保密",
+      "type": "technique"
     },
-    "relation": "has_a",
+    "relation": "is_part_of",
     "object": {
-      "name": "CRC",
-      "type": "tool"
+      "name": "基本網路安全服務",
+      "type": "technique"
     },
-    "reasoning": "文本提到 IEEE 802.11 使用 CRC 做資料完整性檢查，因此 CRC 是該系統所包含的工具。",
+    "reasoning": "文本提到基本網路安全服務包含資料保密。將兩者均視為 technique 以符合 ('technique', 'is_part_of', 'technique') 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "ch14_習題解答.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "RC4",
-      "type": "tool"
+      "name": "資料完整性",
+      "type": "technique"
     },
-    "relation": "has_a",
+    "relation": "is_part_of",
     "object": {
-      "name": "加密",
-      "type": "function"
+      "name": "基本網路安全服務",
+      "type": "technique"
     },
-    "reasoning": "RC4 的目的是執行加密功能，符合 (tool, has_a, function) 的 Schema。",
+    "reasoning": "文本提到基本網路安全服務包含資料完整性。將兩者均視為 technique 以符合 ('technique', 'is_part_of', 'technique') 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "ch14_習題解答.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "CRC",
-      "type": "tool"
+      "name": "分享金鑰認證",
+      "type": "technique"
     },
-    "relation": "has_a",
+    "relation": "is_part_of",
     "object": {
-      "name": "資料完整性檢查",
-      "type": "function"
+      "name": "身分認證",
+      "type": "technique"
     },
-    "reasoning": "CRC 用於執行資料完整性檢查功能，符合 (tool, has_a, function) 的 Schema。",
+    "reasoning": "分享金鑰認證是身分認證的一種模式，符合 ('technique', 'is_part_of', 'technique') 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "ch14_習題解答.pdf",
     "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "WEP",
+      "type": "tool"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料保密",
+      "type": "technique"
+    },
+    "reasoning": "WEP 是用來實作資料保密的工具/協定，符合 ('tool', 'uses', 'technique') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "ch14_習題解答.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "RC4",
+      "type": "tool"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "加密",
+      "type": "technique"
+    },
+    "reasoning": "文本提到使用 RC4 做加密，將加密視為一種技術，符合 ('tool', 'uses', 'technique') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "ch14_習題解答.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "CRC",
+      "type": "tool"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料完整性",
+      "type": "technique"
+    },
+    "reasoning": "文本提到使用 CRC 做資料完整性檢查，符合 ('tool', 'uses', 'technique') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "ch14_習題解答.pdf",
+    "source_index": 7
   },
   {
     "subject": {
@@ -69,10 +114,10 @@
       "name": "竊聽",
       "type": "attack"
     },
-    "reasoning": "文本指出 WEP 的目的是保護使用者免於被竊聽，因此 WEP 緩解了竊聽攻擊。",
+    "reasoning": "WEP 的目的是保護使用者免於被竊聽，符合 ('tool', 'mitigates', 'attack') 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "ch14_習題解答.pdf",
-    "source_index": 5
+    "source_index": 8
   },
   {
     "subject": {
@@ -84,25 +129,40 @@
       "name": "弱點",
       "type": "vulnerability"
     },
-    "reasoning": "文本提到 WEP 存有安全的弱點，將 WEP 視為系統特徵 (feature) 以符合 (feature, can_expose, vulnerability) 的 Schema。",
+    "reasoning": "文本提到 WEP 存有安全弱點。為了符合 Schema ('feature', 'can_expose', 'vulnerability')，將 WEP 視為系統特徵。",
     "source_id": "chunk_4",
     "source_file": "ch14_習題解答.pdf",
-    "source_index": 6
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "WPA",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "破解",
+      "type": "attack"
+    },
+    "reasoning": "WPA 是為了改善 WEP 容易被破解的問題而發展，符合 ('tool', 'mitigates', 'attack') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "ch14_習題解答.pdf",
+    "source_index": 10
   },
   {
     "subject": {
       "name": "工作站",
       "type": "system"
     },
-    "relation": "generates",
+    "relation": "uses",
     "object": {
       "name": "認證資訊",
       "type": "data"
     },
-    "reasoning": "在分享金鑰認證模式中，工作站會送出認證資訊 (Authentication frame)，符合 (system, generates, data) 的 Schema。",
+    "reasoning": "工作站送出認證資訊 (Authentication frame)，符合 ('system', 'uses', 'data') 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "ch14_習題解答.pdf",
-    "source_index": 7
+    "source_index": 11
   },
   {
     "subject": {
@@ -114,10 +174,10 @@
       "name": "IEEE 802.11i",
       "type": "system"
     },
-    "reasoning": "文本提到 WPA 實作了 IEEE 802.11i 標準的大部分，可視為該標準系統的一部分。",
+    "reasoning": "WPA 實作了 IEEE 802.11i 標準的大部分，將其視為該系統規格的一部分，符合 ('tool', 'is_part_of', 'system') 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "ch14_習題解答.pdf",
-    "source_index": 8
+    "source_index": 12
   },
   {
     "subject": {
@@ -129,24 +189,9 @@
       "name": "IEEE 802.11i",
       "type": "system"
     },
-    "reasoning": "文本提到 WPA2 具備了 IEEE 802.11i WLAN 安全規格所有的功能，因此 WPA2 是該系統的實作工具。",
+    "reasoning": "WPA2 具備了 IEEE 802.11i WLAN 安全規格的所有功能，符合 ('tool', 'is_part_of', 'system') 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "ch14_習題解答.pdf",
-    "source_index": 9
-  },
-  {
-    "subject": {
-      "name": "基本網路安全服務",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "身分認證",
-      "type": "feature"
-    },
-    "reasoning": "基本網路安全服務包含身分認證，將其視為系統包含的特徵 (feature) 以符合 Schema。",
-    "source_id": "chunk_4",
-    "source_file": "ch14_習題解答.pdf",
-    "source_index": 10
+    "source_index": 13
   }
 ]

@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵檢測系統 (IDS)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "攻擊特徵碼",
+      "type": "feature",
+      "display_name": "特徵碼"
+    },
+    "reasoning": "本題為否定式提問，選項 A（需定期更新特徵碼）為正確知識。特徵碼是 IDS 用於比對攻擊模式的組成屬性，因此將 IDS 定義為 tool，特徵碼定義為 feature，關係為 has_a，符合 Schema Edge (\"tool\", \"has_a\", \"feature\")。",
+    "source_id": "question_IPAS-111-TEC-046",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "入侵檢測系統 (IDS) 是一種工具 (tool)，特徵碼是特徵 (feature) 的合理實例，符合語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "雖然規則2不適用，但規則8中tool具有主動執行能力，符合規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「入侵偵測系統 (ids)」為完全等價同義詞；受體與 Ldr 中的「攻擊特徵碼」不完全相符，但考慮到資安領域的術語使用習慣，仍可視為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "入侵偵測系統 (ids)",
+        "standard_object": "攻擊特徵碼",
+        "reason": "主體與 Ldr 中的「入侵偵測系統 (ids)」為完全等價同義詞；受體與 Ldr 中的「攻擊特徵碼」在資安領域中可視為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵檢測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "特徵碼",
+        "type": "feature"
+      },
+      "reasoning": "本題為否定式提問，選項 A（需定期更新特徵碼）為正確知識。特徵碼是 IDS 用於比對攻擊模式的組成屬性，因此將 IDS 定義為 tool，特徵碼定義為 feature，關係為 has_a，符合 Schema Edge (\"tool\", \"has_a\", \"feature\")。",
+      "source_id": "question_IPAS-111-TEC-046",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "入侵偵測系統 (ids)",
+      "type": "tool",
+      "display_name": "入侵檢測系統 (IDS)"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "流量特徵",
+      "type": "data",
+      "display_name": "流量特徵"
+    },
+    "reasoning": "本題為否定式提問，選項 D（可完整紀錄流量特徵）為正確知識。IDS 的核心功能是分析網路流量資料以偵測入侵行為，因此將流量特徵定義為 data，關係為 can_analyze，符合 Schema Edge (\"tool\", \"can_analyze\", \"data\")。",
+    "source_id": "question_IPAS-111-TEC-046",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "入侵檢測系統 (IDS) 是工具 (tool) 的合理實例，流量特徵是資料 (data) 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2不適用，因為can_analyze不是mitigates動作。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為principle不是主體或受體。規則5不適用，因為關係不是uses或主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。規則1不適用，因為主體不是attacker或securityTeam。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "入侵偵測系統 (ids)",
+        "standard_object": "",
+        "reason": "根據同義詞對照範例，入侵檢測系統 (IDS) 與 入侵偵測系統 (ids) 是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "入侵檢測系統 (IDS)",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "流量特徵",
+        "type": "data"
+      },
+      "reasoning": "本題為否定式提問，選項 D（可完整紀錄流量特徵）為正確知識。IDS 的核心功能是分析網路流量資料以偵測入侵行為，因此將流量特徵定義為 data，關係為 can_analyze，符合 Schema Edge (\"tool\", \"can_analyze\", \"data\")。",
+      "source_id": "question_IPAS-111-TEC-046",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

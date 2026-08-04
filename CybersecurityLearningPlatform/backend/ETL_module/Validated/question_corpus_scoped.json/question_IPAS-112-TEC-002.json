@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "openvas",
+      "type": "tool",
+      "display_name": "OpenVAS"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "弱點掃描",
+      "type": "technique",
+      "display_name": "弱點掃描"
+    },
+    "reasoning": "根據題幹與正確答案，OpenVAS 是一個弱點掃描工具。在資安知識本體中，OpenVAS 是執行掃描的『工具 (tool)』，而弱點掃描是一種發現漏洞的『技術 (technique)』，因此使用 'uses' 關係。",
+    "source_id": "question_IPAS-112-TEC-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "OpenVAS 是一種工具，使用弱點掃描技術，因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "OpenVAS 使用弱點掃描技術的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體 OpenVAS 的類別是 tool，符合規則2 的允許條件，且關係為 uses 時，主體的類別不是 data，因此不違反規則5。另外，關係為 uses 時，主體的類別是 tool，具有主動執行能力，符合規則8 的允許條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 openvas 完全等價同義詞；受體與 Ldr 中的 漏洞掃描（或 弱點評估）廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的 openvas 完全等價同義詞，但受體與 Ldr 中的 漏洞掃描（或 弱點評估）不完全等價，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OpenVAS",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "弱點掃描",
+        "type": "technique"
+      },
+      "reasoning": "根據題幹與正確答案，OpenVAS 是一個弱點掃描工具。在資安知識本體中，OpenVAS 是執行掃描的『工具 (tool)』，而弱點掃描是一種發現漏洞的『技術 (technique)』，因此使用 'uses' 關係。",
+      "source_id": "question_IPAS-112-TEC-002",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "openvas",
+      "type": "tool",
+      "display_name": "OpenVAS"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "弱點掃描工具的核心功能是分析系統中是否存在弱點。根據 Schema，'tool' 可以 'can_analyze' 'vulnerability'，這符合 OpenVAS 作為弱點掃描器的定義。",
+    "source_id": "question_IPAS-112-TEC-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "OpenVAS 是一種常見的弱點掃描工具，因此其名稱與類別 'tool' 對齊。'弱點' 是資安領域中常見的術語，與類別 'vulnerability' 對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 tool，符合規則3的特例允許，且關係為 can_analyze，受體類別為 vulnerability，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，'弱點'、'漏洞'、'脆弱性' 均指 vulnerability，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OpenVAS",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "弱點掃描工具的核心功能是分析系統中是否存在弱點。根據 Schema，'tool' 可以 'can_analyze' 'vulnerability'，這符合 OpenVAS 作為弱點掃描器的定義。",
+      "source_id": "question_IPAS-112-TEC-002",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "網路層 (network layer)",
+      "type": "feature",
+      "display_name": "網路層"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ipsec 協定",
+      "type": "feature",
+      "display_name": "IPSec 協定"
+    },
+    "reasoning": "根據考題題幹與正確答案，IPSec 協定定義在 OSI 模型的網路層中。在實體分類中，協定屬於 'feature'，而網路層在此脈絡下可視為一個基礎設施組成部分或子系統 'system'，因此採用 ('system', 'has_a', 'feature') 這一合法 Schema Edge 來表示網路層包含 IPSec 協定。",
+    "source_id": "question_IPAS-111-TEC-001",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '網路層' 是 'system' 的合理實例，受體 'IPSec 協定' 是 'feature' 的合理實例，且 'has_a' 關係在語意上合理地描述了 '網路層' 與 'IPSec 協定' 之間的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路層與網路層 (network layer) 是完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "網路層 (network layer)",
+        "standard_object": "",
+        "reason": "網路層與網路層 (network layer) 是同義詞，且網路層 (network layer) 在 Ldr 中出現"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> feature (original: system -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路層",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "IPSec 協定",
+        "type": "feature"
+      },
+      "reasoning": "根據考題題幹與正確答案，IPSec 協定定義在 OSI 模型的網路層中。在實體分類中，協定屬於 'feature'，而網路層在此脈絡下可視為一個基礎設施組成部分或子系統 'system'，因此採用 ('system', 'has_a', 'feature') 這一合法 Schema Edge 來表示網路層包含 IPSec 協定。",
+      "source_id": "question_IPAS-111-TEC-001",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "Firewall"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "網路存取控管",
+      "type": "function",
+      "display_name": "網路層存取控制"
+    },
+    "reasoning": "根據考題，這是一個否定式提問（詢問何者『無法』進行網路層存取控制），正確答案為 DLP。根據處理規則第 4 點，未被選為答案的選項（Firewall）反而是成立的正確知識。因此，Firewall 具備網路層存取控制的能力。Firewall 歸類為 tool，存取控制能力歸類為 function，符合 Schema Edge ('tool', 'has_a', 'function')。",
+    "source_id": "question_IPAS-111-MGT-007",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Firewall 是一種工具（tool），而 '網路層存取控制' 可被視為一種功能（function），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則8",
+        "response": "correct",
+        "reason": "三元組符合規則8所允許的條件，主體Firewall是具有主動執行能力的工具，且關係has_a不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「防火牆」為完全等價同義詞；受體與 Ldr 中的「網路存取控管」為同義詞",
+        "response": "duplicate",
+        "standard_subject": "防火牆",
+        "standard_object": "網路存取控管",
+        "reason": "主體與 Ldr 中的「防火牆」為完全等價同義詞；受體與 Ldr 中的「網路存取控管」為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Firewall",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "網路層存取控制",
+        "type": "function"
+      },
+      "reasoning": "根據考題，這是一個否定式提問（詢問何者『無法』進行網路層存取控制），正確答案為 DLP。根據處理規則第 4 點，未被選為答案的選項（Firewall）反而是成立的正確知識。因此，Firewall 具備網路層存取控制的能力。Firewall 歸類為 tool，存取控制能力歸類為 function，符合 Schema Edge ('tool', 'has_a', 'function')。",
+      "source_id": "question_IPAS-111-MGT-007",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "switch",
+      "type": "tool",
+      "display_name": "Switch"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "網路存取控管",
+      "type": "function",
+      "display_name": "網路層存取控制"
+    },
+    "reasoning": "根據考題，這是一個否定式提問，正確答案為 DLP。因此，未被選為答案的選項（Switch）被視為具備該能力的正確知識。Switch（特別是 L3 Switch）可執行網路層存取控制。Switch 歸類為 tool，存取控制能力歸類為 function，符合 Schema Edge ('tool', 'has_a', 'function')。",
+    "source_id": "question_IPAS-111-MGT-007",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Switch 是一種工具（tool），而 '網路層存取控制' 可以被視為一種功能（function），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源沒有完全相同的名稱；受體與 Ldr 中的「網路存取控管」具有高相似度，且在資安領域中可視為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "網路存取控管",
+        "reason": "受體與 Ldr 中的「網路存取控管」為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Switch",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "網路層存取控制",
+        "type": "function"
+      },
+      "reasoning": "根據考題，這是一個否定式提問，正確答案為 DLP。因此，未被選為答案的選項（Switch）被視為具備該能力的正確知識。Switch（特別是 L3 Switch）可執行網路層存取控制。Switch 歸類為 tool，存取控制能力歸類為 function，符合 Schema Edge ('tool', 'has_a', 'function')。",
+      "source_id": "question_IPAS-111-MGT-007",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

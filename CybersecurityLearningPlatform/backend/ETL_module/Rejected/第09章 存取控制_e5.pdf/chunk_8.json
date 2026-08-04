@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "subject": {
+      "name": "active directory",
+      "type": "tool",
+      "display_name": "Active Directory"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "驗證",
+      "type": "technique",
+      "display_name": "驗證"
+    },
+    "reasoning": "文本指出 AD 的網域服務包含驗證功能。將 AD 視為管理工具 (tool) 以符合其具有功能 (function) 的 Schema 限制。",
+    "source_id": "chunk_8",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Active Directory 是一種工具（tool），驗證是功能（function）的一種，'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Active Directory 與 Ldr 中的資源無直接關聯；受體 驗證 與 Ldr 中的資源 驗證 完全相同，且為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "驗證",
+        "reason": "受體 驗證 與 Ldr 中的資源 驗證 完全相同，且為同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> has_a -> technique (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "Active Directory",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "驗證",
+        "type": "function"
+      },
+      "reasoning": "文本指出 AD 的網域服務包含驗證功能。將 AD 視為管理工具 (tool) 以符合其具有功能 (function) 的 Schema 限制。",
+      "source_id": "chunk_8",
+      "source_file": "第09章 存取控制_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "active directory",
+      "type": "system",
+      "display_name": "Active Directory"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "目錄搜尋",
+      "type": "function",
+      "display_name": "目錄搜尋"
+    },
+    "reasoning": "文本指出 AD 的網域服務包含目錄搜尋功能。",
+    "source_id": "chunk_8",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Active Directory 是一種工具 (tool)，目錄搜尋是功能 (function)，因此語意對齊。接受資安領域常見的同義詞、縮寫與翻譯後，仍然合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Active Directory 與 Ldr 中的 active directory 完全等價同義詞；受體 目錄搜尋 與 Ldr 中的 使用者登入程序 不相關，但主體 Active Directory 與 Ldr 中的 active directory 完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 Active Directory 與 Ldr 中的 active directory 完全等價同義詞，但受體 目錄搜尋 與 Ldr 中的 使用者登入程序 不相關，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> has_a -> function (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "Active Directory",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "目錄搜尋",
+        "type": "function"
+      },
+      "reasoning": "文本指出 AD 的網域服務包含目錄搜尋功能。",
+      "source_id": "chunk_8",
+      "source_file": "第09章 存取控制_e5.pdf",
+      "source_index": 4
+    }
+  }
+]

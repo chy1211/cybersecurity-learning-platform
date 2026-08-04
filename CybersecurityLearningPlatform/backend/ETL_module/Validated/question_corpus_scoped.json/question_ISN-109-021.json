@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "用戶",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "著作權法",
+      "type": "policy",
+      "display_name": "著作權保護規範"
+    },
+    "reasoning": "根據題幹（否定式提問）與選項 B，在網路上發表言論時『不可隨意分享別人的創作』是一項應遵守的事項。這屬於關於版權保護的行為準則，因此定義為 policy (著作權保護規範)，由 user (使用者) 執行，關係為 implements。",
+    "source_id": "question_ISN-109-021",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '使用者' 是 'user' 的合理實例，受體 '著作權保護規範' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「用戶」為同義詞；受體與 Ldr 中的「著作權法」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "用戶",
+        "standard_object": "著作權法",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "著作權保護規範",
+        "type": "policy"
+      },
+      "reasoning": "根據題幹（否定式提問）與選項 B，在網路上發表言論時『不可隨意分享別人的創作』是一項應遵守的事項。這屬於關於版權保護的行為準則，因此定義為 policy (著作權保護規範)，由 user (使用者) 執行，關係為 implements。",
+      "source_id": "question_ISN-109-021",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "隱私保護規範",
+      "type": "policy",
+      "display_name": "隱私保護規範"
+    },
+    "reasoning": "根據題幹（否定式提問）與選項 A，在網路上發表言論時『不可隨意張貼別人的隱私』是一項應遵守的事項。這屬於一種行為準則或政策，因此將其定義為 policy (隱私保護規範)，而執行該規範的主體為 user (使用者)，關係為 implements。",
+    "source_id": "question_ISN-109-021",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例；受體名稱 '隱私保護規範' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「使用者」、「用戶」、「網路使用者」為同義詞；受體與 Ldr 中的「保密措施」無直接關聯，但「隱私保護規範」與「保密措施」在某些情況下可能被視為同義詞，但根據提供的資安領域已知同義詞對照範例中，並無明確指出兩者為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則，受體與 Ldr 中的資源無明確同義詞關聯，且無法確定，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "隱私保護規範",
+        "type": "policy"
+      },
+      "reasoning": "根據題幹（否定式提問）與選項 A，在網路上發表言論時『不可隨意張貼別人的隱私』是一項應遵守的事項。這屬於一種行為準則或政策，因此將其定義為 policy (隱私保護規範)，而執行該規範的主體為 user (使用者)，關係為 implements。",
+      "source_id": "question_ISN-109-021",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

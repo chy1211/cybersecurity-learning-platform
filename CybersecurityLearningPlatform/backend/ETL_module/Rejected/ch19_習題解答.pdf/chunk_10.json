@@ -1,48 +1,50 @@
 [
   {
     "subject": {
-      "name": "稅務趨勢分析系統",
-      "type": "app",
-      "display_name": "稅務趨勢分析系統"
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
     },
-    "relation": "uses",
+    "relation": "deployed_in",
     "object": {
-      "name": "個人基本資料",
-      "type": "data",
-      "display_name": "個人人事資料"
+      "name": "分散式架構",
+      "type": "system",
+      "display_name": "分散式架構"
     },
-    "reasoning": "文本舉例該系統存取個人人事資料，這是一種使用行為，符合 (app, uses, data) 的 Schema。",
+    "reasoning": "文本提到在分散式架構中『遭植入』惡意程式，因此惡意程式（作為工具）被部署於該系統中。",
     "source_id": "chunk_10",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 6,
+    "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "稅務趨勢分析系統可以被視為 'app' 的合理實例，個人人事資料可以被視為 'data' 的合理實例，'uses' 關係在此語境下是合理的。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "惡意程式是工具的合理實例，分散式架構是系統的合理實例。",
         "response": "correct",
-        "reason": "稅務趨勢分析系統使用個人人事資料的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
-      "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發違規，因為主體的類別是app，而關係是uses，且受體的類別是data。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
-        "response": "violation",
-        "reason": "三元組違反規則5，因為主體的類別是app，而關係是uses，且受體的類別是data。"
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
       }
     },
-    "reject_reason": "Step 3 (Semantic Violation): 三元組違反規則5，因為主體的類別是app，而關係是uses，且受體的類別是data。",
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attack -> deployed_in -> system (original: tool -> deployed_in -> system)",
     "original_raw_triple": {
       "subject": {
-        "name": "稅務趨勢分析系統",
-        "type": "app"
+        "name": "惡意程式",
+        "type": "tool"
       },
-      "relation": "uses",
+      "relation": "deployed_in",
       "object": {
-        "name": "個人人事資料",
-        "type": "data"
+        "name": "分散式架構",
+        "type": "system"
       },
-      "reasoning": "文本舉例該系統存取個人人事資料，這是一種使用行為，符合 (app, uses, data) 的 Schema。",
+      "reasoning": "文本提到在分散式架構中『遭植入』惡意程式，因此惡意程式（作為工具）被部署於該系統中。",
       "source_id": "chunk_10",
       "source_file": "ch19_習題解答.pdf",
-      "source_index": 6
+      "source_index": 3
     }
   }
 ]

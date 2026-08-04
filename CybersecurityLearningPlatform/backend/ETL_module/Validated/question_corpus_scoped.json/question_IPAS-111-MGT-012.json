@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "主管機關",
+      "type": "securityTeam",
+      "display_name": "主管機關"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "審核",
+      "type": "function",
+      "display_name": "審核"
+    },
+    "reasoning": "題幹提到主管機關需完成「審核」動作，審核在此為一種資安管理功能（function），由主管機關（securityTeam）執行。",
+    "source_id": "question_IPAS-111-MGT-012",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主管機關是安全團隊的合理實例，審核是功能的合理實例。",
+        "response": "correct",
+        "reason": "主體、關係、受體皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主管機關與部門權責主管之間存在廣義/狹義從屬關係，但無法確認完全等價同義詞；審核與憑證查核之間存在廣義/狹義從屬關係，但無法確認完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認完全等價同義詞，且存在廣義/狹義從屬關係，依據判斷準則預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "主管機關",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "審核",
+        "type": "function"
+      },
+      "reasoning": "題幹提到主管機關需完成「審核」動作，審核在此為一種資安管理功能（function），由主管機關（securityTeam）執行。",
+      "source_id": "question_IPAS-111-MGT-012",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "主管機關",
+      "type": "securityTeam",
+      "display_name": "主管機關"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資通安全事件通報及應變辦法",
+      "type": "policy",
+      "display_name": "資通安全事件通報及應變辦法"
+    },
+    "reasoning": "根據題幹，主管機關需依據「資通安全事件通報及應變辦法」執行作業，因此主管機關（securityTeam）實作/執行該規範（policy）。",
+    "source_id": "question_IPAS-111-MGT-012",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主管機關是安全團隊的合理實例，資通安全事件通報及應變辦法是政策的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因主體類別為securityTeam；規則8不適用，因關係為implements；無其他相關規則。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合語義限制清單中沒有被禁止的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主管機關與部門權責主管雖然相似，但無法確認完全等價，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "主管機關",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資通安全事件通報及應變辦法",
+        "type": "policy"
+      },
+      "reasoning": "根據題幹，主管機關需依據「資通安全事件通報及應變辦法」執行作業，因此主管機關（securityTeam）實作/執行該規範（policy）。",
+      "source_id": "question_IPAS-111-MGT-012",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資通安全事件通報及應變辦法",
+      "type": "policy",
+      "display_name": "資通安全事件通報及應變辦法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "3 級或 4 級事件",
+      "type": "attack",
+      "display_name": "3 級或 4 級事件"
+    },
+    "reasoning": "該辦法（policy）旨在規範事件通報與應變流程，以緩解或處理資通安全事件（attack）帶來的影響。",
+    "source_id": "question_IPAS-111-MGT-012",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資通安全事件通報及應變辦法 是 'policy' 的合理實例；3 級或 4 級事件 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源名稱完全相同，受體與 Ldr 中的資源名稱完全相同，但主體與受體之間沒有同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源名稱完全相同，受體與 Ldr 中的資源名稱完全相同，但主體與受體之間沒有同義詞關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資通安全事件通報及應變辦法",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "3 級或 4 級事件",
+        "type": "attack"
+      },
+      "reasoning": "該辦法（policy）旨在規範事件通報與應變流程，以緩解或處理資通安全事件（attack）帶來的影響。",
+      "source_id": "question_IPAS-111-MGT-012",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "部門權責主管",
+      "type": "securityTeam",
+      "display_name": "主管機關"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "3 級或 4 級事件",
+      "type": "attack",
+      "display_name": "3 級或 4 級事件"
+    },
+    "reasoning": "主管機關對接獲通報的 3 級或 4 級事件（attack）進行審核，審核在本質上是對攻擊事件的分析，符合 securityTeam can_analyze attack 的 Schema。",
+    "source_id": "question_IPAS-111-MGT-012",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'attack' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主管機關是安全團隊的合理實例，3 級或 4 級事件是攻擊事件的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主管機關與部門權責主管之間存在同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "部門權責主管",
+        "standard_object": "",
+        "reason": "根據同義詞對照範例，主管機關與部門權責主管可視為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "主管機關",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "3 級或 4 級事件",
+        "type": "attack"
+      },
+      "reasoning": "主管機關對接獲通報的 3 級或 4 級事件（attack）進行審核，審核在本質上是對攻擊事件的分析，符合 securityTeam can_analyze attack 的 Schema。",
+      "source_id": "question_IPAS-111-MGT-012",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

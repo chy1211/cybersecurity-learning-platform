@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "osi 模型 (osi model)",
+      "type": "system",
+      "display_name": "OSI 模型 (OSI Model)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "網路層 (network layer)",
+      "type": "feature",
+      "display_name": "網路層 (Network Layer)"
+    },
+    "reasoning": "根據題幹與選項，網路層是 OSI 模型中的一個層級。在本體論中，OSI 模型屬於基礎設施框架 (system)，而網路層屬於其組成部分 (feature)，因此使用 has_a 關係。",
+    "source_id": "question_IPAS-108-TEC-007",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "OSI 模型 (OSI Model) 是一個系統 (system)，而網路層 (Network Layer) 是 OSI 模型的一個特徵 (feature)，因此語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路層是 OSI 模型中的其中一層，兩者之間存在著從屬關係，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "OSI 模型與網路層之間存在著廣義/狹義從屬關係，應予以保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OSI 模型 (OSI Model)",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "網路層 (Network Layer)",
+        "type": "feature"
+      },
+      "reasoning": "根據題幹與選項，網路層是 OSI 模型中的一個層級。在本體論中，OSI 模型屬於基礎設施框架 (system)，而網路層屬於其組成部分 (feature)，因此使用 has_a 關係。",
+      "source_id": "question_IPAS-108-TEC-007",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "死亡之 ping (ping of death, pod)",
+      "type": "attack",
+      "display_name": "死亡之 Ping (Ping of Death, PoD)"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "osi 模型 (osi model)",
+      "type": "system",
+      "display_name": "OSI 模型 (OSI Model)"
+    },
+    "reasoning": "題幹指出死亡之 Ping 是一種針對網路層的攻擊。由於 Schema 規定 attack 類型只能對 system, app 或 data 產生 can_harm 關係，而不能直接對 feature (網路層) 產生關係，因此將攻擊目標指向該層級所屬的整體系統 (OSI 模型)。",
+    "source_id": "question_IPAS-108-TEC-007",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "死亡之 Ping (Ping of Death, PoD) 是一種攻擊手法，屬於 'attack' 類別；OSI 模型是一種系統模型，屬於 'system' 類別。語意對齊合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是attacker或securityTeam。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "死亡之 Ping (Ping of Death, PoD) 與 OSI 模型 (OSI Model) 不存在同義詞關係或從屬關係，且不在禁止合併的範圍內。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "死亡之 Ping (Ping of Death, PoD)",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "OSI 模型 (OSI Model)",
+        "type": "system"
+      },
+      "reasoning": "題幹指出死亡之 Ping 是一種針對網路層的攻擊。由於 Schema 規定 attack 類型只能對 system, app 或 data 產生 can_harm 關係，而不能直接對 feature (網路層) 產生關係，因此將攻擊目標指向該層級所屬的整體系統 (OSI 模型)。",
+      "source_id": "question_IPAS-108-TEC-007",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

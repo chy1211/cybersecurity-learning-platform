@@ -1,1 +1,146 @@
-[]
+[
+  {
+    "subject": {
+      "name": "s/mime",
+      "type": "tool",
+      "display_name": "S/MIME"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "數位簽章",
+      "type": "data",
+      "display_name": "數位簽章"
+    },
+    "reasoning": "S/MIME 提供電子郵件數位簽章功能。S/MIME 作為工具 (tool)，數位簽章為其執行的功能 (function)，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "S/MIME 是一種工具（tool），具有數位簽章（function）功能，語意對齊合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> has_a -> data (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "S/MIME",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "數位簽章",
+        "type": "function"
+      },
+      "reasoning": "S/MIME 提供電子郵件數位簽章功能。S/MIME 作為工具 (tool)，數位簽章為其執行的功能 (function)，符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "s/mime",
+      "type": "tool",
+      "display_name": "S/MIME"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "數位信封",
+      "type": "tool",
+      "display_name": "數位信封"
+    },
+    "reasoning": "文本提到 S/MIME 使用數位信封格式進行封裝。數位信封是一種加密封裝的方法/技術 (technique)，符合 ('tool', 'uses', 'technique') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "S/MIME 是一種工具（tool），使用數位信封（technique）是一種合理的語意對齊，符合資安領域的常見用法。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體為不同實體，無直接關聯",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認主體與受體之間的同義詞關係或從屬關係，依據第四判斷準則預設保留。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> uses -> tool (original: tool -> uses -> technique)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "S/MIME",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "數位信封",
+        "type": "technique"
+      },
+      "reasoning": "文本提到 S/MIME 使用數位信封格式進行封裝。數位信封是一種加密封裝的方法/技術 (technique)，符合 ('tool', 'uses', 'technique') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "電子郵件軟體",
+      "type": "app",
+      "display_name": "電子郵件軟體"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "數位憑證",
+      "type": "tool",
+      "display_name": "數位憑證"
+    },
+    "reasoning": "文本提到使用加密與簽章功能前需要先安裝數位憑證。數位憑證屬於認證資訊 (data)，由應用程式 (app) 使用，符合 ('app', 'uses', 'data') 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "電子郵件軟體是 'app' 的合理實例，數位憑證是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "電子郵件軟體使用數位憑證的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的電子郵件軟體完全等價同義詞；受體與 Ldr 中的數位憑證完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，但無法合併為同義詞。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): app -> uses -> tool (original: app -> uses -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子郵件軟體",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "數位憑證",
+        "type": "data"
+      },
+      "reasoning": "文本提到使用加密與簽章功能前需要先安裝數位憑證。數位憑證屬於認證資訊 (data)，由應用程式 (app) 使用，符合 ('app', 'uses', 'data') 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

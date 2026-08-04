@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "不安全程式碼",
+      "type": "feature",
+      "display_name": "不安全程式碼"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "注入(injection)",
+      "type": "vulnerability",
+      "display_name": "注入(Injection)"
+    },
+    "reasoning": "本題為否定式提問，正確答案 D (網路釣魚) 是不正確的選項，因此選項 A、B、C 為正確知識。'不安全程式碼'可視為系統的一個特徵 (feature)，而 '注入' 在資安脈絡中既是攻擊也是漏洞 (vulnerability)。根據 Schema，('feature', 'can_expose', 'vulnerability') 是合法的關聯。",
+    "source_id": "question_IPAS-108-TEC-025",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '不安全程式碼' 是 'feature' 的合理實例，受體 '注入(Injection)' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 feature，受體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中無直接對應關係；受體與 Ldr 中無直接對應關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，無法進行同義詞判定或廣義/狹義一律保留，依據前提確認原則判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "不安全程式碼",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "注入(Injection)",
+        "type": "vulnerability"
+      },
+      "reasoning": "本題為否定式提問，正確答案 D (網路釣魚) 是不正確的選項，因此選項 A、B、C 為正確知識。'不安全程式碼'可視為系統的一個特徵 (feature)，而 '注入' 在資安脈絡中既是攻擊也是漏洞 (vulnerability)。根據 Schema，('feature', 'can_expose', 'vulnerability') 是合法的關聯。",
+      "source_id": "question_IPAS-108-TEC-025",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "不安全程式碼",
+      "type": "feature",
+      "display_name": "不安全程式碼"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "跨站指令碼(xss)",
+      "type": "vulnerability",
+      "display_name": "跨站指令碼(XSS)"
+    },
+    "reasoning": "本題為否定式提問，選項 B 為正確知識。'不安全程式碼' (feature) 會導致 '跨站指令碼(XSS)' 漏洞 (vulnerability) 的暴露，符合 Schema 中的 ('feature', 'can_expose', 'vulnerability')。",
+    "source_id": "question_IPAS-108-TEC-025",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '不安全程式碼' 是 'feature' 的合理實例，受體 '跨站指令碼(XSS)' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 feature，受體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源不完全相同，但受體與 Ldr 中的資源有相似之處",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源不完全相同，且無法確定為同義詞或子類型關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "不安全程式碼",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "跨站指令碼(XSS)",
+        "type": "vulnerability"
+      },
+      "reasoning": "本題為否定式提問，選項 B 為正確知識。'不安全程式碼' (feature) 會導致 '跨站指令碼(XSS)' 漏洞 (vulnerability) 的暴露，符合 Schema 中的 ('feature', 'can_expose', 'vulnerability')。",
+      "source_id": "question_IPAS-108-TEC-025",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

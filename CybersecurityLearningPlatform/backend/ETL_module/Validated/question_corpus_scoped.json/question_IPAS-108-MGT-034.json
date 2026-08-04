@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "aes(advanced encryption standard)",
+      "type": "tool",
+      "display_name": "AES(Advanced Encryption Standard)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "加密及解密"
+    },
+    "reasoning": "根據考題的否定式提問（何者『不』可用於加密及解密），正確答案 MD5 是被排除的選項，因此選項 A (AES) 是成立的正確知識。AES 是一種加密演算法（工具），其具備加密與解密的功能，符合 Schema 中 ('tool', 'has_a', 'function') 的定義。",
+    "source_id": "question_IPAS-108-MGT-034",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "AES 這個工具的名稱與其類別 'tool' 合理對齊，'加密及解密' 這個功能的名稱與其類別 'function' 合理對齊。",
+        "response": "correct",
+        "reason": "AES 這個工具具有 '加密及解密' 這個功能，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體 AES(Advanced Encryption Standard) 是 tool 類別，具有主動執行能力，且關係 has_a 不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "加密",
+        "reason": "根據資安領域已知同義詞對照範例，加密及解密與加密為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "AES(Advanced Encryption Standard)",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密及解密",
+        "type": "function"
+      },
+      "reasoning": "根據考題的否定式提問（何者『不』可用於加密及解密），正確答案 MD5 是被排除的選項，因此選項 A (AES) 是成立的正確知識。AES 是一種加密演算法（工具），其具備加密與解密的功能，符合 Schema 中 ('tool', 'has_a', 'function') 的定義。",
+      "source_id": "question_IPAS-108-MGT-034",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "des(data encryption standard)",
+      "type": "tool",
+      "display_name": "DES(Data Encryption Standard)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密及解密",
+      "type": "function",
+      "display_name": "加密及解密"
+    },
+    "reasoning": "根據考題的否定式提問，選項 B (DES) 是成立的正確知識。DES 是一種加密演算法（工具），其具備加密與解密的功能，符合 Schema 中 ('tool', 'has_a', 'function') 的定義。",
+    "source_id": "question_IPAS-108-MGT-034",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "DES(Data Encryption Standard) 是一種加密工具，具有加密及解密功能，符合語意對齊原則。",
+        "response": "correct",
+        "reason": "DES(Data Encryption Standard) 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體 DES(Data Encryption Standard) 是 tool 類別，具有主動執行能力，符合規則2和規則8的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 DES(Data Encryption Standard) 與 Ldr 中的 aes(advanced encryption standard) 皆為加密工具，但非完全等價同義詞；受體 加密及解密 與 Ldr 中的 加密 關係密切，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆無完全等價同義詞，且非廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DES(Data Encryption Standard)",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密及解密",
+        "type": "function"
+      },
+      "reasoning": "根據考題的否定式提問，選項 B (DES) 是成立的正確知識。DES 是一種加密演算法（工具），其具備加密與解密的功能，符合 Schema 中 ('tool', 'has_a', 'function') 的定義。",
+      "source_id": "question_IPAS-108-MGT-034",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa(rivest–shamir–adleman)",
+      "type": "tool",
+      "display_name": "RSA(Rivest–Shamir–Adleman)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密及解密",
+      "type": "function",
+      "display_name": "加密及解密"
+    },
+    "reasoning": "根據考題的否定式提問，選項 C (RSA) 是成立的正確知識。RSA 是一種非對稱加密演算法（工具），其具備加密與解密的功能，符合 Schema 中 ('tool', 'has_a', 'function') 的定義。",
+    "source_id": "question_IPAS-108-MGT-034",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "RSA(Rivest–Shamir–Adleman) 是一種加密演算法工具，合理對應 'tool' 類別；'加密及解密' 是一種功能，合理對應 'function' 類別。",
+        "response": "correct",
+        "reason": "RSA(Rivest–Shamir–Adleman) 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體 RSA(Rivest–Shamir–Adleman) 屬於 tool 類別，且關係 has_a 不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 RSA(Rivest–Shamir–Adleman) 與 Ldr 中的資源沒有完全相同的名稱，但受體「加密及解密」與 Ldr 中的「加密」相關，且「加密」是「加密及解密」的子集。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "受體「加密及解密」與 Ldr 中的「加密」相關，但前者是後者的廣義概念，因此不合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA(Rivest–Shamir–Adleman)",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密及解密",
+        "type": "function"
+      },
+      "reasoning": "根據考題的否定式提問，選項 C (RSA) 是成立的正確知識。RSA 是一種非對稱加密演算法（工具），其具備加密與解密的功能，符合 Schema 中 ('tool', 'has_a', 'function') 的定義。",
+      "source_id": "question_IPAS-108-MGT-034",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

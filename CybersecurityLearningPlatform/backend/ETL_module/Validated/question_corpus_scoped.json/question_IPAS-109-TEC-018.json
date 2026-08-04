@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "wannacry 勒索病毒",
+      "type": "attack",
+      "display_name": "WannaCry 勒索病毒"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "檔案",
+      "type": "data",
+      "display_name": "檔案"
+    },
+    "reasoning": "文本明確提到 WannaCry 勒索病毒會將電腦之檔案進行加密，加密檔案導致其無法正常使用，屬於攻擊對資料造成損害，符合 Schema 中的 ('attack', 'can_harm', 'data')。",
+    "source_id": "question_IPAS-109-TEC-018",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "WannaCry 勒索病毒 是 'attack' 的合理實例，檔案 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "受體檔案與 Ldr 中的檔案完全相同，無需進一步判斷。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "WannaCry 勒索病毒",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "檔案",
+        "type": "data"
+      },
+      "reasoning": "文本明確提到 WannaCry 勒索病毒會將電腦之檔案進行加密，加密檔案導致其無法正常使用，屬於攻擊對資料造成損害，符合 Schema 中的 ('attack', 'can_harm', 'data')。",
+      "source_id": "question_IPAS-109-TEC-018",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "microsoft windows",
+      "type": "system",
+      "display_name": "微軟系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "伺服器訊息區塊(smb)漏洞",
+      "type": "vulnerability",
+      "display_name": "伺服器訊息區塊(SMB)漏洞"
+    },
+    "reasoning": "題幹詢問該病毒利用微軟的何種漏洞，且正確答案為 SMB 漏洞，這表示微軟的系統中存在並暴露了此漏洞，符合 Schema 中的 ('system', 'can_expose', 'vulnerability')。",
+    "source_id": "question_IPAS-109-TEC-018",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "微軟系統是系統的合理實例，伺服器訊息區塊(SMB)漏洞是漏洞的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 system，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「microsoft windows」為同義詞",
+        "response": "duplicate",
+        "standard_subject": "microsoft windows",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「microsoft windows」為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "微軟系統",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "伺服器訊息區塊(SMB)漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "題幹詢問該病毒利用微軟的何種漏洞，且正確答案為 SMB 漏洞，這表示微軟的系統中存在並暴露了此漏洞，符合 Schema 中的 ('system', 'can_expose', 'vulnerability')。",
+      "source_id": "question_IPAS-109-TEC-018",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

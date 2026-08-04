@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "未留意程式安全",
+      "type": "vulnerability",
+      "display_name": "未留意程式安全"
+    },
+    "reasoning": "題幹提到『開發過程中,未留意程式安全造成的問題』，這意味著在開發應用程式 (app) 的過程中，若缺乏安全意識，會導致系統暴露於漏洞 (vulnerability) 之中。符合 Schema Edge: ('app', 'can_expose', 'vulnerability')。",
+    "source_id": "question_IPAS-111-TEC-075",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '應用程式' 是 'app' 的合理實例；關係 'can_expose' 合理地連接 '應用程式' 與 '未留意程式安全'；受體 '未留意程式安全' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，但關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「應用程式」完全等價同義詞；受體與 Ldr 中的「程式安全漏洞」具有高度相似性，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「應用程式」完全等價同義詞，但受體與 Ldr 中的「程式安全漏洞」非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "未留意程式安全",
+        "type": "vulnerability"
+      },
+      "reasoning": "題幹提到『開發過程中,未留意程式安全造成的問題』，這意味著在開發應用程式 (app) 的過程中，若缺乏安全意識，會導致系統暴露於漏洞 (vulnerability) 之中。符合 Schema Edge: ('app', 'can_expose', 'vulnerability')。",
+      "source_id": "question_IPAS-111-TEC-075",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "程式安全漏洞",
+      "type": "vulnerability",
+      "display_name": "未留意程式安全"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "跨站請求偽造",
+      "type": "risk",
+      "display_name": "跨站請求偽造"
+    },
+    "reasoning": "根據否定式提問規則，選項 D 是正確知識。CSRF 攻擊是因未留意程式安全而產生的負面事件。為了符合 Schema Edge ('vulnerability', 'can_expose', 'risk')，將其類型設定為 risk。",
+    "source_id": "question_IPAS-111-TEC-075",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '未留意程式安全' 是 'vulnerability' 的合理實例；受體名稱 '跨站請求偽造' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「程式安全漏洞」為同義詞",
+        "response": "duplicate",
+        "standard_subject": "程式安全漏洞",
+        "standard_object": "",
+        "reason": "根據資安領域已知同義詞對照範例，「未留意程式安全」與「程式安全漏洞」均指漏洞或弱點，屬於同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "未留意程式安全",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "跨站請求偽造",
+        "type": "risk"
+      },
+      "reasoning": "根據否定式提問規則，選項 D 是正確知識。CSRF 攻擊是因未留意程式安全而產生的負面事件。為了符合 Schema Edge ('vulnerability', 'can_expose', 'risk')，將其類型設定為 risk。",
+      "source_id": "question_IPAS-111-TEC-075",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

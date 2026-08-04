@@ -1,1 +1,146 @@
-[]
+[
+  {
+    "subject": {
+      "name": "radius 伺服器",
+      "type": "system",
+      "display_name": "RADIUS 伺服器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "authorization (授權)",
+      "type": "function",
+      "display_name": "授權"
+    },
+    "reasoning": "文本提到認證通過後，RADIUS 會授權使用者登入網域，因此其具有授權功能。",
+    "source_id": "chunk_7",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "RADIUS 伺服器是工具（tool）的合理實例，授權是功能（function）的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「radius 伺服器」完全等價同義詞；受體與 Ldr 中的「authorization (授權)」完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "radius 伺服器",
+        "standard_object": "authorization (授權)",
+        "reason": "主體與 Ldr 中的「radius 伺服器」完全等價同義詞；受體與 Ldr 中的「authorization (授權)」完全等價同義詞。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> has_a -> function (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "RADIUS 伺服器",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "授權",
+        "type": "function"
+      },
+      "reasoning": "文本提到認證通過後，RADIUS 會授權使用者登入網域，因此其具有授權功能。",
+      "source_id": "chunk_7",
+      "source_file": "第09章 存取控制_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "radius 伺服器",
+      "type": "system",
+      "display_name": "RADIUS 伺服器"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "網路資源",
+      "type": "system",
+      "display_name": "網路資源"
+    },
+    "reasoning": "文本明確指出 RADIUS 是透過遠端認證服務來『控制網路資源之存取』。",
+    "source_id": "chunk_7",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "RADIUS 伺服器 是 'tool' 的合理實例，網路資源 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 RADIUS 伺服器 與 Ldr 中的 radius 伺服器 完全等價同義詞；受體 網路資源 與 Ldr 中的 網域資源、網路、網際網路、物聯網、物聯網網路 均不完全等價，但網域資源較為接近",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 RADIUS 伺服器 與 Ldr 中的 radius 伺服器 完全等價同義詞，但受體 網路資源 與 Ldr 中的資源均不完全等價，故判定為 correct"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> controls -> system (original: tool -> controls -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "RADIUS 伺服器",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "網路資源",
+        "type": "system"
+      },
+      "reasoning": "文本明確指出 RADIUS 是透過遠端認證服務來『控制網路資源之存取』。",
+      "source_id": "chunk_7",
+      "source_file": "第09章 存取控制_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "管理小組",
+      "type": "securityTeam",
+      "display_name": "管理小組"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "分散式存取控制",
+      "type": "system",
+      "display_name": "分散式存取控制"
+    },
+    "reasoning": "文本提到分散式存取控制需要多個管理小組來執行管理，因此管理小組使用了此種存取控制技術。",
+    "source_id": "chunk_7",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '管理小組' 是 'securityTeam' 的合理實例，受體 '分散式存取控制' 是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 '管理小組' 與 Ldr 中的 '管理人員'、'管理階層'、'資安管理團隊' 之間雖然存在相似性，但無法確認完全等價同義詞關係，因此預設保留原名。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): securityTeam -> uses -> system (original: securityTeam -> uses -> technique)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理小組",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "分散式存取控制",
+        "type": "technique"
+      },
+      "reasoning": "文本提到分散式存取控制需要多個管理小組來執行管理，因此管理小組使用了此種存取控制技術。",
+      "source_id": "chunk_7",
+      "source_file": "第09章 存取控制_e5.pdf",
+      "source_index": 10
+    }
+  }
+]

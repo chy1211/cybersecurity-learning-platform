@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "組織",
+      "type": "system",
+      "display_name": "組織"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "政策",
+      "type": "policy",
+      "display_name": "政策"
+    },
+    "reasoning": "根據正確答案 A，組織應制定政策來規範紀錄格式。在本體論中，負責管理資安的組織可歸類為 securityTeam，而制定並執行規範則對應於 implements 關係與 policy 實體。",
+    "source_id": "question_IPAS-110-MGT-044",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體名稱 '組織' 可被視為 'securityTeam' 的合理實例，實體名稱 '政策' 可被視為 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「組織」完全等價同義詞；受體與 Ldr 中的「政策」相關但不完全等價同義詞，受體「政策」是 Ldr 中「聘僱政策」、「離職處理政策」、「資訊安全政策」、「安全政策」、「安全管理政策」、「環境隔離政策」等的廣義概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「組織」完全等價同義詞，但受體「政策」是 Ldr 中多個政策的廣義概念，依據判斷準則 3，判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> implements -> policy (original: securityTeam -> implements -> policy)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "組織",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "政策",
+        "type": "policy"
+      },
+      "reasoning": "根據正確答案 A，組織應制定政策來規範紀錄格式。在本體論中，負責管理資安的組織可歸類為 securityTeam，而制定並執行規範則對應於 implements 關係與 policy 實體。",
+      "source_id": "question_IPAS-110-MGT-044",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

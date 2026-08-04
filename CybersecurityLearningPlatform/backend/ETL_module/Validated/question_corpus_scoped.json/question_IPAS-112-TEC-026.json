@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "軟體品保工程師",
+      "type": "securityTeam",
+      "display_name": "軟體品保工程師"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "整合測試",
+      "type": "technique",
+      "display_name": "整合測試"
+    },
+    "reasoning": "根據選項 A，整合測試可以由軟體品保工程師進行。在資安與品質保證脈絡下，品保工程師屬於防禦/分析角色 (securityTeam)，而整合測試是一種測試方法 (technique)，符合 ('securityTeam', 'uses', 'technique') 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "軟體品保工程師是安全團隊的合理實例，整合測試是測試技術的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是攻擊者；規則2不適用，因為關係不是mitigates；規則3不適用，因為主體不是漏洞；規則4不適用，因為受體不是資安原則；規則5不適用，因為主體不是data；規則6不適用，因為關係不是deployed_in；規則7不適用，因為關係不是generates；規則8不適用，因為關係不是controls；",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認整合測試與其他資源之間的同義詞關係，故預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "軟體品保工程師",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "整合測試",
+        "type": "technique"
+      },
+      "reasoning": "根據選項 A，整合測試可以由軟體品保工程師進行。在資安與品質保證脈絡下，品保工程師屬於防禦/分析角色 (securityTeam)，而整合測試是一種測試方法 (technique)，符合 ('securityTeam', 'uses', 'technique') 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "基本路徑測試",
+      "type": "technique",
+      "display_name": "基本路徑測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "程式內部架構",
+      "type": "system",
+      "display_name": "程式內部架構"
+    },
+    "reasoning": "根據選項 B，基本路徑測試是根據程式設計的內部架構來產生測試資料，這意味著該技術需要分析系統的內部結構。因此選擇 ('technique', 'can_analyze', 'system')。",
+    "source_id": "question_IPAS-112-TEC-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '基本路徑測試' 是 'technique' 的合理實例；受體名稱 '程式內部架構' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 system，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間沒有直接關係，受體與 Ldr 中的資源之間沒有直接關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與 Ldr 中的資源之間的關係，無法確定受體與 Ldr 中的資源之間的關係，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "基本路徑測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "程式內部架構",
+        "type": "system"
+      },
+      "reasoning": "根據選項 B，基本路徑測試是根據程式設計的內部架構來產生測試資料，這意味著該技術需要分析系統的內部結構。因此選擇 ('technique', 'can_analyze', 'system')。",
+      "source_id": "question_IPAS-112-TEC-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "功能測試",
+      "type": "technique",
+      "display_name": "功能測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "根據選項 D，功能測試是用於測試系統是否符合預期功能需求，這是一種對系統行為的分析過程，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "功能測試 (technique) 可以分析系統 (system)，這是合理的實例關係。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 system，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "功能測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "根據選項 D，功能測試是用於測試系統是否符合預期功能需求，這是一種對系統行為的分析過程，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

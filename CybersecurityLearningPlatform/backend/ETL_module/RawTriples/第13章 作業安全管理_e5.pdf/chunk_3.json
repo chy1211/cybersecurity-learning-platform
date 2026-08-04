@@ -1,36 +1,6 @@
 [
   {
     "subject": {
-      "name": "備份與還原",
-      "type": "technique"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "回復型控制",
-      "type": "technique"
-    },
-    "reasoning": "文本明確將『備份與還原』列為『回復型控制』的範例，兩者均為恢復系統狀態的方法，故定義為 technique 且使用 is_part_of 關係。",
-    "source_id": "chunk_3",
-    "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "系統重新開機",
-      "type": "technique"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "回復型控制",
-      "type": "technique"
-    },
-    "reasoning": "文本將『系統重新開機』列為『回復型控制』的手段，故定義為 technique 且使用 is_part_of 關係。",
-    "source_id": "chunk_3",
-    "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 2
-  },
-  {
-    "subject": {
       "name": "Windows",
       "type": "system"
     },
@@ -39,10 +9,10 @@
       "name": "備份與還原",
       "type": "tool"
     },
-    "reasoning": "文本提到 Windows 作業系統中提供『備份與還原』的操作選項，此處將其視為系統內建的工具 (tool)。",
+    "reasoning": "文本提到 Windows 作業系統提供『備份與還原』選項，將 Windows 視為系統 (system)，備份與還原功能視為其內建的工具 (tool)。符合 Schema: (system, has_a, tool)。",
     "source_id": "chunk_3",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 3
+    "source_index": 1
   },
   {
     "subject": {
@@ -51,13 +21,28 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "系統及安全性",
+      "name": "控制台",
       "type": "feature"
     },
-    "reasoning": "『系統及安全性』是 Windows 控制台中的一個功能模組/屬性，符合 feature 的定義。",
+    "reasoning": "文本描述透過『控制台』進行操作，控制台是 Windows 系統的一個組成部分/屬性，因此定義為特徵 (feature)。符合 Schema: (system, has_a, feature)。",
     "source_id": "chunk_3",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 4
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "機房管理辦法",
+      "type": "policy"
+    },
+    "reasoning": "文本提到機房管理辦法需要包含各項要點並指定管理者，隱含由資安管理團隊 (securityTeam) 執行此規範 (policy)。符合 Schema: (securityTeam, implements, policy)。",
+    "source_id": "chunk_3",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 3
   },
   {
     "subject": {
@@ -69,10 +54,10 @@
       "name": "設備故障",
       "type": "risk"
     },
-    "reasoning": "機房管理辦法中包含設備維護與故障處理程序，旨在降低或緩解設備故障帶來的風險。",
+    "reasoning": "機房管理辦法包含設備維護與故障處理，旨在降低設備故障帶來的風險。符合 Schema: (policy, mitigates, risk)。",
     "source_id": "chunk_3",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 5
+    "source_index": 4
   },
   {
     "subject": {
@@ -84,7 +69,22 @@
       "name": "硬體設備",
       "type": "system"
     },
-    "reasoning": "資產管理功能需要對硬體設備進行清點與評估，這是一種分析系統實體的行為。",
+    "reasoning": "文本提到資產管理需要對硬體設備進行清點與評估，這是一種分析系統狀態的功能 (function)。符合 Schema: (function, can_analyze, system)。",
+    "source_id": "chunk_3",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "人員與設備進出規範",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權進入",
+      "type": "attack"
+    },
+    "reasoning": "進出規範（如簽核、門禁）是用來防止未經授權的人員進入機房（視為一種物理攻擊/入侵行為）。符合 Schema: (policy, mitigates, attack)。",
     "source_id": "chunk_3",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 6
@@ -99,39 +99,54 @@
       "name": "機房",
       "type": "system"
     },
-    "reasoning": "煙霧感應器是部署在機房（基礎設施系統）中的硬體工具。",
+    "reasoning": "煙霧感應器是附屬設備（工具 tool），被部署在機房（基礎設施 system）中。符合 Schema: (tool, deployed_in, system)。",
     "source_id": "chunk_3",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 7
   },
   {
     "subject": {
-      "name": "緊急處理程序",
+      "name": "資料備援與回復作業",
       "type": "technique"
     },
-    "relation": "can_analyze",
+    "relation": "mitigates",
     "object": {
-      "name": "系統",
-      "type": "system"
+      "name": "系統無法正常操作",
+      "type": "attack"
     },
-    "reasoning": "緊急處理程序用於在系統發生重大故障時進行處理與分析，以恢復正常作業。",
+    "reasoning": "備援與回復是一種技術 (technique)，用於緩解系統失效或被攻擊導致無法操作的狀態（在此將系統失效對應至 attack/incident 類別以符合 Schema）。符合 Schema: (technique, mitigates, attack)。",
     "source_id": "chunk_3",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 8
   },
   {
     "subject": {
-      "name": "資料備援與回復作業",
+      "name": "緊急處理程序",
       "type": "technique"
     },
-    "relation": "can_analyze",
+    "relation": "mitigates",
     "object": {
-      "name": "記錄檔資訊",
-      "type": "data"
+      "name": "重大故障",
+      "type": "attack"
     },
-    "reasoning": "備援與回復作業涉及對資料（如備份檔、記錄檔）的處理與分析以確保可恢復性。",
+    "reasoning": "緊急處理程序是一種應對技術 (technique)，用以緩解重大故障造成的影響。符合 Schema: (technique, mitigates, attack)。",
     "source_id": "chunk_3",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "Windows",
+      "type": "system"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "備份檔案",
+      "type": "data"
+    },
+    "reasoning": "執行備份與還原操作時，系統會產生備份資料 (data)。符合 Schema: (system, generates, data)。",
+    "source_id": "chunk_3",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 10
   }
 ]

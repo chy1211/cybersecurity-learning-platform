@@ -1,1 +1,194 @@
-[]
+[
+  {
+    "subject": {
+      "name": "風險識別",
+      "type": "technique",
+      "display_name": "風險識別"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "威脅",
+      "type": "risk",
+      "display_name": "威脅"
+    },
+    "reasoning": "風險識別的目的是找出潛在的風險與威脅。在資安本體論中，威脅通常對應到 attack，而識別動作對應到 function 的 can_detect 能力。",
+    "source_id": "chunk_6",
+    "source_file": "第10章 資訊安全管理_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '風險識別' 的類別 'function' 合理對齊，受體 '威脅' 的類別 'attack' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「風險識別」完全等價同義詞；受體與 Ldr 中的「威脅」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域中具體的概念，無法互相替換，且無同義詞關係。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> can_detect -> risk (original: function -> can_detect -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險識別",
+        "type": "function"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "威脅",
+        "type": "attack"
+      },
+      "reasoning": "風險識別的目的是找出潛在的風險與威脅。在資安本體論中，威脅通常對應到 attack，而識別動作對應到 function 的 can_detect 能力。",
+      "source_id": "chunk_6",
+      "source_file": "第10章 資訊安全管理_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "風險監控",
+      "type": "function",
+      "display_name": "風險監控"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "威脅",
+      "type": "risk",
+      "display_name": "威脅"
+    },
+    "reasoning": "風險監控是風險管理計畫的階段之一，旨在持續發現潛在威脅。符合 function can_detect attack。",
+    "source_id": "chunk_6",
+    "source_file": "第10章 資訊安全管理_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '風險監控' 可以被視為 'function' 的合理實例，受體名稱 '威脅' 可以被視為 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間雖然存在同義詞關係，但考慮到資安領域的具體概念與泛稱之間的區別，判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): function -> can_detect -> risk (original: function -> can_detect -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險監控",
+        "type": "function"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "威脅",
+        "type": "attack"
+      },
+      "reasoning": "風險監控是風險管理計畫的階段之一，旨在持續發現潛在威脅。符合 function can_detect attack。",
+      "source_id": "chunk_6",
+      "source_file": "第10章 資訊安全管理_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "團隊",
+      "type": "securityTeam",
+      "display_name": "團隊"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "風險識別",
+      "type": "technique",
+      "display_name": "風險識別"
+    },
+    "reasoning": "團隊透過腦力激盪執行風險識別這一功能。符合 securityTeam implements function。",
+    "source_id": "chunk_6",
+    "source_file": "第10章 資訊安全管理_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 (securityTeam)、受體類別 (function) 與關係 (implements) 都存在於 Lc,p 的 Classes 與 Properties 中。",
+        "step_2_alignment_check": "團隊 (securityTeam) 合理、風險識別 (function) 合理，語意對齊無誤。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「資安團隊」為同義詞；受體與 Ldr 中的「風險識別」完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「資安團隊」為同義詞，但受體與 Ldr 中的「風險識別」完全相同，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): securityTeam -> implements -> technique (original: securityTeam -> implements -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "團隊",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "風險識別",
+        "type": "function"
+      },
+      "reasoning": "團隊透過腦力激盪執行風險識別這一功能。符合 securityTeam implements function。",
+      "source_id": "chunk_6",
+      "source_file": "第10章 資訊安全管理_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "資安團隊",
+      "type": "securityTeam",
+      "display_name": "團隊"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "風險評估",
+      "type": "technique",
+      "display_name": "風險評估"
+    },
+    "reasoning": "風險評估是管理流程中的一個功能動作，由團隊執行。符合 securityTeam implements function。",
+    "source_id": "chunk_6",
+    "source_file": "第10章 資訊安全管理_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "實體名稱 '團隊' 是 'securityTeam' 的合理實例，實體名稱 '風險評估' 是 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「資安團隊」為同義詞；受體與 Ldr 中的「風險評估」、「風險評鑑」、「風險分析」、「風險識別」為同義詞，但考慮到「風險評估」與其他三個術語之間的微妙差異，最終判定為「風險評估」為最相似候選。",
+        "response": "duplicate",
+        "standard_subject": "資安團隊",
+        "standard_object": "風險評估",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞，因此判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): securityTeam -> implements -> technique (original: securityTeam -> implements -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "團隊",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "風險評估",
+        "type": "function"
+      },
+      "reasoning": "風險評估是管理流程中的一個功能動作，由團隊執行。符合 securityTeam implements function。",
+      "source_id": "chunk_6",
+      "source_file": "第10章 資訊安全管理_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

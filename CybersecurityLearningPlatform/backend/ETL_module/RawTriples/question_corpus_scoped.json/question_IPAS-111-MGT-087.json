@@ -1,0 +1,77 @@
+[
+  {
+    "subject": {
+      "name": "金鑰",
+      "type": "data"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "硬體安全模組 (HSM)",
+      "type": "system"
+    },
+    "reasoning": "根據選項 D，金鑰應儲存於硬體安全模組 (HSM) 中。金鑰屬於敏感資訊 (data)，HSM 屬於安全基礎設施 (system)，符合 ('data', 'deployed_in', 'system') 的 Schema。",
+    "source_id": "question_IPAS-111-MGT-087",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "硬體安全模組 (HSM)",
+      "type": "system"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "密碼庫 (Cryptographic Vault)",
+      "type": "system"
+    },
+    "reasoning": "選項 D 提到密碼庫 (Cryptographic Vault) 並舉例如 HSM，表示 HSM 是密碼庫的一種實現或組成部分。兩者皆為基礎設施 (system)，符合 ('system', 'is_part_of', 'system') 的 Schema。",
+    "source_id": "question_IPAS-111-MGT-087",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "金鑰加密密鑰 (KEK)",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "金鑰外洩",
+      "type": "risk"
+    },
+    "reasoning": "根據選項 C，離線儲存的金鑰須以金鑰加密密鑰 (KEK) 加密保護。KEK 在此作為加密工具 (tool)，其目的是防止金鑰被非法獲取（金鑰外洩，risk），符合 ('tool', 'mitigates', 'risk') 的 Schema。",
+    "source_id": "question_IPAS-111-MGT-087",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "明文儲存",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "金鑰外洩",
+      "type": "risk"
+    },
+    "reasoning": "選項 A 指出金鑰不應以明文形式儲存，這暗示了「明文儲存」是一種安全缺陷 (vulnerability)，會導致金鑰外洩的風險 (risk)，符合 ('vulnerability', 'can_expose', 'risk') 的 Schema。",
+    "source_id": "question_IPAS-111-MGT-087",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "金鑰生命週期管理",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "金鑰外洩",
+      "type": "risk"
+    },
+    "reasoning": "題幹提到的金鑰生命週期管理 (Key Management Lifecycle) 是一套管理規範與最佳實務 (policy)，其整體目標是透過正確的儲存與管理來緩解金鑰外洩的風險 (risk)，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
+    "source_id": "question_IPAS-111-MGT-087",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5
+  }
+]

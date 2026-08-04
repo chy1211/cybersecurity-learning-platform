@@ -1,0 +1,112 @@
+[
+  {
+    "subject": {
+      "name": "社交工程",
+      "type": "attack",
+      "display_name": "社交工程"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "行動裝置",
+      "type": "system",
+      "display_name": "行動裝置"
+    },
+    "reasoning": "根據題幹與正確答案，社交工程被定義為一種針對行動裝置的攻擊。在 Schema 中，攻擊 (attack) 可以危害 (can_harm) 系統 (system)。",
+    "source_id": "question_IPAS-111-TEC-098",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "社交工程是攻擊的一種合理實例，行動裝置是系統的一種合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "無明確匹配的規則，社交工程 (類別: attack) 的 can_harm 行動不在任何規則中被禁止或限制。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定原則下判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "社交工程與社交工程攻擊之間存在狹義關係，社交工程攻擊是社交工程的一種子類型；行動裝置與手機之間存在狹義關係，手機是行動裝置的一種子類型。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "社交工程與行動裝置之間不存在同義詞關係，且社交工程攻擊和手機是社交工程和行動裝置的子類型，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "社交工程",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "行動裝置",
+        "type": "system"
+      },
+      "reasoning": "根據題幹與正確答案，社交工程被定義為一種針對行動裝置的攻擊。在 Schema 中，攻擊 (attack) 可以危害 (can_harm) 系統 (system)。",
+      "source_id": "question_IPAS-111-TEC-098",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "人與人的互動",
+      "type": "technique",
+      "display_name": "人與人的互動"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "社交工程",
+      "type": "attack",
+      "display_name": "社交工程"
+    },
+    "reasoning": "題幹指出社交工程主要是利用『人與人的互動』來達成。將『人與人的互動』視為一種達成目的的方法（技術 technique），在 Schema 中，技術 (technique) 可以實作 (implements) 攻擊 (attack)。",
+    "source_id": "question_IPAS-111-TEC-098",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "人與人的互動 是 'technique' 的合理實例，社交工程 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體的人與人的互動（類別：technique）發起 implements 動作，違反規則3：主體類別若非 vulnerability，仍不可發起 implements 動作。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體的人與人的互動（類別：technique）發起 implements 動作，違反規則3：主體類別若非 vulnerability，仍不可發起 implements 動作。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "人與人的互動",
+        "type": "technique"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "社交工程",
+        "type": "attack"
+      },
+      "reasoning": "題幹指出社交工程主要是利用『人與人的互動』來達成。將『人與人的互動』視為一種達成目的的方法（技術 technique），在 Schema 中，技術 (technique) 可以實作 (implements) 攻擊 (attack)。",
+      "source_id": "question_IPAS-111-TEC-098",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

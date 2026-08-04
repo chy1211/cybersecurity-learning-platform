@@ -5,44 +5,190 @@
       "type": "system",
       "display_name": "認證系統"
     },
-    "relation": "uses",
+    "relation": "can_analyze",
     "object": {
-      "name": "認知密碼",
-      "type": "data",
-      "display_name": "認知密碼"
+      "name": "生理特徵",
+      "type": "feature",
+      "display_name": "生理特徵"
     },
-    "reasoning": "認知密碼是由一連串問題答案組成的認證資訊，由系統預先設定並驗證，因此認證系統 (system) 使用了認知密碼 (data)。",
+    "reasoning": "認證系統（在此視為執行辨識的工具）需要分析使用者的生理或物理特徵（如指紋、虹膜）來完成認證。",
     "source_id": "chunk_1",
     "source_file": "ch09_習題解答.pdf",
-    "source_index": 5,
+    "source_index": 8,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 均在 Lc,p 中。",
-        "step_2_alignment_check": "實體 '認證系統' 是 'system' 的合理實例，'認知密碼' 是 'data' 的合理實例。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "認證系統是 tool 的合理實例，生理特徵是 feature 的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
-      "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發違規，因為主體的類別是system，但使用了'uses'關係，且受體是data。規則6、7、8不適用，因為三元組中的關係不是deployed_in、generates或controls。",
-        "response": "violation",
-        "reason": "三元組違反了規則5，因為主體的類別是system，但使用了'uses'關係，且受體是data。"
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「認證系統」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
       }
     },
-    "reject_reason": "Step 3 (Semantic Violation): 三元組違反了規則5，因為主體的類別是system，但使用了'uses'關係，且受體是data。",
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> can_analyze -> feature (original: tool -> can_analyze -> feature)",
     "original_raw_triple": {
       "subject": {
         "name": "認證系統",
-        "type": "system"
+        "type": "tool"
       },
-      "relation": "uses",
+      "relation": "can_analyze",
       "object": {
-        "name": "認知密碼",
-        "type": "data"
+        "name": "生理特徵",
+        "type": "feature"
       },
-      "reasoning": "認知密碼是由一連串問題答案組成的認證資訊，由系統預先設定並驗證，因此認證系統 (system) 使用了認知密碼 (data)。",
+      "reasoning": "認證系統（在此視為執行辨識的工具）需要分析使用者的生理或物理特徵（如指紋、虹膜）來完成認證。",
       "source_id": "chunk_1",
       "source_file": "ch09_習題解答.pdf",
-      "source_index": 5
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "認證系統",
+      "type": "system",
+      "display_name": "認證系統"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "指紋",
+      "type": "feature",
+      "display_name": "指紋"
+    },
+    "reasoning": "指紋是生理特徵的一種，認證系統透過分析指紋紋路來辨識使用者。",
+    "source_id": "chunk_1",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '認證系統' 是 'tool' 的合理實例，受體 '指紋' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> can_analyze -> feature (original: tool -> can_analyze -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "認證系統",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "指紋",
+        "type": "feature"
+      },
+      "reasoning": "指紋是生理特徵的一種，認證系統透過分析指紋紋路來辨識使用者。",
+      "source_id": "chunk_1",
+      "source_file": "ch09_習題解答.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "認證系統",
+      "type": "system",
+      "display_name": "認證系統"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "虹膜",
+      "type": "feature",
+      "display_name": "虹膜"
+    },
+    "reasoning": "虹膜辨識技術是利用分析眼球生理薄膜的紋理，因此認證系統分析虹膜特徵。",
+    "source_id": "chunk_1",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '認證系統' 是 'tool' 的合理實例；受體 '虹膜' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中的資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> can_analyze -> feature (original: tool -> can_analyze -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "認證系統",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "虹膜",
+        "type": "feature"
+      },
+      "reasoning": "虹膜辨識技術是利用分析眼球生理薄膜的紋理，因此認證系統分析虹膜特徵。",
+      "source_id": "chunk_1",
+      "source_file": "ch09_習題解答.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "認證系統",
+      "type": "system",
+      "display_name": "認證系統"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "視網膜",
+      "type": "feature",
+      "display_name": "視網膜"
+    },
+    "reasoning": "視網膜辨識技術是利用分析眼球後部血管的分佈特徵。",
+    "source_id": "chunk_1",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '認證系統' 可被視為 'tool' 的合理實例；受體 '視網膜' 可被視為 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源沒有完全等價同義詞關係，受體與 Ldr 中的資源沒有任何關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法在 Ldr 中找到完全等價同義詞或廣義/狹義從屬關係，預設保留原名。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> can_analyze -> feature (original: tool -> can_analyze -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "認證系統",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "視網膜",
+        "type": "feature"
+      },
+      "reasoning": "視網膜辨識技術是利用分析眼球後部血管的分佈特徵。",
+      "source_id": "chunk_1",
+      "source_file": "ch09_習題解答.pdf",
+      "source_index": 11
     }
   }
 ]

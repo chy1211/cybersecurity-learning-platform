@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "http",
+      "type": "feature",
+      "display_name": "HTTP"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "80 埠",
+      "type": "feature",
+      "display_name": "通訊埠 80"
+    },
+    "reasoning": "根據考題，這是一個否定式提問，選項 C 是正確知識。HTTP 作為一種網頁傳輸應用服務 (app)，其預設使用通訊埠 80 (feature)，符合 Schema 中 ('app', 'has_a', 'feature') 的定義。",
+    "source_id": "question_IPAS-113-TEC-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "HTTP 是一種應用程式（app），而 '通訊埠 80' 是 HTTP 的特徵（feature），因此語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 HTTP 與 Ldr 中的 http 完全等價同義詞；受體 通訊埠 80 與 Ldr 中的 80 埠 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "http",
+        "standard_object": "80 埠",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> feature (original: app -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "HTTP",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "通訊埠 80",
+        "type": "feature"
+      },
+      "reasoning": "根據考題，這是一個否定式提問，選項 C 是正確知識。HTTP 作為一種網頁傳輸應用服務 (app)，其預設使用通訊埠 80 (feature)，符合 Schema 中 ('app', 'has_a', 'feature') 的定義。",
+      "source_id": "question_IPAS-113-TEC-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

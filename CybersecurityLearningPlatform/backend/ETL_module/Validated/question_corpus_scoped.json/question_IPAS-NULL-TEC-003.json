@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "威脅行為者",
+      "type": "attacker",
+      "display_name": "威脅行為者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "smurf attack",
+      "type": "attack",
+      "display_name": "SMURF Attack"
+    },
+    "reasoning": "根據題幹與正確答案，SMURF Attack 是一種攻擊行為。在本體論中，攻擊是由攻擊者（attacker）實作（implements）的，因此萃取此三元組以建立攻擊者與具體攻擊名稱的關聯。",
+    "source_id": "question_IPAS-NULL-TEC-003",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '威脅行為者' 是 'attacker' 的合理實例；受體名稱 'SMURF Attack' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '威脅行為者' 完全等價同義詞；受體 'SMURF Attack' 與 Ldr 中的資源 '攻擊' 關係為狹義從屬（SMURF Attack 是一種攻擊類型）",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全等價同義詞，但受體與 Ldr 中的資源關係為狹義從屬，因此不合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "威脅行為者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "SMURF Attack",
+        "type": "attack"
+      },
+      "reasoning": "根據題幹與正確答案，SMURF Attack 是一種攻擊行為。在本體論中，攻擊是由攻擊者（attacker）實作（implements）的，因此萃取此三元組以建立攻擊者與具體攻擊名稱的關聯。",
+      "source_id": "question_IPAS-NULL-TEC-003",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "威脅行為者",
+      "type": "attacker",
+      "display_name": "威脅行為者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "icmp",
+      "type": "feature",
+      "display_name": "ICMP"
+    },
+    "reasoning": "正確答案指出 SMURF Attack 利用 ICMP 協定。由於 Schema 中不允許 'attack' 直接 'uses' 'feature'，而允許 'attacker' 使用 'feature'（協定），因此透過攻擊者作為橋樑，描述發起 SMURF Attack 的行為者使用了 ICMP 協定。",
+    "source_id": "question_IPAS-NULL-TEC-003",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'feature' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "威脅行為者 (attacker) 是 'attacker' 的合理實例，ICMP 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體類別為attacker，未提及securityTeam。規則2不適用，因為關係為uses，非mitigates。規則3不適用，因為主體類別為attacker，非vulnerability。規則4不適用，因為受體類別為feature，非principle。規則5不適用，因為主體類別為attacker，非data。規則6不適用，因為關係為uses，非deployed_in。規則7不適用，因為關係為uses，非generates。規則8不適用，因為關係為uses，非controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體 ICMP 與 Ldr 中的 icmp 協定 名稱相似，但非完全等價同義詞；受體 ICMP 是 Ldr 中的 icmp 協定 的狹義從屬",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "受體 ICMP 與 Ldr 中的 icmp 協定 名稱相似，但非完全等價同義詞；受體 ICMP 是 Ldr 中的 icmp 協定 的狹義從屬"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "威脅行為者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "ICMP",
+        "type": "feature"
+      },
+      "reasoning": "正確答案指出 SMURF Attack 利用 ICMP 協定。由於 Schema 中不允許 'attack' 直接 'uses' 'feature'，而允許 'attacker' 使用 'feature'（協定），因此透過攻擊者作為橋樑，描述發起 SMURF Attack 的行為者使用了 ICMP 協定。",
+      "source_id": "question_IPAS-NULL-TEC-003",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

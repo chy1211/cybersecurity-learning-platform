@@ -9,25 +9,10 @@
       "name": "資料隱碼弱點",
       "type": "vulnerability"
     },
-    "reasoning": "文本提到 Absinthe 提供介面來檢測網頁是否有資料隱碼弱點存在，因此 Absinthe 作為工具 (tool) 具有分析/偵測漏洞 (vulnerability) 的能力。",
+    "reasoning": "文本提到 Absinthe 提供介面來製作 SQL 指令組合以檢測網頁是否有資料隱碼弱點，因此 Absinthe 是一個工具 (tool)，其功能是分析/偵測漏洞 (vulnerability)。",
     "source_id": "chunk_12",
     "source_file": "第08章 資料庫安全_e5.pdf",
     "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "網頁",
-      "type": "app"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "資料隱碼弱點",
-      "type": "vulnerability"
-    },
-    "reasoning": "文本討論檢測網頁中是否存在資料隱碼弱點，這意味著網頁作為應用程式 (app) 可能會暴露 (can_expose) 此漏洞 (vulnerability)。",
-    "source_id": "chunk_12",
-    "source_file": "第08章 資料庫安全_e5.pdf",
-    "source_index": 2
   },
   {
     "subject": {
@@ -39,14 +24,29 @@
       "name": "網頁",
       "type": "app"
     },
-    "reasoning": "Absinthe 被用來對網頁進行檢測，符合工具 (tool) 分析應用程式 (app) 的 Schema。",
+    "reasoning": "Absinthe 用於檢測網頁是否存在弱點，符合 tool can_analyze app 的 Schema。",
+    "source_id": "chunk_12",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "網頁",
+      "type": "app"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料隱碼弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本討論檢測網頁中是否存在資料隱碼弱點，表示網頁作為應用程式可能會暴露此漏洞。",
     "source_id": "chunk_12",
     "source_file": "第08章 資料庫安全_e5.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "輸入格式化字串",
+      "name": "輸入格式化字串檢查",
       "type": "technique"
     },
     "relation": "mitigates",
@@ -54,24 +54,54 @@
       "name": "資料隱碼攻擊",
       "type": "attack"
     },
-    "reasoning": "文本明確指出『防止資料隱碼攻擊的方法，主要以輸入格式化字串來作檢查』，因此將輸入格式化字串視為一種防禦技術 (technique)，用以緩解/防禦 (mitigates) 攻擊 (attack)。",
+    "reasoning": "文本明確指出「防止資料隱碼攻擊的方法，主要以輸入格式化字串來作檢查」，這是一種防禦技術 (technique) 用於緩解/防禦攻擊 (attack)。",
     "source_id": "chunk_12",
     "source_file": "第08章 資料庫安全_e5.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "Absinthe",
-      "type": "tool"
+      "name": "資料隱碼攻擊",
+      "type": "attack"
     },
-    "relation": "generates",
+    "relation": "can_harm",
     "object": {
-      "name": "SQL 指令",
-      "type": "data"
+      "name": "網頁",
+      "type": "app"
     },
-    "reasoning": "文本提到 Absinthe 允許使用者製作 SQL 指令的組合，這表示該工具 (tool) 產生了特定的指令資料 (data)。",
+    "reasoning": "資料隱碼（SQL Injection）是一種攻擊行為，其目標是危害或非法存取網頁後端的資料庫，符合 attack can_harm app。",
     "source_id": "chunk_12",
     "source_file": "第08章 資料庫安全_e5.pdf",
     "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "PHP 網頁",
+      "type": "app"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料隱碼弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本列舉了 PHP 網頁的檢測字串，暗示 PHP 網頁這類應用程式可能存在資料隱碼弱點。",
+    "source_id": "chunk_12",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "ASP 網頁",
+      "type": "app"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料隱碼弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本列舉了 ASP 網頁的檢測字串，暗示 ASP 網頁這類應用程式可能存在資料隱碼弱點。",
+    "source_id": "chunk_12",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 7
   }
 ]

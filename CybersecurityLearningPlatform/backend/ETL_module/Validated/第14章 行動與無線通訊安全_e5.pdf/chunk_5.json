@@ -1,51 +1,51 @@
 [
   {
     "subject": {
-      "name": "5g",
+      "name": "5g 網路",
       "type": "system",
-      "display_name": "5G"
+      "display_name": "5G 系統"
     },
-    "relation": "has_a",
+    "relation": "can_expose",
     "object": {
-      "name": "物聯網 (iot)",
-      "type": "system",
-      "display_name": "物聯網 (IoT)"
+      "name": "3g/4g 既有風險",
+      "type": "vulnerability",
+      "display_name": "3G/4G 既有風險"
     },
-    "reasoning": "文本提到 5G 規格將應用於物聯網 (IoT) 等需求，將物聯網視為 5G 系統生態中包含的子系統。",
+    "reasoning": "文本提到 5G 系統建置初期將繼承 3G、4G 系統既有之風險。在 Schema 中，系統導致漏洞暴露使用 ('system', 'can_expose', 'vulnerability')。",
     "source_id": "chunk_5",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "5G 是 'system' 的合理實例，物聯網 (IoT) 也是一個 'system' 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為 5G 可能具有或支援物聯網功能。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '5G 系統' 是 'system' 的合理實例；受體名稱 '3G/4G 既有風險' 是 'vulnerability' 的合理實例，考慮到資安領域常見的同義詞與縮寫。",
         "response": "correct",
-        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，並且語意對齊，滿足資安領域的合理性。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查完所有規則，沒有發現明確違反的規則。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組中的主體和受體類別與關係 'has_a' 不違反任何語義限制清單中的規則。"
+        "reason": "主體類別為 system，符合規則3的特例允許，且關係為 can_expose，受體類別為 vulnerability，未違反任何規則。"
       },
       "step_2": {
-        "granularity_analysis": "5G 與 5g 網路 之間存在廣義/狹義從屬關係，但根據給定的 Ldr 資源清單，5G 的完全匹配是 '5g'，而 '5g 網路' 是一個相關但不同的概念；物聯網 (IoT) 在 Ldr 中直接出現，且與 5G 並不直接同義或從屬。",
-        "response": "correct",
-        "standard_subject": "",
+        "granularity_analysis": "主體與 Ldr 中的資源存在同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "5g 網路",
         "standard_object": "",
-        "reason": "根據廣義/狹義一律保留原則，5G 與 5g 網路 之間的關係不需要合併，且 5G 和物聯網 (IoT) 之間沒有直接的同義或從屬關係。"
+        "reason": "主體 '5G 系統' 與 Ldr 中的 '5g 網路' 是同義詞關係"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "5G",
+        "name": "5G 系統",
         "type": "system"
       },
-      "relation": "has_a",
+      "relation": "can_expose",
       "object": {
-        "name": "物聯網 (IoT)",
-        "type": "system"
+        "name": "3G/4G 既有風險",
+        "type": "vulnerability"
       },
-      "reasoning": "文本提到 5G 規格將應用於物聯網 (IoT) 等需求，將物聯網視為 5G 系統生態中包含的子系統。",
+      "reasoning": "文本提到 5G 系統建置初期將繼承 3G、4G 系統既有之風險。在 Schema 中，系統導致漏洞暴露使用 ('system', 'can_expose', 'vulnerability')。",
       "source_id": "chunk_5",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 1
@@ -53,7 +53,7 @@
   },
   {
     "subject": {
-      "name": "阻斷服務攻擊 (dos)",
+      "name": "阻絕服務攻擊",
       "type": "attack",
       "display_name": "阻斷服務攻擊"
     },
@@ -63,28 +63,28 @@
       "type": "system",
       "display_name": "邊緣運算伺服器"
     },
-    "reasoning": "文本明確指出邊緣運算伺服器存在遭受阻斷服務攻擊 (DoS) 的風險，符合 attack can_harm system 的定義。",
+    "reasoning": "文本提到邊緣運算伺服器遭受阻斷服務攻擊風險。這符合 ('attack', 'can_harm', 'system') 的定義。",
     "source_id": "chunk_5",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "阻斷服務攻擊 (DDoS) 是 'attack' 的合理實例，邊緣運算伺服器是 'system' 的合理實例，'can_harm' 關係在資安領域中是合理的，因為攻擊可以對系統造成傷害。",
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '阻斷服務攻擊' 是 'attack' 的合理實例；受體 '邊緣運算伺服器' 是 'system' 的合理實例。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_harm，不是 controls。",
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：無關，因為主體是攻擊類別，具有主動執行能力。",
         "response": "correct",
-        "reason": "三元組（阻斷服務攻擊 can_harm 邊緣運算伺服器）未觸發語義限制清單中的任何規則，故判定為正確。"
+        "reason": "未發現明確且直接的違反項目，且主體是攻擊類別，具有主動執行能力。"
       },
       "step_2": {
-        "granularity_analysis": "阻斷服務攻擊與Ldr中的阻斷服務攻擊（dos）為同義詞，兩者指稱同一概念。",
+        "granularity_analysis": "完全等價同義詞",
         "response": "duplicate",
-        "standard_subject": "阻斷服務攻擊 (dos)",
+        "standard_subject": "阻絕服務攻擊",
         "standard_object": "",
-        "reason": "根據資安領域已知同義詞對照範例，阻斷服務 ≡ DoS攻擊 ≡ 阻斷服務攻擊，判定為duplicate。"
+        "reason": "根據資安領域已知同義詞對照範例，阻斷服務攻擊與阻絕服務攻擊是同義詞。"
       }
     },
     "original_raw_triple": {
@@ -97,62 +97,10 @@
         "name": "邊緣運算伺服器",
         "type": "system"
       },
-      "reasoning": "文本明確指出邊緣運算伺服器存在遭受阻斷服務攻擊 (DoS) 的風險，符合 attack can_harm system 的定義。",
+      "reasoning": "文本提到邊緣運算伺服器遭受阻斷服務攻擊風險。這符合 ('attack', 'can_harm', 'system') 的定義。",
       "source_id": "chunk_5",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 2
-    }
-  },
-  {
-    "subject": {
-      "name": "偽造的基地台",
-      "type": "tool",
-      "display_name": "偽造的基地台"
-    },
-    "relation": "controls",
-    "object": {
-      "name": "物聯網設備",
-      "type": "system",
-      "display_name": "物聯網設備"
-    },
-    "reasoning": "偽造的基地台是一種攻擊工具，其目的是誘導設備連接以達成控制或攔截，符合 tool controls system 的定義。",
-    "source_id": "chunk_5",
-    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-    "source_index": 4,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "偽造的基地台是 tool 的合理實例，物聯網設備是 system 的合理實例，關係 'controls' 在資安領域中是合理的描述。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體（偽造的基地台）是 tool，具有主動執行能力，符合規則8的條件。",
-        "response": "correct",
-        "reason": "三元組中的主體（偽造的基地台）是 tool，具有主動執行能力，符合規則8的條件，且未發現其他明確且直接的違反項目。"
-      },
-      "step_2": {
-        "granularity_analysis": "受體 '物聯網設備' 與 Ldr 中的 '物聯網設備' 完全相同，主體 '偽造的基地台' 與 Ldr 中的 '基地台' 關係為廣義/狹義從屬，但基於 '偽造的' 修飾詞，判定為不同概念。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "基於廣義/狹義一律保留原則，且主體為 '偽造的基地台'，與 '基地台' 關係為不同概念，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "偽造的基地台",
-        "type": "tool"
-      },
-      "relation": "controls",
-      "object": {
-        "name": "物聯網設備",
-        "type": "system"
-      },
-      "reasoning": "偽造的基地台是一種攻擊工具，其目的是誘導設備連接以達成控制或攔截，符合 tool controls system 的定義。",
-      "source_id": "chunk_5",
-      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-      "source_index": 4
     }
   },
   {
@@ -167,28 +115,28 @@
       "type": "system",
       "display_name": "基地台"
     },
-    "reasoning": "文本明確指出基地台存在遭受阻斷服務攻擊 (DoS) 的風險，符合 attack can_harm system 的定義。",
+    "reasoning": "文本提到基地台遭受阻斷服務攻擊風險。這符合 ('attack', 'can_harm', 'system') 的定義。",
     "source_id": "chunk_5",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "阻斷服務攻擊 (DDoS) 是 'attack' 的合理實例，基地台可以被視為 'system' 的一部分，'can_harm' 關係在資安領域中是合理的，因為攻擊可以對系統造成傷害。",
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '阻斷服務攻擊' 是 'attack' 的合理實例，受體 '基地台' 是 'system' 的合理實例。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_harm，不是 controls。",
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：無關，因為主體是攻擊類別，具有主動執行能力。",
         "response": "correct",
-        "reason": "三元組（阻斷服務攻擊 can_harm 基地台）未觸發語義限制清單中的任何規則，故判定為正確。"
+        "reason": "未發現明確且直接的違反項目，且主體是攻擊類別，具有主動執行能力。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體皆有完全等價的同義詞或名稱相似度高的近似資源存在",
+        "granularity_analysis": "主體與 Ldr 中的資源「阻斷服務攻擊」完全等價同義詞；受體與 Ldr 中的資源「基地台」完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同或有高相似度，但無法直接判定為 duplicate，故預設保留。"
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，但根據判斷準則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
@@ -201,7 +149,7 @@
         "name": "基地台",
         "type": "system"
       },
-      "reasoning": "文本明確指出基地台存在遭受阻斷服務攻擊 (DoS) 的風險，符合 attack can_harm system 的定義。",
+      "reasoning": "文本提到基地台遭受阻斷服務攻擊風險。這符合 ('attack', 'can_harm', 'system') 的定義。",
       "source_id": "chunk_5",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 3
@@ -209,51 +157,51 @@
   },
   {
     "subject": {
-      "name": "外部網路",
-      "type": "system",
-      "display_name": "外界網路"
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
     },
-    "relation": "can_expose",
+    "relation": "uses",
     "object": {
-      "name": "弱點",
-      "type": "vulnerability",
-      "display_name": "弱點"
+      "name": "偽造的基地台服務",
+      "type": "tool",
+      "display_name": "偽造的基地台服務"
     },
-    "reasoning": "文本提到來自外界網路的威脅，在資安邏輯中，外部網路的連接通常會暴露系統內部的弱點，符合 system can_expose vulnerability。",
+    "reasoning": "文本提到『偽造的基地台服務』作為一種威脅手段。雖然文本未明寫攻擊者，但邏輯上此工具由攻擊者使用，符合 ('attacker', 'uses', 'tool')。",
     "source_id": "chunk_5",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "外界網路 (system) 可能暴露弱點 (vulnerability) 的情境下，'can_expose' 關係在資安領域中是合理的，且名稱與類別對齊。",
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，偽造的基地台服務 (tool) 是 'tool' 的合理實例。",
         "response": "correct",
-        "reason": "主體、關係、受體皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但允許 'can_expose' 動作。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用，但注意到主體是攻擊者，關係是 uses，受體是偽造的基地台服務，類別是 tool，符合規則8的描述，但不違反任何規則。",
         "response": "correct",
-        "reason": "三元組中的主體 '外界網路' 類別為 system，與 'can_expose' 關係和 '弱點' 受體之間的關係在語義限制清單中沒有明確的違反規則，特別是規則3允許漏洞發起 'can_expose' 動作。"
+        "reason": "未發現明確且直接的違反項目，且三元組符合規則所允許的條件。"
       },
       "step_2": {
-        "granularity_analysis": "外界網路與外部網路為同義詞，弱點為完全等價同義詞",
-        "response": "duplicate",
-        "standard_subject": "外部網路",
-        "standard_object": "弱點",
-        "reason": "根據同義詞對照表，外界網路與外部網路、弱點為完全等價同義詞，判定為 duplicate。"
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認為同義詞關係，依據判斷準則預設保留。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "外界網路",
-        "type": "system"
+        "name": "攻擊者",
+        "type": "attacker"
       },
-      "relation": "can_expose",
+      "relation": "uses",
       "object": {
-        "name": "弱點",
-        "type": "vulnerability"
+        "name": "偽造的基地台服務",
+        "type": "tool"
       },
-      "reasoning": "文本提到來自外界網路的威脅，在資安邏輯中，外部網路的連接通常會暴露系統內部的弱點，符合 system can_expose vulnerability。",
+      "reasoning": "文本提到『偽造的基地台服務』作為一種威脅手段。雖然文本未明寫攻擊者，但邏輯上此工具由攻擊者使用，符合 ('attacker', 'uses', 'tool')。",
       "source_id": "chunk_5",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 5
@@ -271,28 +219,28 @@
       "type": "feature",
       "display_name": "ISM 頻段"
     },
-    "reasoning": "NFC 作為一種無線通訊系統，其工作頻率屬於 ISM 頻段，將頻段視為該系統的技術特徵，符合 system has_a feature。",
+    "reasoning": "文本提到 NFC 所使用之工作頻率屬於 ISM 頻段。將 NFC 視為一種通訊系統，其頻段為其特徵，符合 ('system', 'has_a', 'feature')。",
     "source_id": "chunk_5",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-    "source_index": 6,
+    "source_index": 7,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "近場通訊 (NFC) 是 'system' 的合理實例，ISM 頻段是 'feature' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '近場通訊 (NFC)' 是 'system' 的合理實例；受體 'ISM 頻段' 是 'feature' 的合理實例。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中關係為 'has_a'，且主體為 '近場通訊 (NFC)'，受體為 'ISM 頻段'，這不觸發任何語義限制清單中的規則。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與主體 '近場通訊 (NFC)' 和受體 'ISM 頻段' 的組合不違反任何規則，故判定為正確。"
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
       },
       "step_2": {
-        "granularity_analysis": "近場通訊 (NFC) 與現有清單中的資源不完全匹配，ISM 頻段不在清單中，但兩者皆無同義詞重複關係",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "無法在清單中找到完全匹配或同義詞的資源，故判定為 correct。"
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
@@ -305,10 +253,166 @@
         "name": "ISM 頻段",
         "type": "feature"
       },
-      "reasoning": "NFC 作為一種無線通訊系統，其工作頻率屬於 ISM 頻段，將頻段視為該系統的技術特徵，符合 system has_a feature。",
+      "reasoning": "文本提到 NFC 所使用之工作頻率屬於 ISM 頻段。將 NFC 視為一種通訊系統，其頻段為其特徵，符合 ('system', 'has_a', 'feature')。",
+      "source_id": "chunk_5",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "基地台",
+      "type": "system",
+      "display_name": "基地台"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全隱患",
+      "type": "vulnerability",
+      "display_name": "隱私洩漏風險"
+    },
+    "reasoning": "文本提到基地台與物聯網設備之間傳輸訊號有隱私洩漏風險。將此風險視為系統可能暴露的漏洞，符合 ('system', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_5",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '基地台' 可以被視為 'system' 的合理實例；關係 'can_expose' 合理地連接 'system' 與 'vulnerability'；受體名稱 '隱私洩漏風險' 可以被視為 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 system，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「基地台」完全等價同義詞；受體與 Ldr 中的「安全隱患」具有同義詞關係，均指「風險」或「隱患」",
+        "response": "duplicate",
+        "standard_subject": "基地台",
+        "standard_object": "安全隱患",
+        "reason": "主體與 Ldr 中的「基地台」完全等價同義詞；受體與 Ldr 中的「安全隱患」具有同義詞關係，均指「風險」或「隱患」"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "基地台",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "隱私洩漏風險",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到基地台與物聯網設備之間傳輸訊號有隱私洩漏風險。將此風險視為系統可能暴露的漏洞，符合 ('system', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_5",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "物聯網設備",
+      "type": "system",
+      "display_name": "物聯網設備"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "5g 系統",
+      "type": "system",
+      "display_name": "5G 系統"
+    },
+    "reasoning": "文本提到 5G 規格應用於物聯網 (IoT) 等裝置間的通訊需求，表示物聯網設備連接至 5G 系統，符合 ('system', 'connects_to', 'system')。",
+    "source_id": "chunk_5",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '物聯網設備' 與類別 'system' 對齊，受體 '5G 系統' 與類別 'system' 對齊，符合語意與同義詞寬容原則。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意與同義詞寬容原則對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 connects_to，與規則6無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「物聯網裝置」、「聯網裝置」、「物聯網網路」、「網路環境」等存在廣義/狹義從屬關係，但無完全等價同義詞；受體與 Ldr 中的「5g 網路」、「5g」存在廣義/狹義從屬關係，但無完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均無完全等價同義詞，且存在廣義/狹義從屬關係，依據判斷準則 3，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "物聯網設備",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "5G 系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到 5G 規格應用於物聯網 (IoT) 等裝置間的通訊需求，表示物聯網設備連接至 5G 系統，符合 ('system', 'connects_to', 'system')。",
       "source_id": "chunk_5",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "外部網路",
+      "type": "system",
+      "display_name": "外界網路"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全隱患",
+      "type": "vulnerability",
+      "display_name": "5G 系統漏洞"
+    },
+    "reasoning": "文本提到來自外界網路的威脅。外界網路作為攻擊來源，可導致 5G 系統的漏洞被觸發或暴露，符合 ('system', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_5",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '外界網路' 是 'system' 的合理實例；關係 'can_expose' 合理地連接 '外界網路' 與 '5G 系統漏洞'；受體 '5G 系統漏洞' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 system，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「外部網路」、「網際網路」、「網路」等實體存在同義詞關係；受體與 Ldr 中的「安全隱患」、「3g/4g 既有風險」等實體存在同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "外部網路",
+        "standard_object": "安全隱患",
+        "reason": "主體與 Ldr 中的「外部網路」、「網際網路」、「網路」等實體存在同義詞關係；受體與 Ldr 中的「安全隱患」、「3g/4g 既有風險」等實體存在同義詞關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "外界網路",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "5G 系統漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到來自外界網路的威脅。外界網路作為攻擊來源，可導致 5G 系統的漏洞被觸發或暴露，符合 ('system', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_5",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 9
     }
   },
   {
@@ -320,31 +424,31 @@
     "relation": "has_a",
     "object": {
       "name": "ieee 802.11",
-      "type": "tool",
+      "type": "system",
       "display_name": "IEEE 802.11"
     },
-    "reasoning": "IEEE 802.11 是無線區域網路的通用標準，可視為該系統所採用的核心技術特徵，符合 system has_a feature。",
+    "reasoning": "文本提到 IEEE 802.11 是無線區域網路通用的標準。將此標準視為該系統的技術特徵，符合 ('system', 'has_a', 'feature')。",
     "source_id": "chunk_5",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-    "source_index": 7,
+    "source_index": 8,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "無線區域網路是 system 的合理實例，IEEE 802.11 是 feature 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為無線區域網路可以具有 IEEE 802.11 等功能特性。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "無線區域網路 (system) 可以有 IEEE 802.11 (feature) 的特性，因此語意對齊是合理的。",
         "response": "correct",
-        "reason": "無線區域網路與 IEEE 802.11 之間的 'has_a' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "無線區域網路 (system) 有 IEEE 802.11 (feature) 的特性，完全符合預先定義的類別與屬性清單。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：無相關性。檢查規則2：無相關性。檢查規則3：無相關性。檢查規則4：無相關性。檢查規則5：無相關性，因為關係不是 'uses'。檢查規則6：無相關性，因為關係不是 'deployed_in'。檢查規則7：無相關性，因為關係不是 'generates'。檢查規則8：無相關性，因為關係不是 'controls'。檢查完成，無明確違規。",
+        "step_1_rule_matching": "無相關規則適用",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與給定的語義限制清單中沒有直接相關的規則，因此無法判定為違規。"
+        "reason": "無法找到任何規則與此三元組相符，無罪推定原則下判定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "無線區域網路與無線網路、無線通訊等相關概念在資安領域中有所重疊，但無線區域網路是特指使用IEEE 802.11等技術的網路系統，因此與其他概念不完全等價。IEEE 802.11則是無線區域網路的技術標準，兩者在概念上有一定的從屬關係，但不完全相同。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "無線區域網路和IEEE 802.11之間的關係是技術標準與其應用領域的關係，兩者不完全等價，故判定為correct。"
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "無線區域網路",
+        "standard_object": "ieee 802.11",
+        "reason": "主體與受體均為資安領域已知同義詞對照範例中的同義詞"
       }
     },
     "original_raw_triple": {
@@ -357,10 +461,10 @@
         "name": "IEEE 802.11",
         "type": "feature"
       },
-      "reasoning": "IEEE 802.11 是無線區域網路的通用標準，可視為該系統所採用的核心技術特徵，符合 system has_a feature。",
+      "reasoning": "文本提到 IEEE 802.11 是無線區域網路通用的標準。將此標準視為該系統的技術特徵，符合 ('system', 'has_a', 'feature')。",
       "source_id": "chunk_5",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-      "source_index": 7
+      "source_index": 8
     }
   }
 ]

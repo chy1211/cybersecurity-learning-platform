@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "熱備援",
+      "type": "technique",
+      "display_name": "熱備援"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "恢復時間",
+      "type": "feature",
+      "display_name": "恢復時間"
+    },
+    "reasoning": "題幹提到熱備援提供最快的恢復時間。恢復時間是該方案的一個屬性（feature）。由於 Schema 中沒有 technique -> has_a -> feature 的邊界，因此將熱備援視為一種實現備援功能的機制/工具（tool），以符合 tool -> has_a -> feature 的合法關係。",
+    "source_id": "question_IPAS-113-MGT-049",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "熱備援 (tool) 可以有恢復時間 (feature)，這是合理的實例關係。",
+        "response": "correct",
+        "reason": "熱備援 (tool) 與恢復時間 (feature) 的關係 'has_a' 符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "熱備援與系統備援之間存在狹義關係，前者是後者的子類型，因此不應合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> has_a -> feature (original: tool -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "熱備援",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "恢復時間",
+        "type": "feature"
+      },
+      "reasoning": "題幹提到熱備援提供最快的恢復時間。恢復時間是該方案的一個屬性（feature）。由於 Schema 中沒有 technique -> has_a -> feature 的邊界，因此將熱備援視為一種實現備援功能的機制/工具（tool），以符合 tool -> has_a -> feature 的合法關係。",
+      "source_id": "question_IPAS-113-MGT-049",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

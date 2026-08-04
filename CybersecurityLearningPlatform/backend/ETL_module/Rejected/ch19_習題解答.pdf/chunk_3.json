@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "saas",
+      "type": "system",
+      "display_name": "SaaS"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "paas",
+      "type": "system",
+      "display_name": "PaaS"
+    },
+    "reasoning": "文本提到開發商可以利用 PaaS 平台提供 SaaS 類型的服務，意即 SaaS 應用部署在 PaaS 系統之上。",
+    "source_id": "chunk_3",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SaaS 是 'app' 的合理實例，PaaS 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 'saas' 完全等價同義詞；受體與 Ldr 中的資源 'paas' 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體都有完全等價同義詞，但根據判斷準則，若無法確定，預設 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> deployed_in -> system (original: app -> deployed_in -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "SaaS",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "PaaS",
+        "type": "system"
+      },
+      "reasoning": "文本提到開發商可以利用 PaaS 平台提供 SaaS 類型的服務，意即 SaaS 應用部署在 PaaS 系統之上。",
+      "source_id": "chunk_3",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 9
+    }
+  }
+]

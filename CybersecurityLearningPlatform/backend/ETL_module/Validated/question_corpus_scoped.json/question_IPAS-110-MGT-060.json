@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "密碼儲存與保護",
+      "type": "policy",
+      "display_name": "密碼不得明文存放"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "機密外洩",
+      "type": "risk",
+      "display_name": "密碼外洩"
+    },
+    "reasoning": "『密碼不得明文存放』是一項明確的資安規範 (policy)，其目的在於防止密碼在儲存狀態下被直接讀取，從而緩解密碼外洩 (risk) 的風險。",
+    "source_id": "question_IPAS-110-MGT-060",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '密碼不得明文存放' 是 'policy' 的合理實例；受體名稱 '密碼外洩' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「密碼儲存與保護」為同義詞；受體與 Ldr 中的「機密外洩」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "密碼儲存與保護",
+        "standard_object": "機密外洩",
+        "reason": "主體與 Ldr 中的「密碼儲存與保護」為同義詞；受體與 Ldr 中的「機密外洩」為同義詞，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼不得明文存放",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "密碼外洩",
+        "type": "risk"
+      },
+      "reasoning": "『密碼不得明文存放』是一項明確的資安規範 (policy)，其目的在於防止密碼在儲存狀態下被直接讀取，從而緩解密碼外洩 (risk) 的風險。",
+      "source_id": "question_IPAS-110-MGT-060",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "識別與鑑別",
+      "type": "function",
+      "display_name": "識別與鑑別"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "密碼",
+      "type": "data",
+      "display_name": "密碼"
+    },
+    "reasoning": "考題將密碼存放的規範歸類於『識別與鑑別』控制構面。在資安本體論中，識別與鑑別是一種功能 (function)，其核心運作即在於分析與驗證密碼等認證資訊 (data) 以確認使用者身分。",
+    "source_id": "question_IPAS-110-MGT-060",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '識別與鑑別' 是 'function' 的合理實例，受體 '密碼' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體識別與鑑別的類別是function，與規則3無關，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認為同義詞關係，依據判斷準則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "識別與鑑別",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "密碼",
+        "type": "data"
+      },
+      "reasoning": "考題將密碼存放的規範歸類於『識別與鑑別』控制構面。在資安本體論中，識別與鑑別是一種功能 (function)，其核心運作即在於分析與驗證密碼等認證資訊 (data) 以確認使用者身分。",
+      "source_id": "question_IPAS-110-MGT-060",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

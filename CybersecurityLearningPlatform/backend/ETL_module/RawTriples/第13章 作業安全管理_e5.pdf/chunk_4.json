@@ -1,7 +1,7 @@
 [
   {
     "subject": {
-      "name": "資訊主管",
+      "name": "資訊主管單位各級主管人員",
       "type": "securityTeam"
     },
     "relation": "can_analyze",
@@ -9,14 +9,14 @@
       "name": "電腦設備",
       "type": "system"
     },
-    "reasoning": "文本提到主管應查核電腦設備之使用與管理情形，查核行為屬於分析與審核，對應 securityTeam -> can_analyze -> system。",
+    "reasoning": "文本提到主管人員應查核電腦設備之使用與管理情形，這屬於安全團隊對系統的分析與稽核行為，符合 (securityTeam, can_analyze, system) 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "資訊主管",
+      "name": "資訊主管單位各級主管人員",
       "type": "securityTeam"
     },
     "relation": "can_analyze",
@@ -24,7 +24,7 @@
       "name": "資訊檔案",
       "type": "data"
     },
-    "reasoning": "文本提到主管應查核資訊檔案之使用與管理情形，對應 securityTeam -> can_analyze -> data。",
+    "reasoning": "文本提到主管人員應查核資訊檔案之使用與管理情形，這屬於安全團隊對資料的分析與稽核行為，符合 (securityTeam, can_analyze, data) 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 2
@@ -39,40 +39,25 @@
       "name": "風險",
       "type": "risk"
     },
-    "reasoning": "文本明確指出變更管理的工作是要評估並降低風險，對應 policy -> mitigates -> risk。",
+    "reasoning": "文本明確指出變更管理的工作是要『降低風險』，變更管理在此被視為一種管理策略/規範，符合 (policy, mitigates, risk) 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "資訊主管",
+      "name": "資訊主管單位",
       "type": "securityTeam"
     },
-    "relation": "implements",
+    "relation": "uses",
     "object": {
-      "name": "變更管理",
-      "type": "policy"
+      "name": "PDCA 管理模式",
+      "type": "technique"
     },
-    "reasoning": "變更管理作為一種管理規範，由資訊主管單位實作與執行，對應 securityTeam -> implements -> policy。",
+    "reasoning": "文本提到變更管理導入需要導入 PDCA 管理模式。由於導入動作是由資安管理團隊執行，因此將其萃取為安全團隊使用該技術，符合 (securityTeam, uses, technique) 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "變更風險評估",
-      "type": "technique"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "資訊系統",
-      "type": "system"
-    },
-    "reasoning": "變更風險評估是一種技術手段，用來分析變更對系統及業務的影響，對應 technique -> can_analyze -> system。",
-    "source_id": "chunk_4",
-    "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 5
   },
   {
     "subject": {
@@ -81,13 +66,13 @@
     },
     "relation": "mitigates",
     "object": {
-      "name": "設備故障",
+      "name": "風險",
       "type": "risk"
     },
-    "reasoning": "文本提到當系統無法正常運作（風險）時，需要啟動回復程序以確保安全，對應 policy -> mitigates -> risk。",
+    "reasoning": "文本提到針對資料庫更新需備有回復程序以確保作業安全（即降低無法正常運作的風險），回復程序在此視為一種應變策略，符合 (policy, mitigates, risk) 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 6
+    "source_index": 5
   },
   {
     "subject": {
@@ -99,24 +84,9 @@
       "name": "風險",
       "type": "risk"
     },
-    "reasoning": "備援計畫旨在應對系統無法操作的風險，確保業務持續性，對應 policy -> mitigates -> risk。",
+    "reasoning": "文本提到系統需要例行性備援，且在無法正常操作時啟動回復程序，這整體屬於備援計畫用以緩解系統失效的風險，符合 (policy, mitigates, risk) 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "資訊主管",
-      "type": "securityTeam"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "PDCA 管理模式",
-      "type": "technique"
-    },
-    "reasoning": "文本提到變更管理導入需要導入 PDCA 管理模式，這是一種管理技術，由安全團隊使用，對應 securityTeam -> uses -> technique。",
-    "source_id": "chunk_4",
-    "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 8
+    "source_index": 6
   }
 ]

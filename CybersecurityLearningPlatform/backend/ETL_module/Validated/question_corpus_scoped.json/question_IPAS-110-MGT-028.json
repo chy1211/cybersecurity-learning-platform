@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "captcha",
+      "type": "technique",
+      "display_name": "CAPTCHA"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "自動化登入攻擊",
+      "type": "attack",
+      "display_name": "自動化登入攻擊"
+    },
+    "reasoning": "正確答案 B 指出 CAPTCHA 是建議採用的技術，其目的是『確保登入者是人類而非機器及電腦程式』，藉此緩解自動化登入攻擊帶來的影響，符合 ('technique', 'mitigates', 'attack')。",
+    "source_id": "question_IPAS-110-MGT-028",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "CAPTCHA 是一種合理的 'technique' 實例，自動化登入攻擊是 'attack' 的合理實例，且 'mitigates' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "CAPTCHA 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊正確。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 CAPTCHA 的類別是 technique，符合規則2所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間的關係不在同義詞對照範例中，且無法確認為同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CAPTCHA",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "自動化登入攻擊",
+        "type": "attack"
+      },
+      "reasoning": "正確答案 B 指出 CAPTCHA 是建議採用的技術，其目的是『確保登入者是人類而非機器及電腦程式』，藉此緩解自動化登入攻擊帶來的影響，符合 ('technique', 'mitigates', 'attack')。",
+      "source_id": "question_IPAS-110-MGT-028",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "自動化登入攻擊",
+      "type": "attack",
+      "display_name": "自動化登入攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "reasoning": "題幹提到利用電腦程式重複不斷登入會『加重伺服器負載量』，這是一種自動化攻擊行為對系統造成的損害，符合 ('attack', 'can_harm', 'system')。",
+    "source_id": "question_IPAS-110-MGT-028",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '自動化登入攻擊' 是 'attack' 的合理實例，受體 '伺服器' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源沒有完全相同的名稱，受體與 Ldr 中的資源有完全相同的名稱",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "伺服器",
+        "reason": "受體與 Ldr 中的資源有完全相同的名稱，但主體沒有找到完全相同的名稱，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "自動化登入攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "reasoning": "題幹提到利用電腦程式重複不斷登入會『加重伺服器負載量』，這是一種自動化攻擊行為對系統造成的損害，符合 ('attack', 'can_harm', 'system')。",
+      "source_id": "question_IPAS-110-MGT-028",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "自動化登入攻擊",
+      "type": "attack",
+      "display_name": "自動化登入攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "線上交易網站",
+      "type": "app",
+      "display_name": "線上交易網站"
+    },
+    "reasoning": "題幹指出『某線上交易網站遭人利用電腦程式重複不斷登入』且『妨礙到正常使用者』，表示此攻擊行為危害了該應用程式的正常運作，符合 ('attack', 'can_harm', 'app')。",
+    "source_id": "question_IPAS-110-MGT-028",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '自動化登入攻擊' 是 'attack' 的合理實例，受體 '線上交易網站' 是 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "自動化登入攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "線上交易網站",
+        "type": "app"
+      },
+      "reasoning": "題幹指出『某線上交易網站遭人利用電腦程式重複不斷登入』且『妨礙到正常使用者』，表示此攻擊行為危害了該應用程式的正常運作，符合 ('attack', 'can_harm', 'app')。",
+      "source_id": "question_IPAS-110-MGT-028",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

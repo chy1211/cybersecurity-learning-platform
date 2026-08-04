@@ -1,1 +1,83 @@
-[]
+[
+  {
+    "subject": {
+      "name": "pkcs",
+      "type": "policy",
+      "display_name": "PKCS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "pkcs #11",
+      "type": "feature",
+      "display_name": "PKCS #11"
+    },
+    "reasoning": "文本提到 PKCS 是一序列規範，而 PKCS #11 是這套標準中的一個成員。將 PKCS 視為一個規範體系(system)，PKCS #11 則為其組成的一個特定標準(feature)。",
+    "source_id": "chunk_4",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "PKCS 是一個密碼系統標準，因此其類別 'system' 合理；PKCS #11 是 PKCS 系列標準的一部分，負責密碼令牌的安全管理，因此其類別 'feature' 合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 PKCS 與 Ldr 中的 pkcs 完全等價同義詞；受體 PKCS #11 與 Ldr 中的 rsa pkcs#11 關係為廣義/狹義從屬",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體 PKCS 與 Ldr 中的 pkcs 完全等價同義詞，但受體 PKCS #11 與 Ldr 中的 rsa pkcs#11 關係為廣義/狹義從屬，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): policy -> has_a -> feature (original: system -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "PKCS",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "PKCS #11",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 PKCS 是一序列規範，而 PKCS #11 是這套標準中的一個成員。將 PKCS 視為一個規範體系(system)，PKCS #11 則為其組成的一個特定標準(feature)。",
+      "source_id": "chunk_4",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "cryptoki",
+      "type": "system",
+      "display_name": "Cryptoki"
+    },
+    "reasoning": "文本明確指出『最上層為應用程式...呼叫 Cryptoki 介面』，表示應用程式使用了 Cryptoki 這個系統框架來實現安全控管。",
+    "source_id": "chunk_4",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 2,
+    "reject_reason": "Phase 1 (Schema Edge Violation): app -> uses -> system",
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "Cryptoki",
+        "type": "system"
+      },
+      "reasoning": "文本明確指出『最上層為應用程式...呼叫 Cryptoki 介面』，表示應用程式使用了 Cryptoki 這個系統框架來實現安全控管。",
+      "source_id": "chunk_4",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 2
+    }
+  }
+]

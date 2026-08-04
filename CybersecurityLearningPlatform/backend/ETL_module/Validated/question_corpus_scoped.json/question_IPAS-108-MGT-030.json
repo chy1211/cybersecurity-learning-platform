@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "實體攻擊",
+      "type": "attack",
+      "display_name": "實體攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "智慧卡",
+      "type": "system",
+      "display_name": "智慧卡"
+    },
+    "reasoning": "本題為否定式提問，正確答案 B（智慧卡不會遭到實體攻擊）是錯誤的敘述，因此反向推論出『實體攻擊可以危害智慧卡』。將智慧卡視為一種嵌入式系統 (system)，實體攻擊視為 attack，符合 Schema 中的 ('attack', 'can_harm', 'system')。",
+    "source_id": "question_IPAS-108-MGT-030",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體攻擊 (attack) 合理對齊於類別 'attack'，智慧卡 (system) 合理對齊於類別 'system'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊正確。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是attacker或securityTeam。規則2不適用，因為主體不是policy, technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的實體攻擊完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "智慧卡",
+        "type": "system"
+      },
+      "reasoning": "本題為否定式提問，正確答案 B（智慧卡不會遭到實體攻擊）是錯誤的敘述，因此反向推論出『實體攻擊可以危害智慧卡』。將智慧卡視為一種嵌入式系統 (system)，實體攻擊視為 attack，符合 Schema 中的 ('attack', 'can_harm', 'system')。",
+      "source_id": "question_IPAS-108-MGT-030",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "智慧卡",
+      "type": "system",
+      "display_name": "智慧卡"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "pin 鎖死機制",
+      "type": "feature",
+      "display_name": "PIN 鎖死機制"
+    },
+    "reasoning": "選項 D 提到智慧卡設計有 PIN 輸入錯誤鎖死的功能。將此機制視為系統的一個屬性或組成部分 (feature)，符合 Schema 中的 ('system', 'has_a', 'feature')。",
+    "source_id": "question_IPAS-108-MGT-030",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "智慧卡 (類別: system) 合理對齊，PIN 鎖死機制 (類別: feature) 合理對齊。",
+        "response": "correct",
+        "reason": "智慧卡與 PIN 鎖死機制的類別與屬性完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 has_a，而非 deployed_in，因此不觸發規則6。"
+      },
+      "step_2": {
+        "granularity_analysis": "Ldr 中的智慧卡與主體智慧卡完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 中智慧卡與主體智慧卡完全相同，無需合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "智慧卡",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "PIN 鎖死機制",
+        "type": "feature"
+      },
+      "reasoning": "選項 D 提到智慧卡設計有 PIN 輸入錯誤鎖死的功能。將此機制視為系統的一個屬性或組成部分 (feature)，符合 Schema 中的 ('system', 'has_a', 'feature')。",
+      "source_id": "question_IPAS-108-MGT-030",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "智慧卡",
+      "type": "system",
+      "display_name": "智慧卡"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "認證資訊",
+      "type": "data",
+      "display_name": "認證資訊"
+    },
+    "reasoning": "選項 C 提到智慧卡可以儲存人腦無法記憶的密碼長度，這表示智慧卡系統使用/儲存認證資訊（密碼）。將智慧卡視為 system，密碼視為 data，符合 Schema 中的 ('system', 'uses', 'data')。",
+    "source_id": "question_IPAS-108-MGT-030",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '智慧卡' 可以被視為 'system' 的合理實例；受體名稱 '認證資訊' 可以被視為 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "智慧卡使用認證資訊的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 system，與規則5不符，無法觸發違規判定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的智慧卡為完全等價同義詞；受體與 Ldr 中的認證資訊為完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "智慧卡",
+        "standard_object": "認證資訊",
+        "reason": "主體與受體均與 Ldr 中的資源為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "智慧卡",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "認證資訊",
+        "type": "data"
+      },
+      "reasoning": "選項 C 提到智慧卡可以儲存人腦無法記憶的密碼長度，這表示智慧卡系統使用/儲存認證資訊（密碼）。將智慧卡視為 system，密碼視為 data，符合 Schema 中的 ('system', 'uses', 'data')。",
+      "source_id": "question_IPAS-108-MGT-030",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "對稱式密碼學",
+      "type": "tool",
+      "display_name": "對稱式密碼學"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "加密"
+    },
+    "reasoning": "根據選項 A，對稱式密碼學包含加密與解密過程。在本體論中，對稱式密碼學可視為一種加密工具 (tool)，而加密是其執行的功能 (function)。",
+    "source_id": "question_IPAS-112-MGT-086",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "對稱式密碼學是工具 (tool) 的合理實例，且加密是功能 (function) 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體為 tool，具有主動執行能力，且關係為 has_a，不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "加密",
+        "reason": "根據資安領域已知同義詞對照範例，加密 ≡ 資料加密（作為動詞/技術時），判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "對稱式密碼學",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密",
+        "type": "function"
+      },
+      "reasoning": "根據選項 A，對稱式密碼學包含加密與解密過程。在本體論中，對稱式密碼學可視為一種加密工具 (tool)，而加密是其執行的功能 (function)。",
+      "source_id": "question_IPAS-112-MGT-086",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "對稱式加密",
+      "type": "tool",
+      "display_name": "對稱式密碼學"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "解密",
+      "type": "function",
+      "display_name": "解密"
+    },
+    "reasoning": "根據選項 A，對稱式密碼學包含加密與解密過程。在本體論中，對稱式密碼學可視為一種加密工具 (tool)，而解密是其執行的功能 (function)。",
+    "source_id": "question_IPAS-112-MGT-086",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '對稱式密碼學' 是 'tool' 的合理實例，受體 '解密' 是 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「對稱式加密」為同義詞；受體與 Ldr 中的「解密」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "對稱式加密",
+        "standard_object": "解密",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "對稱式密碼學",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "解密",
+        "type": "function"
+      },
+      "reasoning": "根據選項 A，對稱式密碼學包含加密與解密過程。在本體論中，對稱式密碼學可視為一種加密工具 (tool)，而解密是其執行的功能 (function)。",
+      "source_id": "question_IPAS-112-MGT-086",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "金鑰交換",
+      "type": "technique",
+      "display_name": "金鑰交換"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "保護機制",
+      "type": "tool",
+      "display_name": "保護機制"
+    },
+    "reasoning": "根據選項 D，金鑰交換需要另外建立保護機制才能安全執行，這符合 technique depends_on tool 的關係。",
+    "source_id": "question_IPAS-112-MGT-086",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "金鑰交換是 'technique' 的合理實例，保護機制是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "金鑰交換與保護機制之間的 'depends_on' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合規則所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的金鑰交換完全相同，受體與 Ldr 中的對稱式密碼學無直接關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "金鑰交換",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "保護機制",
+        "type": "tool"
+      },
+      "reasoning": "根據選項 D，金鑰交換需要另外建立保護機制才能安全執行，這符合 technique depends_on tool 的關係。",
+      "source_id": "question_IPAS-112-MGT-086",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "對稱式密碼學",
+      "type": "tool",
+      "display_name": "對稱式密碼學"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "金鑰交換",
+      "type": "technique",
+      "display_name": "金鑰交換"
+    },
+    "reasoning": "根據選項 D，對稱式密碼學涉及金鑰交換。金鑰交換是一種達到目的的方法或流程，因此定義為 technique，而對稱式密碼學工具在運作中會使用此技術。",
+    "source_id": "question_IPAS-112-MGT-086",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '對稱式密碼學' 是 'tool' 的合理實例，受體 '金鑰交換' 是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 tool，關係為 uses，受體為 technique，符合規則2的允許條件，且不違反規則5和規則8。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間的關係不涉及同義詞重複，且無法確認為子類型或母類關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "對稱式密碼學",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "金鑰交換",
+        "type": "technique"
+      },
+      "reasoning": "根據選項 D，對稱式密碼學涉及金鑰交換。金鑰交換是一種達到目的的方法或流程，因此定義為 technique，而對稱式密碼學工具在運作中會使用此技術。",
+      "source_id": "question_IPAS-112-MGT-086",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  }
+]

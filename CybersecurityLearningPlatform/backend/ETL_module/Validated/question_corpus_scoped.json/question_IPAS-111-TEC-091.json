@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "操作紀錄",
+      "type": "data",
+      "display_name": "操作紀錄"
+    },
+    "reasoning": "題幹提到『存錄系統管理者或操作者操作系統的紀錄』，這表示系統在運作過程中會產生操作紀錄（屬於 data 類型），符合 ('system', 'generates', 'data') 的 Schema Edge。",
+    "source_id": "question_IPAS-111-TEC-091",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "系統 (system) 可以生成操作紀錄 (data)，這是合理的實例關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
+        "response": "correct",
+        "reason": "三元組符合規則7所允許的條件，主體為系統，關係為generates，受體為操作紀錄，且受體的類別是data，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「系統」完全等價同義詞；受體與 Ldr 中的「操作行為記錄」高度相似，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「系統」完全等價同義詞，但受體與 Ldr 中的「操作行為記錄」非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "操作紀錄",
+        "type": "data"
+      },
+      "reasoning": "題幹提到『存錄系統管理者或操作者操作系統的紀錄』，這表示系統在運作過程中會產生操作紀錄（屬於 data 類型），符合 ('system', 'generates', 'data') 的 Schema Edge。",
+      "source_id": "question_IPAS-111-TEC-091",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "系統管理者",
+      "type": "securityTeam",
+      "display_name": "系統管理者"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "題幹提到『系統管理者或操作者操作系統』，系統管理者屬於資安維運角色 (securityTeam)，其對系統的操作行為在知識圖譜中可定義為控制關係，符合 ('securityTeam', 'controls', 'system') 的 Schema Edge。",
+    "source_id": "question_IPAS-111-TEC-091",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 均在 Lc,p 中。",
+        "step_2_alignment_check": "系統管理者是安全團隊的合理實例，系統是系統的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為系統管理者 (類別: securityTeam)，符合規則8所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「系統管理者」完全等價同義詞；受體與 Ldr 中的「系統」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域具體概念，非同義詞重複，無需合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統管理者",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "題幹提到『系統管理者或操作者操作系統』，系統管理者屬於資安維運角色 (securityTeam)，其對系統的操作行為在知識圖譜中可定義為控制關係，符合 ('securityTeam', 'controls', 'system') 的 Schema Edge。",
+      "source_id": "question_IPAS-111-TEC-091",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

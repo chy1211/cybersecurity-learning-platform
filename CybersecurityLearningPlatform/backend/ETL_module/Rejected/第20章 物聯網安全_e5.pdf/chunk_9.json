@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "中間人攻擊",
+      "type": "attack",
+      "display_name": "中間人攻擊"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "惡意軟體",
+      "type": "attack",
+      "display_name": "惡意軟體"
+    },
+    "reasoning": "文本提到透過不安全網路下載可能遭受中間人攻擊，進而安裝含有惡意軟體的更新程式檔。在此邏輯中，惡意軟體是攻擊者用來達成目的的工具，符合 ('attack', 'depends_on', 'tool')。",
+    "source_id": "chunk_9",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "中間人攻擊 (Man-in-the-middle attack) 是一種合理的攻擊類別實例，惡意軟體 (Malware) 是一種合理的工具類別實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「中間人攻擊 (man-in-the-middle attack)」為同義詞；受體與 Ldr 中的「惡意軟體」完全相同，但根據資安領域已知同義詞對照範例，惡意軟體 ≠ 中間人攻擊",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體不為同義詞，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attack -> depends_on -> attack (original: attack -> depends_on -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "中間人攻擊",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "惡意軟體",
+        "type": "tool"
+      },
+      "reasoning": "文本提到透過不安全網路下載可能遭受中間人攻擊，進而安裝含有惡意軟體的更新程式檔。在此邏輯中，惡意軟體是攻擊者用來達成目的的工具，符合 ('attack', 'depends_on', 'tool')。",
+      "source_id": "chunk_9",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 1
+    }
+  }
+]

@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "電子商務",
+      "type": "system",
+      "display_name": "B2B 電子商務"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "企業",
+      "type": "securityTeam",
+      "display_name": "企業"
+    },
+    "reasoning": "文本提到 B2B 應用於『企業上下游間』的交易，代表 B2B 系統與企業基礎設施之間存在連接。符合 Schema: (system, connects_to, system)。",
+    "source_id": "chunk_3",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "B2B 電子商務 可以被視為系統 (system) 的合理實例；企業也可以被視為系統 (system) 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「電子商務」為同義詞；受體與 Ldr 中的「企業」完全相同",
+        "response": "duplicate",
+        "standard_subject": "電子商務",
+        "standard_object": "企業",
+        "reason": "主體與 Ldr 中的「電子商務」為同義詞；受體與 Ldr 中的「企業」完全相同，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> connects_to -> securityTeam (original: system -> connects_to -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "B2B 電子商務",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "企業",
+        "type": "system"
+      },
+      "reasoning": "文本提到 B2B 應用於『企業上下游間』的交易，代表 B2B 系統與企業基礎設施之間存在連接。符合 Schema: (system, connects_to, system)。",
+      "source_id": "chunk_3",
+      "source_file": "第02章 電子商務安全_e5.pdf",
+      "source_index": 6
+    }
+  }
+]

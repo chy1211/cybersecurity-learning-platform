@@ -1,1 +1,146 @@
-[]
+[
+  {
+    "subject": {
+      "name": "私密金鑰",
+      "type": "tool",
+      "display_name": "私密金鑰"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "機密資料",
+      "type": "data",
+      "display_name": "機密資料"
+    },
+    "reasoning": "文本提到收訊人使用私密金鑰解密讀取機密資料，在 Schema 中，feature (特徵) 可以 uses data (資料)。",
+    "source_id": "chunk_17",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "私密金鑰 (feature) 使用機密資料 (data) 是合理的語意對齊，符合資安領域的常見實踐。",
+        "response": "correct",
+        "reason": "私密金鑰使用機密資料的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的私密金鑰完全等價同義詞；受體與 Ldr 中的機密資料完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "私密金鑰",
+        "standard_object": "機密資料",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> uses -> data (original: feature -> uses -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "私密金鑰",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "機密資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到收訊人使用私密金鑰解密讀取機密資料，在 Schema 中，feature (特徵) 可以 uses data (資料)。",
+      "source_id": "chunk_17",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "對稱演算法",
+      "type": "technique",
+      "display_name": "對稱演算法"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "數位信封",
+      "type": "tool",
+      "display_name": "數位信封"
+    },
+    "reasoning": "數位信封的實作流程中首先使用了對稱演算法來加密訊息本文，因此對稱演算法是數位信封這項技術的一部分。Schema 允許 technique is_part_of technique。",
+    "source_id": "chunk_17",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "對稱演算法是 'technique' 的合理實例，數位信封是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱不在同義詞對照範例中，且無法確認為同義詞關係，依據判斷準則預設保留。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> is_part_of -> tool (original: technique -> is_part_of -> technique)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "對稱演算法",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "數位信封",
+        "type": "technique"
+      },
+      "reasoning": "數位信封的實作流程中首先使用了對稱演算法來加密訊息本文，因此對稱演算法是數位信封這項技術的一部分。Schema 允許 technique is_part_of technique。",
+      "source_id": "chunk_17",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "憑證機構",
+      "type": "tool",
+      "display_name": "憑證機構"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "數位憑證",
+      "type": "tool",
+      "display_name": "數位憑證"
+    },
+    "reasoning": "數位憑證由公正第三者憑證機構 (CA) 公告與管理，因此 CA (securityTeam) 控制/管理數位憑證 (tool)。Schema 允許 securityTeam controls tool。",
+    "source_id": "chunk_17",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'controls' 均在 Lc,p 中。",
+        "step_2_alignment_check": "憑證機構是安全團隊的合理實例，數位憑證是工具的合理實例。",
+        "response": "correct",
+        "reason": "憑證機構控制數位憑證的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的憑證機構完全等價同義詞；受體與 Ldr 中的數位憑證具有高相似度，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的憑證機構完全匹配，受體與 Ldr 中的數位憑證雖然相似，但無法確認為完全等價同義詞，因此預設保留原名。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> controls -> tool (original: securityTeam -> controls -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "憑證機構",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "數位憑證",
+        "type": "tool"
+      },
+      "reasoning": "數位憑證由公正第三者憑證機構 (CA) 公告與管理，因此 CA (securityTeam) 控制/管理數位憑證 (tool)。Schema 允許 securityTeam controls tool。",
+      "source_id": "chunk_17",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

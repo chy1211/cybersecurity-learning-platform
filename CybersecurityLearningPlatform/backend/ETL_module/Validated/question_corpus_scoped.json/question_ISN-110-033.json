@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "軟體",
+      "type": "app",
+      "display_name": "軟體"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全漏洞",
+      "type": "vulnerability",
+      "display_name": "安全性漏洞"
+    },
+    "reasoning": "文本提到『安裝最新版本為原則，以避免安全性漏洞』，這隱含了軟體（app）在未更新時具有暴露（can_expose）安全性漏洞（vulnerability）的可能性。符合 Schema Edge: ('app', 'can_expose', 'vulnerability')。",
+    "source_id": "question_ISN-110-033",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "軟體 (app) 可能會暴露安全性漏洞 (vulnerability)，這是資安領域中合理的語意關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，但發起的動作是 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的軟體完全等價同義詞；受體與 Ldr 中的安全漏洞完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "軟體",
+        "standard_object": "安全漏洞",
+        "reason": "主體與 Ldr 中的軟體完全等價同義詞；受體與 Ldr 中的安全漏洞完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "軟體",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全性漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『安裝最新版本為原則，以避免安全性漏洞』，這隱含了軟體（app）在未更新時具有暴露（can_expose）安全性漏洞（vulnerability）的可能性。符合 Schema Edge: ('app', 'can_expose', 'vulnerability')。",
+      "source_id": "question_ISN-110-033",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "安裝最新版本原則",
+      "type": "policy",
+      "display_name": "安裝最新版本原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "安全性漏洞",
+      "type": "risk",
+      "display_name": "安全性漏洞"
+    },
+    "reasoning": "文本明確將『安裝最新版本』定義為管理資訊系統時的『原則』，其目的是為了避免漏洞。這符合 ('policy', 'mitigates', 'risk') 的邏輯，將該原則視為 policy，將避免的漏洞視為 risk。",
+    "source_id": "question_ISN-110-033",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '安裝最新版本原則' 是 'policy' 的合理實例；受體名稱 '安全性漏洞' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖然相關，但無法確認完全等價同義詞關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安裝最新版本原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "安全性漏洞",
+        "type": "risk"
+      },
+      "reasoning": "文本明確將『安裝最新版本』定義為管理資訊系統時的『原則』，其目的是為了避免漏洞。這符合 ('policy', 'mitigates', 'risk') 的邏輯，將該原則視為 policy，將避免的漏洞視為 risk。",
+      "source_id": "question_ISN-110-033",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "最新版本軟體",
+      "type": "tool",
+      "display_name": "最新版本軟體"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資安風險",
+      "type": "risk",
+      "display_name": "安全性漏洞"
+    },
+    "reasoning": "文本指出安裝最新版本軟體可以避免漏洞。在資安知識圖譜中，消除漏洞即是緩解其帶來的風險。為了符合 Schema Edge ('tool', 'mitigates', 'risk')，將『安全性漏洞』在此視為一種風險（risk）實體。",
+    "source_id": "question_ISN-110-033",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '最新版本軟體' 可以被視為 'tool' 的合理實例；關係 'mitigates' 合理地連接主體與受體；受體名稱 '安全性漏洞' 可以被視為 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 tool，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源不完全相同，但主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間存在同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資安風險",
+        "reason": "受體與 Ldr 中的資源之間存在同義詞關係，且主體與 Ldr 中的資源之間存在同義詞關係，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "最新版本軟體",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "安全性漏洞",
+        "type": "risk"
+      },
+      "reasoning": "文本指出安裝最新版本軟體可以避免漏洞。在資安知識圖譜中，消除漏洞即是緩解其帶來的風險。為了符合 Schema Edge ('tool', 'mitigates', 'risk')，將『安全性漏洞』在此視為一種風險（risk）實體。",
+      "source_id": "question_ISN-110-033",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

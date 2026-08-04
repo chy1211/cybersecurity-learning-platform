@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "captcha",
+      "type": "technique",
+      "display_name": "CAPTCHA"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "跨站請求偽造(csrf)",
+      "type": "attack",
+      "display_name": "跨網站偽造請求 (CSRF)"
+    },
+    "reasoning": "根據題幹與正確答案，CAPTCHA（全自動區分電腦和人類的公開圖靈測試）可用於防護跨網站偽造請求 (CSRF) 攻擊。在本體論中，CAPTCHA 是一種防禦工具 (tool)，CSRF 是一種攻擊 (attack)，而『防護』對應至關係 'mitigates'。此組合符合 Schema Edges 中的 ('tool', 'mitigates', 'attack')。",
+    "source_id": "question_IPAS-110-TEC-025",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "CAPTCHA 是一種工具，合理對齊 'tool' 類別；跨網站偽造請求 (CSRF) 是一種攻擊，合理對齊 'attack' 類別。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 CAPTCHA 的類別是 technique，符合規則2所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 captcha 完全等價同義詞；受體與 Ldr 中的資源 跨站請求偽造(csrf) 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "captcha",
+        "standard_object": "跨站請求偽造(csrf)",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CAPTCHA",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "跨網站偽造請求 (CSRF)",
+        "type": "attack"
+      },
+      "reasoning": "根據題幹與正確答案，CAPTCHA（全自動區分電腦和人類的公開圖靈測試）可用於防護跨網站偽造請求 (CSRF) 攻擊。在本體論中，CAPTCHA 是一種防禦工具 (tool)，CSRF 是一種攻擊 (attack)，而『防護』對應至關係 'mitigates'。此組合符合 Schema Edges 中的 ('tool', 'mitigates', 'attack')。",
+      "source_id": "question_IPAS-110-TEC-025",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

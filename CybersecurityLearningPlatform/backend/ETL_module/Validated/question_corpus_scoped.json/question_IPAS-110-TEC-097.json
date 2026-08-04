@@ -1,0 +1,164 @@
+[
+  {
+    "subject": {
+      "name": "行動支付",
+      "type": "app",
+      "display_name": "行動支付"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "行動裝置",
+      "type": "system",
+      "display_name": "行動裝置"
+    },
+    "reasoning": "題幹提到『行動裝置上運用...行動支付方式』，明確指出行動支付應用程式是部署於行動裝置系統之中。",
+    "source_id": "question_IPAS-110-TEC-097",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "行動支付 (app) 是行動應用程式的合理實例，行動裝置 (system) 是系統的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的受體 (行動裝置) 的類別是 system，符合規則6的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "行動支付與行動裝置是不同概念，前者是應用程式類別，後者是系統類別，無法合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "行動支付與行動裝置是不同類別的實體，無法合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "行動支付",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "行動裝置",
+        "type": "system"
+      },
+      "reasoning": "題幹提到『行動裝置上運用...行動支付方式』，明確指出行動支付應用程式是部署於行動裝置系統之中。",
+      "source_id": "question_IPAS-110-TEC-097",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "代碼技術(tokenization)",
+      "type": "technique",
+      "display_name": "代碼技術(Tokenization)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "卡號推算攻擊",
+      "type": "attack",
+      "display_name": "卡號推算攻擊"
+    },
+    "reasoning": "正確答案指出『駭客無法由代碼去推算使用者原本的卡號』，這表示代碼技術(Tokenization)作為一種安全技術，能有效緩解或防禦試圖推算原始卡號的攻擊行為。",
+    "source_id": "question_IPAS-110-TEC-097",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "代碼技術 (Tokenization) 是一種合理的技術實例，卡號推算攻擊是一種合理的攻擊實例，且 'mitigates' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "代碼技術 (Tokenization) 的類別與屬性完全符合預先定義的類別與屬性清單 (Lc,p)，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "代碼技術(Tokenization) 是 technique 類別，符合規則2 的允許條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間的關係是主體為技術，受體為攻擊手法，兩者之間沒有直接的同義詞關係或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體之間的直接關係，因此預設保留原狀。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "代碼技術(Tokenization)",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "卡號推算攻擊",
+        "type": "attack"
+      },
+      "reasoning": "正確答案指出『駭客無法由代碼去推算使用者原本的卡號』，這表示代碼技術(Tokenization)作為一種安全技術，能有效緩解或防禦試圖推算原始卡號的攻擊行為。",
+      "source_id": "question_IPAS-110-TEC-097",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "行動支付",
+      "type": "app",
+      "display_name": "行動支付"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "信用卡卡號",
+      "type": "data",
+      "display_name": "信用卡卡號"
+    },
+    "reasoning": "根據正確答案提到的『使用者原本的卡號』，可以推論行動支付應用程式在運作時會使用到信用卡卡號這類資料。",
+    "source_id": "question_IPAS-110-TEC-097",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "行動支付 (app) 使用信用卡卡號 (data) 合理對齊，符合語意。",
+        "response": "correct",
+        "reason": "行動支付使用信用卡卡號的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體行動支付的類別是 app，而非 data，且關係是 uses，受體信用卡卡號的類別是 data，違反規則5。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體行動支付的類別是 app，而非 data，且關係是 uses，受體信用卡卡號的類別是 data，違反規則5。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "行動支付",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "信用卡卡號",
+        "type": "data"
+      },
+      "reasoning": "根據正確答案提到的『使用者原本的卡號』，可以推論行動支付應用程式在運作時會使用到信用卡卡號這類資料。",
+      "source_id": "question_IPAS-110-TEC-097",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

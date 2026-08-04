@@ -1,48 +1,18 @@
 [
   {
     "subject": {
-      "name": "RSA",
-      "type": "tool"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "加密",
-      "type": "function"
-    },
-    "reasoning": "文本中展示了 RSA 的加密計算過程，RSA 作為一種加密工具，具有加密的功能。",
-    "source_id": "chunk_12",
-    "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "RSA",
-      "type": "tool"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "解密",
-      "type": "function"
-    },
-    "reasoning": "文本中展示了 RSA 的解密計算過程，RSA 作為一種加密工具，具有解密的功能。",
-    "source_id": "chunk_12",
-    "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 2
-  },
-  {
-    "subject": {
       "name": "DSA",
-      "type": "technique"
+      "type": "tool"
     },
     "relation": "is_part_of",
     "object": {
       "name": "ElGamal",
-      "type": "technique"
+      "type": "tool"
     },
-    "reasoning": "文本提到 DSA 是 ElGamal 簽章演算法的變形，在技術分類上可視為其衍生或屬於該技術家族。",
+    "reasoning": "文本提到 DSA 是 ElGamal 簽章演算法的變形。在本體論中，將演算法視為工具 (tool)，且變形關係可視為一種屬於或衍生關係，符合 ('tool', 'is_part_of', 'tool')。",
     "source_id": "chunk_12",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 3
+    "source_index": 1
   },
   {
     "subject": {
@@ -54,10 +24,10 @@
       "name": "金鑰對產生",
       "type": "function"
     },
-    "reasoning": "文本明確指出數位簽章演算法 (DSA) 的使用包含三個部分，其中之一是金鑰對產生。",
+    "reasoning": "文本明確指出 DSA 的使用包含三個部分，其中之一是金鑰對產生。這符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_12",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 4
+    "source_index": 2
   },
   {
     "subject": {
@@ -69,10 +39,10 @@
       "name": "簽章",
       "type": "function"
     },
-    "reasoning": "文本明確指出數位簽章演算法 (DSA) 的使用包含三個部分，其中之一是簽章。",
+    "reasoning": "文本明確指出 DSA 的使用包含簽章功能。這符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_12",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 5
+    "source_index": 3
   },
   {
     "subject": {
@@ -84,10 +54,10 @@
       "name": "驗章",
       "type": "function"
     },
-    "reasoning": "文本明確指出數位簽章演算法 (DSA) 的使用包含三個部分，其中之一是驗章。",
+    "reasoning": "文本明確指出 DSA 的使用包含驗章功能。這符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_12",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 6
+    "source_index": 4
   },
   {
     "subject": {
@@ -97,27 +67,27 @@
     "relation": "has_a",
     "object": {
       "name": "雜湊函數",
-      "type": "function"
+      "type": "tool"
     },
-    "reasoning": "文本在參數介紹中提到 H 為雜湊函數，這是 DSA 運作中不可或缺的功能組件。",
+    "reasoning": "文本提到 DSA 的參數中包含雜湊函數 H。雜湊函數本身是一個工具，符合 ('tool', 'has_a', 'tool')。",
     "source_id": "chunk_12",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 7
+    "source_index": 5
   },
   {
     "subject": {
-      "name": "敵對者",
-      "type": "attacker"
+      "name": "DSA",
+      "type": "tool"
     },
-    "relation": "can_exploit",
+    "relation": "can_analyze",
     "object": {
-      "name": "質數選擇不當",
-      "type": "vulnerability"
+      "name": "待簽章的訊息",
+      "type": "data"
     },
-    "reasoning": "文本提到『如果選擇不當易遭受偽造攻擊』，這意味著質數選擇不當是一個漏洞，可被攻擊者利用。",
+    "reasoning": "DSA 演算法需要處理（分析）待簽章的訊息 M 以產生簽章。這符合 ('tool', 'can_analyze', 'data')。",
     "source_id": "chunk_12",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 8
+    "source_index": 6
   },
   {
     "subject": {
@@ -126,12 +96,57 @@
     },
     "relation": "generates",
     "object": {
-      "name": "數位簽章",
+      "name": "公開金鑰",
       "type": "data"
     },
-    "reasoning": "DSA 作為一種演算法工具，其執行『簽章』功能後會產生數位簽章這項資料。",
+    "reasoning": "文本在金鑰對產生部分提到計算公開金鑰 y。這表示 DSA 工具會產生金鑰資料，符合 ('tool', 'generates', 'data')。",
+    "source_id": "chunk_12",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "DSA",
+      "type": "tool"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "私密金鑰",
+      "type": "data"
+    },
+    "reasoning": "文本在金鑰對產生部分提到產生亂數 x 作為私密金鑰。這符合 ('tool', 'generates', 'data')。",
+    "source_id": "chunk_12",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "質數選擇不當",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "偽造風險",
+      "type": "risk"
+    },
+    "reasoning": "文本提到質數如果選擇不當，易遭受偽造攻擊。將「選擇不當」視為漏洞 (vulnerability)，將「遭受偽造攻擊的可能性」視為風險 (risk)，符合 ('vulnerability', 'can_expose', 'risk')。",
     "source_id": "chunk_12",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "RSA",
+      "type": "tool"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "加密訊息",
+      "type": "data"
+    },
+    "reasoning": "文本範例展示了 RSA 對訊息 m 進行加密與解密的過程，表示 RSA 工具能處理訊息資料，符合 ('tool', 'can_analyze', 'data')。",
+    "source_id": "chunk_12",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 10
   }
 ]

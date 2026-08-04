@@ -1,7 +1,7 @@
 [
   {
     "subject": {
-      "name": "DDoS",
+      "name": "分散式阻絕服務攻擊 (DDoS)",
       "type": "attack"
     },
     "relation": "can_harm",
@@ -9,25 +9,10 @@
       "name": "購物網站",
       "type": "app"
     },
-    "reasoning": "文本明確提到購物網站遭受到分散式阻絕服務攻擊 (DDoS)，導致無法提供服務並造成營收損失，符合 (attack, can_harm, app) 的 Schema。",
+    "reasoning": "文本明確提到購物網站遭受 DDoS 攻擊導致無法提供服務並造成損失，符合 attack 可危害 app 的邏輯。",
     "source_id": "chunk_6",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "DDoS",
-      "type": "attack"
-    },
-    "relation": "violates",
-    "object": {
-      "name": "可用性",
-      "type": "principle"
-    },
-    "reasoning": "文本提到 DDoS 導致『三天之內無法提供服務』，這直接破壞了資安三要素中的可用性 (Availability)，符合 (attack, violates, principle) 的 Schema。",
-    "source_id": "chunk_6",
-    "source_file": "第12章 營運持續計畫_e5.pdf",
-    "source_index": 2
   },
   {
     "subject": {
@@ -36,28 +21,28 @@
     },
     "relation": "mitigates",
     "object": {
-      "name": "損失",
+      "name": "有形與無形之損失",
       "type": "risk"
     },
-    "reasoning": "文本指出 BCP 的目的是使『有形與無形之損失降至最低』，因此 BCP 作為一種策略/計畫，用以緩解損失風險，符合 (policy, mitigates, risk) 的 Schema。",
+    "reasoning": "文本指出 BCP 小組透過決策使損失降至最低，因此 BCP 作為一種 policy 可以緩解 risk。",
     "source_id": "chunk_6",
     "source_file": "第12章 營運持續計畫_e5.pdf",
-    "source_index": 3
+    "source_index": 2
   },
   {
     "subject": {
-      "name": "營運持續計畫小組",
-      "type": "securityTeam"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "營運持續計畫 (BCP)",
+      "name": "風險轉移策略",
       "type": "policy"
     },
-    "reasoning": "文本提到 BCP 小組需要作決策以執行計畫，代表該安全團隊在實作此政策，符合 (securityTeam, implements, policy) 的 Schema。",
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk"
+    },
+    "reasoning": "文本直接提到『運用資訊技術可以轉移風險』，將風險轉移策略視為 policy，其目的是緩解 risk。",
     "source_id": "chunk_6",
     "source_file": "第12章 營運持續計畫_e5.pdf",
-    "source_index": 4
+    "source_index": 3
   },
   {
     "subject": {
@@ -69,7 +54,22 @@
       "name": "風險",
       "type": "risk"
     },
-    "reasoning": "文本將防火牆列為『風險轉移策略』的一部分，用以轉移/降低風險，符合 (tool, mitigates, risk) 的 Schema。",
+    "reasoning": "防火牆被列在風險轉移策略的工具中，用於降低風險，符合 tool 可緩解 risk 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "企業虛擬網路",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "風險",
+      "type": "risk"
+    },
+    "reasoning": "企業虛擬網路 (VPN) 被列為轉移風險的手段，符合 tool 可緩解 risk 的 Schema。",
     "source_id": "chunk_6",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 5
@@ -84,69 +84,54 @@
       "name": "攻擊",
       "type": "attack"
     },
-    "reasoning": "入侵偵測 (IDS) 的核心功能即為偵測惡意攻擊行為，且被列在風險轉移工具中，符合 (tool, can_detect, attack) 的 Schema。",
+    "reasoning": "入侵偵測與防範 (IDS/IPS) 的核心功能即為偵測攻擊，符合 tool 可偵測 attack 的 Schema。",
     "source_id": "chunk_6",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "企業虛擬網路",
+      "name": "反間諜軟體",
       "type": "tool"
     },
-    "relation": "mitigates",
+    "relation": "can_detect",
     "object": {
-      "name": "風險",
-      "type": "risk"
+      "name": "攻擊",
+      "type": "attack"
     },
-    "reasoning": "文本將企業虛擬網路列為轉移風險的資訊技術手段，符合 (tool, mitigates, risk) 的 Schema。",
+    "reasoning": "反間諜軟體用於偵測並防禦間諜軟體（一種攻擊形式），符合 tool 可偵測 attack 的 Schema。",
     "source_id": "chunk_6",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 7
   },
   {
     "subject": {
-      "name": "反間諜軟體",
+      "name": "反垃圾郵件",
       "type": "tool"
     },
-    "relation": "mitigates",
+    "relation": "can_detect",
     "object": {
-      "name": "風險",
-      "type": "risk"
+      "name": "攻擊",
+      "type": "attack"
     },
-    "reasoning": "文本將反間諜軟體列為轉移風險的資訊技術手段，符合 (tool, mitigates, risk) 的 Schema。",
+    "reasoning": "反垃圾郵件工具用於偵測垃圾郵件攻擊，符合 tool 可偵測 attack 的 Schema。",
     "source_id": "chunk_6",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 8
   },
   {
     "subject": {
-      "name": "反垃圾郵件",
-      "type": "tool"
+      "name": "加密",
+      "type": "technique"
     },
     "relation": "mitigates",
     "object": {
-      "name": "風險",
-      "type": "risk"
+      "name": "攻擊",
+      "type": "attack"
     },
-    "reasoning": "文本將反垃圾郵件列為轉移風險的資訊技術手段，符合 (tool, mitigates, risk) 的 Schema。",
+    "reasoning": "文本提到加密是提高資料安全的方法，在資安情境中，加密技術可用於緩解資料外洩等攻擊，符合 technique 可緩解 attack 的 Schema。",
     "source_id": "chunk_6",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 9
-  },
-  {
-    "subject": {
-      "name": "加密",
-      "type": "tool"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "風險",
-      "type": "risk"
-    },
-    "reasoning": "文本提到加密是『有效提高資料安全的方法』且屬於風險轉移策略，旨在降低資料外洩等風險，符合 (tool, mitigates, risk) 的 Schema。",
-    "source_id": "chunk_6",
-    "source_file": "第12章 營運持續計畫_e5.pdf",
-    "source_index": 10
   }
 ]

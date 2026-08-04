@@ -1,0 +1,159 @@
+[
+  {
+    "subject": {
+      "name": "fraggle",
+      "type": "attack",
+      "display_name": "Fraggle"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "阻絕服務攻擊",
+      "type": "attack",
+      "display_name": "阻絕服務攻擊"
+    },
+    "reasoning": "根據題幹與正確答案，Fraggle 被明確定義為一種『阻絕服務攻擊』，因此屬於 attack 類型的子集，使用 is_part_of 關係。",
+    "source_id": "question_IPAS-111-TEC-053",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Fraggle 是一種攻擊手法，屬於 'attack' 類別； 阻絕服務攻擊（Denial of Service, DoS）也是攻擊手法，屬於 'attack' 類別。兩者名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "Fraggle 與 阻絕服務攻擊 的類別與屬性完全符合預先定義的清單，且語意對齊。"
+      },
+      "step_2_selfloop_reverted": true,
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體為同義詞重複",
+        "response": "duplicate",
+        "standard_subject": "阻絕服務攻擊",
+        "standard_object": "阻絕服務攻擊",
+        "reason": "根據資安領域已知同義詞對照範例，Fraggle 是阻絕服務攻擊的同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Fraggle",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "阻絕服務攻擊",
+        "type": "attack"
+      },
+      "reasoning": "根據題幹與正確答案，Fraggle 被明確定義為一種『阻絕服務攻擊』，因此屬於 attack 類型的子集，使用 is_part_of 關係。",
+      "source_id": "question_IPAS-111-TEC-053",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "fraggle",
+      "type": "attack",
+      "display_name": "Fraggle"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "Fraggle 是一種阻絕服務攻擊 (DoS)，其核心目的就是使目標系統無法提供正常服務，這直接違反了資安三要素中的『可用性 (Availability)』，符合 ('attack', 'violates', 'principle') 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-053",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Fraggle 是一種攻擊手法，屬於 'attack' 類別；'可用性' 是資安領域中的常見原則，屬於 'principle' 類別。因此，語意對齊是合理的。",
+        "response": "correct",
+        "reason": "Fraggle攻擊違反可用性原則的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。",
+        "response": "correct",
+        "reason": "主體 Fraggle 的類別是 attack，與受體可用性的類別 principle 合理地形成了 violates 關係，符合規則4 的描述。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 fraggle 關係：完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 Fraggle 與 Ldr 中的 fraggle 名稱雖然相似，但考慮到資安領域的嚴謹性，且無法確認完全等價，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Fraggle",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "Fraggle 是一種阻絕服務攻擊 (DoS)，其核心目的就是使目標系統無法提供正常服務，這直接違反了資安三要素中的『可用性 (Availability)』，符合 ('attack', 'violates', 'principle') 的 Schema。",
+      "source_id": "question_IPAS-111-TEC-053",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "fraggle",
+      "type": "attack",
+      "display_name": "Fraggle"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標網路",
+      "type": "system",
+      "display_name": "目標網路"
+    },
+    "reasoning": "文本提到 Fraggle 攻擊是將封包送至『目標網路』以產生阻絕服務效果，這代表該攻擊會對目標系統（網路）造成損害，符合 ('attack', 'can_harm', 'system') 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-053",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Fraggle 是一種攻擊類型，與 'attack' 類別對齊；'目標網路' 是一個系統，與 'system' 類別對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體Fraggle的類別是attack，而非attacker或securityTeam。規則2不適用，因為主體Fraggle的類別是attack，而非policy、technique或tool。規則3不適用，因為主體Fraggle的類別是attack，而非vulnerability。規則4不適用，因為主體Fraggle的類別是attack，而非principle。規則5不適用，因為關係是can_harm，而非uses。規則6不適用，因為關係是can_harm，而非deployed_in。規則7不適用，因為關係是can_harm，而非generates。規則8不適用，因為關係是can_harm，而非controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Fraggle 與 Ldr 中的 fraggle 名稱完全相同，受體 目標網路 與 Ldr 中的 網路 名稱相似，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 Fraggle 名稱完全相同，但受體 目標網路 與 Ldr 中的 網路 名稱不完全相同，無法判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Fraggle",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "目標網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到 Fraggle 攻擊是將封包送至『目標網路』以產生阻絕服務效果，這代表該攻擊會對目標系統（網路）造成損害，符合 ('attack', 'can_harm', 'system') 的 Schema。",
+      "source_id": "question_IPAS-111-TEC-053",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

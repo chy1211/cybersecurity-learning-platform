@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "內部稽核",
+      "type": "technique",
+      "display_name": "內部稽核"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊安全事件",
+      "type": "attack",
+      "display_name": "資訊安全事件"
+    },
+    "reasoning": "題幹提到藉由『內部稽核』來預防資訊安全事件。內部稽核是一種審查技術 (technique)，用於緩解 (mitigates) 潛在的攻擊或事件 (attack)。",
+    "source_id": "question_IPAS-110-MGT-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '內部稽核' 可被視為 'technique' 的合理實例；受體 '資訊安全事件' 可被視為 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 technique，符合規則2的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「內部稽核」完全等價同義詞；受體與 Ldr 中的「資訊安全事件」具有廣義/狹義從屬關係，但無法確定具體從屬關係，因此預設保留原名。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定具體從屬關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部稽核",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊安全事件",
+        "type": "attack"
+      },
+      "reasoning": "題幹提到藉由『內部稽核』來預防資訊安全事件。內部稽核是一種審查技術 (technique)，用於緩解 (mitigates) 潛在的攻擊或事件 (attack)。",
+      "source_id": "question_IPAS-110-MGT-002",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "事件回應",
+      "type": "technique",
+      "display_name": "事件回應"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊安全事件",
+      "type": "attack",
+      "display_name": "資訊安全事件"
+    },
+    "reasoning": "題幹提到藉由『事件的回應』來預防或降低資訊安全事件的損失。事件回應是一種技術流程 (technique)，其目的是緩解 (mitigates) 攻擊 (attack)。",
+    "source_id": "question_IPAS-110-MGT-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "事件回應 (technique) 合理對齊，資訊安全事件 (attack) 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體事件回應的類別是 technique，符合規則2的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊安全事件與資訊安全事故之間存在著廣義/狹義從屬關係，但根據提供的資安領域已知同義詞對照範例，資訊安全事件與資訊安全事故被視為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資訊安全事件",
+        "reason": "根據資安領域已知同義詞對照範例，資訊安全事件與資訊安全事故被視為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "事件回應",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊安全事件",
+        "type": "attack"
+      },
+      "reasoning": "題幹提到藉由『事件的回應』來預防或降低資訊安全事件的損失。事件回應是一種技術流程 (technique)，其目的是緩解 (mitigates) 攻擊 (attack)。",
+      "source_id": "question_IPAS-110-MGT-002",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "管理審查會議",
+      "type": "function",
+      "display_name": "管理審查會議"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "內部稽核成果報告",
+      "type": "data",
+      "display_name": "內部稽核成果報告"
+    },
+    "reasoning": "選項 D (正確知識) 提到內部稽核的成果報告需要在管理審查會議中進行檢討。管理審查會議在此視為一種管理功能 (function)，而報告為資料 (data)，兩者關係為 can_analyze。",
+    "source_id": "question_IPAS-110-MGT-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '管理審查會議' 可被視為 'function' 的合理實例；受體 '內部稽核成果報告' 可被視為 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為function，而非vulnerability。規則5不適用，因為關係不是uses，且主體類別不是data。規則8不適用，因為關係不是controls。其他規則不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合無罪推定原則。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理審查會議",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "內部稽核成果報告",
+        "type": "data"
+      },
+      "reasoning": "選項 D (正確知識) 提到內部稽核的成果報告需要在管理審查會議中進行檢討。管理審查會議在此視為一種管理功能 (function)，而報告為資料 (data)，兩者關係為 can_analyze。",
+      "source_id": "question_IPAS-110-MGT-002",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 6
+    }
+  }
+]

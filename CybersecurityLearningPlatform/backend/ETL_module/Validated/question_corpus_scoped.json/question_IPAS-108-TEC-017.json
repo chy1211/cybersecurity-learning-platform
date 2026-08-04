@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "selinux",
+      "type": "tool",
+      "display_name": "SELinux"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "mac",
+      "type": "function",
+      "display_name": "MAC"
+    },
+    "reasoning": "根據題幹與正確答案，SELinux 是 MAC (強制存取控制) 模型的實作。在 Schema 中，tool 可以 has_a function，因此將 SELinux 視為工具，將 MAC 視為其提供的存取控制功能。",
+    "source_id": "question_IPAS-108-TEC-017",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SELinux 是一種工具（tool），MAC（強制存取控制）是一種功能（function），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 SELinux 與 Ldr 中無直接對應關係；受體 MAC 在資安領域中可能與存取控制相關，但無直接同義詞對應關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無直接同義詞對應關係，且無法確認廣義/狹義從屬關係，預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SELinux",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "MAC",
+        "type": "function"
+      },
+      "reasoning": "根據題幹與正確答案，SELinux 是 MAC (強制存取控制) 模型的實作。在 Schema 中，tool 可以 has_a function，因此將 SELinux 視為工具，將 MAC 視為其提供的存取控制功能。",
+      "source_id": "question_IPAS-108-TEC-017",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "selinux",
+      "type": "tool",
+      "display_name": "SELinux"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "linux",
+      "type": "system",
+      "display_name": "Linux"
+    },
+    "reasoning": "題幹明確指出 SELinux 是『於 Linux 作業系統中』的實作，因此 SELinux (tool) 是 Linux (system) 的一部分，符合 ('tool', 'is_part_of', 'system') 的 Schema 邊界。",
+    "source_id": "question_IPAS-108-TEC-017",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SELinux 是一種 Linux 的安全模組，故其名稱與類別 'tool' 對齊；Linux 是一種作業系統，故其名稱與類別 'system' 對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 不符合規則6的觸發條件，且無其他規則被違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 SELinux 與 Ldr 中的 selinux 完全等價同義詞；受體 Linux 與 Ldr 中的 linux系統設備 名稱相似但非完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 SELinux 與 Ldr 中的 selinux 完全等價同義詞，但受體 Linux 與 Ldr 中的 linux系統設備 名稱相似但非完全等價同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SELinux",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "Linux",
+        "type": "system"
+      },
+      "reasoning": "題幹明確指出 SELinux 是『於 Linux 作業系統中』的實作，因此 SELinux (tool) 是 Linux (system) 的一部分，符合 ('tool', 'is_part_of', 'system') 的 Schema 邊界。",
+      "source_id": "question_IPAS-108-TEC-017",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

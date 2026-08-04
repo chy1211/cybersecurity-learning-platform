@@ -1,1 +1,194 @@
-[]
+[
+  {
+    "subject": {
+      "name": "應用軟體",
+      "type": "app",
+      "display_name": "應用軟體子系統"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "應用層",
+      "type": "feature",
+      "display_name": "應用層"
+    },
+    "reasoning": "文本提到在應用層根據需求開發相應的應用軟體子系統。符合 Schema 中的 (\"app\", \"is_part_of\", \"system\")。",
+    "source_id": "chunk_3",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "應用軟體子系統是應用層的一部分，符合語意對齊，且接受資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "應用軟體子系統是應用層的一部分，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "應用軟體子系統與應用軟體之間是同義詞關係，應用層與應用層之間是完全等價同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "應用軟體",
+        "standard_object": "應用層",
+        "reason": "根據同義詞判定，應用軟體子系統與應用軟體、應用層與應用層之間是同義詞關係，因此判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): app -> is_part_of -> feature (original: app -> is_part_of -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用軟體子系統",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "應用層",
+        "type": "system"
+      },
+      "reasoning": "文本提到在應用層根據需求開發相應的應用軟體子系統。符合 Schema 中的 (\"app\", \"is_part_of\", \"system\")。",
+      "source_id": "chunk_3",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "網路層",
+      "type": "feature",
+      "display_name": "網路層"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "內部網路",
+      "type": "system",
+      "display_name": "內部網路"
+    },
+    "reasoning": "文本提到網路層的類型可能為一般企業的內部網路。符合 Schema 中的 (\"system\", \"has_a\", \"system\")。",
+    "source_id": "chunk_3",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '網路層' 與受體 '內部網路' 都是 'system' 的合理實例，語意對齊正常。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊正常。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的網路層完全等價同義詞；受體與 Ldr 中的內部網路完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域中的具體概念，無法合併為同義詞。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> system (original: system -> has_a -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路層",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "內部網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到網路層的類型可能為一般企業的內部網路。符合 Schema 中的 (\"system\", \"has_a\", \"system\")。",
+      "source_id": "chunk_3",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "網路層",
+      "type": "feature",
+      "display_name": "網路層"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "廣域網路",
+      "type": "system",
+      "display_name": "廣域網路"
+    },
+    "reasoning": "文本提到網路層的類型可能為電信業者的廣域網路。符合 Schema 中的 (\"system\", \"has_a\", \"system\")。",
+    "source_id": "chunk_3",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '網路層' 可以被視為 'system' 的合理實例，受體名稱 '廣域網路' 也可以被視為 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「網路層」完全等價同義詞；受體與 Ldr 中的「網際網路」、「電腦網路」、「無線網路」等相關系統概念不完全相同，但都屬於「網路」系統的子類型或相關概念，因此不應合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「網路層」完全等價同義詞；受體與 Ldr 中的相關系統概念不完全相同，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> system (original: system -> has_a -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路層",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "廣域網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到網路層的類型可能為電信業者的廣域網路。符合 Schema 中的 (\"system\", \"has_a\", \"system\")。",
+      "source_id": "chunk_3",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "網路層",
+      "type": "feature",
+      "display_name": "網路層"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "傳輸協定",
+      "type": "feature",
+      "display_name": "傳輸協定"
+    },
+    "reasoning": "文本提到資料透過傳輸協定轉送到網路層，協定是網路層運作的組成特徵。符合 Schema 中的 (\"system\", \"has_a\", \"feature\")。",
+    "source_id": "chunk_3",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "網路層是系統的一部分，傳輸協定是網路層的特徵，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的網路層 (network layer) 是完全等價同義詞；受體與 Ldr 中的網路通訊協定 是廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的網路層 (network layer) 是完全等價同義詞，但受體與 Ldr 中的網路通訊協定 是廣義/狹義從屬關係，因此判定為 correct"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> feature (original: system -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路層",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "傳輸協定",
+        "type": "feature"
+      },
+      "reasoning": "文本提到資料透過傳輸協定轉送到網路層，協定是網路層運作的組成特徵。符合 Schema 中的 (\"system\", \"has_a\", \"feature\")。",
+      "source_id": "chunk_3",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 12
+    }
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "subject": {
+      "name": "憑證機構",
+      "type": "tool",
+      "display_name": "權威憑證機構"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "憑證",
+      "type": "data",
+      "display_name": "憑證"
+    },
+    "reasoning": "根據選項 A 與 D，憑證必須通過權威憑證機構 (CA) 或權威第三方簽署。在資安知識圖譜中，CA 扮演簽發憑證的系統角色，可視為 tool，而簽署憑證的行為即為產生該合法憑證（data），因此使用 'generates' 關係。",
+    "source_id": "question_IPAS-111-MGT-045",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '權威憑證機構' 是 'tool' 的合理實例，受體 '憑證' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
+        "response": "correct",
+        "reason": "三元組符合規則7所允許的條件，主體為 tool，關係為 generates，受體為 data，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「憑證機構」為同義詞；受體與 Ldr 中的「憑證」完全相同。",
+        "response": "duplicate",
+        "standard_subject": "憑證機構",
+        "standard_object": "憑證",
+        "reason": "主體與 Ldr 中的「憑證機構」為同義詞；受體與 Ldr 中的「憑證」完全相同，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "權威憑證機構",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "憑證",
+        "type": "data"
+      },
+      "reasoning": "根據選項 A 與 D，憑證必須通過權威憑證機構 (CA) 或權威第三方簽署。在資安知識圖譜中，CA 扮演簽發憑證的系統角色，可視為 tool，而簽署憑證的行為即為產生該合法憑證（data），因此使用 'generates' 關係。",
+      "source_id": "question_IPAS-111-MGT-045",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "mime",
+      "type": "feature",
+      "display_name": "S/MIME"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "憑證",
+      "type": "data",
+      "display_name": "憑證"
+    },
+    "reasoning": "根據考題選項 A 與 D（在否定式提問中為正確敘述），S/MIME 協定在運作時需要使用憑證（公鑰）來進行加密與簽署。S/MIME 作為一種協定（feature），其運作依賴於憑證（data），因此使用 'uses' 關係。",
+    "source_id": "question_IPAS-111-MGT-045",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "S/MIME 是一種郵件加密技術，屬於 'feature' 的合理實例；憑證是數據的一種形式，屬於 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體 S/MIME 的類別是 feature，而非 data，且關係為 uses，違反規則5。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體 S/MIME 的類別是 feature，而非 data，且關係為 uses，違反規則5。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "duplicate",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "S/MIME",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "憑證",
+        "type": "data"
+      },
+      "reasoning": "根據考題選項 A 與 D（在否定式提問中為正確敘述），S/MIME 協定在運作時需要使用憑證（公鑰）來進行加密與簽署。S/MIME 作為一種協定（feature），其運作依賴於憑證（data），因此使用 'uses' 關係。",
+      "source_id": "question_IPAS-111-MGT-045",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

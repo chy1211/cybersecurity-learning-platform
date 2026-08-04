@@ -1,21 +1,6 @@
 [
   {
     "subject": {
-      "name": "社群雲",
-      "type": "system"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "雲端資料",
-      "type": "data"
-    },
-    "reasoning": "文本提到社群雲的成員共同使用雲端資料，因此將社群雲定義為 system，雲端資料定義為 data，關係為 uses。",
-    "source_id": "chunk_3",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 1
-  },
-  {
-    "subject": {
       "name": "雲端應用程式",
       "type": "app"
     },
@@ -24,7 +9,22 @@
       "name": "社群雲",
       "type": "system"
     },
-    "reasoning": "文本提到社群雲的成員共同使用雲端應用程式，應用程式是社群雲環境中的組成部分，符合 (app, is_part_of, system) 的 Schema。",
+    "reasoning": "文本提到社群雲的成員共同使用雲端應用程式，因此將雲端應用程式視為社群雲系統的一部分。",
+    "source_id": "chunk_3",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "雲端資料",
+      "type": "data"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "社群雲",
+      "type": "system"
+    },
+    "reasoning": "文本提到社群雲的成員共同使用雲端資料，資料存放於該雲端系統中，符合 ('data', 'deployed_in', 'system')。",
     "source_id": "chunk_3",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 2
@@ -37,27 +37,12 @@
     "relation": "uses",
     "object": {
       "name": "SaaS",
-      "type": "system"
+      "type": "app"
     },
-    "reasoning": "文本描述用戶使用軟體即服務 (SaaS) 這種雲端服務型式，符合 (user, uses, system) 的 Schema。",
+    "reasoning": "文本明確指出 SaaS 是用戶所使用的雲端服務（應用軟體），符合 ('user', 'uses', 'app')。",
     "source_id": "chunk_3",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "用戶",
-      "type": "user"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "瀏覽器",
-      "type": "app"
-    },
-    "reasoning": "文本提到用戶透過瀏覽器使用應用服務，符合 (user, uses, app) 的 Schema。",
-    "source_id": "chunk_3",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 4
   },
   {
     "subject": {
@@ -69,10 +54,10 @@
       "name": "SaaS",
       "type": "system"
     },
-    "reasoning": "用戶透過瀏覽器存取 SaaS 服務，代表瀏覽器這個應用程式連接至 SaaS 系統，符合 (app, connects_to, system) 的 Schema。",
+    "reasoning": "用戶透過瀏覽器使用 SaaS 服務，瀏覽器作為應用程式連接至 SaaS 系統，符合 ('app', 'connects_to', 'system')。",
     "source_id": "chunk_3",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 5
+    "source_index": 4
   },
   {
     "subject": {
@@ -84,7 +69,22 @@
       "name": "SaaS",
       "type": "system"
     },
-    "reasoning": "文本將 Gmail 列為 SaaS 的例子，因此 Gmail 是 SaaS 這一服務體系中的一個具體應用程式，符合 (app, is_part_of, system) 的 Schema。",
+    "reasoning": "文本將 Gmail 列為 SaaS 的例子，因此 Gmail 應用程式屬於 SaaS 服務系統。",
+    "source_id": "chunk_3",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "PaaS",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "作業平台",
+      "type": "system"
+    },
+    "reasoning": "PaaS 提供作業平台服務，作業平台可視為 PaaS 系統包含的子系統，符合 ('system', 'has_a', 'system')。",
     "source_id": "chunk_3",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 6
@@ -96,10 +96,10 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "作業平台",
-      "type": "feature"
+      "name": "編輯工具",
+      "type": "tool"
     },
-    "reasoning": "PaaS 提供作業平台作為其服務組成部分，將作業平台視為系統的特徵/組成元件，符合 (system, has_a, feature) 的 Schema。",
+    "reasoning": "PaaS 提供編輯工具，工具是系統的功能組成部分，符合 ('system', 'has_a', 'tool')。",
     "source_id": "chunk_3",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 7
@@ -111,25 +111,25 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "編輯工具",
-      "type": "tool"
+      "name": "程式庫",
+      "type": "feature"
     },
-    "reasoning": "PaaS 提供編輯工具給用戶，編輯工具屬於具體的工具實體，符合 (system, has_a, tool) 的 Schema。",
+    "reasoning": "PaaS 提供程式庫，程式庫是開發環境的特徵/組成部分，符合 ('system', 'has_a', 'feature')。",
     "source_id": "chunk_3",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 8
   },
   {
     "subject": {
+      "name": "SaaS",
+      "type": "app"
+    },
+    "relation": "deployed_in",
+    "object": {
       "name": "PaaS",
       "type": "system"
     },
-    "relation": "has_a",
-    "object": {
-      "name": "伺服器",
-      "type": "feature"
-    },
-    "reasoning": "PaaS 包含底層的伺服器資源，伺服器是系統的組成部分，符合 (system, has_a, feature) 的 Schema。",
+    "reasoning": "文本提到開發商可以利用 PaaS 平台提供 SaaS 類型的服務，意即 SaaS 應用部署在 PaaS 系統之上。",
     "source_id": "chunk_3",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 9
@@ -144,7 +144,7 @@
       "name": "網路",
       "type": "feature"
     },
-    "reasoning": "IaaS 提供必要的基礎設施如網路，網路是系統的組成特徵，符合 (system, has_a, feature) 的 Schema。",
+    "reasoning": "IaaS 提供基礎設施如網路，網路是基礎設施系統的組成特徵，符合 ('system', 'has_a', 'feature')。",
     "source_id": "chunk_3",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 10
@@ -156,25 +156,25 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "處理器",
+      "name": "儲存空間",
       "type": "feature"
     },
-    "reasoning": "IaaS 提供處理器等資源，處理器是系統的硬體特徵，符合 (system, has_a, feature) 的 Schema。",
+    "reasoning": "IaaS 提供儲存空間，儲存空間是基礎設施系統的組成特徵，符合 ('system', 'has_a', 'feature')。",
     "source_id": "chunk_3",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 11
   },
   {
     "subject": {
+      "name": "EC2",
+      "type": "app"
+    },
+    "relation": "is_part_of",
+    "object": {
       "name": "IaaS",
       "type": "system"
     },
-    "relation": "has_a",
-    "object": {
-      "name": "儲存空間",
-      "type": "feature"
-    },
-    "reasoning": "IaaS 提供儲存空間，儲存空間是系統的組成特徵，符合 (system, has_a, feature) 的 Schema。",
+    "reasoning": "Amazon EC2 被列為 IaaS 的具體服務實例，因此將其視為 IaaS 系統中的一個應用/服務。",
     "source_id": "chunk_3",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 12

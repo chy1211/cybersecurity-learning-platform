@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "日誌管理方案",
+      "type": "tool",
+      "display_name": "日誌管理系統"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "根據選項 D（此為否定式提問之正確知識來源），日誌管理系統透過統一分析（分析對象為日誌）來進行鑑識追蹤，符合 ('tool', 'can_analyze', 'data')。",
+    "source_id": "question_IPAS-112-TEC-092",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "日誌管理系統是工具的合理實例，日誌是資料的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "日誌管理系統 (類別: tool) 可以執行 can_analyze 動作，且符合規則8中tool的定義。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「日誌管理方案」為同義詞；受體與 Ldr 中的「日誌」完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "日誌管理方案",
+        "standard_object": "日誌",
+        "reason": "主體與 Ldr 中的「日誌管理方案」為同義詞；受體與 Ldr 中的「日誌」完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "日誌管理系統",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "根據選項 D（此為否定式提問之正確知識來源），日誌管理系統透過統一分析（分析對象為日誌）來進行鑑識追蹤，符合 ('tool', 'can_analyze', 'data')。",
+      "source_id": "question_IPAS-112-TEC-092",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "根據選項 B（此為否定式提問之正確知識來源），日誌若未安全存放，可能被駭客刪除或修改，這屬於攻擊者對資料造成的損害，符合 ('attacker', 'can_harm', 'data')。",
+    "source_id": "question_IPAS-112-TEC-092",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，日誌 (data) 是資料的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是同時具有攻擊者與安全團隊的身分。規則2不適用，因為主體不是policy, technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的日誌檔、網路日誌、系統日誌、稽核日誌、網站日誌之間存在廣義/狹義從屬關係，但無法確定主體駭客是否與 Ldr 中的其他資源有直接關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體駭客是否與 Ldr 中的其他資源有直接關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "根據選項 B（此為否定式提問之正確知識來源），日誌若未安全存放，可能被駭客刪除或修改，這屬於攻擊者對資料造成的損害，符合 ('attacker', 'can_harm', 'data')。",
+      "source_id": "question_IPAS-112-TEC-092",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "siem",
+      "type": "tool",
+      "display_name": "SIEM"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "網路安全威脅",
+      "type": "attack",
+      "display_name": "資安威脅"
+    },
+    "reasoning": "根據選項 C（此為否定式提問之正確知識來源），SIEM 的功能是達成降低資安威脅，對應到 Schema 中的 ('tool', 'mitigates', 'attack')。",
+    "source_id": "question_IPAS-112-TEC-092",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SIEM 是一種資安工具，合理對齊 'tool' 類別；'資安威脅' 是一種攻擊，合理對齊 'attack' 類別。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 SIEM 的類別是 tool，符合規則2的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 SIEM 與 Ldr 中的 siem 完全等價同義詞；受體 資安威脅 與 Ldr 中的 網路安全威脅、威脅 均為同義詞",
+        "response": "duplicate",
+        "standard_subject": "siem",
+        "standard_object": "網路安全威脅",
+        "reason": "主體 SIEM 與 Ldr 中的 siem 完全等價同義詞；受體 資安威脅 與 Ldr 中的 網路安全威脅、威脅 均為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SIEM",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資安威脅",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 C（此為否定式提問之正確知識來源），SIEM 的功能是達成降低資安威脅，對應到 Schema 中的 ('tool', 'mitigates', 'attack')。",
+      "source_id": "question_IPAS-112-TEC-092",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

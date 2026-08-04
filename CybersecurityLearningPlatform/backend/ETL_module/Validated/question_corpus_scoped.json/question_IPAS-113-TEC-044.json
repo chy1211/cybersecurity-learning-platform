@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "沒有使用強密碼",
+      "type": "feature",
+      "display_name": "沒有使用強密碼"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "驗證密碼控制機制不足",
+      "type": "vulnerability",
+      "display_name": "驗證密碼控制機制不足"
+    },
+    "reasoning": "根據考題，『沒有使用強密碼』被歸類為『驗證密碼控制機制不足』這一安全威脅。在本體論中，密碼強度屬於系統的屬性 (feature)，而『驗證密碼控制機制不足』描述的是系統管理上的缺陷 (vulnerability)。因此，使用 feature -> can_expose -> vulnerability 的關係來表示該屬性導致了該漏洞的暴露，符合 Schema Edges 規範。",
+    "source_id": "question_IPAS-113-TEC-044",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '沒有使用強密碼' 合理對齊其類別 'feature'，受體名稱 '驗證密碼控制機制不足' 合理對齊其類別 'vulnerability'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 feature，受體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許，無違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體均為資安領域中獨立的概念，無直接同義詞關係，但主體「沒有使用強密碼」可被視為受體「驗證密碼控制機制不足」的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體是受體的子類型，禁止合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "沒有使用強密碼",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "驗證密碼控制機制不足",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據考題，『沒有使用強密碼』被歸類為『驗證密碼控制機制不足』這一安全威脅。在本體論中，密碼強度屬於系統的屬性 (feature)，而『驗證密碼控制機制不足』描述的是系統管理上的缺陷 (vulnerability)。因此，使用 feature -> can_expose -> vulnerability 的關係來表示該屬性導致了該漏洞的暴露，符合 Schema Edges 規範。",
+      "source_id": "question_IPAS-113-TEC-044",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "cve",
+      "type": "vulnerability",
+      "display_name": "CVE"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "風險",
+      "type": "risk",
+      "display_name": "風險"
+    },
+    "reasoning": "根據考題正確答案，CVE (Common Vulnerabilities and Exposures) 是關於『漏洞和風險』的編號系統。在本體論中，CVE 被明確定義為 vulnerability 類型，而 vulnerability 與 risk 之間合法的關係為 can_expose（漏洞可暴露風險），因此萃取此三元組。",
+    "source_id": "question_IPAS-109-TEC-029",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'CVE' 是 'vulnerability' 的合理實例，受體 '風險' 是 'risk' 的合理實例，關係 'can_expose' 合理描述了 'vulnerability' 與 'risk' 之間的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "風險",
+        "reason": "根據資安領域已知同義詞對照範例，風險是漏洞的同義詞，且與弱點、脆弱性均指vulnerability。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CVE",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "風險",
+        "type": "risk"
+      },
+      "reasoning": "根據考題正確答案，CVE (Common Vulnerabilities and Exposures) 是關於『漏洞和風險』的編號系統。在本體論中，CVE 被明確定義為 vulnerability 類型，而 vulnerability 與 risk 之間合法的關係為 can_expose（漏洞可暴露風險），因此萃取此三元組。",
+      "source_id": "question_IPAS-109-TEC-029",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

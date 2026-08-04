@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "erp 系統當機",
+      "type": "attack",
+      "display_name": "ERP 系統當機"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "根據題幹與正確答案，ERP 系統當機是需要考量提高「可用性」的情況，這表示當機事件直接違反了可用性原則。在本本體論的 Schema 中，導致服務中斷的事件（如 DDoS 或系統崩潰）被歸類為 attack 以便與 principle 建立 violates 關係。",
+    "source_id": "question_IPAS-NULL-MGT-011",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'ERP 系統當機' 是 'attack' 的合理實例，受體 '可用性' 是 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。",
+        "response": "correct",
+        "reason": "主體 ERP 系統當機 的類別是 attack，與受體可用性的類別 principle 符合規則4 的描述，表示主體是攻擊者，受體是被違反的原則，符合語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 ERP 系統當機 與受體 可用性 之間不存在同義詞關係，且無法確認為子類型或母類關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ERP 系統當機",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "根據題幹與正確答案，ERP 系統當機是需要考量提高「可用性」的情況，這表示當機事件直接違反了可用性原則。在本本體論的 Schema 中，導致服務中斷的事件（如 DDoS 或系統崩潰）被歸類為 attack 以便與 principle 建立 violates 關係。",
+      "source_id": "question_IPAS-NULL-MGT-011",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "erp 系統當機",
+      "type": "attack",
+      "display_name": "ERP 系統當機"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "erp 系統",
+      "type": "app",
+      "display_name": "ERP 系統"
+    },
+    "reasoning": "ERP 系統當機是一種負面事件，直接導致 ERP 應用程式（app）無法正常運作，符合 (\"attack\", \"can_harm\", \"app\") 的 Schema 邊界。",
+    "source_id": "question_IPAS-NULL-MGT-011",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "ERP 系統當機 是 'attack' 的合理實例，ERP 系統 是 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別不是vulnerability；規則4不適用，因為主體類別不是principle；規則5不適用，因為關係不是uses且主體類別不是data；規則6不適用，因為關係不是deployed_in；規則7不適用，因為關係不是generates；規則8不適用，因為關係不是controls；",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 'erp 系統當機' 名稱完全相同，但類別不同，主體為 'attack'，而 Ldr 中的資源為 'attack'，受體與 Ldr 中的資源 'erp系統' 名稱相似，但類別相同，均為 'app'。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖然名稱相同，但類別不同，受體與 Ldr 中的資源雖然名稱相似，但類別相同，無法判定為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ERP 系統當機",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "ERP 系統",
+        "type": "app"
+      },
+      "reasoning": "ERP 系統當機是一種負面事件，直接導致 ERP 應用程式（app）無法正常運作，符合 (\"attack\", \"can_harm\", \"app\") 的 Schema 邊界。",
+      "source_id": "question_IPAS-NULL-MGT-011",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

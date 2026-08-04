@@ -24,7 +24,7 @@
       "name": "電腦系統",
       "type": "system"
     },
-    "reasoning": "文本指出『作業系統...也是電腦組成的核心』，說明作業系統是電腦系統這個大環境中的一個組成部分，符合 ('system', 'is_part_of', 'system') 的 Schema。",
+    "reasoning": "文本指出『作業系統是管理電腦系統軟硬體資源的系統程式，也是電腦組成的核心』，說明作業系統是電腦系統的一個組成部分，符合 ('system', 'is_part_of', 'system') 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 2
@@ -32,14 +32,14 @@
   {
     "subject": {
       "name": "作業系統",
-      "type": "tool"
+      "type": "system"
     },
     "relation": "has_a",
     "object": {
       "name": "行程管理",
-      "type": "function"
+      "type": "feature"
     },
-    "reasoning": "文本將『行程管理』列為作業系統的功能。由於 Schema 規定只有 tool 可以 has_a function，而作業系統在此被定義為『管理資源的系統程式』，因此將其視為 tool 以符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "reasoning": "行程管理是作業系統的核心功能/屬性之一。為了符合 Schema 中 ('system', 'has_a', 'feature') 的定義，將此管理功能歸類為系統的特徵 (feature)。",
     "source_id": "chunk_2",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 3
@@ -47,14 +47,14 @@
   {
     "subject": {
       "name": "作業系統",
-      "type": "tool"
+      "type": "system"
     },
     "relation": "has_a",
     "object": {
       "name": "記憶體管理",
-      "type": "function"
+      "type": "feature"
     },
-    "reasoning": "文本將『記憶體管理』列為作業系統的功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "reasoning": "記憶體管理是作業系統的核心功能/屬性之一。為了符合 Schema 中 ('system', 'has_a', 'feature') 的定義，將此管理功能歸類為系統的特徵 (feature)。",
     "source_id": "chunk_2",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 4
@@ -62,14 +62,14 @@
   {
     "subject": {
       "name": "作業系統",
-      "type": "tool"
+      "type": "system"
     },
     "relation": "has_a",
     "object": {
       "name": "輸出輸入管理",
-      "type": "function"
+      "type": "feature"
     },
-    "reasoning": "文本將『輸出輸入管理』列為作業系統的功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "reasoning": "輸出輸入管理是作業系統的核心功能/屬性之一。為了符合 Schema 中 ('system', 'has_a', 'feature') 的定義，將此管理功能歸類為系統的特徵 (feature)。",
     "source_id": "chunk_2",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 5
@@ -77,29 +77,29 @@
   {
     "subject": {
       "name": "作業系統",
-      "type": "tool"
+      "type": "system"
     },
     "relation": "has_a",
     "object": {
       "name": "檔案管理",
-      "type": "function"
+      "type": "feature"
     },
-    "reasoning": "文本將『檔案管理』列為作業系統的功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "reasoning": "檔案管理是作業系統的核心功能/屬性之一。為了符合 Schema 中 ('system', 'has_a', 'feature') 的定義，將此管理功能歸類為系統的特徵 (feature)。",
     "source_id": "chunk_2",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 6
   },
   {
     "subject": {
+      "name": "檔案管理",
+      "type": "feature"
+    },
+    "relation": "uses",
+    "object": {
       "name": "檔案",
       "type": "data"
     },
-    "relation": "deployed_in",
-    "object": {
-      "name": "磁碟機",
-      "type": "system"
-    },
-    "reasoning": "文本提到『磁碟機下可存放目錄與檔案』，表示檔案（資料）被存放於磁碟機（硬體系統）中，符合 ('data', 'deployed_in', 'system') 的 Schema。",
+    "reasoning": "文本提到『檔案則為實際的資料或程式』且由檔案管理來處理，因此檔案管理這個特徵會使用/操作檔案資料，符合 ('feature', 'uses', 'data') 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 7

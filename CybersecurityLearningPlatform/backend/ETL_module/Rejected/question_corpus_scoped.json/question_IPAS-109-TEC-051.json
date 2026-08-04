@@ -1,0 +1,62 @@
+[
+  {
+    "subject": {
+      "name": "ssh",
+      "type": "feature",
+      "display_name": "SSH"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "傳輸資料",
+      "type": "data",
+      "display_name": "傳輸資料"
+    },
+    "reasoning": "題幹提到 SSH 在傳輸過程中處理「傳輸資料」。在本體論中，協定被歸類為 feature，且 feature 與 data 之間存在合法的 uses 關係，因此萃取此三元組以描述 SSH 協定對傳輸資料的操作。",
+    "source_id": "question_IPAS-109-TEC-051",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SSH 是一種安全協議，屬於 'feature' 的合理實例；'傳輸資料' 是資料的傳輸，屬於 'data' 的合理實例；'uses' 關係描述 SSH 使用傳輸資料的語意對齊。",
+        "response": "correct",
+        "reason": "SSH 使用傳輸資料的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體 SSH 的類別是 feature，而非 data，且關係為 uses，受體為傳輸資料的類別是 data，違反規則5。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體 SSH 的類別是 feature，而非 data，且關係為 uses，受體為傳輸資料的類別是 data，違反規則5。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true,
+        "blocked": true,
+        "final_sig": [
+          "tool",
+          "uses",
+          "data"
+        ]
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> uses -> data (original: feature -> uses -> data) [F13-repair]",
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSH",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "傳輸資料",
+        "type": "data"
+      },
+      "reasoning": "題幹提到 SSH 在傳輸過程中處理「傳輸資料」。在本體論中，協定被歸類為 feature，且 feature 與 data 之間存在合法的 uses 關係，因此萃取此三元組以描述 SSH 協定對傳輸資料的操作。",
+      "source_id": "question_IPAS-109-TEC-051",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

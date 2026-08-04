@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "原始碼掃描",
+      "type": "technique",
+      "display_name": "應用程式碼掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "安全隱患",
+      "type": "vulnerability",
+      "display_name": "安全性問題"
+    },
+    "reasoning": "根據選項 B，應用程式碼掃描可偵測程式撰寫的問題及安全性問題。安全性問題在此被視為 'vulnerability'，掃描行為屬於 'technique'，兩者關係為 'can_analyze'。",
+    "source_id": "question_IPAS-113-TEC-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "應用程式碼掃描是技術 (technique) 的合理實例，安全性問題是弱點 (vulnerability) 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，受體類別為 vulnerability，符合規則3的特例允許，且關係為 can_analyze，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「原始碼掃描」、「程式原碼檢測」為同義詞；受體與 Ldr 中的「安全隱患」、「安全弱點」、「安全防護不足」、「弱點」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "原始碼掃描",
+        "standard_object": "安全隱患",
+        "reason": "主體與受體分別與 Ldr 中的資源為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式碼掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "安全性問題",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據選項 B，應用程式碼掃描可偵測程式撰寫的問題及安全性問題。安全性問題在此被視為 'vulnerability'，掃描行為屬於 'technique'，兩者關係為 'can_analyze'。",
+      "source_id": "question_IPAS-113-TEC-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "安全性測試人員",
+      "type": "securityTeam",
+      "display_name": "測試人員"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "業務邏輯問題"
+    },
+    "reasoning": "根據選項 D，業務邏輯問題需要由測試人員核實確認。測試人員屬於 'securityTeam'，業務邏輯問題屬於 'vulnerability'，根據 Schema，'securityTeam' 對 'vulnerability' 的合法關係為 'can_detect'。",
+    "source_id": "question_IPAS-113-TEC-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'vulnerability' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "測試人員是安全團隊的合理實例，業務邏輯問題是漏洞的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為securityTeam，規則8不適用，因為關係不是controls",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源存在同義詞關係；受體與 Ldr 中的資源存在同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "安全性測試人員",
+        "standard_object": "弱點",
+        "reason": "主體與 Ldr 中的資源存在同義詞關係；受體與 Ldr 中的資源存在同義詞關係，均可判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "測試人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "業務邏輯問題",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據選項 D，業務邏輯問題需要由測試人員核實確認。測試人員屬於 'securityTeam'，業務邏輯問題屬於 'vulnerability'，根據 Schema，'securityTeam' 對 'vulnerability' 的合法關係為 'can_detect'。",
+      "source_id": "question_IPAS-113-TEC-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "弱點掃描",
+      "type": "technique",
+      "display_name": "應用程式弱點掃描"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "技術性弱點"
+    },
+    "reasoning": "根據選項 A，應用程式弱點掃描可用於瞭解既有的技術性弱點。在 Schema 中，'technique' 對 'vulnerability' 的合法關係為 'can_analyze'。",
+    "source_id": "question_IPAS-113-TEC-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "應用程式弱點掃描 是一種合理的技術 (technique)，技術性弱點 是一種合理的弱點 (vulnerability)，且 'can_analyze' 的語意與技術分析弱點的意義相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，受體類別為 vulnerability，符合規則3的特例允許，且關係為 can_analyze，故不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的弱點掃描為同義詞；受體與 Ldr 中的弱點為同義詞",
+        "response": "duplicate",
+        "standard_subject": "弱點掃描",
+        "standard_object": "弱點",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式弱點掃描",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "技術性弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據選項 A，應用程式弱點掃描可用於瞭解既有的技術性弱點。在 Schema 中，'technique' 對 'vulnerability' 的合法關係為 'can_analyze'。",
+      "source_id": "question_IPAS-113-TEC-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

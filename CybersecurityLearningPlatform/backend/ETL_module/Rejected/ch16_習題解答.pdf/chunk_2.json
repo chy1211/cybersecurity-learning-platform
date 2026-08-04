@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "釣魚郵件",
+      "type": "tool",
+      "display_name": "釣魚郵件"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "電子郵件",
+      "type": "app",
+      "display_name": "電子郵件"
+    },
+    "reasoning": "釣魚郵件被列為電子郵件的安全威脅，因此選擇 attack -> can_harm -> app。",
+    "source_id": "chunk_2",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "釣魚郵件 是 'attack' 的合理實例，電子郵件 是 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "釣魚郵件與電子郵件不具有同義詞關係，且無法確認彼此之間的從屬關係，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> can_harm -> app (original: attack -> can_harm -> app)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "釣魚郵件",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "電子郵件",
+        "type": "app"
+      },
+      "reasoning": "釣魚郵件被列為電子郵件的安全威脅，因此選擇 attack -> can_harm -> app。",
+      "source_id": "chunk_2",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 6
+    }
+  }
+]

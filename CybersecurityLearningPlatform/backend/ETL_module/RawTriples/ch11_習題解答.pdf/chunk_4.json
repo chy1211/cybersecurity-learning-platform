@@ -9,22 +9,22 @@
       "name": "風險",
       "type": "risk"
     },
-    "reasoning": "文本提到『需要完善的建構管理，以降低風險』。建構管理在此被視為一種管理方針(policy)，其目的在於緩解(mitigates)風險(risk)。",
+    "reasoning": "文本提到『需要完善的建構管理，以降低風險』，因此將建構管理視為一種管理策略 (policy)，其作用是緩解 (mitigates) 風險 (risk)。",
     "source_id": "chunk_4",
     "source_file": "ch11_習題解答.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "系統環境或參數",
-      "type": "feature"
+      "name": "系統",
+      "type": "system"
     },
     "relation": "can_expose",
     "object": {
       "name": "安全弱點",
       "type": "vulnerability"
     },
-    "reasoning": "文本指出『若任意改變系統的環境或參數時...造成系統安全弱點』。系統環境與參數屬於系統特徵(feature)，其變動可導致(can_expose)漏洞/弱點(vulnerability)。",
+    "reasoning": "文本指出改變系統環境或參數會『造成系統安全弱點』，符合系統 (system) 可能暴露 (can_expose) 漏洞 (vulnerability) 的邏輯。",
     "source_id": "chunk_4",
     "source_file": "ch11_習題解答.pdf",
     "source_index": 2
@@ -39,22 +39,22 @@
       "name": "惡意軟體之攻擊",
       "type": "attack"
     },
-    "reasoning": "文本明確提到『微軟公司為預防惡意軟體之攻擊...提出一種安全性軟體開發的流程模式，稱為Microsoft SDL』。SDL 作為公司實行的政策(policy)，旨在緩解(mitigates)攻擊(attack)。",
+    "reasoning": "文本明確提到微軟公司『為預防惡意軟體之攻擊』而提出 SDL 流程模式，因此 SDL 作為政策 (policy) 用於緩解 (mitigates) 攻擊 (attack)。",
     "source_id": "chunk_4",
     "source_file": "ch11_習題解答.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "Microsoft SDL",
-      "type": "technique"
+      "name": "Microsoft 公司",
+      "type": "securityTeam"
     },
-    "relation": "depends_on",
+    "relation": "implements",
     "object": {
-      "name": "靜態分析程式碼掃描工具",
-      "type": "tool"
+      "name": "Microsoft SDL",
+      "type": "policy"
     },
-    "reasoning": "文本提到 SDL 流程中『實作時使用靜態分析程式碼掃描工具』。將 SDL 視為一種開發技術(technique)，它依賴(depends_on)特定的工具(tool)來執行。",
+    "reasoning": "文本提到 Microsoft 公司將 SDL 推展作為『全公司實行的政策』，因此將其視為安全團隊/組織 (securityTeam) 實作 (implements) 政策 (policy)。",
     "source_id": "chunk_4",
     "source_file": "ch11_習題解答.pdf",
     "source_index": 4
@@ -69,69 +69,54 @@
       "name": "程式碼",
       "type": "data"
     },
-    "reasoning": "靜態分析工具的功能是對程式碼進行掃描分析。工具(tool)對程式碼(data)執行分析(can_analyze)。",
+    "reasoning": "文本提到實作時使用『靜態分析程式碼掃描工具』，該工具的功能是對程式碼（屬於 data）進行分析，符合 (tool, can_analyze, data) 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "ch11_習題解答.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "威脅建模",
+      "name": "威脅模型",
       "type": "technique"
     },
-    "relation": "is_part_of",
+    "relation": "can_analyze",
     "object": {
-      "name": "Microsoft SDL",
-      "type": "technique"
+      "name": "系統",
+      "type": "system"
     },
-    "reasoning": "文本提到 SDL 包含『軟體設計時開發威脅模型』。威脅建模是一種安全技術(technique)，它是 SDL 這一整體技術流程的一部分(is_part_of)。",
+    "reasoning": "威脅建模 (Threat Modeling) 是一種分析系統潛在威脅的技術 (technique)，用於分析 (can_analyze) 系統 (system) 的安全性。",
     "source_id": "chunk_4",
     "source_file": "ch11_習題解答.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "驗證",
+      "name": "黑箱測試",
       "type": "technique"
     },
-    "relation": "is_part_of",
+    "relation": "can_analyze",
     "object": {
-      "name": "Microsoft SDL",
-      "type": "technique"
+      "name": "漏洞",
+      "type": "vulnerability"
     },
-    "reasoning": "驗證(Verification)是 Microsoft SDL 七個組成部分之一，因此是一種技術(technique)且屬於(is_part_of) SDL 技術流程。",
+    "reasoning": "文本將黑箱測試列於『驗證』階段，測試的目的是發現系統缺陷或漏洞，符合 (technique, can_analyze, vulnerability) 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "ch11_習題解答.pdf",
     "source_index": 7
   },
   {
     "subject": {
-      "name": "黑箱測試/白箱測試",
-      "type": "technique"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "驗證",
-      "type": "technique"
-    },
-    "reasoning": "文本指出『驗證 ( verification )：黑箱測試/白箱測試』。測試方法是驗證階段具體的技術實作，因此是技術(technique)之中的一部分(is_part_of)。",
-    "source_id": "chunk_4",
-    "source_file": "ch11_習題解答.pdf",
-    "source_index": 8
-  },
-  {
-    "subject": {
       "name": "回應",
-      "type": "technique"
+      "type": "function"
     },
     "relation": "can_analyze",
     "object": {
       "name": "缺失",
       "type": "vulnerability"
     },
-    "reasoning": "文本提到回應階段包含『缺失追踪解決』。回應(Response)作為一種技術流程(technique)，其功能在於分析並處理(can_analyze)系統的缺失/漏洞(vulnerability)。",
+    "reasoning": "文本提到回應階段包含『缺失追踪解決』，將回應視為一種功能 (function)，其目的是分析 (can_analyze) 並處理缺失/漏洞 (vulnerability)。",
     "source_id": "chunk_4",
     "source_file": "ch11_習題解答.pdf",
-    "source_index": 9
+    "source_index": 8
   }
 ]

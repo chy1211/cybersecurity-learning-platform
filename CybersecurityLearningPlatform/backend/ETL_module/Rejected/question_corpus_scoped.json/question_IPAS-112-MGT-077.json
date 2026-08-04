@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "fido",
+      "type": "technique",
+      "display_name": "FIDO"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "晶片卡",
+      "type": "system",
+      "display_name": "晶片卡"
+    },
+    "reasoning": "根據選項 A，FIDO 匯集了晶片卡等認證技術。FIDO 作為一種身分識別技術 (technique)，包含晶片卡這一類認證工具 (tool)。",
+    "source_id": "question_IPAS-112-MGT-077",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "FIDO 是一種 'technique'，而 'technique' 的合理實例應該是一種方法或技術；晶片卡是一種 'tool'，而 'tool' 的合理實例應該是一種工具或設備。因此，語意對齊是合理的。",
+        "response": "correct",
+        "reason": "FIDO 與晶片卡的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 FIDO 與 Ldr 中的 fido 名稱完全相同，但類別不同，主體為 technique，Ldr 中的 fido 類別為 technique，受體 晶片卡 與 Ldr 中的 晶片卡 名稱完全相同，類別相同，均為 system。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 FIDO 與 Ldr 中的 fido 名稱完全相同，但類別相同，且受體 晶片卡 與 Ldr 中的 晶片卡 名稱完全相同，類別相同，均為 system，無需合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> has_a -> system (original: technique -> has_a -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "FIDO",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "晶片卡",
+        "type": "tool"
+      },
+      "reasoning": "根據選項 A，FIDO 匯集了晶片卡等認證技術。FIDO 作為一種身分識別技術 (technique)，包含晶片卡這一類認證工具 (tool)。",
+      "source_id": "question_IPAS-112-MGT-077",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

@@ -9,7 +9,7 @@
       "name": "管制人員出入",
       "type": "function"
     },
-    "reasoning": "文本提到警衛的工作包含『管制人員出入』，警衛屬於安全團隊 (securityTeam)，管制出入是一種安全功能 (function)，符合 ('securityTeam', 'implements', 'function')。",
+    "reasoning": "文本提到警衛的工作包含『管制人員出入』，這屬於資安防禦中的一種功能執行，符合 (securityTeam, implements, function) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 1
@@ -24,10 +24,25 @@
       "name": "監看閉路電視監視器",
       "type": "function"
     },
-    "reasoning": "文本提到警衛的工作包含『監看閉路電視監視器』，這是一種監控功能 (function)，符合 ('securityTeam', 'implements', 'function')。",
+    "reasoning": "文本提到警衛的工作包含『監看閉路電視監視器』，這是一種監控功能，符合 (securityTeam, implements, function) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "警衛",
+      "type": "securityTeam"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "留意警報系統",
+      "type": "function"
+    },
+    "reasoning": "文本提到警衛的工作包含『留意警報系統』，這屬於監控與回應功能，符合 (securityTeam, implements, function) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch03_習題解答.pdf",
+    "source_index": 3
   },
   {
     "subject": {
@@ -39,22 +54,7 @@
       "name": "損失",
       "type": "risk"
     },
-    "reasoning": "文本指出『執勤疏忽而造成損失』，疏忽可視為一種人為漏洞 (vulnerability)，損失則是負面後果 (risk)，符合 ('vulnerability', 'can_expose', 'risk')。",
-    "source_id": "chunk_2",
-    "source_file": "ch03_習題解答.pdf",
-    "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "UPS",
-      "type": "tool"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "離線式UPS",
-      "type": "tool"
-    },
-    "reasoning": "UPS 是一種電源保護工具 (tool)，離線式 UPS 是其具體類別，符合 ('tool', 'has_a', 'tool')。",
+    "reasoning": "文本指出『警衛怠惰或執勤疏忽而造成損失』，將疏忽視為系統/流程中的弱點 (vulnerability)，而損失為風險 (risk)，符合 (vulnerability, can_expose, risk) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 4
@@ -66,10 +66,10 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "線上式UPS",
+      "name": "離線式UPS",
       "type": "tool"
     },
-    "reasoning": "UPS 是一種電源保護工具 (tool)，線上式 UPS 是其具體類別，符合 ('tool', 'has_a', 'tool')。",
+    "reasoning": "UPS 包含多個類別，離線式 UPS 是其一種具體形式，符合 (tool, has_a, tool) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 5
@@ -81,43 +81,88 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "線上互動式UPS",
+      "name": "線上式UPS",
       "type": "tool"
     },
-    "reasoning": "UPS 是一種電源保護工具 (tool)，線上互動式 UPS 是其具體類別，符合 ('tool', 'has_a', 'tool')。",
+    "reasoning": "UPS 包含多個類別，線上式 UPS 是其一種具體形式，符合 (tool, has_a, tool) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "入侵偵測",
-      "type": "technique"
+      "name": "UPS",
+      "type": "tool"
     },
     "relation": "has_a",
     "object": {
-      "name": "電流感應器",
+      "name": "線上互動式UPS",
       "type": "tool"
     },
-    "reasoning": "入侵偵測是一種技術 (technique)，而利用電流阻斷的感應裝置是實現該技術的工具 (tool)，符合 ('technique', 'has_a', 'tool')。",
+    "reasoning": "UPS 包含多個類別，線上互動式 UPS 是其一種具體形式，符合 (tool, has_a, tool) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 7
   },
   {
     "subject": {
-      "name": "電流感應器",
+      "name": "UPS",
       "type": "tool"
     },
-    "relation": "generates",
+    "relation": "mitigates",
     "object": {
-      "name": "入侵訊息",
-      "type": "data"
+      "name": "停電",
+      "type": "risk"
     },
-    "reasoning": "文本提到當門窗震動時『可偵測到入侵訊息』，感應器 (tool) 產生了訊息資料 (data)，符合 ('tool', 'generates', 'data')。",
+    "reasoning": "UPS 的主要功能是在停電時提供電力，以緩解停電造成的風險，符合 (tool, mitigates, risk) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "阻斷和產生電流",
+      "type": "technique"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "入侵",
+      "type": "attack"
+    },
+    "reasoning": "文本描述利用電流中斷來『偵測到入侵訊息』，這是一種偵測技術，符合 (technique, can_detect, attack) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch03_習題解答.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "中斷光線",
+      "type": "technique"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "入侵",
+      "type": "attack"
+    },
+    "reasoning": "文本描述利用光線阻斷來『偵測到入侵』，這是一種偵測技術，符合 (technique, can_detect, attack) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch03_習題解答.pdf",
+    "source_index": 10
+  },
+  {
+    "subject": {
+      "name": "偵測聲音",
+      "type": "technique"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "入侵",
+      "type": "attack"
+    },
+    "reasoning": "文本描述利用麥克風接收聲音訊號來偵測入侵，符合 (technique, can_detect, attack) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch03_習題解答.pdf",
+    "source_index": 11
   },
   {
     "subject": {
@@ -129,10 +174,10 @@
       "name": "閉路電視",
       "type": "tool"
     },
-    "reasoning": "監視系統是一個綜合基礎設施 (system)，而閉路電視 (CCTV) 是其組成工具 (tool)，符合 ('system', 'has_a', 'tool')。",
+    "reasoning": "文本提到『監視系統通常使用閉路電視 (CCTV)』，表示 CCTV 是監視系統中的一個工具元件，符合 (system, has_a, tool) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
-    "source_index": 9
+    "source_index": 12
   },
   {
     "subject": {
@@ -141,12 +186,12 @@
     },
     "relation": "can_detect",
     "object": {
-      "name": "入侵攻擊",
+      "name": "入侵",
       "type": "attack"
     },
-    "reasoning": "文本提到 CCTV 用於監控環境並對入侵者產生嚇阻，其核心功能是偵測入侵行為 (attack)，符合 ('tool', 'can_detect', 'attack')。",
+    "reasoning": "閉路電視用於監控環境並對入侵者產生嚇阻/偵測作用，符合 (tool, can_detect, attack) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
-    "source_index": 10
+    "source_index": 13
   }
 ]

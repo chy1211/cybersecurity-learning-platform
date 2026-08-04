@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "題幹提到「應用程式日誌」，在資安知識中，應用程式會產生日誌資料，符合 Schema 中 ('app', 'generates', 'data') 的定義。",
+    "source_id": "question_IPAS-112-TEC-025",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '應用程式' 是類別 'app' 的合理實例，實體名稱 '日誌' 是類別 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 generates，受體的類別是 data，符合規則7的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "題幹提到「應用程式日誌」，在資安知識中，應用程式會產生日誌資料，符合 Schema 中 ('app', 'generates', 'data') 的定義。",
+      "source_id": "question_IPAS-112-TEC-025",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "日誌管理方案",
+      "type": "tool",
+      "display_name": "日誌管理方案"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "可疑行為",
+      "type": "attack",
+      "display_name": "可疑活動"
+    },
+    "reasoning": "選項 C 指出透過分析與監控日誌可以「即時發現可疑活動」，可疑活動在此視為攻擊行為 (attack)，符合 Schema 中 ('tool', 'can_detect', 'attack') 的定義。",
+    "source_id": "question_IPAS-112-TEC-025",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "日誌管理方案 (tool) 合理、可疑活動 (attack) 合理，語意對齊無誤。",
+        "response": "correct",
+        "reason": "日誌管理方案可以偵測可疑活動的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 tool，關係為 can_detect，符合規則8的條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的日誌管理方案為完全等價同義詞；受體與 Ldr 中的可疑行為為同義詞",
+        "response": "duplicate",
+        "standard_subject": "日誌管理方案",
+        "standard_object": "可疑行為",
+        "reason": "主體與 Ldr 中的日誌管理方案為完全等價同義詞；受體與 Ldr 中的可疑行為為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "日誌管理方案",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "可疑活動",
+        "type": "attack"
+      },
+      "reasoning": "選項 C 指出透過分析與監控日誌可以「即時發現可疑活動」，可疑活動在此視為攻擊行為 (attack)，符合 Schema 中 ('tool', 'can_detect', 'attack') 的定義。",
+      "source_id": "question_IPAS-112-TEC-025",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "日誌管理方案",
+      "type": "tool",
+      "display_name": "日誌管理方案"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "根據選項 B 與 C，日誌管理方案是用於支援日誌格式並進行分析監控的工具，符合 Schema 中 ('tool', 'can_analyze', 'data') 的定義。",
+    "source_id": "question_IPAS-112-TEC-025",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "日誌管理方案 (tool) 合理、日誌 (data) 合理，語意對齊無誤。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊正確。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 tool，關係為 can_analyze，符合規則2和規則8的描述，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中的資源名稱完全相同，無需進一步判斷。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "日誌管理方案",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "根據選項 B 與 C，日誌管理方案是用於支援日誌格式並進行分析監控的工具，符合 Schema 中 ('tool', 'can_analyze', 'data') 的定義。",
+      "source_id": "question_IPAS-112-TEC-025",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "公司同仁",
+      "type": "user",
+      "display_name": "公司同仁"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "內部使用資料",
+      "type": "data",
+      "display_name": "內部使用資料"
+    },
+    "reasoning": "題幹指出該資料『僅供公司同仁使用、查閱』，且正確答案將此類資料歸類為『內部使用』，因此可以得出公司同仁（user）使用內部使用資料（data）的三元組。",
+    "source_id": "question_IPAS-113-MGT-020",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '公司同仁' 是 'user' 的合理實例，受體 '內部使用資料' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係皆符合 Lc,p 的規定，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的企業具有高度相似性，但根據資安領域的知識圖譜，公司同仁與企業並非完全等價的同義詞，前者通常指的是公司內部的員工或成員，後者則是指公司本身。因此，兩者之間存在著廣義和狹義的從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "公司同仁與企業之間存在著廣義和狹義的從屬關係，前者是後者的子集，因此不應該合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "公司同仁",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "內部使用資料",
+        "type": "data"
+      },
+      "reasoning": "題幹指出該資料『僅供公司同仁使用、查閱』，且正確答案將此類資料歸類為『內部使用』，因此可以得出公司同仁（user）使用內部使用資料（data）的三元組。",
+      "source_id": "question_IPAS-113-MGT-020",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "公司同仁",
+      "type": "user",
+      "display_name": "公司同仁"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "機密等級分類政策",
+      "type": "policy",
+      "display_name": "機密等級分類政策"
+    },
+    "reasoning": "公司將機密等級區分為四個等級（極機密、機密、內部使用、一般），這屬於一種資訊安全分類政策（policy）。公司同仁作為組織成員，在處理資料時需遵循並實作（implements）此分類政策。",
+    "source_id": "question_IPAS-113-MGT-020",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '公司同仁' 是 'user' 的合理實例；受體 '機密等級分類政策' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認為同義詞關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "公司同仁",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "機密等級分類政策",
+        "type": "policy"
+      },
+      "reasoning": "公司將機密等級區分為四個等級（極機密、機密、內部使用、一般），這屬於一種資訊安全分類政策（policy）。公司同仁作為組織成員，在處理資料時需遵循並實作（implements）此分類政策。",
+      "source_id": "question_IPAS-113-MGT-020",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

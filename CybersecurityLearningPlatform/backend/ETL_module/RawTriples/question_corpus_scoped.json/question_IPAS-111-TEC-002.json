@@ -1,0 +1,77 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "網站漏洞",
+      "type": "vulnerability"
+    },
+    "reasoning": "題幹明確提到「攻擊者利用網站的漏洞」，符合 attacker 可以利用 vulnerability 的邏輯，對應 Schema Edge: (\"attacker\", \"can_exploit\", \"vulnerability\")。",
+    "source_id": "question_IPAS-111-TEC-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "跨站指令碼攻擊(XSS)",
+      "type": "attack"
+    },
+    "reasoning": "根據題幹描述的行為與正確答案 D，此攻擊方法為 XSS，因此攻擊者實作了此項攻擊，對應 Schema Edge: (\"attacker\", \"implements\", \"attack\")。",
+    "source_id": "question_IPAS-111-TEC-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "跨站指令碼攻擊(XSS)",
+      "type": "attack"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "惡意程式腳本",
+      "type": "tool"
+    },
+    "reasoning": "題幹提到「把惡意程式腳本注入到網頁內」，說明 XSS 攻擊需要依賴惡意腳本作為工具來達成目的，對應 Schema Edge: (\"attack\", \"depends_on\", \"tool\")。",
+    "source_id": "question_IPAS-111-TEC-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "跨站指令碼攻擊(XSS)",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "Cookie 資料",
+      "type": "data"
+    },
+    "reasoning": "題幹提到 XSS 「可能造成 Cookie 資料被竊取」，這是一種對資料的損害，對應 Schema Edge: (\"attack\", \"can_harm\", \"data\")。",
+    "source_id": "question_IPAS-111-TEC-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "跨站指令碼攻擊(XSS)",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "Session 連線",
+      "type": "data"
+    },
+    "reasoning": "題幹提到 XSS 「可能造成 Session 連線被劫持」，Session 連線資訊屬於認證相關資料，對應 Schema Edge: (\"attack\", \"can_harm\", \"data\")。",
+    "source_id": "question_IPAS-111-TEC-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5
+  }
+]

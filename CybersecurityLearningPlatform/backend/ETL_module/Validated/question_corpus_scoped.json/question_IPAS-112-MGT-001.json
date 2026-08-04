@@ -1,0 +1,112 @@
+[
+  {
+    "subject": {
+      "name": "未經授權的個人",
+      "type": "attacker",
+      "display_name": "未經授權的個人"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資訊",
+      "type": "data",
+      "display_name": "資訊"
+    },
+    "reasoning": "正確答案提到機密性旨在防止『未經授權的個人』取得『資訊』。在資安本體論中，未經授權嘗試取得資料的個體可視為攻擊者（attacker），而其行為會危害（can_harm）資訊（data）的安全性。",
+    "source_id": "question_IPAS-112-MGT-001",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '未經授權的個人' 是 'attacker' 的合理實例；受體 '資訊' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "未經授權的個人",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資訊",
+        "type": "data"
+      },
+      "reasoning": "正確答案提到機密性旨在防止『未經授權的個人』取得『資訊』。在資安本體論中，未經授權嘗試取得資料的個體可視為攻擊者（attacker），而其行為會危害（can_harm）資訊（data）的安全性。",
+      "source_id": "question_IPAS-112-MGT-001",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "未經授權的揭露",
+      "type": "attack",
+      "display_name": "未經授權的揭露"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "機密性",
+      "type": "principle",
+      "display_name": "機密性"
+    },
+    "reasoning": "根據正確答案，機密性的定義是確保資訊不會被揭露。因此，『未經授權的揭露』這一惡意行為（attack）直接違反了『機密性』這一資安原則（principle）。",
+    "source_id": "question_IPAS-112-MGT-001",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "未經授權的揭露 是攻擊 'attack' 的合理實例，機密性 是資安原則 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。",
+        "response": "violation",
+        "reason": "主體為未經授權的揭露（類別：attack），與受體機密性（類別：principle）之間的關係為violates，違反規則4：principle 僅能作為被違反的受體，不可作為發起動作的主體。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體為未經授權的揭露（類別：attack），與受體機密性（類別：principle）之間的關係為violates，違反規則4：principle 僅能作為被違反的受體，不可作為發起動作的主體。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "未經授權的揭露",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "機密性",
+        "type": "principle"
+      },
+      "reasoning": "根據正確答案，機密性的定義是確保資訊不會被揭露。因此，『未經授權的揭露』這一惡意行為（attack）直接違反了『機密性』這一資安原則（principle）。",
+      "source_id": "question_IPAS-112-MGT-001",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

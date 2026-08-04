@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "sha2",
+      "type": "tool",
+      "display_name": "SHA2"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "檔案",
+      "type": "data",
+      "display_name": "檔案"
+    },
+    "reasoning": "根據題幹與正確答案，SHA2 被用於檢查檔案的完整性。在本體論中，SHA2 是一種具體的雜湊演算法，歸類為 tool；檔案屬於 data。完整性檢查的本質是透過分析資料來驗證其是否被篡改，因此選擇 can_analyze 關係，且該組合 ('tool', 'can_analyze', 'data') 符合 Schema Edges 規範。",
+    "source_id": "question_IPAS-111-MGT-035",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SHA2 是一種工具（tool），可以分析檔案（data），因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "SHA2、can_analyze 與檔案的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不觸發，因為主體SHA2的類別是tool，而規則3只檢查主體類別為vulnerability。規則5不觸發，因為主體SHA2的類別不是data。規則8不觸發，因為主體SHA2的類別是tool，具有主動執行能力。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SHA2",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "檔案",
+        "type": "data"
+      },
+      "reasoning": "根據題幹與正確答案，SHA2 被用於檢查檔案的完整性。在本體論中，SHA2 是一種具體的雜湊演算法，歸類為 tool；檔案屬於 data。完整性檢查的本質是透過分析資料來驗證其是否被篡改，因此選擇 can_analyze 關係，且該組合 ('tool', 'can_analyze', 'data') 符合 Schema Edges 規範。",
+      "source_id": "question_IPAS-111-MGT-035",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

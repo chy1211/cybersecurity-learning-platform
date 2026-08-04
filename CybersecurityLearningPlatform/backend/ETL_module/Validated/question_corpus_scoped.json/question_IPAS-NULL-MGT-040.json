@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "資安專家",
+      "type": "securityTeam",
+      "display_name": "資安專家"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "營運衝擊分析",
+      "type": "technique",
+      "display_name": "營運衝擊分析"
+    },
+    "reasoning": "根據題幹與正確答案，資安專家透過執行『營運衝擊分析 (BIA)』來獲取資訊。資安專家屬於 securityTeam，而 BIA 是一種分析方法，屬於 technique，兩者關係為 uses。",
+    "source_id": "question_IPAS-NULL-MGT-040",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '資安專家' 是 'securityTeam' 的合理實例；受體 '營運衝擊分析' 是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是攻擊者。規則2不適用，因為關係不是mitigates。規則3不適用，因為主體不是漏洞。規則4不適用，因為受體不是資安原則。規則5不適用，因為主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「營運衝擊分析」完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "營運衝擊分析",
+        "reason": "受體與 Ldr 中的「營運衝擊分析」完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安專家",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "營運衝擊分析",
+        "type": "technique"
+      },
+      "reasoning": "根據題幹與正確答案，資安專家透過執行『營運衝擊分析 (BIA)』來獲取資訊。資安專家屬於 securityTeam，而 BIA 是一種分析方法，屬於 technique，兩者關係為 uses。",
+      "source_id": "question_IPAS-NULL-MGT-040",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "營運衝擊分析",
+      "type": "technique",
+      "display_name": "營運衝擊分析"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "最長中斷時間",
+      "type": "data",
+      "display_name": "最長中斷時間"
+    },
+    "reasoning": "營運衝擊分析 (BIA) 的目的之一就是分析並確定『最長中斷時間 (MTPD)』這個指標。MTPD 屬於分析後產出的資訊 (data)，BIA 作為一種技術 (technique) 可對其進行分析/定義，符合 ('technique', 'can_analyze', 'data') 的 Schema。",
+    "source_id": "question_IPAS-NULL-MGT-040",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '營運衝擊分析' 合理對齊其類別 'technique'，受體名稱 '最長中斷時間' 合理對齊其類別 'data'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為technique，非vulnerability。規則5不適用，因為主體類別不是data，且關係不是uses。規則8不適用，因為關係不是controls。其他規則不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "營運衝擊分析",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "最長中斷時間",
+        "type": "data"
+      },
+      "reasoning": "營運衝擊分析 (BIA) 的目的之一就是分析並確定『最長中斷時間 (MTPD)』這個指標。MTPD 屬於分析後產出的資訊 (data)，BIA 作為一種技術 (technique) 可對其進行分析/定義，符合 ('technique', 'can_analyze', 'data') 的 Schema。",
+      "source_id": "question_IPAS-NULL-MGT-040",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

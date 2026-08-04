@@ -9,7 +9,7 @@
       "name": "網際網路",
       "type": "system"
     },
-    "reasoning": "文本提到物聯網的定義是『物物相連的網際網路』，因此將物聯網視為網際網路系統的一個延伸或組成部分，符合 (system, is_part_of, system) 的 Schema。",
+    "reasoning": "文本提到物聯網的定義是『物物相連的網際網路』，因此將物聯網視為網際網路系統的一個延伸或組成部分，符合 ('system', 'is_part_of', 'system') 的 Schema。",
     "source_id": "chunk_1",
     "source_file": "ch20_習題解答.pdf",
     "source_index": 1
@@ -21,10 +21,10 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "RFID",
-      "type": "tool"
+      "name": "通訊技術",
+      "type": "feature"
     },
-    "reasoning": "文本指出物聯網是將物體貼上或嵌入 RFID 等微型感測晶片，RFID 在此作為實現功能的硬體工具，符合 (system, has_a, tool) 的 Schema。",
+    "reasoning": "文本指出物聯網透過有線或無線等各種型態的通訊技術互相連接，通訊技術是物聯網系統的組成屬性，符合 ('system', 'has_a', 'feature') 的 Schema。",
     "source_id": "chunk_1",
     "source_file": "ch20_習題解答.pdf",
     "source_index": 2
@@ -39,7 +39,7 @@
       "name": "感測器",
       "type": "tool"
     },
-    "reasoning": "文本提到物聯網包含感測裝置/感測器，感測器是物聯網系統中的基礎工具，符合 (system, has_a, tool) 的 Schema。",
+    "reasoning": "文本提到物聯網將物體貼上或嵌入感測器，感測器作為實現功能的硬體工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
     "source_id": "chunk_1",
     "source_file": "ch20_習題解答.pdf",
     "source_index": 3
@@ -51,43 +51,58 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "無線通訊技術",
-      "type": "feature"
+      "name": "RFID",
+      "type": "tool"
     },
-    "reasoning": "文本提到物聯網採用各種通訊技術（如無線通訊技術）來連接，通訊技術是系統的組成屬性/特徵，符合 (system, has_a, feature) 的 Schema。",
+    "reasoning": "文本提到物聯網使用 RFID 等微型感測晶片，RFID 為具體的識別工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
     "source_id": "chunk_1",
     "source_file": "ch20_習題解答.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "智慧冰箱",
-      "type": "app"
+      "name": "物聯網",
+      "type": "system"
     },
-    "relation": "generates",
+    "relation": "has_a",
     "object": {
-      "name": "維修請求訊息",
-      "type": "data"
+      "name": "無線通訊晶片",
+      "type": "tool"
     },
-    "reasoning": "文本舉例冰箱故障時會自動發出維修請求訊息，冰箱在此視為智慧應用程式/設備，訊息為產出的資料，符合 (app, generates, data) 的 Schema。",
+    "reasoning": "文本提到物聯網嵌入無線通訊晶片，此晶片為硬體工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
     "source_id": "chunk_1",
     "source_file": "ch20_習題解答.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "智慧瓦斯桶",
-      "type": "app"
+      "name": "冰箱",
+      "type": "system"
     },
     "relation": "generates",
     "object": {
-      "name": "訂購訊息",
+      "name": "維修請求訊息",
       "type": "data"
     },
-    "reasoning": "文本舉例瓦斯桶會提示訂購瓦斯，將其視為智慧應用設備，產出的提示為資料，符合 (app, generates, data) 的 Schema。",
+    "reasoning": "文本描述冰箱故障時會自動發出維修請求訊息，訊息屬於資料，符合 ('system', 'generates', 'data') 的 Schema。",
     "source_id": "chunk_1",
     "source_file": "ch20_習題解答.pdf",
     "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "油管檢測系統",
+      "type": "tool"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "警示訊號",
+      "type": "data"
+    },
+    "reasoning": "文本提到油管檢測系統發現漏油時，感測器會發出警示訊號，將檢測系統視為工具，訊號視為資料，符合 ('tool', 'generates', 'data') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 7
   },
   {
     "subject": {
@@ -99,22 +114,7 @@
       "name": "意外事件",
       "type": "risk"
     },
-    "reasoning": "文本提到油管檢測系統透過感測器發出警示以『避免發生意外事件』。為了符合 Schema 中只有 tool 或 policy 能 mitigates risk，將此檢測系統定義為 tool，符合 (tool, mitigates, risk) 的 Schema。",
-    "source_id": "chunk_1",
-    "source_file": "ch20_習題解答.pdf",
-    "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "感測器",
-      "type": "tool"
-    },
-    "relation": "generates",
-    "object": {
-      "name": "警示訊號",
-      "type": "data"
-    },
-    "reasoning": "文本提到感測器會發出警示訊號，感測器為工具，訊號為資料，符合 (tool, generates, data) 的 Schema。",
+    "reasoning": "文本提到發出警示訊號是以避免發生意外事件，因此該系統具有緩解風險的功能，符合 ('tool', 'mitigates', 'risk') 的 Schema。",
     "source_id": "chunk_1",
     "source_file": "ch20_習題解答.pdf",
     "source_index": 8
@@ -122,14 +122,14 @@
   {
     "subject": {
       "name": "健康監視器",
-      "type": "app"
+      "type": "system"
     },
     "relation": "generates",
     "object": {
       "name": "緊急救援訊號",
       "type": "data"
     },
-    "reasoning": "文本提到健康監視器在緊急狀況時會自動發送救援訊號，監視器視為應用設備，訊號為資料，符合 (app, generates, data) 的 Schema。",
+    "reasoning": "文本提到健康監視器在緊急狀況時能自動發送緊急救援訊號，訊號為資料，符合 ('system', 'generates', 'data') 的 Schema。",
     "source_id": "chunk_1",
     "source_file": "ch20_習題解答.pdf",
     "source_index": 9
@@ -137,14 +137,14 @@
   {
     "subject": {
       "name": "健康監視器",
-      "type": "app"
+      "type": "system"
     },
     "relation": "connects_to",
     "object": {
       "name": "醫院",
       "type": "system"
     },
-    "reasoning": "文本提到裝置發送訊號給醫院，隱含了設備與醫院系統之間的通訊連接，符合 (app, connects_to, system) 的 Schema。",
+    "reasoning": "文本提到裝置發送訊號給醫院，代表健康監視系統與醫院系統之間存在通訊連接，符合 ('system', 'connects_to', 'system') 的 Schema。",
     "source_id": "chunk_1",
     "source_file": "ch20_習題解答.pdf",
     "source_index": 10

@@ -4,90 +4,45 @@
       "name": "國家標準技術研究院 (NIST)",
       "type": "securityTeam"
     },
-    "relation": "can_analyze",
+    "relation": "implements",
     "object": {
-      "name": "測試報告",
-      "type": "data"
+      "name": "FIPS 140",
+      "type": "policy"
     },
-    "reasoning": "文本提到 NIST 負責『審驗文件』以及『報告 NIST 審核』，因此 NIST 作為安全團隊 (securityTeam) 具有分析測試報告 (data) 的能力。",
+    "reasoning": "NIST 是 FIPS 140 標準的制定與審核機構，負責執行該安全標準的驗證流程，因此將 NIST 視為 securityTeam，FIPS 140 視為 policy。",
     "source_id": "chunk_8",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "測試實驗室",
+      "name": "國家標準技術研究院 (NIST)",
       "type": "securityTeam"
     },
-    "relation": "uses",
+    "relation": "can_analyze",
     "object": {
-      "name": "FIPS 符合性測試",
-      "type": "technique"
+      "name": "測試報告",
+      "type": "data"
     },
-    "reasoning": "文本描述測試實驗室執行『FIPS 符合性測試』，因此將測試實驗室視為安全團隊 (securityTeam)，而符合性測試是一種檢測技術 (technique)。",
+    "reasoning": "文本提到 NIST 會進行『審驗文件』以及『報告審核』，這屬於安全團隊對資料的分析行為。",
     "source_id": "chunk_8",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "FIPS 符合性測試",
-      "type": "technique"
+      "name": "測試實驗室",
+      "type": "securityTeam"
     },
     "relation": "can_analyze",
     "object": {
       "name": "密碼模組",
       "type": "system"
     },
-    "reasoning": "FIPS 符合性測試的目的在於檢測密碼模組是否符合標準，因此該技術 (technique) 可分析密碼模組 (system)。",
+    "reasoning": "測試實驗室負責對密碼模組進行『模組測試』以確認其符合標準，符合 securityTeam 分析 system 的定義。",
     "source_id": "chunk_8",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "FIPS 140",
-      "type": "policy"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "未經授權之發佈",
-      "type": "attack"
-    },
-    "reasoning": "文本明確指出 FIPS 140 的目的之一是『防止未受保護的訊息被未經授權的發佈』，這屬於透過規範 (policy) 緩解/防禦攻擊行為 (attack)。",
-    "source_id": "chunk_8",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "FIPS 140",
-      "type": "policy"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "擅自更改可執行檔",
-      "type": "attack"
-    },
-    "reasoning": "文本提到 FIPS 140 旨在『防止擅自更改密碼模組的可執行檔』，符合規範 (policy) 緩解攻擊 (attack) 的邏輯。",
-    "source_id": "chunk_8",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 5
-  },
-  {
-    "subject": {
-      "name": "FIPS 140",
-      "type": "policy"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "秘密金鑰洩露",
-      "type": "attack"
-    },
-    "reasoning": "文本提到 FIPS 140 旨在『防止未經授權之洩露、修改和替換秘密金鑰』，將洩露行為視為攻擊 (attack)，由規範 (policy) 緩解。",
-    "source_id": "chunk_8",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 6
   },
   {
     "subject": {
@@ -99,7 +54,52 @@
       "name": "邊界 (boundary)",
       "type": "feature"
     },
-    "reasoning": "文本提到『需要定義密碼模組的邊界』，邊界是密碼模組這個系統的一個屬性或組成部分，因此定義為 feature。",
+    "reasoning": "文本明確提到『需要定義密碼模組的邊界』，邊界是該系統的一個組成屬性或特徵。",
+    "source_id": "chunk_8",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "FIPS 140",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權的訊息發佈",
+      "type": "risk"
+    },
+    "reasoning": "FIPS 140 的目的之一是『防止未受保護的訊息被未經授權的發佈』，這是一種風險緩解行為。",
+    "source_id": "chunk_8",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "FIPS 140",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "未經授權之程序進入模組",
+      "type": "risk"
+    },
+    "reasoning": "FIPS 140 旨在『防止未被授權之程序進入密碼模組內部』，將此威脅視為 risk。",
+    "source_id": "chunk_8",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "FIPS 140",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "秘密金鑰洩露或修改",
+      "type": "risk"
+    },
+    "reasoning": "FIPS 140 旨在『防止未經授權之洩露、修改和替換秘密金鑰』，這屬於透過政策緩解風險。",
     "source_id": "chunk_8",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 7
@@ -114,22 +114,22 @@
       "name": "秘密金鑰 (secret key)",
       "type": "data"
     },
-    "reasoning": "密碼模組在運作時必須使用秘密金鑰或私密金鑰來執行加密功能，因此系統 (system) 使用資料 (data)。",
+    "reasoning": "密碼模組在運作時需要使用秘密金鑰來執行加密功能，符合 system 使用 data 的關係。",
     "source_id": "chunk_8",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 8
   },
   {
     "subject": {
-      "name": "國家標準技術研究院 (NIST)",
-      "type": "securityTeam"
+      "name": "密碼模組",
+      "type": "system"
     },
-    "relation": "implements",
+    "relation": "uses",
     "object": {
-      "name": "FIPS 140",
-      "type": "policy"
+      "name": "公開金鑰 (public key)",
+      "type": "data"
     },
-    "reasoning": "NIST 作為標準制定與審核機構，負責執行並確保 FIPS 140 規範的落實，因此安全團隊 (securityTeam) 實作/執行規範 (policy)。",
+    "reasoning": "密碼模組在運作時需要使用公開金鑰，符合 system 使用 data 的關係。",
     "source_id": "chunk_8",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 9

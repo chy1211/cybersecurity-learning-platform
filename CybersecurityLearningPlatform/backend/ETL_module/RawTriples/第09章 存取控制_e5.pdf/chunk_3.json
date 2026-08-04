@@ -1,111 +1,6 @@
 [
   {
     "subject": {
-      "name": "預防型存取控制",
-      "type": "technique"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "未授權行為",
-      "type": "attack"
-    },
-    "reasoning": "文本提到預防型存取控制是要『遏止沒有授權的行為發生』，因此將其定義為一種技術 (technique) 用於緩解 (mitigates) 攻擊行為 (attack)。",
-    "source_id": "chunk_3",
-    "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "偵查型存取控制",
-      "type": "technique"
-    },
-    "relation": "can_detect",
-    "object": {
-      "name": "未授權入侵",
-      "type": "attack"
-    },
-    "reasoning": "文本指出偵查型存取控制的手段是要『發現非授權者入侵的證據』，符合技術 (technique) 偵測 (can_detect) 攻擊 (attack) 的邏輯。",
-    "source_id": "chunk_3",
-    "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 2
-  },
-  {
-    "subject": {
-      "name": "偵查型存取控制",
-      "type": "technique"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "事件稽核紀錄",
-      "type": "data"
-    },
-    "reasoning": "文本將『事件稽核紀錄』作為偵查型存取控制的實例，偵查手段需要分析日誌資料來發現證據，符合 (technique, can_analyze, data) 的 Schema。",
-    "source_id": "chunk_3",
-    "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "矯正型存取控制",
-      "type": "technique"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "系統損害",
-      "type": "attack"
-    },
-    "reasoning": "文本提到矯正型存取控制用於『系統損害時，修復系統』。雖然損害是結果，但在資安本體中，修復損害是緩解攻擊造成的影響，故選擇 (technique, mitigates, attack)。",
-    "source_id": "chunk_3",
-    "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "回復型存取控制",
-      "type": "technique"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "系統無法運作",
-      "type": "attack"
-    },
-    "reasoning": "回復型存取控制旨在『回復系統之正常功能』，是用於對抗導致系統失效的攻擊或故障，符合 (technique, mitigates, attack) 的邏輯。",
-    "source_id": "chunk_3",
-    "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 5
-  },
-  {
-    "subject": {
-      "name": "防毒軟體",
-      "type": "tool"
-    },
-    "relation": "can_detect",
-    "object": {
-      "name": "惡意攻擊",
-      "type": "attack"
-    },
-    "reasoning": "文本將防毒軟體列為存取控制的實例，防毒軟體的主要功能是偵測惡意程式或攻擊，符合 (tool, can_detect, attack)。",
-    "source_id": "chunk_3",
-    "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 6
-  },
-  {
-    "subject": {
-      "name": "Windows 備份與還原工具",
-      "type": "tool"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "系統故障",
-      "type": "risk"
-    },
-    "reasoning": "該工具用於系統回復，能緩解因資料遺失或系統崩潰導致的風險，符合 (tool, mitigates, risk) 的 Schema。",
-    "source_id": "chunk_3",
-    "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 7
-  },
-  {
-    "subject": {
       "name": "生物辨識系統",
       "type": "system"
     },
@@ -114,10 +9,10 @@
       "name": "錯誤接受率 (FAR)",
       "type": "feature"
     },
-    "reasoning": "文本討論 FAR、FRR 與 CER，這些是生物辨識系統的性能指標/特徵，因此將其歸類為系統 (system) 具有 (has_a) 特徵 (feature)。",
+    "reasoning": "文本提到 FAR 是設備（生物辨識系統）的一個比率/特徵，因此將系統作為主體，FAR 作為其特徵 (feature)。",
     "source_id": "chunk_3",
     "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 8
+    "source_index": 1
   },
   {
     "subject": {
@@ -129,14 +24,29 @@
       "name": "交叉錯誤率 (CER)",
       "type": "feature"
     },
-    "reasoning": "CER 是生物辨識系統中調整敏感度的關鍵特徵，符合 (system, has_a, feature)。",
+    "reasoning": "文本提到 CER 是調整敏感度後的交叉點比率，屬於系統的性能特徵 (feature)。",
     "source_id": "chunk_3",
     "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 9
+    "source_index": 2
   },
   {
     "subject": {
-      "name": "管理型存取控制",
+      "name": "預防型存取控制",
+      "type": "technique"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "存取控制型式",
+      "type": "technique"
+    },
+    "reasoning": "預防型存取控制是存取控制型式中的一種具體方法，符合 technique is_part_of technique 的定義。",
+    "source_id": "chunk_3",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "預防型存取控制",
       "type": "technique"
     },
     "relation": "mitigates",
@@ -144,7 +54,97 @@
       "name": "未授權行為",
       "type": "attack"
     },
-    "reasoning": "管理型存取控制透過遵循安全政策來確保作業安全，其最終目的是防止未授權的行為，符合 (technique, mitigates, attack)。",
+    "reasoning": "文本指出預防型存取控制是要『遏止沒有授權的行為發生』，這屬於使用技術 (technique) 緩解攻擊 (attack)。",
+    "source_id": "chunk_3",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "偵查型存取控制",
+      "type": "technique"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "非授權者入侵",
+      "type": "attack"
+    },
+    "reasoning": "文本提到偵查型存取控制的手段是要『發現非授權者入侵的證據』，符合 technique can_detect attack。",
+    "source_id": "chunk_3",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "矯正型存取控制",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "系統損害",
+      "type": "attack"
+    },
+    "reasoning": "矯正型存取控制用於系統損害時修復系統，旨在緩解攻擊造成的後果，將系統損害視為攻擊結果，符合 technique mitigates attack。",
+    "source_id": "chunk_3",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "安全政策",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "系統風險",
+      "type": "risk"
+    },
+    "reasoning": "文本在補償型存取控制中提到安全政策可用於提高系統安全性，即透過政策 (policy) 緩解風險 (risk)。",
+    "source_id": "chunk_3",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "防毒軟體",
+      "type": "tool"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "惡意程式攻擊",
+      "type": "attack"
+    },
+    "reasoning": "圖 9-7 提到防毒軟體，其核心功能是偵測惡意攻擊，符合 tool can_detect attack。",
+    "source_id": "chunk_3",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "Windows 備份與還原工具",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料遺失風險",
+      "type": "risk"
+    },
+    "reasoning": "圖 9-8 提到備份與還原工具，其目的是在系統故障或受損時恢復，是用於緩解風險 (risk) 的工具。",
+    "source_id": "chunk_3",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "事件稽核紀錄",
+      "type": "data"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "資訊系統",
+      "type": "system"
+    },
+    "reasoning": "圖 9-6 提到稽核紀錄，紀錄檔 (data) 通常存放於系統 (system) 中，符合 data deployed_in system。",
     "source_id": "chunk_3",
     "source_file": "第09章 存取控制_e5.pdf",
     "source_index": 10

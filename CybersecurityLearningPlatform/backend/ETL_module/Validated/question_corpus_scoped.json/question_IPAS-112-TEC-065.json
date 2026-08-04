@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "相互持有資源",
+      "type": "vulnerability",
+      "display_name": "相互持有資源"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "死結 (deadlock)",
+      "type": "risk",
+      "display_name": "死結 (deadlock)"
+    },
+    "reasoning": "根據考題，這是一個否定式提問（何者錯誤），正確答案 B 是錯誤敘述，因此選項 A 是正確知識。選項 A 指出『一系列程序相互持有其他程序所需要的資源』是死結的可能因素。在本體論中，這種導致系統失效的特定條件可視為系統缺陷 (vulnerability)，而死結則是其導致的負面後果 (risk)。",
+    "source_id": "question_IPAS-112-TEC-065",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '相互持有資源' 是 'vulnerability' 的合理實例，受體 '死結' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間存在著不同的概念，主體是指資源的類別，而受體是指風險的類別",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間的概念差異，無法判定為同義詞重複"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "相互持有資源",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "死結 (deadlock)",
+        "type": "risk"
+      },
+      "reasoning": "根據考題，這是一個否定式提問（何者錯誤），正確答案 B 是錯誤敘述，因此選項 A 是正確知識。選項 A 指出『一系列程序相互持有其他程序所需要的資源』是死結的可能因素。在本體論中，這種導致系統失效的特定條件可視為系統缺陷 (vulnerability)，而死結則是其導致的負面後果 (risk)。",
+      "source_id": "question_IPAS-112-TEC-065",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "等待同時持有資源",
+      "type": "vulnerability",
+      "display_name": "等待同時持有資源"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "死結 (deadlock)",
+      "type": "risk",
+      "display_name": "死結 (deadlock)"
+    },
+    "reasoning": "根據考題，選項 C 是正確知識。它描述了『某個程序可以在等待同時持有系統資源』是死結的可能因素。這符合死結的必要條件之一（Hold and Wait），屬於系統資源配置的缺陷 (vulnerability)，會導致死結風險 (risk) 的暴露。",
+    "source_id": "question_IPAS-112-TEC-065",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '等待同時持有資源' 可以被視為 'vulnerability' 的合理實例；受體 '死結' 可以被視為 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖然相關，但不構成同義詞關係，且無法確認是否為子類型或母類關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "等待同時持有資源",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "死結 (deadlock)",
+        "type": "risk"
+      },
+      "reasoning": "根據考題，選項 C 是正確知識。它描述了『某個程序可以在等待同時持有系統資源』是死結的可能因素。這符合死結的必要條件之一（Hold and Wait），屬於系統資源配置的缺陷 (vulnerability)，會導致死結風險 (risk) 的暴露。",
+      "source_id": "question_IPAS-112-TEC-065",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資源互斥 (無法多個程序共享)",
+      "type": "vulnerability",
+      "display_name": "資源互斥 (無法多個程序共享)"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "死結 (deadlock)",
+      "type": "risk",
+      "display_name": "死結 (deadlock)"
+    },
+    "reasoning": "根據考題，選項 D 是正確知識。它指出『資源只能同時分配給一個程序，無法多個程序共享』是死結的可能因素。這對應於死結的互斥條件 (Mutual Exclusion)，在資源管理邏輯中是一種導致死結的缺陷 (vulnerability)，會暴露死結 (risk) 的風險。",
+    "source_id": "question_IPAS-112-TEC-065",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '資源互斥 (無法多個程序共享)' 是 'vulnerability' 的合理實例；關係 'can_expose' 合理地連接主體與受體；受體 '死結 (deadlock)' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間存在著狹義關係，資源互斥是死結的其中一種成因",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間存在著狹義關係，資源互斥是死結的其中一種成因，無法合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資源互斥 (無法多個程序共享)",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "死結 (deadlock)",
+        "type": "risk"
+      },
+      "reasoning": "根據考題，選項 D 是正確知識。它指出『資源只能同時分配給一個程序，無法多個程序共享』是死結的可能因素。這對應於死結的互斥條件 (Mutual Exclusion)，在資源管理邏輯中是一種導致死結的缺陷 (vulnerability)，會暴露死結 (risk) 的風險。",
+      "source_id": "question_IPAS-112-TEC-065",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

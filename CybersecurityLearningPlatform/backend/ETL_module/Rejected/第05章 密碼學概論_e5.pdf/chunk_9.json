@@ -1,1 +1,146 @@
-[]
+[
+  {
+    "subject": {
+      "name": "rsa",
+      "type": "technique",
+      "display_name": "RSA"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "文本提到 RSA 加密演算法廣泛運用於網際網路，因此將 RSA 工具視為部署於網際網路系統中。",
+    "source_id": "chunk_9",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "RSA 是一種加密工具，合理對齊 'tool' 類別；網際網路是一種系統，合理對齊 'system' 類別。",
+        "response": "correct",
+        "reason": "RSA 部署於網際網路的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Subject) 與 Ldr 中的資源 'rsa' 完全等價同義詞；受體 (Object) 與 Ldr 中的資源 '網際網路' 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，但根據判斷準則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> deployed_in -> system (original: tool -> deployed_in -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到 RSA 加密演算法廣泛運用於網際網路，因此將 RSA 工具視為部署於網際網路系統中。",
+      "source_id": "chunk_9",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa",
+      "type": "technique",
+      "display_name": "RSA"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "公開金鑰加密",
+      "type": "tool",
+      "display_name": "公開金鑰加密"
+    },
+    "reasoning": "文本明確指出 RSA 是一種公開金鑰加密演算法，即 RSA 工具使用了公開金鑰加密這項技術。",
+    "source_id": "chunk_9",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "RSA 是一種加密工具，使用公開金鑰加密是一種常見的技術，因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "RSA 使用公開金鑰加密的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Subject) RSA 與 Ldr 中的 rsa 完全等價同義詞；受體 (Object) 公開金鑰加密 與 Ldr 中的 公開金鑰加密 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "rsa",
+        "standard_object": "公開金鑰加密",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> uses -> tool (original: tool -> uses -> technique)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA",
+        "type": "tool"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "公開金鑰加密",
+        "type": "technique"
+      },
+      "reasoning": "文本明確指出 RSA 是一種公開金鑰加密演算法，即 RSA 工具使用了公開金鑰加密這項技術。",
+      "source_id": "chunk_9",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa",
+      "type": "technique",
+      "display_name": "RSA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "大整數分解",
+      "type": "function",
+      "display_name": "大整數分解"
+    },
+    "reasoning": "文本提到 RSA 的安全度建立在將大整數分解為兩個質因數乘積的難題上，大整數分解是 RSA 運作邏輯中核心的數學功能。",
+    "source_id": "chunk_9",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "RSA 是一種加密工具，'tool' 是其合理類別；大整數分解是數學運算中的一種函數，'function' 是其合理類別；'has_a' 關係描述工具具有某一功能，語意上合理。",
+        "response": "correct",
+        "reason": "RSA 與大整數分解的類別與屬性完全符合預先定義的清單，且語意上合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 RSA 與 Ldr 中的 rsa 是相同的技術名稱，無需進行標準化"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> has_a -> function (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "大整數分解",
+        "type": "function"
+      },
+      "reasoning": "文本提到 RSA 的安全度建立在將大整數分解為兩個質因數乘積的難題上，大整數分解是 RSA 運作邏輯中核心的數學功能。",
+      "source_id": "chunk_9",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

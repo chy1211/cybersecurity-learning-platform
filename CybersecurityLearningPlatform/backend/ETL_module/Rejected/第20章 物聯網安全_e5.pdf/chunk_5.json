@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "sql injection",
+      "type": "technique",
+      "display_name": "SQL injection"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網頁應用程式",
+      "type": "app",
+      "display_name": "網頁應用程式"
+    },
+    "reasoning": "文本將 SQL injection 列為針對雲端介面（網頁應用程式）的漏洞測試/攻擊對象。符合 (attack, can_harm, app) 的 Schema。",
+    "source_id": "chunk_5",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SQL injection 是 'attack' 的合理實例；網頁應用程式是 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 'sql injection' 完全等價同義詞；受體與 Ldr 中的 '網頁應用程式' 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "sql injection",
+        "standard_object": "網頁應用程式",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> can_harm -> app (original: attack -> can_harm -> app)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL injection",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網頁應用程式",
+        "type": "app"
+      },
+      "reasoning": "文本將 SQL injection 列為針對雲端介面（網頁應用程式）的漏洞測試/攻擊對象。符合 (attack, can_harm, app) 的 Schema。",
+      "source_id": "chunk_5",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

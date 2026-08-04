@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "密碼原則",
+      "type": "policy",
+      "display_name": "密碼原則"
+    },
+    "reasoning": "題幹詢問『較安全的密碼設定』，這在資安領域中屬於『密碼原則 (Password Policy)』的範疇。當使用者選擇並設定一個符合安全強度（如選項 B 的複雜度）的密碼時，其行為即是在實作 (implements) 該密碼原則。根據 Schema，('user', 'implements', 'policy') 是一個合法的關聯。",
+    "source_id": "question_IPAS-112-TEC-007",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例；受體名稱 '密碼原則' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "密碼原則",
+        "type": "policy"
+      },
+      "reasoning": "題幹詢問『較安全的密碼設定』，這在資安領域中屬於『密碼原則 (Password Policy)』的範疇。當使用者選擇並設定一個符合安全強度（如選項 B 的複雜度）的密碼時，其行為即是在實作 (implements) 該密碼原則。根據 Schema，('user', 'implements', 'policy') 是一個合法的關聯。",
+      "source_id": "question_IPAS-112-TEC-007",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

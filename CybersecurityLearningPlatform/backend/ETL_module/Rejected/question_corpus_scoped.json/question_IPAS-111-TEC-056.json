@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "pop3",
+      "type": "feature",
+      "display_name": "POP3"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "port 995/tcp",
+      "type": "feature",
+      "display_name": "Port 995/TCP"
+    },
+    "reasoning": "本題為否定式提問，選項 D 為正確知識。基於 SSL 的 POP3 收發電子郵件加密傳輸服務使用 Port 995/TCP。符合 Schema: (\"app\", \"has_a\", \"feature\")。",
+    "source_id": "question_IPAS-111-TEC-056",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "POP3 是一種郵件應用程式，故其類別 'app' 合理；Port 995/TCP 是郵件應用程式 POP3 的特徵，故其類別 'feature' 合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間存在著不同的概念，主體是 POP3 的特徵，而受體是 Port 995/TCP 的特徵，兩者之間沒有直接的同義詞關係或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據判斷準則 3，主體與受體之間沒有直接的同義詞關係或從屬關係，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> feature (original: app -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "POP3",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Port 995/TCP",
+        "type": "feature"
+      },
+      "reasoning": "本題為否定式提問，選項 D 為正確知識。基於 SSL 的 POP3 收發電子郵件加密傳輸服務使用 Port 995/TCP。符合 Schema: (\"app\", \"has_a\", \"feature\")。",
+      "source_id": "question_IPAS-111-TEC-056",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

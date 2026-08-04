@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "tor",
+      "type": "tool",
+      "display_name": "Tor"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "暗網",
+      "type": "system",
+      "display_name": "暗網"
+    },
+    "reasoning": "根據選項 C，Tor 常被使用來連線至暗網。在此情境下，Tor 作為客戶端應用程式 (app) 連接至暗網這個基礎設施環境 (system)，符合 app -> connects_to -> system 的 Schema。",
+    "source_id": "question_IPAS-110-TEC-057",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Tor 是一種合理的 'app' 實例，暗網是 'system' 的合理實例，且 'connects_to' 是描述 Tor 與暗網之間關係的合理屬性。",
+        "response": "correct",
+        "reason": "Tor 與暗網之間的 'connects_to' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Tor 與 Ldr 中的 tor 完全等價同義詞；受體 暗網 與 Ldr 中的 網路、網際網路 均為廣義/狹義從屬關係，但無法確定為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 Tor 與 Ldr 中的 tor 完全等價同義詞，但受體 暗網 與 Ldr 中的 網路、網際網路 均為廣義/狹義從屬關係，無法確定為完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> connects_to -> system (original: app -> connects_to -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "Tor",
+        "type": "app"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "暗網",
+        "type": "system"
+      },
+      "reasoning": "根據選項 C，Tor 常被使用來連線至暗網。在此情境下，Tor 作為客戶端應用程式 (app) 連接至暗網這個基礎設施環境 (system)，符合 app -> connects_to -> system 的 Schema。",
+      "source_id": "question_IPAS-110-TEC-057",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

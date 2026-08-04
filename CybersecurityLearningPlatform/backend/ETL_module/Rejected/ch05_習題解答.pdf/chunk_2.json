@@ -7,28 +7,30 @@
     },
     "relation": "uses",
     "object": {
-      "name": "憑證",
-      "type": "data",
-      "display_name": "數位憑證"
+      "name": "私密金鑰",
+      "type": "tool",
+      "display_name": "私密金鑰"
     },
-    "reasoning": "文本提到數位憑證用來辨識使用者身分，因此使用者使用數位憑證作為身分證明。根據 Schema，('user', 'uses', 'data') 是合法關聯。",
+    "reasoning": "文本提到『憑證持有者另外擁有相對的私密金鑰』，持有者即為使用者 (user)，私密金鑰為其持有的認證資訊 (data)。",
     "source_id": "chunk_2",
     "source_file": "ch05_習題解答.pdf",
-    "source_index": 1,
+    "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "使用者 (user) 可以使用數位憑證 (data)，這符合實體名稱與其類別的合理對齊，且 'uses' 關係在資安領域中是合理的。",
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例，受體名稱 '私密金鑰' 是 'data' 的合理實例（考慮到資安領域常見的同義詞與縮寫）。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
-      "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發違規，因為主體的類別是user，但使用了'uses'關係，且受體是數位憑證，屬於data類別。規則6、7、8不適用，因為關係不是deployed_in、generates或controls。",
-        "response": "violation",
-        "reason": "三元組違反規則5，因為主體的類別是user，使用了'uses'關係，且受體是數位憑證，屬於data類別。"
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中的資源名稱完全相同，無需進一步判斷。"
       }
     },
-    "reject_reason": "Step 3 (Semantic Violation): 三元組違反規則5，因為主體的類別是user，使用了'uses'關係，且受體是數位憑證，屬於data類別。",
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): user -> uses -> tool (original: user -> uses -> data)",
     "original_raw_triple": {
       "subject": {
         "name": "使用者",
@@ -36,13 +38,13 @@
       },
       "relation": "uses",
       "object": {
-        "name": "數位憑證",
+        "name": "私密金鑰",
         "type": "data"
       },
-      "reasoning": "文本提到數位憑證用來辨識使用者身分，因此使用者使用數位憑證作為身分證明。根據 Schema，('user', 'uses', 'data') 是合法關聯。",
+      "reasoning": "文本提到『憑證持有者另外擁有相對的私密金鑰』，持有者即為使用者 (user)，私密金鑰為其持有的認證資訊 (data)。",
       "source_id": "chunk_2",
       "source_file": "ch05_習題解答.pdf",
-      "source_index": 1
+      "source_index": 2
     }
   }
 ]

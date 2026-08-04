@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "獨立的驗證單位",
+      "type": "securityTeam",
+      "display_name": "獨立的驗證單位"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "第三方(third party)稽核",
+      "type": "technique",
+      "display_name": "第三方(Third Party)稽核"
+    },
+    "reasoning": "根據題幹與正確答案，重建陳述句為『由獨立的驗證單位所執行之稽核稱為第三方(Third Party)稽核』。其中『獨立的驗證單位』屬於負責安全驗證的角色，對應至 securityTeam；『第三方(Third Party)稽核』是一種特定的稽核方法/流程，對應至 technique。兩者關係為安全團隊使用該技術，符合 Schema Edge 中的 ('securityTeam', 'uses', 'technique')。",
+    "source_id": "question_IPAS-109-MGT-050",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '獨立的驗證單位' 是 'securityTeam' 的合理實例；受體 '第三方(Third Party)稽核' 是 'technique' 的合理實例，考慮到 '稽核' 可以視為 'technique' 的同義詞。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：無關，但注意主體 securityTeam 的類別是具有主動執行能力的角色，符合 controls 動作的主體條件，但本案例的關係是 uses，非 controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且主體 securityTeam 的類別是具有主動執行能力的角色，符合一般的主動行為條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的資源之間存在同義詞關係，但根據規則，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "獨立的驗證單位",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "第三方(Third Party)稽核",
+        "type": "technique"
+      },
+      "reasoning": "根據題幹與正確答案，重建陳述句為『由獨立的驗證單位所執行之稽核稱為第三方(Third Party)稽核』。其中『獨立的驗證單位』屬於負責安全驗證的角色，對應至 securityTeam；『第三方(Third Party)稽核』是一種特定的稽核方法/流程，對應至 technique。兩者關係為安全團隊使用該技術，符合 Schema Edge 中的 ('securityTeam', 'uses', 'technique')。",
+      "source_id": "question_IPAS-109-MGT-050",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

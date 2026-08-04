@@ -11,28 +11,28 @@
       "type": "function",
       "display_name": "管制人員出入"
     },
-    "reasoning": "文本提到警衛的工作包含『管制人員出入』，警衛屬於安全團隊 (securityTeam)，管制出入是一種安全功能 (function)，符合 ('securityTeam', 'implements', 'function')。",
+    "reasoning": "文本提到警衛的工作包含『管制人員出入』，這屬於資安防禦中的一種功能執行，符合 (securityTeam, implements, function) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
-        "step_2_alignment_check": "警衛 (securityTeam) 實施管制人員出入 (function) 的語意對齊是合理的，因為警衛隊伍可能會實施管制出入的功能。",
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '警衛' 是 'securityTeam' 的合理實例，實體 '管制人員出入' 是 'function' 的合理實例。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：不適用，因為動作不是 mitigates。檢查規則3：不適用，因為主體類別不是 vulnerability。檢查規則4：不適用，因為關係不是 violates 且 principle 不是主體。檢查規則5：不適用，因為關係不是 uses。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls，但 implements 關係中，主體 securityTeam 是具有主動執行能力的角色，符合邏輯。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組中的主體（警衛，類別：securityTeam）與關係（implements）和受體（管制人員出入，類別：function）之間的關係，沒有明確違反語義限制清單中的任何規則。"
+        "reason": "主體類別為 securityTeam，未違反任何規則。"
       },
       "step_2": {
-        "granularity_analysis": "主體與 Ldr 中的資源完全匹配，受體與已知同義詞對照範例中無直接對應關係，但無法確定為同義詞或子類型關係",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，且無法確定為同義詞或子類型關係，預設保留。"
+        "reason": "無法在資安領域已知同義詞對照範例中找到相符的同義詞關係，且無法確認主體與受體之間的從屬關係，因此預設保留。"
       }
     },
     "original_raw_triple": {
@@ -45,114 +45,10 @@
         "name": "管制人員出入",
         "type": "function"
       },
-      "reasoning": "文本提到警衛的工作包含『管制人員出入』，警衛屬於安全團隊 (securityTeam)，管制出入是一種安全功能 (function)，符合 ('securityTeam', 'implements', 'function')。",
+      "reasoning": "文本提到警衛的工作包含『管制人員出入』，這屬於資安防禦中的一種功能執行，符合 (securityTeam, implements, function) 的 Schema。",
       "source_id": "chunk_2",
       "source_file": "ch03_習題解答.pdf",
       "source_index": 1
-    }
-  },
-  {
-    "subject": {
-      "name": "執勤疏忽",
-      "type": "vulnerability",
-      "display_name": "執勤疏忽"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "損失",
-      "type": "risk",
-      "display_name": "損失"
-    },
-    "reasoning": "文本指出『執勤疏忽而造成損失』，疏忽可視為一種人為漏洞 (vulnerability)，損失則是負面後果 (risk)，符合 ('vulnerability', 'can_expose', 'risk')。",
-    "source_id": "chunk_2",
-    "source_file": "ch03_習題解答.pdf",
-    "source_index": 3,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "執勤疏忽 (vulnerability) 可能導致損失 (risk)，這符合資安領域的常見理解，'can_expose' 關係也合理地描述了漏洞可能暴露風險的關係。",
-        "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且待檢查三元組的主體類別為vulnerability，關係為can_expose，符合規則3的特例允許。",
-        "response": "correct",
-        "reason": "三元組符合規則3的特例允許，未發現明確且直接的違反項目。"
-      },
-      "step_2": {
-        "granularity_analysis": "完全不相關",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，Ldr為空，直接判定correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "執勤疏忽",
-        "type": "vulnerability"
-      },
-      "relation": "can_expose",
-      "object": {
-        "name": "損失",
-        "type": "risk"
-      },
-      "reasoning": "文本指出『執勤疏忽而造成損失』，疏忽可視為一種人為漏洞 (vulnerability)，損失則是負面後果 (risk)，符合 ('vulnerability', 'can_expose', 'risk')。",
-      "source_id": "chunk_2",
-      "source_file": "ch03_習題解答.pdf",
-      "source_index": 3
-    }
-  },
-  {
-    "subject": {
-      "name": "警衛",
-      "type": "securityTeam",
-      "display_name": "警衛"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "監看閉路電視監視器",
-      "type": "function",
-      "display_name": "監看閉路電視監視器"
-    },
-    "reasoning": "文本提到警衛的工作包含『監看閉路電視監視器』，這是一種監控功能 (function)，符合 ('securityTeam', 'implements', 'function')。",
-    "source_id": "chunk_2",
-    "source_file": "ch03_習題解答.pdf",
-    "source_index": 2,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "警衛 (securityTeam) 實現監看閉路電視監視器 (function) 的功能，符合語意對齊，警衛是一種安全團隊，監看閉路電視監視器是一種功能，實現這個功能是合理的。",
-        "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：未觸發，因為三元組中沒有攻擊者(attacker)的身分。檢查規則2：未觸發，因為三元組中的關係是implements，不是mitigates。檢查規則3：未觸發，因為三元組中的主體類別是securityTeam，不是vulnerability。檢查規則4：未觸發，因為三元組中的關係是implements，不是violates，且主體不是principle。檢查規則5：未觸發，因為三元組中的關係是implements，不是uses。檢查規則6：未觸發，因為三元組中的關係是implements，不是deployed_in。檢查規則7：未觸發，因為三元組中的關係是implements，不是generates。檢查規則8：未觸發，因為三元組中的關係是implements，不是controls。",
-        "response": "correct",
-        "reason": "三元組中的主體是警衛（類別：securityTeam），關係是implements，受體是監看閉路電視監視器（類別：function），未發現明確且直接的違反項目。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與現有近似資源清單中的「警衛」完全匹配，受體「監看閉路電視監視器」與「管制人員出入」無直接同義詞關係，但皆歸類於 function 類別，無法確定為同義詞或子類型關係。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，無法確定主體或受體為同義詞重複，且無廣義/狹義從屬關係，預設保留。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "警衛",
-        "type": "securityTeam"
-      },
-      "relation": "implements",
-      "object": {
-        "name": "監看閉路電視監視器",
-        "type": "function"
-      },
-      "reasoning": "文本提到警衛的工作包含『監看閉路電視監視器』，這是一種監控功能 (function)，符合 ('securityTeam', 'implements', 'function')。",
-      "source_id": "chunk_2",
-      "source_file": "ch03_習題解答.pdf",
-      "source_index": 2
     }
   },
   {
@@ -167,28 +63,28 @@
       "type": "tool",
       "display_name": "離線式UPS"
     },
-    "reasoning": "UPS 是一種電源保護工具 (tool)，離線式 UPS 是其具體類別，符合 ('tool', 'has_a', 'tool')。",
+    "reasoning": "UPS 包含多個類別，離線式 UPS 是其一種具體形式，符合 (tool, has_a, tool) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
-    "source_index": 4,
+    "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體的類別 'tool' 和受體的類別 'tool' 都存在於 Lc,p 的 'Classes' 中，關係 'has_a' 存在於 'Properties' 中。",
-        "step_2_alignment_check": "UPS 是 'tool' 的合理實例，'離線式UPS' 也是 'tool' 的合理實例，兩者之間的 'has_a' 關係在語意上是合理的，因為 UPS 可以具有離線式的功能或特性。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "UPS 是一種工具（tool），而離線式UPS 是一種特定類型的UPS，同樣是一種工具，因此實體名稱與其類別合理對齊。",
         "response": "correct",
-        "reason": "UPS 和 '離線式UPS' 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查規則沒有直接觸發違規。",
+        "step_1_rule_matching": "規則2、規則6、規則8",
         "response": "correct",
-        "reason": "三元組中的主體和受體都屬於 'tool' 類別，且關係 'has_a' 沒有在語義限制清單中被明確限制，因此不觸發任何違規。"
+        "reason": "三元組符合規則所允許的條件，且無明確且直接的違反項目。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體之間存在狹義關係，UPS 是離線式UPS 的父類型",
+        "granularity_analysis": "主體與受體之間存在狹義關係，受體是主體的子類型",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據【廣義/狹義一律保留】判斷準則，若一個實體是另一個的子類型，則判定為 correct。"
+        "reason": "UPS 是一個更廣泛的類別，離線式UPS 是其子類型，因此不應合併"
       }
     },
     "original_raw_triple": {
@@ -201,59 +97,7 @@
         "name": "離線式UPS",
         "type": "tool"
       },
-      "reasoning": "UPS 是一種電源保護工具 (tool)，離線式 UPS 是其具體類別，符合 ('tool', 'has_a', 'tool')。",
-      "source_id": "chunk_2",
-      "source_file": "ch03_習題解答.pdf",
-      "source_index": 4
-    }
-  },
-  {
-    "subject": {
-      "name": "ups",
-      "type": "tool",
-      "display_name": "UPS"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "線上式ups",
-      "type": "tool",
-      "display_name": "線上式UPS"
-    },
-    "reasoning": "UPS 是一種電源保護工具 (tool)，線上式 UPS 是其具體類別，符合 ('tool', 'has_a', 'tool')。",
-    "source_id": "chunk_2",
-    "source_file": "ch03_習題解答.pdf",
-    "source_index": 5,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "UPS 是 'tool' 的合理實例，線上式UPS 也是 'tool' 的合理實例，兩者之間的 'has_a' 關係在語意上合理。",
-        "response": "correct",
-        "reason": "UPS 和線上式UPS 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'has_a'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
-        "response": "correct",
-        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，且主體和受體的類別均為 'tool'，因此不違反任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體 (UPS) 與受體 (線上式UPS) 皆為 tool 類別，但名稱不完全相同，需進一步判定。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "雖然 UPS 和 線上式UPS 皆為 tool 類別，但它們之間的關係是廣義/狹義從屬，線上式UPS 是 UPS 的子類型，因此判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "UPS",
-        "type": "tool"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "線上式UPS",
-        "type": "tool"
-      },
-      "reasoning": "UPS 是一種電源保護工具 (tool)，線上式 UPS 是其具體類別，符合 ('tool', 'has_a', 'tool')。",
+      "reasoning": "UPS 包含多個類別，離線式 UPS 是其一種具體形式，符合 (tool, has_a, tool) 的 Schema。",
       "source_id": "chunk_2",
       "source_file": "ch03_習題解答.pdf",
       "source_index": 5
@@ -261,106 +105,106 @@
   },
   {
     "subject": {
-      "name": "入侵偵測",
-      "type": "technique",
-      "display_name": "入侵偵測"
+      "name": "執勤疏忽",
+      "type": "vulnerability",
+      "display_name": "執勤疏忽"
     },
-    "relation": "has_a",
+    "relation": "can_expose",
     "object": {
-      "name": "電流感應器",
-      "type": "tool",
-      "display_name": "電流感應器"
+      "name": "損失",
+      "type": "risk",
+      "display_name": "損失"
     },
-    "reasoning": "入侵偵測是一種技術 (technique)，而利用電流阻斷的感應裝置是實現該技術的工具 (tool)，符合 ('technique', 'has_a', 'tool')。",
+    "reasoning": "文本指出『警衛怠惰或執勤疏忽而造成損失』，將疏忽視為系統/流程中的弱點 (vulnerability)，而損失為風險 (risk)，符合 (vulnerability, can_expose, risk) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
-    "source_index": 7,
+    "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "入侵偵測是 technique 的合理實例，電流感應器是 tool 的合理實例。",
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '執勤疏忽' 是 'vulnerability' 的合理實例，受體 '損失' 是 'risk' 的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為 'has_a' 關係不在規則8的描述中。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 不在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被明確禁止。"
+        "reason": "主體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
       },
       "step_2": {
-        "granularity_analysis": "入侵偵測與電流感應器無直接同義詞關係，且電流感應器不在給定的Ldr清單中",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "無法在給定的Ldr清單中找到相似資源，且無同義詞關係，預設保留。"
+        "reason": "Ldr 為空，直接判定 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "入侵偵測",
-        "type": "technique"
+        "name": "執勤疏忽",
+        "type": "vulnerability"
       },
-      "relation": "has_a",
+      "relation": "can_expose",
       "object": {
-        "name": "電流感應器",
-        "type": "tool"
+        "name": "損失",
+        "type": "risk"
       },
-      "reasoning": "入侵偵測是一種技術 (technique)，而利用電流阻斷的感應裝置是實現該技術的工具 (tool)，符合 ('technique', 'has_a', 'tool')。",
+      "reasoning": "文本指出『警衛怠惰或執勤疏忽而造成損失』，將疏忽視為系統/流程中的弱點 (vulnerability)，而損失為風險 (risk)，符合 (vulnerability, can_expose, risk) 的 Schema。",
       "source_id": "chunk_2",
       "source_file": "ch03_習題解答.pdf",
-      "source_index": 7
+      "source_index": 4
     }
   },
   {
     "subject": {
-      "name": "電流感應器",
-      "type": "tool",
-      "display_name": "電流感應器"
+      "name": "警衛",
+      "type": "securityTeam",
+      "display_name": "警衛"
     },
-    "relation": "generates",
+    "relation": "implements",
     "object": {
-      "name": "入侵訊息",
-      "type": "data",
-      "display_name": "入侵訊息"
+      "name": "留意警報系統",
+      "type": "function",
+      "display_name": "留意警報系統"
     },
-    "reasoning": "文本提到當門窗震動時『可偵測到入侵訊息』，感應器 (tool) 產生了訊息資料 (data)，符合 ('tool', 'generates', 'data')。",
+    "reasoning": "文本提到警衛的工作包含『留意警報系統』，這屬於監控與回應功能，符合 (securityTeam, implements, function) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
-    "source_index": 8,
+    "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "電流感應器是工具（tool）的合理實例，入侵訊息是資料（data）的合理實例，且 'generates' 在資安領域中代表工具可以產生特定資料的關係是合理的。",
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '警衛' 是 'securityTeam' 的合理實例，受體 '留意警報系統' 是 'function' 的合理實例。",
         "response": "correct",
-        "reason": "電流感應器、入侵訊息與 'generates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是generates，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為主體類別是tool，而非principle。規則5不適用，因為關係是generates，而非uses。規則6不適用，因為關係是generates，而非deployed_in。規則7適用，且三元組符合規則所允許的條件，因為受體的類別是data。規則8不適用，因為關係是generates，而非controls。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組符合規則7的允許條件，且未發現其他明確且直接的違反項目。"
+        "reason": "主體類別為 securityTeam，未違反任何規則。"
       },
       "step_2": {
-        "granularity_analysis": "電流感應器與現有近似資源清單中的「電流感應器」完全相同",
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+        "reason": "主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "電流感應器",
-        "type": "tool"
+        "name": "警衛",
+        "type": "securityTeam"
       },
-      "relation": "generates",
+      "relation": "implements",
       "object": {
-        "name": "入侵訊息",
-        "type": "data"
+        "name": "留意警報系統",
+        "type": "function"
       },
-      "reasoning": "文本提到當門窗震動時『可偵測到入侵訊息』，感應器 (tool) 產生了訊息資料 (data)，符合 ('tool', 'generates', 'data')。",
+      "reasoning": "文本提到警衛的工作包含『留意警報系統』，這屬於監控與回應功能，符合 (securityTeam, implements, function) 的 Schema。",
       "source_id": "chunk_2",
       "source_file": "ch03_習題解答.pdf",
-      "source_index": 8
+      "source_index": 3
     }
   },
   {
@@ -375,28 +219,28 @@
       "type": "tool",
       "display_name": "線上互動式UPS"
     },
-    "reasoning": "UPS 是一種電源保護工具 (tool)，線上互動式 UPS 是其具體類別，符合 ('tool', 'has_a', 'tool')。",
+    "reasoning": "UPS 包含多個類別，線上互動式 UPS 是其一種具體形式，符合 (tool, has_a, tool) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
-    "source_index": 6,
+    "source_index": 7,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "UPS 是 'tool' 的合理實例，線上互動式UPS 也是 'tool' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'UPS' 的名稱與其類別 'tool' 合理對齊，受體 '線上互動式UPS' 的名稱與其類別 'tool' 合理對齊，考慮到 UPS 是一種工具，線上互動式UPS 可能是其線上版本或應用。",
         "response": "correct",
-        "reason": "UPS 與線上互動式UPS 的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則，發現沒有明確違反任何規則。",
+        "step_1_rule_matching": "規則2、規則6、規則8",
         "response": "correct",
-        "reason": "三元組不違反語義限制清單中的任何規則，故判定為正確。"
+        "reason": "三元組符合規則所允許的條件，且無明確且直接的違反項目。"
       },
       "step_2": {
-        "granularity_analysis": "主體 (UPS) 與受體 (線上互動式UPS) 之間存在狹義關係，受體是主體的子類型",
+        "granularity_analysis": "主體與受體為子類型與母類關係",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據【廣義/狹義一律保留】判斷準則，若一個實體是另一個的子類型，則判定為 correct。"
+        "reason": "線上式UPS是UPS的子類型，禁止合併"
       }
     },
     "original_raw_triple": {
@@ -409,7 +253,59 @@
         "name": "線上互動式UPS",
         "type": "tool"
       },
-      "reasoning": "UPS 是一種電源保護工具 (tool)，線上互動式 UPS 是其具體類別，符合 ('tool', 'has_a', 'tool')。",
+      "reasoning": "UPS 包含多個類別，線上互動式 UPS 是其一種具體形式，符合 (tool, has_a, tool) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "ch03_習題解答.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "ups",
+      "type": "tool",
+      "display_name": "UPS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "線上式ups",
+      "type": "tool",
+      "display_name": "線上式UPS"
+    },
+    "reasoning": "UPS 包含多個類別，線上式 UPS 是其一種具體形式，符合 (tool, has_a, tool) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch03_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "UPS 是一種工具（tool），線上式UPS 也是一種工具（tool），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "UPS 與 線上式UPS 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合規則所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體為子類型與母類關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "線上式UPS是UPS的子類型，禁止合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "UPS",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "線上式UPS",
+        "type": "tool"
+      },
+      "reasoning": "UPS 包含多個類別，線上式 UPS 是其一種具體形式，符合 (tool, has_a, tool) 的 Schema。",
       "source_id": "chunk_2",
       "source_file": "ch03_習題解答.pdf",
       "source_index": 6
@@ -417,38 +313,298 @@
   },
   {
     "subject": {
-      "name": "監視系統",
-      "type": "system",
-      "display_name": "監視系統"
+      "name": "阻斷和產生電流",
+      "type": "technique",
+      "display_name": "阻斷和產生電流"
     },
-    "relation": "has_a",
+    "relation": "can_detect",
     "object": {
-      "name": "閉路電視",
-      "type": "tool",
-      "display_name": "閉路電視"
+      "name": "入侵",
+      "type": "attack",
+      "display_name": "入侵"
     },
-    "reasoning": "監視系統是一個綜合基礎設施 (system)，而閉路電視 (CCTV) 是其組成工具 (tool)，符合 ('system', 'has_a', 'tool')。",
+    "reasoning": "文本描述利用電流中斷來『偵測到入侵訊息』，這是一種偵測技術，符合 (technique, can_detect, attack) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
     "source_index": 9,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "監視系統是一個系統（system），閉路電視是一種工具（tool），這些名稱與其類別之間的對齊是合理的。",
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '阻斷和產生電流' 可以被視為 'technique' 的合理實例；受體 '入侵' 可以被視為 'attack' 的合理實例。",
         "response": "correct",
-        "reason": "監視系統與閉路電視的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：無關。",
         "response": "correct",
-        "reason": "三元組（監視系統 has_a 閉路電視）未觸發語義限制清單中的任何規則，故判定為合法。"
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
       },
       "step_2": {
-        "granularity_analysis": "監視系統與閉路電視監視器之間存在著廣義/狹義從屬關係，閉路電視監視器可以被視為監視系統的一種具體工具實現。",
+        "granularity_analysis": "主體與受體之間存在著廣義/狹義從屬關係",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據【廣義/狹義一律保留】判斷準則，監視系統和閉路電視監視器之間的關係不應合併。"
+        "reason": "阻斷和產生電流是入侵的一種技術，兩者之間存在著廣義/狹義從屬關係，故不應合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "阻斷和產生電流",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "入侵",
+        "type": "attack"
+      },
+      "reasoning": "文本描述利用電流中斷來『偵測到入侵訊息』，這是一種偵測技術，符合 (technique, can_detect, attack) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "ch03_習題解答.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "阻斷和產生電流",
+      "type": "technique",
+      "display_name": "中斷光線"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "入侵",
+      "type": "attack",
+      "display_name": "入侵"
+    },
+    "reasoning": "文本描述利用光線阻斷來『偵測到入侵』，這是一種偵測技術，符合 (technique, can_detect, attack) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch03_習題解答.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '中斷光線' 可被視為 'technique' 的合理實例；受體名稱 '入侵' 可被視為 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 technique，關係為 can_detect，受體為 attack，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "阻斷和產生電流",
+        "standard_object": "",
+        "reason": "主體「中斷光線」與 Ldr 中的「阻斷和產生電流」在資安教材中可互換使用、指稱同一概念"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "中斷光線",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "入侵",
+        "type": "attack"
+      },
+      "reasoning": "文本描述利用光線阻斷來『偵測到入侵』，這是一種偵測技術，符合 (technique, can_detect, attack) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "ch03_習題解答.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "偵測聲音",
+      "type": "technique",
+      "display_name": "偵測聲音"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "入侵",
+      "type": "attack",
+      "display_name": "入侵"
+    },
+    "reasoning": "文本描述利用麥克風接收聲音訊號來偵測入侵，符合 (technique, can_detect, attack) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch03_習題解答.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '偵測聲音' 是 'technique' 的合理實例；受體 '入侵' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源沒有完全相同的名稱，受體與 Ldr 中的資源名稱完全相同，但類別不同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "受體雖然名稱相同，但類別不同，且無法確認是否為同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "偵測聲音",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "入侵",
+        "type": "attack"
+      },
+      "reasoning": "文本描述利用麥克風接收聲音訊號來偵測入侵，符合 (technique, can_detect, attack) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "ch03_習題解答.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "警衛",
+      "type": "securityTeam",
+      "display_name": "警衛"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "監看閉路電視監視器",
+      "type": "function",
+      "display_name": "監看閉路電視監視器"
+    },
+    "reasoning": "文本提到警衛的工作包含『監看閉路電視監視器』，這是一種監控功能，符合 (securityTeam, implements, function) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch03_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '警衛' 是 'securityTeam' 的合理實例，受體 '監看閉路電視監視器' 是 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，關係為 implements，受體類別為 function，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體警衛與Ldr中的警衛完全等價同義詞；受體監看閉路電視監視器與Ldr中的管制人員出入無直接關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與Ldr中的資源完全相同，但受體無直接關係，故判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "警衛",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "監看閉路電視監視器",
+        "type": "function"
+      },
+      "reasoning": "文本提到警衛的工作包含『監看閉路電視監視器』，這是一種監控功能，符合 (securityTeam, implements, function) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "ch03_習題解答.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "ups",
+      "type": "tool",
+      "display_name": "UPS"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "停電",
+      "type": "risk",
+      "display_name": "停電"
+    },
+    "reasoning": "UPS 的主要功能是在停電時提供電力，以緩解停電造成的風險，符合 (tool, mitigates, risk) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch03_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "UPS 是一種工具（tool），停電是一種風險（risk），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "UPS 停電的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 UPS 的類別是 tool，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 UPS 與 Ldr 中的資源 ups 關係為完全等價同義詞；受體 停電 與 Ldr 中的資源 無直接關聯",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 UPS 與 Ldr 中的資源 ups 名稱完全相同，但受體 停電 與 Ldr 中的資源無直接關聯，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "UPS",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "停電",
+        "type": "risk"
+      },
+      "reasoning": "UPS 的主要功能是在停電時提供電力，以緩解停電造成的風險，符合 (tool, mitigates, risk) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "ch03_習題解答.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "監視系統",
+      "type": "tool",
+      "display_name": "監視系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "閉路電視監視器",
+      "type": "tool",
+      "display_name": "閉路電視"
+    },
+    "reasoning": "文本提到『監視系統通常使用閉路電視 (CCTV)』，表示 CCTV 是監視系統中的一個工具元件，符合 (system, has_a, tool) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch03_習題解答.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "監視系統是系統的一個合理實例，閉路電視是工具的一個合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體均為資安領域中的工具類別，且受體「閉路電視」與 Ldr 中的「閉路電視監視器」為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "閉路電視監視器",
+        "reason": "受體「閉路電視」與 Ldr 中的「閉路電視監視器」為同義詞，因此判定為 duplicate。"
       }
     },
     "original_raw_triple": {
@@ -461,46 +617,46 @@
         "name": "閉路電視",
         "type": "tool"
       },
-      "reasoning": "監視系統是一個綜合基礎設施 (system)，而閉路電視 (CCTV) 是其組成工具 (tool)，符合 ('system', 'has_a', 'tool')。",
+      "reasoning": "文本提到『監視系統通常使用閉路電視 (CCTV)』，表示 CCTV 是監視系統中的一個工具元件，符合 (system, has_a, tool) 的 Schema。",
       "source_id": "chunk_2",
       "source_file": "ch03_習題解答.pdf",
-      "source_index": 9
+      "source_index": 12
     }
   },
   {
     "subject": {
-      "name": "閉路電視",
+      "name": "閉路電視監視器",
       "type": "tool",
       "display_name": "閉路電視"
     },
     "relation": "can_detect",
     "object": {
-      "name": "入侵攻擊",
+      "name": "入侵",
       "type": "attack",
-      "display_name": "入侵攻擊"
+      "display_name": "入侵"
     },
-    "reasoning": "文本提到 CCTV 用於監控環境並對入侵者產生嚇阻，其核心功能是偵測入侵行為 (attack)，符合 ('tool', 'can_detect', 'attack')。",
+    "reasoning": "閉路電視用於監控環境並對入侵者產生嚇阻/偵測作用，符合 (tool, can_detect, attack) 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "ch03_習題解答.pdf",
-    "source_index": 10,
+    "source_index": 13,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "閉路電視是工具（tool）的合理實例，入侵攻擊是攻擊（attack）的合理實例，且 'can_detect' 在資安領域中是合理的關係描述。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 均在 Lc,p 中。",
+        "step_2_alignment_check": "閉路電視是工具（tool）的合理實例，入侵是攻擊（attack）的合理實例。",
         "response": "correct",
-        "reason": "閉路電視作為工具可以偵測入侵攻擊，完全符合預先定義的類別與屬性清單。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係為 can_detect，不是 controls。",
+        "step_1_rule_matching": "規則2不適用，因為主體類別是tool，且關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為受體不是principle。規則5不適用，因為關係不是uses，且主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
         "response": "correct",
-        "reason": "三元組中的關係 can_detect 不在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違規。"
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體與現有近似資源清單中的閉路電視完全匹配，無需進行同義詞判定或廣義/狹義一律保留。"
+        "granularity_analysis": "主體與 Ldr 中的「閉路電視監視器」為同義詞；受體與 Ldr 中的「入侵」完全相同。",
+        "response": "duplicate",
+        "standard_subject": "閉路電視監視器",
+        "standard_object": "入侵",
+        "reason": "主體與 Ldr 中的「閉路電視監視器」為同義詞；受體與 Ldr 中的「入侵」完全相同，故判定為 duplicate。"
       }
     },
     "original_raw_triple": {
@@ -510,13 +666,13 @@
       },
       "relation": "can_detect",
       "object": {
-        "name": "入侵攻擊",
+        "name": "入侵",
         "type": "attack"
       },
-      "reasoning": "文本提到 CCTV 用於監控環境並對入侵者產生嚇阻，其核心功能是偵測入侵行為 (attack)，符合 ('tool', 'can_detect', 'attack')。",
+      "reasoning": "閉路電視用於監控環境並對入侵者產生嚇阻/偵測作用，符合 (tool, can_detect, attack) 的 Schema。",
       "source_id": "chunk_2",
       "source_file": "ch03_習題解答.pdf",
-      "source_index": 10
+      "source_index": 13
     }
   }
 ]

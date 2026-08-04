@@ -1,0 +1,98 @@
+[
+  {
+    "subject": {
+      "name": "cookies",
+      "type": "tool",
+      "display_name": "Cookies"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "機敏資料",
+      "type": "data",
+      "display_name": "機敏資料"
+    },
+    "reasoning": "題幹提到將使用者帳密（機敏資料）儲存在 Cookie 之中，表示 Cookies 此特徵使用了/承載了該資料，符合 feature uses data 的 Schema。",
+    "source_id": "question_IPAS-109-TEC-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Cookies 可被視為 'feature' 的合理實例，機敏資料可被視為 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Cookies 與 Ldr 中的 cookies 完全等價同義詞；受體 機敏資料 與 Ldr 中的 個人機敏資料、機密資料 等相關概念相似，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 Cookies 與 Ldr 中的 cookies 完全等價同義詞，但受體 機敏資料 與 Ldr 中的相關概念不完全等價，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> uses -> data (original: feature -> uses -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "Cookies",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "機敏資料",
+        "type": "data"
+      },
+      "reasoning": "題幹提到將使用者帳密（機敏資料）儲存在 Cookie 之中，表示 Cookies 此特徵使用了/承載了該資料，符合 feature uses data 的 Schema。",
+      "source_id": "question_IPAS-109-TEC-080",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "cookies",
+      "type": "tool",
+      "display_name": "Cookies"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "缺乏加密保護",
+      "type": "vulnerability",
+      "display_name": "缺乏加密保護"
+    },
+    "reasoning": "題幹指出若 Cookies 並未使用加密保護機制，會形成安全漏洞，符合 feature can_expose vulnerability 的 Schema。",
+    "source_id": "question_IPAS-109-TEC-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'Cookies' 是 'feature' 的合理實例，受體 '缺乏加密保護' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 Cookies 與 Ldr 中的 cookies 完全等價同義詞；受體 缺乏加密保護 與 Ldr 中的 安全防護不足 不完全等價，但可視為相關概念",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 Cookies 與 Ldr 中的 cookies 完全等價同義詞，但受體 缺乏加密保護 與 Ldr 中的 安全防護不足 不完全等價，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> can_expose -> vulnerability (original: feature -> can_expose -> vulnerability)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "Cookies",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "缺乏加密保護",
+        "type": "vulnerability"
+      },
+      "reasoning": "題幹指出若 Cookies 並未使用加密保護機制，會形成安全漏洞，符合 feature can_expose vulnerability 的 Schema。",
+      "source_id": "question_IPAS-109-TEC-080",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  }
+]

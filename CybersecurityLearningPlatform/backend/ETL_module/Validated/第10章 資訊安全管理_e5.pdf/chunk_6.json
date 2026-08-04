@@ -11,28 +11,28 @@
       "type": "risk",
       "display_name": "風險"
     },
-    "reasoning": "文本提到風險管理計畫包含識別、量化、應對與監控，其整體目的是管理並降低風險。根據 Schema，policy 可以 mitigates risk。",
+    "reasoning": "文本提到風險管理計畫包含識別、量化、應對與監控，其最終目的是管理並降低風險。根據 Schema，policy 可以 mitigates risk。",
     "source_id": "chunk_6",
     "source_file": "第10章 資訊安全管理_e5.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "風險管理計畫 (policy) 是一種合理的政策實例，風險 (risk) 是一種合理的風險實例，'mitigates' 關係在資安領域中是合理的，表示政策可以減輕風險。",
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "風險管理計畫是政策的合理實例，風險是風險的合理實例。",
         "response": "correct",
-        "reason": "風險管理計畫、風險和 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體是風險管理計畫（類別：policy），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
         "response": "correct",
-        "reason": "三元組中的主體（風險管理計畫）是 policy 類別，符合規則2的允許條件，且未發現其他明確違反的規則。"
+        "reason": "主體風險管理計畫的類別是 policy，符合規則2的允許條件。"
       },
       "step_2": {
-        "granularity_analysis": "風險管理計畫與風險應對方案為同義詞，風險為完全等價同義詞",
+        "granularity_analysis": "主體與 Ldr 中的「風險管理」、「風險改善計畫」、「資訊安全風險管理」等相關概念存在廣義/狹義從屬關係，但無完全等價同義詞；受體與 Ldr 中的「風險」完全相同。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "風險",
-        "reason": "根據同義詞判定，風險管理計畫與風險應對方案為同義詞，但不進行合併；風險為完全等價同義詞，直接判定 correct。"
+        "reason": "主體與 Ldr 中的相關概念存在廣義/狹義從屬關係，受體與 Ldr 中的「風險」完全相同，但無完全等價同義詞，故判定為 correct。"
       }
     },
     "original_raw_triple": {
@@ -45,7 +45,7 @@
         "name": "風險",
         "type": "risk"
       },
-      "reasoning": "文本提到風險管理計畫包含識別、量化、應對與監控，其整體目的是管理並降低風險。根據 Schema，policy 可以 mitigates risk。",
+      "reasoning": "文本提到風險管理計畫包含識別、量化、應對與監控，其最終目的是管理並降低風險。根據 Schema，policy 可以 mitigates risk。",
       "source_id": "chunk_6",
       "source_file": "第10章 資訊安全管理_e5.pdf",
       "source_index": 1
@@ -53,59 +53,7 @@
   },
   {
     "subject": {
-      "name": "風險管理計畫",
-      "type": "policy",
-      "display_name": "風險管理計畫"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "威脅",
-      "type": "attack",
-      "display_name": "威脅"
-    },
-    "reasoning": "文本提到計畫旨在找出潛在的威脅。在資安本體論中，威脅通常對應至 attack，且 policy 可以 mitigates attack。",
-    "source_id": "chunk_6",
-    "source_file": "第10章 資訊安全管理_e5.pdf",
-    "source_index": 2,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "風險管理計畫 (policy) 是一種合理的政策實例，威脅 (attack) 是一種合理的攻擊實例，'mitigates' 關係在資安領域中是合理的，表示風險管理計畫可以減輕威脅。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，語意對齊且同義詞寬容原則得到滿足。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，該三元組的主體是風險管理計畫，類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
-        "response": "correct",
-        "reason": "因為三元組的主體是風險管理計畫，類別為 policy，符合規則2的條件，且未發現其他明確且直接的違反項目。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與 Ldr 中的「風險管理計畫」完全相同，受體與 Ldr 中的「潛在威脅」具有高相似度，但無法確認為完全等價同義詞。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "風險管理計畫",
-        "type": "policy"
-      },
-      "relation": "mitigates",
-      "object": {
-        "name": "威脅",
-        "type": "attack"
-      },
-      "reasoning": "文本提到計畫旨在找出潛在的威脅。在資安本體論中，威脅通常對應至 attack，且 policy 可以 mitigates attack。",
-      "source_id": "chunk_6",
-      "source_file": "第10章 資訊安全管理_e5.pdf",
-      "source_index": 2
-    }
-  },
-  {
-    "subject": {
-      "name": "風險減緩",
+      "name": "風險降低",
       "type": "policy",
       "display_name": "風險減緩"
     },
@@ -115,28 +63,28 @@
       "type": "risk",
       "display_name": "風險"
     },
-    "reasoning": "文本明確指出風險減緩是使用對策以降低風險。將風險減緩視為一種策略(policy)，符合 policy mitigates risk 的定義。",
+    "reasoning": "文本明確指出風險減緩是使用對策以降低風險。將其視為一種策略(policy)，符合 policy mitigates risk 的定義。",
     "source_id": "chunk_6",
     "source_file": "第10章 資訊安全管理_e5.pdf",
-    "source_index": 3,
+    "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "風險減緩 (policy) 和 風險 (risk) 的名稱與其被賦予的類別合理對齊，且 'mitigates' 是一個合理的關係描述。",
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '風險減緩' 可被視為 'policy' 的合理實例，受體名稱 '風險' 可被視為 'risk' 的合理實例。",
         "response": "correct",
-        "reason": "主體、受體和關係都符合預先定義的類別和屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是風險減緩（policy），符合規則2的條件，沒有違反任何規則。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
         "response": "correct",
-        "reason": "三元組的主體風險減緩（policy）符合規則2的允許條件，且未發現其他明確違反的規則。"
+        "reason": "主體風險減緩的類別為 policy，符合規則2的條件，代表合法。"
       },
       "step_2": {
-        "granularity_analysis": "風險減緩與風險管理計畫之間的關係是不同的概念，風險是風險管理計畫的目標或對象，而非同義詞或廣義/狹義從屬關係",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，風險減緩與風險管理計畫之間的關係不符合同義詞或廣義/狹義從屬關係，故判定為 correct。"
+        "granularity_analysis": "主體與 Ldr 中的「風險降低」為同義詞；受體與 Ldr 中的「風險」完全相同。",
+        "response": "duplicate",
+        "standard_subject": "風險降低",
+        "standard_object": "風險",
+        "reason": "主體與 Ldr 中的「風險降低」為同義詞；受體與 Ldr 中的「風險」完全相同，故判定為 duplicate。"
       }
     },
     "original_raw_triple": {
@@ -149,15 +97,15 @@
         "name": "風險",
         "type": "risk"
       },
-      "reasoning": "文本明確指出風險減緩是使用對策以降低風險。將風險減緩視為一種策略(policy)，符合 policy mitigates risk 的定義。",
+      "reasoning": "文本明確指出風險減緩是使用對策以降低風險。將其視為一種策略(policy)，符合 policy mitigates risk 的定義。",
       "source_id": "chunk_6",
       "source_file": "第10章 資訊安全管理_e5.pdf",
-      "source_index": 3
+      "source_index": 2
     }
   },
   {
     "subject": {
-      "name": "突發事件計畫",
+      "name": "處理偶發事故的計畫",
       "type": "policy",
       "display_name": "突發事件計畫"
     },
@@ -167,28 +115,28 @@
       "type": "risk",
       "display_name": "風險"
     },
-    "reasoning": "突發事件計畫提供替代方案以應對目標無法達成的情況，這是一種緩解風險衝擊的手段。符合 policy mitigates risk。",
+    "reasoning": "突發事件計畫提供替代方案以應對目標無法達成的情況，這是一種降低風險衝擊的策略。符合 policy mitigates risk。",
     "source_id": "chunk_6",
     "source_file": "第10章 資訊安全管理_e5.pdf",
-    "source_index": 4,
+    "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "突發事件計畫 (policy) 與 風險 (risk) 的名稱與其類別合理對齊，且 'mitigates' 的語意與資安領域的常見用法一致。",
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '突發事件計畫' 是 'policy' 的合理實例，受體 '風險' 是 'risk' 的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 '突發事件計畫' 屬於類別 'policy'，因此符合規則2的條件。其他規則與三元組無直接關聯。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
         "response": "correct",
-        "reason": "三元組中的主體 '突發事件計畫' 屬於類別 'policy'，符合規則2的條件，且未發現其他明確違反的規則。"
+        "reason": "主體為 policy，符合規則2所允許的條件。"
       },
       "step_2": {
-        "granularity_analysis": "主體與現有近似資源清單中無完全匹配的同義詞，受體與現有近似資源清單中的「風險」完全匹配，但考慮到實體對齊的原則，主體「突發事件計畫」與「風險管理計畫」之間存在著概念上的關聯，但不構成同義詞關係，受體「風險」直接匹配到現有清單中的「風險」",
-        "response": "correct",
-        "standard_subject": "",
+        "granularity_analysis": "主體與 Ldr 中的「處理偶發事故的計畫」為同義詞；受體與 Ldr 中的「風險」完全相同。",
+        "response": "duplicate",
+        "standard_subject": "處理偶發事故的計畫",
         "standard_object": "風險",
-        "reason": "根據同義詞判定和廣義/狹義一律保留的原則，主體和受體不構成同義詞關係，且受體直接匹配到現有清單中的「風險」"
+        "reason": "主體與 Ldr 中的「處理偶發事故的計畫」為同義詞；受體與 Ldr 中的「風險」完全相同，判定為 duplicate。"
       }
     },
     "original_raw_triple": {
@@ -201,111 +149,59 @@
         "name": "風險",
         "type": "risk"
       },
-      "reasoning": "突發事件計畫提供替代方案以應對目標無法達成的情況，這是一種緩解風險衝擊的手段。符合 policy mitigates risk。",
+      "reasoning": "突發事件計畫提供替代方案以應對目標無法達成的情況，這是一種降低風險衝擊的策略。符合 policy mitigates risk。",
       "source_id": "chunk_6",
       "source_file": "第10章 資訊安全管理_e5.pdf",
-      "source_index": 4
+      "source_index": 3
     }
   },
   {
     "subject": {
-      "name": "風險識別",
-      "type": "technique",
-      "display_name": "風險識別"
+      "name": "團隊",
+      "type": "securityTeam",
+      "display_name": "團隊"
     },
-    "relation": "can_analyze",
+    "relation": "implements",
     "object": {
-      "name": "弱點",
-      "type": "vulnerability",
-      "display_name": "弱點"
+      "name": "風險管理計畫",
+      "type": "policy",
+      "display_name": "風險管理計畫"
     },
-    "reasoning": "風險識別的過程是找出潛在風險，在資安實務中，這通常涉及對系統弱點(vulnerability)的分析。由於 Schema 中 technique 無法直接 analyze risk，因此將分析對象映射至 vulnerability 以符合規範。",
-    "source_id": "chunk_6",
-    "source_file": "第10章 資訊安全管理_e5.pdf",
-    "source_index": 5,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均在 Lc,p 中。",
-        "step_2_alignment_check": "風險識別 (technique) 可以分析弱點 (vulnerability)，這是資安領域中合理的語意對齊，風險識別通常涉及分析弱點以評估風險。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。由於三元組中的主體是風險識別（類別：technique），而非漏洞，因此不觸發規則3的限制。其他規則均不直接適用於此三元組。",
-        "response": "correct",
-        "reason": "三元組中的主體風險識別（類別：technique）與關係can_analyze、受體弱點（類別：vulnerability）之間的關係，沒有明確違反語義限制清單中的任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與受體皆有完全等價的同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，或有同義詞對照，則直接判定 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "風險識別",
-        "type": "technique"
-      },
-      "relation": "can_analyze",
-      "object": {
-        "name": "弱點",
-        "type": "vulnerability"
-      },
-      "reasoning": "風險識別的過程是找出潛在風險，在資安實務中，這通常涉及對系統弱點(vulnerability)的分析。由於 Schema 中 technique 無法直接 analyze risk，因此將分析對象映射至 vulnerability 以符合規範。",
-      "source_id": "chunk_6",
-      "source_file": "第10章 資訊安全管理_e5.pdf",
-      "source_index": 5
-    }
-  },
-  {
-    "subject": {
-      "name": "風險評估",
-      "type": "technique",
-      "display_name": "風險評估"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "弱點",
-      "type": "vulnerability",
-      "display_name": "弱點"
-    },
-    "reasoning": "風險評估涉及衡量風險發生的機會與衝擊，這依賴於對弱點(vulnerability)的分析。符合 technique can_analyze vulnerability。",
+    "reasoning": "文本提到根據團隊的腦力激盪來執行風險識別等流程，顯示安全團隊在實作(implements)此管理計畫。",
     "source_id": "chunk_6",
     "source_file": "第10章 資訊安全管理_e5.pdf",
     "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "風險評估 (Risk Assessment) 是一種技術 (technique)，而弱點 (Vulnerability) 是一種漏洞，'can_analyze' 關係在資安領域中是合理的，因為風險評估可以分析弱點。",
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '團隊' 合理對齊其類別 'securityTeam'，實體名稱 '風險管理計畫' 合理對齊其類別 'policy'，關係 'implements' 合理描述 'securityTeam' 與 'policy' 之間的關係。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。由於三元組中的主體是風險評估（類別：technique），而非漏洞，因此不觸發規則3的違規。其他規則均不直接適用於此三元組。",
+        "step_1_rule_matching": "規則3不適用，因為主體類別為securityTeam，而非vulnerability。規則8不適用，因為關係為implements，而非controls。其他規則均不適用，因為不符合規則的條件。",
         "response": "correct",
-        "reason": "三元組中的主體是風險評估（類別：technique），與規則3中提到的漏洞類別不符，且其他規則不直接適用於此三元組。因此，未發現明確且直接的違反項目。"
+        "reason": "未發現明確且直接的違反項目，且三元組符合規則所允許的條件。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體皆有完全等價的同義詞",
+        "granularity_analysis": "主體與 Ldr 中的資源 '資安團隊' 名稱完全相同，受體與 Ldr 中的資源 '風險管理計畫' 名稱完全相同",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，且無同義詞重複，故判定為 correct。"
+        "reason": "主體與 Ldr 中的資源名稱完全相同，受體與 Ldr 中的資源名稱完全相同，無需進一步判斷"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "風險評估",
-        "type": "technique"
+        "name": "團隊",
+        "type": "securityTeam"
       },
-      "relation": "can_analyze",
+      "relation": "implements",
       "object": {
-        "name": "弱點",
-        "type": "vulnerability"
+        "name": "風險管理計畫",
+        "type": "policy"
       },
-      "reasoning": "風險評估涉及衡量風險發生的機會與衝擊，這依賴於對弱點(vulnerability)的分析。符合 technique can_analyze vulnerability。",
+      "reasoning": "文本提到根據團隊的腦力激盪來執行風險識別等流程，顯示安全團隊在實作(implements)此管理計畫。",
       "source_id": "chunk_6",
       "source_file": "第10章 資訊安全管理_e5.pdf",
       "source_index": 6

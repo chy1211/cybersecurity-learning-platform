@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "斷網",
+      "type": "technique",
+      "display_name": "斷網"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "勒索軟體",
+      "type": "attack",
+      "display_name": "勒索軟體"
+    },
+    "reasoning": "選項 A 提到『斷網降低網路擴散之風險』，斷網是一種應變技術（technique），其目的是緩解勒索軟體（attack）的影響，符合 (technique, mitigates, attack) 的 Schema。",
+    "source_id": "question_IPAS-109-MGT-037",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "斷網是減輕攻擊的技術，勒索軟體是攻擊的一種，'mitigates' 關係合理。",
+        "response": "correct",
+        "reason": "斷網技術減輕勒索軟體攻擊的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體斷網的類別是technique，符合規則2的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間不存在直接的同義詞關係或從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定斷網與勒索軟體之間的直接關係，因此預設保留原狀"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "斷網",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "勒索軟體",
+        "type": "attack"
+      },
+      "reasoning": "選項 A 提到『斷網降低網路擴散之風險』，斷網是一種應變技術（technique），其目的是緩解勒索軟體（attack）的影響，符合 (technique, mitigates, attack) 的 Schema。",
+      "source_id": "question_IPAS-109-MGT-037",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "備份",
+      "type": "technique",
+      "display_name": "備份"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "勒索軟體",
+      "type": "attack",
+      "display_name": "勒索軟體"
+    },
+    "reasoning": "選項 B 提到『清查是否有相關版本的備份』，備份作為一種恢復工具（tool），可以緩解勒索軟體（attack）導致的資料遺失風險，符合 (tool, mitigates, attack) 的 Schema。",
+    "source_id": "question_IPAS-109-MGT-037",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '備份' 是 'tool' 的合理實例，受體 '勒索軟體' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 '備份' 的類別是 'technique'，符合規則2的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "備份",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "勒索軟體",
+        "type": "attack"
+      },
+      "reasoning": "選項 B 提到『清查是否有相關版本的備份』，備份作為一種恢復工具（tool），可以緩解勒索軟體（attack）導致的資料遺失風險，符合 (tool, mitigates, attack) 的 Schema。",
+      "source_id": "question_IPAS-109-MGT-037",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資安通報流程",
+      "type": "policy",
+      "display_name": "資安通報流程"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "勒索軟體",
+      "type": "attack",
+      "display_name": "勒索軟體"
+    },
+    "reasoning": "選項 D 提到『依據資安通報流程進行通報』，通報流程屬於組織的規範策略（policy），透過標準化流程來緩解攻擊（attack）造成的混亂或延遲應變，符合 (policy, mitigates, attack) 的 Schema。",
+    "source_id": "question_IPAS-109-MGT-037",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '資安通報流程' 是 'policy' 的合理實例，受體 '勒索軟體' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認為同義詞關係，依據判斷準則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安通報流程",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "勒索軟體",
+        "type": "attack"
+      },
+      "reasoning": "選項 D 提到『依據資安通報流程進行通報』，通報流程屬於組織的規範策略（policy），透過標準化流程來緩解攻擊（attack）造成的混亂或延遲應變，符合 (policy, mitigates, attack) 的 Schema。",
+      "source_id": "question_IPAS-109-MGT-037",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "勒索軟體",
+      "type": "attack",
+      "display_name": "勒索軟體"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "電腦檔案",
+      "type": "data",
+      "display_name": "電腦檔案"
+    },
+    "reasoning": "題幹提到『電腦檔案被勒索軟體加密』，這描述了勒索軟體（attack）對檔案（data）造成損害的行為，符合 (attack, can_harm, data) 的 Schema。",
+    "source_id": "question_IPAS-109-MGT-037",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "勒索軟體是攻擊的合理實例，電腦檔案是資料的合理實例。",
+        "response": "correct",
+        "reason": "勒索軟體可以對電腦檔案造成傷害，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「勒索軟體」完全等價同義詞；受體與 Ldr 中的「檔案」具有廣義/狹義從屬關係，但不構成同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中的「勒索軟體」完全相同，受體雖與 Ldr 中的「檔案」相關，但不構成同義詞重複，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "勒索軟體",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "電腦檔案",
+        "type": "data"
+      },
+      "reasoning": "題幹提到『電腦檔案被勒索軟體加密』，這描述了勒索軟體（attack）對檔案（data）造成損害的行為，符合 (attack, can_harm, data) 的 Schema。",
+      "source_id": "question_IPAS-109-MGT-037",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "鑑識追蹤",
+      "type": "technique",
+      "display_name": "鑑識追蹤"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "勒索軟體",
+      "type": "attack",
+      "display_name": "勒索軟體"
+    },
+    "reasoning": "選項 A 提到『進行鑑識追蹤感染來源』，鑑識追蹤是一種技術（technique），用於偵測或分析攻擊（attack）的來源，符合 (technique, can_detect, attack) 的 Schema。",
+    "source_id": "question_IPAS-109-MGT-037",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '鑑識追蹤' 是 'technique' 的合理實例，受體 '勒索軟體' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 technique，關係為 can_detect，受體為 attack，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間沒有直接關係，且無法確定",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體之間的關係，預設保留原狀"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "鑑識追蹤",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "勒索軟體",
+        "type": "attack"
+      },
+      "reasoning": "選項 A 提到『進行鑑識追蹤感染來源』，鑑識追蹤是一種技術（technique），用於偵測或分析攻擊（attack）的來源，符合 (technique, can_detect, attack) 的 Schema。",
+      "source_id": "question_IPAS-109-MGT-037",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

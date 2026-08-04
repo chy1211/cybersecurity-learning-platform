@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "cat ~/.bash_history",
+      "type": "tool",
+      "display_name": "cat ~/.bash_history"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "列出使用者曾經下過的指令",
+      "type": "function",
+      "display_name": "列出使用者曾經下過的指令"
+    },
+    "reasoning": "根據題幹與正確答案，cat ~/.bash_history 指令是用來執行『列出使用者曾經下過的指令』的功能。因此將該指令視為 tool，其對應的動作視為 function，關係為 has_a。",
+    "source_id": "question_IPAS-109-TEC-067",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 'cat ~/.bash_history' 是 'tool' 的合理實例，因為 'cat' 是一種常見的 Linux 指令工具；受體名稱 '列出使用者曾經下過的指令' 是 'function' 的合理實例，因為它描述了一種功能或行為。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則5、規則8",
+        "response": "correct",
+        "reason": "三元組符合規則所允許的條件，且無明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "cat ~/.bash_history",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "列出使用者曾經下過的指令",
+        "type": "function"
+      },
+      "reasoning": "根據題幹與正確答案，cat ~/.bash_history 指令是用來執行『列出使用者曾經下過的指令』的功能。因此將該指令視為 tool，其對應的動作視為 function，關係為 has_a。",
+      "source_id": "question_IPAS-109-TEC-067",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "cat ~/.bash_history",
+      "type": "tool",
+      "display_name": "cat ~/.bash_history"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": ".bash_history",
+      "type": "data",
+      "display_name": ".bash_history"
+    },
+    "reasoning": "cat 指令的作用是讀取並顯示檔案內容，而 .bash_history 是儲存指令紀錄的資料檔 (data)。在 Schema 中，tool 可以 can_analyze data，此處讀取紀錄檔符合此邏輯。",
+    "source_id": "question_IPAS-109-TEC-067",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 'cat ~/.bash_history' 的名稱與其類別 'tool' 合理對齊，因為 'cat' 是一個常見的 Linux 工具。受體 '.bash_history' 的名稱與其類別 'data' 合理對齊，因為 '.bash_history' 是一個用於儲存命令歷史的檔案，屬於資料。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 tool，符合規則3的允許條件，且無其他規則違反。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱不在同義詞對照範例中，且無法確認為同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "cat ~/.bash_history",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": ".bash_history",
+        "type": "data"
+      },
+      "reasoning": "cat 指令的作用是讀取並顯示檔案內容，而 .bash_history 是儲存指令紀錄的資料檔 (data)。在 Schema 中，tool 可以 can_analyze data，此處讀取紀錄檔符合此邏輯。",
+      "source_id": "question_IPAS-109-TEC-067",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

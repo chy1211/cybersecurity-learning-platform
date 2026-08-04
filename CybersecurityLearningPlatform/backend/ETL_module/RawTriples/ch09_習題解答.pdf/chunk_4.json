@@ -6,73 +6,88 @@
     },
     "relation": "can_expose",
     "object": {
-      "name": "單點失效",
+      "name": "單一故障點",
       "type": "vulnerability"
     },
-    "reasoning": "文本提到『系統風險集中在一點』，這在資安中即為單點失效 (Single Point of Failure) 的漏洞，因此將集中式存取控制視為 system，其可暴露 (can_expose) 的漏洞為 vulnerability。",
+    "reasoning": "文本提到集中式存取控制『系統風險集中在一點』，這在資安中即為單一故障點 (Single Point of Failure) 的漏洞。",
     "source_id": "chunk_4",
     "source_file": "ch09_習題解答.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "駭客",
-      "type": "attacker"
+      "name": "單一故障點",
+      "type": "vulnerability"
     },
-    "relation": "can_harm",
+    "relation": "can_expose",
     "object": {
-      "name": "集中式存取控制",
-      "type": "system"
+      "name": "系統風險",
+      "type": "risk"
     },
-    "reasoning": "文本明確指出集中式存取控制『會是駭客攻擊的目標』，因此攻擊者 (attacker) 可以危害 (can_harm) 該系統 (system)。",
+    "reasoning": "文本指出如果這個集中點發生問題，整個系統無法執行任務，因此該漏洞會導致系統風險。",
     "source_id": "chunk_4",
     "source_file": "ch09_習題解答.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "備援機制",
-      "type": "tool"
+      "name": "駭客",
+      "type": "attacker"
     },
-    "relation": "mitigates",
+    "relation": "implements",
     "object": {
-      "name": "系統無法執行任務",
-      "type": "risk"
+      "name": "駭客攻擊",
+      "type": "attack"
     },
-    "reasoning": "文本提到『需要有備援機制，防止系統因存取控制認證機能無法執行』，備援機制在此作為一種工具/手段 (tool) 來緩解 (mitigates) 系統失效的風險 (risk)。",
+    "reasoning": "文本提到集中式存取控制會是『駭客攻擊的目標』，因此萃取駭客執行攻擊的行為。",
     "source_id": "chunk_4",
     "source_file": "ch09_習題解答.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "RADIUS 伺服器",
-      "type": "tool"
+      "name": "駭客攻擊",
+      "type": "attack"
     },
-    "relation": "has_a",
+    "relation": "can_harm",
     "object": {
-      "name": "認證",
-      "type": "function"
+      "name": "集中式存取控制",
+      "type": "system"
     },
-    "reasoning": "文本指出『RADIUS 用來認證使用者的身份與密碼』，認證是 RADIUS 伺服器 (tool) 所具備的核心功能 (function)。",
+    "reasoning": "駭客攻擊集中式存取控制系統，若成功則會導致系統無法執行任務，造成危害。",
     "source_id": "chunk_4",
     "source_file": "ch09_習題解答.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "RADIUS 伺服器",
-      "type": "tool"
+      "name": "分散式存取控制",
+      "type": "system"
     },
-    "relation": "can_analyze",
+    "relation": "can_expose",
     "object": {
-      "name": "身份與密碼",
-      "type": "data"
+      "name": "帳號管理不一致",
+      "type": "vulnerability"
     },
-    "reasoning": "RADIUS 伺服器需要處理並驗證使用者的身份與密碼，這屬於對認證資料 (data) 的分析與驗證過程。",
+    "reasoning": "文本明確提到分散式存取控制中『帳號管理的一致性是很困難的』，這是一種管理上的漏洞。",
     "source_id": "chunk_4",
     "source_file": "ch09_習題解答.pdf",
     "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "RADIUS 伺服器",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "認證功能",
+      "type": "feature"
+    },
+    "reasoning": "RADIUS 伺服器的核心用途是『認證使用者的身份與密碼』，因此認證是其系統特徵/功能。",
+    "source_id": "chunk_4",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 6
   },
   {
     "subject": {
@@ -81,13 +96,13 @@
     },
     "relation": "uses",
     "object": {
-      "name": "基地台",
+      "name": "RADIUS 伺服器",
       "type": "system"
     },
-    "reasoning": "文本描述『無線網路使用者連接基地台』，使用者 (user) 使用 (uses) 基地台 (system) 作為接入網路的基礎設施。",
+    "reasoning": "使用者透過連接基地台最終由 RADIUS 伺服器進行認證，因此使用者使用了該認證系統。",
     "source_id": "chunk_4",
     "source_file": "ch09_習題解答.pdf",
-    "source_index": 6
+    "source_index": 7
   },
   {
     "subject": {
@@ -96,12 +111,42 @@
     },
     "relation": "connects_to",
     "object": {
-      "name": "RADIUS 伺服器系統",
+      "name": "RADIUS 伺服器",
       "type": "system"
     },
-    "reasoning": "文本提到『基地台將使用者的身份與密碼傳送至 RADIUS 伺服器』，描述了兩個系統實體之間的網路連線 (connects_to)。",
+    "reasoning": "文本描述『基地台將使用者的身份與密碼傳送至 RADIUS 伺服器』，表示兩者之間存在網路連接。",
     "source_id": "chunk_4",
     "source_file": "ch09_習題解答.pdf",
-    "source_index": 7
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "RADIUS 伺服器",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "授權工具",
+      "type": "tool"
+    },
+    "reasoning": "文本提到認證通過後會『授權使用者登入』，授權是 RADIUS 系統內建的工具能力。",
+    "source_id": "chunk_4",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "授權工具",
+      "type": "tool"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "網域資源",
+      "type": "system"
+    },
+    "reasoning": "授權工具決定使用者是否能『使用相關資源 (網域資源)』，因此具有控制權。",
+    "source_id": "chunk_4",
+    "source_file": "ch09_習題解答.pdf",
+    "source_index": 10
   }
 ]

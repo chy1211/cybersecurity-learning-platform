@@ -1,0 +1,77 @@
+[
+  {
+    "subject": {
+      "name": "機密性資料系統",
+      "type": "system"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌",
+      "type": "data"
+    },
+    "reasoning": "文本提到『存有機密性資料系統的日誌』，表示該系統會產生日誌資料，符合 (system, generates, data) 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "Syslog",
+      "type": "tool"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌",
+      "type": "data"
+    },
+    "reasoning": "Syslog 是用於處理與傳輸日誌的標準工具/協定，在此脈絡下負責將日誌資料格式化並傳送，符合 (tool, generates, data) 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "機密性資料系統",
+      "type": "system"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "網際網路",
+      "type": "system"
+    },
+    "reasoning": "文本指出日誌『透過網際網路(Internet)傳輸』，表示發送端系統必須連接至網際網路，符合 (system, connects_to, system) 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "網際網路",
+      "type": "system"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "異地備援機房",
+      "type": "system"
+    },
+    "reasoning": "日誌透過網際網路傳輸到異地備援機房，表示網際網路與目標機房系統之間存在連線，符合 (system, connects_to, system) 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "傳輸過程的加密/保護",
+      "type": "technique"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "攻擊",
+      "type": "attack"
+    },
+    "reasoning": "正確答案指出『傳輸過程的加密/保護』是優先處理議題。在資安邏輯中，對傳輸路徑進行加密是一種技術手段 (technique)，用以緩解 (mitigates) 網路傳輸中可能發生的攔截或竊聽等攻擊 (attack)，符合 (technique, mitigates, attack) 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-019",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5
+  }
+]

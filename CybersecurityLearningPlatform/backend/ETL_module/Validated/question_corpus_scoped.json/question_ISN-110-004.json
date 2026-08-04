@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "a.12.4.1 事件存錄",
+      "type": "policy",
+      "display_name": "A.12.4.1 事件存錄"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客入侵",
+      "type": "attack",
+      "display_name": "駭客入侵事件"
+    },
+    "reasoning": "題幹指出 ISO/IEC 27001 的 A.12.4.1 事件存錄條文可協助企業在遭受駭客入侵時追蹤資料與保存證據，這屬於透過政策規範來緩解或應對攻擊事件的影響。",
+    "source_id": "question_ISN-110-004",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "事件存錄 (policy) 合理、駭客入侵事件 (attack) 合理。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 A.12.4.1 事件存錄 的類別是 policy，符合規則2所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "駭客入侵事件與Ldr中的駭客入侵具有完全等價同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "駭客入侵",
+        "reason": "根據資安領域已知同義詞對照範例，駭客入侵事件與駭客入侵是同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "A.12.4.1 事件存錄",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客入侵事件",
+        "type": "attack"
+      },
+      "reasoning": "題幹指出 ISO/IEC 27001 的 A.12.4.1 事件存錄條文可協助企業在遭受駭客入侵時追蹤資料與保存證據，這屬於透過政策規範來緩解或應對攻擊事件的影響。",
+      "source_id": "question_ISN-110-004",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "駭客入侵事件",
+      "type": "attack",
+      "display_name": "駭客入侵事件"
+    },
+    "reasoning": "文本提到「遭受駭客入侵事件」，邏輯上駭客（攻擊者）是執行該入侵事件（攻擊）的主體。",
+    "source_id": "question_ISN-110-004",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "駭客是攻擊者的合理實例，駭客入侵事件是攻擊的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「駭客」完全等價同義詞；受體與 Ldr 中的「駭客入侵」具有高度相似性，但非完全等價同義詞，受體與 Ldr 中的「惡意入侵事件」、「駭客攻擊」、「網路攻擊」、「入侵攻擊」等具有相似性，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「駭客」完全等價同義詞，但受體與 Ldr 中的資源不完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "駭客入侵事件",
+        "type": "attack"
+      },
+      "reasoning": "文本提到「遭受駭客入侵事件」，邏輯上駭客（攻擊者）是執行該入侵事件（攻擊）的主體。",
+      "source_id": "question_ISN-110-004",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客入侵事件",
+      "type": "attack",
+      "display_name": "駭客入侵事件"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "外洩的資料",
+      "type": "data",
+      "display_name": "外洩的資料"
+    },
+    "reasoning": "文本提到需要「追蹤外洩的資料」，這暗示了駭客入侵事件導致了資料外洩，即攻擊對資料造成了損害。",
+    "source_id": "question_ISN-110-004",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客入侵事件 是 'attack' 的合理實例，外洩的資料 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為attack，不是vulnerability。規則4不適用，因為主體類別不是principle。規則5不適用，因為關係不是uses或主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。規則1和規則2不適用，因為主體類別不是attacker或securityTeam，也不是policy、technique或tool。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「駭客入侵」完全等價同義詞；受體與 Ldr 中的「機密資料」無直接關係，但「外洩的資料」與「機密資料」在資安領域中可視為相關概念，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖然相似，但無法確認完全等價同義詞；受體與 Ldr 中的資源無直接關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客入侵事件",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "外洩的資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到需要「追蹤外洩的資料」，這暗示了駭客入侵事件導致了資料外洩，即攻擊對資料造成了損害。",
+      "source_id": "question_ISN-110-004",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

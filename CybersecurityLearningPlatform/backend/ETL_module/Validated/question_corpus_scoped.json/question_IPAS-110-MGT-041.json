@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "緊急應變計畫",
+      "type": "policy",
+      "display_name": "緊急應變計畫"
+    },
+    "reasoning": "根據選項 A，資安事件發生時應依訂定之緊急應變計畫實施處置。因此，安全團隊（資安人員）執行（implements）該策略（policy）。",
+    "source_id": "question_IPAS-110-MGT-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "資安人員是安全團隊的合理實例，緊急應變計畫是政策的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別是securityTeam，而非vulnerability。規則8不適用，因為關係是implements，而非controls。其他規則均不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合語義限制清單中的允許條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間沒有完全相同的同義詞關係，且無法確定為同義詞，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "緊急應變計畫",
+        "type": "policy"
+      },
+      "reasoning": "根據選項 A，資安事件發生時應依訂定之緊急應變計畫實施處置。因此，安全團隊（資安人員）執行（implements）該策略（policy）。",
+      "source_id": "question_IPAS-110-MGT-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "備援計畫",
+      "type": "policy",
+      "display_name": "備援計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資安事件",
+      "type": "attack",
+      "display_name": "資安事件"
+    },
+    "reasoning": "根據選項 C，啟動備援計畫等應變措施可防止資安事件擴大。資安事件在此視為攻擊/威脅（attack），而備援計畫（policy）能緩解（mitigates）其影響。",
+    "source_id": "question_IPAS-110-MGT-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "備援計畫 (policy) 是一種合理的政策實例，資安事件 (attack) 是一種合理的攻擊實例，'mitigates' 的語意與備援計畫與資安事件之間的關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為備援計畫（policy），符合規則2的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，且無法確定其關係，因此預設保留原狀。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "備援計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資安事件",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 C，啟動備援計畫等應變措施可防止資安事件擴大。資安事件在此視為攻擊/威脅（attack），而備援計畫（policy）能緩解（mitigates）其影響。",
+      "source_id": "question_IPAS-110-MGT-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "備援中心",
+      "type": "system",
+      "display_name": "備援中心"
+    },
+    "reasoning": "根據選項 C，應變措施包含啟動備援中心。備援中心屬於基礎設施（system），由安全團隊在應變時控制（controls）或操作。",
+    "source_id": "question_IPAS-110-MGT-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 是一種合理的安全團隊實例，備援中心 (system) 是一種合理的系統實例，'controls' 是一種合理的關係描述。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為資安人員 (類別: securityTeam)，符合規則8所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中的資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "備援中心",
+        "type": "system"
+      },
+      "reasoning": "根據選項 C，應變措施包含啟動備援中心。備援中心屬於基礎設施（system），由安全團隊在應變時控制（controls）或操作。",
+      "source_id": "question_IPAS-110-MGT-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資安事件",
+      "type": "attack",
+      "display_name": "資安事件"
+    },
+    "reasoning": "根據選項 D，需評估資安事件對業務運作造成之衝擊。評估衝擊即為分析（can_analyze）該攻擊事件（attack）的影響。",
+    "source_id": "question_IPAS-110-MGT-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'attack' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 可以分析資安事件 (attack)，這是合理的語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為資安人員與資安事件不具有攻擊者與安全團隊的身分衝突。規則2不適用，因為主體不是policy, technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses且主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在完全等價同義詞關係；受體與 Ldr 中的資源之間存在完全等價同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "資安人員",
+        "standard_object": "資安事件",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資安事件",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 D，需評估資安事件對業務運作造成之衝擊。評估衝擊即為分析（can_analyze）該攻擊事件（attack）的影響。",
+      "source_id": "question_IPAS-110-MGT-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "緊急應變處置",
+      "type": "function",
+      "display_name": "緊急應變處置"
+    },
+    "reasoning": "根據選項 A，資安人員需實施緊急應變處置。處置是一種執行動作，故歸類為功能（function），由安全團隊執行。",
+    "source_id": "question_IPAS-110-MGT-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 可以實施 (implements) 緊急應變處置 (function)，語意合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中的資源名稱完全相同，直接判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "緊急應變處置",
+        "type": "function"
+      },
+      "reasoning": "根據選項 A，資安人員需實施緊急應變處置。處置是一種執行動作，故歸類為功能（function），由安全團隊執行。",
+      "source_id": "question_IPAS-110-MGT-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "損害管制",
+      "type": "function",
+      "display_name": "損害管制"
+    },
+    "reasoning": "根據選項 D，資安人員需進行損害管制。損害管制是一種應變能力/動作，故歸類為功能（function），由安全團隊執行。",
+    "source_id": "question_IPAS-110-MGT-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安人員是安全團隊的合理實例，損害管制是功能的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間不存在完全等價同義詞關係，且無法確認是否為子類型或廣義/狹義從屬關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "損害管制",
+        "type": "function"
+      },
+      "reasoning": "根據選項 D，資安人員需進行損害管制。損害管制是一種應變能力/動作，故歸類為功能（function），由安全團隊執行。",
+      "source_id": "question_IPAS-110-MGT-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 6
+    }
+  }
+]

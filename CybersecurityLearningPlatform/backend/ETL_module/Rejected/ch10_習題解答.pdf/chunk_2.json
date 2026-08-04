@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "subject": {
+      "name": "風險管理",
+      "type": "function",
+      "display_name": "風險管理"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "風險管理作為一種資安功能，必須透過分析系統的弱點（vulnerability）來評估潛在風險。",
+    "source_id": "chunk_2",
+    "source_file": "ch10_習題解答.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '風險管理' 可以被視為 'function' 的合理實例，受體名稱 '弱點' 可以被視為 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體風險管理的類別是function，與規則3無關；但關係can_analyze觸發規則3檢查，受體弱點的類別是vulnerability，符合規則3的觸發條件，且can_analyze不在特例允許之列。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體風險管理的類別是function，與規則3無關；但關係can_analyze觸發規則3檢查，受體弱點的類別是vulnerability，符合規則3的觸發條件，且can_analyze不在特例允許之列。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true,
+        "blocked": true,
+        "final_sig": [
+          "policy",
+          "can_analyze",
+          "vulnerability"
+        ]
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): policy -> can_analyze -> vulnerability (original: function -> can_analyze -> vulnerability) [F13-repair]",
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險管理",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "風險管理作為一種資安功能，必須透過分析系統的弱點（vulnerability）來評估潛在風險。",
+      "source_id": "chunk_2",
+      "source_file": "ch10_習題解答.pdf",
+      "source_index": 5
+    }
+  }
+]

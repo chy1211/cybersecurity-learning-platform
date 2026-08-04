@@ -6,10 +6,10 @@
     },
     "relation": "can_analyze",
     "object": {
-      "name": "封包",
+      "name": "網路封包",
       "type": "data"
     },
-    "reasoning": "文本提到防火牆『管制與過濾通過網路的封包』，過濾行為在本體論中屬於對資料的分析，因此選擇 tool -> can_analyze -> data。",
+    "reasoning": "文本提到防火牆『管制與過濾通過網路的封包』，這涉及對封包內容的分析，因此選擇 tool -> can_analyze -> data。",
     "source_id": "chunk_1",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 1
@@ -19,12 +19,12 @@
       "name": "防火牆",
       "type": "tool"
     },
-    "relation": "deployed_in",
+    "relation": "controls",
     "object": {
-      "name": "網際網路",
+      "name": "內部電腦",
       "type": "system"
     },
-    "reasoning": "文本指出防火牆『通常建置於網際網路與企業網路之間』，描述其部署位置，符合 tool -> deployed_in -> system。",
+    "reasoning": "文本提到防火牆可以『防衛內部電腦』並『拒絕不必要的網路連線』，這屬於對系統存取權限的控制，符合 tool -> controls -> system。",
     "source_id": "chunk_1",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 2
@@ -39,22 +39,22 @@
       "name": "企業網路",
       "type": "system"
     },
-    "reasoning": "同上，防火牆建置於企業網路邊界，符合 tool -> deployed_in -> system。",
+    "reasoning": "文本明確指出防火牆『通常建置於網際網路與企業網路之間』，因此選擇 tool -> deployed_in -> system。",
     "source_id": "chunk_1",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "防火牆",
-      "type": "tool"
+      "name": "駭客",
+      "type": "attacker"
     },
-    "relation": "mitigates",
+    "relation": "controls",
     "object": {
-      "name": "駭客攻擊",
-      "type": "attack"
+      "name": "內部電腦",
+      "type": "system"
     },
-    "reasoning": "文本提到防火牆可『防衛內部電腦，避免被駭客利用作為攻擊跳板』，這是一種緩解攻擊風險的行為，符合 tool -> mitigates -> attack。",
+    "reasoning": "文本提到避免內部電腦『被駭客利用作為攻擊跳板』，這意味著駭客試圖控制該系統，符合 attacker -> controls -> system。",
     "source_id": "chunk_1",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 4
@@ -69,7 +69,7 @@
       "name": "網路存取控管",
       "type": "function"
     },
-    "reasoning": "文本明確指出防火牆應具備的基本功能包含『網路存取控管』，符合 tool -> has_a -> function。",
+    "reasoning": "文本提到防火牆應具備基本功能，包含『網路存取控管』，符合 tool -> has_a -> function。",
     "source_id": "chunk_1",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 5
@@ -84,22 +84,22 @@
       "name": "安全稽核",
       "type": "function"
     },
-    "reasoning": "文本明確指出防火牆應具備的基本功能包含『安全稽核』，符合 tool -> has_a -> function。",
+    "reasoning": "文本提到防火牆應具備基本功能，包含『安全稽核』，符合 tool -> has_a -> function。",
     "source_id": "chunk_1",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "安全稽核",
-      "type": "function"
+      "name": "防火牆",
+      "type": "tool"
     },
-    "relation": "can_analyze",
+    "relation": "generates",
     "object": {
-      "name": "存取資料",
+      "name": "安全日誌",
       "type": "data"
     },
-    "reasoning": "文本描述安全稽核功能是對『存取資料等事項加以記錄』，記錄前需進行分析，符合 function -> can_analyze -> data。",
+    "reasoning": "文本提到安全稽核功能會將通訊時間、事件等『加以記錄』，記錄的結果即為日誌資料，符合 tool -> generates -> data。",
     "source_id": "chunk_1",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 7
@@ -114,7 +114,7 @@
       "name": "防火牆",
       "type": "tool"
     },
-    "reasoning": "文本將防火牆分類為過濾型與代理型，過濾型是防火牆的一種具體實現，符合 tool -> is_part_of -> tool。",
+    "reasoning": "文本將防火牆分類為『過濾型防火牆與代理型防火牆』，過濾型是防火牆的一種具體實現，符合 tool -> is_part_of -> tool。",
     "source_id": "chunk_1",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 8
@@ -129,7 +129,7 @@
       "name": "防火牆",
       "type": "tool"
     },
-    "reasoning": "同上，代理型是防火牆的一種具體實現，符合 tool -> is_part_of -> tool。",
+    "reasoning": "同上，代理型防火牆是防火牆的一種分類，符合 tool -> is_part_of -> tool。",
     "source_id": "chunk_1",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 9
@@ -159,7 +159,7 @@
       "name": "過濾型防火牆",
       "type": "tool"
     },
-    "reasoning": "同上，應用層防火牆是過濾型防火牆的子類，符合 tool -> is_part_of -> tool。",
+    "reasoning": "同上，應用層防火牆屬於過濾型防火牆的子類，符合 tool -> is_part_of -> tool。",
     "source_id": "chunk_1",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 11
@@ -169,14 +169,44 @@
       "name": "網路層防火牆",
       "type": "tool"
     },
-    "relation": "can_analyze",
+    "relation": "has_a",
     "object": {
-      "name": "IP 位址",
+      "name": "網路層",
       "type": "feature"
     },
-    "reasoning": "文本提到過濾型網路防火牆會過濾『來源端之 IP 位址』，IP 位址是網路封包的特徵，符合 tool -> can_analyze -> feature。",
+    "reasoning": "網路層防火牆是針對網路層（Network Layer）特徵進行過濾的工具，符合 tool -> has_a -> feature。",
     "source_id": "chunk_1",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 12
+  },
+  {
+    "subject": {
+      "name": "應用層防火牆",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "應用層",
+      "type": "feature"
+    },
+    "reasoning": "應用層防火牆是針對應用層（Application Layer）特徵進行過濾的工具，符合 tool -> has_a -> feature。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 13
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack"
+    },
+    "reasoning": "文本提到防火牆可『防衛內部電腦，避免被駭客利用』，這是一種緩解攻擊的行為，符合 tool -> mitigates -> attack。",
+    "source_id": "chunk_1",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 14
   }
 ]

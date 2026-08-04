@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "owasp",
+      "type": "securityTeam",
+      "display_name": "OWASP"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "owasp iot top 10",
+      "type": "policy",
+      "display_name": "OWASP IoT TOP 10"
+    },
+    "reasoning": "OWASP (開放網路軟體安全計畫) 是一個資安組織，它定義並發布了 OWASP IoT TOP 10 這套安全指南/規範，因此選擇 securityTeam 與 policy，關係為 implements。",
+    "source_id": "question_IPAS-112-TEC-098",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "OWASP 是一個安全團隊（securityTeam），OWASP IoT TOP 10 是一個政策（policy），實體名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體 OWASP 的類別是 securityTeam，受體 OWASP IoT TOP 10 的類別是 policy，關係 implements 符合語義限制清單中的規則，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間沒有明顯的同義詞關係或從屬關係，且不在禁止合併的範圍內。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OWASP",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "OWASP IoT TOP 10",
+        "type": "policy"
+      },
+      "reasoning": "OWASP (開放網路軟體安全計畫) 是一個資安組織，它定義並發布了 OWASP IoT TOP 10 這套安全指南/規範，因此選擇 securityTeam 與 policy，關係為 implements。",
+      "source_id": "question_IPAS-112-TEC-098",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "物聯網裝置",
+      "type": "system",
+      "display_name": "物聯網裝置"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "物聯網常見的十項安全性問題",
+      "type": "vulnerability",
+      "display_name": "物聯網常見的十項安全性問題"
+    },
+    "reasoning": "文本提到 OWASP 針對物聯網裝置歸納出常見的安全性問題，這表示物聯網裝置（system）可能會暴露這些安全性問題（vulnerability），符合 Schema 中的 (system, can_expose, vulnerability)。",
+    "source_id": "question_IPAS-112-TEC-098",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '物聯網裝置' 是 'system' 的合理實例；關係 'can_expose' 合理地連接主體與受體；受體 '物聯網常見的十項安全性問題' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 system，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「聯網裝置」、「物聯網設備」、「網路設備」、「網通設備」、「藍牙裝置」、「行動裝置」均為相關概念，但非完全等價同義詞；受體「物聯網常見的十項安全性問題」與 Ldr 中無直接對應資源。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的相關概念均非完全等價同義詞，受體無直接對應資源，依據判斷準則預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "物聯網裝置",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "物聯網常見的十項安全性問題",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到 OWASP 針對物聯網裝置歸納出常見的安全性問題，這表示物聯網裝置（system）可能會暴露這些安全性問題（vulnerability），符合 Schema 中的 (system, can_expose, vulnerability)。",
+      "source_id": "question_IPAS-112-TEC-098",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "owasp",
+      "type": "securityTeam",
+      "display_name": "OWASP"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "物聯網常見的十項安全性問題",
+      "type": "vulnerability",
+      "display_name": "物聯網常見的十項安全性問題"
+    },
+    "reasoning": "OWASP 透過統計與歸納的方法識別出物聯網的安全性問題，這屬於資安團隊偵測/識別漏洞的能力，符合 Schema 中的 (securityTeam, can_detect, vulnerability)。",
+    "source_id": "question_IPAS-112-TEC-098",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'vulnerability' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "OWASP 是一個著名的安全團隊，與 'securityTeam' 類別對齊；'物聯網常見的十項安全性問題' 是一種常見的安全漏洞，與 'vulnerability' 類別對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體OWASP的類別是securityTeam，而非attacker。規則2不適用，因為主體OWASP的類別不是policy、technique或tool。規則3不適用，因為主體OWASP的類別不是vulnerability。規則4不適用，因為主體OWASP的類別不是principle。規則5不適用，因為關係不是uses或主體OWASP的類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls，但主體OWASP的類別是securityTeam，具有主動執行能力的角色。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且主體OWASP的類別是securityTeam，具有主動執行能力的角色，符合規則所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間的關係是完全等價同義詞，但根據判斷準則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "OWASP",
+        "type": "securityTeam"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "物聯網常見的十項安全性問題",
+        "type": "vulnerability"
+      },
+      "reasoning": "OWASP 透過統計與歸納的方法識別出物聯網的安全性問題，這屬於資安團隊偵測/識別漏洞的能力，符合 Schema 中的 (securityTeam, can_detect, vulnerability)。",
+      "source_id": "question_IPAS-112-TEC-098",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

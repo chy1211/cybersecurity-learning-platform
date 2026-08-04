@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資訊安全維運人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "題幹提到日誌是幫助資訊安全維運人員進行除錯、稽核與歸責的依據，這表示維運人員會分析日誌資料。符合 Schema: (securityTeam, can_analyze, data)。",
+    "source_id": "question_IPAS-112-TEC-043",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊安全維運人員 是 securityTeam 的合理實例，日誌 是 data 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為securityTeam，非vulnerability。規則5不適用，因為關係不是uses，且主體類別不是data。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '資安人員'、'資安管理人員'、'安全管理人員'、'資訊安全長'、'安全性測試人員'、'稽核人員' 均為同義詞重複；受體與 Ldr 中的資源 '日誌' 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "資安人員",
+        "standard_object": "日誌",
+        "reason": "主體與 Ldr 中的資源為同義詞重複；受體與 Ldr 中的資源完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全維運人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "題幹提到日誌是幫助資訊安全維運人員進行除錯、稽核與歸責的依據，這表示維運人員會分析日誌資料。符合 Schema: (securityTeam, can_analyze, data)。",
+      "source_id": "question_IPAS-112-TEC-043",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資訊安全維運人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "憑證查核",
+      "type": "function",
+      "display_name": "稽核取證"
+    },
+    "reasoning": "題幹指出維運人員利用日誌進行稽核取證，稽核取證是一種資安功能/流程。符合 Schema: (securityTeam, implements, function)。",
+    "source_id": "question_IPAS-112-TEC-043",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '資訊安全維運人員' 是 'securityTeam' 的合理實例；受體 '稽核取證' 是 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間存在同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "資安人員",
+        "standard_object": "憑證查核",
+        "reason": "主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間存在同義詞關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全維運人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "稽核取證",
+        "type": "function"
+      },
+      "reasoning": "題幹指出維運人員利用日誌進行稽核取證，稽核取證是一種資安功能/流程。符合 Schema: (securityTeam, implements, function)。",
+      "source_id": "question_IPAS-112-TEC-043",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊安全維運人員",
+      "type": "securityTeam",
+      "display_name": "資訊安全維運人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "系統除錯",
+      "type": "function",
+      "display_name": "系統除錯"
+    },
+    "reasoning": "題幹指出維運人員利用日誌進行系統除錯，除錯是一種功能性動作。符合 Schema: (securityTeam, implements, function)。",
+    "source_id": "question_IPAS-112-TEC-043",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '資訊安全維運人員' 是 'securityTeam' 的合理實例；受體 '系統除錯' 是 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖然相似，但無法確認完全等價同義詞關係，故預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全維運人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "系統除錯",
+        "type": "function"
+      },
+      "reasoning": "題幹指出維運人員利用日誌進行系統除錯，除錯是一種功能性動作。符合 Schema: (securityTeam, implements, function)。",
+      "source_id": "question_IPAS-112-TEC-043",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "選項 A 提到記錄內容包括設備的作業系統，隱含作業系統會產生日誌記錄。符合 Schema: (system, generates, data)。",
+    "source_id": "question_IPAS-112-TEC-043",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "作業系統 (system) 可以生成日誌 (data)，這是合理的實例關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 generates，受體的類別是 data，符合規則7所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "選項 A 提到記錄內容包括設備的作業系統，隱含作業系統會產生日誌記錄。符合 Schema: (system, generates, data)。",
+      "source_id": "question_IPAS-112-TEC-043",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "資安設備",
+      "type": "tool",
+      "display_name": "資安設備"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "選項 B 提到不同的資安設備會產生不同的日誌格式，明確指出資安設備（工具）會產生日誌（資料）。符合 Schema: (tool, generates, data)。",
+    "source_id": "question_IPAS-112-TEC-043",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安設備 (tool) 可以生成日誌 (data)，這是資安領域中合理的實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
+        "response": "correct",
+        "reason": "三元組符合規則7所允許的條件，主體為tool，關係為generates，受體為data，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「設備」、「備援設備」、「實體設施」、「通信設備」均為不同類型的資安設備，無法確定完全等價同義詞；受體「日誌」與 Ldr 中的「日誌」、「日誌檔」、「網路日誌」、「系統日誌」、「稽核日誌」、「網站日誌」均為相關概念，但無法確定完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定完全等價同義詞，預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安設備",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "選項 B 提到不同的資安設備會產生不同的日誌格式，明確指出資安設備（工具）會產生日誌（資料）。符合 Schema: (tool, generates, data)。",
+      "source_id": "question_IPAS-112-TEC-043",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "警報訊息",
+      "type": "data",
+      "display_name": "警報訊息"
+    },
+    "reasoning": "選項 D 提到系統可以傳送警報訊息，警報訊息屬於系統產出的資料。符合 Schema: (system, generates, data)。",
+    "source_id": "question_IPAS-112-TEC-043",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "系統可以生成警報訊息，這是系統類別的合理實例；警報訊息是資料的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
+        "response": "correct",
+        "reason": "三元組符合規則7所允許的條件，受體的類別是data，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「系統」完全等價同義詞；受體與 Ldr 中的「警示訊號」具有相似性，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「系統」完全等價同義詞，但受體與 Ldr 中的「警示訊號」不完全等價，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "警報訊息",
+        "type": "data"
+      },
+      "reasoning": "選項 D 提到系統可以傳送警報訊息，警報訊息屬於系統產出的資料。符合 Schema: (system, generates, data)。",
+      "source_id": "question_IPAS-112-TEC-043",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊安全維運人員",
+      "type": "securityTeam",
+      "display_name": "資訊安全維運人員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "警報訊息",
+      "type": "data",
+      "display_name": "警報訊息"
+    },
+    "reasoning": "選項 D 提到系統向監控者（維運人員）傳送警報訊息，隱含監控者會分析這些訊息以採取行動。符合 Schema: (securityTeam, can_analyze, data)。",
+    "source_id": "question_IPAS-112-TEC-043",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '資訊安全維運人員' 是 'securityTeam' 的合理實例，實體名稱 '警報訊息' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別是securityTeam，而非vulnerability。規則8不適用，因為關係不是controls。其他規則不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合規則所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「資訊安全維運人員」完全等價同義詞；受體與 Ldr 中的「警示訊號」具有相似性，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全匹配，但受體與 Ldr 中的資源不完全匹配，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全維運人員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "警報訊息",
+        "type": "data"
+      },
+      "reasoning": "選項 D 提到系統向監控者（維運人員）傳送警報訊息，隱含監控者會分析這些訊息以採取行動。符合 Schema: (securityTeam, can_analyze, data)。",
+      "source_id": "question_IPAS-112-TEC-043",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 7
+    }
+  }
+]

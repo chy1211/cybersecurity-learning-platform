@@ -1,0 +1,146 @@
+[
+  {
+    "subject": {
+      "name": "端點安全方案",
+      "type": "tool",
+      "display_name": "端點安全方案"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "威脅",
+      "type": "risk",
+      "display_name": "威脅"
+    },
+    "reasoning": "根據選項 A，端點安全方案透過掃描惡意行為來識別威脅，對應 Schema Edge: ('tool', 'can_detect', 'attack')。",
+    "source_id": "question_IPAS-112-TEC-048",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 均在 Lc,p 中。",
+        "step_2_alignment_check": "端點安全方案是工具的合理實例，威脅是攻擊的合理實例。",
+        "response": "correct",
+        "reason": "端點安全方案可以偵測威脅的敘述在語意上是合理的。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，且無法合併為同一實體。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> can_detect -> risk (original: tool -> can_detect -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "端點安全方案",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "威脅",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 A，端點安全方案透過掃描惡意行為來識別威脅，對應 Schema Edge: ('tool', 'can_detect', 'attack')。",
+      "source_id": "question_IPAS-112-TEC-048",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "vpn",
+      "type": "app",
+      "display_name": "VPN"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "企業網路",
+      "type": "system",
+      "display_name": "公司網路"
+    },
+    "reasoning": "根據選項 B，VPN 用於建立裝置到公司網路的加密連線以確保安全傳輸，這是一種對網路存取路徑的控制，對應 Schema Edge: ('tool', 'controls', 'system')。",
+    "source_id": "question_IPAS-112-TEC-048",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "VPN 是 'tool' 的合理實例，公司網路是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 vpn 完全等價同義詞；受體與 Ldr 中的 企業網路 滿足同義詞判定準則",
+        "response": "duplicate",
+        "standard_subject": "vpn",
+        "standard_object": "企業網路",
+        "reason": "主體與 Ldr 中的 vpn 完全等價同義詞；受體與 Ldr 中的 企業網路 滿足同義詞判定準則"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): app -> controls -> system (original: tool -> controls -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "VPN",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "公司網路",
+        "type": "system"
+      },
+      "reasoning": "根據選項 B，VPN 用於建立裝置到公司網路的加密連線以確保安全傳輸，這是一種對網路存取路徑的控制，對應 Schema Edge: ('tool', 'controls', 'system')。",
+      "source_id": "question_IPAS-112-TEC-048",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "vpn",
+      "type": "app",
+      "display_name": "VPN"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "竊聽",
+      "type": "attack",
+      "display_name": "竊聽"
+    },
+    "reasoning": "根據選項 B，VPN 可防止未經授權人員竊聽，即緩解了竊聽攻擊的風險，對應 Schema Edge: ('tool', 'mitigates', 'attack')。",
+    "source_id": "question_IPAS-112-TEC-048",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "VPN 是一種工具（tool），竊聽是一種攻擊（attack），且 'mitigates' 的語意與工具與攻擊之間的關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資源「竊聽」、「網路竊聽」、「竊聽(sniffing)」具有高度相似性，但考慮到資安領域的具體概念與術語，受體「竊聽」與 Ldr 中的資源「竊聽」、「網路竊聽」、「竊聽(sniffing)」之間存在狹義與廣義的關係，尤其是「竊聽」是「網路竊聽」的母類別，且「竊聽(sniffing)」是「竊聽」的子類別。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "受體與 Ldr 中的資源之間存在狹義與廣義的關係，且考慮到資安領域的具體概念與術語，判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): app -> mitigates -> attack (original: tool -> mitigates -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "VPN",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "竊聽",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 B，VPN 可防止未經授權人員竊聽，即緩解了竊聽攻擊的風險，對應 Schema Edge: ('tool', 'mitigates', 'attack')。",
+      "source_id": "question_IPAS-112-TEC-048",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

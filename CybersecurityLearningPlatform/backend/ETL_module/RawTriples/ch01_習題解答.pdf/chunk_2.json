@@ -1,93 +1,33 @@
 [
   {
     "subject": {
-      "name": "資訊安全系統",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "外部層",
+      "name": "分析層",
       "type": "feature"
     },
-    "reasoning": "文本描述系統由多個層級組成，外部層是系統的組成部分，因此將其定義為 system has_a feature。",
+    "relation": "can_detect",
+    "object": {
+      "name": "安全威脅",
+      "type": "attack"
+    },
+    "reasoning": "文本提到分析層負責『安全威脅之分析』，在 Schema 中，feature 可以 can_detect attack，因此將分析層視為系統特徵，安全威脅視為攻擊。",
     "source_id": "chunk_2",
     "source_file": "ch01_習題解答.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "資訊安全系統",
-      "type": "system"
+      "name": "資安人員",
+      "type": "securityTeam"
     },
-    "relation": "has_a",
+    "relation": "implements",
     "object": {
-      "name": "中心層",
-      "type": "feature"
-    },
-    "reasoning": "中心層是系統架構的一部分，符合 system has_a feature。",
-    "source_id": "chunk_2",
-    "source_file": "ch01_習題解答.pdf",
-    "source_index": 2
-  },
-  {
-    "subject": {
-      "name": "資訊安全系統",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "內部層",
-      "type": "feature"
-    },
-    "reasoning": "內部層是系統架構的一部分，符合 system has_a feature。",
-    "source_id": "chunk_2",
-    "source_file": "ch01_習題解答.pdf",
-    "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "資訊安全系統",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "分析層",
-      "type": "feature"
-    },
-    "reasoning": "分析層是系統架構的一部分，符合 system has_a feature。",
-    "source_id": "chunk_2",
-    "source_file": "ch01_習題解答.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "資訊安全系統",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "法律層",
-      "type": "feature"
-    },
-    "reasoning": "法律層是系統架構的一部分，符合 system has_a feature。",
-    "source_id": "chunk_2",
-    "source_file": "ch01_習題解答.pdf",
-    "source_index": 5
-  },
-  {
-    "subject": {
       "name": "PDCA原則",
       "type": "policy"
     },
-    "relation": "mitigates",
-    "object": {
-      "name": "資訊安全管理缺失",
-      "type": "risk"
-    },
-    "reasoning": "PDCA 是一種管理原則（policy），用於循環改善（緩解）管理上的缺失（risk），符合 policy mitigates risk。",
+    "reasoning": "文本提到資訊安全工作需要掌握 PDCA 原則以改善缺失。PDCA 是一種管理指導方針，故歸類為 policy，由負責資安的團隊 (securityTeam) 執行。",
     "source_id": "chunk_2",
     "source_file": "ch01_習題解答.pdf",
-    "source_index": 6
+    "source_index": 2
   },
   {
     "subject": {
@@ -99,10 +39,10 @@
       "name": "釣魚郵件",
       "type": "tool"
     },
-    "reasoning": "詐騙者（attacker）使用釣魚郵件（tool）作為攻擊手段，符合 attacker uses tool。",
+    "reasoning": "文本明確指出詐騙者發送釣魚郵件來進行詐騙，符合 attacker uses tool 的關係。",
     "source_id": "chunk_2",
     "source_file": "ch01_習題解答.pdf",
-    "source_index": 7
+    "source_index": 3
   },
   {
     "subject": {
@@ -114,10 +54,10 @@
       "name": "假造的銀行網站",
       "type": "tool"
     },
-    "reasoning": "詐騙者（attacker）利用假造的網站（tool）來欺騙使用者，符合 attacker uses tool。",
+    "reasoning": "詐騙者利用假造的網站來誘導使用者輸入資訊，符合 attacker uses tool 的關係。",
     "source_id": "chunk_2",
     "source_file": "ch01_習題解答.pdf",
-    "source_index": 8
+    "source_index": 4
   },
   {
     "subject": {
@@ -129,10 +69,25 @@
       "name": "假造的銀行網站",
       "type": "app"
     },
-    "reasoning": "客戶（user）在不知情的情況下操作（使用）了假造的網站（app），符合 user uses app。",
+    "reasoning": "客戶使用網路連結進入該網站，將其視為一個惡意的應用程式 (app)，符合 user uses app 的關係。",
     "source_id": "chunk_2",
     "source_file": "ch01_習題解答.pdf",
-    "source_index": 9
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "假造的銀行網站",
+      "type": "app"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "帳號與密碼",
+      "type": "data"
+    },
+    "reasoning": "網站透過讓客戶輸入來獲取帳號與密碼，符合 app uses data 的關係。",
+    "source_id": "chunk_2",
+    "source_file": "ch01_習題解答.pdf",
+    "source_index": 6
   },
   {
     "subject": {
@@ -144,40 +99,25 @@
       "name": "帳號與密碼",
       "type": "data"
     },
-    "reasoning": "釣魚攻擊（attack）導致帳號密碼（data）被竊取，造成損害，符合 attack can_harm data。",
+    "reasoning": "釣魚攻擊的結果是帳號與密碼被竊取，造成資料損害，符合 attack can_harm data 的關係。",
     "source_id": "chunk_2",
     "source_file": "ch01_習題解答.pdf",
-    "source_index": 10
+    "source_index": 7
   },
   {
     "subject": {
-      "name": "密碼學",
-      "type": "tool"
+      "name": "資安人員",
+      "type": "securityTeam"
     },
-    "relation": "has_a",
+    "relation": "uses",
     "object": {
-      "name": "資料加密",
-      "type": "function"
+      "name": "密碼學",
+      "type": "technique"
     },
-    "reasoning": "密碼學在此被視為一套工具集（tool），而資料加密是其提供的具體功能（function），符合 tool has_a function。",
+    "reasoning": "文本提到密碼學技術廣泛應用於資安領域，由資安實務者使用，符合 securityTeam uses technique 的關係。",
     "source_id": "chunk_2",
     "source_file": "ch01_習題解答.pdf",
-    "source_index": 11
-  },
-  {
-    "subject": {
-      "name": "密碼學",
-      "type": "tool"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "身分認證",
-      "type": "function"
-    },
-    "reasoning": "身分認證是密碼學工具集所實現的功能，符合 tool has_a function。",
-    "source_id": "chunk_2",
-    "source_file": "ch01_習題解答.pdf",
-    "source_index": 12
+    "source_index": 8
   },
   {
     "subject": {
@@ -189,10 +129,10 @@
       "name": "攻擊技術",
       "type": "technique"
     },
-    "reasoning": "駭客（attacker）利用各種攻擊技術（technique）來尋找弱點，符合 attacker uses technique。",
+    "reasoning": "文本提到駭客利用各種攻擊技術，符合 attacker uses technique 的關係。",
     "source_id": "chunk_2",
     "source_file": "ch01_習題解答.pdf",
-    "source_index": 13
+    "source_index": 9
   },
   {
     "subject": {
@@ -204,10 +144,25 @@
       "name": "系統弱點",
       "type": "vulnerability"
     },
-    "reasoning": "駭客（attacker）利用（exploit）系統的弱點（vulnerability）進行入侵，符合 attacker can_exploit vulnerability。",
+    "reasoning": "文本提到駭客利用系統弱點作為入侵點，符合 attacker can_exploit vulnerability 的關係。",
     "source_id": "chunk_2",
     "source_file": "ch01_習題解答.pdf",
-    "source_index": 14
+    "source_index": 10
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "後門程式",
+      "type": "tool"
+    },
+    "reasoning": "駭客在伺服器植入後門程式，符合 attacker uses tool 的關係。",
+    "source_id": "chunk_2",
+    "source_file": "ch01_習題解答.pdf",
+    "source_index": 11
   },
   {
     "subject": {
@@ -219,10 +174,10 @@
       "name": "伺服器",
       "type": "system"
     },
-    "reasoning": "後門程式（tool）被植入（部署）在伺服器（system）中，符合 tool deployed_in system。",
+    "reasoning": "後門程式被植入於伺服器中，符合 tool deployed_in system 的關係。",
     "source_id": "chunk_2",
     "source_file": "ch01_習題解答.pdf",
-    "source_index": 15
+    "source_index": 12
   },
   {
     "subject": {
@@ -234,9 +189,9 @@
       "name": "伺服器",
       "type": "system"
     },
-    "reasoning": "被植入後門程式的伺服器被利用作為跳板，意味著後門程式取得了對伺服器的控制權，符合 tool controls system。",
+    "reasoning": "後門程式使伺服器被利用作為跳板，代表攻擊者透過該工具控制了系統，符合 tool controls system 的關係。",
     "source_id": "chunk_2",
     "source_file": "ch01_習題解答.pdf",
-    "source_index": 16
+    "source_index": 13
   }
 ]

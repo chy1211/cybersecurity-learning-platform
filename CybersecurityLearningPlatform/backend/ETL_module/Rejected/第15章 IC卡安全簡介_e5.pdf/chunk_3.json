@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "晶片卡",
+      "type": "system",
+      "display_name": "晶片卡"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資料安全保護",
+      "type": "function",
+      "display_name": "資料安全保護"
+    },
+    "reasoning": "文本提到晶片卡具有資料安全保護等功能。為了符合 Schema 中只有 tool 能 has_a function 的規定，將晶片卡歸類為 tool，資料安全保護歸類為 function。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "晶片卡 (tool) 合理、資料安全保護 (function) 合理。",
+        "response": "correct",
+        "reason": "晶片卡與資料安全保護之間的 'has_a' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「晶片卡」完全等價同義詞；受體與 Ldr 中的「資訊保護與維護」具有廣義/狹義從屬關係，但不構成完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中的資源完全相同，受體雖然與 Ldr 中的資源相關，但不構成完全等價同義詞，依據判斷準則 1 和 3，判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> has_a -> function (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "晶片卡",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資料安全保護",
+        "type": "function"
+      },
+      "reasoning": "文本提到晶片卡具有資料安全保護等功能。為了符合 Schema 中只有 tool 能 has_a function 的規定，將晶片卡歸類為 tool，資料安全保護歸類為 function。",
+      "source_id": "chunk_3",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 5
+    }
+  }
+]

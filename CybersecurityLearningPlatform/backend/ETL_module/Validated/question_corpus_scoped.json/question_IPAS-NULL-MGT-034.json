@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "自然人憑證",
+      "type": "app",
+      "display_name": "自然人憑證"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "pki",
+      "type": "system",
+      "display_name": "PKI"
+    },
+    "reasoning": "根據選項 A，自然人憑證是基於 PKI (Public Key Infrastructure) 架構下之應用，因此該應用程式在運作上依賴於 PKI 系統。",
+    "source_id": "question_IPAS-NULL-MGT-034",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'depends_on' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "自然人憑證是一種 'app'，PKI 是一種 'system'，且 'depends_on' 是描述 app 與 system 間依賴關係的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 depends_on，而非 deployed_in，因此不違反規則6。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "自然人憑證",
+        "type": "app"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "PKI",
+        "type": "system"
+      },
+      "reasoning": "根據選項 A，自然人憑證是基於 PKI (Public Key Infrastructure) 架構下之應用，因此該應用程式在運作上依賴於 PKI 系統。",
+      "source_id": "question_IPAS-NULL-MGT-034",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "自然人憑證",
+      "type": "app",
+      "display_name": "自然人憑證"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "身分識別",
+      "type": "feature",
+      "display_name": "身分識別"
+    },
+    "reasoning": "根據選項 B，自然人憑證可用於身分識別，將其身分識別能力視為該應用程式的一項特徵 (feature)。",
+    "source_id": "question_IPAS-NULL-MGT-034",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "自然人憑證 可以被視為 'app' 的合理實例，身分識別 可以被視為 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是攻擊者或安全團隊。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體不是漏洞。規則4不適用，因為主體不是資安原則。規則5不適用，因為主體不是data或關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認為同義詞關係，依據判斷準則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "自然人憑證",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "身分識別",
+        "type": "feature"
+      },
+      "reasoning": "根據選項 B，自然人憑證可用於身分識別，將其身分識別能力視為該應用程式的一項特徵 (feature)。",
+      "source_id": "question_IPAS-NULL-MGT-034",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

@@ -1,81 +1,98 @@
 [
   {
     "subject": {
-      "name": "資訊技術人員",
-      "type": "securityTeam",
-      "display_name": "資訊技術人員"
+      "name": "一般員工",
+      "type": "user",
+      "display_name": "一般人員"
     },
-    "relation": "can_analyze",
+    "relation": "implements",
     "object": {
-      "name": "資訊安全技術問題",
-      "type": "vulnerability",
-      "display_name": "資訊安全技術問題"
+      "name": "資安事件通報",
+      "type": "function",
+      "display_name": "資安事件通報"
     },
-    "reasoning": "文本提到資訊技術人員負責『資訊安全技術相關問題之解決』。解決問題的前提是分析問題，因此將其定義為 securityTeam 對 vulnerability 的分析，符合 ('securityTeam', 'can_analyze', 'vulnerability') 的 Schema。",
+    "reasoning": "文本提到『一般人員除負責資安事件通報外...』。通報義務是組織內的一項規範(policy)，一般人員為 user，符合 ('user', 'implements', 'policy') 的 Schema。",
     "source_id": "chunk_11",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 4,
-    "reject_reason": "Phase 1 (Schema Edge Violation): securityTeam -> can_analyze -> vulnerability",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '一般人員' 合理對齊其類別 'user'，受體名稱 '資安事件通報' 合理對齊其類別 'policy'，且關係 'implements' 合理描述 'user' 與 'policy' 之間的關係。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合 Lc,p 的規定，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「一般員工」、「一般使用者」、「人員」為同義詞；受體與 Ldr 中的「資安事件通報」完全相同。",
+        "response": "duplicate",
+        "standard_subject": "一般員工",
+        "standard_object": "資安事件通報",
+        "reason": "主體與 Ldr 中的「一般員工」、「一般使用者」、「人員」為同義詞；受體與 Ldr 中的「資安事件通報」完全相同，故判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): user -> implements -> function (original: user -> implements -> policy)",
     "original_raw_triple": {
       "subject": {
-        "name": "資訊技術人員",
-        "type": "securityTeam"
+        "name": "一般人員",
+        "type": "user"
       },
-      "relation": "can_analyze",
+      "relation": "implements",
       "object": {
-        "name": "資訊安全技術問題",
-        "type": "vulnerability"
+        "name": "資安事件通報",
+        "type": "policy"
       },
-      "reasoning": "文本提到資訊技術人員負責『資訊安全技術相關問題之解決』。解決問題的前提是分析問題，因此將其定義為 securityTeam 對 vulnerability 的分析，符合 ('securityTeam', 'can_analyze', 'vulnerability') 的 Schema。",
+      "reasoning": "文本提到『一般人員除負責資安事件通報外...』。通報義務是組織內的一項規範(policy)，一般人員為 user，符合 ('user', 'implements', 'policy') 的 Schema。",
       "source_id": "chunk_11",
       "source_file": "第13章 作業安全管理_e5.pdf",
-      "source_index": 4
+      "source_index": 5
     }
   },
   {
     "subject": {
-      "name": "人員",
-      "type": "attacker",
-      "display_name": "人員"
+      "name": "組織",
+      "type": "system",
+      "display_name": "組織"
     },
-    "relation": "uses",
+    "relation": "controls",
     "object": {
-      "name": "資料資產",
-      "type": "data",
-      "display_name": "資料資產"
+      "name": "硬體資產",
+      "type": "system",
+      "display_name": "硬體資產"
     },
-    "reasoning": "文本提到人員離職前應歸還『資料資產』，暗示人員在職期間使用這些資料。符合 ('user', 'uses', 'data') 的 Schema。",
+    "reasoning": "文本提到離職前應將『硬體資產』歸還給組織，這隱含了組織對這些系統資產擁有控制權。組織在此視為管理實體(securityTeam)，硬體資產視為系統(system)，符合 ('securityTeam', 'controls', 'system') 的 Schema。",
     "source_id": "chunk_11",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 8,
+    "source_index": 7,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "人員 (user) 使用資料資產 (data) 的情境是合理的，符合實體名稱與其類別的對齊，且 'uses' 關係在此語境下是適當的。",
+        "step_1_list_check": "主體類別 (securityTeam) 存在於 Lc,p 的 Classes 中，受體類別 (system) 存在於 Lc,p 的 Classes 中，關係 (controls) 存在於 Lc,p 的 Properties 中。",
+        "step_2_alignment_check": "主體名稱 (組織) 合理對齊其類別 (securityTeam)，受體名稱 (硬體資產) 合理對齊其類別 (system)。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊與同義詞寬容原則均通過檢查。"
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且實體名稱與其類別合理對齊。"
       },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規，因為主體的類別是attacker，但使用了'uses'關係，且受體是資料資產(data)。規則6：不適用。規則7：不適用。規則8：不適用。",
-        "response": "violation",
-        "reason": "三元組觸發了規則5的違規條件，因為當關係為'uses'時，主體的類別是attacker，受體是資料資產(data)，這不符合規則5的允許條件。"
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域中的基本概念，且與 Ldr 中的資源具有完全等價的同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體皆為資安領域中的基本概念，且無法在 Ldr 中找到完全相同的同義詞，因此判定為 correct。"
       }
     },
-    "reject_reason": "Step 3 (Semantic Violation): 三元組觸發了規則5的違規條件，因為當關係為'uses'時，主體的類別是attacker，受體是資料資產(data)，這不符合規則5的允許條件。",
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> controls -> system (original: securityTeam -> controls -> system)",
     "original_raw_triple": {
       "subject": {
-        "name": "人員",
-        "type": "user"
+        "name": "組織",
+        "type": "securityTeam"
       },
-      "relation": "uses",
+      "relation": "controls",
       "object": {
-        "name": "資料資產",
-        "type": "data"
+        "name": "硬體資產",
+        "type": "system"
       },
-      "reasoning": "文本提到人員離職前應歸還『資料資產』，暗示人員在職期間使用這些資料。符合 ('user', 'uses', 'data') 的 Schema。",
+      "reasoning": "文本提到離職前應將『硬體資產』歸還給組織，這隱含了組織對這些系統資產擁有控制權。組織在此視為管理實體(securityTeam)，硬體資產視為系統(system)，符合 ('securityTeam', 'controls', 'system') 的 Schema。",
       "source_id": "chunk_11",
       "source_file": "第13章 作業安全管理_e5.pdf",
-      "source_index": 8
+      "source_index": 7
     }
   }
 ]

@@ -9,7 +9,7 @@
       "name": "代理伺服器",
       "type": "system"
     },
-    "reasoning": "文本描述個人電腦（客戶端）將封包送至代理伺服器，這是一種網路連線行為。根據 Schema，('system', 'connects_to', 'system') 是合法的。",
+    "reasoning": "文本描述個人電腦（客戶端）將封包送至代理伺服器，這是一種系統間的網路連線，符合 ('system', 'connects_to', 'system')。",
     "source_id": "chunk_4",
     "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
     "source_index": 1
@@ -21,10 +21,10 @@
     },
     "relation": "connects_to",
     "object": {
-      "name": "網際網路",
+      "name": "外部伺服器",
       "type": "system"
     },
-    "reasoning": "文本提到代理伺服器將資料傳送至外部伺服器（位於網際網路），代表代理伺服器與網際網路之間有連線。根據 Schema，('system', 'connects_to', 'system') 是合法的。",
+    "reasoning": "文本提到代理伺服器將資料傳送至外部伺服器，屬於系統間的通訊，符合 ('system', 'connects_to', 'system')。",
     "source_id": "chunk_4",
     "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
     "source_index": 2
@@ -34,90 +34,15 @@
       "name": "代理伺服器",
       "type": "system"
     },
-    "relation": "uses",
+    "relation": "connects_to",
     "object": {
-      "name": "封包",
-      "type": "data"
+      "name": "網際網路",
+      "type": "system"
     },
-    "reasoning": "文本提到代理伺服器接收並傳送封包，封包屬於網路傳輸的資料實體。根據 Schema，('system', 'uses', 'data') 是合法的。",
+    "reasoning": "根據圖 18-5 與文本，代理伺服器是存取網際網路的媒介，符合 ('system', 'connects_to', 'system')。",
     "source_id": "chunk_4",
     "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
     "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "IE 瀏覽器",
-      "type": "app"
-    },
-    "relation": "connects_to",
-    "object": {
-      "name": "代理伺服器",
-      "type": "system"
-    },
-    "reasoning": "文本描述在 IE 瀏覽器中設定代理伺服器位址以存取資料，這表示應用程式透過設定連接至代理伺服器。根據 Schema，('app', 'connects_to', 'system') 是合法的。",
-    "source_id": "chunk_4",
-    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "IE 瀏覽器",
-      "type": "app"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "個人電腦",
-      "type": "system"
-    },
-    "reasoning": "瀏覽器是安裝在個人電腦（系統）上的應用程式。根據 Schema，('app', 'is_part_of', 'system') 是合法的。",
-    "source_id": "chunk_4",
-    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
-    "source_index": 5
-  },
-  {
-    "subject": {
-      "name": "防火牆",
-      "type": "tool"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "NAT",
-      "type": "function"
-    },
-    "reasoning": "文本明確指出「大部分防火牆皆有建置 NAT 功能」，NAT 在此被定義為防火牆的一項功能。根據 Schema，('tool', 'has_a', 'function') 是合法的。",
-    "source_id": "chunk_4",
-    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
-    "source_index": 6
-  },
-  {
-    "subject": {
-      "name": "NAT",
-      "type": "function"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "IP 位址",
-      "type": "feature"
-    },
-    "reasoning": "NAT 功能涉及對內外 IP 位址的轉換與管理，IP 位址是網路系統的組成屬性（特徵）。根據 Schema，('function', 'has_a', 'feature') 是合法的。",
-    "source_id": "chunk_4",
-    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
-    "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "企業內部網路",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "代理伺服器",
-      "type": "system"
-    },
-    "reasoning": "代理伺服器被部署在企業內部網路中，作為該網路環境的一部分。根據 Schema，('system', 'has_a', 'system') 是合法的。",
-    "source_id": "chunk_4",
-    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
-    "source_index": 8
   },
   {
     "subject": {
@@ -129,7 +54,82 @@
       "name": "資料",
       "type": "data"
     },
-    "reasoning": "文本提到代理伺服器將資料傳送至外部伺服器並轉送給客戶端，涉及對資料的處理。根據 Schema，('system', 'uses', 'data') 是合法的。",
+    "reasoning": "代理伺服器在流程中接收、傳送並轉送資料，符合 ('system', 'uses', 'data')。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "IE 瀏覽器",
+      "type": "app"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "代理伺服器",
+      "type": "system"
+    },
+    "reasoning": "文本描述在 IE 瀏覽器中設定代理伺服器位址以存取資料，表示瀏覽器的網路存取依賴於代理伺服器的設定，符合 ('app', 'depends_on', 'system')。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "IE 瀏覽器",
+      "type": "app"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "Windows",
+      "type": "system"
+    },
+    "reasoning": "文本提到 Windows IE 瀏覽器，將其視為 Windows 作業系統的一部分，符合 ('app', 'is_part_of', 'system')。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "NAT",
+      "type": "function"
+    },
+    "reasoning": "文本明確指出「大部分防火牆皆有建置 NAT 功能」，符合 ('tool', 'has_a', 'function')。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "NAT",
+      "type": "function"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "IP 位址",
+      "type": "data"
+    },
+    "reasoning": "NAT 功能涉及對內部與外部 IP 位址的轉換與處理（分析並替換 IP），符合 ('function', 'can_analyze', 'data')。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "代理伺服器",
+      "type": "tool"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "防火牆",
+      "type": "tool"
+    },
+    "reasoning": "圖 18-5 的標題為「代理型防火牆原理」，說明代理伺服器在此情境下是防火牆的一種實作形式或組成部分，符合 ('tool', 'is_part_of', 'tool')。",
     "source_id": "chunk_4",
     "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
     "source_index": 9

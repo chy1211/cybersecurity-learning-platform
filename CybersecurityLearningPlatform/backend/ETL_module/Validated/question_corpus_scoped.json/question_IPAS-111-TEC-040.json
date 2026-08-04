@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "不同人",
+      "type": "user",
+      "display_name": "不同人"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料片段",
+      "type": "data",
+      "display_name": "資料片段"
+    },
+    "reasoning": "根據考題的否定式提問規則，選項 C 是正確的資安實作。文中提到將資料拆分成片段『交由不同人分持』，分持資料片段即為一種使用或持有行為，符合 Schema 中的 ('user', 'uses', 'data')。",
+    "source_id": "question_IPAS-111-TEC-040",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '不同人' 可以被視為 'user' 的合理實例；受體名稱 '資料片段' 可以被視為 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法在資安領域已知同義詞對照範例中找到相符的同義詞關係，且無法確認實體之間的從屬關係，依據不確定時預設保留原則，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "不同人",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資料片段",
+        "type": "data"
+      },
+      "reasoning": "根據考題的否定式提問規則，選項 C 是正確的資安實作。文中提到將資料拆分成片段『交由不同人分持』，分持資料片段即為一種使用或持有行為，符合 Schema 中的 ('user', 'uses', 'data')。",
+      "source_id": "question_IPAS-111-TEC-040",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "經授權之人",
+      "type": "user",
+      "display_name": "被授權的人"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "根據考題的否定式提問規則，選項 D 是正確的資安實作。文中提到『只有被授權的人才可開啟（資料）』，這建立了使用者（user）與資料（data）之間的使用關係，符合 Schema 中的 ('user', 'uses', 'data')。",
+    "source_id": "question_IPAS-111-TEC-040",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '被授權的人' 合理對齊其類別 'user'，實體名稱 '資料' 合理對齊其類別 'data'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「經授權之人」為同義詞；受體與 Ldr 中的「資料」完全相同",
+        "response": "duplicate",
+        "standard_subject": "經授權之人",
+        "standard_object": "資料",
+        "reason": "主體與 Ldr 中的「經授權之人」為同義詞；受體與 Ldr 中的「資料」完全相同，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "被授權的人",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "根據考題的否定式提問規則，選項 D 是正確的資安實作。文中提到『只有被授權的人才可開啟（資料）』，這建立了使用者（user）與資料（data）之間的使用關係，符合 Schema 中的 ('user', 'uses', 'data')。",
+      "source_id": "question_IPAS-111-TEC-040",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

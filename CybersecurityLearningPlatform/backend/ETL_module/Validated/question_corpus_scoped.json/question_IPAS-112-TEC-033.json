@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "弱點掃描",
+      "type": "technique",
+      "display_name": "弱點掃描"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "reasoning": "根據選項 C，弱點掃描是滲透測試常見的前置作業之一，這表示弱點掃描在流程上屬於滲透測試的一個組成部分或步驟，因此使用 (technique, is_part_of, technique) 關係。",
+    "source_id": "question_IPAS-112-TEC-033",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '弱點掃描' 是 'technique' 的合理實例，受體 '滲透測試' 也是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，無任何規則適用。",
+        "response": "correct",
+        "reason": "三元組不違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「漏洞掃描」為同義詞，受體與 Ldr 中的「滲透測試」為同義詞，但主體與受體之間的關係是不同的資安概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的「漏洞掃描」為同義詞，受體與 Ldr 中的「滲透測試」為同義詞，但主體與受體之間的關係是不同的資安概念，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "弱點掃描",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "reasoning": "根據選項 C，弱點掃描是滲透測試常見的前置作業之一，這表示弱點掃描在流程上屬於滲透測試的一個組成部分或步驟，因此使用 (technique, is_part_of, technique) 關係。",
+      "source_id": "question_IPAS-112-TEC-033",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "弱點掃描",
+      "type": "technique",
+      "display_name": "弱點掃描"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "ping 工具",
+      "type": "tool",
+      "display_name": "Ping 工具"
+    },
+    "reasoning": "根據選項 D，Ping 工具的使用是弱點掃描常用前置作業之一，這意味著執行弱點掃描這項技術時，通常依賴於 Ping 工具來進行初步的存活偵測，符合 (technique, depends_on, tool) 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-033",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '弱點掃描' 是 'technique' 的合理實例，受體名稱 'Ping 工具' 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體是弱點掃描，類別是 technique，關係是 depends_on，受體是 Ping 工具，類別是 tool。根據規則2、3和8，該三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「弱點評估」、「漏洞掃描」為同義詞；受體與 Ldr 中的「弱掃工具」、「授權工具」不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖有相似之處，但無法確認完全等價同義詞；受體與 Ldr 中的資源不相關，無法合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "弱點掃描",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "Ping 工具",
+        "type": "tool"
+      },
+      "reasoning": "根據選項 D，Ping 工具的使用是弱點掃描常用前置作業之一，這意味著執行弱點掃描這項技術時，通常依賴於 Ping 工具來進行初步的存活偵測，符合 (technique, depends_on, tool) 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-033",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

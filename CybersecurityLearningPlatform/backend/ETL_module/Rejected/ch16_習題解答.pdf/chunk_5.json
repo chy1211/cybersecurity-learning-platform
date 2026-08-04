@@ -1,1 +1,146 @@
-[]
+[
+  {
+    "subject": {
+      "name": "sql 隱碼攻擊",
+      "type": "vulnerability",
+      "display_name": "SQL 隱碼攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網站資料",
+      "type": "data",
+      "display_name": "網站資料"
+    },
+    "reasoning": "文本提到 SQL 隱碼攻擊會造成資料被不當存取，因此將其定義為 attack 危害 data。",
+    "source_id": "chunk_5",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SQL 隱碼攻擊 是 'attack' 的合理實例，網站資料 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "SQL 隱碼攻擊 可以傷害 網站資料 的敘述完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「sql 隱碼攻擊」完全等價同義詞；受體與 Ldr 中的「資料」具有廣義/狹義從屬關係，但不構成完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源具有完全等價同義詞關係，但受體與 Ldr 中的資源不構成完全等價同義詞關係，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): vulnerability -> can_harm -> data (original: attack -> can_harm -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "SQL 隱碼攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "網站資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到 SQL 隱碼攻擊會造成資料被不當存取，因此將其定義為 attack 危害 data。",
+      "source_id": "chunk_5",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "木馬程式",
+      "type": "attack",
+      "display_name": "木馬程式"
+    },
+    "reasoning": "駭客在伺服器中植入木馬程式以竊取資訊，符合 attacker uses tool。",
+    "source_id": "chunk_5",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，木馬程式 (tool) 是工具的合理實例，且 'uses' 是駭客使用工具的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為 Ldr 中已有資源的完全等價同義詞，但根據規則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attacker -> uses -> attack (original: attacker -> uses -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "木馬程式",
+        "type": "tool"
+      },
+      "reasoning": "駭客在伺服器中植入木馬程式以竊取資訊，符合 attacker uses tool。",
+      "source_id": "chunk_5",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "維護人員",
+      "type": "securityTeam",
+      "display_name": "維護人員"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "網站",
+      "type": "app",
+      "display_name": "網站"
+    },
+    "reasoning": "專門負責安全開發與維護的人員負責管理網站，符合 securityTeam controls system。",
+    "source_id": "chunk_5",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 均在 Lc,p 中。",
+        "step_2_alignment_check": "維護人員是安全團隊的合理實例，網站是系統的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是同義詞重複",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間沒有完全相同的名稱，且無法確定為同義詞或子類型關係，因此預設保留原名。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): securityTeam -> controls -> app (original: securityTeam -> controls -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "維護人員",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "網站",
+        "type": "system"
+      },
+      "reasoning": "專門負責安全開發與維護的人員負責管理網站，符合 securityTeam controls system。",
+      "source_id": "chunk_5",
+      "source_file": "ch16_習題解答.pdf",
+      "source_index": 11
+    }
+  }
+]

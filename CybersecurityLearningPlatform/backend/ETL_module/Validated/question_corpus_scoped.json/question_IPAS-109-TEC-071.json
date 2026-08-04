@@ -1,0 +1,268 @@
+[
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "nmap",
+      "type": "tool",
+      "display_name": "Nmap"
+    },
+    "reasoning": "文本描述在進行滲透測試（正確答案 D）的過程中使用了 Nmap 進行掃描，因此滲透測試這項技術包含或使用了 Nmap 工具，符合 ('technique', 'has_a', 'tool') 的 Schema。",
+    "source_id": "question_IPAS-109-TEC-071",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "滲透測試 (Penetration Testing) 是一種常見的資安技術 (technique)，而 Nmap 是一種常用的網路掃描工具 (tool)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合規則所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "滲透測試與驗收測試之間的關係是不同的概念，Nmap與mapper之間的關係是不同的概念",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "滲透測試與驗收測試之間的關係是不同的概念，Nmap與mapper之間的關係是不同的概念，因此無法合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Nmap",
+        "type": "tool"
+      },
+      "reasoning": "文本描述在進行滲透測試（正確答案 D）的過程中使用了 Nmap 進行掃描，因此滲透測試這項技術包含或使用了 Nmap 工具，符合 ('technique', 'has_a', 'tool') 的 Schema。",
+      "source_id": "question_IPAS-109-TEC-071",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "vsftpd2.3.4",
+      "type": "app",
+      "display_name": "vsftpd2.3.4"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "文本明確指出 vsftpd2.3.4 具備可利用的漏洞，vsftpd2.3.4 為應用程式，符合 ('app', 'can_expose', 'vulnerability') 的 Schema。",
+    "source_id": "question_IPAS-109-TEC-071",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "vsftpd2.3.4 是 'app' 的合理實例，'漏洞' 是 'vulnerability' 的合理實例，'can_expose' 的語意與 'app' 與 'vulnerability' 之間的關係合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 app，符合規則3的特例允許，且關係為 can_expose，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "漏洞",
+        "reason": "根據資安領域已知同義詞對照範例，漏洞 ≡ 弱點 ≡ 脆弱性（均指 vulnerability），因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "vsftpd2.3.4",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本明確指出 vsftpd2.3.4 具備可利用的漏洞，vsftpd2.3.4 為應用程式，符合 ('app', 'can_expose', 'vulnerability') 的 Schema。",
+      "source_id": "question_IPAS-109-TEC-071",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "msfconsole",
+      "type": "tool",
+      "display_name": "Msfconsole"
+    },
+    "reasoning": "文本描述在滲透測試過程中使用了 Msfconsole 來利用漏洞，因此滲透測試這項技術包含或使用了 Msfconsole 工具，符合 ('technique', 'has_a', 'tool') 的 Schema。",
+    "source_id": "question_IPAS-109-TEC-071",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "滲透測試 (Penetration Testing) 是一種常見的安全測試技術，因此其類別 'technique' 合理。Msfconsole 是一種常見的滲透測試工具，因此其類別 'tool' 合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合規則所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Msfconsole",
+        "type": "tool"
+      },
+      "reasoning": "文本描述在滲透測試過程中使用了 Msfconsole 來利用漏洞，因此滲透測試這項技術包含或使用了 Msfconsole 工具，符合 ('technique', 'has_a', 'tool') 的 Schema。",
+      "source_id": "question_IPAS-109-TEC-071",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "nmap",
+      "type": "tool",
+      "display_name": "Nmap"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "Nmap 在此情境中被用於掃描並發現主機具備漏洞，符合工具分析漏洞的邏輯，對應 ('tool', 'can_analyze', 'vulnerability') 的 Schema。",
+    "source_id": "question_IPAS-109-TEC-071",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Nmap 是一種常見的網絡掃描工具，能夠分析漏洞，因此其名稱與類別 'tool' 合理對齊；漏洞是資安領域中的一個常見概念，能夠被分析，因此其名稱與類別 'vulnerability' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 tool，符合規則3的特例允許，且受體類別為 vulnerability 不觸發規則3。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Nmap) 與 Ldr 中的 'nmap' 完全等價同義詞；受體 (漏洞) 與 Ldr 中的 '漏洞' 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "nmap",
+        "standard_object": "漏洞",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Nmap",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "Nmap 在此情境中被用於掃描並發現主機具備漏洞，符合工具分析漏洞的邏輯，對應 ('tool', 'can_analyze', 'vulnerability') 的 Schema。",
+      "source_id": "question_IPAS-109-TEC-071",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "相關人員",
+      "type": "attacker",
+      "display_name": "相關人員"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "在滲透測試情境中，執行測試的人員扮演攻擊者角色，且文本提到其成功利用漏洞，符合 ('attacker', 'can_exploit', 'vulnerability') 的 Schema。",
+    "source_id": "question_IPAS-109-TEC-071",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '相關人員' 可以被視為 'attacker' 的合理實例；受體名稱 '漏洞' 可以被視為 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體類別為 attacker，與受體類別為 vulnerability 的組合下，關係 can_exploit 不違反任何規則。然而，檢查主體類別 vulnerability 時，發現其身分為被動缺陷，原則上不可發起主動行為，如 can_exploit。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體類別為 attacker，與受體類別為 vulnerability 的組合下，關係 can_exploit 不違反任何規則。然而，檢查主體類別 vulnerability 時，發現其身分為被動缺陷，原則上不可發起主動行為，如 can_exploit。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "相關人員",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "在滲透測試情境中，執行測試的人員扮演攻擊者角色，且文本提到其成功利用漏洞，符合 ('attacker', 'can_exploit', 'vulnerability') 的 Schema。",
+      "source_id": "question_IPAS-109-TEC-071",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  }
+]

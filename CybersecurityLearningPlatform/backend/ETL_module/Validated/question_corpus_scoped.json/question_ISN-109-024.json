@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "商業間諜",
+      "type": "attack",
+      "display_name": "商業間諜"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "對手的網路",
+      "type": "system",
+      "display_name": "對手的網路"
+    },
+    "reasoning": "商業間諜行為包含『侵入對手的網路』，這是一種對系統 (system) 造成損害或未經授權存取的惡意行為，符合 attack can_harm system 的定義。",
+    "source_id": "question_ISN-109-024",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "商業間諜 是 'attack' 的合理實例；對手的網路 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源「間諜程式」具有相似性，但非完全等價同義詞；受體與 Ldr 中的資源「網路」具有相似性，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體雖然具有相似性，但非完全等價同義詞，且無法確定，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "商業間諜",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "對手的網路",
+        "type": "system"
+      },
+      "reasoning": "商業間諜行為包含『侵入對手的網路』，這是一種對系統 (system) 造成損害或未經授權存取的惡意行為，符合 attack can_harm system 的定義。",
+      "source_id": "question_ISN-109-024",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客手法",
+      "type": "technique",
+      "display_name": "駭客手法"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "商業間諜",
+      "type": "attack",
+      "display_name": "商業間諜"
+    },
+    "reasoning": "根據題幹與正確答案，使用駭客手法來達成目的被歸類為『商業間諜』這一類電腦犯罪。在 Schema 中，技術 (technique) 可以實作 (implements) 某種攻擊 (attack)。",
+    "source_id": "question_ISN-109-024",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客手法 (technique) 實際上是實施商業間諜 (attack) 的一種手段，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且語意對齊是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「攻擊技術」為同義詞；受體與 Ldr 中的「間諜程式」無直接關係，但商業間諜與間諜程式在某些情況下可能相關，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「攻擊技術」雖然相似，但無法確認完全等價同義詞；受體與 Ldr 中的「間諜程式」無直接關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客手法",
+        "type": "technique"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "商業間諜",
+        "type": "attack"
+      },
+      "reasoning": "根據題幹與正確答案，使用駭客手法來達成目的被歸類為『商業間諜』這一類電腦犯罪。在 Schema 中，技術 (technique) 可以實作 (implements) 某種攻擊 (attack)。",
+      "source_id": "question_ISN-109-024",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "商業間諜",
+      "type": "attack",
+      "display_name": "商業間諜"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "研發資料",
+      "type": "data",
+      "display_name": "研發資料"
+    },
+    "reasoning": "商業間諜行為的目的是『取得對手的研發資料』，這涉及對資料 (data) 機密性的破壞，符合 attack can_harm data 的定義。",
+    "source_id": "question_ISN-109-024",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "商業間諜 是攻擊行為的合理實例，研發資料 是資料的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是attacker或securityTeam。規則2不適用，因為主體不是policy, technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源「商業間諜」完全等價同義詞；受體與 Ldr 中的資源「資料」具有相似性，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全相同，受體與 Ldr 中的資源雖然相似，但不構成同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "商業間諜",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "研發資料",
+        "type": "data"
+      },
+      "reasoning": "商業間諜行為的目的是『取得對手的研發資料』，這涉及對資料 (data) 機密性的破壞，符合 attack can_harm data 的定義。",
+      "source_id": "question_ISN-109-024",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

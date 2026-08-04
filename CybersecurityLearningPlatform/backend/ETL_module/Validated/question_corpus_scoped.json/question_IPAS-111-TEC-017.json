@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "網頁伺服器",
+      "type": "app",
+      "display_name": "網頁伺服器"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "網頁事件記錄檔",
+      "type": "data",
+      "display_name": "網頁事件記錄檔"
+    },
+    "reasoning": "題幹提到『查看網頁事件記錄檔』，而網頁事件記錄檔是由網頁伺服器（app）在運作過程中產生的日誌資料（data），符合 ('app', 'generates', 'data') 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-017",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "網頁伺服器是 'app' 的合理實例，網頁事件記錄檔是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
+        "response": "correct",
+        "reason": "三元組符合規則7所允許的條件，主體為網頁伺服器，關係為generates，受體為網頁事件記錄檔，且受體的類別是data。"
+      },
+      "step_2": {
+        "granularity_analysis": "網頁伺服器與 Ldr 中的 www伺服器、網頁具有廣義/狹義從屬關係，但網頁伺服器更為具體，因此判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "網頁伺服器是 www伺服器或網頁的子類型，因此不應合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網頁伺服器",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "網頁事件記錄檔",
+        "type": "data"
+      },
+      "reasoning": "題幹提到『查看網頁事件記錄檔』，而網頁事件記錄檔是由網頁伺服器（app）在運作過程中產生的日誌資料（data），符合 ('app', 'generates', 'data') 的 Schema。",
+      "source_id": "question_IPAS-111-TEC-017",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "網頁伺服器",
+      "type": "app",
+      "display_name": "網頁伺服器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "http 狀態代碼 404",
+      "type": "feature",
+      "display_name": "HTTP 狀態代碼 404"
+    },
+    "reasoning": "正確答案指出 404 是找不到檔案的錯誤代碼。HTTP 狀態代碼是 HTTP 協定的一部分，屬於系統的屬性或特徵（feature），而網頁伺服器（app）實作此協定並使用這些代碼，符合 ('app', 'has_a', 'feature') 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-017",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "網頁伺服器是 'app' 的合理實例，HTTP 狀態代碼 404 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8 均不適用於此三元組。無明確且直接的違反項目。",
+        "response": "correct",
+        "reason": "無明確且直接的違反項目，無罪推定原則下判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "網頁伺服器與 Ldr 中的網頁伺服器完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "網頁伺服器",
+        "standard_object": "",
+        "reason": "網頁伺服器與 Ldr 中的網頁伺服器完全相同，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網頁伺服器",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "HTTP 狀態代碼 404",
+        "type": "feature"
+      },
+      "reasoning": "正確答案指出 404 是找不到檔案的錯誤代碼。HTTP 狀態代碼是 HTTP 協定的一部分，屬於系統的屬性或特徵（feature），而網頁伺服器（app）實作此協定並使用這些代碼，符合 ('app', 'has_a', 'feature') 的 Schema。",
+      "source_id": "question_IPAS-111-TEC-017",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

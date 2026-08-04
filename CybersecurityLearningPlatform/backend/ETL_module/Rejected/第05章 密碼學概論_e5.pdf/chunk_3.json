@@ -1,1 +1,194 @@
-[]
+[
+  {
+    "subject": {
+      "name": "非對稱式金鑰加密技術",
+      "type": "technique",
+      "display_name": "非對稱金鑰演算法"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "rsa",
+      "type": "technique",
+      "display_name": "RSA"
+    },
+    "reasoning": "文本將 RSA 列為公開金鑰（非對稱金鑰）演算法的具體例子，RSA 是該技術的具體實作工具。",
+    "source_id": "chunk_3",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '非對稱金鑰演算法' 是 'technique' 的合理實例，受體 'RSA' 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「非對稱式金鑰加密技術」為同義詞；受體與 Ldr 中的「rsa」為完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "非對稱式金鑰加密技術",
+        "standard_object": "rsa",
+        "reason": "主體與 Ldr 中的「非對稱式金鑰加密技術」為同義詞；受體與 Ldr 中的「rsa」為完全等價同義詞，故判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> has_a -> technique (original: technique -> has_a -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "非對稱金鑰演算法",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "RSA",
+        "type": "tool"
+      },
+      "reasoning": "文本將 RSA 列為公開金鑰（非對稱金鑰）演算法的具體例子，RSA 是該技術的具體實作工具。",
+      "source_id": "chunk_3",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa",
+      "type": "technique",
+      "display_name": "RSA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "加密"
+    },
+    "reasoning": "RSA 作為一種加密工具，其核心功能包含執行加密動作。",
+    "source_id": "chunk_3",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "RSA 是一種加密工具，因此其名稱與類別 'tool' 合理對齊。加密是其功能，因此其名稱與類別 'function' 合理對齊。",
+        "response": "correct",
+        "reason": "RSA 是一種加密工具，具有加密功能，因此完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "rsa",
+        "standard_object": "加密",
+        "reason": "根據資安領域已知同義詞對照範例，加密 ≡ 資料加密（作為動詞/技術時），判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> has_a -> feature (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密",
+        "type": "function"
+      },
+      "reasoning": "RSA 作為一種加密工具，其核心功能包含執行加密動作。",
+      "source_id": "chunk_3",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa",
+      "type": "technique",
+      "display_name": "RSA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "解密",
+      "type": "function",
+      "display_name": "解密"
+    },
+    "reasoning": "RSA 作為一種加密工具，其核心功能包含執行解密動作。",
+    "source_id": "chunk_3",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 10,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'RSA' 是一種加密工具，因此其類別 'tool' 合理；受體 '解密' 是一種功能，因此其類別 'function' 合理。",
+        "response": "correct",
+        "reason": "RSA 是一種加密工具，具有解密功能，因此三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (Subject) RSA 與 Ldr 中的 rsa 完全等價同義詞；受體 (Object) 解密 與 Ldr 中的 解密 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "rsa",
+        "standard_object": "解密",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> has_a -> function (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "解密",
+        "type": "function"
+      },
+      "reasoning": "RSA 作為一種加密工具，其核心功能包含執行解密動作。",
+      "source_id": "chunk_3",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "rsa",
+      "type": "technique",
+      "display_name": "RSA"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "密文",
+      "type": "data",
+      "display_name": "密文"
+    },
+    "reasoning": "文本描述使用加密演算法（如 RSA）將資料加密成密文，因此工具會產生密文資料。",
+    "source_id": "chunk_3",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "RSA 是一種加密工具，能夠生成密文，因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "RSA 生成密文的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 'rsa' 完全等價同義詞；受體與 Ldr 中的資源 '密文' 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，但根據判斷準則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> generates -> data (original: tool -> generates -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "RSA",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "密文",
+        "type": "data"
+      },
+      "reasoning": "文本描述使用加密演算法（如 RSA）將資料加密成密文，因此工具會產生密文資料。",
+      "source_id": "chunk_3",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 11
+    }
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "pdca (plan-do-check-act)",
+      "type": "technique",
+      "display_name": "PDCA (Plan-Do-Check-Act)"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊安全管理系統 (isms)",
+      "type": "system",
+      "display_name": "資訊安全管理系統 (ISMS)"
+    },
+    "reasoning": "根據題幹與正確答案，PDCA 是一種用來持續改善 ISMS 的方法。在 PDCA 循環中，「檢查 (Check)」階段的核心即是對系統的執行結果進行分析與評估，因此將 PDCA 視為 technique，ISMS 視為 system，並使用 can_analyze 關係，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+    "source_id": "question_IPAS-109-MGT-004",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "PDCA (Plan-Do-Check-Act) 是一種合理的 'technique' 實例，資訊安全管理系統 (ISMS) 是一種合理的 'system' 實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。",
+        "response": "correct",
+        "reason": "主體 PDCA (Plan-Do-Check-Act) 的類別是 technique，符合規則2 的允許條件。另外，主體的類別不是 vulnerability，因此不觸發規則3。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "PDCA (Plan-Do-Check-Act)",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊安全管理系統 (ISMS)",
+        "type": "system"
+      },
+      "reasoning": "根據題幹與正確答案，PDCA 是一種用來持續改善 ISMS 的方法。在 PDCA 循環中，「檢查 (Check)」階段的核心即是對系統的執行結果進行分析與評估，因此將 PDCA 視為 technique，ISMS 視為 system，並使用 can_analyze 關係，符合 ('technique', 'can_analyze', 'system') 的 Schema。",
+      "source_id": "question_IPAS-109-MGT-004",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊安全管理系統 (isms)",
+      "type": "system",
+      "display_name": "資訊安全管理系統 (ISMS)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "控制措施",
+      "type": "feature",
+      "display_name": "控制措施"
+    },
+    "reasoning": "題幹提到 ISMS 是為了「落實控制措施之實施」，這表示控制措施是 ISMS 系統中包含的組成部分或屬性。因此將 ISMS 視為 system，控制措施視為 feature，使用 has_a 關係，符合 ('system', 'has_a', 'feature') 的 Schema。",
+    "source_id": "question_IPAS-109-MGT-004",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊安全管理系統 (ISMS) 是系統 (system) 的合理實例，控制措施是特徵 (feature) 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源「資訊安全管理系統 (isms)」完全等價同義詞；受體與 Ldr 中的資源「控制項」具有相似性，但不完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全等價同義詞，但受體與 Ldr 中的資源不完全等價同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊安全管理系統 (ISMS)",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "控制措施",
+        "type": "feature"
+      },
+      "reasoning": "題幹提到 ISMS 是為了「落實控制措施之實施」，這表示控制措施是 ISMS 系統中包含的組成部分或屬性。因此將 ISMS 視為 system，控制措施視為 feature，使用 has_a 關係，符合 ('system', 'has_a', 'feature') 的 Schema。",
+      "source_id": "question_IPAS-109-MGT-004",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

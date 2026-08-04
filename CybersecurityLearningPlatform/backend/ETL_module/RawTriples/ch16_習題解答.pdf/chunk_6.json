@@ -9,7 +9,7 @@
       "name": "漏洞",
       "type": "vulnerability"
     },
-    "reasoning": "文本提到網站若缺乏定期檢測會產生漏洞，因此網站（app）可能會暴露漏洞（vulnerability）。",
+    "reasoning": "文本提到『漏洞，因為多數的網站可能並無定期...檢測』，暗示網站若缺乏檢測會暴露漏洞。符合 Schema 中 (app, can_expose, vulnerability) 的定義。",
     "source_id": "chunk_6",
     "source_file": "ch16_習題解答.pdf",
     "source_index": 1
@@ -21,10 +21,10 @@
     },
     "relation": "implements",
     "object": {
-      "name": "安全開發",
+      "name": "隨時監控",
       "type": "function"
     },
-    "reasoning": "文本指出專門的人員負責網站的安全開發，這屬於安全團隊（securityTeam）執行的一項功能（function）。",
+    "reasoning": "文本指出專門的人員負責『隨時監控』，此人員屬於安全團隊，監控是一種功能。符合 Schema 中 (securityTeam, implements, function) 的定義。",
     "source_id": "chunk_6",
     "source_file": "ch16_習題解答.pdf",
     "source_index": 2
@@ -36,40 +36,40 @@
     },
     "relation": "implements",
     "object": {
-      "name": "隨時監控",
-      "type": "function"
+      "name": "災難備援",
+      "type": "policy"
     },
-    "reasoning": "文本指出專門的人員負責隨時監控，這屬於安全團隊（securityTeam）執行的一項功能（function）。",
+    "reasoning": "文本提到人員負責『規劃災難備援等機制』，災難備援屬於資安策略/計畫。符合 Schema 中 (securityTeam, implements, policy) 的定義。",
     "source_id": "chunk_6",
     "source_file": "ch16_習題解答.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "開發與維護人員",
-      "type": "securityTeam"
+      "name": "VeriSign 安全機制",
+      "type": "tool"
     },
-    "relation": "implements",
+    "relation": "has_a",
     "object": {
-      "name": "災難備援計畫",
-      "type": "policy"
+      "name": "SSL",
+      "type": "feature"
     },
-    "reasoning": "文本提到規劃災難備援機制，這屬於安全團隊（securityTeam）實作的一項策略/計畫（policy）。",
+    "reasoning": "VeriSign 提供的機制中包含了 SSL 加密保護，SSL 在此作為該安全機制的技術特徵/協定。符合 Schema 中 (tool, has_a, feature) 的定義。",
     "source_id": "chunk_6",
     "source_file": "ch16_習題解答.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "SSL",
-      "type": "tool"
+      "name": "消費者",
+      "type": "user"
     },
-    "relation": "has_a",
+    "relation": "uses",
     "object": {
-      "name": "加密",
-      "type": "function"
+      "name": "網站",
+      "type": "app"
     },
-    "reasoning": "SSL 作為一種安全機制（在此視為 tool），其核心能力是提供加密（function）。",
+    "reasoning": "消費者在傳輸資料給網站伺服器，代表使用者在使用該應用程式。符合 Schema 中 (user, uses, app) 的定義。",
     "source_id": "chunk_6",
     "source_file": "ch16_習題解答.pdf",
     "source_index": 5
@@ -81,32 +81,47 @@
     },
     "relation": "uses",
     "object": {
-      "name": "網站伺服器",
-      "type": "system"
+      "name": "個人機密資料",
+      "type": "data"
     },
-    "reasoning": "消費者（user）在傳輸資料時會與網站伺服器（system）進行互動，符合 user uses system。",
+    "reasoning": "消費者傳輸個人機密資料，代表使用者操作該資料。符合 Schema 中 (user, uses, data) 的定義。",
     "source_id": "chunk_6",
     "source_file": "ch16_習題解答.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "消費者",
-      "type": "user"
+      "name": "稽核程序",
+      "type": "technique"
     },
-    "relation": "uses",
+    "relation": "is_part_of",
     "object": {
-      "name": "個人機密資料",
-      "type": "data"
+      "name": "WebTrust 認證服務",
+      "type": "technique"
     },
-    "reasoning": "消費者（user）傳輸其個人機密資料（data），符合 user uses data。",
+    "reasoning": "WebTrust 認證服務中包含稽核程序，兩者皆為達到認證目的的方法/流程。符合 Schema 中 (technique, is_part_of, technique) 的定義。",
     "source_id": "chunk_6",
     "source_file": "ch16_習題解答.pdf",
     "source_index": 7
   },
   {
     "subject": {
-      "name": "WebTrust認證服務",
+      "name": "稽核人員",
+      "type": "securityTeam"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "AICPA 及 CICA 準則",
+      "type": "policy"
+    },
+    "reasoning": "雖然文本未直接寫出『人員』，但『進行稽核程序』必須由專業人員執行，且該程序是根據準則（policy）進行。符合 Schema 中 (securityTeam, implements, policy) 的定義。",
+    "source_id": "chunk_6",
+    "source_file": "ch16_習題解答.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "WebTrust 認證服務",
       "type": "technique"
     },
     "relation": "can_analyze",
@@ -114,9 +129,9 @@
       "name": "網站",
       "type": "app"
     },
-    "reasoning": "WebTrust 認證服務透過稽核程序來檢查網站的實務與保護狀況，因此是一種分析網站（app）的技術（technique）。",
+    "reasoning": "WebTrust 認證服務透過稽核程序來分析網站的實務與保護狀況。符合 Schema 中 (technique, can_analyze, app) 的定義。",
     "source_id": "chunk_6",
     "source_file": "ch16_習題解答.pdf",
-    "source_index": 8
+    "source_index": 9
   }
 ]

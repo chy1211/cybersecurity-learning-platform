@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "subject": {
+      "name": "記憶體",
+      "type": "feature",
+      "display_name": "記憶體"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "堆疊",
+      "type": "feature",
+      "display_name": "堆疊"
+    },
+    "reasoning": "文本提到暫存記憶等存在於堆疊中，且圖表顯示記憶體配置包含堆疊。記憶體作為基礎設施(system)，堆疊是其組成部分(feature)。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "主體 '記憶體' 是 'system' 的合理實例，受體 '堆疊' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "堆疊 (stack) 是堆積 (heap) 的相關概念，但非完全等價同義詞；記憶體與堆疊之間存在著廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "記憶體與堆疊之間存在著廣義/狹義從屬關係，記憶體是堆疊的母類"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> feature (original: system -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "記憶體",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "堆疊",
+        "type": "feature"
+      },
+      "reasoning": "文本提到暫存記憶等存在於堆疊中，且圖表顯示記憶體配置包含堆疊。記憶體作為基礎設施(system)，堆疊是其組成部分(feature)。",
+      "source_id": "chunk_10",
+      "source_file": "第07章 網路安全概論_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "記憶體",
+      "type": "feature",
+      "display_name": "記憶體"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "堆積",
+      "type": "feature",
+      "display_name": "堆積"
+    },
+    "reasoning": "文本提到暫存記憶等存在於堆積中，且圖表顯示記憶體配置包含堆積。記憶體作為基礎設施(system)，堆積是其組成部分(feature)。",
+    "source_id": "chunk_10",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '記憶體' 是 'system' 的合理實例，受體 '堆積' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "堆積是記憶體的一部分，兩者之間存在狹義關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "堆積是記憶體的一部分，兩者之間存在狹義關係，因此不應合併"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> feature (original: system -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "記憶體",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "堆積",
+        "type": "feature"
+      },
+      "reasoning": "文本提到暫存記憶等存在於堆積中，且圖表顯示記憶體配置包含堆積。記憶體作為基礎設施(system)，堆積是其組成部分(feature)。",
+      "source_id": "chunk_10",
+      "source_file": "第07章 網路安全概論_e5.pdf",
+      "source_index": 2
+    }
+  }
+]

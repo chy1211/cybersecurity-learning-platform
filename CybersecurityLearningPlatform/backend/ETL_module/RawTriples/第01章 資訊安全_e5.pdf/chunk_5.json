@@ -1,63 +1,48 @@
 [
   {
     "subject": {
-      "name": "機房",
+      "name": "電腦主機",
       "type": "system"
     },
-    "relation": "has_a",
+    "relation": "is_part_of",
     "object": {
-      "name": "監視系統",
-      "type": "tool"
+      "name": "實體資產",
+      "type": "system"
     },
-    "reasoning": "文本提到實體安全包含監視系統，且機房是重要地點，因此將機房視為系統，監視系統為其包含的工具。符合 ('system', 'has_a', 'tool')。",
+    "reasoning": "文本提到電腦主機是實體資產的例子。在本體論中，實體資產與電腦主機皆可視為系統(system)，且符合 ('system', 'is_part_of', 'system') 的 Schema。",
     "source_id": "chunk_5",
     "source_file": "第01章 資訊安全_e5.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "機房",
+      "name": "軟體系統",
       "type": "system"
     },
-    "relation": "has_a",
+    "relation": "is_part_of",
     "object": {
-      "name": "火災防護與消防系統",
-      "type": "tool"
+      "name": "虛擬資產",
+      "type": "system"
     },
-    "reasoning": "文本將火災防護與消防系統列為實體安全範疇，部署於機房等環境中。符合 ('system', 'has_a', 'tool')。",
+    "reasoning": "文本提到軟體系統屬於虛擬資產。兩者皆定義為系統(system)，符合 ('system', 'is_part_of', 'system') 的 Schema。",
     "source_id": "chunk_5",
     "source_file": "第01章 資訊安全_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "資料加密",
-      "type": "technique"
+      "name": "監視系統",
+      "type": "tool"
     },
     "relation": "is_part_of",
     "object": {
-      "name": "密碼學",
-      "type": "technique"
+      "name": "實體安全",
+      "type": "system"
     },
-    "reasoning": "文本指出密碼學技術應用於資料加密，資料加密是密碼學的一種具體技術實現。符合 ('technique', 'is_part_of', 'technique')。",
+    "reasoning": "文本將監視系統列為實體安全包含的範疇。監視系統為工具(tool)，實體安全為一個綜合的安全系統(system)，符合 ('tool', 'is_part_of', 'system') 的 Schema。",
     "source_id": "chunk_5",
     "source_file": "第01章 資訊安全_e5.pdf",
     "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "身分認證",
-      "type": "technique"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "密碼學",
-      "type": "technique"
-    },
-    "reasoning": "文本指出密碼學技術應用於身分認證，身分認證是密碼學的一種具體技術實現。符合 ('technique', 'is_part_of', 'technique')。",
-    "source_id": "chunk_5",
-    "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 4
   },
   {
     "subject": {
@@ -69,40 +54,40 @@
       "name": "網路安全威脅",
       "type": "attack"
     },
-    "reasoning": "文本明確將電腦駭客列為網路安全威脅的來源之一，駭客發起攻擊行為。符合 ('attacker', 'implements', 'attack')。",
+    "reasoning": "文本指出網路安全威脅的來源之一是電腦駭客。駭客為攻擊者(attacker)，威脅為攻擊行為(attack)，符合 ('attacker', 'implements', 'attack') 的 Schema。",
+    "source_id": "chunk_5",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "惡意員工",
+      "type": "attacker"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "惡意破壞",
+      "type": "attack"
+    },
+    "reasoning": "文本提到內部人員（如員工）的惡意破壞。在此情境下，員工扮演攻擊者(attacker)角色，破壞行為為攻擊(attack)，符合 ('attacker', 'implements', 'attack') 的 Schema。",
     "source_id": "chunk_5",
     "source_file": "第01章 資訊安全_e5.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "內部人員",
-      "type": "attacker"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "網路安全威脅",
+      "name": "病毒程式",
       "type": "attack"
     },
-    "reasoning": "文本提到內部人員的惡意破壞是網路安全威脅的來源，此處內部人員扮演攻擊者角色。符合 ('attacker', 'implements', 'attack')。",
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意軟體傳播",
+      "type": "attack"
+    },
+    "reasoning": "文本將病毒程式作為惡意軟體傳播的例子。兩者皆為攻擊(attack)類型，符合 ('attack', 'is_part_of', 'attack') 的 Schema。",
     "source_id": "chunk_5",
     "source_file": "第01章 資訊安全_e5.pdf",
     "source_index": 6
-  },
-  {
-    "subject": {
-      "name": "病毒攻擊",
-      "type": "attack"
-    },
-    "relation": "can_harm",
-    "object": {
-      "name": "網路系統",
-      "type": "system"
-    },
-    "reasoning": "文本提到惡意軟體（如病毒程式）的傳播是網路安全威脅，會對系統造成破壞。符合 ('attack', 'can_harm', 'system')。",
-    "source_id": "chunk_5",
-    "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 7
   },
   {
     "subject": {
@@ -114,10 +99,10 @@
       "name": "弱點",
       "type": "vulnerability"
     },
-    "reasoning": "文本指出網路系統包含複雜設施與協定，難免存在許多的弱點。符合 ('system', 'can_expose', 'vulnerability')。",
+    "reasoning": "文本提到網路系統包含複雜設施，難免存在許多弱點。符合 ('system', 'can_expose', 'vulnerability') 的 Schema。",
     "source_id": "chunk_5",
     "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 8
+    "source_index": 7
   },
   {
     "subject": {
@@ -129,10 +114,10 @@
       "name": "弱點",
       "type": "vulnerability"
     },
-    "reasoning": "文本明確提到「攻擊者利用系統的弱點做為入侵點」。符合 ('attacker', 'can_exploit', 'vulnerability')。",
+    "reasoning": "文本明確指出「攻擊者利用系統的弱點做為入侵點」，符合 ('attacker', 'can_exploit', 'vulnerability') 的 Schema。",
     "source_id": "chunk_5",
     "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 9
+    "source_index": 8
   },
   {
     "subject": {
@@ -141,27 +126,27 @@
     },
     "relation": "can_harm",
     "object": {
-      "name": "網路系統",
+      "name": "系統",
       "type": "system"
     },
-    "reasoning": "文本提到攻擊者利用弱點對系統進行破壞。符合 ('attacker', 'can_harm', 'system')。",
+    "reasoning": "文本提到攻擊者利用弱點對系統進行破壞，這是一種危害行為，符合 ('attacker', 'can_harm', 'system') 的 Schema。",
     "source_id": "chunk_5",
     "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 10
+    "source_index": 9
   },
   {
     "subject": {
-      "name": "防火牆",
-      "type": "tool"
+      "name": "駭客",
+      "type": "attacker"
     },
-    "relation": "mitigates",
+    "relation": "uses",
     "object": {
-      "name": "網路安全威脅",
-      "type": "attack"
+      "name": "攻擊技術",
+      "type": "technique"
     },
-    "reasoning": "文本提到駭客嘗試「穿透防火牆」，暗示防火牆是用於防禦/緩解網路攻擊的工具。符合 ('tool', 'mitigates', 'attack')。",
+    "reasoning": "文本提到「駭客利用各種攻擊技術找到系統弱點」，符合 ('attacker', 'uses', 'technique') 的 Schema。",
     "source_id": "chunk_5",
     "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 11
+    "source_index": 10
   }
 ]

@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "主管機關",
+      "type": "securityTeam",
+      "display_name": "中央目的主管機關"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "個人資料保護法",
+      "type": "policy",
+      "display_name": "個人資料保護法"
+    },
+    "reasoning": "根據題幹，中央目的主管機關是執行「個人資料保護法」中關於限制國際傳輸個人資料權限的實體，因此選擇 securityTeam implements policy。",
+    "source_id": "question_ISN-109-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "中央目的主管機關 是 'securityTeam' 的合理實例；個人資料保護法 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是攻擊者。規則2不適用，因為關係不是mitigates。規則3不適用，因為主體不是漏洞。規則4不適用，因為受體不是資安原則。規則5不適用，因為關係不是uses且主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「主管機關」為同義詞；受體與 Ldr 中的「個人資料保護法」完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "主管機關",
+        "standard_object": "個人資料保護法",
+        "reason": "主體與 Ldr 中的「主管機關」為同義詞；受體與 Ldr 中的「個人資料保護法」完全等價同義詞，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "中央目的主管機關",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "個人資料保護法",
+        "type": "policy"
+      },
+      "reasoning": "根據題幹，中央目的主管機關是執行「個人資料保護法」中關於限制國際傳輸個人資料權限的實體，因此選擇 securityTeam implements policy。",
+      "source_id": "question_ISN-109-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "個人資料保護法",
+      "type": "policy",
+      "display_name": "個人資料保護法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "國家重大利益受損",
+      "type": "risk",
+      "display_name": "國家重大利益受損"
+    },
+    "reasoning": "本題為否定式提問，選項 A 為正確知識。法律允許主管機關在涉及國家重大利益時限制傳輸，目的是為了緩解（mitigates）國家利益受損的風險。",
+    "source_id": "question_ISN-109-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "個人資料保護法 是一種政策（policy），國家重大利益受損 是一種風險（risk），因此語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人資料保護法",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "國家重大利益受損",
+        "type": "risk"
+      },
+      "reasoning": "本題為否定式提問，選項 A 為正確知識。法律允許主管機關在涉及國家重大利益時限制傳輸，目的是為了緩解（mitigates）國家利益受損的風險。",
+      "source_id": "question_ISN-109-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "個人資料保護法",
+      "type": "policy",
+      "display_name": "個人資料保護法"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "損害當事人權益",
+      "type": "risk",
+      "display_name": "損害當事人權益"
+    },
+    "reasoning": "本題為否定式提問，選項 C 為正確知識。法律允許在接受國法規不完善時限制傳輸，以緩解（mitigates）當事人權益受損的風險。",
+    "source_id": "question_ISN-109-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "個人資料保護法 是 'policy' 的合理實例，損害當事人權益 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "個人資料保護法與損害當事人權益之間不存在同義詞關係，且無法確認彼此之間的從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人資料保護法",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "損害當事人權益",
+        "type": "risk"
+      },
+      "reasoning": "本題為否定式提問，選項 C 為正確知識。法律允許在接受國法規不完善時限制傳輸，以緩解（mitigates）當事人權益受損的風險。",
+      "source_id": "question_ISN-109-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

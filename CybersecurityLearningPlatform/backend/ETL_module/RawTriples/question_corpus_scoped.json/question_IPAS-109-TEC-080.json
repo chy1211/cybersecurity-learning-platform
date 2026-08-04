@@ -1,0 +1,92 @@
+[
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "跨站指令碼攻擊",
+      "type": "attack"
+    },
+    "reasoning": "根據題幹與正確答案，駭客使用跨站指令碼攻擊 (XSS) 來取得資料，符合 attacker implements attack 的 Schema。",
+    "source_id": "question_IPAS-109-TEC-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "跨站指令碼攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "機敏資料",
+      "type": "data"
+    },
+    "reasoning": "XSS 攻擊的目的在於取得 Cookie 中的機敏資料，這會對資料的機密性造成危害，符合 attack can_harm data 的 Schema。",
+    "source_id": "question_IPAS-109-TEC-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "網頁瀏覽器",
+      "type": "app"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "Cookies",
+      "type": "feature"
+    },
+    "reasoning": "Cookies 是網頁瀏覽器的一項功能/特徵，符合 app has_a feature 的 Schema。",
+    "source_id": "question_IPAS-109-TEC-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "Cookies",
+      "type": "feature"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "機敏資料",
+      "type": "data"
+    },
+    "reasoning": "題幹提到將使用者帳密（機敏資料）儲存在 Cookie 之中，表示 Cookies 此特徵使用了/承載了該資料，符合 feature uses data 的 Schema。",
+    "source_id": "question_IPAS-109-TEC-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "Cookies",
+      "type": "feature"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "缺乏加密保護",
+      "type": "vulnerability"
+    },
+    "reasoning": "題幹指出若 Cookies 並未使用加密保護機制，會形成安全漏洞，符合 feature can_expose vulnerability 的 Schema。",
+    "source_id": "question_IPAS-109-TEC-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "缺乏加密保護",
+      "type": "vulnerability"
+    },
+    "reasoning": "駭客利用（exploit）Cookies 缺乏加密保護的漏洞來取得機敏資料，符合 attacker can_exploit vulnerability 的 Schema。",
+    "source_id": "question_IPAS-109-TEC-080",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 6
+  }
+]

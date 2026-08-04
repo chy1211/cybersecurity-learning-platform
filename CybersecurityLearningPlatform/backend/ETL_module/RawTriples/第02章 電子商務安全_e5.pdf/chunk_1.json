@@ -9,7 +9,7 @@
       "name": "網際網路",
       "type": "system"
     },
-    "reasoning": "文本提到電子商務是應用網際網路來進行交易活動，因此電子商務（應用程式/服務）依賴於網際網路（系統基礎設施）。符合 Schema: (\"app\", \"depends_on\", \"system\")",
+    "reasoning": "文本提到『電子商務是應用網際網路...以進行交易活動』，表示電子商務作為一種應用服務，依賴於網際網路這個基礎設施系統。符合 Schema: (\"app\", \"depends_on\", \"system\")。",
     "source_id": "chunk_1",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 1
@@ -24,7 +24,7 @@
       "name": "企業網路",
       "type": "system"
     },
-    "reasoning": "文本提到電子商務應用企業網路（intranet）來進行交易，因此電子商務依賴於企業網路系統。符合 Schema: (\"app\", \"depends_on\", \"system\")",
+    "reasoning": "文本提到電子商務應用於『企業網路』，表示其運作依賴於此系統。符合 Schema: (\"app\", \"depends_on\", \"system\")。",
     "source_id": "chunk_1",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 2
@@ -39,7 +39,7 @@
       "name": "加值網路",
       "type": "system"
     },
-    "reasoning": "文本提到電子商務應用加值網路（value added network）來進行交易，因此電子商務依賴於加值網路系統。符合 Schema: (\"app\", \"depends_on\", \"system\")",
+    "reasoning": "文本提到電子商務應用於『加值網路』，表示其運作依賴於此系統。符合 Schema: (\"app\", \"depends_on\", \"system\")。",
     "source_id": "chunk_1",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 3
@@ -49,12 +49,12 @@
       "name": "電子商務",
       "type": "app"
     },
-    "relation": "has_a",
+    "relation": "depends_on",
     "object": {
-      "name": "電子資金轉換",
-      "type": "tool"
+      "name": "資訊技術",
+      "type": "system"
     },
-    "reasoning": "電子資金轉換（EFT）是電子商務時代開啟的具體交易工具/機制，視為電子商務應用所包含的工具。符合 Schema: (\"app\", \"has_a\", \"tool\")",
+    "reasoning": "文本提到電子商務是『與資訊技術，以進行交易活動』，資訊技術在此被視為支撐電子商務運作的整體系統。符合 Schema: (\"app\", \"depends_on\", \"system\")。",
     "source_id": "chunk_1",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 4
@@ -66,10 +66,10 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "電子資料交換",
+      "name": "電子資金轉換",
       "type": "tool"
     },
-    "reasoning": "電子資料交換（EDI）是電子商務中用於傳輸資料的具體工具/機制。符合 Schema: (\"app\", \"has_a\", \"tool\")",
+    "reasoning": "文本提到電子商務時代是由『電子資金轉換』開啟，這是一種在電子商務中實現交易的具體工具/機制。符合 Schema: (\"app\", \"has_a\", \"tool\")。",
     "source_id": "chunk_1",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 5
@@ -81,13 +81,43 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "電子郵件",
+      "name": "電子資料交換",
       "type": "tool"
     },
-    "reasoning": "電子郵件是電子商務應用中使用的通訊工具。符合 Schema: (\"app\", \"has_a\", \"tool\")",
+    "reasoning": "文本提到電子商務推展『電子資料交換』，這是一種用於商務交易的工具/技術。符合 Schema: (\"app\", \"has_a\", \"tool\")。",
     "source_id": "chunk_1",
     "source_file": "第02章 電子商務安全_e5.pdf",
     "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "電子商務",
+      "type": "app"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "電子郵件",
+      "type": "tool"
+    },
+    "reasoning": "文本提到電子商務應用『電子郵件』，將其視為電子商務生態中的通訊工具。符合 Schema: (\"app\", \"has_a\", \"tool\")。",
+    "source_id": "chunk_1",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "安全威脅",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "網際網路",
+      "type": "system"
+    },
+    "reasoning": "文本提到『網路一旦受到安全威脅』，安全威脅在此被定義為攻擊行為，會對網路系統造成危害。符合 Schema: (\"attack\", \"can_harm\", \"system\")。",
+    "source_id": "chunk_1",
+    "source_file": "第02章 電子商務安全_e5.pdf",
+    "source_index": 8
   },
   {
     "subject": {
@@ -99,9 +129,9 @@
       "name": "電子商務",
       "type": "app"
     },
-    "reasoning": "文本明確指出「網路一旦受到安全威脅，電子商務也將遭受到嚴重的損失」，因此安全威脅（攻擊）可危害電子商務（應用）。符合 Schema: (\"attack\", \"can_harm\", \"app\")",
+    "reasoning": "文本提到網路受到威脅後，『電子商務也將遭受到嚴重的損失』，表示攻擊會危害到電子商務應用。符合 Schema: (\"attack\", \"can_harm\", \"app\")。",
     "source_id": "chunk_1",
     "source_file": "第02章 電子商務安全_e5.pdf",
-    "source_index": 7
+    "source_index": 9
   }
 ]

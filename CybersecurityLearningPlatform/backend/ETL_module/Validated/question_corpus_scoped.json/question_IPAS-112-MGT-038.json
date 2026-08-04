@@ -1,0 +1,366 @@
+[
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "釣魚攻擊",
+      "type": "attack",
+      "display_name": "郵件釣魚攻擊"
+    },
+    "reasoning": "根據選項 B，攻擊者會進行郵件釣魚攻擊。在 Schema 中，攻擊者執行攻擊行為對應 ('attacker', 'implements', 'attack')。",
+    "source_id": "question_IPAS-112-MGT-038",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 可以實施郵件釣魚攻擊 (attack)，這是合理的語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊正確。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "攻擊者",
+        "standard_object": "釣魚攻擊",
+        "reason": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "郵件釣魚攻擊",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 B，攻擊者會進行郵件釣魚攻擊。在 Schema 中，攻擊者執行攻擊行為對應 ('attacker', 'implements', 'attack')。",
+      "source_id": "question_IPAS-112-MGT-038",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "釣魚攻擊",
+      "type": "attack",
+      "display_name": "郵件釣魚攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "帳戶",
+      "type": "system",
+      "display_name": "帳戶"
+    },
+    "reasoning": "選項 B 提到釣魚攻擊的目的是為了進入（入侵）帳戶。帳戶在此視為被攻擊的目標系統，對應 ('attack', 'can_harm', 'system')。",
+    "source_id": "question_IPAS-112-MGT-038",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "郵件釣魚攻擊的類別 'attack' 存在於 Lc,p 的 'Classes' 中，帳戶的類別 'system' 存在於 Lc,p 的 'Classes' 中，關係 'can_harm' 存在於 Lc,p 的 'Properties' 中。",
+        "step_2_alignment_check": "郵件釣魚攻擊是 'attack' 的合理實例，帳戶是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "郵件釣魚攻擊的類別、帳戶的類別與關係 'can_harm' 都符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8 都不適用於此三元組，因為郵件釣魚攻擊 (類別: attack) 與帳戶 (類別: system) 的關係 can_harm 不違反任何規則。",
+        "response": "correct",
+        "reason": "郵件釣魚攻擊 (類別: attack) 與帳戶 (類別: system) 的關係 can_harm 合法，未發現任何違反語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "郵件釣魚攻擊與釣魚攻擊是同義詞",
+        "response": "duplicate",
+        "standard_subject": "釣魚攻擊",
+        "standard_object": "",
+        "reason": "郵件釣魚攻擊與釣魚攻擊是同義詞，根據同義詞判定準則，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "郵件釣魚攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "帳戶",
+        "type": "system"
+      },
+      "reasoning": "選項 B 提到釣魚攻擊的目的是為了進入（入侵）帳戶。帳戶在此視為被攻擊的目標系統，對應 ('attack', 'can_harm', 'system')。",
+      "source_id": "question_IPAS-112-MGT-038",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "第三方 2fa 服務",
+      "type": "app",
+      "display_name": "第三方 2FA 服務"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全漏洞",
+      "type": "vulnerability",
+      "display_name": "安全漏洞"
+    },
+    "reasoning": "選項 C 提到使用安全性低的第三方服務實現 2FA 可能導致安全漏洞。對應 ('app', 'can_expose', 'vulnerability')。",
+    "source_id": "question_IPAS-112-MGT-038",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "第三方 2FA 服務 可以被視為 'app' 的合理實例，安全漏洞 可以被視為 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體為第三方 2FA 服務 (類別: app)，不違反規則3；關係為 can_expose，受體為安全漏洞 (類別: vulnerability)，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "安全漏洞",
+        "reason": "受體與 Ldr 中的「安全漏洞」完全相同，且「漏洞」、「弱點」、「脆弱性」為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "第三方 2FA 服務",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "選項 C 提到使用安全性低的第三方服務實現 2FA 可能導致安全漏洞。對應 ('app', 'can_expose', 'vulnerability')。",
+      "source_id": "question_IPAS-112-MGT-038",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "安全漏洞",
+      "type": "vulnerability",
+      "display_name": "安全漏洞"
+    },
+    "reasoning": "選項 C 提到漏洞會讓攻擊者入侵帳戶，這隱含了攻擊者利用漏洞的行為。對應 ('attacker', 'can_exploit', 'vulnerability')。",
+    "source_id": "question_IPAS-112-MGT-038",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是攻擊者的合理實例，安全漏洞 (vulnerability) 是漏洞的合理實例，且 'can_exploit' 是攻擊者與漏洞之間的合理關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，關係為 can_exploit，受體類別為 vulnerability，符合規則3的特例允許，且其他規則均不觸發。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "攻擊者",
+        "standard_object": "安全漏洞",
+        "reason": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "安全漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "選項 C 提到漏洞會讓攻擊者入侵帳戶，這隱含了攻擊者利用漏洞的行為。對應 ('attacker', 'can_exploit', 'vulnerability')。",
+      "source_id": "question_IPAS-112-MGT-038",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "偽造應用程式",
+      "type": "tool",
+      "display_name": "偽造應用程式"
+    },
+    "reasoning": "選項 D 提到攻擊者通過偽造應用程式來竊取代碼。偽造應用程式屬於攻擊工具，對應 ('attacker', 'uses', 'tool')。",
+    "source_id": "question_IPAS-112-MGT-038",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，偽造應用程式 (tool) 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：主體 (Subject) 攻擊者 (attacker) 符合具有主動執行能力的角色，但關係為 uses，不是 controls，因此無關。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中的資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "偽造應用程式",
+        "type": "tool"
+      },
+      "reasoning": "選項 D 提到攻擊者通過偽造應用程式來竊取代碼。偽造應用程式屬於攻擊工具，對應 ('attacker', 'uses', 'tool')。",
+      "source_id": "question_IPAS-112-MGT-038",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "2fa 代碼",
+      "type": "data",
+      "display_name": "2FA 代碼"
+    },
+    "reasoning": "選項 D 提到攻擊者竊取 2FA 代碼。竊取敏感資訊屬於對資料的危害/非法獲取，對應 ('attacker', 'can_harm', 'data')。",
+    "source_id": "question_IPAS-112-MGT-038",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'data' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，2FA 代碼 (data) 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：主體 (attacker) 符合具有主動執行能力的角色，但關係 (can_harm) 不是 controls，故無關。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源部分相似，但不完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全等價同義詞，但受體與 Ldr 中的資源不完全等價同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "2FA 代碼",
+        "type": "data"
+      },
+      "reasoning": "選項 D 提到攻擊者竊取 2FA 代碼。竊取敏感資訊屬於對資料的危害/非法獲取，對應 ('attacker', 'can_harm', 'data')。",
+      "source_id": "question_IPAS-112-MGT-038",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "帳戶",
+      "type": "system",
+      "display_name": "帳戶"
+    },
+    "reasoning": "選項 D 提到竊取代碼的最終目的是進入（入侵）帳戶。對應 ('attacker', 'can_harm', 'system')。",
+    "source_id": "question_IPAS-112-MGT-038",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，帳戶 (system) 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：無關，因為主體是攻擊者，具有主動執行能力的角色。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "帳戶",
+        "type": "system"
+      },
+      "reasoning": "選項 D 提到竊取代碼的最終目的是進入（入侵）帳戶。對應 ('attacker', 'can_harm', 'system')。",
+      "source_id": "question_IPAS-112-MGT-038",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 7
+    }
+  }
+]

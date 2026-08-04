@@ -1,6 +1,21 @@
 [
   {
     "subject": {
+      "name": "控制措施",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊風險",
+      "type": "risk"
+    },
+    "reasoning": "文本提到『透過控制措施，降低資訊風險』。在 Schema 中，policy 可以 mitigates risk，因此將控制措施視為一種策略/規範。",
+    "source_id": "chunk_4",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
       "name": "持續營運計畫",
       "type": "policy"
     },
@@ -9,29 +24,29 @@
       "name": "營運中斷",
       "type": "risk"
     },
-    "reasoning": "文本提到透過實施持續營運計畫來將營運中斷機會降低至可接受程度，符合 policy mitigates risk 的定義。",
-    "source_id": "chunk_4",
-    "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "控制措施",
-      "type": "tool"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "資訊風險",
-      "type": "risk"
-    },
-    "reasoning": "文本指出透過控制措施降低資訊風險，將控制措施視為一種防禦工具/機制，符合 tool mitigates risk 的定義。",
+    "reasoning": "文本指出實施持續營運計畫可將營運中斷機會降低至可接受程度。符合 ('policy', 'mitigates', 'risk') 的定義。",
     "source_id": "chunk_4",
     "source_file": "第01章 資訊安全_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "資安教育訓練",
+      "name": "一般使用者",
+      "type": "user"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資訊法律",
+      "type": "policy"
+    },
+    "reasoning": "文本提到資訊法律是規範個人與組織使用資訊之責任的法令，意味著使用者需遵守（實作）此規範。符合 ('user', 'implements', 'policy')。",
+    "source_id": "chunk_4",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "資訊安全教育訓練",
       "type": "technique"
     },
     "relation": "mitigates",
@@ -39,25 +54,40 @@
       "name": "釣魚攻擊",
       "type": "attack"
     },
-    "reasoning": "文本將教育訓練列為管理範疇並舉例釣魚攻擊，隱含教育訓練是用於防禦此類攻擊，符合 technique mitigates attack 的定義。",
+    "reasoning": "文本將教育訓練與防治釣魚網站/郵件聯繫在一起。教育訓練是一種防禦技術，可用於緩解攻擊。符合 ('technique', 'mitigates', 'attack')。",
     "source_id": "chunk_4",
     "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 3
+    "source_index": 4
   },
   {
     "subject": {
       "name": "釣魚攻擊",
       "type": "attack"
     },
-    "relation": "can_harm",
+    "relation": "depends_on",
     "object": {
-      "name": "認證資訊",
-      "type": "data"
+      "name": "釣魚網站",
+      "type": "tool"
     },
-    "reasoning": "釣魚攻擊（Phishing）的目的是獲取敏感資料（如帳密），符合 attack can_harm data 的邏輯。",
+    "reasoning": "文本提到網路上出現釣魚網站作為攻擊手段。釣魚攻擊依賴於虛構的網站工具來執行。符合 ('attack', 'depends_on', 'tool')。",
     "source_id": "chunk_4",
     "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 4
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "釣魚攻擊",
+      "type": "attack"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "釣魚郵件",
+      "type": "tool"
+    },
+    "reasoning": "同上，釣魚郵件是執行釣魚攻擊的具體工具。符合 ('attack', 'depends_on', 'tool')。",
+    "source_id": "chunk_4",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 6
   },
   {
     "subject": {
@@ -69,25 +99,25 @@
       "name": "企業風險",
       "type": "risk"
     },
-    "reasoning": "文本明確提到有效的資產管理可以減少企業風險，符合 policy mitigates risk 的定義。",
+    "reasoning": "文本明確提到『有效的資產管理可以...減少企業風險』。將資產管理視為一種管理策略。符合 ('policy', 'mitigates', 'risk')。",
     "source_id": "chunk_4",
     "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 5
+    "source_index": 7
   },
   {
     "subject": {
       "name": "電腦主機",
       "type": "system"
     },
-    "relation": "is_part_of",
+    "relation": "has_a",
     "object": {
-      "name": "實體資產",
-      "type": "system"
+      "name": "周邊設備",
+      "type": "feature"
     },
-    "reasoning": "文本將電腦主機列為實體資產的例子，符合 system is_part_of system 的定義。",
+    "reasoning": "文本將電腦主機與周邊設備列為實體資產，在邏輯上周邊設備是主機系統的組成部分或特徵。符合 ('system', 'has_a', 'feature')。",
     "source_id": "chunk_4",
     "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 6
+    "source_index": 8
   },
   {
     "subject": {
@@ -99,10 +129,10 @@
       "name": "虛擬資產",
       "type": "system"
     },
-    "reasoning": "文本將軟體系統列為虛擬資產的例子，符合 app is_part_of system 的定義。",
+    "reasoning": "文本將軟體系統歸類為無形的虛擬資產。符合 ('app', 'is_part_of', 'system')。",
     "source_id": "chunk_4",
     "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 7
+    "source_index": 9
   },
   {
     "subject": {
@@ -114,37 +144,7 @@
       "name": "風險管理",
       "type": "function"
     },
-    "reasoning": "風險管理被描述為資訊安全管理的重要部分，由資安管理人員執行，符合 securityTeam implements function 的定義。",
-    "source_id": "chunk_4",
-    "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 8
-  },
-  {
-    "subject": {
-      "name": "資訊法律",
-      "type": "policy"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "資訊風險",
-      "type": "risk"
-    },
-    "reasoning": "法律是用於規範責任以降低違規或濫用資訊的風險，符合 policy mitigates risk 的定義。",
-    "source_id": "chunk_4",
-    "source_file": "第01章 資訊安全_e5.pdf",
-    "source_index": 9
-  },
-  {
-    "subject": {
-      "name": "駭客",
-      "type": "attacker"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "釣魚網站",
-      "type": "tool"
-    },
-    "reasoning": "文本提到網路上出現釣魚網站，這類工具是由攻擊者使用來發起攻擊，符合 attacker uses tool 的定義。",
+    "reasoning": "文本提到風險管理是資訊安全管理的重要部分，這通常由資安團隊執行。符合 ('securityTeam', 'implements', 'function')。",
     "source_id": "chunk_4",
     "source_file": "第01章 資訊安全_e5.pdf",
     "source_index": 10

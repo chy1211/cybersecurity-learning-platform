@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "硬碟",
+      "type": "feature",
+      "display_name": "硬碟"
+    },
+    "reasoning": "伺服器包含硬碟，硬碟是系統的物理組成部分，因此將其歸類為 feature，符合 ('system', 'has_a', 'feature') 的 Schema。",
+    "source_id": "question_IPAS-108-TEC-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "伺服器 (server) 是系統 (system) 的合理實例，硬碟 (hard disk) 是功能 (feature) 的合理實例。",
+        "response": "correct",
+        "reason": "伺服器與硬碟之間的 'has_a' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係為 has_a，與規則6無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，且無法確定彼此之間的關聯性。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "硬碟",
+        "type": "feature"
+      },
+      "reasoning": "伺服器包含硬碟，硬碟是系統的物理組成部分，因此將其歸類為 feature，符合 ('system', 'has_a', 'feature') 的 Schema。",
+      "source_id": "question_IPAS-108-TEC-036",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "伺服器",
+      "type": "system",
+      "display_name": "伺服器"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "raid 5",
+      "type": "tool",
+      "display_name": "RAID 5"
+    },
+    "reasoning": "題幹指出伺服器內使用了 RAID 5。為了能與後續的風險緩解關係建立連結，將 RAID 5 視為一種實現冗餘功能的技術工具 (tool)，符合 ('system', 'has_a', 'tool') 的 Schema。",
+    "source_id": "question_IPAS-108-TEC-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "伺服器 (server) 是系統 (system) 的合理實例，RAID 5 是工具 (tool) 的合理實例。",
+        "response": "correct",
+        "reason": "伺服器具有 RAID 5 的敘述在語意上是合理的，且完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "伺服器與 RAID 5 分別為系統與工具，無法判定為同義詞或子類型關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "伺服器",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "RAID 5",
+        "type": "tool"
+      },
+      "reasoning": "題幹指出伺服器內使用了 RAID 5。為了能與後續的風險緩解關係建立連結，將 RAID 5 視為一種實現冗餘功能的技術工具 (tool)，符合 ('system', 'has_a', 'tool') 的 Schema。",
+      "source_id": "question_IPAS-108-TEC-036",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "raid 5",
+      "type": "tool",
+      "display_name": "RAID 5"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "硬碟故障",
+      "type": "risk",
+      "display_name": "硬碟故障"
+    },
+    "reasoning": "本題的核心知識在於 RAID 5 具有容錯能力，即使單顆硬碟故障，系統仍能運作且無需立即回存備份。因此 RAID 5 (tool) 能緩解硬碟故障 (risk) 導致的系統崩潰或資料遺失，符合 ('tool', 'mitigates', 'risk') 的 Schema。",
+    "source_id": "question_IPAS-108-TEC-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "RAID 5 是一種資料儲存技術，通常用於提高資料可靠性和可用性，因此它可以被視為是一種工具 ('tool')，用於減少硬碟故障 ('risk') 的風險。這個語意是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 RAID 5 的類別是 tool，符合規則2的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中的資源 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RAID 5",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "硬碟故障",
+        "type": "risk"
+      },
+      "reasoning": "本題的核心知識在於 RAID 5 具有容錯能力，即使單顆硬碟故障，系統仍能運作且無需立即回存備份。因此 RAID 5 (tool) 能緩解硬碟故障 (risk) 導致的系統崩潰或資料遺失，符合 ('tool', 'mitigates', 'risk') 的 Schema。",
+      "source_id": "question_IPAS-108-TEC-036",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

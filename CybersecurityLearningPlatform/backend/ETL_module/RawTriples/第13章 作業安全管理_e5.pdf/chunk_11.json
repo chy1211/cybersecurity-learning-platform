@@ -24,22 +24,22 @@
       "name": "作業系統風險",
       "type": "risk"
     },
-    "reasoning": "文本明確提到『提供教育訓練，可以降低...作業系統風險』。教育訓練視為 policy，作業系統風險視為 risk，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
+    "reasoning": "文本明確提到『提供教育訓練，可以降低...作業系統風險』。符合 ('policy', 'mitigates', 'risk') 的 Schema。",
     "source_id": "chunk_11",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "人員",
-      "type": "attacker"
+      "name": "竊取與洩密",
+      "type": "attack"
     },
     "relation": "can_harm",
     "object": {
       "name": "資訊資產",
-      "type": "system"
+      "type": "data"
     },
-    "reasoning": "文本描述人員可能『故意的竊取、洩密、破壞或毀損』資訊資產。在這種惡意行為情境下，人員扮演的是 attacker 角色，資訊資產視為 system，符合 ('attacker', 'can_harm', 'system') 的 Schema。",
+    "reasoning": "文本提到人員可能故意的『竊取、洩密、破壞或毀損』資訊資產。這些行為屬於攻擊(attack)，資訊資產在此視為資料(data)，符合 ('attack', 'can_harm', 'data') 的 Schema。",
     "source_id": "chunk_11",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 3
@@ -49,27 +49,27 @@
       "name": "資訊技術人員",
       "type": "securityTeam"
     },
-    "relation": "can_analyze",
+    "relation": "implements",
     "object": {
-      "name": "資訊安全技術問題",
-      "type": "vulnerability"
+      "name": "資訊安全技術問題解決",
+      "type": "function"
     },
-    "reasoning": "文本提到資訊技術人員負責『資訊安全技術相關問題之解決』。解決問題的前提是分析問題，因此將其定義為 securityTeam 對 vulnerability 的分析，符合 ('securityTeam', 'can_analyze', 'vulnerability') 的 Schema。",
+    "reasoning": "文本指出『資訊技術人員應該負責資訊安全技術相關問題之解決』。資訊技術人員屬於安全團隊(securityTeam)，解決問題是一種功能/能力(function)，符合 ('securityTeam', 'implements', 'function') 的 Schema。",
     "source_id": "chunk_11",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "高階主管",
-      "type": "securityTeam"
+      "name": "一般人員",
+      "type": "user"
     },
-    "relation": "can_analyze",
+    "relation": "implements",
     "object": {
-      "name": "資安事件",
-      "type": "attack"
+      "name": "資安事件通報",
+      "type": "policy"
     },
-    "reasoning": "文本提到高階主管負責『重大事件之處理』。處理資安事件包含對攻擊事件的分析與決策，因此將其定義為 securityTeam 對 attack 的分析，符合 ('securityTeam', 'can_analyze', 'attack') 的 Schema。",
+    "reasoning": "文本提到『一般人員除負責資安事件通報外...』。通報義務是組織內的一項規範(policy)，一般人員為 user，符合 ('user', 'implements', 'policy') 的 Schema。",
     "source_id": "chunk_11",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 5
@@ -79,89 +79,29 @@
       "name": "人員",
       "type": "user"
     },
-    "relation": "uses",
+    "relation": "can_expose",
     "object": {
-      "name": "硬體資產",
-      "type": "system"
+      "name": "弱點",
+      "type": "vulnerability"
     },
-    "reasoning": "文本提到人員離職前應歸還『硬體資產』，暗示人員在職期間使用這些資產。符合 ('user', 'uses', 'system') 的 Schema。",
+    "reasoning": "文本提到人員在職期間可能造成故意或非故意的風險（如洩密、破壞）。在資安本體論中，使用者行為導致風險通常是透過暴露弱點(vulnerability)實現，符合 ('user', 'can_expose', 'vulnerability') 的 Schema。",
     "source_id": "chunk_11",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "人員",
-      "type": "user"
+      "name": "組織",
+      "type": "securityTeam"
     },
-    "relation": "uses",
+    "relation": "controls",
     "object": {
-      "name": "軟體資產",
-      "type": "app"
+      "name": "硬體資產",
+      "type": "system"
     },
-    "reasoning": "文本提到人員離職前應歸還『軟體資產』，暗示人員在職期間使用這些應用程式。符合 ('user', 'uses', 'app') 的 Schema。",
+    "reasoning": "文本提到離職前應將『硬體資產』歸還給組織，這隱含了組織對這些系統資產擁有控制權。組織在此視為管理實體(securityTeam)，硬體資產視為系統(system)，符合 ('securityTeam', 'controls', 'system') 的 Schema。",
     "source_id": "chunk_11",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "人員",
-      "type": "user"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "資料資產",
-      "type": "data"
-    },
-    "reasoning": "文本提到人員離職前應歸還『資料資產』，暗示人員在職期間使用這些資料。符合 ('user', 'uses', 'data') 的 Schema。",
-    "source_id": "chunk_11",
-    "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 8
-  },
-  {
-    "subject": {
-      "name": "員工",
-      "type": "securityTeam"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "防火牆管理",
-      "type": "function"
-    },
-    "reasoning": "文本提到組織提供『防火牆管理』等專業技能訓練。能執行管理的人員在此情境下扮演 securityTeam 角色，而管理行為是 function，符合 ('securityTeam', 'implements', 'function') 的 Schema。",
-    "source_id": "chunk_11",
-    "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 9
-  },
-  {
-    "subject": {
-      "name": "員工",
-      "type": "securityTeam"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "電腦網路管理",
-      "type": "function"
-    },
-    "reasoning": "同上，電腦網路管理被視為一種安全管理功能(function)，由受訓的資安人員(securityTeam)執行。符合 ('securityTeam', 'implements', 'function') 的 Schema。",
-    "source_id": "chunk_11",
-    "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 10
-  },
-  {
-    "subject": {
-      "name": "員工",
-      "type": "securityTeam"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "資料庫管理",
-      "type": "function"
-    },
-    "reasoning": "同上，資料庫管理被視為一種安全管理功能(function)，由受訓的資安人員(securityTeam)執行。符合 ('securityTeam', 'implements', 'function') 的 Schema。",
-    "source_id": "chunk_11",
-    "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 11
   }
 ]

@@ -4,12 +4,12 @@
       "name": "電子商務",
       "type": "system"
     },
-    "relation": "has_a",
+    "relation": "uses",
     "object": {
       "name": "資訊流",
-      "type": "feature"
+      "type": "data"
     },
-    "reasoning": "文本提到電子商務需要整合三項主要流程，其中包含資訊流。將電子商務視為一個整體系統 (system)，而資訊流是其組成之特徵/部分 (feature)，符合 ('system', 'has_a', 'feature')。",
+    "reasoning": "文本提到電子商務需要整合資訊流，將電子商務視為一個綜合性的基礎設施系統 (system)，而資訊流為其運作所需的資訊實體 (data)。符合 Schema: (system, uses, data)。",
     "source_id": "chunk_1",
     "source_file": "ch02_習題解答.pdf",
     "source_index": 1
@@ -19,12 +19,12 @@
       "name": "電子商務",
       "type": "system"
     },
-    "relation": "has_a",
+    "relation": "uses",
     "object": {
       "name": "資金流",
-      "type": "feature"
+      "type": "data"
     },
-    "reasoning": "文本提到電子商務需要整合三項主要流程，其中包含資金流。將電子商務視為系統 (system)，資金流為其特徵 (feature)，符合 ('system', 'has_a', 'feature')。",
+    "reasoning": "文本提到電子商務需要整合資金流，將電子商務視為系統 (system)，資金流視為資料 (data)。符合 Schema: (system, uses, data)。",
     "source_id": "chunk_1",
     "source_file": "ch02_習題解答.pdf",
     "source_index": 2
@@ -34,75 +34,15 @@
       "name": "電子商務",
       "type": "system"
     },
-    "relation": "has_a",
+    "relation": "uses",
     "object": {
       "name": "物流",
-      "type": "feature"
+      "type": "data"
     },
-    "reasoning": "文本提到電子商務需要整合三項主要流程，其中包含物流。將電子商務視為系統 (system)，物流為其特徵 (feature)，符合 ('system', 'has_a', 'feature')。",
+    "reasoning": "文本提到電子商務需要整合物流，將電子商務視為系統 (system)，物流視為資料 (data)。符合 Schema: (system, uses, data)。",
     "source_id": "chunk_1",
     "source_file": "ch02_習題解答.pdf",
     "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "B2C電子商務",
-      "type": "system"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "電子商務",
-      "type": "system"
-    },
-    "reasoning": "文本將 B2C 作為電子商務的一種分類。將 B2C 電子商務視為子系統，電子商務為父系統，符合 ('system', 'is_part_of', 'system')。",
-    "source_id": "chunk_1",
-    "source_file": "ch02_習題解答.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "B2B電子商務",
-      "type": "system"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "電子商務",
-      "type": "system"
-    },
-    "reasoning": "文本將 B2B 作為電子商務的一種分類。將 B2B 電子商務視為子系統，電子商務為父系統，符合 ('system', 'is_part_of', 'system')。",
-    "source_id": "chunk_1",
-    "source_file": "ch02_習題解答.pdf",
-    "source_index": 5
-  },
-  {
-    "subject": {
-      "name": "C2C電子商務",
-      "type": "system"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "電子商務",
-      "type": "system"
-    },
-    "reasoning": "文本將 C2C 作為電子商務的一種分類。將 C2C 電子商務視為子系統，電子商務為父系統，符合 ('system', 'is_part_of', 'system')。",
-    "source_id": "chunk_1",
-    "source_file": "ch02_習題解答.pdf",
-    "source_index": 6
-  },
-  {
-    "subject": {
-      "name": "O2O電子商務模式",
-      "type": "system"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "電子商務",
-      "type": "system"
-    },
-    "reasoning": "文本描述 O2O 是電子商務的一種模式。將 O2O 視為子系統，電子商務為父系統，符合 ('system', 'is_part_of', 'system')。",
-    "source_id": "chunk_1",
-    "source_file": "ch02_習題解答.pdf",
-    "source_index": 7
   },
   {
     "subject": {
@@ -114,10 +54,25 @@
       "name": "SSL安全交易協定",
       "type": "feature"
     },
-    "reasoning": "文本提到網站透過 SSL 安全交易協定來進行安全交易。將網站視為應用程式 (app)，SSL 協定視為其具備的安全特徵 (feature)，符合 ('app', 'has_a', 'feature')。",
+    "reasoning": "文本提到網站透過 SSL 安全交易協定進行交易。網站是具體的應用服務 (app)，而 SSL 協定是其具備的安全屬性/協定 (feature)。符合 Schema: (app, has_a, feature)。",
     "source_id": "chunk_1",
     "source_file": "ch02_習題解答.pdf",
-    "source_index": 8
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "網站",
+      "type": "app"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "憑證",
+      "type": "data"
+    },
+    "reasoning": "文本提到網站需要取得合法的憑證。網站為應用程式 (app)，憑證為認證資訊 (data)。符合 Schema: (app, uses, data)。",
+    "source_id": "chunk_1",
+    "source_file": "ch02_習題解答.pdf",
+    "source_index": 5
   },
   {
     "subject": {
@@ -129,10 +84,10 @@
       "name": "憑證",
       "type": "data"
     },
-    "reasoning": "文本提到 SSL 協定需要取得合法的憑證。協定 (feature) 使用憑證 (data) 來驗證身分，符合 ('feature', 'uses', 'data')。",
+    "reasoning": "SSL 協定的運作依賴於憑證的驗證。協定為特徵 (feature)，憑證為資料 (data)。符合 Schema: (feature, uses, data)。",
     "source_id": "chunk_1",
     "source_file": "ch02_習題解答.pdf",
-    "source_index": 9
+    "source_index": 6
   },
   {
     "subject": {
@@ -144,24 +99,24 @@
       "name": "憑證",
       "type": "data"
     },
-    "reasoning": "文本提到憑證是由受信賴的憑證機構所發出的。將憑證機構視為發證工具/系統 (tool)，其產出憑證 (data)，符合 ('tool', 'generates', 'data')。",
+    "reasoning": "文本提到憑證是由憑證機構所發出。將憑證機構視為執行發證功能的工具/系統 (tool)，憑證為產出的資料 (data)。符合 Schema: (tool, generates, data)。",
     "source_id": "chunk_1",
     "source_file": "ch02_習題解答.pdf",
-    "source_index": 10
+    "source_index": 7
   },
   {
     "subject": {
       "name": "憑證查核",
-      "type": "technique"
+      "type": "function"
     },
     "relation": "can_analyze",
     "object": {
       "name": "憑證",
       "type": "data"
     },
-    "reasoning": "文本提到在憑證查核時須檢查有效期限、名稱等項目。將查核過程視為一種技術/流程 (technique)，其分析憑證 (data) 的內容，符合 ('technique', 'can_analyze', 'data')。",
+    "reasoning": "憑證查核是一個檢查憑證有效性、名稱一致性的動作/能力。將其定義為功能 (function)，分析對象為憑證 (data)。符合 Schema: (function, can_analyze, data)。",
     "source_id": "chunk_1",
     "source_file": "ch02_習題解答.pdf",
-    "source_index": 11
+    "source_index": 8
   }
 ]

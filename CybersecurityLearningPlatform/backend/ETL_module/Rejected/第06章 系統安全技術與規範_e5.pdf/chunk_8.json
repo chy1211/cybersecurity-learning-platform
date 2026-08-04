@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "subject": {
+      "name": "後門程式",
+      "type": "tool",
+      "display_name": "後門程式"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "文本將後門程式作為惡意程式的具體例子，因此後門程式屬於惡意程式的一種。",
+    "source_id": "chunk_8",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "後門程式是攻擊的合理實例，惡意程式也是攻擊的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「後門程式」完全等價同義詞；受體與 Ldr 中的「惡意程式」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體都有完全等價同義詞，但根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> is_part_of -> attack (original: attack -> is_part_of -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "後門程式",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "文本將後門程式作為惡意程式的具體例子，因此後門程式屬於惡意程式的一種。",
+      "source_id": "chunk_8",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "可信賴電腦系統",
+      "type": "system",
+      "display_name": "可信賴電腦系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "事件管理",
+      "type": "function",
+      "display_name": "事件管理"
+    },
+    "reasoning": "文本提到可信賴電腦系統需能「管理意外事件或異常問題」，這是一種系統特徵/能力。",
+    "source_id": "chunk_8",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '可信賴電腦系統' 合理對齊其類別 'system'，受體名稱 '事件管理' 合理對齊其類別 'feature'，考慮到資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「可信賴電腦系統」完全等價同義詞；受體與 Ldr 中的「事件管理」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中的資源完全相同，無需進一步判斷。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> has_a -> function (original: system -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "可信賴電腦系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "事件管理",
+        "type": "feature"
+      },
+      "reasoning": "文本提到可信賴電腦系統需能「管理意外事件或異常問題」，這是一種系統特徵/能力。",
+      "source_id": "chunk_8",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 11
+    }
+  }
+]

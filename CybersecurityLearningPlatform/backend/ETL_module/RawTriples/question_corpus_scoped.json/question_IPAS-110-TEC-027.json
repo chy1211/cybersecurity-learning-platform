@@ -1,0 +1,62 @@
+[
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "備份存放在 WEB 目錄",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到佈署時管理員將備份存放在 WEB 目錄下，導致了漏洞，因此系統（或其佈署狀態）暴露了此項漏洞。",
+    "source_id": "question_IPAS-110-TEC-027",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "備份存放在 WEB 目錄",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本明確指出由於備份存放在 WEB 目錄，導致攻擊者可直接下載備份，這屬於利用漏洞的行為。",
+    "source_id": "question_IPAS-110-TEC-027",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "備份存放在 WEB 目錄",
+      "type": "vulnerability"
+    },
+    "reasoning": "正確答案指出滲透測試是發現此類問題（漏洞）的最佳方法。根據 Schema，technique 對 vulnerability 使用 can_analyze。",
+    "source_id": "question_IPAS-110-TEC-027",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system"
+    },
+    "reasoning": "滲透測試的目的是為了發現系統中是否存在類似問題，因此其行為是對系統進行分析。",
+    "source_id": "question_IPAS-110-TEC-027",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4
+  }
+]

@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "行動裝置軟體安全使用原則",
+      "type": "policy",
+      "display_name": "行動裝置軟體安全使用原則"
+    },
+    "reasoning": "題幹詢問關於『行動裝置中安全的使用軟體』的正確敘述，選項 A、C、D 共同構成了一套安全使用軟體的指導方針或原則，因此將其定義為 policy，而使用者應執行此原則。",
+    "source_id": "question_IPAS-111-TEC-021",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 合理對齊其類別 'user'，受體名稱 '行動裝置軟體安全使用原則' 合理對齊其類別 'policy'，且關係 'implements' 合理描述使用者與行動裝置軟體安全使用原則之間的關係。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且實體名稱與類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不受規則3限制；implements 動作不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「使用者」完全等價同義詞；受體「行動裝置軟體安全使用原則」不在 Ldr 中，但與「行動裝置軟體安全使用原則」無直接關係的資源「使用者」在 Ldr 中出現過",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「使用者」完全等價同義詞，但受體「行動裝置軟體安全使用原則」不在 Ldr 中，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "行動裝置軟體安全使用原則",
+        "type": "policy"
+      },
+      "reasoning": "題幹詢問關於『行動裝置中安全的使用軟體』的正確敘述，選項 A、C、D 共同構成了一套安全使用軟體的指導方針或原則，因此將其定義為 policy，而使用者應執行此原則。",
+      "source_id": "question_IPAS-111-TEC-021",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "行動裝置軟體安全使用原則",
+      "type": "policy",
+      "display_name": "行動裝置軟體安全使用原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊安全風險",
+      "type": "risk",
+      "display_name": "資安風險"
+    },
+    "reasoning": "採取安全使用軟體的原則（如從官方來源下載、確認權限、評估更新）其目的在於降低行動裝置遭受攻擊或感染惡意程式的風險。",
+    "source_id": "question_IPAS-111-TEC-021",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '行動裝置軟體安全使用原則' 是 'policy' 的合理實例；受體 '資安風險' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "資安風險與 Ldr 中的「資訊安全風險」為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資訊安全風險",
+        "reason": "根據同義詞對照表，「資安風險」與「資訊安全風險」為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "行動裝置軟體安全使用原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資安風險",
+        "type": "risk"
+      },
+      "reasoning": "採取安全使用軟體的原則（如從官方來源下載、確認權限、評估更新）其目的在於降低行動裝置遭受攻擊或感染惡意程式的風險。",
+      "source_id": "question_IPAS-111-TEC-021",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "軟體",
+      "type": "app",
+      "display_name": "合法軟體"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "官方原廠網站",
+      "type": "system",
+      "display_name": "官方原廠網站"
+    },
+    "reasoning": "選項 A 提到『在官方、原廠網站...下載合法軟體』，表示合法軟體是被部署或存放於官方網站（系統）之中。",
+    "source_id": "question_IPAS-111-TEC-021",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '合法軟體' 是 'app' 的合理實例，受體 '官方原廠網站' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 deployed_in，受體的類別是 system，符合規則6的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的軟體為同義詞",
+        "response": "duplicate",
+        "standard_subject": "軟體",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的軟體為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "合法軟體",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "官方原廠網站",
+        "type": "system"
+      },
+      "reasoning": "選項 A 提到『在官方、原廠網站...下載合法軟體』，表示合法軟體是被部署或存放於官方網站（系統）之中。",
+      "source_id": "question_IPAS-111-TEC-021",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "合法軟體",
+      "type": "app",
+      "display_name": "合法軟體"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "軟體權限",
+      "type": "feature",
+      "display_name": "軟體權限"
+    },
+    "reasoning": "選項 C 提到『確認軟體所需權限』，權限是應用程式的一種屬性或特徵，符合 app has_a feature 的定義。",
+    "source_id": "question_IPAS-111-TEC-021",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '合法軟體' 的類別 'app' 合理對齊，受體 '軟體權限' 的類別 'feature' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的軟體具有高度相似性，但受體軟體權限與 Ldr 中的軟體版權具有高度相似性，兩者概念上存在重疊，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的軟體具有高度相似性，但受體軟體權限與 Ldr 中的軟體版權概念上存在重疊，但非完全等價同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "合法軟體",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "軟體權限",
+        "type": "feature"
+      },
+      "reasoning": "選項 C 提到『確認軟體所需權限』，權限是應用程式的一種屬性或特徵，符合 app has_a feature 的定義。",
+      "source_id": "question_IPAS-111-TEC-021",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

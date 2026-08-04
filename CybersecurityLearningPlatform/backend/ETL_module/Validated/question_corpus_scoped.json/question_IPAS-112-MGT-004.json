@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資料篡改",
+      "type": "attack",
+      "display_name": "竄改資料"
+    },
+    "reasoning": "題幹描述駭客侵入並竄改存款金額，這是一種具體的攻擊行為，因此將其定義為 attacker implements attack。",
+    "source_id": "question_IPAS-112-MGT-004",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '駭客' 是 'attacker' 的合理實例，受體名稱 '竄改資料' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資料篡改為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資料篡改",
+        "reason": "受體竄改資料與 Ldr 中的資料篡改為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "竄改資料",
+        "type": "attack"
+      },
+      "reasoning": "題幹描述駭客侵入並竄改存款金額，這是一種具體的攻擊行為，因此將其定義為 attacker implements attack。",
+      "source_id": "question_IPAS-112-MGT-004",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資料篡改",
+      "type": "attack",
+      "display_name": "竄改資料"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "銀行資料庫",
+      "type": "app",
+      "display_name": "銀行資料庫"
+    },
+    "reasoning": "竄改存款金額的行為直接對銀行資料庫（視為應用程式/服務）造成損害，符合 attack can_harm app 的 Schema。",
+    "source_id": "question_IPAS-112-MGT-004",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '竄改資料' 是 'attack' 的合理實例，受體名稱 '銀行資料庫' 是 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "資料篡改",
+        "standard_object": "",
+        "reason": "主體「竄改資料」與 Ldr 中的「資料篡改」為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "竄改資料",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "銀行資料庫",
+        "type": "app"
+      },
+      "reasoning": "竄改存款金額的行為直接對銀行資料庫（視為應用程式/服務）造成損害，符合 attack can_harm app 的 Schema。",
+      "source_id": "question_IPAS-112-MGT-004",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資料篡改",
+      "type": "attack",
+      "display_name": "竄改資料"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "根據正確答案 B，竄改資料的行為破壞了資訊系統的『完整性』，符合 attack violates principle 的 Schema。",
+    "source_id": "question_IPAS-112-MGT-004",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '竄改資料' 是 'attack' 的合理實例，受體 '完整性' 是 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。",
+        "response": "correct",
+        "reason": "主體為竄改資料 (類別: attack)，關係為 violates，受體為完整性 (類別: principle)，符合規則4所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「資料篡改」為同義詞重複；受體與 Ldr 中的「完整性」完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "資料篡改",
+        "standard_object": "完整性",
+        "reason": "主體與 Ldr 中的「資料篡改」為同義詞重複；受體與 Ldr 中的「完整性」完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "竄改資料",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "根據正確答案 B，竄改資料的行為破壞了資訊系統的『完整性』，符合 attack violates principle 的 Schema。",
+      "source_id": "question_IPAS-112-MGT-004",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

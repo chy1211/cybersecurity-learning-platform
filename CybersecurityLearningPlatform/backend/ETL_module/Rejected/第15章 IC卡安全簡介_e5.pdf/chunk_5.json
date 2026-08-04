@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "ic卡",
+      "type": "system",
+      "display_name": "IC卡"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "身分認證",
+      "type": "function",
+      "display_name": "身分認證"
+    },
+    "reasoning": "文本提到IC卡『可以驗證個人身分』且『具備密碼認證的機制』，這是一種功能，因此定義為 tool has_a function。",
+    "source_id": "chunk_5",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "IC卡 是 'tool' 的合理實例，身分認證 是 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 IC卡 與 Ldr 中的 ic卡、ic 卡、健保ic卡、非接觸式 ic 卡 均為同義詞；受體 身分認證 與 Ldr 中的 身分認證、使用者身分識別 均為同義詞，但後者為廣義概念，前者為狹義概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體 IC卡 與 Ldr 中的 ic卡、ic 卡、健保ic卡、非接觸式 ic 卡 均為同義詞，但受體 身分認證 與 Ldr 中的 身分認證、使用者身分識別 均為同義詞，但後者為廣義概念，前者為狹義概念，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> has_a -> function (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "IC卡",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "身分認證",
+        "type": "function"
+      },
+      "reasoning": "文本提到IC卡『可以驗證個人身分』且『具備密碼認證的機制』，這是一種功能，因此定義為 tool has_a function。",
+      "source_id": "chunk_5",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 2
+    }
+  }
+]

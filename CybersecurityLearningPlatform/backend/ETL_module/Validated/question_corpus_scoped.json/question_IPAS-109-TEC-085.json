@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "雜湊計算",
+      "type": "function",
+      "display_name": "雜湊計算"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "備份資料",
+      "type": "data",
+      "display_name": "備份資料"
+    },
+    "reasoning": "根據題幹與正確答案，雜湊計算（Hash calculation）是用於確保備份資料完整性的最佳方式。在本體論中，「雜湊」被明確定義為 function，而「備份資料」屬於 data。由於 Schema Edges 允許 ('function', 'can_analyze', 'data')，且雜湊的本質即是分析資料以產生校驗值來驗證完整性，因此選擇此三元組。",
+    "source_id": "question_IPAS-109-TEC-085",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雜湊計算是 function 的合理實例，備份資料是 data 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "雜湊計算的類別是 function，與規則3無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體雜湊計算與Ldr中的雜湊具有高相似度，受體備份資料與Ldr中的資料具有中等相似度，但無法確定為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體為完全等價同義詞，依據第四判斷準則預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雜湊計算",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "備份資料",
+        "type": "data"
+      },
+      "reasoning": "根據題幹與正確答案，雜湊計算（Hash calculation）是用於確保備份資料完整性的最佳方式。在本體論中，「雜湊」被明確定義為 function，而「備份資料」屬於 data。由於 Schema Edges 允許 ('function', 'can_analyze', 'data')，且雜湊的本質即是分析資料以產生校驗值來驗證完整性，因此選擇此三元組。",
+      "source_id": "question_IPAS-109-TEC-085",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

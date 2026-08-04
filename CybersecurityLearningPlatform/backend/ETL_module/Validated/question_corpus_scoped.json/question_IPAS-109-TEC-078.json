@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "程式安全漏洞",
+      "type": "vulnerability",
+      "display_name": "程式安全漏洞"
+    },
+    "reasoning": "題幹提到『開發過程中未留意程式安全』，這在資安本體論中代表應用程式（app）在開發階段產生了缺陷，進而暴露（can_expose）了程式安全漏洞（vulnerability）。",
+    "source_id": "question_IPAS-109-TEC-078",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '應用程式' 是 'app' 的合理實例，實體名稱 '程式安全漏洞' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，但關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「應用程式」完全等價同義詞；受體與 Ldr 中的「程式漏洞」、「安全漏洞」、「漏洞」、「程式弱點」、「安全隱患」、「安全弱點」等相關概念具有高度相似性，但不完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「應用程式」完全等價同義詞，但受體與 Ldr 中的相關概念不完全等價同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "程式安全漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "題幹提到『開發過程中未留意程式安全』，這在資安本體論中代表應用程式（app）在開發階段產生了缺陷，進而暴露（can_expose）了程式安全漏洞（vulnerability）。",
+      "source_id": "question_IPAS-109-TEC-078",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "程式安全漏洞",
+      "type": "vulnerability",
+      "display_name": "程式安全漏洞"
+    },
+    "reasoning": "根據題目，SQL Injection、XSS、CSRF 是由程式安全問題造成的，這意味著攻擊者（attacker）可以利用（can_exploit）這些程式安全漏洞（vulnerability）來發動攻擊。",
+    "source_id": "question_IPAS-109-TEC-078",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，程式安全漏洞 (vulnerability) 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，受體類別為 vulnerability，符合規則3的特例允許，且關係為 can_exploit，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "攻擊者",
+        "standard_object": "程式安全漏洞",
+        "reason": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "程式安全漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據題目，SQL Injection、XSS、CSRF 是由程式安全問題造成的，這意味著攻擊者（attacker）可以利用（can_exploit）這些程式安全漏洞（vulnerability）來發動攻擊。",
+      "source_id": "question_IPAS-109-TEC-078",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "sql 資料隱碼攻擊",
+      "type": "attack",
+      "display_name": "SQL 資料隱碼攻擊(SQL Injection)"
+    },
+    "reasoning": "本題為否定式提問，正確答案 A 是排除項，因此選項 B (SQL Injection) 是成立的正確知識。SQL Injection 是一種具體的攻擊行為（attack），由攻擊者（attacker）實作（implements）。",
+    "source_id": "question_IPAS-109-TEC-078",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 是 'attacker' 的合理實例，SQL 資料隱碼攻擊 (SQL Injection) 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，受體類別為 attack，implements 動作不違反規則3。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "sql 資料隱碼攻擊",
+        "reason": "SQL Injection 是 SQL 資料隱碼攻擊的同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "SQL 資料隱碼攻擊(SQL Injection)",
+        "type": "attack"
+      },
+      "reasoning": "本題為否定式提問，正確答案 A 是排除項，因此選項 B (SQL Injection) 是成立的正確知識。SQL Injection 是一種具體的攻擊行為（attack），由攻擊者（attacker）實作（implements）。",
+      "source_id": "question_IPAS-109-TEC-078",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "跨站請求偽造(csrf)",
+      "type": "attack",
+      "display_name": "跨站請求偽造(CSRF)"
+    },
+    "reasoning": "本題為否定式提問，選項 D (CSRF) 是成立的正確知識。CSRF 是一種具體的攻擊行為（attack），由攻擊者（attacker）實作（implements）。",
+    "source_id": "question_IPAS-109-TEC-078",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 可以實施 (implements) 跨站請求偽造 (CSRF) 攻擊，語意上合理對齊。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，未違反規則3。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "跨站請求偽造(CSRF)",
+        "type": "attack"
+      },
+      "reasoning": "本題為否定式提問，選項 D (CSRF) 是成立的正確知識。CSRF 是一種具體的攻擊行為（attack），由攻擊者（attacker）實作（implements）。",
+      "source_id": "question_IPAS-109-TEC-078",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "攻擊者",
+      "type": "attacker",
+      "display_name": "攻擊者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "跨網站指令碼攻擊",
+      "type": "attack",
+      "display_name": "跨站指令碼攻擊(XSS)"
+    },
+    "reasoning": "本題為否定式提問，選項 C (XSS) 是成立的正確知識。XSS 是一種具體的攻擊行為（attack），由攻擊者（attacker）實作（implements）。",
+    "source_id": "question_IPAS-109-TEC-078",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "攻擊者 (attacker) 可以實施 (implements) 跨站指令碼攻擊 (XSS)，這是合理的語意對齊。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係都符合 Lc,p 的規定，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，受體類別為 attack，implements 動作不違反規則3。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「攻擊者」完全等價同義詞；受體與 Ldr 中的「xss 攻擊」、「跨網站指令碼攻擊」具有同義詞關係，但「跨網站指令碼攻擊」更為精確",
+        "response": "duplicate",
+        "standard_subject": "攻擊者",
+        "standard_object": "跨網站指令碼攻擊",
+        "reason": "主體與 Ldr 中的「攻擊者」完全等價同義詞；受體與 Ldr 中的「跨網站指令碼攻擊」具有同義詞關係"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "攻擊者",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "跨站指令碼攻擊(XSS)",
+        "type": "attack"
+      },
+      "reasoning": "本題為否定式提問，選項 C (XSS) 是成立的正確知識。XSS 是一種具體的攻擊行為（attack），由攻擊者（attacker）實作（implements）。",
+      "source_id": "question_IPAS-109-TEC-078",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "代理型防火牆",
+      "type": "tool",
+      "display_name": "代理防火牆"
+    },
+    "reasoning": "根據考題之否定式提問，選項 B 為正確陳述：駭客會使用多層代理防火牆來隱匿其真實來源位址。因此萃取 (attacker, uses, tool) 的關係。",
+    "source_id": "question_IPAS-110-TEC-008",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，代理防火牆 (tool) 是工具的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體 (Subject) 是 attacker，具有主動執行能力的角色，符合 controls 規則的前提條件，但關係是 uses，不是 controls，因此不違反規則8。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "代理防火牆與代理型防火牆為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "代理型防火牆",
+        "reason": "代理防火牆與代理型防火牆為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "代理防火牆",
+        "type": "tool"
+      },
+      "reasoning": "根據考題之否定式提問，選項 B 為正確陳述：駭客會使用多層代理防火牆來隱匿其真實來源位址。因此萃取 (attacker, uses, tool) 的關係。",
+      "source_id": "question_IPAS-110-TEC-008",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "代理防火牆",
+      "type": "tool",
+      "display_name": "代理防火牆"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "代理程式",
+      "type": "tool",
+      "display_name": "代理程式"
+    },
+    "reasoning": "根據選項 C，代理防火牆需要依照各種協定客製代理程式，表示代理防火牆包含或具有代理程式，符合 (tool, has_a, tool) 的 Schema。",
+    "source_id": "question_IPAS-110-TEC-008",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "代理防火牆 (proxy firewall) 是一種工具 (tool)，代理程式 (proxy) 也是一種工具 (tool)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "代理防火牆與代理程式之間的 'has_a' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "代理防火牆與代理程式在資安領域中是不同的概念，代理防火牆是一種工具，代理程式是一種程式",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "代理防火牆與代理程式是不同的概念，不是同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "代理防火牆",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "代理程式",
+        "type": "tool"
+      },
+      "reasoning": "根據選項 C，代理防火牆需要依照各種協定客製代理程式，表示代理防火牆包含或具有代理程式，符合 (tool, has_a, tool) 的 Schema。",
+      "source_id": "question_IPAS-110-TEC-008",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "代理型防火牆",
+      "type": "tool",
+      "display_name": "代理防火牆"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "連線管理",
+      "type": "function",
+      "display_name": "連線管理"
+    },
+    "reasoning": "根據選項 A，代理防火牆在處理 Inbound 請求時會『開啟新連線』並回覆使用者，這屬於一種連線管理的功能，符合 (tool, has_a, function) 的 Schema。",
+    "source_id": "question_IPAS-110-TEC-008",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "代理防火牆 (tool) 與 連線管理 (function) 的名稱與其類別合理對齊，代理防火牆是工具的一種，連線管理是功能的一種。",
+        "response": "correct",
+        "reason": "代理防火牆 (tool) 與 連線管理 (function) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則6、規則8",
+        "response": "correct",
+        "reason": "三元組符合規則所允許的條件，且無明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "代理防火牆與代理型防火牆為同義詞",
+        "response": "duplicate",
+        "standard_subject": "代理型防火牆",
+        "standard_object": "",
+        "reason": "代理防火牆與代理型防火牆為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "代理防火牆",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "連線管理",
+        "type": "function"
+      },
+      "reasoning": "根據選項 A，代理防火牆在處理 Inbound 請求時會『開啟新連線』並回覆使用者，這屬於一種連線管理的功能，符合 (tool, has_a, function) 的 Schema。",
+      "source_id": "question_IPAS-110-TEC-008",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

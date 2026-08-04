@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "釣魚攻擊 (phishing)",
+      "type": "attack",
+      "display_name": "釣魚攻擊 (Phishing)"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "電子郵件",
+      "type": "app",
+      "display_name": "電子郵件"
+    },
+    "reasoning": "題幹描述透過電子郵件發送偽造的帳號異常通知來誘騙使用者，這顯示該釣魚攻擊依賴電子郵件作為傳遞媒介。根據 Schema，attack 可以 depends_on tool。",
+    "source_id": "question_IPAS-112-TEC-071",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "釣魚攻擊 (Phishing) 是一種合理的 'attack' 實例，電子郵件是 'tool' 的合理實例，且 'depends_on' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "釣魚攻擊與電子郵件之間不存在同義詞關係，且彼此之間也不存在廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定釣魚攻擊與電子郵件之間的關係，因此預設保留原狀。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attack -> depends_on -> app (original: attack -> depends_on -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "釣魚攻擊 (Phishing)",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "電子郵件",
+        "type": "tool"
+      },
+      "reasoning": "題幹描述透過電子郵件發送偽造的帳號異常通知來誘騙使用者，這顯示該釣魚攻擊依賴電子郵件作為傳遞媒介。根據 Schema，attack 可以 depends_on tool。",
+      "source_id": "question_IPAS-112-TEC-071",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

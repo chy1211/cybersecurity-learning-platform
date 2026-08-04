@@ -1,0 +1,170 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "crm 系統",
+      "type": "app",
+      "display_name": "CRM 系統"
+    },
+    "reasoning": "題幹提到『使用...登入 CRM 系統』，隱含了使用者（user）使用該應用程式（app）的行為，符合 ('user', 'uses', 'app') 的 Schema。",
+    "source_id": "question_IPAS-111-MGT-051",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例，受體名稱 'CRM 系統' 是 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體類別不是attacker或securityTeam。規則2不適用，因為主體類別不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為主體類別不是principle。規則5不適用，因為主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "CRM 系統",
+        "type": "app"
+      },
+      "reasoning": "題幹提到『使用...登入 CRM 系統』，隱含了使用者（user）使用該應用程式（app）的行為，符合 ('user', 'uses', 'app') 的 Schema。",
+      "source_id": "question_IPAS-111-MGT-051",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "crm 系統",
+      "type": "app",
+      "display_name": "CRM 系統"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "帳號與密碼",
+      "type": "data",
+      "display_name": "專用帳號及密碼"
+    },
+    "reasoning": "CRM 系統需要透過驗證帳號與密碼來允許登入，而『帳號及密碼』屬於資安本體論中 data 類型的『認證資訊』，符合 ('app', 'uses', 'data') 的 Schema。",
+    "source_id": "question_IPAS-111-MGT-051",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "CRM 系統是 'app' 的合理實例，專用帳號及密碼是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體 CRM 系統 的類別是 app，而非 data，且關係為 uses，受體為 data，因此違反規則5。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體 CRM 系統 的類別是 app，而非 data，且關係為 uses，受體為 data，因此違反規則5。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "duplicate",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CRM 系統",
+        "type": "app"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "專用帳號及密碼",
+        "type": "data"
+      },
+      "reasoning": "CRM 系統需要透過驗證帳號與密碼來允許登入，而『帳號及密碼』屬於資安本體論中 data 類型的『認證資訊』，符合 ('app', 'uses', 'data') 的 Schema。",
+      "source_id": "question_IPAS-111-MGT-051",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "專用帳號及密碼",
+      "type": "data",
+      "display_name": "專用帳號及密碼"
+    },
+    "reasoning": "使用者在登入過程中必須提供（使用）帳號與密碼，符合 ('user', 'uses', 'data') 的 Schema。",
+    "source_id": "question_IPAS-111-MGT-051",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 合理對齊其類別 'user'，受體名稱 '專用帳號及密碼' 合理對齊其類別 'data'，且關係 'uses' 合理描述使用者與帳號及密碼之間的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體類別為 user，與規則5不符，user uses data 應該是合法的，但由於主體類別不是 data，因此觸發規則5，判定為違規。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體類別為 user，與規則5不符，user uses data 應該是合法的，但由於主體類別不是 data，因此觸發規則5，判定為違規。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "專用帳號及密碼",
+        "type": "data"
+      },
+      "reasoning": "使用者在登入過程中必須提供（使用）帳號與密碼，符合 ('user', 'uses', 'data') 的 Schema。",
+      "source_id": "question_IPAS-111-MGT-051",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

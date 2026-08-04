@@ -1,0 +1,211 @@
+[
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "根據選項 B 與 D，滲透測試透過攻擊手段找出漏洞並考驗系統防護能力，這在本體論中定義為 technique 對 system 的分析行為。",
+    "source_id": "question_IPAS-112-TEC-068",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試 (Penetration Test) 是一種常見的安全測試技術，與 'technique' 類別相符。系統 (System) 是一個常見的資安領域實體，與 'system' 類別相符。因此，語意對齊檢查通過。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊檢查通過。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別是technique，而非vulnerability。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域已知同義詞對照範例之外的具體概念，且無法合併為更廣義或狹義的關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "根據選項 B 與 D，滲透測試透過攻擊手段找出漏洞並考驗系統防護能力，這在本體論中定義為 technique 對 system 的分析行為。",
+      "source_id": "question_IPAS-112-TEC-068",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "漏洞",
+      "type": "vulnerability",
+      "display_name": "漏洞"
+    },
+    "reasoning": "根據選項 B，滲透測試的目的在於找出系統可能存在的漏洞，符合 technique can_analyze vulnerability 的 Schema 定義。",
+    "source_id": "question_IPAS-112-TEC-068",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試 (Penetration Test) 是一種常見的技術 (technique)，而漏洞 (Vulnerability) 是資安領域中常見的弱點，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，受體類別為 vulnerability，符合規則3的特例允許，且關係為 can_analyze，故不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「滲透測試」完全等價同義詞；受體與 Ldr 中的「漏洞」、「脆弱性」等完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體在 Ldr 中找到完全等價同義詞，但根據判斷準則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據選項 B，滲透測試的目的在於找出系統可能存在的漏洞，符合 technique can_analyze vulnerability 的 Schema 定義。",
+      "source_id": "question_IPAS-112-TEC-068",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "攻擊",
+      "type": "attack",
+      "display_name": "攻擊"
+    },
+    "reasoning": "根據選項 B，滲透測試是藉由採取各種攻擊手段來執行，因此將其定義為 technique implements attack。",
+    "source_id": "question_IPAS-112-TEC-068",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "滲透測試 (Penetration Test) 是一種合理的 'technique' 實例，攻擊 (Attack) 是一種合理的 'attack' 實例。",
+        "response": "correct",
+        "reason": "滲透測試實施攻擊的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「滲透測試」完全等價同義詞；受體與 Ldr 中的「攻擊」廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「滲透測試」完全等價同義詞，但受體與 Ldr 中的「攻擊」是廣義/狹義從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "攻擊",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 B，滲透測試是藉由採取各種攻擊手段來執行，因此將其定義為 technique implements attack。",
+      "source_id": "question_IPAS-112-TEC-068",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "雙黑箱滲透測試",
+      "type": "technique",
+      "display_name": "雙黑箱滲透測試"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "滲透測試",
+      "type": "technique",
+      "display_name": "滲透測試"
+    },
+    "reasoning": "選項 C 提到雙黑箱滲透測試，這在邏輯上是滲透測試的一種特定方法或子類，符合 technique is_part_of technique 的關係。",
+    "source_id": "question_IPAS-112-TEC-068",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雙黑箱滲透測試 是 滲透測試 的合理實例，滲透測試 是 滲透測試 的合理實例。",
+        "response": "correct",
+        "reason": "雙黑箱滲透測試 與 滲透測試 的類別與屬性完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2_selfloop_reverted": true,
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "三元組符合規則所允許的條件，且無明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "雙黑箱滲透測試與滲透測試之間的關係是同義詞重複",
+        "response": "duplicate",
+        "standard_subject": "滲透測試",
+        "standard_object": "滲透測試",
+        "reason": "雙黑箱滲透測試與滲透測試在資安領域中是同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雙黑箱滲透測試",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "滲透測試",
+        "type": "technique"
+      },
+      "reasoning": "選項 C 提到雙黑箱滲透測試，這在邏輯上是滲透測試的一種特定方法或子類，符合 technique is_part_of technique 的關係。",
+      "source_id": "question_IPAS-112-TEC-068",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

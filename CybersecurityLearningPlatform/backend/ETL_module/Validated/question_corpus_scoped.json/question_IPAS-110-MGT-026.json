@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "風險接受",
+      "type": "policy",
+      "display_name": "風險接受"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資安事件攻擊",
+      "type": "attack",
+      "display_name": "資安事件攻擊"
+    },
+    "reasoning": "根據題幹與正確答案，當資安事件攻擊發生且損失在可容忍範圍內時，可採取『風險接受』作為處置策略。在本體論中，風險處置策略屬於 policy，而其作用是處理或緩解 attack 帶來的影響，因此使用 mitigates 關係。",
+    "source_id": "question_IPAS-110-MGT-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '風險接受' 可被視為 'policy' 的合理實例；受體名稱 '資安事件攻擊' 可被視為 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體風險接受的類別為 policy，符合規則2的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「風險處理」、「風險管理」、「風險意識」之間存在廣義/狹義從屬關係，但無法確定完全等價同義詞；受體與 Ldr 中的「資安事件」、「資訊安全事件」、「攻擊事件」、「實體攻擊」、「資安事件攻擊」、「資訊安全事故」、「注入攻擊」、「駭客攻擊」、「監聽攻擊」、「密碼攻擊」、「攻擊」等之間存在廣義/狹義從屬關係，但無法確定完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定完全等價同義詞，且存在廣義/狹義從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險接受",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資安事件攻擊",
+        "type": "attack"
+      },
+      "reasoning": "根據題幹與正確答案，當資安事件攻擊發生且損失在可容忍範圍內時，可採取『風險接受』作為處置策略。在本體論中，風險處置策略屬於 policy，而其作用是處理或緩解 attack 帶來的影響，因此使用 mitigates 關係。",
+      "source_id": "question_IPAS-110-MGT-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "風險接受",
+      "type": "policy",
+      "display_name": "風險接受"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "損失",
+      "type": "risk",
+      "display_name": "損失"
+    },
+    "reasoning": "題幹提到『損失在組織可容忍範圍』時採取『風險接受』。損失在此對應 risk，而風險接受作為一種管理策略 (policy)，是用於處置該風險的手段，符合 ('policy', 'mitigates', 'risk') 的 Schema Edge。",
+    "source_id": "question_IPAS-110-MGT-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '風險接受' 可被視為 'policy' 的合理實例，受體名稱 '損失' 可被視為 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體風險接受的類別為 policy，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「風險處理」、「風險管理」、「風險意識」存在相似性，但不完全等價；受體與 Ldr 中的「損失」、「資產損失」、「重大損失」、「服務中斷損失」存在相似性，但「損失」是完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "損失",
+        "reason": "受體與 Ldr 中的「損失」完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "風險接受",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "損失",
+        "type": "risk"
+      },
+      "reasoning": "題幹提到『損失在組織可容忍範圍』時採取『風險接受』。損失在此對應 risk，而風險接受作為一種管理策略 (policy)，是用於處置該風險的手段，符合 ('policy', 'mitigates', 'risk') 的 Schema Edge。",
+      "source_id": "question_IPAS-110-MGT-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

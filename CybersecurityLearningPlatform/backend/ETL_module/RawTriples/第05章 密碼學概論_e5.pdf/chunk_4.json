@@ -7,9 +7,9 @@
     "relation": "has_a",
     "object": {
       "name": "混淆",
-      "type": "feature"
+      "type": "function"
     },
-    "reasoning": "文本提到對稱式加密演算法利用『混淆』的概念來增加複雜度，混淆是該演算法的一個設計特徵，因此選擇 tool -> has_a -> feature。",
+    "reasoning": "文本提到對稱式加密演算法利用『混淆』的概念增加複雜度，混淆在此被視為演算法內建的一項功能/能力，因此選擇 tool -> has_a -> function。",
     "source_id": "chunk_4",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 1
@@ -22,9 +22,9 @@
     "relation": "has_a",
     "object": {
       "name": "擴散",
-      "type": "feature"
+      "type": "function"
     },
-    "reasoning": "文本提到對稱式加密演算法利用『擴散』的概念來增加複雜度，擴散是該演算法的一個設計特徵，因此選擇 tool -> has_a -> feature。",
+    "reasoning": "文本提到對稱式加密演算法利用『擴散』的概念增加複雜度，擴散在此被視為演算法內建的一項功能/能力，因此選擇 tool -> has_a -> function。",
     "source_id": "chunk_4",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 2
@@ -34,12 +34,12 @@
       "name": "對稱式加密演算法",
       "type": "tool"
     },
-    "relation": "uses",
+    "relation": "has_a",
     "object": {
       "name": "替換",
-      "type": "technique"
+      "type": "function"
     },
-    "reasoning": "文本指出在實現對稱式加密演算法時，主要有兩種加密基本元件，其中之一是『替換』。替換是一種達成加密目的的方法，因此選擇 tool -> uses -> technique。",
+    "reasoning": "文本明確指出在實現對稱式加密演算法時，有兩種基本元件，其中之一是『替換』，因此將其定義為 tool -> has_a -> function。",
     "source_id": "chunk_4",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 3
@@ -54,25 +54,40 @@
       "name": "密文",
       "type": "data"
     },
-    "reasoning": "加密演算法的運作結果是產生密文，密文屬於資訊實體，因此選擇 tool -> generates -> data。",
+    "reasoning": "加密演算法的運作結果是產生密文，符合 tool -> generates -> data 的邏輯。",
     "source_id": "chunk_4",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "解密演算法",
-      "type": "tool"
+      "name": "資訊接收者",
+      "type": "user"
     },
-    "relation": "generates",
+    "relation": "uses",
     "object": {
-      "name": "明文",
-      "type": "data"
+      "name": "公開金鑰演算法",
+      "type": "app"
     },
-    "reasoning": "文本提到解密演算法將密文解密還原出明文，明文是產出的結果，因此選擇 tool -> generates -> data。",
+    "reasoning": "文本描述資訊接收者使用解密演算法（公開金鑰演算法的一環）來還原明文，因此將接收者視為 user，演算法視為 app，關係為 user -> uses -> app。",
     "source_id": "chunk_4",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "公開金鑰演算法",
+      "type": "app"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "金鑰",
+      "type": "data"
+    },
+    "reasoning": "公開金鑰演算法在運作時必須使用金鑰 A 或金鑰 B 才能進行加密或解密，符合 app -> uses -> data。",
+    "source_id": "chunk_4",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 6
   },
   {
     "subject": {
@@ -84,24 +99,24 @@
       "name": "密文",
       "type": "data"
     },
-    "reasoning": "文本描述密文經由通訊通道傳送，表示該基礎設施（系統）在傳輸過程中承載/使用此資料，因此選擇 system -> uses -> data。",
-    "source_id": "chunk_4",
-    "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 6
-  },
-  {
-    "subject": {
-      "name": "替換",
-      "type": "technique"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "通訊密碼對照表",
-      "type": "tool"
-    },
-    "reasoning": "文本提到在實作替換技術時，使用『通訊密碼對照表』來進行字元替換，對照表在此作為執行技術的工具，因此選擇 technique -> has_a -> tool。",
+    "reasoning": "密文經由通訊通道傳送，意味著該系統在傳輸過程中承載/使用此資料，符合 system -> uses -> data。",
     "source_id": "chunk_4",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "破解",
+      "type": "attack"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "機密性",
+      "type": "principle"
+    },
+    "reasoning": "文本提到增加複雜度是為了使演算法『不易破解』。破解行為的本質是試圖獲取明文，這直接違反了資安核心原則中的『機密性』，符合 attack -> violates -> principle。",
+    "source_id": "chunk_4",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 8
   }
 ]

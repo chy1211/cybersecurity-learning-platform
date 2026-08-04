@@ -1,1 +1,194 @@
-[]
+[
+  {
+    "subject": {
+      "name": "內部人員",
+      "type": "user",
+      "display_name": "內部人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資安事件",
+      "type": "attack",
+      "display_name": "資安事件"
+    },
+    "reasoning": "文本指出『大部份的資安事件都與內部人員有關』，在資安知識圖譜中，發起資安事件的內部人員被視為威脅行為者（attacker），其行為實作了攻擊（attack）。符合 Schema: ('attacker', 'implements', 'attack')。",
+    "source_id": "chunk_6",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '內部人員' 是 'attacker' 的合理實例，實體 '資安事件' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「內部人員」完全等價同義詞；受體與 Ldr 中的「資安事件」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，無需進行合併或替換。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): user -> implements -> attack (original: attacker -> implements -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部人員",
+        "type": "attacker"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資安事件",
+        "type": "attack"
+      },
+      "reasoning": "文本指出『大部份的資安事件都與內部人員有關』，在資安知識圖譜中，發起資安事件的內部人員被視為威脅行為者（attacker），其行為實作了攻擊（attack）。符合 Schema: ('attacker', 'implements', 'attack')。",
+      "source_id": "chunk_6",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "企業組織",
+      "type": "system",
+      "display_name": "企業組織"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "安全政策",
+      "type": "policy",
+      "display_name": "安全政策"
+    },
+    "reasoning": "文本提到『企業組織...需要建立安全政策』，企業的資安管理部門（securityTeam）負責制定並執行安全政策（policy）。符合 Schema: ('securityTeam', 'implements', 'policy')。",
+    "source_id": "chunk_6",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "企業組織是安全團隊的合理實例，安全政策是政策的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「企業組織」完全等價同義詞；受體與 Ldr 中的「安全政策」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體都有完全等價同義詞，但根據判斷準則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> implements -> policy (original: securityTeam -> implements -> policy)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "企業組織",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "安全政策",
+        "type": "policy"
+      },
+      "reasoning": "文本提到『企業組織...需要建立安全政策』，企業的資安管理部門（securityTeam）負責制定並執行安全政策（policy）。符合 Schema: ('securityTeam', 'implements', 'policy')。",
+      "source_id": "chunk_6",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "權限管理",
+      "type": "function",
+      "display_name": "權限管理"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊外洩",
+      "type": "risk",
+      "display_name": "資訊外洩"
+    },
+    "reasoning": "文本提到『如果權限無法有效地管理，將會有資訊外洩...的風險』，反之，有效的權限管理（在此視為一種管理策略 policy）可以緩解資訊外洩（risk）。符合 Schema: ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_6",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '權限管理' 是 'policy' 的合理實例；受體名稱 '資訊外洩' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): function -> mitigates -> risk (original: policy -> mitigates -> risk)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "權限管理",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊外洩",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『如果權限無法有效地管理，將會有資訊外洩...的風險』，反之，有效的權限管理（在此視為一種管理策略 policy）可以緩解資訊外洩（risk）。符合 Schema: ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_6",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "權限管理",
+      "type": "function",
+      "display_name": "權限管理"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "權限濫用",
+      "type": "attack",
+      "display_name": "權限濫用"
+    },
+    "reasoning": "同上，有效的權限管理（policy）能緩解權限濫用（risk）的風險。符合 Schema: ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_6",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '權限管理' 是 'policy' 的合理實例，受體名稱 '權限濫用' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): function -> mitigates -> attack (original: policy -> mitigates -> risk)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "權限管理",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "權限濫用",
+        "type": "risk"
+      },
+      "reasoning": "同上，有效的權限管理（policy）能緩解權限濫用（risk）的風險。符合 Schema: ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_6",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

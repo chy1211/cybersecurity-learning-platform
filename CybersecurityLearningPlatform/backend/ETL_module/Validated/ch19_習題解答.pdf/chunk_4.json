@@ -7,11 +7,11 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "網絡技術",
-      "type": "feature",
+      "name": "網際網路",
+      "type": "system",
       "display_name": "網路"
     },
-    "reasoning": "文本提到 IaaS 提供必要的基礎設施，像是網路，因此將 IaaS 視為系統 (system)，網路視為其組成特徵 (feature)。",
+    "reasoning": "文本提到 IaaS 提供必要的基礎設施，像是網路，因此 IaaS 作為系統 (system) 具有網路這個特徵 (feature)。",
     "source_id": "chunk_4",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 1,
@@ -20,19 +20,19 @@
         "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
         "step_2_alignment_check": "基礎設施即服務(IaaS) 是 'system' 的合理實例，網路是 'feature' 的合理實例。",
         "response": "correct",
-        "reason": "基礎設施即服務(IaaS) 與網路的三元組完全符合預先定義的類別與屬性清單。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'has_a'，發現無直接相關規則限制此類別組合的使用。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的主體和受體類別與給定的關係 'has_a' 組合，未觸發語義限制清單中的任何規則，故判定為正確。"
+        "reason": "三元組中的受體 '網路' 類別為 system，符合規則6的條件。"
       },
       "step_2": {
-        "granularity_analysis": "網路與網絡技術為同義詞，兩者指稱同一概念",
+        "granularity_analysis": "網路與網際網路之間存在著廣義/狹義從屬關係，但根據提供的資安領域已知同義詞對照範例，網路與網際網路被視為同義詞。",
         "response": "duplicate",
         "standard_subject": "",
-        "standard_object": "網絡技術",
-        "reason": "根據同義詞判定，網路與網絡技術為同義詞，指稱同一概念。"
+        "standard_object": "網際網路",
+        "reason": "網路與網際網路被視為同義詞，因此判定為 duplicate。"
       }
     },
     "original_raw_triple": {
@@ -45,114 +45,10 @@
         "name": "網路",
         "type": "feature"
       },
-      "reasoning": "文本提到 IaaS 提供必要的基礎設施，像是網路，因此將 IaaS 視為系統 (system)，網路視為其組成特徵 (feature)。",
+      "reasoning": "文本提到 IaaS 提供必要的基礎設施，像是網路，因此 IaaS 作為系統 (system) 具有網路這個特徵 (feature)。",
       "source_id": "chunk_4",
       "source_file": "ch19_習題解答.pdf",
       "source_index": 1
-    }
-  },
-  {
-    "subject": {
-      "name": "基礎設施即服務(iaas)",
-      "type": "system",
-      "display_name": "基礎設施即服務(IaaS)"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "處理器",
-      "type": "feature",
-      "display_name": "處理器"
-    },
-    "reasoning": "文本提到 IaaS 提供處理器資源，符合 system has_a feature 的邏輯。",
-    "source_id": "chunk_4",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 3,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "基礎設施即服務(IaaS) 是 'system' 的合理實例，處理器是 'feature' 的合理實例，'has_a' 關係在此語境下合理。",
-        "response": "correct",
-        "reason": "基礎設施即服務(IaaS) 擁有處理器的三元組完全符合預先定義的類別與屬性清單。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，因此不觸發任何違規。",
-        "response": "correct",
-        "reason": "三元組中的關係 'has_a' 不在語義限制清單中被明確限制，且主體和受體的類別組合不違反任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與受體皆為資安領域已知實體，且無直接同義詞關係，但主體與受體之間存在系統與功能的從屬關係",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "基礎設施即服務(IaaS)與處理器之間的關係是系統與功能的從屬關係，無同義詞重複，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "基礎設施即服務(IaaS)",
-        "type": "system"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "處理器",
-        "type": "feature"
-      },
-      "reasoning": "文本提到 IaaS 提供處理器資源，符合 system has_a feature 的邏輯。",
-      "source_id": "chunk_4",
-      "source_file": "ch19_習題解答.pdf",
-      "source_index": 3
-    }
-  },
-  {
-    "subject": {
-      "name": "amazon ec2",
-      "type": "system",
-      "display_name": "Amazon EC2"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "基礎設施即服務(iaas)",
-      "type": "system",
-      "display_name": "基礎設施即服務(IaaS)"
-    },
-    "reasoning": "Amazon EC2 是 IaaS 的具體實例，因此將其定義為 system 並屬於 (is_part_of) IaaS 系統。",
-    "source_id": "chunk_4",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 4,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "Amazon EC2 是 'system' 的合理實例，基礎設施即服務(IaaS) 也是 'system' 的合理實例，兩者之間的 'is_part_of' 關係在資安領域中是合理的。",
-        "response": "correct",
-        "reason": "Amazon EC2 和基礎設施即服務(IaaS) 的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
-        "response": "correct",
-        "reason": "三元組中的關係 is_part_of 與主體 Amazon EC2 和受體 基礎設施即服務(IaaS) 的類別 system 之間沒有直接的語義限制衝突。"
-      },
-      "step_2": {
-        "granularity_analysis": "完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "基礎設施即服務(IaaS)已在近似資源清單中，且主體Amazon EC2與其無直接同義詞關係。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "Amazon EC2",
-        "type": "system"
-      },
-      "relation": "is_part_of",
-      "object": {
-        "name": "基礎設施即服務(IaaS)",
-        "type": "system"
-      },
-      "reasoning": "Amazon EC2 是 IaaS 的具體實例，因此將其定義為 system 並屬於 (is_part_of) IaaS 系統。",
-      "source_id": "chunk_4",
-      "source_file": "ch19_習題解答.pdf",
-      "source_index": 4
     }
   },
   {
@@ -167,7 +63,7 @@
       "type": "feature",
       "display_name": "儲存空間"
     },
-    "reasoning": "文本提到 IaaS 提供儲存空間，符合 system has_a feature 的邏輯。",
+    "reasoning": "文本提到 IaaS 提供儲存空間，因此 IaaS 作為系統 (system) 具有儲存空間這個特徵 (feature)。",
     "source_id": "chunk_4",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 2,
@@ -179,16 +75,16 @@
         "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'has_a' 不在任何規則中被明確限制，且主體 '基礎設施即服務(IaaS)' 的類別是 'system'，受體 '儲存空間' 的類別是 'feature'，這符合一般的系統架構描述，沒有明顯違反任何規則。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，且描述的是基礎設施即服務(IaaS)擁有的儲存空間，符合系統架構的描述邏輯。"
+        "reason": "儘管規則6提到關係為deployed_in時，受體的類別必須是system，但本案例的關係為has_a，故不違反規則6。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體皆為資安領域已知實體，且無直接同義詞關係，但受體「儲存空間」為資源類型，與主體「基礎設施即服務(IaaS)」無直接從屬關係",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "無同義詞關係，且主體與受體無從屬關係，依據判斷準則預設保留。"
+        "reason": "儲存空間為基礎設施即服務(IaaS)的特徵之一，無法與其他資源合併。"
       }
     },
     "original_raw_triple": {
@@ -201,7 +97,7 @@
         "name": "儲存空間",
         "type": "feature"
       },
-      "reasoning": "文本提到 IaaS 提供儲存空間，符合 system has_a feature 的邏輯。",
+      "reasoning": "文本提到 IaaS 提供儲存空間，因此 IaaS 作為系統 (system) 具有儲存空間這個特徵 (feature)。",
       "source_id": "chunk_4",
       "source_file": "ch19_習題解答.pdf",
       "source_index": 2
@@ -209,54 +105,54 @@
   },
   {
     "subject": {
-      "name": "使用者",
-      "type": "user",
-      "display_name": "使用者"
+      "name": "amazon ec2",
+      "type": "system",
+      "display_name": "Amazon EC2"
     },
-    "relation": "uses",
+    "relation": "is_part_of",
     "object": {
       "name": "基礎設施即服務(iaas)",
       "type": "system",
       "display_name": "基礎設施即服務(IaaS)"
     },
-    "reasoning": "文本提到使用者可彈性建置環境，因此使用者 (user) 使用 (uses) IaaS 系統。",
+    "reasoning": "Amazon EC2 被列為 IaaS 的例子，因此它屬於 IaaS 這一類系統。",
     "source_id": "chunk_4",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 6,
+    "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 均在 Lc,p 中。",
-        "step_2_alignment_check": "使用者 (user) 可以使用基礎設施即服務 (IaaS) 的系統 (system)，這是語意上合理的對齊。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Amazon EC2 是 'system' 的合理實例，基礎設施即服務(IaaS) 也是 'system' 的合理實例。",
         "response": "correct",
-        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 user，不是 data，故不違反。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的主體為使用者，關係為 uses，受體為基礎設施即服務(IaaS)，不觸發任何語義限制清單中的規則，故判定為正確。"
+        "reason": "三元組中的受體 (基礎設施即服務(IaaS)) 的類別是 system，符合規則6的條件。"
       },
       "step_2": {
-        "granularity_analysis": "主體「使用者」與 Ldr 中的「使用者」完全相同，受體「基礎設施即服務(IaaS)」與 Ldr 中的「基礎設施即服務(iaas)」完全相同，均為完全等價同義詞。",
+        "granularity_analysis": "主體與受體之間存在著廣義/狹義從屬關係，Amazon EC2 是基礎設施即服務(IaaS)的一種實現形式。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "主體和受體均與 Ldr 中的資源完全相同，無需進行同義詞判定或合併。"
+        "reason": "基於廣義/狹義一律保留原則，判定為 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "使用者",
-        "type": "user"
+        "name": "Amazon EC2",
+        "type": "system"
       },
-      "relation": "uses",
+      "relation": "is_part_of",
       "object": {
         "name": "基礎設施即服務(IaaS)",
         "type": "system"
       },
-      "reasoning": "文本提到使用者可彈性建置環境，因此使用者 (user) 使用 (uses) IaaS 系統。",
+      "reasoning": "Amazon EC2 被列為 IaaS 的例子，因此它屬於 IaaS 這一類系統。",
       "source_id": "chunk_4",
       "source_file": "ch19_習題解答.pdf",
-      "source_index": 6
+      "source_index": 4
     }
   },
   {
@@ -271,28 +167,28 @@
       "type": "system",
       "display_name": "基礎設施即服務(IaaS)"
     },
-    "reasoning": "HiCloud 是 IaaS 的具體實例，因此將其定義為 system 並屬於 (is_part_of) IaaS 系統。",
+    "reasoning": "HiCloud 被列為 IaaS 的例子，因此它屬於 IaaS 這一類系統。",
     "source_id": "chunk_4",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
-        "step_2_alignment_check": "HiCloud 可被視為系統（system）的實例，基礎設施即服務（IaaS）也可被視為系統（system）的實例，兩者與其分別的類別 'system' 對齊合理。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "HiCloud 可被視為系統 (system) 的合理實例，基礎設施即服務 (IaaS) 也可被視為系統 (system) 的合理實例。",
         "response": "correct",
-        "reason": "HiCloud 和 IaaS 的類別與關係完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係是 'is_part_of'，而非 'deployed_in'。檢查規則7：不適用。檢查規則8：不適用。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的主體 'HiCloud' 和受體 '基礎設施即服務(IaaS)' 都屬於 'system' 類別，且關係 'is_part_of' 沒有在語義限制清單中被明確限制，因此不觸發任何違規。"
+        "reason": "三元組中的關係 'is_part_of' 不符合規則6的觸發條件，且無其他規則被違反。"
       },
       "step_2": {
-        "granularity_analysis": "HiCloud 與雲端環境之間的關係是同義詞重複，基礎設施即服務(IaaS) 與基礎設施即服務(iaas) 之間的關係是完全等價同義詞",
+        "granularity_analysis": "主體與受體均為資安領域中的系統類別，且受體「基礎設施即服務(IaaS)」與 Ldr 中的「基礎設施即服務(iaas)」完全相同",
         "response": "correct",
         "standard_subject": "",
-        "standard_object": "基礎設施即服務(iaas)",
-        "reason": "基礎設施即服務(IaaS) 是基礎設施即服務(iaas) 的同義詞重複，根據判斷準則 2，判定為 correct。"
+        "standard_object": "",
+        "reason": "根據【前提確認】，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
@@ -305,10 +201,114 @@
         "name": "基礎設施即服務(IaaS)",
         "type": "system"
       },
-      "reasoning": "HiCloud 是 IaaS 的具體實例，因此將其定義為 system 並屬於 (is_part_of) IaaS 系統。",
+      "reasoning": "HiCloud 被列為 IaaS 的例子，因此它屬於 IaaS 這一類系統。",
       "source_id": "chunk_4",
       "source_file": "ch19_習題解答.pdf",
       "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "基礎設施即服務(iaas)",
+      "type": "system",
+      "display_name": "基礎設施即服務(IaaS)"
+    },
+    "reasoning": "文本提到使用者可以彈性建置環境，因此使用者 (user) 使用 IaaS 系統 (system)。",
+    "source_id": "chunk_4",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例，受體名稱 '基礎設施即服務(IaaS)' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5不觸發，因主體類別不是data；規則6不觸發，因關係不是deployed_in；規則7不觸發，因關係不是generates；規則8不觸發，因關係不是controls；其他規則不適用",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「使用者」完全等價同義詞；受體與 Ldr 中的「基礎設施即服務(iaas)」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域已知同義詞，但無法合併為同一實體，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "基礎設施即服務(IaaS)",
+        "type": "system"
+      },
+      "reasoning": "文本提到使用者可以彈性建置環境，因此使用者 (user) 使用 IaaS 系統 (system)。",
+      "source_id": "chunk_4",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "基礎設施即服務(iaas)",
+      "type": "system",
+      "display_name": "基礎設施即服務(IaaS)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "處理器",
+      "type": "feature",
+      "display_name": "處理器"
+    },
+    "reasoning": "文本提到 IaaS 提供處理器資源，因此 IaaS 作為系統 (system) 具有處理器這個特徵 (feature)。",
+    "source_id": "chunk_4",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "基礎設施即服務(IaaS) 是 'system' 的合理實例，處理器是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)，但本案例關係為 has_a，不符合規則6的觸發條件；規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具，但本案例關係為 has_a，不符合規則8的觸發條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間不存在同義詞或從屬關係"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "基礎設施即服務(IaaS)",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "處理器",
+        "type": "feature"
+      },
+      "reasoning": "文本提到 IaaS 提供處理器資源，因此 IaaS 作為系統 (system) 具有處理器這個特徵 (feature)。",
+      "source_id": "chunk_4",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 3
     }
   },
   {
@@ -319,32 +319,32 @@
     },
     "relation": "can_expose",
     "object": {
-      "name": "漏洞",
+      "name": "安全漏洞",
       "type": "vulnerability",
-      "display_name": "雲端漏洞"
+      "display_name": "雲端安全漏洞"
     },
-    "reasoning": "文本提到雲端運算存在風險與資安問題，根據 Schema，系統 (system) 透過暴露漏洞 (vulnerability) 來導致風險，因此先萃取此關聯。",
+    "reasoning": "文本提到雲端運算存在傳統資安問題與新形態安全風險，這意味著該系統 (system) 可能暴露漏洞 (vulnerability)。",
     "source_id": "chunk_4",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 7,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "雲端運算是 system 的合理實例，雲端漏洞是 vulnerability 的合理實例，'can_expose' 的語意也合理地描述了雲端運算可能暴露雲端漏洞的關係。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "雲端運算是系統的合理實例，雲端安全漏洞是漏洞的合理實例，且 'can_expose' 的語意與雲端運算與雲端安全漏洞之間的關係相符。",
         "response": "correct",
-        "reason": "雲端運算與雲端漏洞的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "雲端運算與雲端安全漏洞之間的 'can_expose' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：允許 vulnerability 發起 'can_expose' 動作，符合此規則。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組中的主體為雲端運算，關係為 can_expose，受體為雲端漏洞，根據規則3，vulnerability 可以發起 'can_expose' 動作，因此不違反任何規則。"
+        "reason": "主體類別為 system，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
       },
       "step_2": {
-        "granularity_analysis": "主體「雲端運算」與 Ldr 中的「雲端運算」完全相同，受體「雲端漏洞」與 Ldr 中的「漏洞」為同義詞",
+        "granularity_analysis": "主體與 Ldr 中的「雲端運算」完全等價同義詞；受體與 Ldr 中的「安全漏洞」具有同義詞關係",
         "response": "duplicate",
         "standard_subject": "雲端運算",
-        "standard_object": "漏洞",
-        "reason": "根據同義詞判定，「雲端漏洞」可視為「漏洞」的同義詞，因此判定為 duplicate。"
+        "standard_object": "安全漏洞",
+        "reason": "主體與 Ldr 中的「雲端運算」完全等價同義詞；受體與 Ldr 中的「安全漏洞」具有同義詞關係，與「雲端安全漏洞」指稱同一概念"
       }
     },
     "original_raw_triple": {
@@ -354,117 +354,13 @@
       },
       "relation": "can_expose",
       "object": {
-        "name": "雲端漏洞",
+        "name": "雲端安全漏洞",
         "type": "vulnerability"
       },
-      "reasoning": "文本提到雲端運算存在風險與資安問題，根據 Schema，系統 (system) 透過暴露漏洞 (vulnerability) 來導致風險，因此先萃取此關聯。",
+      "reasoning": "文本提到雲端運算存在傳統資安問題與新形態安全風險，這意味著該系統 (system) 可能暴露漏洞 (vulnerability)。",
       "source_id": "chunk_4",
       "source_file": "ch19_習題解答.pdf",
       "source_index": 7
-    }
-  },
-  {
-    "subject": {
-      "name": "漏洞",
-      "type": "vulnerability",
-      "display_name": "雲端漏洞"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "風險",
-      "type": "risk",
-      "display_name": "網路風險"
-    },
-    "reasoning": "文本指出雲端運算風險來自網路層面，對應 Schema 中 vulnerability can_expose risk 的邏輯。",
-    "source_id": "chunk_4",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 8,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 均在 Lc,p 中。",
-        "step_2_alignment_check": "雲端漏洞是 vulnerability 的合理實例，網路風險是 risk 的合理實例，'can_expose' 的語意與資安領域的常見用法相符。",
-        "response": "correct",
-        "reason": "雲端漏洞與網路風險的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則3允許漏洞（vulnerability）發起 'can_expose' 動作，且待檢查三元組的主體為雲端漏洞（類別：vulnerability），關係為 can_expose，符合規則3的特例允許，因此不觸發違規。",
-        "response": "correct",
-        "reason": "三元組符合規則3的特例允許，雲端漏洞可以發起 'can_expose' 動作，暴露網路風險。因此，該三元組不違反語義限制清單中的任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體「雲端漏洞」與 Ldr 中的「漏洞」為同義詞，受體「網路風險」與 Ldr 中的「風險」為同義詞",
-        "response": "duplicate",
-        "standard_subject": "漏洞",
-        "standard_object": "風險",
-        "reason": "根據同義詞判定準則，「雲端漏洞」與「漏洞」為同義詞，「網路風險」與「風險」為同義詞，故判定為 duplicate。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "雲端漏洞",
-        "type": "vulnerability"
-      },
-      "relation": "can_expose",
-      "object": {
-        "name": "網路風險",
-        "type": "risk"
-      },
-      "reasoning": "文本指出雲端運算風險來自網路層面，對應 Schema 中 vulnerability can_expose risk 的邏輯。",
-      "source_id": "chunk_4",
-      "source_file": "ch19_習題解答.pdf",
-      "source_index": 8
-    }
-  },
-  {
-    "subject": {
-      "name": "雲端漏洞",
-      "type": "vulnerability",
-      "display_name": "雲端漏洞"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "資料風險",
-      "type": "risk",
-      "display_name": "資料風險"
-    },
-    "reasoning": "文本指出雲端運算風險來自資料層面，對應 Schema 中 vulnerability can_expose risk 的邏輯。",
-    "source_id": "chunk_4",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 9,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 均在 Lc,p 中。",
-        "step_2_alignment_check": "雲端漏洞 (vulnerability) 可以合理地與 'can_expose' 關係連接到資料風險 (risk)，因為漏洞可能會暴露資料風險，這是資安領域中常見的邏輯關係。",
-        "response": "correct",
-        "reason": "雲端漏洞與資料風險之間的 'can_expose' 關係在資安領域中是合理且常見的，完全符合預先定義的類別與屬性清單。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則3允許漏洞（vulnerability）發起 'can_expose' 動作，且待檢查三元組的主體為雲端漏洞（類別：vulnerability），關係為 can_expose，符合規則3的特例允許，因此不觸發違規。",
-        "response": "correct",
-        "reason": "三元組符合規則3的特例允許，雲端漏洞可以發起 'can_expose' 動作，故不違反語義限制清單中的任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體「雲端漏洞」與 Ldr 中的「漏洞」和「安全漏洞」相關，但非完全等價同義詞；受體「資料風險」與 Ldr 中的「資訊風險」和「風險」相關，且「資料風險」可視為「風險」的子類型，但「資料風險」與「資訊風險」在此語境下可視為同義詞。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【廣義/狹義一律保留】原則，主體和受體不進行合併，保留原狀。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "雲端漏洞",
-        "type": "vulnerability"
-      },
-      "relation": "can_expose",
-      "object": {
-        "name": "資料風險",
-        "type": "risk"
-      },
-      "reasoning": "文本指出雲端運算風險來自資料層面，對應 Schema 中 vulnerability can_expose risk 的邏輯。",
-      "source_id": "chunk_4",
-      "source_file": "ch19_習題解答.pdf",
-      "source_index": 9
     }
   },
   {
@@ -475,32 +371,32 @@
     },
     "relation": "mitigates",
     "object": {
-      "name": "雲端安全風險",
+      "name": "資訊安全風險",
       "type": "risk",
       "display_name": "雲端安全風險"
     },
-    "reasoning": "OWASP Cloud Top 10 是一個評估標準/規範 (policy)，旨在識別並幫助緩解 (mitigates) 雲端安全風險 (risk)。",
+    "reasoning": "OWASP Cloud Top 10 是一個評估風險的標準/規範 (policy)，其目的是透過識別風險來幫助緩解 (mitigates) 雲端安全風險 (risk)。",
     "source_id": "chunk_4",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 11,
+    "source_index": 8,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "OWASP Cloud Top 10 是一份與雲端安全相關的政策文件，'policy' 是其合理的類別；'雲端安全風險' 是 'risk' 的合理實例，關係 'mitigates' 在此語境下表達了政策對風險的減輕作用，符合語意對齊。",
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "OWASP Cloud Top 10 是一份雲端安全政策清單，合理對齊 'policy' 類別；雲端安全風險是資安領域中常見的風險類型，合理對齊 'risk' 類別。",
         "response": "correct",
-        "reason": "主體、關係、受體的類別與屬性完全符合預先定義的清單，並且在語意上合理對齊。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 'OWASP Cloud Top 10' 類別為 policy，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
         "response": "correct",
-        "reason": "三元組中的主體 'OWASP Cloud Top 10' 類別為 policy，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+        "reason": "主體 OWASP Cloud Top 10 的類別是 policy，符合規則2所允許的條件。"
       },
       "step_2": {
-        "granularity_analysis": "受體 \"雲端安全風險\" 與 Ldr 中的 \"風險\" 關係為廣義/狹義從屬，因為 \"雲端安全風險\" 是 \"風險\" 的子類型",
-        "response": "correct",
+        "granularity_analysis": "受體與 Ldr 中的「資訊安全風險」為完全等價同義詞",
+        "response": "duplicate",
         "standard_subject": "",
-        "standard_object": "",
-        "reason": "判定依據：廣義/狹義一律保留，受體是 Ldr 中某資源的子類型"
+        "standard_object": "資訊安全風險",
+        "reason": "受體「雲端安全風險」與 Ldr 中的「資訊安全風險」在資安教材中可互換使用、指稱同一概念"
       }
     },
     "original_raw_triple": {
@@ -513,10 +409,62 @@
         "name": "雲端安全風險",
         "type": "risk"
       },
-      "reasoning": "OWASP Cloud Top 10 是一個評估標準/規範 (policy)，旨在識別並幫助緩解 (mitigates) 雲端安全風險 (risk)。",
+      "reasoning": "OWASP Cloud Top 10 是一個評估風險的標準/規範 (policy)，其目的是透過識別風險來幫助緩解 (mitigates) 雲端安全風險 (risk)。",
       "source_id": "chunk_4",
       "source_file": "ch19_習題解答.pdf",
-      "source_index": 11
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "文本提到用戶將自己所擁有的資料送到雲端，顯示使用者 (user) 使用/擁有資料 (data)。",
+    "source_id": "chunk_4",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例，受體名稱 '資料' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「使用者」、「用戶」、「網路使用者」為同義詞；受體與 Ldr 中的「資料」、「資料庫資料」、「資料資產」、「雲端資料」、「使用者資料」、「郵件資料」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "使用者",
+        "standard_object": "資料",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "文本提到用戶將自己所擁有的資料送到雲端，顯示使用者 (user) 使用/擁有資料 (data)。",
+      "source_id": "chunk_4",
+      "source_file": "ch19_習題解答.pdf",
+      "source_index": 9
     }
   },
   {
@@ -531,28 +479,28 @@
       "type": "system",
       "display_name": "雲端基礎設施"
     },
-    "reasoning": "文本提到資料的控制權下降，必須依靠供應商管理，因此將供應商視為管理實體 (securityTeam) 並控制 (controls) 基礎設施 (system)。",
+    "reasoning": "文本提到資料的權限、儲存、備份等管理措施必須依靠供應商，因此供應商（在此扮演管理角色 securityTeam）控制著雲端系統 (system)。",
     "source_id": "chunk_4",
     "source_file": "ch19_習題解答.pdf",
-    "source_index": 12,
+    "source_index": 10,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "雲端服務供應商 可被視為 securityTeam 的合理實例，雲端基礎設施 可被視為 system 的合理實例，且 'controls' 在資安領域中是一種合理的關係描述。",
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '雲端服務供應商' 可以被視為 'securityTeam' 的合理實例，實體名稱 '雲端基礎設施' 可以被視為 'system' 的合理實例。",
         "response": "correct",
-        "reason": "雲端服務供應商作為安全團隊控制雲端基礎設施的描述，符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：主體為 securityTeam，具有主動執行能力，符合 controls 關係的要求。",
+        "step_1_rule_matching": "規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
         "response": "correct",
-        "reason": "三元組中的主體（雲端服務供應商）為 securityTeam，具有主動執行能力，符合規則8中 controls 關係的要求。因此，三元組不違反語義限制清單中的任何規則。"
+        "reason": "主體為雲端服務供應商，類別為 securityTeam，符合規則8所允許的條件。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體皆有相似的近似資源，但需進一步判定同義詞關係與子類型關係",
+        "granularity_analysis": "主體與 Ldr 中的「雲端服務提供業者」為同義詞；受體與 Ldr 中的「雲端環境」或「雲端運算」相關，但非完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "雖然有相似的近似資源，但無法確定為完全同義詞或子類型關係，故預設保留"
+        "reason": "雖然主體與 Ldr 中的「雲端服務提供業者」為同義詞，但受體與 Ldr 中的資源不完全等價，因此判定為 correct。"
       }
     },
     "original_raw_triple": {
@@ -565,114 +513,10 @@
         "name": "雲端基礎設施",
         "type": "system"
       },
-      "reasoning": "文本提到資料的控制權下降，必須依靠供應商管理，因此將供應商視為管理實體 (securityTeam) 並控制 (controls) 基礎設施 (system)。",
-      "source_id": "chunk_4",
-      "source_file": "ch19_習題解答.pdf",
-      "source_index": 12
-    }
-  },
-  {
-    "subject": {
-      "name": "漏洞",
-      "type": "vulnerability",
-      "display_name": "雲端漏洞"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "法規風險",
-      "type": "risk",
-      "display_name": "法規風險"
-    },
-    "reasoning": "文本指出雲端運算風險來自法規層面，對應 Schema 中 vulnerability can_expose risk 的邏輯。",
-    "source_id": "chunk_4",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 10,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 均在 Lc,p 中。",
-        "step_2_alignment_check": "雲端漏洞是 vulnerability 的合理實例，法規風險是 risk 的合理實例，'can_expose' 關係在資安領域中合理適用於此類別之間的關係。",
-        "response": "correct",
-        "reason": "雲端漏洞與法規風險之間的 'can_expose' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為，但特例允許 'can_expose' (暴露) 動作。因此，三元組（雲端漏洞 can_expose 法規風險）符合規則3的特例允許，未觸發違規。",
-        "response": "correct",
-        "reason": "三元組符合規則3的特例允許，雲端漏洞可以發起 'can_expose' 動作，未違反語義限制清單中的任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "雲端漏洞與漏洞、安全漏洞等為同義詞或廣義/狹義從屬關係，但根據對照表，漏洞 ≡ 弱點 ≡ 脆弱性均指 vulnerability，因此雲端漏洞與漏洞為同義詞。",
-        "response": "duplicate",
-        "standard_subject": "漏洞",
-        "standard_object": "",
-        "reason": "根據同義詞對照表，雲端漏洞與漏洞為同義詞，因此判定為 duplicate。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "雲端漏洞",
-        "type": "vulnerability"
-      },
-      "relation": "can_expose",
-      "object": {
-        "name": "法規風險",
-        "type": "risk"
-      },
-      "reasoning": "文本指出雲端運算風險來自法規層面，對應 Schema 中 vulnerability can_expose risk 的邏輯。",
+      "reasoning": "文本提到資料的權限、儲存、備份等管理措施必須依靠供應商，因此供應商（在此扮演管理角色 securityTeam）控制著雲端系統 (system)。",
       "source_id": "chunk_4",
       "source_file": "ch19_習題解答.pdf",
       "source_index": 10
-    }
-  },
-  {
-    "subject": {
-      "name": "雲端服務供應商",
-      "type": "securityTeam",
-      "display_name": "雲端服務供應商"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "安全控制措施",
-      "type": "policy",
-      "display_name": "安全控制措施"
-    },
-    "reasoning": "文本提到安全控制措施是必要的且由供應商執行，因此 securityTeam implements policy。",
-    "source_id": "chunk_4",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 13,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
-        "step_2_alignment_check": "雲端服務供應商 可被視為 securityTeam 的合理實例，安全控制措施 可被視為 policy 的合理實例。",
-        "response": "correct",
-        "reason": "雲端服務供應商實施安全控制措施的三元組完全符合預先定義的類別與屬性清單。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用，因為三元組中主體是安全團隊(securityTeam)，沒有同時具有攻擊者(attacker)的身分。規則2：不適用，因為三元組中的關係是 implements，不是 mitigates。規則3：不適用，因為主體類別是 securityTeam，不是 vulnerability。規則4：不適用，因為三元組中的關係是 implements，不是 violates，而且主體不是 principle。規則5：不適用，因為三元組中的關係是 implements，不是 uses。規則6：不適用，因為三元組中的關係是 implements，不是 deployed_in。規則7：不適用，因為三元組中的關係是 implements，不是 generates。規則8：不適用，因為三元組中的關係是 implements，不是 controls。",
-        "response": "correct",
-        "reason": "三元組中的主體是安全團隊(securityTeam)，關係是 implements，受體是安全控制措施(policy)，這符合一般的安全實踐邏輯，沒有違反任何規則。因此，根據無罪推定原則，該三元組被判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與 Ldr 中的「雲端服務提供業者」和「雲端服務供應商」為同義詞，受體與 Ldr 中的「owasp cloud top 10」不直接相關，但「安全控制措施」與「policy」在資安領域中可視為同義詞或相關概念。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據同義詞判定準則，雖然主體與 Ldr 中的某些資源有同義詞關係，但受體與 Ldr 中的資源不完全匹配，且無法確定為直接同義詞，因此預設保留，判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "雲端服務供應商",
-        "type": "securityTeam"
-      },
-      "relation": "implements",
-      "object": {
-        "name": "安全控制措施",
-        "type": "policy"
-      },
-      "reasoning": "文本提到安全控制措施是必要的且由供應商執行，因此 securityTeam implements policy。",
-      "source_id": "chunk_4",
-      "source_file": "ch19_習題解答.pdf",
-      "source_index": 13
     }
   }
 ]

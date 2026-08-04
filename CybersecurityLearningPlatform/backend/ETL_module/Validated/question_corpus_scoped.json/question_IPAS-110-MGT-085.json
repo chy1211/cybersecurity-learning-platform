@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "ceo",
+      "type": "user",
+      "display_name": "CEO"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "根據正確答案 B，「CEO 可調閱資料是屬於 Authorization」。這句話的核心事實是 CEO（使用者角色）能夠存取（調閱）資料。在提供的 Schema 中，使用者與資料之間的合法關係為 'uses'，因此萃取此三元組。",
+    "source_id": "question_IPAS-110-MGT-085",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "CEO 是 'user' 的合理實例，資料是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體 CEO 的類別是 user，而非 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "資料",
+        "reason": "受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CEO",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "根據正確答案 B，「CEO 可調閱資料是屬於 Authorization」。這句話的核心事實是 CEO（使用者角色）能夠存取（調閱）資料。在提供的 Schema 中，使用者與資料之間的合法關係為 'uses'，因此萃取此三元組。",
+      "source_id": "question_IPAS-110-MGT-085",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

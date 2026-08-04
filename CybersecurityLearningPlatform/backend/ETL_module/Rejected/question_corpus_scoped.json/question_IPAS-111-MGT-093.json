@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "siem",
+      "type": "tool",
+      "display_name": "SIEM"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資安事件",
+      "type": "attack",
+      "display_name": "資安事件"
+    },
+    "reasoning": "SIEM 的全名為 Security Information and Event Management（資安資訊與事件管理），其核心目的在於收集並分析資安事件（Event）等日誌資料，因此將「資安事件」視為 data，關係選擇 can_analyze，符合 Schema 中 ('tool', 'can_analyze', 'data') 的定義。",
+    "source_id": "question_IPAS-111-MGT-093",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SIEM 是一種資安工具，能夠分析資安事件，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 SIEM 與 Ldr 中的 siem 為完全等價同義詞；受體 資安事件 與 Ldr 中的 資安事件 為完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "siem",
+        "standard_object": "資安事件",
+        "reason": "主體與受體均與 Ldr 中的資源為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> can_analyze -> attack (original: tool -> can_analyze -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "SIEM",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資安事件",
+        "type": "data"
+      },
+      "reasoning": "SIEM 的全名為 Security Information and Event Management（資安資訊與事件管理），其核心目的在於收集並分析資安事件（Event）等日誌資料，因此將「資安事件」視為 data，關係選擇 can_analyze，符合 Schema 中 ('tool', 'can_analyze', 'data') 的定義。",
+      "source_id": "question_IPAS-111-MGT-093",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

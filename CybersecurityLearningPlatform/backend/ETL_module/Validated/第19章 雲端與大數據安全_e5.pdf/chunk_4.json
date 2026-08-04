@@ -1,9 +1,9 @@
 [
   {
     "subject": {
-      "name": "基礎設施",
+      "name": "iaas",
       "type": "system",
-      "display_name": "基礎設施"
+      "display_name": "IaaS"
     },
     "relation": "has_a",
     "object": {
@@ -11,41 +11,41 @@
       "type": "system",
       "display_name": "虛擬伺服器"
     },
-    "reasoning": "文本明確指出基礎設施包含虛擬伺服器。根據 Schema，(system, has_a, system) 是合法的。",
+    "reasoning": "文本提到基礎設施 (IaaS) 包含虛擬伺服器。IaaS 作為一種服務架構被定義為 system，而虛擬伺服器是其組成部分，故選擇 feature。",
     "source_id": "chunk_4",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "基礎設施和虛擬伺服器都是 'system' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "IaaS 是 'system' 的合理實例，虛擬伺服器是 'feature' 的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 has_a，不是 deployed_in。規則7：不適用，因為關係為 has_a，不是 generates。規則8：不適用，因為關係為 has_a，不是 controls。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 has_a 不在語義限制清單中被明確限制，且主體和受體的類別均為 system，未發現明確且直接的違反項目。"
+        "reason": "三元組中的關係為 has_a，與規則6無關；受體虛擬伺服器的類別為 system，符合規則6的條件，但非本次檢查的主體。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體皆為資安領域中的系統類別，且兩者皆有完全匹配的近似資源",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【前提確認】，主體與受體的名稱與近似資源清單中的 name 字串完全相同，直接判定 correct。"
+        "granularity_analysis": "主體 IaaS 與 Ldr 中的 iaas 完全等價同義詞；受體 虛擬伺服器 與 Ldr 中的 虛擬伺服器 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "iaas",
+        "standard_object": "虛擬伺服器",
+        "reason": "主體 IaaS 與 Ldr 中的 iaas 完全等價同義詞；受體 虛擬伺服器 與 Ldr 中的 虛擬伺服器 完全等價同義詞。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "基礎設施",
+        "name": "IaaS",
         "type": "system"
       },
       "relation": "has_a",
       "object": {
         "name": "虛擬伺服器",
-        "type": "system"
+        "type": "feature"
       },
-      "reasoning": "文本明確指出基礎設施包含虛擬伺服器。根據 Schema，(system, has_a, system) 是合法的。",
+      "reasoning": "文本提到基礎設施 (IaaS) 包含虛擬伺服器。IaaS 作為一種服務架構被定義為 system，而虛擬伺服器是其組成部分，故選擇 feature。",
       "source_id": "chunk_4",
       "source_file": "第19章 雲端與大數據安全_e5.pdf",
       "source_index": 1
@@ -53,9 +53,9 @@
   },
   {
     "subject": {
-      "name": "基礎設施",
+      "name": "iaas",
       "type": "system",
-      "display_name": "基礎設施"
+      "display_name": "IaaS"
     },
     "relation": "has_a",
     "object": {
@@ -63,41 +63,41 @@
       "type": "feature",
       "display_name": "儲存空間"
     },
-    "reasoning": "文本明確指出基礎設施包含儲存空間。根據 Schema，(system, has_a, system) 是合法的。",
+    "reasoning": "文本提到基礎設施 (IaaS) 包含儲存空間。IaaS 為 system，儲存空間為其屬性/組成部分，故選擇 feature。",
     "source_id": "chunk_4",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "基礎設施與儲存空間皆為系統的合理實例，符合語意對齊與同義詞寬容原則。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "IaaS 是 'system' 的合理實例，儲存空間是 'feature' 的合理實例。",
         "response": "correct",
-        "reason": "基礎設施與儲存空間的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與規則清單中沒有直接相關的限制，因此無法判定為違規。"
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體皆為資安領域已知實體，且與 Ldr 中的某些資源具有完全相同的名稱",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "主體與受體的名稱與 Ldr 中的某些資源完全相同，直接判定 correct。"
+        "reason": "儲存空間為資安領域已知同義詞對照範例中無直接對應詞彙，且無法確認其與儲存容量、儲存、記憶體空間、可擴充的儲存容量之間的從屬關係，故判定為 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "基礎設施",
+        "name": "IaaS",
         "type": "system"
       },
       "relation": "has_a",
       "object": {
         "name": "儲存空間",
-        "type": "system"
+        "type": "feature"
       },
-      "reasoning": "文本明確指出基礎設施包含儲存空間。根據 Schema，(system, has_a, system) 是合法的。",
+      "reasoning": "文本提到基礎設施 (IaaS) 包含儲存空間。IaaS 為 system，儲存空間為其屬性/組成部分，故選擇 feature。",
       "source_id": "chunk_4",
       "source_file": "第19章 雲端與大數據安全_e5.pdf",
       "source_index": 2
@@ -105,9 +105,9 @@
   },
   {
     "subject": {
-      "name": "基礎設施",
+      "name": "iaas",
       "type": "system",
-      "display_name": "基礎設施"
+      "display_name": "IaaS"
     },
     "relation": "has_a",
     "object": {
@@ -115,41 +115,41 @@
       "type": "system",
       "display_name": "網路"
     },
-    "reasoning": "文本明確指出基礎設施包含網路。根據 Schema，(system, has_a, system) 是合法的。",
+    "reasoning": "文本提到基礎設施 (IaaS) 包含網路。IaaS 為 system，網路為其組成部分，故選擇 feature。",
     "source_id": "chunk_4",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "基礎設施與網路皆為系統的合理實例，符合語意對齊與同義詞寬容原則。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "IaaS 是 'system' 的合理實例，網路是 'feature' 的合理實例。",
         "response": "correct",
-        "reason": "基礎設施與網路的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查規則沒有直接觸發違規。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與主體 '基礎設施' 和受體 '網路' 的類別組合，沒有明確違反語義限制清單中的任何規則。"
+        "reason": "三元組中的關係是 has_a，而非 deployed_in，因此不觸發規則6。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體皆為資安領域中的基本概念，且兩者皆有直接對應的同義詞或子類型，但無直接同義詞關係。",
+        "granularity_analysis": "網路與網際網路之間存在著廣義/狹義從屬關係，但根據禁止合併的母類/子類與易混淆概念範例，網路型入侵偵測系統、主機型入侵偵測系統 ≠ 入侵偵測系統（子類型 vs 母類），因此網路與網際網路之間的關係不應該被視為同義詞重複。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "基礎設施與網路為資安領域中的不同概念，無同義詞關係，且無子類型關係，故判定為 correct。"
+        "reason": "網路與網際網路之間存在著廣義/狹義從屬關係，且根據禁止合併的母類/子類與易混淆概念範例，不應該被視為同義詞重複。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "基礎設施",
+        "name": "IaaS",
         "type": "system"
       },
       "relation": "has_a",
       "object": {
         "name": "網路",
-        "type": "system"
+        "type": "feature"
       },
-      "reasoning": "文本明確指出基礎設施包含網路。根據 Schema，(system, has_a, system) 是合法的。",
+      "reasoning": "文本提到基礎設施 (IaaS) 包含網路。IaaS 為 system，網路為其組成部分，故選擇 feature。",
       "source_id": "chunk_4",
       "source_file": "第19章 雲端與大數據安全_e5.pdf",
       "source_index": 3
@@ -157,155 +157,51 @@
   },
   {
     "subject": {
-      "name": "平台",
+      "name": "paas",
       "type": "system",
-      "display_name": "平台"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "作業系統虛擬平台",
-      "type": "system",
-      "display_name": "作業系統虛擬平台"
-    },
-    "reasoning": "文本指出平台包含作業系統虛擬平台。根據 Schema，(system, has_a, system) 是合法的。",
-    "source_id": "chunk_4",
-    "source_file": "第19章 雲端與大數據安全_e5.pdf",
-    "source_index": 4,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "實體 '平台' 與 '作業系統虛擬平台' 均為 'system' 的合理實例，考慮到同義詞寬容原則。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 has_a，不是 uses。檢查規則6：不適用，因為關係為 has_a，不是 deployed_in。檢查規則7：不適用，因為關係為 has_a，不是 generates。檢查規則8：不適用，因為關係為 has_a，不是 controls。",
-        "response": "correct",
-        "reason": "三元組中的關係 has_a 與受體作業系統虛擬平台的類別 system 不違反任何語義限制清單中的規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與受體皆為系統類別，受體「作業系統虛擬平台」可視為「作業系統」的子類型，兩者在資安領域中指涉不同層面的概念，無直接同義詞關係。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【廣義/狹義一律保留】判斷準則，受體是主體的子類型，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "平台",
-        "type": "system"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "作業系統虛擬平台",
-        "type": "system"
-      },
-      "reasoning": "文本指出平台包含作業系統虛擬平台。根據 Schema，(system, has_a, system) 是合法的。",
-      "source_id": "chunk_4",
-      "source_file": "第19章 雲端與大數據安全_e5.pdf",
-      "source_index": 4
-    }
-  },
-  {
-    "subject": {
-      "name": "軟體",
-      "type": "system",
-      "display_name": "軟體"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "工具",
-      "type": "tool",
-      "display_name": "工具"
-    },
-    "reasoning": "文本提到應用部分的工具稱為軟體，將軟體視為應用程式類別，其包含工具。根據 Schema，(app, has_a, tool) 是合法的。",
-    "source_id": "chunk_4",
-    "source_file": "第19章 雲端與大數據安全_e5.pdf",
-    "source_index": 6,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'app'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "軟體 (app) 可以有工具 (tool)，這是語意上合理的對齊，符合同義詞寬容原則。",
-        "response": "correct",
-        "reason": "軟體 (app) 有工具 (tool) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
-        "response": "correct",
-        "reason": "三元組（軟體 has_a 工具）不觸發語義限制清單中的任何規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體 (Subject) 軟體與 Ldr 中的軟體完全匹配，受體 (Object) 工具與 Ldr 中的工具類別相符，但無直接同義詞匹配",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【前提確認】和【廣義/狹義一律保留】判斷，軟體和工具之間沒有直接的同義詞或子類型關係，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "軟體",
-        "type": "app"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "工具",
-        "type": "tool"
-      },
-      "reasoning": "文本提到應用部分的工具稱為軟體，將軟體視為應用程式類別，其包含工具。根據 Schema，(app, has_a, tool) 是合法的。",
-      "source_id": "chunk_4",
-      "source_file": "第19章 雲端與大數據安全_e5.pdf",
-      "source_index": 6
-    }
-  },
-  {
-    "subject": {
-      "name": "平台",
-      "type": "system",
-      "display_name": "平台"
+      "display_name": "PaaS"
     },
     "relation": "has_a",
     "object": {
       "name": "開發環境",
-      "type": "system",
+      "type": "feature",
       "display_name": "開發環境"
     },
-    "reasoning": "文本指出平台包含開發環境。根據 Schema，(system, has_a, system) 是合法的。",
+    "reasoning": "文本提到平台 (PaaS) 包含開發環境。PaaS 為 system，開發環境為其組成特徵，故選擇 feature。",
     "source_id": "chunk_4",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體 '平台' 和 '開發環境' 都是 'system' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'PaaS' 是 'system' 的合理實例，受體 '開發環境' 是 'feature' 的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，通過類別與屬性檢查。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與受體 '開發環境' 的類別 'system' 不違反任何語義限制清單中的規則。"
+        "reason": "雖然規則6提到deployed_in關係的受體類別必須是system，但本案例的關係是has_a，故不違反規則6。"
       },
       "step_2": {
-        "granularity_analysis": "主體「平台」與 Ldr 中的「平台」完全相同，受體「開發環境」與 Ldr 中的資源不完全匹配，但無法確定為同義詞或子類型關係。",
-        "response": "correct",
-        "standard_subject": "",
+        "granularity_analysis": "主體 PaaS 與 Ldr 中的 paas 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "paas",
         "standard_object": "",
-        "reason": "根據【前提確認】，主體「平台」與 Ldr 中的「平台」完全相同，且無法確定受體「開發環境」與 Ldr 中的資源有同義詞或子類型關係，故預設保留。"
+        "reason": "PaaS 是 Platform-as-a-Service 的縮寫，與 Ldr 中的 paas 完全相同，判定為 duplicate。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "平台",
+        "name": "PaaS",
         "type": "system"
       },
       "relation": "has_a",
       "object": {
         "name": "開發環境",
-        "type": "system"
+        "type": "feature"
       },
-      "reasoning": "文本指出平台包含開發環境。根據 Schema，(system, has_a, system) 是合法的。",
+      "reasoning": "文本提到平台 (PaaS) 包含開發環境。PaaS 為 system，開發環境為其組成特徵，故選擇 feature。",
       "source_id": "chunk_4",
       "source_file": "第19章 雲端與大數據安全_e5.pdf",
       "source_index": 5
@@ -313,61 +209,62 @@
   },
   {
     "subject": {
-      "name": "用戶",
-      "type": "user",
-      "display_name": "用戶"
+      "name": "saas",
+      "type": "system",
+      "display_name": "SaaS"
     },
-    "relation": "uses",
+    "relation": "has_a",
     "object": {
-      "name": "瀏覽器",
-      "type": "app",
-      "display_name": "瀏覽器"
+      "name": "套裝程式",
+      "type": "tool",
+      "display_name": "套裝程式"
     },
-    "reasoning": "文本提到用戶透過瀏覽器使用應用服務。根據 Schema，(user, uses, app) 是合法的。",
+    "reasoning": "文本提到軟體 (SaaS) 部分包含套裝程式。SaaS 為 system，套裝程式在此被視為執行特定功能的工具，故選擇 tool。",
     "source_id": "chunk_4",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
-    "source_index": 7,
+    "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 均在 Lc,p 中。",
-        "step_2_alignment_check": "用戶 (user) 與瀏覽器 (app) 的名稱與其類別對齊，且 'uses' 關係在資安領域中是合理的，表示用戶使用瀏覽器。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SaaS 是 'system' 的合理實例，套裝程式是 'tool' 的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
+      "step_2_selfloop_reverted": true,
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5觸發，因為關係是uses，但主體類別是user，不是data，所以不違反。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的主體是用戶，關係是uses，受體是瀏覽器，沒有違反任何語義限制清單中的規則。"
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
       },
       "step_2": {
-        "granularity_analysis": "主體「用戶」與 Ldr 中的「用戶」完全等價同義詞，受體「瀏覽器」與 Ldr 中的「瀏覽器」完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體和受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+        "granularity_analysis": "主體 SaaS 與 Ldr 中的 saas 完全等價同義詞；受體 套裝程式 與 Ldr 中的 加密程式 不相關，但套裝程式與 saas 在資安領域中可互換使用、指稱同一概念",
+        "response": "duplicate",
+        "standard_subject": "saas",
+        "standard_object": "saas",
+        "reason": "主體與受體均與 Ldr 中的 saas 完全等價同義詞"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "用戶",
-        "type": "user"
+        "name": "SaaS",
+        "type": "system"
       },
-      "relation": "uses",
+      "relation": "has_a",
       "object": {
-        "name": "瀏覽器",
-        "type": "app"
+        "name": "套裝程式",
+        "type": "tool"
       },
-      "reasoning": "文本提到用戶透過瀏覽器使用應用服務。根據 Schema，(user, uses, app) 是合法的。",
+      "reasoning": "文本提到軟體 (SaaS) 部分包含套裝程式。SaaS 為 system，套裝程式在此被視為執行特定功能的工具，故選擇 tool。",
       "source_id": "chunk_4",
       "source_file": "第19章 雲端與大數據安全_e5.pdf",
-      "source_index": 7
+      "source_index": 6
     }
   },
   {
     "subject": {
-      "name": "用戶",
+      "name": "user",
       "type": "user",
-      "display_name": "用戶"
+      "display_name": "user"
     },
     "relation": "uses",
     "object": {
@@ -375,33 +272,33 @@
       "type": "app",
       "display_name": "App"
     },
-    "reasoning": "文本提到用戶透過行動裝置上的 App 使用服務。根據 Schema，(user, uses, app) 是合法的。",
+    "reasoning": "文本提到用戶透過行動裝置上的 App 使用服務。用戶為 user，App 為 app。",
     "source_id": "chunk_4",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 8,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 均在 Lc,p 中。",
-        "step_2_alignment_check": "用戶 (user) 使用 App (app) 是語意上合理的，符合實體名稱與其類別的對齊，且 'uses' 關係在資安領域中常見，表示用戶使用應用程式的行為。",
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 'user' 是 'user' 的合理實例；受體名稱 'App' 是 'app' 的合理實例（寬容常見的縮寫與翻譯）。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體類別為 'user'，不違反此規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "step_1_rule_matching": "規則1：無關；規則2：無關；規則3：無關；規則4：無關；規則5：無關；規則6：無關；規則7：無關；規則8：無關",
         "response": "correct",
-        "reason": "三元組中的主體為 'user'，關係為 'uses'，受體為 'App'，不觸發語義限制清單中的任何違規規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "主體「用戶」與 Ldr 中的「用戶」完全相同，受體「App」與 Ldr 中的「應用程式」具有高相似度，但非完全相同，兩者皆無同義詞重複。",
+        "granularity_analysis": "主體與 Ldr 中的「用戶」、「使用者」、「網路使用者」、「電腦使用者」、「一般使用者」等實體具有高度相似性，但考慮到「user」為英文原文，且無法確定是否完全等價同義詞，因此判定為 correct。受體「App」與 Ldr 中的「app」、「應用程式」、「手機app程式」、「應用」、「otp app」、「網路應用程式」、「應用軟體」、「雲端應用程式」等實體具有高度相似性，且「App」為英文原文，考慮到資安領域已知同義詞對照範例中無相關對照，因此判定為 correct。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認與同義詞判定，主體與受體無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+        "reason": "無法確定完全等價同義詞，且考慮到英文原文與資安領域已知同義詞對照範例，因此判定為 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "用戶",
+        "name": "user",
         "type": "user"
       },
       "relation": "uses",
@@ -409,10 +306,62 @@
         "name": "App",
         "type": "app"
       },
-      "reasoning": "文本提到用戶透過行動裝置上的 App 使用服務。根據 Schema，(user, uses, app) 是合法的。",
+      "reasoning": "文本提到用戶透過行動裝置上的 App 使用服務。用戶為 user，App 為 app。",
       "source_id": "chunk_4",
       "source_file": "第19章 雲端與大數據安全_e5.pdf",
       "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "user",
+      "type": "user",
+      "display_name": "user"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "瀏覽器",
+      "type": "app",
+      "display_name": "瀏覽器"
+    },
+    "reasoning": "文本提到用戶透過瀏覽器使用應用服務。用戶為 user，瀏覽器為具體的應用軟體 app。",
+    "source_id": "chunk_4",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 'user' 是 'user' 的合理實例；受體名稱 '瀏覽器' 是 'app' 的合理實例（瀏覽器是一種應用程式）。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是攻擊者或安全團隊。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「用戶」、「使用者」、「網路使用者」、「電腦使用者」、「一般使用者」等實體具有高度相似性，但考慮到資安領域的嚴謹性，仍判定為不同概念；受體「瀏覽器」與 Ldr 中的「瀏覽器」、「網頁瀏覽器」、「chrome」、「firefox」、「網頁」等實體具有高度相似性，但「瀏覽器」為最精確的描述。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均無法找到完全等價的同義詞，且無法合併為更廣義或狹義的概念，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "user",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "瀏覽器",
+        "type": "app"
+      },
+      "reasoning": "文本提到用戶透過瀏覽器使用應用服務。用戶為 user，瀏覽器為具體的應用軟體 app。",
+      "source_id": "chunk_4",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 7
     }
   },
   {
@@ -427,28 +376,28 @@
       "type": "system",
       "display_name": "SaaS"
     },
-    "reasoning": "Gmail 是 SaaS (軟體即服務) 的具體實例。將 SaaS 視為一種服務系統，Gmail 為其上的應用。根據 Schema，(app, is_part_of, system) 是合法的。",
+    "reasoning": "文本將 Gmail 列為軟體即服務 (SaaS) 的例子。Gmail 是具體應用 app，SaaS 是其所屬的服務系統 system。",
     "source_id": "chunk_4",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 9,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "Gmail 是 'app' 的合理實例，SaaS 是 'system' 的合理實例，關係 'is_part_of' 在此語境下合理，因為 Gmail 可以被視為 SaaS 的一部分。",
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Gmail 是一種電子郵件應用程式，合理對齊 'app' 類別；SaaS 是一種軟體即服務系統，合理對齊 'system' 類別。",
         "response": "correct",
-        "reason": "Gmail 與 SaaS 的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1至規則8，發現待檢查三元組（Gmail is_part_of SaaS）不觸發任何違規條件，尤其是規則6中提到的deployed_in關係不適用於本案例，但is_part_of關係在給定的規則中沒有明確的限制或定義。",
+        "step_1_rule_matching": "規則1不適用，因為主體Gmail不是攻擊者或安全團隊。規則2不適用，因為關係不是mitigates。規則3不適用，因為主體Gmail不是漏洞。規則4不適用，因為主體Gmail不是資安原則。規則5不適用，因為關係不是uses且主體Gmail不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。規則6的描述中提到關係為is_part_of時，沒有明確的限制，因此不違反任何規則。",
         "response": "correct",
-        "reason": "由於三元組不違反任何給定的語義限制清單規則，且無法在規則中找到明確的限制或定義使其被判定為違規，因此判定為正確。"
+        "reason": "未發現明確且直接的違反項目，且三元組符合語義限制清單中沒有明確的限制條件。"
       },
       "step_2": {
-        "granularity_analysis": "Gmail 是一個特定的應用程式，SaaS 是一個系統類別，兩者之間沒有直接的同義詞或從屬關係。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，Gmail 和 SaaS 之間沒有同義詞或從屬關係，因此判定為 correct。"
+        "granularity_analysis": "主體 Gmail 與 Ldr 中的資源 gmail 完全等價同義詞；受體 SaaS 與 Ldr 中的資源 saas 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "gmail",
+        "standard_object": "saas",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
       }
     },
     "original_raw_triple": {
@@ -461,7 +410,7 @@
         "name": "SaaS",
         "type": "system"
       },
-      "reasoning": "Gmail 是 SaaS (軟體即服務) 的具體實例。將 SaaS 視為一種服務系統，Gmail 為其上的應用。根據 Schema，(app, is_part_of, system) 是合法的。",
+      "reasoning": "文本將 Gmail 列為軟體即服務 (SaaS) 的例子。Gmail 是具體應用 app，SaaS 是其所屬的服務系統 system。",
       "source_id": "chunk_4",
       "source_file": "第19章 雲端與大數據安全_e5.pdf",
       "source_index": 9
@@ -479,28 +428,28 @@
       "type": "system",
       "display_name": "SaaS"
     },
-    "reasoning": "Facebook 是 SaaS 的具體實例。根據 Schema，(app, is_part_of, system) 是合法的。",
+    "reasoning": "文本將 Facebook 列為軟體即服務 (SaaS) 的例子。Facebook 是具體應用 app，SaaS 是其所屬的服務系統 system。",
     "source_id": "chunk_4",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 10,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "Facebook 是一種 'app'，SaaS 是一種 'system'，因此實體名稱與其類別合理對齊，符合語意對齊原則。",
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Facebook 是一種合理的 'app' 實例，SaaS 是一種合理的 'system' 實例。",
         "response": "correct",
-        "reason": "Facebook 是一種 'app'，而 SaaS 是一種 'system'，因此 'Facebook is_part_of SaaS' 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查是否有其他相關規則：沒有相關規則被觸發。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的主體 'Facebook' 類別為 'app'，關係為 'is_part_of'，受體 'SaaS' 類別為 'system'，沒有觸發任何語義限制清單中的規則。"
+        "reason": "三元組中的關係 'is_part_of' 不符合規則6的觸發條件，且其他規則均不適用。"
       },
       "step_2": {
-        "granularity_analysis": "SaaS 是一個系統類型，Facebook 是一個應用程式，兩者之間沒有直接的同義詞或從屬關係。",
+        "granularity_analysis": "主體與瀏覽器、app為同類別；受體與saas為完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，若無法確定，預設 correct。"
+        "standard_object": "saas",
+        "reason": "受體與saas為完全等價同義詞，但主體與瀏覽器、app為同類別，故判定為correct"
       }
     },
     "original_raw_triple": {
@@ -513,7 +462,7 @@
         "name": "SaaS",
         "type": "system"
       },
-      "reasoning": "Facebook 是 SaaS 的具體實例。根據 Schema，(app, is_part_of, system) 是合法的。",
+      "reasoning": "文本將 Facebook 列為軟體即服務 (SaaS) 的例子。Facebook 是具體應用 app，SaaS 是其所屬的服務系統 system。",
       "source_id": "chunk_4",
       "source_file": "第19章 雲端與大數據安全_e5.pdf",
       "source_index": 10
@@ -531,28 +480,28 @@
       "type": "tool",
       "display_name": "編輯工具"
     },
-    "reasoning": "文本提到 PaaS 提供編輯工具。根據 Schema，(system, has_a, tool) 是合法的。",
+    "reasoning": "文本提到 PaaS 提供編輯工具。PaaS 為 system，編輯工具為其包含的 tool。",
     "source_id": "chunk_4",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
-    "source_index": 11,
+    "source_index": 13,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "PaaS 是 'system' 的合理實例，編輯工具是 'tool' 的合理實例，兩者之間的 'has_a' 關係在語意上是合理的，因為 PaaS 可能包含或提供編輯工具。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'PaaS' 是 'system' 的合理實例，受體 '編輯工具' 是 'tool' 的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與受體 '編輯工具' 並不直接違反任何語義限制清單中的規則，且無法找到明確且直接的違反項目。"
+        "reason": "三元組中的關係是 has_a，而非 deployed_in，因此不觸發規則6。"
       },
       "step_2": {
-        "granularity_analysis": "PaaS 與 Ldr 中的 \"paas\" 完全等價同義詞，編輯工具與 Ldr 中的 \"編輯工具\" 完全等價同義詞",
+        "granularity_analysis": "主體與 Ldr 中的 'paas' 完全等價同義詞；受體與 Ldr 中的 '編輯工具' 完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+        "reason": "主體與受體均為正確且唯一的資源名稱，無需進行標準化。"
       }
     },
     "original_raw_triple": {
@@ -565,10 +514,114 @@
         "name": "編輯工具",
         "type": "tool"
       },
-      "reasoning": "文本提到 PaaS 提供編輯工具。根據 Schema，(system, has_a, tool) 是合法的。",
+      "reasoning": "文本提到 PaaS 提供編輯工具。PaaS 為 system，編輯工具為其包含的 tool。",
+      "source_id": "chunk_4",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 13
+    }
+  },
+  {
+    "subject": {
+      "name": "aws",
+      "type": "system",
+      "display_name": "AWS"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "paas",
+      "type": "system",
+      "display_name": "PaaS"
+    },
+    "reasoning": "文本將 Amazon AWS 列為 PaaS 的類型。AWS 本身是一個大型雲端系統，PaaS 是其服務分類，符合 system is_part_of system。",
+    "source_id": "chunk_4",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "AWS 是一個系統 (system)，PaaS 也是一種系統 (system)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 is_part_of，與規則6無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 AWS 與 Ldr 中的資源無直接關係；受體 PaaS 與 Ldr 中的資源 paas 是完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "paas",
+        "reason": "受體 PaaS 與 Ldr 中的資源 paas 是完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "AWS",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "PaaS",
+        "type": "system"
+      },
+      "reasoning": "文本將 Amazon AWS 列為 PaaS 的類型。AWS 本身是一個大型雲端系統，PaaS 是其服務分類，符合 system is_part_of system。",
       "source_id": "chunk_4",
       "source_file": "第19章 雲端與大數據安全_e5.pdf",
       "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "user",
+      "type": "user",
+      "display_name": "user"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "paas",
+      "type": "system",
+      "display_name": "PaaS"
+    },
+    "reasoning": "文本提到用戶（開發商）利用 PaaS 平台進行開發。用戶為 user，PaaS 為 system。",
+    "source_id": "chunk_4",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'user' 是 'user' 的合理實例；受體 'PaaS' 是 'system' 的合理實例，因為 PaaS（Platform as a Service）是一種雲端計算服務，屬於系統的一種。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體類別不是attacker或securityTeam。規則2不適用，因為關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為受體不是principle。規則5不適用，因為主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 'user' 完全等價同義詞；受體與 Ldr 中的 'paas' 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "user",
+        "standard_object": "paas",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "user",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "PaaS",
+        "type": "system"
+      },
+      "reasoning": "文本提到用戶（開發商）利用 PaaS 平台進行開發。用戶為 user，PaaS 為 system。",
+      "source_id": "chunk_4",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 12
     }
   },
   {
@@ -579,32 +632,38 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "程式庫",
-      "type": "tool",
-      "display_name": "程式庫"
+      "name": "作業系統虛擬平台",
+      "type": "feature",
+      "display_name": "作業系統虛擬平台"
     },
-    "reasoning": "文本提到 PaaS 提供程式庫（視為開發工具）。根據 Schema，(system, has_a, tool) 是合法的。",
+    "reasoning": "文本提到平台 (PaaS) 包含作業系統虛擬平台。PaaS 為 system，虛擬平台為其組成特徵，故選擇 feature。",
     "source_id": "chunk_4",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
-    "source_index": 12,
+    "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "PaaS 是 'system' 的合理實例，'程式庫' 是 'tool' 的合理實例，且 'has_a' 關係在系統與工具之間是合理的。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "PaaS 是一個系統（system），而作業系統虛擬平台可以被視為系統的一個功能或特徵（feature），因此語意上是合理的。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意上是合理的。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
-        "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與主體 'PaaS' 和受體 '程式庫' 的類別組合，未觸發語義限制清單中的任何規則，因此判定為正確。"
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "violation",
+        "reason": "三元組的關係為 has_a，受體的類別為 feature，與規則6無關，但關係 has_a 與規則6無關，實際上應該檢查規則6的前提是否成立，若無，則應繼續檢查其他規則。繼續檢查後發現，主體的類別為 system，關係為 has_a，受體的類別為 feature，無法違反任何規則。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "三元組的關係為 has_a，受體的類別為 feature，與規則6無關，但關係 has_a 與規則6無關，實際上應該檢查規則6的前提是否成立，若無，則應繼續檢查其他規則。繼續檢查後發現，主體的類別為 system，關係為 has_a，受體的類別為 feature，無法違反任何規則。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
       },
       "step_2": {
-        "granularity_analysis": "PaaS 與 Ldr 中的 'paas' 完全等價同義詞，程式庫與 Ldr 中的 '工具' 有相似性，但非完全等價同義詞。",
         "response": "correct",
-        "standard_subject": "paas",
-        "standard_object": "",
-        "reason": "根據同義詞判定，PaaS 與 'paas' 完全等價，但程式庫與 '工具' 不完全等價，故保留原狀。"
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
       }
     },
     "original_raw_triple": {
@@ -614,65 +673,13 @@
       },
       "relation": "has_a",
       "object": {
-        "name": "程式庫",
-        "type": "tool"
+        "name": "作業系統虛擬平台",
+        "type": "feature"
       },
-      "reasoning": "文本提到 PaaS 提供程式庫（視為開發工具）。根據 Schema，(system, has_a, tool) 是合法的。",
+      "reasoning": "文本提到平台 (PaaS) 包含作業系統虛擬平台。PaaS 為 system，虛擬平台為其組成特徵，故選擇 feature。",
       "source_id": "chunk_4",
       "source_file": "第19章 雲端與大數據安全_e5.pdf",
-      "source_index": 12
-    }
-  },
-  {
-    "subject": {
-      "name": "開發商",
-      "type": "user",
-      "display_name": "開發商"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "paas",
-      "type": "system",
-      "display_name": "PaaS"
-    },
-    "reasoning": "文本提到開發商利用 PaaS 平台提供服務。根據 Schema，(user, uses, system) 是合法的。",
-    "source_id": "chunk_4",
-    "source_file": "第19章 雲端與大數據安全_e5.pdf",
-    "source_index": 13,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 均在 Lc,p 中。",
-        "step_2_alignment_check": "開發商 (user) 使用 PaaS (system) 是語意上合理的，開發商可以使用 PaaS 來開發應用程式。",
-        "response": "correct",
-        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意上合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：主體類別為 user，不是 data，故不違反。規則6：不適用（關係不是 deployed_in）。規則7：不適用（關係不是 generates）。規則8：不適用（關係不是 controls）。",
-        "response": "correct",
-        "reason": "三元組中的主體為開發商（類別：user），關係為 uses，受體為 PaaS（類別：system），未觸發任何語義限制清單中的規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "PaaS 是平台的一種，屬於廣義/狹義從屬關係，但根據給定的資源清單，PaaS 與平台都是 system 類別，且 PaaS 的 similarity_score 為 1.0，表示它是最相似的資源，但它們之間的關係是狹義從屬，PaaS 是平台的一種特定實現。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【廣義/狹義一律保留】判斷準則，PaaS 是平台的一種子類型， nên 保留為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "開發商",
-        "type": "user"
-      },
-      "relation": "uses",
-      "object": {
-        "name": "PaaS",
-        "type": "system"
-      },
-      "reasoning": "文本提到開發商利用 PaaS 平台提供服務。根據 Schema，(user, uses, system) 是合法的。",
-      "source_id": "chunk_4",
-      "source_file": "第19章 雲端與大數據安全_e5.pdf",
-      "source_index": 13
+      "source_index": 4
     }
   }
 ]

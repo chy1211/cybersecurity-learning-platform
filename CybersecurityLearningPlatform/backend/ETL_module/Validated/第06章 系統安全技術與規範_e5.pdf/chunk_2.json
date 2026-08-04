@@ -1,58 +1,6 @@
 [
   {
     "subject": {
-      "name": "作業系統",
-      "type": "system",
-      "display_name": "作業系統"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "電腦系統",
-      "type": "system",
-      "display_name": "電腦系統"
-    },
-    "reasoning": "文本指出『作業系統...也是電腦組成的核心』，說明作業系統是電腦系統這個大環境中的一個組成部分，符合 ('system', 'is_part_of', 'system') 的 Schema。",
-    "source_id": "chunk_2",
-    "source_file": "第06章 系統安全技術與規範_e5.pdf",
-    "source_index": 2,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
-        "step_2_alignment_check": "作業系統與電腦系統皆為系統的合理實例，符合語意對齊與同義詞寬容原則。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查規則，發現 'is_part_of' 關係沒有明確的限制規則，因此不觸發任何違規。",
-        "response": "correct",
-        "reason": "三元組中的關係 'is_part_of' 沒有在語義限制清單中被明確限制，且主體和受體的類別符合一般的語義理解，因此不構成違規。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與受體皆為系統類別，且受體「電腦系統」與主體「作業系統」在資安領域中可視為相關但不同的概念，兩者皆屬於系統類別，但「電腦系統」涵蓋了硬體和軟體，包括作業系統，而「作業系統」則是電腦系統的一部分，負責管理電腦硬體資源和提供程式執行環境。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【廣義/狹義一律保留】判斷準則，若一個實體是另一個的子類型，則判定為 correct，禁止合併。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "作業系統",
-        "type": "system"
-      },
-      "relation": "is_part_of",
-      "object": {
-        "name": "電腦系統",
-        "type": "system"
-      },
-      "reasoning": "文本指出『作業系統...也是電腦組成的核心』，說明作業系統是電腦系統這個大環境中的一個組成部分，符合 ('system', 'is_part_of', 'system') 的 Schema。",
-      "source_id": "chunk_2",
-      "source_file": "第06章 系統安全技術與規範_e5.pdf",
-      "source_index": 2
-    }
-  },
-  {
-    "subject": {
       "name": "應用軟體",
       "type": "app",
       "display_name": "應用軟體"
@@ -69,22 +17,22 @@
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'depends_on' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體 '應用軟體' 的名稱與其類別 'app' 對齊，實體 '作業系統' 的名稱與其類別 'system' 對齊，符合語意對齊原則。",
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "應用軟體 (app) 是軟體類別的合理實例，作業系統 (system) 是系統類別的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，通過類別與屬性檢查。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 'depends_on'，而非 'deployed_in'。規則7：不適用，因為關係為 'depends_on'，而非 'generates'。規則8：不適用，因為關係為 'depends_on'，而非 'controls'。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'depends_on' 與主體 '應用軟體' 和受體 '作業系統' 並未直接違反任何語義限制清單中的規則。因此，根據無罪推定原則，判定為正確。"
+        "reason": "三元組中的關係是 depends_on，而非 deployed_in，因此不違反規則6。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體皆有完全匹配的資源，分別為 \"應用軟體\" 與 \"作業系統\"，且兩者不具有同義詞關係或廣義/狹義從屬關係。",
+        "granularity_analysis": "主體與 Ldr 中的「應用軟體」完全等價同義詞；受體與 Ldr 中的「作業系統」完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "主體與受體皆為獨立實體，無同義詞或從屬關係，故判定為 correct。"
+        "reason": "雖然主體與受體在 Ldr 中找到完全等價同義詞，但根據資安領域已知同義詞對照範例，「應用軟體」與「作業系統」是不同的概念，無法合併。"
       }
     },
     "original_raw_triple": {
@@ -109,50 +57,102 @@
       "type": "system",
       "display_name": "作業系統"
     },
-    "relation": "has_a",
+    "relation": "is_part_of",
     "object": {
-      "name": "行程管理",
-      "type": "function",
-      "display_name": "行程管理"
+      "name": "電腦系統",
+      "type": "system",
+      "display_name": "電腦系統"
     },
-    "reasoning": "文本將『行程管理』列為作業系統的功能。由於 Schema 規定只有 tool 可以 has_a function，而作業系統在此被定義為『管理資源的系統程式』，因此將其視為 tool 以符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "reasoning": "文本指出『作業系統是管理電腦系統軟硬體資源的系統程式，也是電腦組成的核心』，說明作業系統是電腦系統的一個組成部分，符合 ('system', 'is_part_of', 'system') 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
-    "source_index": 3,
+    "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "作業系統 (tool) 與行程管理 (function) 的名稱與其類別合理對齊，符合資安領域的常見用法。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '作業系統' 與受體 '電腦系統' 都是 'system' 的合理實例，符合語意對齊原則。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且實體名稱與類別合理對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查規則沒有直接觸發違規。",
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與主體 '作業系統' 和受體 '行程管理' 之間的關係沒有明確違反語義限制清單中的任何規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
       },
       "step_2": {
-        "granularity_analysis": "主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全等價同義詞，受體 \"行程管理\" 與 Ldr 中的 \"管理\" 類別相近但非完全等價同義詞",
+        "granularity_analysis": "主體與 Ldr 中的「作業系統」完全等價同義詞；受體與 Ldr 中的「電腦系統」具有廣義/狹義從屬關係，但不應合併",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據判斷準則，主體與 Ldr 中的資源完全匹配，但受體與 Ldr 中的 \"管理\" 類別不完全匹配，故判定為 correct。"
+        "reason": "主體與 Ldr 中的「作業系統」完全等價同義詞；受體與 Ldr 中的「電腦系統」具有廣義/狹義從屬關係，但不應合併"
       }
     },
     "original_raw_triple": {
       "subject": {
         "name": "作業系統",
-        "type": "tool"
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "電腦系統",
+        "type": "system"
+      },
+      "reasoning": "文本指出『作業系統是管理電腦系統軟硬體資源的系統程式，也是電腦組成的核心』，說明作業系統是電腦系統的一個組成部分，符合 ('system', 'is_part_of', 'system') 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "輸出輸入管理",
+      "type": "feature",
+      "display_name": "輸出輸入管理"
+    },
+    "reasoning": "輸出輸入管理是作業系統的核心功能/屬性之一。為了符合 Schema 中 ('system', 'has_a', 'feature') 的定義，將此管理功能歸類為系統的特徵 (feature)。",
+    "source_id": "chunk_2",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '作業系統' 是 'system' 的合理實例，受體 '輸出輸入管理' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 has_a，與規則6無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「作業系統」完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "作業系統",
+        "type": "system"
       },
       "relation": "has_a",
       "object": {
-        "name": "行程管理",
-        "type": "function"
+        "name": "輸出輸入管理",
+        "type": "feature"
       },
-      "reasoning": "文本將『行程管理』列為作業系統的功能。由於 Schema 規定只有 tool 可以 has_a function，而作業系統在此被定義為『管理資源的系統程式』，因此將其視為 tool 以符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "reasoning": "輸出輸入管理是作業系統的核心功能/屬性之一。為了符合 Schema 中 ('system', 'has_a', 'feature') 的定義，將此管理功能歸類為系統的特徵 (feature)。",
       "source_id": "chunk_2",
       "source_file": "第06章 系統安全技術與規範_e5.pdf",
-      "source_index": 3
+      "source_index": 5
     }
   },
   {
@@ -164,44 +164,44 @@
     "relation": "has_a",
     "object": {
       "name": "記憶體管理",
-      "type": "function",
+      "type": "feature",
       "display_name": "記憶體管理"
     },
-    "reasoning": "文本將『記憶體管理』列為作業系統的功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "reasoning": "記憶體管理是作業系統的核心功能/屬性之一。為了符合 Schema 中 ('system', 'has_a', 'feature') 的定義，將此管理功能歸類為系統的特徵 (feature)。",
     "source_id": "chunk_2",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "作業系統是工具（tool）的合理實例，記憶體管理是功能（function）的合理實例，且 'has_a' 關係在此語境下合理。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '作業系統' 是 'system' 的合理實例，受體 '記憶體管理' 是 'feature' 的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "規則1不適用，因為主體與受體不涉及攻擊者或安全團隊的身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，無任何規則適用。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與主體 '作業系統' 和受體 '記憶體管理' 之間的關係在給定的語義限制清單中沒有明確的限制或違反規則。"
+        "reason": "無任何規則適用，且無明確且直接的違反項目。"
       },
       "step_2": {
-        "granularity_analysis": "主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全等價同義詞，受體 \"記憶體管理\" 與 Ldr 中的 \"行程管理\" 不相關，但 \"記憶體管理\" 可能是 \"function\" 類別下的子類型或相關概念，但無法確定為同義詞或子類型，因此預設保留。",
+        "granularity_analysis": "主體與 Ldr 中的「作業系統」完全等價同義詞；受體與 Ldr 中的「記憶體」具有廣義/狹義從屬關係，但不構成同義詞重複。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "無法確定 \"記憶體管理\" 與 Ldr 中的 \"行程管理\" 之間的關係，因此預設保留。"
+        "reason": "主體與 Ldr 中的資源具有完全等價同義詞關係，但受體與 Ldr 中的資源不構成同義詞重複，故判定為 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
         "name": "作業系統",
-        "type": "tool"
+        "type": "system"
       },
       "relation": "has_a",
       "object": {
         "name": "記憶體管理",
-        "type": "function"
+        "type": "feature"
       },
-      "reasoning": "文本將『記憶體管理』列為作業系統的功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "reasoning": "記憶體管理是作業系統的核心功能/屬性之一。為了符合 Schema 中 ('system', 'has_a', 'feature') 的定義，將此管理功能歸類為系統的特徵 (feature)。",
       "source_id": "chunk_2",
       "source_file": "第06章 系統安全技術與規範_e5.pdf",
       "source_index": 4
@@ -215,48 +215,48 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "檔案管理",
-      "type": "function",
-      "display_name": "檔案管理"
+      "name": "行程管理",
+      "type": "feature",
+      "display_name": "行程管理"
     },
-    "reasoning": "文本將『檔案管理』列為作業系統的功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "reasoning": "行程管理是作業系統的核心功能/屬性之一。為了符合 Schema 中 ('system', 'has_a', 'feature') 的定義，將此管理功能歸類為系統的特徵 (feature)。",
     "source_id": "chunk_2",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
-    "source_index": 6,
+    "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "作業系統可以被視為工具（tool），檔案管理可以被視為功能（function），且 'has_a' 關係在此語境下合理，因為作業系統通常具有檔案管理功能。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '作業系統' 是 'system' 的合理實例；受體 '行程管理' 是 'feature' 的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與主體 '作業系統' 和受體 '檔案管理' 之間的關係，沒有明確違反語義限制清單中的任何規則。"
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
       },
       "step_2": {
-        "granularity_analysis": "主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全等價同義詞，受體 \"檔案管理\" 與 Ldr 中的 \"行程管理\"、\"記憶體管理\"、\"輸出輸入管理\" 不相關，但 \"檔案管理\" 可能是 \"作業系統\" 的子功能",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+        "reason": "主體與受體名稱與 Ldr 中的資源名稱完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
         "name": "作業系統",
-        "type": "tool"
+        "type": "system"
       },
       "relation": "has_a",
       "object": {
-        "name": "檔案管理",
-        "type": "function"
+        "name": "行程管理",
+        "type": "feature"
       },
-      "reasoning": "文本將『檔案管理』列為作業系統的功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "reasoning": "行程管理是作業系統的核心功能/屬性之一。為了符合 Schema 中 ('system', 'has_a', 'feature') 的定義，將此管理功能歸類為系統的特徵 (feature)。",
       "source_id": "chunk_2",
       "source_file": "第06章 系統安全技術與規範_e5.pdf",
-      "source_index": 6
+      "source_index": 3
     }
   },
   {
@@ -267,97 +267,103 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "輸出輸入管理",
-      "type": "function",
-      "display_name": "輸出輸入管理"
+      "name": "檔案管理",
+      "type": "feature",
+      "display_name": "檔案管理"
     },
-    "reasoning": "文本將『輸出輸入管理』列為作業系統的功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "reasoning": "檔案管理是作業系統的核心功能/屬性之一。為了符合 Schema 中 ('system', 'has_a', 'feature') 的定義，將此管理功能歸類為系統的特徵 (feature)。",
     "source_id": "chunk_2",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
-    "source_index": 5,
+    "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "作業系統是工具的合理實例，輸出輸入管理是功能的合理實例。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '作業系統' 是 'system' 的合理實例，受體 '檔案管理' 是 'feature' 的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與受體 '輸出輸入管理' 不違反任何語義限制清單中的規則。"
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
       },
       "step_2": {
-        "granularity_analysis": "主體 \"作業系統\" 與 Ldr 中的 \"作業系統\" 完全等價同義詞，受體 \"輸出輸入管理\" 與 Ldr 中的 \"行程管理\" 或 \"記憶體管理\" 不直接相關，但 \"輸出輸入管理\" 可能被視為 \"作業系統\" 的功能之一，但無法直接匹配到 Ldr 中的同義詞或子類型。",
+        "granularity_analysis": "主體與 Ldr 中的「作業系統」完全等價同義詞；受體與 Ldr 中的「檔案管理」不相關，但「檔案管理」與「行程管理」、「記憶體管理」、「輸出輸入管理」等概念相關，皆為作業系統的功能特徵。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "無法確定 \"輸出輸入管理\" 的同義詞或子類型關係，預設保留。"
+        "reason": "主體與 Ldr 中的「作業系統」完全等價同義詞，但受體「檔案管理」不直接與 Ldr 中的資源完全匹配，故判定為 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
         "name": "作業系統",
-        "type": "tool"
+        "type": "system"
       },
       "relation": "has_a",
       "object": {
-        "name": "輸出輸入管理",
-        "type": "function"
+        "name": "檔案管理",
+        "type": "feature"
       },
-      "reasoning": "文本將『輸出輸入管理』列為作業系統的功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "reasoning": "檔案管理是作業系統的核心功能/屬性之一。為了符合 Schema 中 ('system', 'has_a', 'feature') 的定義，將此管理功能歸類為系統的特徵 (feature)。",
       "source_id": "chunk_2",
       "source_file": "第06章 系統安全技術與規範_e5.pdf",
-      "source_index": 5
+      "source_index": 6
     }
   },
   {
     "subject": {
+      "name": "檔案管理",
+      "type": "feature",
+      "display_name": "檔案管理"
+    },
+    "relation": "uses",
+    "object": {
       "name": "檔案",
       "type": "data",
       "display_name": "檔案"
     },
-    "relation": "deployed_in",
-    "object": {
-      "name": "磁碟機",
-      "type": "system",
-      "display_name": "磁碟機"
-    },
-    "reasoning": "文本提到『磁碟機下可存放目錄與檔案』，表示檔案（資料）被存放於磁碟機（硬體系統）中，符合 ('data', 'deployed_in', 'system') 的 Schema。",
+    "reasoning": "文本提到『檔案則為實際的資料或程式』且由檔案管理來處理，因此檔案管理這個特徵會使用/操作檔案資料，符合 ('feature', 'uses', 'data') 的 Schema。",
     "source_id": "chunk_2",
     "source_file": "第06章 系統安全技術與規範_e5.pdf",
     "source_index": 7,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "檔案 (data) 和 磁碟機 (system) 的名稱與其被賦予的類別合理對齊，檔案可以被視為 data 的實例，磁碟機可以被視為 system 的實例。",
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "檔案管理 (feature) 使用檔案 (data) 是合理的語意對齊，檔案管理是檔案的特徵，使用檔案是檔案管理的合理行為。",
         "response": "correct",
-        "reason": "主體、關係和受體都符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用，因為關係為 deployed_in，不是 uses。規則6：觸發，受體的類別是 system，符合規則。規則7：不適用，因為關係為 deployed_in，不是 generates。規則8：不適用，因為關係為 deployed_in，不是 controls。",
-        "response": "correct",
-        "reason": "三元組中的關係 deployed_in 與受體的類別 system 符合規則6，且未發現其他明確且直接的違反項目。"
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體檔案管理的類別是 feature，而非 data，且關係是 uses，違反規則5。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體檔案管理的類別是 feature，而非 data，且關係是 uses，違反規則5。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
       },
       "step_2": {
-        "granularity_analysis": "主體（檔案）與 Ldr 中的資源（密碼檔案、版權檔案、密碼檔、原始文件）之間存在廣義/狹義從屬關係，但無直接同義詞；受體（磁碟機）與 Ldr 中的資源（硬體、作業系統、電腦系統）之間存在廣義/狹義從屬關係，但無直接同義詞。",
         "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【廣義/狹義一律保留】原則，判定為 correct。"
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
       }
     },
     "original_raw_triple": {
       "subject": {
+        "name": "檔案管理",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
         "name": "檔案",
         "type": "data"
       },
-      "relation": "deployed_in",
-      "object": {
-        "name": "磁碟機",
-        "type": "system"
-      },
-      "reasoning": "文本提到『磁碟機下可存放目錄與檔案』，表示檔案（資料）被存放於磁碟機（硬體系統）中，符合 ('data', 'deployed_in', 'system') 的 Schema。",
+      "reasoning": "文本提到『檔案則為實際的資料或程式』且由檔案管理來處理，因此檔案管理這個特徵會使用/操作檔案資料，符合 ('feature', 'uses', 'data') 的 Schema。",
       "source_id": "chunk_2",
       "source_file": "第06章 系統安全技術與規範_e5.pdf",
       "source_index": 7

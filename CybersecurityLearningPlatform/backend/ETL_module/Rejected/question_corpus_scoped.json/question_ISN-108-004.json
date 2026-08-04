@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "資料殘留在硬碟",
+      "type": "vulnerability",
+      "display_name": "資料殘留在硬碟"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "資料竊取",
+      "type": "attack",
+      "display_name": "資料竊取"
+    },
+    "reasoning": "正確答案提到資料存於硬碟之上會導致「易遭有心人士竊取」，這描述了漏洞導致的負面後果，即資料竊取的風險。",
+    "source_id": "question_ISN-108-004",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '資料殘留在硬碟' 是 'vulnerability' 的合理實例；關係 'can_expose' 合理地連接主體與受體；受體名稱 '資料竊取' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間存在同義詞關係，但根據規則，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): vulnerability -> can_expose -> attack (original: vulnerability -> can_expose -> risk)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料殘留在硬碟",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "資料竊取",
+        "type": "risk"
+      },
+      "reasoning": "正確答案提到資料存於硬碟之上會導致「易遭有心人士竊取」，這描述了漏洞導致的負面後果，即資料竊取的風險。",
+      "source_id": "question_ISN-108-004",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

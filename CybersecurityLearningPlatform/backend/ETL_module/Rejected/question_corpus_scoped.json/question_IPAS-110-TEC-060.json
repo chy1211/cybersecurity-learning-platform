@@ -1,0 +1,98 @@
+[
+  {
+    "subject": {
+      "name": "ipsec",
+      "type": "tool",
+      "display_name": "IPSec"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "網路層",
+      "type": "feature",
+      "display_name": "網路層"
+    },
+    "reasoning": "根據選項 A，IPSec 是運用在網路層的保護機制。將 IPSec 視為一種安全工具 (tool)，而將其運作的環境『網路層』視為系統基礎設施 (system)，符合 ('tool', 'deployed_in', 'system') 的 Schema。",
+    "source_id": "question_IPAS-110-TEC-060",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "IPSec 是一種加密協議，通常被歸類為工具 (tool)，而 '網路層' 可以被視為系統 (system) 的一部分，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "IPSec 部署在網路層的敘述完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 IPSec 與 Ldr 中的 ipsec 完全等價同義詞；受體 網路層 與 Ldr 中的 網路層 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "ipsec",
+        "standard_object": "網路層",
+        "reason": "主體與受體均與 Ldr 中的資源完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> deployed_in -> feature (original: tool -> deployed_in -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "IPSec",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "網路層",
+        "type": "system"
+      },
+      "reasoning": "根據選項 A，IPSec 是運用在網路層的保護機制。將 IPSec 視為一種安全工具 (tool)，而將其運作的環境『網路層』視為系統基礎設施 (system)，符合 ('tool', 'deployed_in', 'system') 的 Schema。",
+      "source_id": "question_IPAS-110-TEC-060",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "ipsec",
+      "type": "tool",
+      "display_name": "IPSec"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "身分驗證",
+      "type": "technique",
+      "display_name": "身份認證"
+    },
+    "reasoning": "根據選項 B，IPSec 提供身份認證 (Authentication) 能力。身份認證是一種功能 (function)，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "question_IPAS-110-TEC-060",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "IPSec 是一種工具（tool），具有身份認證（function）功能，語意對齊合理。",
+        "response": "correct",
+        "reason": "IPSec 擁有身份認證功能的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "ipsec",
+        "standard_object": "身分驗證",
+        "reason": "根據資安領域已知同義詞對照範例，身份認證與身分驗證是同義詞。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> has_a -> technique (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "IPSec",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "身份認證",
+        "type": "function"
+      },
+      "reasoning": "根據選項 B，IPSec 提供身份認證 (Authentication) 能力。身份認證是一種功能 (function)，符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "question_IPAS-110-TEC-060",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

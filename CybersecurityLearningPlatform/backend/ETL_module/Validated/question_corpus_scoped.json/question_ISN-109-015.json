@@ -1,0 +1,112 @@
+[
+  {
+    "subject": {
+      "name": "身分認證",
+      "type": "function",
+      "display_name": "身分認證"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "所知之事",
+      "type": "feature",
+      "display_name": "所知之事"
+    },
+    "reasoning": "根據題幹與正確答案，身分認證（authentication）是一種功能，而『所知之事 (something you know)』是其認證要素之一，屬於該功能的特徵組成部分。符合 Schema: (\"function\", \"has_a\", \"feature\")。",
+    "source_id": "question_ISN-109-015",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '身分認證' 是 'function' 的合理實例，受體 '所知之事' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8 不適用。無相關規則限制主體為 function 類別的身分認證與受體為 feature 類別的所知之事之間的 has_a 關係。",
+        "response": "correct",
+        "reason": "無明確且直接的違反項目，無法觸發任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "身分認證",
+        "type": "function"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "所知之事",
+        "type": "feature"
+      },
+      "reasoning": "根據題幹與正確答案，身分認證（authentication）是一種功能，而『所知之事 (something you know)』是其認證要素之一，屬於該功能的特徵組成部分。符合 Schema: (\"function\", \"has_a\", \"feature\")。",
+      "source_id": "question_ISN-109-015",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "所知之事",
+      "type": "feature",
+      "display_name": "所知之事"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "身分證字號",
+      "type": "data",
+      "display_name": "身分證字號"
+    },
+    "reasoning": "正確答案 A 明確指出『所知之事』的實際應用例子是『身分證字號』，即此認證特徵使用該項資料來進行驗證。符合 Schema: (\"feature\", \"uses\", \"data\")。",
+    "source_id": "question_ISN-109-015",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '所知之事' 的類別 'feature' 合理對齊，受體 '身分證字號' 的類別 'data' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體的類別是 feature，而非 data，且關係是 uses，違反規則5。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體的類別是 feature，而非 data，且關係是 uses，違反規則5。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "所知之事",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "身分證字號",
+        "type": "data"
+      },
+      "reasoning": "正確答案 A 明確指出『所知之事』的實際應用例子是『身分證字號』，即此認證特徵使用該項資料來進行驗證。符合 Schema: (\"feature\", \"uses\", \"data\")。",
+      "source_id": "question_ISN-109-015",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

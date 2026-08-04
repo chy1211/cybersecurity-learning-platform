@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "消費者",
+      "type": "user",
+      "display_name": "消費者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "saas",
+      "type": "system",
+      "display_name": "SaaS"
+    },
+    "reasoning": "根據題幹與正確答案，SaaS 是一種服務模式，消費者（使用者）使用此服務，因此建立 user uses system 的關係。",
+    "source_id": "question_IPAS-111-TEC-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '消費者' 是 'user' 的合理實例，受體 'SaaS' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5不觸發，因為主體類別不是data；規則6不觸發，因為關係不是deployed_in；規則7不觸發，因為關係不是generates；規則8不觸發，因為關係不是controls；其他規則不適用",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的消費者完全等價同義詞；受體與 Ldr 中的 SaaS 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，但根據規則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "消費者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "SaaS",
+        "type": "system"
+      },
+      "reasoning": "根據題幹與正確答案，SaaS 是一種服務模式，消費者（使用者）使用此服務，因此建立 user uses system 的關係。",
+      "source_id": "question_IPAS-111-TEC-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "saas",
+      "type": "system",
+      "display_name": "SaaS"
+    },
+    "reasoning": "SaaS (Software as a Service) 的定義即為提供應用程式的服務，因此應用程式是 SaaS 系統的一部分，符合 app is_part_of system 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '應用程式' 是 'app' 的合理實例，受體 'SaaS' 是 'system' 的合理實例（SaaS 是 Software as a Service 的縮寫，屬於系統類別）。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 不符合規則6的觸發條件，且其他規則均不適用。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '應用程式' 完全等價同義詞；受體與 Ldr 中的資源 'saas' 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "應用程式",
+        "standard_object": "saas",
+        "reason": "主體與 Ldr 中的資源 '應用程式' 完全等價同義詞；受體與 Ldr 中的資源 'saas' 完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "SaaS",
+        "type": "system"
+      },
+      "reasoning": "SaaS (Software as a Service) 的定義即為提供應用程式的服務，因此應用程式是 SaaS 系統的一部分，符合 app is_part_of system 的 Schema。",
+      "source_id": "question_IPAS-111-TEC-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "saas",
+      "type": "system",
+      "display_name": "SaaS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "作業系統",
+      "type": "system",
+      "display_name": "作業系統"
+    },
+    "reasoning": "SaaS 服務的底層包含作業系統（儘管使用者不掌控），在知識圖譜中，SaaS 作為整體系統包含作業系統這個子系統，符合 system has_a system 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'SaaS' 是 'system' 的合理實例，受體 '作業系統' 也是 'system' 的合理實例，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的受體 (Object) 是作業系統，類別是 system，符合規則6的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體均為資安領域中的系統類別，且受體「作業系統」與 Ldr 中的「作業系統」完全相同，主體「SaaS」則與 Ldr 中的「saas」完全相同，但兩者之間無直接同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體雖然均為系統類別，但無直接同義詞關係，且無法確認彼此之間的從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SaaS",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "作業系統",
+        "type": "system"
+      },
+      "reasoning": "SaaS 服務的底層包含作業系統（儘管使用者不掌控），在知識圖譜中，SaaS 作為整體系統包含作業系統這個子系統，符合 system has_a system 的 Schema。",
+      "source_id": "question_IPAS-111-TEC-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "消費者",
+      "type": "user",
+      "display_name": "消費者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "應用程式",
+      "type": "app",
+      "display_name": "應用程式"
+    },
+    "reasoning": "題幹明確提到「消費者使用應用程式」，符合 user uses app 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '消費者' 是 'user' 的合理實例，實體 '應用程式' 是 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是攻擊者或安全團隊。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「消費者」完全等價同義詞；受體與 Ldr 中的「應用程式」、「手機app程式」、「網路應用程式」、「雲端應用程式」、「網頁應用程式」、「otp app」、「軟體」等相關實體存在廣義/狹義從屬關係，但不構成完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「消費者」完全匹配，受體與 Ldr 中的相關實體存在廣義/狹義從屬關係，但不構成完全等價同義詞，依據判斷準則 1 和 3，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "消費者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "應用程式",
+        "type": "app"
+      },
+      "reasoning": "題幹明確提到「消費者使用應用程式」，符合 user uses app 的 Schema。",
+      "source_id": "question_IPAS-111-TEC-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "saas",
+      "type": "system",
+      "display_name": "SaaS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "硬體",
+      "type": "system",
+      "display_name": "硬體"
+    },
+    "reasoning": "SaaS 服務的底層包含硬體基礎設施，符合 system has_a system 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "主體 'SaaS' 是 'system' 的合理實例，受體 '硬體' 是 'system' 的合理實例（同義詞寬容：硬體可視為系統的一部分）。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的受體 (Object) 硬體 (類別: system) 符合規則6的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (SaaS) 與 Ldr 中的資源 (saas) 完全等價同義詞；受體 (硬體) 與 Ldr 中的資源 (硬體) 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "saas",
+        "standard_object": "硬體",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SaaS",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "硬體",
+        "type": "system"
+      },
+      "reasoning": "SaaS 服務的底層包含硬體基礎設施，符合 system has_a system 的 Schema。",
+      "source_id": "question_IPAS-111-TEC-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "saas",
+      "type": "system",
+      "display_name": "SaaS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "網路基礎架構",
+      "type": "system",
+      "display_name": "網路基礎架構"
+    },
+    "reasoning": "SaaS 服務的底層包含網路基礎架構，符合 system has_a system 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-041",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SaaS 是 'system' 的合理實例，網路基礎架構也是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的受體 '網路基礎架構' 的類別是 system，符合規則6的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "網路基礎架構與網路架構之間存在著廣義/狹義從屬關係，但根據禁止合併的母類/子類與易混淆概念範例，網路基礎架構≠網路架構，因此判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "網路基礎架構與網路架構之間存在著廣義/狹義從屬關係，但根據禁止合併的母類/子類與易混淆概念範例，網路基礎架構≠網路架構。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SaaS",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "網路基礎架構",
+        "type": "system"
+      },
+      "reasoning": "SaaS 服務的底層包含網路基礎架構，符合 system has_a system 的 Schema。",
+      "source_id": "question_IPAS-111-TEC-041",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 6
+    }
+  }
+]

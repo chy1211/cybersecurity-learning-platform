@@ -1,22 +1,22 @@
 [
   {
     "subject": {
-      "name": "使用者",
-      "type": "user"
+      "name": "強制型存取控制 (MAC)",
+      "type": "technique"
     },
-    "relation": "uses",
+    "relation": "is_part_of",
     "object": {
-      "name": "系統",
-      "type": "system"
+      "name": "存取控制",
+      "type": "technique"
     },
-    "reasoning": "文本提到『辨識誰在使用系統資源』，明確描述了使用者與系統之間的利用關係。",
+    "reasoning": "文本中將 MAC 列為存取控制的一種分類，因此將其定義為技術 (technique) 且屬於存取控制技術。",
     "source_id": "chunk_5",
     "source_file": "第09章 存取控制_e5.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "強制型存取控制",
+      "name": "任意型存取控制 (DAC)",
       "type": "technique"
     },
     "relation": "is_part_of",
@@ -24,70 +24,55 @@
       "name": "存取控制",
       "type": "technique"
     },
-    "reasoning": "圖 9-14 將 MAC (強制型存取控制) 列為存取控制的一種分類，符合 technique 屬於 technique 的層級關係。",
+    "reasoning": "文本中將 DAC 列為存取控制的一種分類，因此將其定義為技術 (technique) 且屬於存取控制技術。",
     "source_id": "chunk_5",
     "source_file": "第09章 存取控制_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "任意型存取控制",
+      "name": "帳號管理",
       "type": "technique"
     },
     "relation": "is_part_of",
     "object": {
-      "name": "存取控制",
+      "name": "系統存取控制管理",
       "type": "technique"
     },
-    "reasoning": "圖 9-14 將 DAC (任意型存取控制) 列為存取控制的一種分類，符合 technique 屬於 technique 的層級關係。",
+    "reasoning": "文本明確指出系統存取控制主要有三項工作，其中之一是帳號管理，兩者皆為管理流程/技術。",
     "source_id": "chunk_5",
     "source_file": "第09章 存取控制_e5.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "系統存取控制管理",
-      "type": "function"
+      "name": "活動追蹤",
+      "type": "technique"
     },
-    "relation": "has_a",
+    "relation": "is_part_of",
     "object": {
-      "name": "帳號管理",
-      "type": "feature"
+      "name": "系統存取控制管理",
+      "type": "technique"
     },
-    "reasoning": "文本指出系統存取控制主要有三項工作，其中之一是帳號管理。將整體管理視為 function，其組成工作視為 feature，符合 ('function', 'has_a', 'feature')。",
+    "reasoning": "文本明確指出系統存取控制主要有三項工作，其中之一是活動追蹤，兩者皆為管理流程/技術。",
     "source_id": "chunk_5",
     "source_file": "第09章 存取控制_e5.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "系統存取控制管理",
-      "type": "function"
+      "name": "使用者",
+      "type": "user"
     },
-    "relation": "has_a",
+    "relation": "uses",
     "object": {
-      "name": "活動追蹤",
-      "type": "feature"
+      "name": "系統資源",
+      "type": "system"
     },
-    "reasoning": "文本指出系統存取控制主要有三項工作，其中之一是活動追蹤。符合 ('function', 'has_a', 'feature')。",
+    "reasoning": "文本提到『辨識誰在使用系統資源』，描述了使用者與系統資源之間的使用關係。",
     "source_id": "chunk_5",
     "source_file": "第09章 存取控制_e5.pdf",
     "source_index": 5
-  },
-  {
-    "subject": {
-      "name": "系統存取控制管理",
-      "type": "function"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "權限管理",
-      "type": "feature"
-    },
-    "reasoning": "文本指出系統存取控制主要有三項工作，其中之一是權限管理。符合 ('function', 'has_a', 'feature')。",
-    "source_id": "chunk_5",
-    "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 6
   },
   {
     "subject": {
@@ -96,42 +81,72 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "帳號管理工具",
+      "name": "作業系統帳號管理工具",
       "type": "tool"
     },
-    "reasoning": "文本提到『Windows 作業系統帳號管理工具』，表示該系統包含此工具，符合 ('system', 'has_a', 'tool')。",
+    "reasoning": "文本提到 Windows 作為作業系統，具有帳號管理工具，符合 system has_a tool 的定義。",
+    "source_id": "chunk_5",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "作業系統帳號管理工具",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "帳號管理",
+      "type": "function"
+    },
+    "reasoning": "帳號管理工具是用來執行帳號管理（產生、維護、關閉）等功能的軟體，符合 tool has_a function。",
     "source_id": "chunk_5",
     "source_file": "第09章 存取控制_e5.pdf",
     "source_index": 7
   },
   {
     "subject": {
-      "name": "資安人員",
-      "type": "securityTeam"
+      "name": "帳號管理",
+      "type": "technique"
     },
-    "relation": "implements",
+    "relation": "can_analyze",
     "object": {
-      "name": "系統存取控制管理",
-      "type": "function"
+      "name": "使用者行為",
+      "type": "data"
     },
-    "reasoning": "文本描述了系統存取控制管理的具體執行工作（如帳號產生、維護），這些工作由負責資安的團隊執行，符合 ('securityTeam', 'implements', 'function')。",
+    "reasoning": "文本提到若沒有正確的帳號管理，則無法稽核與追蹤使用者行為，暗示帳號管理技術可用於分析使用者行為資料。",
     "source_id": "chunk_5",
     "source_file": "第09章 存取控制_e5.pdf",
     "source_index": 8
   },
   {
     "subject": {
-      "name": "資安人員",
-      "type": "securityTeam"
+      "name": "使用者",
+      "type": "user"
     },
     "relation": "implements",
     "object": {
       "name": "資安規範",
       "type": "policy"
     },
-    "reasoning": "文本提到『需依照資安規範管理帳號』，表示安全團隊在執行管理時必須實作/遵循相關規範，符合 ('securityTeam', 'implements', 'policy')。",
+    "reasoning": "文本提到需依照資安規範管理帳號，這意味著操作人員（使用者/管理員）必須執行該規範。",
     "source_id": "chunk_5",
     "source_file": "第09章 存取控制_e5.pdf",
     "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "人事單位",
+      "type": "securityTeam"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "作業系統帳號管理工具",
+      "type": "tool"
+    },
+    "reasoning": "文本提到帳號的停用、刪除可由人事單位管控，將人事單位視為負責管理權限的安全團隊角色。",
+    "source_id": "chunk_5",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 10
   }
 ]

@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "阻斷服務攻擊",
+      "type": "attack",
+      "display_name": "阻斷服務攻擊 (Denial-of-Service Attack)"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "題幹指出阻斷服務攻擊的目的在於讓使用者『無法進行服務的存取』，這直接對應到資安三要素（CIA）中的『可用性 (Availability)』原則之破壞，因此選擇 violates 關係。",
+    "source_id": "question_IPAS-110-TEC-058",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "阻斷服務攻擊 (Denial-of-Service Attack) 是 'attack' 的合理實例；可用性是 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。",
+        "response": "correct",
+        "reason": "主體為阻斷服務攻擊 (Denial-of-Service Attack)，關係為 violates，受體為可用性 (類別: principle)，符合規則4所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "阻斷服務攻擊",
+        "standard_object": "",
+        "reason": "主體與現有資源清單中的「阻斷服務攻擊」為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "阻斷服務攻擊 (Denial-of-Service Attack)",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "題幹指出阻斷服務攻擊的目的在於讓使用者『無法進行服務的存取』，這直接對應到資安三要素（CIA）中的『可用性 (Availability)』原則之破壞，因此選擇 violates 關係。",
+      "source_id": "question_IPAS-110-TEC-058",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "阻絕服務攻擊",
+      "type": "attack",
+      "display_name": "阻斷服務攻擊 (Denial-of-Service Attack)"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "使使用者無法存取服務意味著該服務所在的系統無法正常運作或被癱瘓，符合 attack 對 system 造成危害的邏輯，因此選擇 can_harm 關係。",
+    "source_id": "question_IPAS-110-TEC-058",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "阻斷服務攻擊 (Denial-of-Service Attack) 是一種攻擊 (attack)，系統 (system) 是系統 (system)，而 'can_harm' 表示攻擊可以對系統造成傷害，這些實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關；規則2：無關；規則3：無關；規則4：無關；規則5：無關；規則6：無關；規則7：無關；規則8：無關；",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「阻絕服務攻擊」為完全等價同義詞；受體與 Ldr 中的「系統」為完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "阻絕服務攻擊",
+        "standard_object": "系統",
+        "reason": "主體與 Ldr 中的「阻絕服務攻擊」為完全等價同義詞；受體與 Ldr 中的「系統」為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "阻斷服務攻擊 (Denial-of-Service Attack)",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "使使用者無法存取服務意味著該服務所在的系統無法正常運作或被癱瘓，符合 attack 對 system 造成危害的邏輯，因此選擇 can_harm 關係。",
+      "source_id": "question_IPAS-110-TEC-058",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

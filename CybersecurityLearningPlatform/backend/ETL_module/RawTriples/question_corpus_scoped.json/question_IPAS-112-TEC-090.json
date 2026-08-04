@@ -1,0 +1,62 @@
+[
+  {
+    "subject": {
+      "name": "資安鑑識",
+      "type": "technique"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "Windows Event Log",
+      "type": "data"
+    },
+    "reasoning": "題幹明確指出 Windows Event Log 是重要的資安鑑識記錄檔，因此在知識圖譜中，資安鑑識（technique）具備分析 Windows Event Log（data）的能力。",
+    "source_id": "question_IPAS-112-TEC-090",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "Windows Event Log",
+      "type": "data"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "%SystemRoot%\\System32\\winevt\\Logs\\",
+      "type": "system"
+    },
+    "reasoning": "本題為否定式提問，正確答案 C 為錯誤敘述，因此選項 A 為正確知識。選項 A 指出 Windows Event Log 的預設存放路徑，因此將其視為資料（data）部署於系統路徑（system）中。",
+    "source_id": "question_IPAS-112-TEC-090",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Eventlog",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "Windows Event Log 設定",
+      "type": "feature"
+    },
+    "reasoning": "選項 B 為正確知識，指出 Windows Event Log 的設定位於該登錄檔路徑。該路徑屬於系統配置（system），而設定屬於系統的屬性（feature），符合 (system, has_a, feature) 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-090",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "資安鑑識",
+      "type": "technique"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "Security.evtx",
+      "type": "data"
+    },
+    "reasoning": "選項 D 為正確知識，指出 Security.evtx 包含安全事件 log（如 Login/Logout 資訊）。結合題幹中 Windows Event Log 用於資安鑑識的陳述，可推論資安鑑識（technique）可分析 Security.evtx（data）。",
+    "source_id": "question_IPAS-112-TEC-090",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4
+  }
+]

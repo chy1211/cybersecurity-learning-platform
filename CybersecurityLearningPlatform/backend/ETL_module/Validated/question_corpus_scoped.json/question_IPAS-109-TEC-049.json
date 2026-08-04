@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "獎勵措施",
+      "type": "policy",
+      "display_name": "獎勵措施"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊安全風險",
+      "type": "risk",
+      "display_name": "IoT 安全風險"
+    },
+    "reasoning": "根據題目否定式提問之規則，選項 C 為正確知識。規劃獎勵措施是一種管理策略（policy），其目的是為了提升安全性，即緩解（mitigates）物聯網的相關風險（risk）。",
+    "source_id": "question_IPAS-109-TEC-049",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '獎勵措施' 可以被視為 'policy' 的合理實例，受體名稱 'IoT 安全風險' 可以被視為 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「風險意識」不相關，受體與 Ldr 中的「資訊安全風險」是同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資訊安全風險",
+        "reason": "受體 IoT 安全風險與 Ldr 中的「資訊安全風險」是同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "獎勵措施",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "IoT 安全風險",
+        "type": "risk"
+      },
+      "reasoning": "根據題目否定式提問之規則，選項 C 為正確知識。規劃獎勵措施是一種管理策略（policy），其目的是為了提升安全性，即緩解（mitigates）物聯網的相關風險（risk）。",
+      "source_id": "question_IPAS-109-TEC-049",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "利益相關人",
+      "type": "user",
+      "display_name": "利益相關人"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "風險意識",
+      "type": "policy",
+      "display_name": "風險意識"
+    },
+    "reasoning": "根據題目否定式提問之規則，選項 B 為正確知識。利益相關人（user）透過建立風險意識（將意識視為一種安全準則或 policy）來實踐（implements）資安防護。",
+    "source_id": "question_IPAS-109-TEC-049",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '利益相關人' 的類別 'user' 合理對齊，受體 '風險意識' 的類別 'policy' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "與 Ldr 中的「風險管理」和「風險處理」為相關概念，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然「風險意識」與「風險管理」和「風險處理」相關，但非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "利益相關人",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "風險意識",
+        "type": "policy"
+      },
+      "reasoning": "根據題目否定式提問之規則，選項 B 為正確知識。利益相關人（user）透過建立風險意識（將意識視為一種安全準則或 policy）來實踐（implements）資安防護。",
+      "source_id": "question_IPAS-109-TEC-049",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

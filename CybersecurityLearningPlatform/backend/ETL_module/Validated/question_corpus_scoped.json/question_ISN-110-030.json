@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "零時差攻擊",
+      "type": "attack",
+      "display_name": "零時差攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "根據正確答案，零時差攻擊是一種針對系統進行的惡意攻擊行為，其目的在於對系統造成損害，符合 ('attack', 'can_harm', 'system') 的 Schema。",
+    "source_id": "question_ISN-110-030",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "零時差攻擊 (Zero-Day Attack) 是一種攻擊類型，系統 (System) 是一個常見的資安實體，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是attacker或securityTeam。規則2不適用，因為主體不是policy, technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的零時差攻擊完全等價同義詞；受體與 Ldr 中的系統完全等價同義詞，但系統為泛稱，無法合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的零時差攻擊完全等價同義詞，但受體與 Ldr 中的系統為泛稱，無法合併，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "零時差攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "根據正確答案，零時差攻擊是一種針對系統進行的惡意攻擊行為，其目的在於對系統造成損害，符合 ('attack', 'can_harm', 'system') 的 Schema。",
+      "source_id": "question_ISN-110-030",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "修正程式",
+      "type": "tool",
+      "display_name": "修正程式"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "零時差攻擊",
+      "type": "attack",
+      "display_name": "零時差攻擊"
+    },
+    "reasoning": "正確答案指出攻擊發生在『修正程式發佈之前或是使用者更新前』，這隱含了修正程式（作為一種修補工具）是用來緩解或防禦零時差攻擊的手段，符合 ('tool', 'mitigates', 'attack') 的 Schema。",
+    "source_id": "question_ISN-110-030",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '修正程式' 是 'tool' 的合理實例，受體 '零時差攻擊' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體修正程式的類別是 tool，符合規則2的條件，允許執行 mitigates 動作。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然「修正程式」與「修補程式」在中文中可能被視為同義詞，但在資安領域中，這兩個術語可能具有不同的技術含義，因此不應合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "修正程式",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "零時差攻擊",
+        "type": "attack"
+      },
+      "reasoning": "正確答案指出攻擊發生在『修正程式發佈之前或是使用者更新前』，這隱含了修正程式（作為一種修補工具）是用來緩解或防禦零時差攻擊的手段，符合 ('tool', 'mitigates', 'attack') 的 Schema。",
+      "source_id": "question_ISN-110-030",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "風險性弱點"
+    },
+    "reasoning": "正確答案提到『當系統被發現具有風險性弱點後』，表示系統中存在或暴露了漏洞，符合 ('system', 'can_expose', 'vulnerability') 的 Schema。",
+    "source_id": "question_ISN-110-030",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '系統' 是 'system' 的合理實例；關係 'can_expose' 合理地連接 '系統' 與 '風險性弱點'；受體 '風險性弱點' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 system，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「系統」完全等價同義詞；受體與 Ldr 中的「弱點」、「脆弱性」、「安全弱點」完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "系統",
+        "standard_object": "弱點",
+        "reason": "主體與 Ldr 中的「系統」完全等價同義詞；受體與 Ldr 中的「弱點」、「脆弱性」、「安全弱點」完全等價同義詞，且屬於漏洞 ≡ 弱點 ≡ 脆弱性（均指 vulnerability）同義詞對照範例。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "風險性弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "正確答案提到『當系統被發現具有風險性弱點後』，表示系統中存在或暴露了漏洞，符合 ('system', 'can_expose', 'vulnerability') 的 Schema。",
+      "source_id": "question_ISN-110-030",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

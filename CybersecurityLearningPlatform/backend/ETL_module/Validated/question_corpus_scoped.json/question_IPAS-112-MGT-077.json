@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "fido",
+      "type": "technique",
+      "display_name": "FIDO"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "生物辨識",
+      "type": "tool",
+      "display_name": "生物識別"
+    },
+    "reasoning": "根據選項 A，FIDO 匯集了生物識別等認證技術。FIDO 作為一種身分識別技術 (technique)，包含生物識別這一類認證工具 (tool)。",
+    "source_id": "question_IPAS-112-MGT-077",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "FIDO 是生物識別技術的一種，'has_a' 關係指 FIDO 擁有生物識別功能，因此語意對齊。",
+        "response": "correct",
+        "reason": "FIDO 擁有生物識別功能，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體 FIDO 的類別是 technique，符合規則2 的允許條件。另外，關係 has_a 不在任何規則中被限制。因此，三元組不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "生物識別與生物辨識是同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "生物辨識",
+        "reason": "根據同義詞判定，生物識別與生物辨識是同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "FIDO",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "生物識別",
+        "type": "tool"
+      },
+      "reasoning": "根據選項 A，FIDO 匯集了生物識別等認證技術。FIDO 作為一種身分識別技術 (technique)，包含生物識別這一類認證工具 (tool)。",
+      "source_id": "question_IPAS-112-MGT-077",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "fido",
+      "type": "technique",
+      "display_name": "FIDO"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "token",
+      "type": "tool",
+      "display_name": "Token"
+    },
+    "reasoning": "根據選項 A，FIDO 匯集了 Token 等認證技術。FIDO 作為一種身分識別技術 (technique)，包含 Token 這一類認證工具 (tool)。",
+    "source_id": "question_IPAS-112-MGT-077",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "FIDO 是一種身份驗證技術（technique），Token 是一種安全工具（tool），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 FIDO 與 Ldr 中的 fido 是完全等價同義詞；受體 Token 與 Ldr 中的 生物辨識 不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 FIDO 與 Ldr 中的 fido 是完全等價同義詞，但受體 Token 與 Ldr 中的 生物辨識 不相關，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "FIDO",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Token",
+        "type": "tool"
+      },
+      "reasoning": "根據選項 A，FIDO 匯集了 Token 等認證技術。FIDO 作為一種身分識別技術 (technique)，包含 Token 這一類認證工具 (tool)。",
+      "source_id": "question_IPAS-112-MGT-077",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "fido",
+      "type": "technique",
+      "display_name": "FIDO"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "盜用帳號及密碼",
+      "type": "attack",
+      "display_name": "帳號盜用"
+    },
+    "reasoning": "根據選項 C，FIDO 可減少帳號盜用。帳號盜用是一種攻擊行為 (attack)，而 FIDO 作為防禦技術 (technique) 可緩解 (mitigates) 此風險。",
+    "source_id": "question_IPAS-112-MGT-077",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "FIDO 是一種 'technique'，帳號盜用是一種 'attack'，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 FIDO 的類別是 technique，符合規則2所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 FIDO 與 Ldr 中的 fido 名稱完全相同，受體帳號盜用與 Ldr 中的盜用帳號及密碼、破解、盜用帳號、帳號及密碼破解 均為同義詞",
+        "response": "duplicate",
+        "standard_subject": "fido",
+        "standard_object": "盜用帳號及密碼",
+        "reason": "主體與 Ldr 中的資源名稱完全相同，受體與 Ldr 中的資源為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "FIDO",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "帳號盜用",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 C，FIDO 可減少帳號盜用。帳號盜用是一種攻擊行為 (attack)，而 FIDO 作為防禦技術 (technique) 可緩解 (mitigates) 此風險。",
+      "source_id": "question_IPAS-112-MGT-077",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "認證資訊",
+      "type": "data",
+      "display_name": "認證資料"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "用戶終端",
+      "type": "system",
+      "display_name": "使用者端"
+    },
+    "reasoning": "根據選項 D，FIDO 將認證資料存於使用者端。認證資料屬於資料 (data)，使用者端可視為基礎設施系統 (system)，兩者關係為部署/存放於 (deployed_in)。",
+    "source_id": "question_IPAS-112-MGT-077",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '認證資料' 是 'data' 的合理實例，受體 '使用者端' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的受體使用者端 (類別: system) 符合規則6的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「認證資訊」為同義詞；受體與 Ldr 中的「用戶終端」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "認證資訊",
+        "standard_object": "用戶終端",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "認證資料",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "使用者端",
+        "type": "system"
+      },
+      "reasoning": "根據選項 D，FIDO 將認證資料存於使用者端。認證資料屬於資料 (data)，使用者端可視為基礎設施系統 (system)，兩者關係為部署/存放於 (deployed_in)。",
+      "source_id": "question_IPAS-112-MGT-077",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  }
+]

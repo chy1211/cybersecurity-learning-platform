@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "雲服務",
+      "type": "system",
+      "display_name": "雲服務"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "既然資料儲存在雲服務中，代表該系統在運作時會使用或管理這些資料。關係符合 Schema 中的 ('system', 'uses', 'data')。",
+    "source_id": "question_IPAS-111-TEC-095",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "雲服務 (cloud service) 是系統 (system) 的合理實例，資料 (data) 是資料 (data) 的合理實例。",
+        "response": "correct",
+        "reason": "雲服務使用資料的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 system，受體類別為 data，關係為 uses，符合規則5的不觸發條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「雲端服務」、「雲端運算服務」、「web service」具有高度相似性，但受體與 Ldr 中的「資料」完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "資料",
+        "reason": "受體與 Ldr 中的「資料」完全相同，但主體與 Ldr 中的其他資源具有高度相似性，無法確認是否為同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲服務",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "既然資料儲存在雲服務中，代表該系統在運作時會使用或管理這些資料。關係符合 Schema 中的 ('system', 'uses', 'data')。",
+      "source_id": "question_IPAS-111-TEC-095",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "雲服務",
+      "type": "system",
+      "display_name": "雲服務"
+    },
+    "reasoning": "根據正確選項 A，資料被『儲存於雲服務中』。『資料』為 data，『雲服務』為基礎設施 system，關係符合 Schema 中的 ('data', 'deployed_in', 'system')。",
+    "source_id": "question_IPAS-111-TEC-095",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'data'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '資料' 是 'data' 的合理實例，受體名稱 '雲服務' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組符合規則6所允許的條件，受體的類別是system，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「資料」與 Ldr 中的「資料」完全等價同義詞；受體「雲服務」與 Ldr 中的「雲端服務」具有高相似度，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體「資料」與 Ldr 中的「資料」完全相同，但受體「雲服務」與 Ldr 中的「雲端服務」不完全相同，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料",
+        "type": "data"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "雲服務",
+        "type": "system"
+      },
+      "reasoning": "根據正確選項 A，資料被『儲存於雲服務中』。『資料』為 data，『雲服務』為基礎設施 system，關係符合 Schema 中的 ('data', 'deployed_in', 'system')。",
+      "source_id": "question_IPAS-111-TEC-095",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

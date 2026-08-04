@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "組織成員",
+      "type": "user",
+      "display_name": "組織成員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "標準作業程序",
+      "type": "policy",
+      "display_name": "標準作業程序"
+    },
+    "reasoning": "根據正確答案『文件管制宜訂定標準作業程序,以利組織成員遵循』，可以重建為『組織成員應遵循標準作業程序』。在本體論中，組織成員屬於 user，標準作業程序（SOP）屬於 policy，而『遵循』對應於 implements 關係。",
+    "source_id": "question_IPAS-NULL-MGT-005",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '組織成員' 合理對齊其類別 'user'，實體名稱 '標準作業程序' 合理對齊其類別 'policy'，關係 'implements' 合理描述 'user' 與 'policy' 之間的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，關係為 implements，受體類別為 policy，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「組織成員」完全等價同義詞；受體與 Ldr 中的「標準作業核可及發行流程」或「資料銷毀標準作業程序」具有廣義/狹義從屬關係，但無法確定具體從屬關係，因此判定為不相關。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定具體從屬關係，預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "組織成員",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "標準作業程序",
+        "type": "policy"
+      },
+      "reasoning": "根據正確答案『文件管制宜訂定標準作業程序,以利組織成員遵循』，可以重建為『組織成員應遵循標準作業程序』。在本體論中，組織成員屬於 user，標準作業程序（SOP）屬於 policy，而『遵循』對應於 implements 關係。",
+      "source_id": "question_IPAS-NULL-MGT-005",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

@@ -9,7 +9,7 @@
       "name": "公開金鑰",
       "type": "data"
     },
-    "reasoning": "文本提到 Bob 利用 Alice 的公開金鑰來加密訊息，因此 Bob (user) 使用了公開金鑰 (data)。",
+    "reasoning": "文本提到 'Bob 可以利用 Alice 的公開金鑰來加密訊息'，因此 Bob (user) 使用了公開金鑰 (data)。",
     "source_id": "chunk_11",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 1
@@ -24,14 +24,44 @@
       "name": "私密金鑰",
       "type": "data"
     },
-    "reasoning": "文本提到 Alice 使用自己的私密金鑰 d 來解密，因此 Alice (user) 使用了私密金鑰 (data)。",
+    "reasoning": "文本提到 'Alice ... 使用自己的私密金鑰 d 來解密'，因此 Alice (user) 使用了私密金鑰 (data)。",
     "source_id": "chunk_11",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "非對稱加密工具",
+      "name": "訊息加密",
+      "type": "function"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "明文資料",
+      "type": "data"
+    },
+    "reasoning": "訊息加密是一個功能 (function)，它處理並轉換明文資料 (data) 以產生密文，符合 can_analyze 的定義（處理/分析資料）。",
+    "source_id": "chunk_11",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "訊息解密",
+      "type": "function"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "密文",
+      "type": "data"
+    },
+    "reasoning": "訊息解密是一個功能 (function)，它處理並轉換密文 (data) 以還原明文，符合 can_analyze 的定義。",
+    "source_id": "chunk_11",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "RSA",
       "type": "tool"
     },
     "relation": "has_a",
@@ -39,14 +69,14 @@
       "name": "訊息加密",
       "type": "function"
     },
-    "reasoning": "文本描述了加密的過程與公式，這屬於非對稱加密工具 (tool) 所具備的訊息加密 (function) 功能。",
+    "reasoning": "文本描述的是 RSA 加密演算法的運作過程，RSA 作為一種加密工具 (tool)，具有訊息加密 (function) 的能力。",
     "source_id": "chunk_11",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 3
+    "source_index": 5
   },
   {
     "subject": {
-      "name": "非對稱加密工具",
+      "name": "RSA",
       "type": "tool"
     },
     "relation": "has_a",
@@ -54,10 +84,10 @@
       "name": "訊息解密",
       "type": "function"
     },
-    "reasoning": "文本描述了解密的過程與公式，這屬於非對稱加密工具 (tool) 所具備的訊息解密 (function) 功能。",
+    "reasoning": "RSA 作為一種加密工具 (tool)，具有訊息解密 (function) 的能力。",
     "source_id": "chunk_11",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 4
+    "source_index": 6
   },
   {
     "subject": {
@@ -69,10 +99,10 @@
       "name": "明文資料",
       "type": "data"
     },
-    "reasoning": "Bob 要傳送訊息 m (明文資料)，在加密過程中使用了該資料，因此 Bob (user) 使用了明文資料 (data)。",
+    "reasoning": "Bob 是訊息的發送者，他持有並使用明文資料 (data) 進行加密。",
     "source_id": "chunk_11",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 5
+    "source_index": 7
   },
   {
     "subject": {
@@ -84,9 +114,9 @@
       "name": "密文",
       "type": "data"
     },
-    "reasoning": "Alice 接收密文 c 之後使用私密金鑰解密，因此 Alice (user) 使用了密文 (data)。",
+    "reasoning": "Alice 接收並使用密文 (data) 進行解密操作。",
     "source_id": "chunk_11",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 6
+    "source_index": 8
   }
 ]

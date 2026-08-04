@@ -1,0 +1,47 @@
+[
+  {
+    "subject": {
+      "name": "軟體",
+      "type": "app"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全性漏洞",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到『安裝最新版本為原則，以避免安全性漏洞』，這隱含了軟體（app）在未更新時具有暴露（can_expose）安全性漏洞（vulnerability）的可能性。符合 Schema Edge: ('app', 'can_expose', 'vulnerability')。",
+    "source_id": "question_ISN-110-033",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "最新版本軟體",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "安全性漏洞",
+      "type": "risk"
+    },
+    "reasoning": "文本指出安裝最新版本軟體可以避免漏洞。在資安知識圖譜中，消除漏洞即是緩解其帶來的風險。為了符合 Schema Edge ('tool', 'mitigates', 'risk')，將『安全性漏洞』在此視為一種風險（risk）實體。",
+    "source_id": "question_ISN-110-033",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "安裝最新版本原則",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "安全性漏洞",
+      "type": "risk"
+    },
+    "reasoning": "文本明確將『安裝最新版本』定義為管理資訊系統時的『原則』，其目的是為了避免漏洞。這符合 ('policy', 'mitigates', 'risk') 的邏輯，將該原則視為 policy，將避免的漏洞視為 risk。",
+    "source_id": "question_ISN-110-033",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3
+  }
+]

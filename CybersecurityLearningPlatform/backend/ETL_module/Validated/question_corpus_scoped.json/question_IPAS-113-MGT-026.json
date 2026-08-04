@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "多因素身分驗證",
+      "type": "technique",
+      "display_name": "多因素身分驗證"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ic 識別證",
+      "type": "tool",
+      "display_name": "IC 識別證"
+    },
+    "reasoning": "根據題幹與正確答案，多因素身分驗證（一種身分驗證技術）可以使用 IC 識別證（一種硬體工具）作為認證方式。這符合 Schema 中 ('technique', 'has_a', 'tool') 的定義。",
+    "source_id": "question_IPAS-113-MGT-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '多因素身分驗證' 是 'technique' 的合理實例；受體 'IC 識別證' 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 technique，具有主動執行能力，符合規則8的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源不完全等價同義詞，但主體與受體之間存在狹義關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "多因素身分驗證與 IC 識別證之間存在狹義關係，但非完全等價同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "多因素身分驗證",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "IC 識別證",
+        "type": "tool"
+      },
+      "reasoning": "根據題幹與正確答案，多因素身分驗證（一種身分驗證技術）可以使用 IC 識別證（一種硬體工具）作為認證方式。這符合 Schema 中 ('technique', 'has_a', 'tool') 的定義。",
+      "source_id": "question_IPAS-113-MGT-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "個別員工",
+      "type": "user",
+      "display_name": "個別員工"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "隨機驗證碼",
+      "type": "data",
+      "display_name": "隨機驗證碼"
+    },
+    "reasoning": "正確答案提到將隨機驗證碼傳輸至個人手機以供認證，代表使用者（個別員工）會使用這項資訊（資料）來完成驗證。這符合 Schema 中 ('user', 'uses', 'data') 的定義。",
+    "source_id": "question_IPAS-113-MGT-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "個別員工 是 'user' 的合理實例，隨機驗證碼 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "個別員工使用隨機驗證碼的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，與規則5不符，無法觸發違規判定。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法在資安領域已知同義詞對照範例中找到員工與其他同義詞的對應關係，且無法確認員工與其他實體之間的從屬關係，因此預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個別員工",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "隨機驗證碼",
+        "type": "data"
+      },
+      "reasoning": "正確答案提到將隨機驗證碼傳輸至個人手機以供認證，代表使用者（個別員工）會使用這項資訊（資料）來完成驗證。這符合 Schema 中 ('user', 'uses', 'data') 的定義。",
+      "source_id": "question_IPAS-113-MGT-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "個別員工",
+      "type": "user",
+      "display_name": "個別員工"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "帳號密碼",
+      "type": "data",
+      "display_name": "帳號密碼"
+    },
+    "reasoning": "題幹提到『原本的帳號密碼』，指使用者在多因素驗證的第一階段會使用帳號密碼（認證資訊/資料）。這符合 Schema 中 ('user', 'uses', 'data') 的定義。",
+    "source_id": "question_IPAS-113-MGT-026",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "個別員工是 'user' 的合理實例，帳號密碼是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「員工」、「個人」、「一般員工」、「個別員工」之間存在廣義/狹義從屬關係；受體與 Ldr 中的「帳號與密碼」、「密碼」、「無線網路密碼」、「隨機驗證碼」之間存在廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體與 Ldr 中的資源之間存在廣義/狹義從屬關係，依據判斷準則 3，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "個別員工",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "帳號密碼",
+        "type": "data"
+      },
+      "reasoning": "題幹提到『原本的帳號密碼』，指使用者在多因素驗證的第一階段會使用帳號密碼（認證資訊/資料）。這符合 Schema 中 ('user', 'uses', 'data') 的定義。",
+      "source_id": "question_IPAS-113-MGT-026",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

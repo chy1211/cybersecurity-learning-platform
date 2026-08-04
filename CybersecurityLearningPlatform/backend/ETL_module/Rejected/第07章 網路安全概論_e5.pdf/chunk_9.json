@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "ping flood",
+      "type": "attack",
+      "display_name": "Ping flood"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "dos",
+      "type": "system",
+      "display_name": "DoS"
+    },
+    "reasoning": "文本明確提到 Ping flood '基本上，這是屬於一種阻斷服務攻擊 (DoS)'，因此將其定義為 attack 類型，且關係為 is_part_of。",
+    "source_id": "chunk_9",
+    "source_file": "第07章 網路安全概論_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Ping flood 是 'attack' 的合理實例，DoS 也是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "Ping flood 是 DoS 的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ping flood 是 DoS 的子類型，禁止合併"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attack -> is_part_of -> system (original: attack -> is_part_of -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "Ping flood",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "DoS",
+        "type": "attack"
+      },
+      "reasoning": "文本明確提到 Ping flood '基本上，這是屬於一種阻斷服務攻擊 (DoS)'，因此將其定義為 attack 類型，且關係為 is_part_of。",
+      "source_id": "chunk_9",
+      "source_file": "第07章 網路安全概論_e5.pdf",
+      "source_index": 1
+    }
+  }
+]

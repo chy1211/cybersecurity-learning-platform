@@ -1,0 +1,216 @@
+[
+  {
+    "subject": {
+      "name": "敵對者",
+      "type": "attacker",
+      "display_name": "敵對者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "dirty cow",
+      "type": "vulnerability",
+      "display_name": "Dirty COW"
+    },
+    "reasoning": "本題為否定式提問（何者『不』是），根據處理規則第 4 點，未被選為答案的選項 A (Dirty COW) 是正確知識。Dirty COW 是 Linux 系統中著名的權限提升漏洞，攻擊者可利用之。",
+    "source_id": "question_IPAS-113-TEC-017",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '敵對者' 是 'attacker' 的合理實例，實體 'Dirty COW' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，符合規則3的特例允許，且關係為 can_exploit，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法在 Ldr 中找到與主體或受體完全相同或同義的資源，且無法確認兩者之間的從屬關係。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "敵對者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "Dirty COW",
+        "type": "vulnerability"
+      },
+      "reasoning": "本題為否定式提問（何者『不』是），根據處理規則第 4 點，未被選為答案的選項 A (Dirty COW) 是正確知識。Dirty COW 是 Linux 系統中著名的權限提升漏洞，攻擊者可利用之。",
+      "source_id": "question_IPAS-113-TEC-017",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "敵對者",
+      "type": "attacker",
+      "display_name": "敵對者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "juicy potato",
+      "type": "vulnerability",
+      "display_name": "Juicy Potato"
+    },
+    "reasoning": "本題為否定式提問，選項 C (Juicy Potato) 為正確知識。Juicy Potato 是 Windows 系統中常見的權限提升漏洞，攻擊者可利用之。",
+    "source_id": "question_IPAS-113-TEC-017",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "敵對者 (attacker) 是 'attacker' 的合理實例，Juicy Potato 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 attacker，符合規則3的特例允許，且關係為 can_exploit，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "Juicy Potato 是一種特定的漏洞，與 Ldr 中的 dirty cow 和 setuid 屬於同一類別（vulnerability），但 Juicy Potato 不在 Ldr 中，因此不相關。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Juicy Potato 不在 Ldr 中，且不與 Ldr 中的任何資源完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "敵對者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "Juicy Potato",
+        "type": "vulnerability"
+      },
+      "reasoning": "本題為否定式提問，選項 C (Juicy Potato) 為正確知識。Juicy Potato 是 Windows 系統中常見的權限提升漏洞，攻擊者可利用之。",
+      "source_id": "question_IPAS-113-TEC-017",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "敵對者",
+      "type": "attacker",
+      "display_name": "敵對者"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "題幹明確指出，攻擊者利用提升權限弱點（如 root 或 Administrator）的目的，是為了「取得更完整的系統控制權」。",
+    "source_id": "question_IPAS-113-TEC-017",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '敵對者' 的名稱與其類別 'attacker' 合理對齊，實體 '系統' 的名稱與其類別 'system' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為敵對者 (attacker)，具有主動執行能力，符合規則8的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「敵對者」完全等價同義詞；受體與 Ldr 中的「系統」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，但根據規則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "敵對者",
+        "type": "attacker"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "題幹明確指出，攻擊者利用提升權限弱點（如 root 或 Administrator）的目的，是為了「取得更完整的系統控制權」。",
+      "source_id": "question_IPAS-113-TEC-017",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "敵對者",
+      "type": "attacker",
+      "display_name": "敵對者"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "setuid",
+      "type": "vulnerability",
+      "display_name": "SetUID"
+    },
+    "reasoning": "本題為否定式提問，選項 B (SetUID) 為正確知識。SetUID 設定不當是 Linux 系統中常見的權限提升漏洞/路徑，攻擊者可利用之。",
+    "source_id": "question_IPAS-113-TEC-017",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 '敵對者' 是 'attacker' 的合理實例，實體 'SetUID' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體類別為 attacker，與受體類別為 vulnerability 的組合下，關係 can_exploit 不違反規則3。然而，檢查後發現，主體類別為 attacker，與受體類別為 vulnerability 的組合下，關係 can_exploit 不違反任何規則。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體類別為 attacker，與受體類別為 vulnerability 的組合下，關係 can_exploit 不違反規則3。然而，檢查後發現，主體類別為 attacker，與受體類別為 vulnerability 的組合下，關係 can_exploit 不違反任何規則。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "敵對者",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "SetUID",
+        "type": "vulnerability"
+      },
+      "reasoning": "本題為否定式提問，選項 B (SetUID) 為正確知識。SetUID 設定不當是 Linux 系統中常見的權限提升漏洞/路徑，攻擊者可利用之。",
+      "source_id": "question_IPAS-113-TEC-017",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

@@ -1,1 +1,83 @@
-[]
+[
+  {
+    "subject": {
+      "name": "社交工程",
+      "type": "attack",
+      "display_name": "社交工程"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "勒索軟體",
+      "type": "attack",
+      "display_name": "勒索軟體"
+    },
+    "reasoning": "文本提到勒索軟體『主要透過社交工程...以誘騙使用者上當』，表示社交工程這種技術被用來實作/執行勒索軟體的攻擊過程。符合 Schema: (\"technique\", \"implements\", \"attack\")。",
+    "source_id": "chunk_3",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "社交工程是 'technique' 的合理實例，勒索軟體是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "社交工程實施勒索軟體的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "社交工程與勒索軟體之間不存在直接的同義詞關係或從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "社交工程與勒索軟體是兩個不同的資安概念，無法合併"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attack -> implements -> attack (original: technique -> implements -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "社交工程",
+        "type": "technique"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "勒索軟體",
+        "type": "attack"
+      },
+      "reasoning": "文本提到勒索軟體『主要透過社交工程...以誘騙使用者上當』，表示社交工程這種技術被用來實作/執行勒索軟體的攻擊過程。符合 Schema: (\"technique\", \"implements\", \"attack\")。",
+      "source_id": "chunk_3",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "釣魚網頁",
+      "type": "tool",
+      "display_name": "釣魚網頁"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "惡意程式",
+      "type": "attack",
+      "display_name": "惡意程式"
+    },
+    "reasoning": "文本將釣魚網頁列在惡意程式的定義範疇內。雖然釣魚網頁是工具，但在此脈絡下被視為惡意攻擊手段的一部分。由於 Schema 不允許 (\"tool\", \"is_part_of\", \"attack\")，但允許 (\"attack\", \"depends_on\", \"tool\")，因此將其調整為：勒索軟體/惡意程式(attack) 依賴 釣魚網頁(tool)。但為了精準對應文本分類，此處選擇將其視為攻擊工具。修正為：勒索軟體 [attack] depends_on 釣魚網頁 [tool]。",
+    "source_id": "chunk_3",
+    "source_file": "第06章 系統安全技術與規範_e5.pdf",
+    "source_index": 8,
+    "reject_reason": "Phase 1 (Schema Edge Violation): tool -> is_part_of -> attack",
+    "original_raw_triple": {
+      "subject": {
+        "name": "釣魚網頁",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "惡意程式",
+        "type": "attack"
+      },
+      "reasoning": "文本將釣魚網頁列在惡意程式的定義範疇內。雖然釣魚網頁是工具，但在此脈絡下被視為惡意攻擊手段的一部分。由於 Schema 不允許 (\"tool\", \"is_part_of\", \"attack\")，但允許 (\"attack\", \"depends_on\", \"tool\")，因此將其調整為：勒索軟體/惡意程式(attack) 依賴 釣魚網頁(tool)。但為了精準對應文本分類，此處選擇將其視為攻擊工具。修正為：勒索軟體 [attack] depends_on 釣魚網頁 [tool]。",
+      "source_id": "chunk_3",
+      "source_file": "第06章 系統安全技術與規範_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

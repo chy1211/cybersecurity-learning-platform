@@ -1,0 +1,146 @@
+[
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "重要系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "恢復點目標 (rpo)",
+      "type": "policy",
+      "display_name": "恢復點目標 (RPO)"
+    },
+    "reasoning": "恢復點目標 (RPO) 是衡量系統在災難恢復時可接受的最大資料遺失量，屬於系統恢復能力的屬性/特徵，因此選擇 system has_a feature。",
+    "source_id": "question_IPAS-112-MGT-099",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '重要系統' 是 'system' 的合理實例，受體 '恢復點目標 (RPO)' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的系統為完全等價同義詞；受體與 Ldr 中的恢復點目標 (rpo) 為完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "系統",
+        "standard_object": "恢復點目標 (rpo)",
+        "reason": "主體與受體均與 Ldr 中的資源為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> has_a -> policy (original: system -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "重要系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "恢復點目標 (RPO)",
+        "type": "feature"
+      },
+      "reasoning": "恢復點目標 (RPO) 是衡量系統在災難恢復時可接受的最大資料遺失量，屬於系統恢復能力的屬性/特徵，因此選擇 system has_a feature。",
+      "source_id": "question_IPAS-112-MGT-099",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "備份",
+      "type": "technique",
+      "display_name": "備份"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "備份週期",
+      "type": "feature",
+      "display_name": "備份週期"
+    },
+    "reasoning": "備份週期（如每 2 小時一次）是備份工具或流程中的一個設定屬性，符合 tool has_a feature。",
+    "source_id": "question_IPAS-112-MGT-099",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '備份' 可以被視為 'tool' 的合理實例；受體名稱 '備份週期' 可以被視為 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認為同義詞關係，依據判斷準則預設保留。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> has_a -> feature (original: tool -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "備份",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "備份週期",
+        "type": "feature"
+      },
+      "reasoning": "備份週期（如每 2 小時一次）是備份工具或流程中的一個設定屬性，符合 tool has_a feature。",
+      "source_id": "question_IPAS-112-MGT-099",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "備份",
+      "type": "technique",
+      "display_name": "備份"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料遺失",
+      "type": "risk",
+      "display_name": "資料遺失"
+    },
+    "reasoning": "備份是達成 RPO 目標的具體手段，用以降低災難發生時資料永久遺失的風險，符合 tool mitigates risk。",
+    "source_id": "question_IPAS-112-MGT-099",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '備份' 是 'tool' 的合理實例，受體名稱 '資料遺失' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> mitigates -> risk (original: tool -> mitigates -> risk)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "備份",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料遺失",
+        "type": "risk"
+      },
+      "reasoning": "備份是達成 RPO 目標的具體手段，用以降低災難發生時資料永久遺失的風險，符合 tool mitigates risk。",
+      "source_id": "question_IPAS-112-MGT-099",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

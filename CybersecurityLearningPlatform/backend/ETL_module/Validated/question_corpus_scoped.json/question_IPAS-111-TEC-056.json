@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "應用層服務",
+      "type": "app",
+      "display_name": "應用層服務"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "通訊埠",
+      "type": "feature",
+      "display_name": "通訊埠"
+    },
+    "reasoning": "根據題幹描述「通訊埠(Port)是應用層每種服務皆有的唯一埠號碼」，可推論應用層的服務（app）具有通訊埠（feature）這個屬性。符合 Schema: (\"app\", \"has_a\", \"feature\")。",
+    "source_id": "question_IPAS-111-TEC-056",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '應用層服務' 是 'app' 的合理實例，受體 '通訊埠' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間存在著廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "應用層服務與通訊埠之間存在著廣義/狹義從屬關係，應用層服務是通訊埠的子類型，因此不應合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "應用層服務",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "通訊埠",
+        "type": "feature"
+      },
+      "reasoning": "根據題幹描述「通訊埠(Port)是應用層每種服務皆有的唯一埠號碼」，可推論應用層的服務（app）具有通訊埠（feature）這個屬性。符合 Schema: (\"app\", \"has_a\", \"feature\")。",
+      "source_id": "question_IPAS-111-TEC-056",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "dns",
+      "type": "app",
+      "display_name": "DNS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "port 53/tcp",
+      "type": "feature",
+      "display_name": "Port 53/TCP"
+    },
+    "reasoning": "本題為否定式提問（詢問何項錯誤），正確答案 B 為錯誤敘述，因此選項 A 為正確知識。DNS 服務使用 Port 53/TCP。符合 Schema: (\"app\", \"has_a\", \"feature\")。",
+    "source_id": "question_IPAS-111-TEC-056",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "DNS 是一種應用程式（app），Port 53/TCP 是 DNS 的一個特徵（feature），因此語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 DNS 與 Ldr 中的 dns 完全等價同義詞；受體 Port 53/TCP 與 Ldr 中的 通訊埠 關係為廣義/狹義從屬",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 DNS 與 Ldr 中的 dns 完全等價同義詞，但受體 Port 53/TCP 是 Ldr 中的 通訊埠 的子類型，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "DNS",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Port 53/TCP",
+        "type": "feature"
+      },
+      "reasoning": "本題為否定式提問（詢問何項錯誤），正確答案 B 為錯誤敘述，因此選項 A 為正確知識。DNS 服務使用 Port 53/TCP。符合 Schema: (\"app\", \"has_a\", \"feature\")。",
+      "source_id": "question_IPAS-111-TEC-056",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "smb",
+      "type": "app",
+      "display_name": "SMB"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "port 445/udp",
+      "type": "feature",
+      "display_name": "Port 445/UDP"
+    },
+    "reasoning": "本題為否定式提問，選項 C 為正確知識。Microsoft-DS SMB 檔案分享服務使用 Port 445/UDP。符合 Schema: (\"app\", \"has_a\", \"feature\")。",
+    "source_id": "question_IPAS-111-TEC-056",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SMB 是一種應用程式（app），Port 445/UDP 是一個特徵（feature），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體SMB不是攻擊者或安全團隊。規則2不適用，因為主體SMB不是policy、technique或tool。規則3不適用，因為主體SMB不是漏洞。規則4不適用，因為主體SMB不是資安原則。規則5不適用，因為關係不是uses或主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源不完全相同，受體與 Ldr 中的資源不完全相同，但主體與 Ldr 中的資源「應用層服務」有相似之處，受體與 Ldr 中的資源「通訊埠」有相似之處。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體與 Ldr 中的資源不完全相同，且無法確定為同義詞或子類型關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SMB",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Port 445/UDP",
+        "type": "feature"
+      },
+      "reasoning": "本題為否定式提問，選項 C 為正確知識。Microsoft-DS SMB 檔案分享服務使用 Port 445/UDP。符合 Schema: (\"app\", \"has_a\", \"feature\")。",
+      "source_id": "question_IPAS-111-TEC-056",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

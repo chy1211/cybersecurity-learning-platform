@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "內部網路",
+      "type": "system",
+      "display_name": "內部網路"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "vpn",
+      "type": "app",
+      "display_name": "VPN"
+    },
+    "reasoning": "題幹指出為了讓互信組織連線可以架設虛擬私有網路 (VPN)，這表示該網路系統中包含了 VPN 這一工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-013",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '內部網路' 是 'system' 的合理實例，受體 'VPN' 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「內部網路」、「內部網路(intranet)」、「組織內部網路」、「企業或組織內部網路」等資源具有完全等價同義詞關係；受體與 Ldr 中的「vpn」資源具有完全等價同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體在 Ldr 中找到相似資源，但根據資安領域已知同義詞對照範例與禁止合併的母類/子類與易混淆概念範例，無法判定為同義詞重複，因此預設保留原名。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> has_a -> app (original: system -> has_a -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部網路",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "VPN",
+        "type": "tool"
+      },
+      "reasoning": "題幹指出為了讓互信組織連線可以架設虛擬私有網路 (VPN)，這表示該網路系統中包含了 VPN 這一工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-013",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

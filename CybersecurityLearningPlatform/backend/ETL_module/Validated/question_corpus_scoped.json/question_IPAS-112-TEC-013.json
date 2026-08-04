@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "內部網路",
+      "type": "system",
+      "display_name": "內部網路"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "外部夥伴組織",
+      "type": "system",
+      "display_name": "外部夥伴組織"
+    },
+    "reasoning": "根據題幹，企業外部網路包含組織的內部網路與外部夥伴組織之間的連結，因此將內部網路與外部夥伴組織定義為 system，並使用 connects_to 關係。",
+    "source_id": "question_IPAS-112-TEC-013",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '內部網路' 與類別 'system' 合理對齊；受體名稱 '外部夥伴組織' 與類別 'system' 合理對齊，考慮到資安領域常見的同義詞與翻譯寬容。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 connects_to，與規則6無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「內部網路」、「內部網路(intranet)」、「組織內部網路」、「企業或組織內部網路」等資源具有完全等價同義詞關係；與其他資源則不相關或具有廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖然具有相似性，但無法確認完全等價同義詞關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "內部網路",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "外部夥伴組織",
+        "type": "system"
+      },
+      "reasoning": "根據題幹，企業外部網路包含組織的內部網路與外部夥伴組織之間的連結，因此將內部網路與外部夥伴組織定義為 system，並使用 connects_to 關係。",
+      "source_id": "question_IPAS-112-TEC-013",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "企業外部網路",
+      "type": "system",
+      "display_name": "企業外部網路"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "內部網路",
+      "type": "system",
+      "display_name": "內部網路"
+    },
+    "reasoning": "題幹提到『企業外部網路可以包含組織的內部網路』，因此將企業外部網路視為較大的 system，內部網路為其包含的 system，符合 ('system', 'has_a', 'system') 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-013",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "企業外部網路與內部網路都可以被視為系統（system）的合理實例，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "企業外部網路與內部網路的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 has_a，而非 deployed_in，因此不觸發規則6。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「企業網路」、「外部網路」為廣義/狹義從屬關係；受體與 Ldr 中的「內部網路」、「內部網路(intranet)」、「組織內部網路」為完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "內部網路",
+        "reason": "受體與 Ldr 中的「內部網路」、「內部網路(intranet)」、「組織內部網路」為完全等價同義詞，但主體與 Ldr 中的「企業網路」、「外部網路」為廣義/狹義從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "企業外部網路",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "內部網路",
+        "type": "system"
+      },
+      "reasoning": "題幹提到『企業外部網路可以包含組織的內部網路』，因此將企業外部網路視為較大的 system，內部網路為其包含的 system，符合 ('system', 'has_a', 'system') 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-013",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "企業外部網路",
+      "type": "system",
+      "display_name": "企業外部網路"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "外部夥伴組織",
+      "type": "system",
+      "display_name": "外部夥伴組織"
+    },
+    "reasoning": "題幹提到『企業外部網路可以包含...外部夥伴組織之間的連結』，暗示外部夥伴組織的網路環境是企業外部網路組成的一部分，符合 ('system', 'has_a', 'system') 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-013",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "企業外部網路 可以被視為系統 (system) 的合理實例；外部夥伴組織也可以被視為系統 (system) 的合理實例。",
+        "response": "correct",
+        "reason": "企業外部網路與外部夥伴組織之間的 'has_a' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「企業網路」、「外部網路」、「企業外部網路」相關，但非完全等價同義詞；受體與 Ldr 中的「外部夥伴組織」完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "外部夥伴組織",
+        "reason": "受體為完全相同實體，主體與 Ldr 中的實體相關但非完全等價同義詞，依據判斷準則 1、2、3 項，判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "企業外部網路",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "外部夥伴組織",
+        "type": "system"
+      },
+      "reasoning": "題幹提到『企業外部網路可以包含...外部夥伴組織之間的連結』，暗示外部夥伴組織的網路環境是企業外部網路組成的一部分，符合 ('system', 'has_a', 'system') 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-013",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

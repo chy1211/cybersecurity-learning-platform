@@ -2,29 +2,29 @@
   {
     "subject": {
       "name": "加密程式",
-      "type": "app"
+      "type": "tool"
     },
-    "relation": "uses",
+    "relation": "has_a",
     "object": {
-      "name": "明文",
-      "type": "data"
+      "name": "加密",
+      "type": "function"
     },
-    "reasoning": "文本提到『通過加密程式，明文和金鑰進行加密運算』，因此加密程式（app）使用了明文（data）作為輸入。",
+    "reasoning": "文本提到通過加密程式進行加密運算，因此加密程式（工具）具有加密（功能）的能力。符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_1",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "加密程式",
-      "type": "app"
+      "name": "解密程式",
+      "type": "tool"
     },
-    "relation": "uses",
+    "relation": "has_a",
     "object": {
-      "name": "金鑰",
-      "type": "data"
+      "name": "解密",
+      "type": "function"
     },
-    "reasoning": "文本提到『通過加密程式，明文和金鑰進行加密運算』，因此加密程式（app）使用了金鑰（data）作為輸入。",
+    "reasoning": "文本提到通過解密程式進行解密運算，因此解密程式（工具）具有解密（功能）的能力。符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_1",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 2
@@ -32,14 +32,14 @@
   {
     "subject": {
       "name": "加密程式",
-      "type": "app"
+      "type": "tool"
     },
     "relation": "generates",
     "object": {
       "name": "密文",
       "type": "data"
     },
-    "reasoning": "文本提到加密運算後『變成密文』，表示加密程式（app）產生了密文（data）。",
+    "reasoning": "文本明確指出加密運算將明文變成密文，密文是加密程式產出的結果。符合 ('tool', 'generates', 'data')。",
     "source_id": "chunk_1",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 3
@@ -47,77 +47,17 @@
   {
     "subject": {
       "name": "解密程式",
-      "type": "app"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "密文",
-      "type": "data"
-    },
-    "reasoning": "文本提到『通過解密程式，密文和金鑰進行解密運算』，因此解密程式（app）使用了密文（data）作為輸入。",
-    "source_id": "chunk_1",
-    "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "解密程式",
-      "type": "app"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "金鑰",
-      "type": "data"
-    },
-    "reasoning": "文本提到『通過解密程式，密文和金鑰進行解密運算』，因此解密程式（app）使用了金鑰（data）作為輸入。",
-    "source_id": "chunk_1",
-    "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 5
-  },
-  {
-    "subject": {
-      "name": "解密程式",
-      "type": "app"
+      "type": "tool"
     },
     "relation": "generates",
     "object": {
       "name": "明文",
       "type": "data"
     },
-    "reasoning": "文本提到解密運算後『變成明文』，表示解密程式（app）產生了明文（data）。",
+    "reasoning": "文本明確指出解密運算將密文變成明文，明文是解密程式產出的結果。符合 ('tool', 'generates', 'data')。",
     "source_id": "chunk_1",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 6
-  },
-  {
-    "subject": {
-      "name": "現代密碼學",
-      "type": "technique"
-    },
-    "relation": "depends_on",
-    "object": {
-      "name": "電腦",
-      "type": "tool"
-    },
-    "reasoning": "文本提到『現代密碼學...使用電腦為輔助計算工具』，表示該技術（technique）依賴於電腦（tool）來執行。",
-    "source_id": "chunk_1",
-    "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "古典密碼系統",
-      "type": "system"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "弱點",
-      "type": "vulnerability"
-    },
-    "reasoning": "文本提到古典密碼學『容易遭受暴力攻擊』且『極易被破解』，這意味著該系統（system）暴露了安全弱點（vulnerability）。",
-    "source_id": "chunk_1",
-    "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 8
+    "source_index": 4
   },
   {
     "subject": {
@@ -126,12 +66,87 @@
     },
     "relation": "can_harm",
     "object": {
-      "name": "明文",
+      "name": "密文",
       "type": "data"
     },
-    "reasoning": "暴力攻擊（attack）的目的在於破解密文以獲取明文，從而危害明文（data）的機密性。",
+    "reasoning": "文本提到古典密碼學容易遭受暴力攻擊並被破解，破解的目標是獲取密文背後的明文，即對加密資料造成危害。符合 ('attack', 'can_harm', 'data')。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "現代密碼學",
+      "type": "technique"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "電腦",
+      "type": "tool"
+    },
+    "reasoning": "文本提到現代密碼學使用電腦為輔助計算工具。符合 ('technique', 'has_a', 'tool')。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "古典密碼學",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "替換",
+      "type": "feature"
+    },
+    "reasoning": "文本將古典密碼學描述為一種體系，其包含替換與重排等手法。將其視為系統以符合 ('system', 'has_a', 'feature')。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "古典密碼學",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "重排",
+      "type": "feature"
+    },
+    "reasoning": "文本將古典密碼學描述為一種體系，其包含替換與重排等手法。將其視為系統以符合 ('system', 'has_a', 'feature')。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "替換",
+      "type": "feature"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到古典密碼學的單一手法（如替換）容易遭受暴力攻擊，暗示這些特徵暴露了安全弱點。符合 ('feature', 'can_expose', 'vulnerability')。",
     "source_id": "chunk_1",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "暴力攻擊",
+      "type": "attack"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "電腦",
+      "type": "tool"
+    },
+    "reasoning": "文本提到電腦的發明使古典密碼方法極易被破解，說明暴力攻擊的效率依賴於電腦的計算能力。符合 ('attack', 'depends_on', 'tool')。",
+    "source_id": "chunk_1",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 10
   }
 ]

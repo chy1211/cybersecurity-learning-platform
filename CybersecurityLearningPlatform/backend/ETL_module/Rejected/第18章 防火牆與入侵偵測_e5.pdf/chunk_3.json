@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "代理伺服器",
+      "type": "app",
+      "display_name": "代理伺服器"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "封包",
+      "type": "data",
+      "display_name": "封包"
+    },
+    "reasoning": "代理伺服器代理客戶端向伺服器存取資料，在轉發請求前必須分析封包內容以決定如何處理。符合 Schema: (tool, can_analyze, data)。",
+    "source_id": "chunk_3",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "代理伺服器是工具的合理實例，封包是資料的合理實例，且 'can_analyze' 是代理伺服器與封包之間的合理關係。",
+        "response": "correct",
+        "reason": "代理伺服器可以分析封包的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的代理伺服器完全等價，受體與 Ldr 中的封包完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的代理伺服器完全相同，受體與 Ldr 中的封包完全相同，無需合併"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): app -> can_analyze -> data (original: tool -> can_analyze -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "代理伺服器",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "封包",
+        "type": "data"
+      },
+      "reasoning": "代理伺服器代理客戶端向伺服器存取資料，在轉發請求前必須分析封包內容以決定如何處理。符合 Schema: (tool, can_analyze, data)。",
+      "source_id": "chunk_3",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

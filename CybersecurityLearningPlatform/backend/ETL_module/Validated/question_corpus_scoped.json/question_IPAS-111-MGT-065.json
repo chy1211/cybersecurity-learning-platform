@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資訊分類",
+      "type": "function",
+      "display_name": "資訊分類"
+    },
+    "reasoning": "題幹提到『實施資訊分類作業』，在資安實務中，這類作業（Operation）是由資安團隊或人員（securityTeam）來執行/實作（implements）的。在此將『資訊分類』視為一種功能性作業（function）。",
+    "source_id": "question_IPAS-111-MGT-065",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "資安人員是安全團隊的合理實例，資訊分類是功能的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，且無法合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資訊分類",
+        "type": "function"
+      },
+      "reasoning": "題幹提到『實施資訊分類作業』，在資安實務中，這類作業（Operation）是由資安團隊或人員（securityTeam）來執行/實作（implements）的。在此將『資訊分類』視為一種功能性作業（function）。",
+      "source_id": "question_IPAS-111-MGT-065",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊分類",
+      "type": "function",
+      "display_name": "資訊分類"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "重要資訊",
+      "type": "data",
+      "display_name": "組織重要的資訊"
+    },
+    "reasoning": "資訊分類（Information Classification）的核心動作是分析（can_analyze）資訊（data）的內容與敏感度，以決定其應屬的保護等級。這符合 Schema 中 function 對 data 的分析關係。",
+    "source_id": "question_IPAS-111-MGT-065",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資訊分類 (function) 可以分析 組織重要的資訊 (data)，這符合資安領域的常見語意與實踐。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 function，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源存在同義詞關係，受體與 Ldr 中的資源存在同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "資訊分類",
+        "standard_object": "重要資訊",
+        "reason": "主體與 Ldr 中的資源存在同義詞關係，受體與 Ldr 中的資源存在同義詞關係，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊分類",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "組織重要的資訊",
+        "type": "data"
+      },
+      "reasoning": "資訊分類（Information Classification）的核心動作是分析（can_analyze）資訊（data）的內容與敏感度，以決定其應屬的保護等級。這符合 Schema 中 function 對 data 的分析關係。",
+      "source_id": "question_IPAS-111-MGT-065",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

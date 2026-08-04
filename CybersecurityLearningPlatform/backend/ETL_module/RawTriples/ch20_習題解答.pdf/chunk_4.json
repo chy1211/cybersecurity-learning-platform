@@ -1,6 +1,21 @@
 [
   {
     "subject": {
+      "name": "Linux系統設備",
+      "type": "system"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全防護不足",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到家庭消費級電子設備採用 Linux 作業系統且安全防護不足，導致被入侵。因此，該系統會暴露其安全防護不足的漏洞。",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 1
+  },
+  {
+    "subject": {
       "name": "Mirai",
       "type": "tool"
     },
@@ -9,25 +24,25 @@
       "name": "殭屍網路",
       "type": "system"
     },
-    "reasoning": "文本提到 Mirai 是一款物聯網惡意軟體，可使設備成為被操控的殭屍並形成殭屍網路，因此 Mirai (tool) 控制了 殭屍網路 (system)。符合 Schema: ('tool', 'controls', 'system')",
-    "source_id": "chunk_4",
-    "source_file": "ch20_習題解答.pdf",
-    "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "殭屍網路",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "Linux系統設備",
-      "type": "system"
-    },
-    "reasoning": "文本指出採用 Linux 作業系統的設備被入侵做為殭屍網路的跳板，意即殭屍網路包含這些設備。符合 Schema: ('system', 'has_a', 'system')",
+    "reasoning": "文本明確指出 Mirai 是一款物聯網惡意軟體，能使設備成為被操控的殭屍並形成殭屍網路。惡意軟體作為工具控制了殭屍網路系統。",
     "source_id": "chunk_4",
     "source_file": "ch20_習題解答.pdf",
     "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "DDoS",
+      "type": "attack"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "Mirai",
+      "type": "tool"
+    },
+    "reasoning": "文本提到藉由 Mirai 惡意軟體所形成的殭屍網路進行了 DDoS 攻擊，表示此攻擊依賴於 Mirai 這個工具。",
+    "source_id": "chunk_4",
+    "source_file": "ch20_習題解答.pdf",
+    "source_index": 3
   },
   {
     "subject": {
@@ -39,85 +54,40 @@
       "name": "網站",
       "type": "app"
     },
-    "reasoning": "文本明確提到 DDoS 攻擊導致一些網站無法正常營運，即對網站造成危害。符合 Schema: ('attack', 'can_harm', 'app')",
-    "source_id": "chunk_4",
-    "source_file": "ch20_習題解答.pdf",
-    "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "DDoS",
-      "type": "attack"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "網路攻擊",
-      "type": "attack"
-    },
-    "reasoning": "DDoS 是透過殭屍網路進行的一種具體網路攻擊形式。符合 Schema: ('attack', 'is_part_of', 'attack')",
+    "reasoning": "文本指出 DDoS 攻擊導致一些網站無法正常營運，符合攻擊危害應用程式的邏輯。",
     "source_id": "chunk_4",
     "source_file": "ch20_習題解答.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "網路管理者",
-      "type": "securityTeam"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "雲端介面",
+      "name": "網頁介面程式",
       "type": "app"
     },
-    "reasoning": "文本提到網路管理者應檢查雲端介面是否存在安全漏洞，這是一種分析行為。符合 Schema: ('securityTeam', 'can_analyze', 'app')",
+    "relation": "can_expose",
+    "object": {
+      "name": "安全漏洞",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到網頁介面程式在設計時可能因疏忽而潛在一些風險（漏洞），因此應用程式會暴露漏洞。",
     "source_id": "chunk_4",
     "source_file": "ch20_習題解答.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "雲端介面",
-      "type": "app"
+      "name": "網路管理者",
+      "type": "securityTeam"
     },
-    "relation": "can_expose",
+    "relation": "can_detect",
     "object": {
-      "name": "XSS",
+      "name": "安全漏洞",
       "type": "vulnerability"
     },
-    "reasoning": "文本提到檢查雲端介面是否能通過 XSS 等漏洞測試，表示雲端介面可能暴露 XSS 漏洞。符合 Schema: ('app', 'can_expose', 'vulnerability')",
+    "reasoning": "文本提到網路管理者應檢查雲端介面是否存在安全漏洞，這屬於安全團隊偵測漏洞的功能。",
     "source_id": "chunk_4",
     "source_file": "ch20_習題解答.pdf",
     "source_index": 6
-  },
-  {
-    "subject": {
-      "name": "雲端介面",
-      "type": "app"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "SQL injection",
-      "type": "vulnerability"
-    },
-    "reasoning": "同上，雲端介面可能暴露 SQL injection 漏洞。符合 Schema: ('app', 'can_expose', 'vulnerability')",
-    "source_id": "chunk_4",
-    "source_file": "ch20_習題解答.pdf",
-    "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "雲端介面",
-      "type": "app"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "CSRF",
-      "type": "vulnerability"
-    },
-    "reasoning": "同上，雲端介面可能暴露 CSRF 漏洞。符合 Schema: ('app', 'can_expose', 'vulnerability')",
-    "source_id": "chunk_4",
-    "source_file": "ch20_習題解答.pdf",
-    "source_index": 8
   },
   {
     "subject": {
@@ -129,29 +99,14 @@
       "name": "XSS 攻擊腳本",
       "type": "tool"
     },
-    "reasoning": "在 XSS 攻擊步驟中，第一步是攻擊者貼上（使用）XSS 攻擊腳本。符合 Schema: ('attacker', 'uses', 'tool')",
+    "reasoning": "在跨站腳本攻擊步驟中，第一步是攻擊者貼上 XSS 攻擊腳本，表示攻擊者使用了該工具。",
     "source_id": "chunk_4",
     "source_file": "ch20_習題解答.pdf",
-    "source_index": 9
+    "source_index": 7
   },
   {
     "subject": {
-      "name": "受害者",
-      "type": "user"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "受害網站",
-      "type": "app"
-    },
-    "reasoning": "XSS 步驟中提到受害者瀏覽受害網站的網頁，即使用者使用該應用程式。符合 Schema: ('user', 'uses', 'app')",
-    "source_id": "chunk_4",
-    "source_file": "ch20_習題解答.pdf",
-    "source_index": 10
-  },
-  {
-    "subject": {
-      "name": "XSS",
+      "name": "XSS 攻擊",
       "type": "attack"
     },
     "relation": "can_harm",
@@ -159,10 +114,10 @@
       "name": "重要資訊",
       "type": "data"
     },
-    "reasoning": "XSS 攻擊的最終步驟是將受害者的重要資訊傳送給攻擊者，這對資料造成了危害（外洩）。符合 Schema: ('attack', 'can_harm', 'data')",
+    "reasoning": "XSS 攻擊的最終步驟是將受害者的重要資訊傳送給攻擊者，這代表攻擊行為危害了資料的機密性。",
     "source_id": "chunk_4",
     "source_file": "ch20_習題解答.pdf",
-    "source_index": 11
+    "source_index": 8
   },
   {
     "subject": {
@@ -174,9 +129,9 @@
       "name": "OTP",
       "type": "tool"
     },
-    "reasoning": "文本提到在實作上將 OTP 與傳統密碼結合做為雙因子認證，表示雙因子認證技術依賴於 OTP 這一工具/機制。符合 Schema: ('technique', 'depends_on', 'tool')",
+    "reasoning": "文本提到在實作上將 OTP 與傳統密碼結合做為雙因子認證，表示雙因子認證這項技術依賴於 OTP 這個工具。",
     "source_id": "chunk_4",
     "source_file": "ch20_習題解答.pdf",
-    "source_index": 12
+    "source_index": 9
   }
 ]

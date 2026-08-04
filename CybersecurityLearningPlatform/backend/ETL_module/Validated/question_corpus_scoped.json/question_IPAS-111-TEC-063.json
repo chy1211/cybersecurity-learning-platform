@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "ssh",
+      "type": "tool",
+      "display_name": "SSH 協定"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "中間人攻擊",
+      "type": "attack",
+      "display_name": "中間人攻擊"
+    },
+    "reasoning": "根據考題正確答案 B，使用 SSH 協定可以防止中間人攻擊。在 Schema 中，'tool' 類型可以透過 'mitigates' 關係來緩解或防禦 'attack' 類型的實體。",
+    "source_id": "question_IPAS-111-TEC-063",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SSH 協定是工具 (tool) 的合理實例，中間人攻擊是攻擊 (attack) 的合理實例。",
+        "response": "correct",
+        "reason": "SSH 協定與中間人攻擊的類別與屬性完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 SSH 協定 的類別是 tool，符合規則2 的允許條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 'ssh' 名稱相似，但非完全等價同義詞；受體與 Ldr 中的資源 '中間人攻擊' 名稱完全相同，為同義詞重複。",
+        "response": "duplicate",
+        "standard_subject": "ssh",
+        "standard_object": "中間人攻擊",
+        "reason": "受體與 Ldr 中的資源 '中間人攻擊' 名稱完全相同，為同義詞重複；主體與 Ldr 中的資源 'ssh' 名稱相似，但非完全等價同義詞，仍判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSH 協定",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "中間人攻擊",
+        "type": "attack"
+      },
+      "reasoning": "根據考題正確答案 B，使用 SSH 協定可以防止中間人攻擊。在 Schema 中，'tool' 類型可以透過 'mitigates' 關係來緩解或防禦 'attack' 類型的實體。",
+      "source_id": "question_IPAS-111-TEC-063",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "檔案傳輸軟體",
+      "type": "app",
+      "display_name": "檔案傳輸軟體"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ssh 協定",
+      "type": "tool",
+      "display_name": "SSH 協定"
+    },
+    "reasoning": "題幹提到使用檔案傳輸軟體並搭配安全協定（SSH），表示該應用程式具備或包含此安全工具/協定之功能。符合 Schema 中 ('app', 'has_a', 'tool') 的定義。",
+    "source_id": "question_IPAS-111-TEC-063",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "檔案傳輸軟體是 app 的合理實例，SSH 協定是 tool 的合理實例。",
+        "response": "correct",
+        "reason": "檔案傳輸軟體與 SSH 協定的類別與屬性完全符合預先定義的清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體與受體的類別不涉及attacker與securityTeam的身分。規則2不適用，因為has_a關係與mitigates無關。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為主體的類別不是principle。規則5不適用，因為關係不是uses且主體的類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源無直接關係，受體與 Ldr 中的資源有相似性，但不完全等價",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源無直接關係，受體雖有相似性，但不完全等價，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "檔案傳輸軟體",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "SSH 協定",
+        "type": "tool"
+      },
+      "reasoning": "題幹提到使用檔案傳輸軟體並搭配安全協定（SSH），表示該應用程式具備或包含此安全工具/協定之功能。符合 Schema 中 ('app', 'has_a', 'tool') 的定義。",
+      "source_id": "question_IPAS-111-TEC-063",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

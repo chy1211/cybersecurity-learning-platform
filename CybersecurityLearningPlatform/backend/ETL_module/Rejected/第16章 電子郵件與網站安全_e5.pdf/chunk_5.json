@@ -1,1 +1,194 @@
-[]
+[
+  {
+    "subject": {
+      "name": "冒名郵件",
+      "type": "attack",
+      "display_name": "冒名郵件"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "木馬程式",
+      "type": "attack",
+      "display_name": "木馬程式"
+    },
+    "reasoning": "文本指出冒名郵件可能夾帶木馬程式來達成目的，因此該攻擊手段依賴於木馬程式這個工具。",
+    "source_id": "chunk_5",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "冒名郵件是 'attack' 的合理實例，木馬程式是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體均為資安領域的攻擊類型，且木馬程式是惡意程式的一種，但冒名郵件與木馬程式之間無直接從屬關係或同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間無直接從屬關係或同義詞關係，且均為攻擊類型，故判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attack -> depends_on -> attack (original: attack -> depends_on -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "冒名郵件",
+        "type": "attack"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "木馬程式",
+        "type": "tool"
+      },
+      "reasoning": "文本指出冒名郵件可能夾帶木馬程式來達成目的，因此該攻擊手段依賴於木馬程式這個工具。",
+      "source_id": "chunk_5",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "電子郵件",
+      "type": "app",
+      "display_name": "電子郵件"
+    },
+    "reasoning": "駭客透過電子郵件在受害者電腦植入木馬，在此情境下，電子郵件被駭客當作遞送攻擊載荷的工具。",
+    "source_id": "chunk_5",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '駭客' 是 'attacker' 的合理實例，受體名稱 '電子郵件' 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attacker -> uses -> app (original: attacker -> uses -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "電子郵件",
+        "type": "tool"
+      },
+      "reasoning": "駭客透過電子郵件在受害者電腦植入木馬，在此情境下，電子郵件被駭客當作遞送攻擊載荷的工具。",
+      "source_id": "chunk_5",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "木馬程式",
+      "type": "attack",
+      "display_name": "木馬程式"
+    },
+    "reasoning": "文本明確提到駭客在受害者電腦植入木馬程式，符合 attacker 使用 tool 的定義。",
+    "source_id": "chunk_5",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "駭客 (attacker) 是攻擊者的合理實例，木馬程式 (tool) 是工具的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體皆為資安領域已知實體，且無廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體無同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attacker -> uses -> attack (original: attacker -> uses -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "木馬程式",
+        "type": "tool"
+      },
+      "reasoning": "文本明確提到駭客在受害者電腦植入木馬程式，符合 attacker 使用 tool 的定義。",
+      "source_id": "chunk_5",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "木馬程式",
+      "type": "attack",
+      "display_name": "木馬程式"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "殭屍電腦",
+      "type": "system",
+      "display_name": "殭屍電腦"
+    },
+    "reasoning": "木馬程式被植入後使受害電腦成為『殭屍電腦』，這意味著該工具取得了對系統的控制權。",
+    "source_id": "chunk_5",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "木馬程式是工具（tool）的合理實例，殭屍電腦是系統（system）的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，無需進行標準化。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attack -> controls -> system (original: tool -> controls -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "木馬程式",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "殭屍電腦",
+        "type": "system"
+      },
+      "reasoning": "木馬程式被植入後使受害電腦成為『殭屍電腦』，這意味著該工具取得了對系統的控制權。",
+      "source_id": "chunk_5",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 6
+    }
+  }
+]

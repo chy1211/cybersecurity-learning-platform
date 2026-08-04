@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "資訊安全事故",
+      "type": "attack",
+      "display_name": "資安事故"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "機密檔案",
+      "type": "data",
+      "display_name": "公司機密文件"
+    },
+    "reasoning": "根據題幹與正確答案，將『公司機密文件出現在 Google 搜尋結果中』確定為『資安事故』。在本體論中，資安事故（此處指資料外洩事件）可被歸類為 attack（攻擊/安全事件），而其造成的結果是危害（can_harm）了公司機密文件（data）的機密性。此組合符合 Schema Edge 中的 ('attack', 'can_harm', 'data')。",
+    "source_id": "question_IPAS-NULL-MGT-038",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資安事故 (attack) 是攻擊類別的合理實例，公司機密文件 (data) 是資料類別的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「資訊安全事故」為同義詞；受體與 Ldr 中的「機密檔案」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "資訊安全事故",
+        "standard_object": "機密檔案",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安事故",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "公司機密文件",
+        "type": "data"
+      },
+      "reasoning": "根據題幹與正確答案，將『公司機密文件出現在 Google 搜尋結果中』確定為『資安事故』。在本體論中，資安事故（此處指資料外洩事件）可被歸類為 attack（攻擊/安全事件），而其造成的結果是危害（can_harm）了公司機密文件（data）的機密性。此組合符合 Schema Edge 中的 ('attack', 'can_harm', 'data')。",
+      "source_id": "question_IPAS-NULL-MGT-038",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

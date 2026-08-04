@@ -6,10 +6,10 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "ROM",
+      "name": "EEPROM",
       "type": "feature"
     },
-    "reasoning": "文本提到記憶卡內部包含 ROM，ROM 作為系統的組成元件，歸類為 feature，關係為 has_a。",
+    "reasoning": "文本提到記憶卡內部包含 EEPROM，記憶卡作為硬體基礎設施歸類為 system，EEPROM 為其組成元件歸類為 feature。",
     "source_id": "chunk_3",
     "source_file": "第15章 IC卡安全簡介_e5.pdf",
     "source_index": 1
@@ -21,58 +21,13 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "EEPROM",
-      "type": "feature"
-    },
-    "reasoning": "文本提到記憶卡內部包含 EEPROM，歸類為 feature，關係為 has_a。",
-    "source_id": "chunk_3",
-    "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 2
-  },
-  {
-    "subject": {
-      "name": "記憶卡",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "邏輯電路",
-      "type": "feature"
-    },
-    "reasoning": "文本提到記憶卡內部包含邏輯電路，歸類為 feature，關係為 has_a。",
-    "source_id": "chunk_3",
-    "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "記憶卡",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "輸入/輸出介面",
-      "type": "feature"
-    },
-    "reasoning": "文本提到記憶卡內部包含輸入/輸出介面，歸類為 feature，關係為 has_a。",
-    "source_id": "chunk_3",
-    "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
       "name": "ROM",
       "type": "feature"
     },
-    "relation": "uses",
-    "object": {
-      "name": "永久資料",
-      "type": "data"
-    },
-    "reasoning": "文本指出 ROM 用以存放永久資料，根據 Schema，feature 可以 uses data。",
+    "reasoning": "文本提到記憶卡內部包含 ROM，記憶卡歸類為 system，ROM 為其組成元件歸類為 feature。",
     "source_id": "chunk_3",
     "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 5
+    "source_index": 2
   },
   {
     "subject": {
@@ -84,29 +39,29 @@
       "name": "應用資料",
       "type": "data"
     },
-    "reasoning": "文本指出 EEPROM 用以存放應用資料，根據 Schema，feature 可以 uses data。",
+    "reasoning": "文本指出 EEPROM 用以存放應用資料，EEPROM 是 feature，應用資料是 data，符合 ('feature', 'uses', 'data') 的 Schema。",
     "source_id": "chunk_3",
     "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 6
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "ROM",
+      "type": "feature"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "永久資料",
+      "type": "data"
+    },
+    "reasoning": "文本指出 ROM 用以存放永久資料，ROM 是 feature，永久資料是 data，符合 ('feature', 'uses', 'data') 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 4
   },
   {
     "subject": {
       "name": "晶片卡",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "CPU",
-      "type": "tool"
-    },
-    "reasoning": "文本提到晶片卡的主要元件包含中央處理單元 (CPU)，CPU 作為執行運算的硬體工具，歸類為 tool，關係為 has_a。",
-    "source_id": "chunk_3",
-    "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "CPU",
       "type": "tool"
     },
     "relation": "has_a",
@@ -114,25 +69,40 @@
       "name": "資料安全保護",
       "type": "function"
     },
-    "reasoning": "文本提到晶片卡具有處理指令和資料安全保護等功能，而這些功能是由 CPU 執行的，根據 Schema，tool 可以 has_a function。",
+    "reasoning": "文本提到晶片卡具有資料安全保護等功能。為了符合 Schema 中只有 tool 能 has_a function 的規定，將晶片卡歸類為 tool，資料安全保護歸類為 function。",
     "source_id": "chunk_3",
     "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 8
+    "source_index": 5
   },
   {
     "subject": {
       "name": "晶片卡",
-      "type": "system"
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "CPU",
+      "type": "feature"
+    },
+    "reasoning": "文本提到晶片卡的主要元件包含中央處理單元 (CPU)，晶片卡歸類為 tool，CPU 為其組成特徵歸類為 feature。",
+    "source_id": "chunk_3",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "晶片卡",
+      "type": "tool"
     },
     "relation": "has_a",
     "object": {
       "name": "RAM",
       "type": "feature"
     },
-    "reasoning": "文本提到晶片卡元件包含隨機存取記憶體 (RAM)，歸類為 feature，關係為 has_a。",
+    "reasoning": "文本提到晶片卡的主要元件包含隨機存取記憶體 (RAM)，晶片卡歸類為 tool，RAM 為其組成特徵歸類為 feature。",
     "source_id": "chunk_3",
     "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 9
+    "source_index": 7
   },
   {
     "subject": {
@@ -144,10 +114,10 @@
       "name": "暫存資料",
       "type": "data"
     },
-    "reasoning": "圖 15-5 顯示 RAM 對應暫存資料，根據 Schema，feature 可以 uses data。",
+    "reasoning": "根據圖 15-5，RAM 對應暫存資料，RAM 是 feature，暫存資料是 data，符合 ('feature', 'uses', 'data') 的 Schema。",
     "source_id": "chunk_3",
     "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 10
+    "source_index": 8
   },
   {
     "subject": {
@@ -159,25 +129,10 @@
       "name": "金屬接觸點",
       "type": "feature"
     },
-    "reasoning": "文本提到接觸式 IC 卡在卡上提供外接的金屬接觸點，歸類為 feature，關係為 has_a。",
+    "reasoning": "文本提到接觸式 IC 卡在卡上提供外接的金屬接觸點，卡片歸類為 system，接觸點為其組成部分歸類為 feature。",
     "source_id": "chunk_3",
     "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 11
-  },
-  {
-    "subject": {
-      "name": "讀寫裝置",
-      "type": "tool"
-    },
-    "relation": "controls",
-    "object": {
-      "name": "接觸式 IC 卡",
-      "type": "system"
-    },
-    "reasoning": "文本提到讀寫裝置可對卡片提供電源和信號並傳輸資料，這是一種控制與管理行為，根據 Schema，tool 可以 controls system。",
-    "source_id": "chunk_3",
-    "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 12
+    "source_index": 9
   },
   {
     "subject": {
@@ -189,39 +144,24 @@
       "name": "感應天線",
       "type": "feature"
     },
-    "reasoning": "文本提到非接觸式 IC 卡由晶片與感應天線組成，歸類為 feature，關係為 has_a。",
+    "reasoning": "文本提到非接觸式 IC 卡由晶片與感應天線組成，卡片歸類為 system，天線為其組成部分歸類為 feature。",
     "source_id": "chunk_3",
     "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 13
+    "source_index": 10
   },
   {
     "subject": {
-      "name": "悠遊卡",
+      "name": "讀寫裝置",
       "type": "system"
     },
-    "relation": "is_part_of",
+    "relation": "connects_to",
     "object": {
-      "name": "非接觸式 IC 卡",
+      "name": "接觸式 IC 卡",
       "type": "system"
     },
-    "reasoning": "文本將悠遊卡作為非接觸式 IC 卡的應用範例，在知識圖譜中可視為該類系統的一個實例或子集，關係為 is_part_of。",
+    "reasoning": "文本提到讀寫裝置可對接觸式 IC 卡提供電源和信號並互相通信，兩者皆為硬體系統，符合 ('system', 'connects_to', 'system') 的 Schema。",
     "source_id": "chunk_3",
     "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 14
-  },
-  {
-    "subject": {
-      "name": "Java 卡",
-      "type": "system"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "晶片卡",
-      "type": "system"
-    },
-    "reasoning": "Java 卡是依據應用系統分類的一種晶片卡，關係為 is_part_of。",
-    "source_id": "chunk_3",
-    "source_file": "第15章 IC卡安全簡介_e5.pdf",
-    "source_index": 15
+    "source_index": 11
   }
 ]

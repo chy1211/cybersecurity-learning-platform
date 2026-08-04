@@ -1,0 +1,98 @@
+[
+  {
+    "subject": {
+      "name": "位址解析協定 (arp)",
+      "type": "feature",
+      "display_name": "位址解析協定 (ARP)"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "ip 位址",
+      "type": "feature",
+      "display_name": "IP 位址"
+    },
+    "reasoning": "根據正確答案，ARP 的功能是使用 IP 位址來查詢 MAC 位址。ARP 屬於協定，因此分類為 feature；IP 位址屬於網路資訊，分類為 data。符合 Schema Edge: ('feature', 'uses', 'data')。",
+    "source_id": "question_IPAS-112-TEC-060",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "位址解析協定 (ARP) 是一種網路協定，可以被視為 'feature' 的合理實例；IP 位址是一種網路位址，可以被視為 'data' 的合理實例；'uses' 關係在此語境下是合理的，因為 ARP 使用 IP 位址進行位址解析。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間存在著功能上的關聯，但無法確認完全等價同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認主體與受體之間存在著完全等價同義詞關係，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> uses -> feature (original: feature -> uses -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "位址解析協定 (ARP)",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "IP 位址",
+        "type": "data"
+      },
+      "reasoning": "根據正確答案，ARP 的功能是使用 IP 位址來查詢 MAC 位址。ARP 屬於協定，因此分類為 feature；IP 位址屬於網路資訊，分類為 data。符合 Schema Edge: ('feature', 'uses', 'data')。",
+      "source_id": "question_IPAS-112-TEC-060",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "位址解析協定 (arp)",
+      "type": "feature",
+      "display_name": "位址解析協定 (ARP)"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "ip 位址",
+      "type": "feature",
+      "display_name": "IP 位址"
+    },
+    "reasoning": "ARP 透過分析（查詢）給定的 IP 位址來找出對應的硬體位址，因此具有分析 IP 位址的能力。符合 Schema Edge: ('feature', 'can_analyze', 'data')。",
+    "source_id": "question_IPAS-112-TEC-060",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '位址解析協定 (ARP)' 是 'feature' 的合理實例，受體 'IP 位址' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '位址解析協定 (arp)' 完全等價同義詞；受體與 Ldr 中的資源 'ip 位址' 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "位址解析協定 (arp)",
+        "standard_object": "ip 位址",
+        "reason": "主體與 Ldr 中的資源 '位址解析協定 (arp)' 完全等價同義詞；受體與 Ldr 中的資源 'ip 位址' 完全等價同義詞。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> can_analyze -> feature (original: feature -> can_analyze -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "位址解析協定 (ARP)",
+        "type": "feature"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "IP 位址",
+        "type": "data"
+      },
+      "reasoning": "ARP 透過分析（查詢）給定的 IP 位址來找出對應的硬體位址，因此具有分析 IP 位址的能力。符合 Schema Edge: ('feature', 'can_analyze', 'data')。",
+      "source_id": "question_IPAS-112-TEC-060",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

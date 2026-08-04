@@ -1,0 +1,98 @@
+[
+  {
+    "subject": {
+      "name": "組織",
+      "type": "system",
+      "display_name": "組織"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "風險評鑑準則",
+      "type": "policy",
+      "display_name": "風險評鑑準則"
+    },
+    "reasoning": "根據正確答案 A，風險評鑑應建立一套適用於全公司(組織)之準則。在資安本體論中，建立並執行準則或規範的實體為安全團隊或組織(securityTeam)，而準則屬於規範與策略(policy)，因此萃取此三元組。",
+    "source_id": "question_IPAS-112-MGT-023",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '組織' 合理對齊其類別 'securityTeam'，實體名稱 '風險評鑑準則' 合理對齊其類別 'policy'，關係 'implements' 合理描述 'securityTeam' 與 'policy' 之間的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法在資安領域已知同義詞對照範例中找到相關資訊，且無法確定主體與受體之間的關係，因此預設保留。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> implements -> policy (original: securityTeam -> implements -> policy)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "組織",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "風險評鑑準則",
+        "type": "policy"
+      },
+      "reasoning": "根據正確答案 A，風險評鑑應建立一套適用於全公司(組織)之準則。在資安本體論中，建立並執行準則或規範的實體為安全團隊或組織(securityTeam)，而準則屬於規範與策略(policy)，因此萃取此三元組。",
+      "source_id": "question_IPAS-112-MGT-023",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "組織",
+      "type": "system",
+      "display_name": "組織"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "風險評鑑",
+      "type": "technique",
+      "display_name": "風險評鑑"
+    },
+    "reasoning": "題幹與正確答案討論的是風險評鑑的執行準則，隱含了組織(securityTeam)會使用風險評鑑(technique)這一方法或流程來管理風險，符合 Schema 中 securityTeam uses technique 的定義。",
+    "source_id": "question_IPAS-112-MGT-023",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '組織' 可以被視為 'securityTeam' 的合理實例；受體名稱 '風險評鑑' 可以被視為 'technique' 的合理實例，考慮到 '風險評鑑' 可能是 '風險評估' 的同義詞或翻譯。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「組織」完全等價同義詞；受體與 Ldr 中的「風險評鑑」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體都有完全等價同義詞，但根據判斷準則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> uses -> technique (original: securityTeam -> uses -> technique)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "組織",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "風險評鑑",
+        "type": "technique"
+      },
+      "reasoning": "題幹與正確答案討論的是風險評鑑的執行準則，隱含了組織(securityTeam)會使用風險評鑑(technique)這一方法或流程來管理風險，符合 Schema 中 securityTeam uses technique 的定義。",
+      "source_id": "question_IPAS-112-MGT-023",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

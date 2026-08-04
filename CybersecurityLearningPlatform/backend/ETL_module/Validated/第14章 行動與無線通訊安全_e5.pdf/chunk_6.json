@@ -1,60 +1,8 @@
 [
   {
     "subject": {
-      "name": "802.11b",
+      "name": "ieee 802.11",
       "type": "system",
-      "display_name": "802.11b"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "ieee 802.11",
-      "type": "tool",
-      "display_name": "IEEE 802.11"
-    },
-    "reasoning": "802.11b 是 IEEE 802.11 標準家族中的成員。根據 Schema，system 可以 is_part_of system。",
-    "source_id": "chunk_6",
-    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-    "source_index": 4,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "802.11b 和 IEEE 802.11 都是合理的 'system' 實例，前者是無線網路通訊標準的一部分，後者是無線網路通訊標準的家族，包含多個標準，如 802.11b、802.11a 等，因此這兩個名稱與其被賦予的 'system' 類別是合理對齊的。",
-        "response": "correct",
-        "reason": "由於主體和受體的類別都在合法清單中，且關係 'is_part_of' 也在清單中，同時實體名稱與其類別也合理對齊，因此這個三元組完全符合預先定義的類別與屬性清單。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
-        "response": "correct",
-        "reason": "三元組中的關係 is_part_of 與規則清單中沒有直接衝突，且主體和受體的類別組合在給定的規則中沒有被明確限制。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體 802.11b 是 IEEE 802.11 的子類型，受體 IEEE 802.11 與 Ldr 中的 'ieee 802.11' 完全相同",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【廣義/狹義一律保留】原則，判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "802.11b",
-        "type": "system"
-      },
-      "relation": "is_part_of",
-      "object": {
-        "name": "IEEE 802.11",
-        "type": "system"
-      },
-      "reasoning": "802.11b 是 IEEE 802.11 標準家族中的成員。根據 Schema，system 可以 is_part_of system。",
-      "source_id": "chunk_6",
-      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-      "source_index": 4
-    }
-  },
-  {
-    "subject": {
-      "name": "ieee 802.11",
-      "type": "tool",
       "display_name": "IEEE 802.11"
     },
     "relation": "has_a",
@@ -63,28 +11,28 @@
       "type": "feature",
       "display_name": "實體層"
     },
-    "reasoning": "文本提到 IEEE 802.11 標準定義了網路中的第一層實體層。根據 Schema，system 可以 has_a feature。",
+    "reasoning": "文本明確提到 IEEE 802.11 標準定義了網路中的第一層實體層。根據 Schema，系統 (system) 可以具有 (has_a) 特徵 (feature)。",
     "source_id": "chunk_6",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "IEEE 802.11 是一個無線網路通訊標準，合理對齊 'system' 類別；'實體層' 是網路架構中的一个層級，合理對齊 'feature' 類別。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "IEEE 802.11 是一種無線網路通訊協定，屬於系統（system），其實體層（feature）是其合理的組成部分，符合語意對齊。",
         "response": "correct",
-        "reason": "IEEE 802.11 的 'system' 類別和 '實體層' 的 'feature' 類別都合理對齊，且關係 'has_a' 存在於 Lc,p 中，故此三元組完全符合預先定義的類別與屬性清單。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，沒有任何規則被觸發為違規。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的主體（IEEE 802.11）和關係（has_a）以及受體（實體層）之間的關係沒有違反任何語義限制清單中的規則。"
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
       },
       "step_2": {
-        "granularity_analysis": "完全等價同義詞",
+        "granularity_analysis": "主體與 Ldr 中的 'ieee 802.11' 完全等價同義詞；受體與 Ldr 中的 '實體層面' 關係不明確，但根據資安領域知識，實體層是 IEEE 802.11 的一部分，因此不構成同義詞重複。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "主體與受體皆與現有近似資源清單中之資源完全相符，無同義詞重複情況。"
+        "reason": "主體與 Ldr 中的 'ieee 802.11' 完全等價同義詞，但受體與 Ldr 中的 '實體層面' 關係不明確，因此判定為 correct。"
       }
     },
     "original_raw_triple": {
@@ -97,7 +45,7 @@
         "name": "實體層",
         "type": "feature"
       },
-      "reasoning": "文本提到 IEEE 802.11 標準定義了網路中的第一層實體層。根據 Schema，system 可以 has_a feature。",
+      "reasoning": "文本明確提到 IEEE 802.11 標準定義了網路中的第一層實體層。根據 Schema，系統 (system) 可以具有 (has_a) 特徵 (feature)。",
       "source_id": "chunk_6",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 1
@@ -106,7 +54,7 @@
   {
     "subject": {
       "name": "ieee 802.11",
-      "type": "tool",
+      "type": "system",
       "display_name": "IEEE 802.11"
     },
     "relation": "has_a",
@@ -115,28 +63,28 @@
       "type": "feature",
       "display_name": "資料鏈結層"
     },
-    "reasoning": "文本提到 IEEE 802.11 標準定義了第二層資料鏈結層。根據 Schema，system 可以 has_a feature。",
+    "reasoning": "文本明確提到 IEEE 802.11 標準定義了第二層資料鏈結層。根據 Schema，系統 (system) 可以具有 (has_a) 特徵 (feature)。",
     "source_id": "chunk_6",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "IEEE 802.11 是一個無線網路通訊標準，合理對齊 'system' 類別；'資料鏈結層' 是網路通訊中的一个層級，合理對齊 'feature' 類別。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "IEEE 802.11 是一個無線網路通訊標準，屬於 'system' 的合理實例。資料鏈結層是網路通訊中的基本概念，屬於 'feature' 的合理實例。",
         "response": "correct",
-        "reason": "IEEE 802.11 與 '資料鏈結層' 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，沒有任何規則被觸發為違規。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的主體、關係和受體之間的關係沒有違反任何語義限制清單中的規則。"
+        "reason": "三元組中的關係是 has_a，而非 deployed_in，因此不觸發規則6。"
       },
       "step_2": {
-        "granularity_analysis": "完全等價同義詞",
+        "granularity_analysis": "主體與 Ldr 中的 'ieee 802.11' 完全等價同義詞；受體與 Ldr 中的 '資料鏈結層' 完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據判斷準則，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+        "reason": "雖然主體與受體都有完全等價同義詞，但根據規則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
@@ -149,7 +97,7 @@
         "name": "資料鏈結層",
         "type": "feature"
       },
-      "reasoning": "文本提到 IEEE 802.11 標準定義了第二層資料鏈結層。根據 Schema，system 可以 has_a feature。",
+      "reasoning": "文本明確提到 IEEE 802.11 標準定義了第二層資料鏈結層。根據 Schema，系統 (system) 可以具有 (has_a) 特徵 (feature)。",
       "source_id": "chunk_6",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 2
@@ -157,155 +105,51 @@
   },
   {
     "subject": {
-      "name": "802.11a",
-      "type": "system",
-      "display_name": "802.11a"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "ieee 802.11",
+      "name": "802.11e",
       "type": "tool",
-      "display_name": "IEEE 802.11"
+      "display_name": "802.11e"
     },
-    "reasoning": "802.11a 是 IEEE 802.11 標準家族中的成員。根據 Schema，system 可以 is_part_of system。",
-    "source_id": "chunk_6",
-    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-    "source_index": 3,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "802.11a 和 IEEE 802.11 都是合理的 'system' 實例，考慮到資安領域的同義詞寬容原則。",
-        "response": "correct",
-        "reason": "主體、受體和關係都符合預先定義的類別和屬性清單，且實體名稱與其類別合理對齊。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 is_part_of，不是 deployed_in。檢查規則7：不適用，因為關係為 is_part_of，不是 generates。檢查規則8：不適用，因為關係為 is_part_of，不是 controls。",
-        "response": "correct",
-        "reason": "三元組中的主體和受體類別與關係之間的組合，沒有明確違反語義限制清單中的任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "802.11a 是 IEEE 802.11 的一部分，屬於廣義/狹義從屬關係",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "802.11a",
-        "type": "system"
-      },
-      "relation": "is_part_of",
-      "object": {
-        "name": "IEEE 802.11",
-        "type": "system"
-      },
-      "reasoning": "802.11a 是 IEEE 802.11 標準家族中的成員。根據 Schema，system 可以 is_part_of system。",
-      "source_id": "chunk_6",
-      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-      "source_index": 3
-    }
-  },
-  {
-    "subject": {
-      "name": "802.11g",
-      "type": "system",
-      "display_name": "802.11g"
-    },
-    "relation": "is_part_of",
+    "relation": "has_a",
     "object": {
-      "name": "ieee 802.11",
-      "type": "tool",
-      "display_name": "IEEE 802.11"
+      "name": "服務品質功能",
+      "type": "function",
+      "display_name": "服務品質功能"
     },
-    "reasoning": "802.11g 是 IEEE 802.11 標準家族中的成員。根據 Schema，system 可以 is_part_of system。",
-    "source_id": "chunk_6",
-    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-    "source_index": 5,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
-        "step_2_alignment_check": "802.11g 與 IEEE 802.11 均為無線網路標準，分別為 'system' 的合理實例，'is_part_of' 關係在此語境下合理，因為 802.11g 是 IEEE 802.11 標準的一部分。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查關係 is_part_of，主體是 system，受體是 tool，沒有直接相關的規則限制此組合。",
-        "response": "correct",
-        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體 802.11g 與 Ldr 中的 ieee 802.11i、ieee 802.11i wlan 屬於同一系統家族，但 802.11g 是一個特定的無線網路標準，與 ieee 802.11 是一個更廣泛的無線網路標準家族，受體 IEEE 802.11 與 Ldr 中的 ieee 802.11 完全匹配。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "ieee 802.11",
-        "reason": "主體與受體分別代表特定無線網路標準和無線網路標準家族，受體與 Ldr 中的資源完全匹配，但不進行合併以保留主體的特異性。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "802.11g",
-        "type": "system"
-      },
-      "relation": "is_part_of",
-      "object": {
-        "name": "IEEE 802.11",
-        "type": "system"
-      },
-      "reasoning": "802.11g 是 IEEE 802.11 標準家族中的成員。根據 Schema，system 可以 is_part_of system。",
-      "source_id": "chunk_6",
-      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-      "source_index": 5
-    }
-  },
-  {
-    "subject": {
-      "name": "802.11ac",
-      "type": "system",
-      "display_name": "802.11ac"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "ieee 802.11",
-      "type": "tool",
-      "display_name": "IEEE 802.11"
-    },
-    "reasoning": "802.11ac 是 IEEE 802.11 標準家族中的成員。根據 Schema，system 可以 is_part_of system。",
+    "reasoning": "文本提到 802.11e 增加了服務品質功能。將 802.11e 視為工具 (tool)，服務品質視為功能 (function)，符合 ('tool', 'has_a', 'function')。",
     "source_id": "chunk_6",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
-        "step_2_alignment_check": "802.11ac 是一種無線網路標準，屬於 'system' 的合理實例；IEEE 802.11 也是無線網路標準，同樣屬於 'system' 的合理實例。這些名稱與其類別之間具有語意對齊性。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '802.11e' 是一種無線網路協定，通常被視為一種工具（tool），與其類別相符。受體 '服務品質功能' 是一種功能（function），與其類別相符。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且實體名稱與其類別具有語意對齊性。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
         "response": "correct",
-        "reason": "三元組中的關係 'is_part_of' 不在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違規。"
+        "reason": "三元組中的主體 (802.11e) 是 tool，符合規則2和規則8的條件，且關係 (has_a) 不違反任何規則。"
       },
       "step_2": {
-        "granularity_analysis": "主體 802.11ac 與 Ldr 中的 802.11b、802.11a、802.11g 皆屬於 Wi-Fi 通訊協定的不同版本，受體 IEEE 802.11 與 Ldr 中的 ieee 802.11 完全相同，屬於同義詞重複。",
+        "granularity_analysis": "Ldr 中的資源與主體不完全相同，但類別相符，進行同義詞判定。",
         "response": "correct",
         "standard_subject": "",
-        "standard_object": "ieee 802.11",
-        "reason": "根據同義詞判定準則，受體 IEEE 802.11 與 Ldr 中的 ieee 802.11 完全相同，屬於同義詞重複；主體 802.11ac 與其他版本屬於不同子類型，保留原狀。"
+        "standard_object": "",
+        "reason": "Ldr 中的資源與主體不完全相同，且無法確認為同義詞，因此預設保留。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "802.11ac",
-        "type": "system"
+        "name": "802.11e",
+        "type": "tool"
       },
-      "relation": "is_part_of",
+      "relation": "has_a",
       "object": {
-        "name": "IEEE 802.11",
-        "type": "system"
+        "name": "服務品質功能",
+        "type": "function"
       },
-      "reasoning": "802.11ac 是 IEEE 802.11 標準家族中的成員。根據 Schema，system 可以 is_part_of system。",
+      "reasoning": "文本提到 802.11e 增加了服務品質功能。將 802.11e 視為工具 (tool)，服務品質視為功能 (function)，符合 ('tool', 'has_a', 'function')。",
       "source_id": "chunk_6",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 6
@@ -313,51 +157,51 @@
   },
   {
     "subject": {
-      "name": "802.11i",
-      "type": "tool",
-      "display_name": "802.11i"
+      "name": "802.11n",
+      "type": "system",
+      "display_name": "802.11n"
     },
     "relation": "has_a",
     "object": {
-      "name": "aes加密",
-      "type": "function",
-      "display_name": "AES加密"
+      "name": "多個發射和接收天線",
+      "type": "feature",
+      "display_name": "多個發射和接收天線"
     },
-    "reasoning": "文本指出 802.11i 強化了 AES 加密。將 802.11i 視為一種實作工具 (tool)，其具有加密功能 (function)。符合 Schema (tool, has_a, function)。",
+    "reasoning": "文本提到 802.11n 使用多個天線來提高傳輸率。將 802.11n 視為系統/規格 (system)，天線配置視為特徵 (feature)，符合 ('system', 'has_a', 'feature')。",
     "source_id": "chunk_6",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 7,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "主體 '802.11i' 是一種安全協定，受體 'AES加密' 是一種加密演算法，兩者皆為其類別的合理實例，且 'has_a' 關係在此語境下合理，因為 802.11i indeed 使用 AES 加密。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '802.11n' 是一個無線網路標準，合理對應 'system' 類別；受體 '多個發射和接收天線' 是一種無線網路技術的特徵，合理對應 'feature' 類別。",
         "response": "correct",
         "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，而非 'uses'。檢查規則6：不適用，因為關係為 'has_a'，而非 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，而非 'generates'。檢查規則8：不適用，因為關係為 'has_a'，而非 'controls'。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組（802.11i, has_a, AES加密）未觸發語義限制清單中的任何規則，故判定為正確。"
+        "reason": "三元組中的關係為 has_a，與規則6無關。"
       },
       "step_2": {
-        "granularity_analysis": "主體 802.11i 與 Ldr 中的 'ieee 802.11' 類別相同，但名稱不完全相同，受體 'AES加密' 可能與 '資料加密' 或 '訊息加密' 關聯，但無直接同義詞對應關係。",
+        "granularity_analysis": "不相關",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "無法確定主體或受體與 Ldr 中資源的完全同義詞關係，且無廣義/狹義從屬關係，依據不確定時預設保留原則，判定為 correct。"
+        "reason": "無法在 Ldr 中找到完全匹配或同義詞的資源，且無法確認實體之間的從屬關係。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "802.11i",
-        "type": "tool"
+        "name": "802.11n",
+        "type": "system"
       },
       "relation": "has_a",
       "object": {
-        "name": "AES加密",
-        "type": "function"
+        "name": "多個發射和接收天線",
+        "type": "feature"
       },
-      "reasoning": "文本指出 802.11i 強化了 AES 加密。將 802.11i 視為一種實作工具 (tool)，其具有加密功能 (function)。符合 Schema (tool, has_a, function)。",
+      "reasoning": "文本提到 802.11n 使用多個天線來提高傳輸率。將 802.11n 視為系統/規格 (system)，天線配置視為特徵 (feature)，符合 ('system', 'has_a', 'feature')。",
       "source_id": "chunk_6",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 7
@@ -365,106 +209,54 @@
   },
   {
     "subject": {
-      "name": "802.11i",
-      "type": "tool",
-      "display_name": "802.11i"
+      "name": "802.11f",
+      "type": "system",
+      "display_name": "802.11f"
     },
-    "relation": "has_a",
+    "relation": "connects_to",
     "object": {
-      "name": "wpa2",
-      "type": "tool",
-      "display_name": "WPA2"
+      "name": "無線存取器(ap)",
+      "type": "system",
+      "display_name": "無線存取器(AP)"
     },
-    "reasoning": "文本指出 802.11i 包含安全協定 WPA2。將 802.11i 視為 tool，WPA2 為其特徵 (feature)。符合 Schema (tool, has_a, feature)。",
+    "reasoning": "文本提到 802.11f 確保用戶在無線存取器 (AP) 間漫遊。這描述了該標準定義的設備連接行為，符合 ('system', 'connects_to', 'system')。",
     "source_id": "chunk_6",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 8,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "802.11i 是一種無線網路安全協定，WPA2 是其的一個安全功能，故實體名稱與其類別合理對齊。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '802.11f' 可被視為 'system' 的合理實例，受體 '無線存取器(AP)' 也可被視為 'system' 的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組 (802.11i, has_a, WPA2) 沒有觸發語義限制清單中的任何規則，故判定為正確。"
+        "reason": "三元組符合規則6所允許的條件，受體的類別是system，代表合法。"
       },
       "step_2": {
-        "granularity_analysis": "802.11i 是 WPA2 的技術基礎，WPA2 是基於 802.11i 的安全協定實現，兩者在資安領域中有密切關係，但不是完全等價的同義詞，WPA2 是 802.11i 的一個實現版本",
+        "granularity_analysis": "無線存取器(AP) 是 802.11f 的實現或應用之一，但非完全等價同義詞；兩者之間存在著廣義/狹義從屬關係",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "判定為 correct，因為 802.11i 和 WPA2 在資安領域中是相關但不同的概念，前者是安全協定的技術基礎，後者是基於此基礎的實現版本。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "802.11i",
-        "type": "tool"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "WPA2",
-        "type": "feature"
-      },
-      "reasoning": "文本指出 802.11i 包含安全協定 WPA2。將 802.11i 視為 tool，WPA2 為其特徵 (feature)。符合 Schema (tool, has_a, feature)。",
-      "source_id": "chunk_6",
-      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-      "source_index": 8
-    }
-  },
-  {
-    "subject": {
-      "name": "802.11f",
-      "type": "tool",
-      "display_name": "802.11f"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "漫遊功能",
-      "type": "function",
-      "display_name": "漫遊功能"
-    },
-    "reasoning": "文本提到 802.11f 確保用戶在 AP 間漫遊順暢。將 802.11f 視為 tool，漫遊為其功能 (function)。符合 Schema (tool, has_a, function)。",
-    "source_id": "chunk_6",
-    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-    "source_index": 9,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "主體 '802.11f' 是一種 Wi-Fi 通訊協定的功能，受體 '漫遊功能' 是一種功能，兩者都與其分別的類別 'tool' 和 'function' 合理對齊，考慮到資安領域的同義詞和縮寫。",
-        "response": "correct",
-        "reason": "主體和受體的類別與關係都符合預先定義的清單，並且實體名稱與其類別合理對齊。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。無直接相關規則觸發違規。",
-        "response": "correct",
-        "reason": "三元組（802.11f, has_a, 漫遊功能）未觸發語義限制清單中的任何規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體 802.11f 與 Ldr 中的 802.11i 不完全匹配，但都屬於 Wi-Fi 相關技術，受體「漫遊功能」在 Ldr 中沒有直接相關資源。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "無法在 Ldr 中找到完全匹配或同義詞的資源，且實體間沒有明顯的廣義或狹義關係，根據不確定時預設保留原則，判定為 correct。"
+        "reason": "無線存取器(AP) 是 802.11f 的實現或應用之一，但非完全等價同義詞；兩者之間存在著廣義/狹義從屬關係"
       }
     },
     "original_raw_triple": {
       "subject": {
         "name": "802.11f",
-        "type": "tool"
+        "type": "system"
       },
-      "relation": "has_a",
+      "relation": "connects_to",
       "object": {
-        "name": "漫遊功能",
-        "type": "function"
+        "name": "無線存取器(AP)",
+        "type": "system"
       },
-      "reasoning": "文本提到 802.11f 確保用戶在 AP 間漫遊順暢。將 802.11f 視為 tool，漫遊為其功能 (function)。符合 Schema (tool, has_a, function)。",
+      "reasoning": "文本提到 802.11f 確保用戶在無線存取器 (AP) 間漫遊。這描述了該標準定義的設備連接行為，符合 ('system', 'connects_to', 'system')。",
       "source_id": "chunk_6",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-      "source_index": 9
+      "source_index": 8
     }
   }
 ]

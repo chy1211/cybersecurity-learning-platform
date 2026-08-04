@@ -4,12 +4,12 @@
       "name": "過濾型網路防火牆",
       "type": "tool"
     },
-    "relation": "has_a",
+    "relation": "can_analyze",
     "object": {
-      "name": "封包過濾",
-      "type": "function"
+      "name": "資料封包",
+      "type": "data"
     },
-    "reasoning": "文本提到過濾型網路防火牆的原理是過濾封包參數並決定拒絕或接受，這是一種功能。根據 Schema，tool 可以 has_a function。",
+    "reasoning": "文本提到過濾型網路防火牆會過濾網路封包參數並判斷拒絕或接受，這屬於對資料的分析行為。符合 ('tool', 'can_analyze', 'data')。",
     "source_id": "chunk_2",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 1
@@ -21,25 +21,25 @@
     },
     "relation": "can_analyze",
     "object": {
-      "name": "網路封包",
-      "type": "data"
+      "name": "IP 位址",
+      "type": "feature"
     },
-    "reasoning": "文本指出防火牆會分析封包中的 IP 位址與 TCP/UDP 埠等參數。根據 Schema，tool 可以 can_analyze data。",
+    "reasoning": "文本明確指出防火牆過濾來源端與目的端的 IP 位址，IP 位址是封包的特徵。符合 ('tool', 'can_analyze', 'feature')。",
     "source_id": "chunk_2",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "應用層防火牆",
+      "name": "過濾型網路防火牆",
       "type": "tool"
     },
-    "relation": "has_a",
+    "relation": "can_analyze",
     "object": {
-      "name": "應用系統協定",
+      "name": "TCP/UDP 埠",
       "type": "feature"
     },
-    "reasoning": "文本提到應用層防火牆是針對應用系統協定（如 HTTP, FTP）進行過濾，協定在此被視為系統的特徵。根據 Schema，tool 可以 has_a feature。",
+    "reasoning": "文本明確指出防火牆過濾來源端與目的端的 TCP/UDP 埠，埠號是網路特徵。符合 ('tool', 'can_analyze', 'feature')。",
     "source_id": "chunk_2",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 3
@@ -49,74 +49,104 @@
       "name": "應用層防火牆",
       "type": "tool"
     },
-    "relation": "has_a",
+    "relation": "can_analyze",
     "object": {
       "name": "HTTP",
       "type": "feature"
     },
-    "reasoning": "HTTP 是文中提到的具體應用系統協定，屬於防火牆過濾的特徵對象。根據 Schema，tool 可以 has_a feature。",
+    "reasoning": "文本提到應用層防火牆針對應用系統協定（如 HTTP）過濾封包。根據定義，協定屬於 feature。符合 ('tool', 'can_analyze', 'feature')。",
     "source_id": "chunk_2",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "代理伺服器",
+      "name": "應用層防火牆",
       "type": "tool"
     },
-    "relation": "deployed_in",
+    "relation": "can_analyze",
     "object": {
-      "name": "企業網路",
-      "type": "system"
+      "name": "FTP",
+      "type": "feature"
     },
-    "reasoning": "文本描述企業內部網路的個人電腦透過代理伺服器存取外部，暗示代理伺服器部署於企業網路環境中。根據 Schema，tool 可以 deployed_in system。",
+    "reasoning": "文本提到應用層防火牆針對應用系統協定（如 FTP）過濾封包。符合 ('tool', 'can_analyze', 'feature')。",
     "source_id": "chunk_2",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "屏障式防火牆",
-      "type": "technique"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "過濾路由器",
+      "name": "應用層防火牆",
       "type": "tool"
     },
-    "reasoning": "文本提到屏障式防火牆的建置是在防禦主機前加上過濾路由器，這是一種防禦技術的組成。根據 Schema，technique 可以 has_a tool。",
+    "relation": "can_analyze",
+    "object": {
+      "name": "SMTP",
+      "type": "feature"
+    },
+    "reasoning": "文本提到應用層防火牆針對應用系統協定（如 SMTP）過濾封包。符合 ('tool', 'can_analyze', 'feature')。",
     "source_id": "chunk_2",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "過濾路由器",
-      "type": "tool"
+      "name": "一般員工",
+      "type": "user"
     },
-    "relation": "has_a",
+    "relation": "uses",
     "object": {
-      "name": "IP 層",
-      "type": "feature"
+      "name": "代理伺服器",
+      "type": "app"
     },
-    "reasoning": "文本提到過濾路由器可以處理 IP 層之資訊，IP 層是網路架構的特徵。根據 Schema，tool 可以 has_a feature。",
+    "reasoning": "文本描述企業內部員工欲存取外部網頁時，會將封包送至代理伺服器。將代理伺服器視為提供服務的 app。符合 ('user', 'uses', 'app')。",
     "source_id": "chunk_2",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 7
   },
   {
     "subject": {
-      "name": "防火牆",
-      "type": "tool"
+      "name": "代理伺服器",
+      "type": "app"
     },
-    "relation": "mitigates",
+    "relation": "connects_to",
     "object": {
-      "name": "攻擊事件",
-      "type": "attack"
+      "name": "外部伺服器",
+      "type": "system"
     },
-    "reasoning": "雖然文本未直接寫出「攻擊」二字，但防火牆的「拒絕封包」與「防禦」行為旨在緩解惡意存取或攻擊。根據 Schema，tool 可以 mitigates attack。",
+    "reasoning": "文本描述代理伺服器將資料傳送至外部伺服器，建立網路連線。符合 ('app', 'connects_to', 'system')。",
     "source_id": "chunk_2",
     "source_file": "ch18_習題解答.pdf",
     "source_index": 8
+  },
+  {
+    "subject": {
+      "name": "屏障式防火牆",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "過濾路由器",
+      "type": "tool"
+    },
+    "reasoning": "文本提到屏障式防火牆的建置是在防禦主機防火牆之前加上過濾路由器，表示其組成包含過濾路由器。符合 ('tool', 'has_a', 'tool')。",
+    "source_id": "chunk_2",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 9
+  },
+  {
+    "subject": {
+      "name": "過濾路由器",
+      "type": "tool"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "IP 層",
+      "type": "feature"
+    },
+    "reasoning": "文本提到過濾路由器可以處理（分析）IP 層之資訊。IP 層屬於網路架構特徵。符合 ('tool', 'can_analyze', 'feature')。",
+    "source_id": "chunk_2",
+    "source_file": "ch18_習題解答.pdf",
+    "source_index": 10
   }
 ]

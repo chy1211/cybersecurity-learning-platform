@@ -1,51 +1,51 @@
 [
   {
     "subject": {
-      "name": "行動通訊系統",
+      "name": "1g (amps)",
       "type": "system",
-      "display_name": "1G行動通訊系統"
+      "display_name": "1G (AMPS)"
     },
     "relation": "has_a",
     "object": {
-      "name": "AMPS",
-      "type": "system",
-      "display_name": "AMPS"
+      "name": "類比式系統",
+      "type": "feature",
+      "display_name": "類比式系統"
     },
-    "reasoning": "文本提到第一代行動通訊系統（1G）在臺灣使用 AMPS 系統，兩者皆為基礎設施環境，故使用 system 類型及 has_a 關係。",
+    "reasoning": "文本明確指出 1G (AMPS) 為類比式系統，類比式是其系統特徵。",
     "source_id": "chunk_2",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "1G行動通訊系統和AMPS都是合理的系統實例，符合資安領域的同義詞寬容原則。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '1G (AMPS)' 可被視為 'system' 的合理實例；受體 '類比式系統' 可被視為 'feature' 的合理實例。",
         "response": "correct",
-        "reason": "主體、受體和關係都符合預先定義的類別和屬性清單，且語意對齊合理。"
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。由於沒有任何規則被觸發，三元組不違反任何語義限制。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的主體和受體類別與關係之間的組合沒有違反語義限制清單中的任何規則。"
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
       },
       "step_2": {
-        "granularity_analysis": "1G行動通訊系統與行動通訊系統為同義詞，兩者指稱同一概念",
-        "response": "duplicate",
-        "standard_subject": "行動通訊系統",
-        "standard_object": "AMPS",
-        "reason": "根據同義詞判定，1G行動通訊系統與行動通訊系統為同義詞，兩者指稱同一概念。"
+        "granularity_analysis": "主體與受體之間不存在直接的同義詞關係或從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定主體與受體之間的直接關係，預設保留原狀"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "1G行動通訊系統",
+        "name": "1G (AMPS)",
         "type": "system"
       },
       "relation": "has_a",
       "object": {
-        "name": "AMPS",
-        "type": "system"
+        "name": "類比式系統",
+        "type": "feature"
       },
-      "reasoning": "文本提到第一代行動通訊系統（1G）在臺灣使用 AMPS 系統，兩者皆為基礎設施環境，故使用 system 類型及 has_a 關係。",
+      "reasoning": "文本明確指出 1G (AMPS) 為類比式系統，類比式是其系統特徵。",
       "source_id": "chunk_2",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 1
@@ -53,54 +53,54 @@
   },
   {
     "subject": {
-      "name": "行動通訊系統",
-      "type": "system",
-      "display_name": "1G行動通訊系統"
+      "name": "未加密",
+      "type": "vulnerability",
+      "display_name": "未加密"
     },
     "relation": "can_expose",
     "object": {
-      "name": "訊號編碼未加密",
-      "type": "vulnerability",
-      "display_name": "訊號編碼未加密"
+      "name": "消費者權益受損",
+      "type": "risk",
+      "display_name": "消費者權益受損"
     },
-    "reasoning": "文本指出 1G 系統在訊號編碼時並未加密，這是一種系統缺陷，符合 system can_expose vulnerability 的定義。",
+    "reasoning": "由於未加密的漏洞，導致容易被盜拷或竊聽，最終造成消費者權益受損的風險。",
     "source_id": "chunk_2",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-    "source_index": 2,
+    "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "1G行動通訊系統可以被視為系統的一個實例，訊號編碼未加密可以被視為漏洞的一個實例，'can_expose' 關係在資安領域中是合理的，表示系統可能暴露特定的漏洞。",
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '未加密' 是 'vulnerability' 的合理實例；關係 'can_expose' 合理地連接主體與受體；受體 '消費者權益受損' 是 'risk' 的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：適用，但主體類別為 system，受體類別為 vulnerability，符合 'can_expose' 動作的特例允許。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
         "response": "correct",
-        "reason": "三元組中的主體為 1G 行動通訊系統，類別為 system，與關係 can_expose 和受體 訊號編碼未加密 (類別為 vulnerability) 組合，符合規則 3 的特例允許，沒有違反任何語義限制。"
+        "reason": "主體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
       },
       "step_2": {
-        "granularity_analysis": "1G行動通訊系統與行動通訊系統為同義詞，兩者指稱同一概念",
-        "response": "duplicate",
-        "standard_subject": "行動通訊系統",
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
         "standard_object": "",
-        "reason": "根據同義詞判定，1G行動通訊系統與行動通訊系統為同義詞，兩者指稱同一概念。"
+        "reason": "主體與受體均不在同義詞對照範例中，且無法確定為同義詞，因此預設保留。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "1G行動通訊系統",
-        "type": "system"
+        "name": "未加密",
+        "type": "vulnerability"
       },
       "relation": "can_expose",
       "object": {
-        "name": "訊號編碼未加密",
-        "type": "vulnerability"
+        "name": "消費者權益受損",
+        "type": "risk"
       },
-      "reasoning": "文本指出 1G 系統在訊號編碼時並未加密，這是一種系統缺陷，符合 system can_expose vulnerability 的定義。",
+      "reasoning": "由於未加密的漏洞，導致容易被盜拷或竊聽，最終造成消費者權益受損的風險。",
       "source_id": "chunk_2",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-      "source_index": 2
+      "source_index": 3
     }
   },
   {
@@ -111,32 +111,32 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "安全程序演算法",
+      "name": "解密演算法",
       "type": "function",
-      "display_name": "安全程序演算法"
+      "display_name": "認證加密演算法"
     },
-    "reasoning": "SIM卡被描述為儲存認證加密所需演算法的智慧卡，SIM卡為工具 (tool)，演算法為其執行的能力/功能 (function)。",
+    "reasoning": "SIM卡儲存了認證加密所需的安全程序演算法，演算法在此被視為其執行的功能。",
     "source_id": "chunk_2",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "SIM卡是一種工具（tool），而安全程序演算法是一種功能（function），這些名稱與其類別之間的對齊是合理的。",
+        "step_1_list_check": "主體的類別 'tool'、受體的類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SIM卡 是一種工具（tool），認證加密演算法 是一種功能（function），因此語意對齊是合理的。",
         "response": "correct",
-        "reason": "SIM卡與安全程序演算法的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
         "response": "correct",
-        "reason": "三元組中的主體（SIM卡）和關係（has_a）以及受體（安全程序演算法）之間的關係，沒有明確違反語義限制清單中的任何規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
       },
       "step_2": {
-        "granularity_analysis": "SIM卡與Ldr中的sim卡完全等價同義詞",
-        "response": "correct",
+        "granularity_analysis": "主體與 Ldr 中的資源為完全等價同義詞；受體與 Ldr 中的資源不完全相符，但可視為同義詞",
+        "response": "duplicate",
         "standard_subject": "sim卡",
-        "standard_object": "",
-        "reason": "根據前提確認，實體名稱與Ldr中的name字串完全相同，直接判定correct。"
+        "standard_object": "解密演算法",
+        "reason": "主體與 Ldr 中的資源為完全等價同義詞；受體與 Ldr 中的資源雖不完全相符，但可視為同義詞"
       }
     },
     "original_raw_triple": {
@@ -146,10 +146,10 @@
       },
       "relation": "has_a",
       "object": {
-        "name": "安全程序演算法",
+        "name": "認證加密演算法",
         "type": "function"
       },
-      "reasoning": "SIM卡被描述為儲存認證加密所需演算法的智慧卡，SIM卡為工具 (tool)，演算法為其執行的能力/功能 (function)。",
+      "reasoning": "SIM卡儲存了認證加密所需的安全程序演算法，演算法在此被視為其執行的功能。",
       "source_id": "chunk_2",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 4
@@ -157,103 +157,51 @@
   },
   {
     "subject": {
-      "name": "竊聽",
-      "type": "attack",
-      "display_name": "竊聽"
+      "name": "sim卡",
+      "type": "tool",
+      "display_name": "SIM卡"
     },
-    "relation": "can_harm",
+    "relation": "is_part_of",
     "object": {
-      "name": "通訊資料",
-      "type": "data",
-      "display_name": "通訊資料"
-    },
-    "reasoning": "文本提到 1G 容易被竊聽導致權益受損，竊聽是一種惡意行為 (attack)，其危害的對象是傳輸中的通訊資訊 (data)。",
-    "source_id": "chunk_2",
-    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-    "source_index": 3,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體 '竊聽' 是 'attack' 的合理實例，'通訊資料' 是 'data' 的合理實例，且 'can_harm' 是描述 'attack' 對 'data' 的影響的合理關係。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'can_harm'，而這個關係在給定的規則中沒有明確的限制，因此不觸發任何違規。",
-        "response": "correct",
-        "reason": "三元組中的關係 'can_harm' 沒有在給定的語義限制清單中被明確限制，因此不違反任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體「竊聽」與 Ldr 中的「竊聽」完全相同，受體「通訊資料」與 Ldr 中的「網路通訊資料」相似，但非完全相同。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體「竊聽」與 Ldr 中的「竊聽」完全相同，受體「通訊資料」與 Ldr 中的「網路通訊資料」非完全相同，且無法確定為同義詞，因此預設保留。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "竊聽",
-        "type": "attack"
-      },
-      "relation": "can_harm",
-      "object": {
-        "name": "通訊資料",
-        "type": "data"
-      },
-      "reasoning": "文本提到 1G 容易被竊聽導致權益受損，竊聽是一種惡意行為 (attack)，其危害的對象是傳輸中的通訊資訊 (data)。",
-      "source_id": "chunk_2",
-      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-      "source_index": 3
-    }
-  },
-  {
-    "subject": {
-      "name": "gsm",
+      "name": "行動通訊系統",
       "type": "system",
-      "display_name": "2G行動通訊系統"
+      "display_name": "行動通訊系統"
     },
-    "relation": "has_a",
-    "object": {
-      "name": "gsm",
-      "type": "system",
-      "display_name": "GSM"
-    },
-    "reasoning": "文本將 2G 與 GSM 並列，GSM 為 2G 系統的具體實現，故定義為 system has_a system。",
+    "reasoning": "文本提到行動通訊系統的手機中有 SIM 卡，因此 SIM 卡是該系統的一部分。",
     "source_id": "chunk_2",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "2G行動通訊系統與GSM皆為系統的合理實例，符合語意對齊與同義詞寬容原則。",
+        "step_1_list_check": "主體的類別 'tool'、受體的類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "SIM卡 是一種工具（tool），行動通訊系統 是一個系統（system），因此實體名稱與其類別合理對齊。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 不在語義限制清單中被明確限制，且主體和受體的類別組合不觸發任何規則的違反條件。"
+        "reason": "三元組中的關係 'is_part_of' 不符合規則6的觸發條件，無法判定違規。"
       },
       "step_2": {
-        "granularity_analysis": "2G行動通訊系統與GSM為同義詞，兩者皆指第二代行動通訊系統，GSM是其中一種技術標準",
+        "granularity_analysis": "主體與 Ldr 中的 'sim卡' 完全等價同義詞；受體與 Ldr 中的 '行動通訊系統' 完全等價同義詞。",
         "response": "duplicate",
-        "standard_subject": "gsm",
-        "standard_object": "gsm",
-        "reason": "根據同義詞判定，2G行動通訊系統與GSM為同義詞，指稱同一概念。"
+        "standard_subject": "sim卡",
+        "standard_object": "行動通訊系統",
+        "reason": "主體與受體均與 Ldr 中的資源完全等價同義詞，判定為 duplicate。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "2G行動通訊系統",
-        "type": "system"
+        "name": "SIM卡",
+        "type": "tool"
       },
-      "relation": "has_a",
+      "relation": "is_part_of",
       "object": {
-        "name": "GSM",
+        "name": "行動通訊系統",
         "type": "system"
       },
-      "reasoning": "文本將 2G 與 GSM 並列，GSM 為 2G 系統的具體實現，故定義為 system has_a system。",
+      "reasoning": "文本提到行動通訊系統的手機中有 SIM 卡，因此 SIM 卡是該系統的一部分。",
       "source_id": "chunk_2",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 5
@@ -261,51 +209,207 @@
   },
   {
     "subject": {
-      "name": "臨時移動用戶識別碼",
-      "type": "technique",
-      "display_name": "臨時移動用戶識別碼"
+      "name": "1g (amps)",
+      "type": "system",
+      "display_name": "1G (AMPS)"
     },
-    "relation": "mitigates",
+    "relation": "can_expose",
     "object": {
-      "name": "隱私外洩",
-      "type": "attack",
-      "display_name": "隱私外洩"
+      "name": "未加密",
+      "type": "vulnerability",
+      "display_name": "未加密"
     },
-    "reasoning": "採用臨時識別碼是為了隱私保護，這是一種技術流程 (technique)，旨在防止隱私被惡意追蹤或外洩 (attack)。",
+    "reasoning": "文本提到 1G 訊號編碼時並未加密，這是一種系統缺陷（漏洞）。",
+    "source_id": "chunk_2",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '1G (AMPS)' 是 'system' 的合理實例；關係 'can_expose' 合理地連接主體與受體；受體 '未加密' 是 'vulnerability' 的合理實例（同義詞寬容：'未加密' 可理解為 '無加密' 或 '未經加密'，與 'vulnerability' 的概念相符）。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 system，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "1G (AMPS)",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "未加密",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到 1G 訊號編碼時並未加密，這是一種系統缺陷（漏洞）。",
+      "source_id": "chunk_2",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "gsm",
+      "type": "system",
+      "display_name": "2G (GSM)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "認證",
+      "type": "feature",
+      "display_name": "手機認證"
+    },
+    "reasoning": "手機認證被列為 2G (GSM) 通訊系統的安全措施之一，屬於系統特徵。",
+    "source_id": "chunk_2",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '2G (GSM)' 是 'system' 的合理實例，受體 '手機認證' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 has_a，而非 deployed_in，因此不觸發規則6。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的 'gsm' 實體為完全等價同義詞；受體與 Ldr 中的 '認證' 實體為完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "gsm",
+        "standard_object": "認證",
+        "reason": "主體與受體均與 Ldr 中的實體為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "2G (GSM)",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "手機認證",
+        "type": "feature"
+      },
+      "reasoning": "手機認證被列為 2G (GSM) 通訊系統的安全措施之一，屬於系統特徵。",
+      "source_id": "chunk_2",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "gsm",
+      "type": "system",
+      "display_name": "2G (GSM)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "通訊加密"
+    },
+    "reasoning": "通訊加密被列為 2G (GSM) 通訊系統的安全措施之一，屬於系統特徵。",
+    "source_id": "chunk_2",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '2G (GSM)' 是 'system' 的合理實例，受體 '通訊加密' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係為 has_a，與規則6無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 (2G (GSM)) 與 Ldr 中的 'gsm' 實體為同義詞；受體 (通訊加密) 與 Ldr 中的 '加密' 實體為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "gsm",
+        "standard_object": "加密",
+        "reason": "主體與受體均與 Ldr 中的實體為同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "2G (GSM)",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "通訊加密",
+        "type": "feature"
+      },
+      "reasoning": "通訊加密被列為 2G (GSM) 通訊系統的安全措施之一，屬於系統特徵。",
+      "source_id": "chunk_2",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "gsm",
+      "type": "system",
+      "display_name": "2G (GSM)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "privacy protection",
+      "type": "feature",
+      "display_name": "隱私保護"
+    },
+    "reasoning": "隱私保護被列為 2G (GSM) 通訊系統的安全措施之一，屬於系統特徵。",
     "source_id": "chunk_2",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 8,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "臨時移動用戶識別碼 可被視為 'technique' 的實例，隱私外洩 可被視為 'attack' 的實例，且 'mitigates' 的關係在資安領域中是合理的。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '2G (GSM)' 是 'system' 的合理實例，受體 '隱私保護' 是 'feature' 的合理實例。",
         "response": "correct",
-        "reason": "臨時移動用戶識別碼、隱私外洩與 'mitigates' 關係完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，三元組中的主體是臨時移動用戶識別碼，類別為 technique，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：無關。",
         "response": "correct",
-        "reason": "三元組中的主體和關係符合規則2的允許條件，且未發現其他明確違反的規則。因此，根據無罪推定原則，判定為正確。"
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
       },
       "step_2": {
-        "granularity_analysis": "受體與現有近似資源清單中的「企業機密外洩」不完全等價，但無法確定為同義詞或廣義/狹義從屬關係",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "無法確定同義詞或廣義/狹義從屬關係，預設保留"
+        "granularity_analysis": "主體與 Ldr 中的 'gsm' 實體為同義詞；受體與 Ldr 中的 'privacy protection' 實體為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "gsm",
+        "standard_object": "privacy protection",
+        "reason": "主體與 Ldr 中的 'gsm' 實體為同義詞；受體與 Ldr 中的 'privacy protection' 實體為同義詞。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "臨時移動用戶識別碼",
-        "type": "technique"
+        "name": "2G (GSM)",
+        "type": "system"
       },
-      "relation": "mitigates",
+      "relation": "has_a",
       "object": {
-        "name": "隱私外洩",
-        "type": "attack"
+        "name": "隱私保護",
+        "type": "feature"
       },
-      "reasoning": "採用臨時識別碼是為了隱私保護，這是一種技術流程 (technique)，旨在防止隱私被惡意追蹤或外洩 (attack)。",
+      "reasoning": "隱私保護被列為 2G (GSM) 通訊系統的安全措施之一，屬於系統特徵。",
       "source_id": "chunk_2",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
       "source_index": 8
@@ -313,90 +417,142 @@
   },
   {
     "subject": {
-      "name": "3g行動通訊系統",
+      "name": "3g",
       "type": "system",
-      "display_name": "3G行動通訊系統"
+      "display_name": "3G"
     },
     "relation": "has_a",
     "object": {
-      "name": "加密演算法",
-      "type": "tool",
-      "display_name": "加密演算法"
+      "name": "一致性",
+      "type": "feature",
+      "display_name": "一致性"
     },
-    "reasoning": "3G 系統採用眾所皆知的加密演算法，將演算法視為系統內建的工具 (tool) 以符合 schema。",
-    "source_id": "chunk_2",
-    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-    "source_index": 9,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "3G行動通訊系統 可被視為 system 的實例，加密演算法 可被視為 tool 的實例，且 'has_a' 關係在此語境下合理。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。無直接相關規則觸發違規。",
-        "response": "correct",
-        "reason": "三元組（3G行動通訊系統 has_a 加密演算法）未觸發語義限制清單中的任何規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體 \"3G行動通訊系統\" 與 Ldr 中的 \"第三代行動通訊系統\" 關係密切，受體 \"加密演算法\" 與 Ldr 中的 \"對稱式加密演算法\" 關係密切，但非完全等價同義詞，兩者皆無直接同義詞對應關係。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "無直接同義詞對應關係，且非廣義/狹義從屬關係，依據不確定時預設保留原則，判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "3G行動通訊系統",
-        "type": "system"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "加密演算法",
-        "type": "tool"
-      },
-      "reasoning": "3G 系統採用眾所皆知的加密演算法，將演算法視為系統內建的工具 (tool) 以符合 schema。",
-      "source_id": "chunk_2",
-      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-      "source_index": 9
-    }
-  },
-  {
-    "subject": {
-      "name": "sim卡",
-      "type": "tool",
-      "display_name": "USIM卡"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "資訊安全風險",
-      "type": "risk",
-      "display_name": "應用程式安全風險"
-    },
-    "reasoning": "文本提到透過 USIM 卡提供應用程式較佳的安全性，可加強安全強度，即使用該工具 (tool) 來緩解安全風險 (risk)。",
+    "reasoning": "3G 系統包含一致性（利用標準化安全特性），這被視為其系統特徵。",
     "source_id": "chunk_2",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 10,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
-        "step_2_alignment_check": "USIM卡 可被視為 'tool' 的實例，'應用程式安全風險' 可被視為 'risk' 的實例，且 'mitigates' 的語意與此三元組的主體、關係、受體之間的關係相符。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '3G' 可以被視為 'system' 的合理實例；受體 '一致性' 可以被視為 'feature' 的合理實例，尤其是在資安領域中 '一致性' 是一個常見的安全特徵。",
         "response": "correct",
-        "reason": "此三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 tool 時才可執行 mitigates 動作，該三元組的主體是 USIM 卡，類別為 tool，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的主體 USIM 卡（類別：tool）執行 mitigates 動作，符合規則2的允許條件，未發現明確且直接的違反項目。"
+        "reason": "三元組中的關係為 has_a，與規則6無關。"
       },
       "step_2": {
-        "granularity_analysis": "USIM卡與sim卡、usim為同義詞，應用程式安全風險與資訊安全風險為同義詞",
+        "granularity_analysis": "主體與 Ldr 中的資源 '3g' 完全等價同義詞；受體與 Ldr 中的資源 '一致性' 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體在 Ldr 中找到完全等價同義詞，但根據規則 1，若 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "3G",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "一致性",
+        "type": "feature"
+      },
+      "reasoning": "3G 系統包含一致性（利用標準化安全特性），這被視為其系統特徵。",
+      "source_id": "chunk_2",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "usim",
+      "type": "tool",
+      "display_name": "USIM卡"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "3g",
+      "type": "system",
+      "display_name": "3G"
+    },
+    "reasoning": "文本提到 3G 透過 USIM 卡提供安全性，說明 USIM 卡是 3G 系統中的工具元件。",
+    "source_id": "chunk_2",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "USIM卡 是一種工具（tool），3G 是一個系統（system），且 'is_part_of' 關係在語意上合理，表示 USIM 卡是 3G 系統的一部分。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 不符合規則6的觸發條件，且其他規則均不適用。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 USIM卡 與 Ldr 中的 usim 關係：同義詞；受體 3G 與 Ldr 中的 3g 關係：完全等價同義詞。",
         "response": "duplicate",
-        "standard_subject": "sim卡",
-        "standard_object": "資訊安全風險",
-        "reason": "根據同義詞判定，USIM卡與sim卡、usim為同義詞，應用程式安全風險與資訊安全風險為同義詞。"
+        "standard_subject": "usim",
+        "standard_object": "3g",
+        "reason": "主體 USIM卡 與 Ldr 中的 usim 為同義詞；受體 3G 與 Ldr 中的 3g 完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "USIM卡",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "3G",
+        "type": "system"
+      },
+      "reasoning": "文本提到 3G 透過 USIM 卡提供安全性，說明 USIM 卡是 3G 系統中的工具元件。",
+      "source_id": "chunk_2",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "usim",
+      "type": "tool",
+      "display_name": "USIM卡"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資安風險",
+      "type": "risk",
+      "display_name": "應用程式安全風險"
+    },
+    "reasoning": "文本提到 USIM 卡可以加強應用程式的安全強度，即緩解了應用程式層面的安全風險。",
+    "source_id": "chunk_2",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "USIM卡 是一種工具（tool），能夠減輕應用程式安全風險（risk），因此語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 USIM 卡的類別是 tool，符合規則 2 的允許條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 USIM卡 與 Ldr 中的 usim 關係：同義詞重複；受體 應用程式安全風險 與 Ldr 中的 資安風險 關係：同義詞重複。",
+        "response": "duplicate",
+        "standard_subject": "usim",
+        "standard_object": "資安風險",
+        "reason": "主體與 Ldr 中的 usim 同義詞重複；受體與 Ldr 中的 資安風險 同義詞重複。"
       }
     },
     "original_raw_triple": {
@@ -409,10 +565,68 @@
         "name": "應用程式安全風險",
         "type": "risk"
       },
-      "reasoning": "文本提到透過 USIM 卡提供應用程式較佳的安全性，可加強安全強度，即使用該工具 (tool) 來緩解安全風險 (risk)。",
+      "reasoning": "文本提到 USIM 卡可以加強應用程式的安全強度，即緩解了應用程式層面的安全風險。",
       "source_id": "chunk_2",
       "source_file": "第14章 行動與無線通訊安全_e5.pdf",
-      "source_index": 10
+      "source_index": 12
+    }
+  },
+  {
+    "subject": {
+      "name": "privacy protection",
+      "type": "feature",
+      "display_name": "隱私保護"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "臨時移動用戶識別碼",
+      "type": "data",
+      "display_name": "臨時移動用戶識別碼"
+    },
+    "reasoning": "文本指出隱私保護是透過採用『臨時移動用戶識別碼』來實現，該識別碼為資料實體。",
+    "source_id": "chunk_2",
+    "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '隱私保護' 是 'feature' 的合理實例；受體 '臨時移動用戶識別碼' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體 (隱私保護) 的類別是 feature，而非 data，且關係為 uses，違反規則5。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體 (隱私保護) 的類別是 feature，而非 data，且關係為 uses，違反規則5。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "duplicate",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "隱私保護",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "臨時移動用戶識別碼",
+        "type": "data"
+      },
+      "reasoning": "文本指出隱私保護是透過採用『臨時移動用戶識別碼』來實現，該識別碼為資料實體。",
+      "source_id": "chunk_2",
+      "source_file": "第14章 行動與無線通訊安全_e5.pdf",
+      "source_index": 9
     }
   }
 ]

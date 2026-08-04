@@ -4,30 +4,15 @@
       "name": "大數據",
       "type": "system"
     },
-    "relation": "has_a",
+    "relation": "uses",
     "object": {
-      "name": "資料蒐集",
-      "type": "feature"
+      "name": "資料",
+      "type": "data"
     },
-    "reasoning": "文本提到大數據依賴大量的資料蒐集，將資料蒐集視為大數據系統的一個組成特徵 (feature)。",
+    "reasoning": "文本提到『大數據依賴大量的資料蒐集』，因此大數據系統使用資料來進行分析。",
     "source_id": "chunk_12",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "大數據",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "分析",
-      "type": "feature"
-    },
-    "reasoning": "文本提到大數據依賴分析以獲得預測結果，將分析視為大數據系統的一個組成特徵 (feature)。",
-    "source_id": "chunk_12",
-    "source_file": "第19章 雲端與大數據安全_e5.pdf",
-    "source_index": 2
   },
   {
     "subject": {
@@ -36,10 +21,25 @@
     },
     "relation": "uses",
     "object": {
-      "name": "干擾的資料",
+      "name": "干擾資料",
       "type": "tool"
     },
-    "reasoning": "對手故意送出干擾的資料來影響結果，此處將「干擾的資料」視為攻擊者用來達成目的的工具 (tool)。",
+    "reasoning": "文本提到『對手故意送出干擾的資料』。在 Schema 中，attacker 不能直接 uses data，但干擾資料在此被用作攻擊手段，故將其視為 tool。",
+    "source_id": "chunk_12",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "資料干擾攻擊",
+      "type": "attack"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "大數據",
+      "type": "system"
+    },
+    "reasoning": "對手送出干擾資料會導致預測結果錯誤，這是一種對大數據系統分析能力的危害，因此定義為 attack can_harm system。",
     "source_id": "chunk_12",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 3
@@ -54,7 +54,7 @@
       "name": "資料干擾攻擊",
       "type": "attack"
     },
-    "reasoning": "端點輸入驗證與過濾 (end-point input validation and filtering) 是為了防止對手送出干擾資料，因此是一種緩解 (mitigates) 此類攻擊的技術。",
+    "reasoning": "端點輸入驗證與過濾 (end-point input validation and filtering) 是為了防止錯誤或惡意資料進入系統，可用於緩解資料干擾攻擊。",
     "source_id": "chunk_12",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 4
@@ -69,25 +69,10 @@
       "name": "安全系統",
       "type": "tool"
     },
-    "reasoning": "文本指出即時安全監控「需要一套可以應用在大數據模式的安全系統」，表示該技術依賴於特定工具的實作。",
+    "reasoning": "文本提到即時安全監控『需要一套可以應用在大數據模式的安全系統』，表示該技術依賴於特定工具的實作。",
     "source_id": "chunk_12",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 5
-  },
-  {
-    "subject": {
-      "name": "安全系統",
-      "type": "tool"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "資料",
-      "type": "data"
-    },
-    "reasoning": "安全系統需要告知「誰在存取資料」、「存取哪些資料」，這涉及對存取資料 (data) 的分析能力。",
-    "source_id": "chunk_12",
-    "source_file": "第19章 雲端與大數據安全_e5.pdf",
-    "source_index": 6
   },
   {
     "subject": {
@@ -99,7 +84,22 @@
       "name": "攻擊",
       "type": "attack"
     },
-    "reasoning": "安全系統需要能即時告知「我們是否受到了攻擊」，因此具備偵測 (can_detect) 攻擊的能力。",
+    "reasoning": "文本提到安全系統可以告知『我們是否受到了攻擊？』，因此該工具具備偵測攻擊的能力。",
+    "source_id": "chunk_12",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "安全系統",
+      "type": "tool"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data"
+    },
+    "reasoning": "安全系統需要分析『誰在存取資料』以及『存取哪些資料』，這屬於對資料存取行為的分析。",
     "source_id": "chunk_12",
     "source_file": "第19章 雲端與大數據安全_e5.pdf",
     "source_index": 7

@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "資訊資產盤點",
+      "type": "technique",
+      "display_name": "資訊資產盤點"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資產的使用狀況",
+      "type": "data",
+      "display_name": "資產的使用狀況"
+    },
+    "reasoning": "本題為否定式提問（何者『不』最適當），因此正確答案 A 為錯誤敘述，而選項 B 為正確知識。資訊資產盤點是一種管理資產的方法或流程（technique），其目的之一是分析並確認資產的使用狀況（data）。根據 Schema，('technique', 'can_analyze', 'data') 是合法的邊界。",
+    "source_id": "question_IPAS-112-MGT-018",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '資訊資產盤點' 是 'technique' 的合理實例；受體名稱 '資產的使用狀況' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 data，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱不在同義詞對照範例中，且無法確定為同義詞，預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產盤點",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資產的使用狀況",
+        "type": "data"
+      },
+      "reasoning": "本題為否定式提問（何者『不』最適當），因此正確答案 A 為錯誤敘述，而選項 B 為正確知識。資訊資產盤點是一種管理資產的方法或流程（technique），其目的之一是分析並確認資產的使用狀況（data）。根據 Schema，('technique', 'can_analyze', 'data') 是合法的邊界。",
+      "source_id": "question_IPAS-112-MGT-018",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

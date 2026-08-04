@@ -1,0 +1,112 @@
+[
+  {
+    "subject": {
+      "name": "雜湊",
+      "type": "function",
+      "display_name": "雜湊"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加鹽",
+      "type": "feature",
+      "display_name": "加鹽"
+    },
+    "reasoning": "根據題幹與正確答案，『加鹽』是在『雜湊』之前插入特定字串的行為。在本體論定義中，『雜湊』被明確列為 function 的範例，而『加鹽』作為雜湊過程中的一個特定組成屬性或特徵，符合 feature 的定義，因此使用 has_a 關係來描述雜湊功能包含加鹽這一特徵。",
+    "source_id": "question_IPAS-110-TEC-035",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "雜湊 (Hash) 是一種常見的函數 (function)，加鹽 (Salting) 是一種安全特徵 (feature)，因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "無明確規則限制 function 類別的主體與 feature 類別的受體之間的 has_a 關係，因此無法直接套用任何規則進行檢查。",
+        "response": "correct",
+        "reason": "無法直接套用任何規則進行檢查，因此無罪推定，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "雜湊與雜湊計算之間是同義詞關係，但雜湊與Ldr中的雜湊完全相同，因此判定為完全等價同義詞；加鹽與Ldr中的salt之間是同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雜湊與Ldr中的雜湊完全相同，因此判定為完全等價同義詞；加鹽與Ldr中的salt之間是同義詞關係，但根據規則，若Ldr中已有完全相同的實體名稱，則判定為correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "雜湊",
+        "type": "function"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加鹽",
+        "type": "feature"
+      },
+      "reasoning": "根據題幹與正確答案，『加鹽』是在『雜湊』之前插入特定字串的行為。在本體論定義中，『雜湊』被明確列為 function 的範例，而『加鹽』作為雜湊過程中的一個特定組成屬性或特徵，符合 feature 的定義，因此使用 has_a 關係來描述雜湊功能包含加鹽這一特徵。",
+      "source_id": "question_IPAS-110-TEC-035",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "salt",
+      "type": "feature",
+      "display_name": "加鹽"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "特定字串",
+      "type": "data",
+      "display_name": "特定字串"
+    },
+    "reasoning": "文本提到加鹽是『插入特定字串』，這表示加鹽這個特徵/過程需要使用特定的字串資料，符合 ('feature', 'uses', 'data') 的合法 Schema Edge。",
+    "source_id": "question_IPAS-110-TEC-035",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '加鹽' 是 'feature' 的合理實例，受體 '特定字串' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體類別為 feature，與規則5不符，觸發違規判定。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體類別為 feature，與規則5不符，觸發違規判定。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "duplicate",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加鹽",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "特定字串",
+        "type": "data"
+      },
+      "reasoning": "文本提到加鹽是『插入特定字串』，這表示加鹽這個特徵/過程需要使用特定的字串資料，符合 ('feature', 'uses', 'data') 的合法 Schema Edge。",
+      "source_id": "question_IPAS-110-TEC-035",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

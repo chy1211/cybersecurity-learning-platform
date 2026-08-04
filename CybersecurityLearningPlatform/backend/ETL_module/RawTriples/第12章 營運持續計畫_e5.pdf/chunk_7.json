@@ -9,10 +9,25 @@
       "name": "封包",
       "type": "data"
     },
-    "reasoning": "文本提到防火牆的功能是阻止不符合規則之封包，這意味著防火牆必須具備分析封包資料的能力。符合 Schema: (tool, can_analyze, data)。",
+    "reasoning": "文本提到防火牆的功能是阻止不符合規則之封包，這意味著防火牆必須先分析封包內容，符合 Schema 中 ('tool', 'can_analyze', 'data') 的定義。",
     "source_id": "chunk_7",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "應用",
+      "type": "app"
+    },
+    "reasoning": "文本提到防火牆會阻止不符合規則之應用，這涉及對應用程式流量的分析，符合 Schema 中 ('tool', 'can_analyze', 'app') 的定義。",
+    "source_id": "chunk_7",
+    "source_file": "第12章 營運持續計畫_e5.pdf",
+    "source_index": 2
   },
   {
     "subject": {
@@ -24,82 +39,67 @@
       "name": "攻擊",
       "type": "attack"
     },
-    "reasoning": "入侵偵測系統 (IDS) 的核心功能即為偵測惡意攻擊行為，以彌補防火牆的不足。符合 Schema: (tool, can_detect, attack)。",
-    "source_id": "chunk_7",
-    "source_file": "第12章 營運持續計畫_e5.pdf",
-    "source_index": 2
-  },
-  {
-    "subject": {
-      "name": "冷備援站點",
-      "type": "system"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "異地備援",
-      "type": "system"
-    },
-    "reasoning": "文本明確指出異地備援可分為冷、暖、熱備援站點，因此冷備援站點是異地備援系統的一種形式。符合 Schema: (system, is_part_of, system)。",
+    "reasoning": "入侵偵測系統 (IDS) 的核心功能即為偵測惡意攻擊行為，符合 Schema 中 ('tool', 'can_detect', 'attack') 的定義。",
     "source_id": "chunk_7",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "暖備援站點",
-      "type": "system"
-    },
-    "relation": "is_part_of",
-    "object": {
       "name": "異地備援",
-      "type": "system"
+      "type": "policy"
     },
-    "reasoning": "文本明確指出異地備援可分為冷、暖、熱備援站點，因此暖備援站點是異地備援系統的一種形式。符合 Schema: (system, is_part_of, system)。",
+    "relation": "mitigates",
+    "object": {
+      "name": "資料毀損",
+      "type": "risk"
+    },
+    "reasoning": "文本指出當原有處所資料毀損或消失時，異地備份可以馬上啟用，說明此策略是用於緩解資料毀損的風險，符合 Schema 中 ('policy', 'mitigates', 'risk') 的定義。",
     "source_id": "chunk_7",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "熱備援站點",
+      "name": "異地備援系統",
       "type": "system"
     },
-    "relation": "is_part_of",
+    "relation": "has_a",
     "object": {
-      "name": "異地備援",
+      "name": "冷備援站點",
       "type": "system"
     },
-    "reasoning": "文本明確指出異地備援可分為冷、暖、熱備援站點，因此熱備援站點是異地備援系統的一種形式。符合 Schema: (system, is_part_of, system)。",
+    "reasoning": "文本明確將異地備援分為冷、暖、熱三種站點，站點屬於基礎設施系統，符合 Schema 中 ('system', 'has_a', 'system') 的定義。",
     "source_id": "chunk_7",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "熱備援站點",
+      "name": "異地備援系統",
       "type": "system"
     },
     "relation": "has_a",
     "object": {
-      "name": "系統",
+      "name": "暖備援站點",
       "type": "system"
     },
-    "reasoning": "文本提到熱備援站點「備有同樣之系統」，表示該站點包含完整的系統實體。符合 Schema: (system, has_a, system)。",
+    "reasoning": "暖備援站點是異地備援的一種形式，屬於系統組成部分，符合 Schema 中 ('system', 'has_a', 'system') 的定義。",
     "source_id": "chunk_7",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "行動備援站點",
+      "name": "異地備援系統",
       "type": "system"
     },
     "relation": "has_a",
     "object": {
-      "name": "系統",
+      "name": "熱備援站點",
       "type": "system"
     },
-    "reasoning": "文本提到在行動備援站點（移動車輛）中安裝設備與系統。符合 Schema: (system, has_a, system)。",
+    "reasoning": "熱備援站點是異地備援的一種形式，屬於系統組成部分，符合 Schema 中 ('system', 'has_a', 'system') 的定義。",
     "source_id": "chunk_7",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 7
@@ -114,7 +114,7 @@
       "name": "緊急計畫書",
       "type": "policy"
     },
-    "reasoning": "OSHA 作為管理部門規定部門需要撰寫緊急計畫書，這屬於執行/要求實施安全政策的行為。符合 Schema: (securityTeam, implements, policy)。",
+    "reasoning": "OSHA 作為管理部門規定部門需撰寫緊急計畫書，此行為屬於執行/推動安全規範，符合 Schema 中 ('securityTeam', 'implements', 'policy') 的定義。",
     "source_id": "chunk_7",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 8
@@ -126,25 +126,25 @@
     },
     "relation": "mitigates",
     "object": {
-      "name": "風險",
+      "name": "災害",
       "type": "risk"
     },
-    "reasoning": "災害復原計畫旨在應對災害發生後的恢復，其目的是緩解災害帶來的風險（如營運中斷）。符合 Schema: (policy, mitigates, risk)。",
+    "reasoning": "災害復原計畫旨在應對已發生的災害並恢復運作，是用於緩解災害風險的策略，符合 Schema 中 ('policy', 'mitigates', 'risk') 的定義。",
     "source_id": "chunk_7",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 9
   },
   {
     "subject": {
-      "name": "防火牆",
-      "type": "tool"
+      "name": "營運恢復計畫",
+      "type": "policy"
     },
     "relation": "mitigates",
     "object": {
-      "name": "攻擊",
-      "type": "attack"
+      "name": "災害",
+      "type": "risk"
     },
-    "reasoning": "防火牆透過阻止不符合規則的封包來防禦外部攻擊。符合 Schema: (tool, mitigates, attack)。",
+    "reasoning": "營運恢復計畫是確保組織在災害後能繼續運作的策略，符合 Schema 中 ('policy', 'mitigates', 'risk') 的定義。",
     "source_id": "chunk_7",
     "source_file": "第12章 營運持續計畫_e5.pdf",
     "source_index": 10

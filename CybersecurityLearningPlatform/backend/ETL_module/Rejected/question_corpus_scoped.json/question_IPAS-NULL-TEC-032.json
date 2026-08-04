@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "惡意程式攻擊",
+      "type": "attack",
+      "display_name": "惡意程式攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "防毒軟體",
+      "type": "tool",
+      "display_name": "防毒軟體"
+    },
+    "reasoning": "根據否定式提問之規則，選項 C（防毒軟體被關閉）是成立的正確知識。惡意程式攻擊會導致防毒軟體失效，這屬於攻擊對安全應用程式的危害，因此選擇 attack -> can_harm -> app。",
+    "source_id": "question_IPAS-NULL-TEC-032",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "惡意程式攻擊 (attack) 是攻擊類別的合理實例，防毒軟體 (app) 是應用程式類別的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「惡意程式攻擊」完全等價同義詞；受體與 Ldr 中的「防毒軟體」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域中具體的概念，無法合併為同義詞。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attack -> can_harm -> tool (original: attack -> can_harm -> app)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "惡意程式攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "防毒軟體",
+        "type": "app"
+      },
+      "reasoning": "根據否定式提問之規則，選項 C（防毒軟體被關閉）是成立的正確知識。惡意程式攻擊會導致防毒軟體失效，這屬於攻擊對安全應用程式的危害，因此選擇 attack -> can_harm -> app。",
+      "source_id": "question_IPAS-NULL-TEC-032",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

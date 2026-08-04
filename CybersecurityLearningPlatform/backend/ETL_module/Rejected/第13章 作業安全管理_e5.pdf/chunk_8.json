@@ -1,1 +1,146 @@
-[]
+[
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam",
+      "display_name": "資安人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資產管理",
+      "type": "technique",
+      "display_name": "資產管理"
+    },
+    "reasoning": "文本提到資產管理的首要工作是掌握資產數量與範圍，這屬於資安團隊執行的管理功能，因此選擇 securityTeam implements function。",
+    "source_id": "chunk_8",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資安人員 (securityTeam) 可以實施資產管理 (function)，這是合理的實例關係。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): securityTeam -> implements -> technique (original: securityTeam -> implements -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資安人員",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資產管理",
+        "type": "function"
+      },
+      "reasoning": "文本提到資產管理的首要工作是掌握資產數量與範圍，這屬於資安團隊執行的管理功能，因此選擇 securityTeam implements function。",
+      "source_id": "chunk_8",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資產管理系統",
+      "type": "system",
+      "display_name": "資產管理系統"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資產清單",
+      "type": "feature",
+      "display_name": "資產清單"
+    },
+    "reasoning": "文本指出資產管理需要建立資產清單，且資產管理系統會與其他系統結合來管理這些資訊，資產清單在本質上是記錄資訊的資料，因此選擇 system uses data。",
+    "source_id": "chunk_8",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資產管理系統是系統的合理實例，資產清單是資料的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中的資源不完全相同，且無法確認為同義詞或子類型關係，依據判斷準則預設保留。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> uses -> feature (original: system -> uses -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產管理系統",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資產清單",
+        "type": "data"
+      },
+      "reasoning": "文本指出資產管理需要建立資產清單，且資產管理系統會與其他系統結合來管理這些資訊，資產清單在本質上是記錄資訊的資料，因此選擇 system uses data。",
+      "source_id": "chunk_8",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "輔助工具",
+      "type": "tool",
+      "display_name": "輔助工具"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資產管理",
+      "type": "technique",
+      "display_name": "資產管理"
+    },
+    "reasoning": "文本提到中大型機構需要使用輔助工具以協助資產管理，表示該工具具備執行資產管理的功能，因此選擇 tool has_a function。",
+    "source_id": "chunk_8",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "輔助工具 (tool) 可以有資產管理 (function) 的功能，因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間沒有完全等價同義詞關係，受體與 Ldr 中的資源之間存在完全等價同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "受體與 Ldr 中的資源之間存在完全等價同義詞關係，但主體與 Ldr 中的資源之間沒有完全等價同義詞關係，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> has_a -> technique (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "輔助工具",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資產管理",
+        "type": "function"
+      },
+      "reasoning": "文本提到中大型機構需要使用輔助工具以協助資產管理，表示該工具具備執行資產管理的功能，因此選擇 tool has_a function。",
+      "source_id": "chunk_8",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 4
+    }
+  }
+]

@@ -1,0 +1,262 @@
+[
+  {
+    "subject": {
+      "name": "事故處理單位",
+      "type": "securityTeam",
+      "display_name": "事故處理單位"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "事故處理",
+      "type": "technique",
+      "display_name": "事故處理"
+    },
+    "reasoning": "根據選項 B，事故處理單位需執行處理動作以減輕損失。將『事故處理』視為一種技術 (technique)，安全團隊使用該技術來應對事故。",
+    "source_id": "question_IPAS-113-MGT-043",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '事故處理單位' 合理對齊其類別 'securityTeam'，受體名稱 '事故處理' 合理對齊其類別 'technique'，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體是安全團隊(securityTeam)，而非攻擊者(attacker)。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源沒有完全相同的名稱，但受體與 Ldr 中的資源有相似的名稱（事件處理）；然而，根據資安領域已知同義詞對照範例，沒有直接對應的同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定事故處理單位與事件處理之間的直接同義詞關係，且無法確認是否為廣義/狹義從屬關係，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "事故處理單位",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "事故處理",
+        "type": "technique"
+      },
+      "reasoning": "根據選項 B，事故處理單位需執行處理動作以減輕損失。將『事故處理』視為一種技術 (technique)，安全團隊使用該技術來應對事故。",
+      "source_id": "question_IPAS-113-MGT-043",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "事件處理",
+      "type": "technique",
+      "display_name": "事故處理"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊安全事故",
+      "type": "attack",
+      "display_name": "資安事故"
+    },
+    "reasoning": "根據選項 B，迅速處理事故可減輕公司損失，這符合 technique (事故處理) mitigates attack (資安事故) 的邏輯。",
+    "source_id": "question_IPAS-113-MGT-043",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '事故處理' 是 'technique' 的合理實例，受體名稱 '資安事故' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體事故處理的類別是 technique，符合規則2的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「事件處理」為同義詞；受體與 Ldr 中的「資訊安全事故」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "事件處理",
+        "standard_object": "資訊安全事故",
+        "reason": "主體與 Ldr 中的「事件處理」為同義詞；受體與 Ldr 中的「資訊安全事故」為同義詞，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "事故處理",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資安事故",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 B，迅速處理事故可減輕公司損失，這符合 technique (事故處理) mitigates attack (資安事故) 的邏輯。",
+      "source_id": "question_IPAS-113-MGT-043",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "事故處理單位",
+      "type": "securityTeam",
+      "display_name": "事故處理單位"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "事故報告",
+      "type": "function",
+      "display_name": "事故報告"
+    },
+    "reasoning": "根據選項 C，事故處理完成後應將過程及結果進行報告。報告是安全團隊在事故回應流程中必須執行的功能 (function)。",
+    "source_id": "question_IPAS-113-MGT-043",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '事故處理單位' 是 'securityTeam' 的合理實例；受體 '事故報告' 是 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中的資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "事故處理單位",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "事故報告",
+        "type": "function"
+      },
+      "reasoning": "根據選項 C，事故處理完成後應將過程及結果進行報告。報告是安全團隊在事故回應流程中必須執行的功能 (function)。",
+      "source_id": "question_IPAS-113-MGT-043",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "事故處理單位",
+      "type": "securityTeam",
+      "display_name": "事故處理單位"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊安全事故",
+      "type": "attack",
+      "display_name": "資安事故"
+    },
+    "reasoning": "根據選項 D，事故處理完成後應分析事故發生原因，這對應到 securityTeam can_analyze attack 的 Schema。",
+    "source_id": "question_IPAS-113-MGT-043",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 (securityTeam)、受體類別 (attack) 與關係 (can_analyze) 均在 Lc,p 中。",
+        "step_2_alignment_check": "事故處理單位 (securityTeam) 合理、資安事故 (attack) 合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為事故處理單位不具有攻擊者身分。規則2不適用，因為主體不是policy、technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間存在同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "事故處理單位",
+        "standard_object": "資訊安全事故",
+        "reason": "主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間存在同義詞關係，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "事故處理單位",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資安事故",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 D，事故處理完成後應分析事故發生原因，這對應到 securityTeam can_analyze attack 的 Schema。",
+      "source_id": "question_IPAS-113-MGT-043",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "事故處理單位",
+      "type": "securityTeam",
+      "display_name": "事故處理單位"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "矯正措施",
+      "type": "technique",
+      "display_name": "矯正措施"
+    },
+    "reasoning": "根據選項 D，分析原因後應進行矯正措施。矯正措施是一種用以防止問題再次發生的方法，歸類為 technique。",
+    "source_id": "question_IPAS-113-MGT-043",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 (securityTeam)、受體類別 (technique) 與關係 (uses) 都存在於 Lc,p 的 Classes 與 Properties 中。",
+        "step_2_alignment_check": "事故處理單位 (securityTeam) 合理、矯正措施 (technique) 合理。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係都合法且語意對齊，故此三元組正確。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1：無關。規則2：無關。規則3：無關。規則4：無關。規則5：無關。規則6：無關。規則7：無關。規則8：主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），而事實處理單位 (securityTeam) 符合此條件。",
+        "response": "correct",
+        "reason": "事實處理單位 (securityTeam) 符合規則8所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源「事故處理單位」完全等價同義詞；受體與 Ldr 中的資源「事故處理」、「事件處理」具有相似概念，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全匹配，但受體與 Ldr 中的資源雖然相似，但不構成完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "事故處理單位",
+        "type": "securityTeam"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "矯正措施",
+        "type": "technique"
+      },
+      "reasoning": "根據選項 D，分析原因後應進行矯正措施。矯正措施是一種用以防止問題再次發生的方法，歸類為 technique。",
+      "source_id": "question_IPAS-113-MGT-043",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  }
+]

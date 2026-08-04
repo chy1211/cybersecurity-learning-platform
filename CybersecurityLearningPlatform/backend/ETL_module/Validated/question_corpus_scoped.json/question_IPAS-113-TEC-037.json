@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "密碼原則",
+      "type": "policy",
+      "display_name": "密碼原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "根據選項 A，通行碼不應以鍵盤字母排列方式選用，這屬於一種密碼強度原則（policy），旨在緩解（mitigates）因簡單模式而被駭客利用的攻擊風險（attack）。",
+    "source_id": "question_IPAS-113-TEC-037",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '密碼原則' 是 'policy' 的合理實例；受體名稱 '駭客攻擊' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為密碼原則（policy），符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「密碼原則」完全等價同義詞；受體與 Ldr 中的「駭客攻擊」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域中的具體概念，無法合併為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 A，通行碼不應以鍵盤字母排列方式選用，這屬於一種密碼強度原則（policy），旨在緩解（mitigates）因簡單模式而被駭客利用的攻擊風險（attack）。",
+      "source_id": "question_IPAS-113-TEC-037",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "明文儲存",
+      "type": "vulnerability",
+      "display_name": "明碼儲存"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "根據選項 B，通行碼不適以明碼方式儲存。將密碼以明碼儲存是一種系統缺陷/弱點（vulnerability），會導致個資外洩等負面後果（risk）。",
+    "source_id": "question_IPAS-113-TEC-037",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '明碼儲存' 是 'vulnerability' 的合理實例，受體名稱 '個資外洩' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「明文儲存」為完全等價同義詞；受體與 Ldr 中的「個資外洩」為完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "明文儲存",
+        "standard_object": "個資外洩",
+        "reason": "主體與受體均與 Ldr 中的資源為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "明碼儲存",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "根據選項 B，通行碼不適以明碼方式儲存。將密碼以明碼儲存是一種系統缺陷/弱點（vulnerability），會導致個資外洩等負面後果（risk）。",
+      "source_id": "question_IPAS-113-TEC-037",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "事件回應計畫",
+      "type": "policy",
+      "display_name": "事件回應計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "根據選項 C，在資安事故發生後強制變更通行碼，屬於事件回應流程中的一項策略（policy），用以緩解（mitigates）攻擊者持續利用舊憑證進行攻擊（attack）的風險。",
+    "source_id": "question_IPAS-113-TEC-037",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "事件回應計畫是政策的合理實例，駭客攻擊是攻擊的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "事件回應計畫（類別：policy）執行 mitigates 動作，符合規則2的允許條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的資源 '駭客攻擊' 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "駭客攻擊",
+        "reason": "受體 '駭客攻擊' 與 Ldr 中的資源 '駭客攻擊' 完全相同，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "事件回應計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "根據選項 C，在資安事故發生後強制變更通行碼，屬於事件回應流程中的一項策略（policy），用以緩解（mitigates）攻擊者持續利用舊憑證進行攻擊（attack）的風險。",
+      "source_id": "question_IPAS-113-TEC-037",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼儲存原則",
+      "type": "policy",
+      "display_name": "密碼儲存原則"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "個資外洩",
+      "type": "risk",
+      "display_name": "個資外洩"
+    },
+    "reasoning": "根據選項 B，禁止明碼儲存通行碼是一種安全規範（policy），其目的是為了緩解（mitigates）資料外洩的風險（risk）。",
+    "source_id": "question_IPAS-113-TEC-037",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '密碼儲存原則' 合理對齊其類別 'policy'，受體名稱 '個資外洩' 合理對齊其類別 'risk'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為密碼儲存原則（policy），符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「密碼原則」為同義詞；受體與 Ldr 中的「個資外洩」完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「密碼原則」雖然相似，但不完全相同；受體與 Ldr 中的「個資外洩」完全相同，但根據規則，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼儲存原則",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "個資外洩",
+        "type": "risk"
+      },
+      "reasoning": "根據選項 B，禁止明碼儲存通行碼是一種安全規範（policy），其目的是為了緩解（mitigates）資料外洩的風險（risk）。",
+      "source_id": "question_IPAS-113-TEC-037",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

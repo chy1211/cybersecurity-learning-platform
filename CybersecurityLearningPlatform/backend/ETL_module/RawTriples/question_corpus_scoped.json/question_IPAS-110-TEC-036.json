@@ -1,0 +1,62 @@
+[
+  {
+    "subject": {
+      "name": "網站伺服器",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "RAID 5",
+      "type": "tool"
+    },
+    "reasoning": "題幹提到公司將網站伺服器內的硬碟作 RAID 5，表示該系統配置了 RAID 5 這種冗餘機制。在本體論中，RAID 5 作為一種實現資料可用性的機制，可歸類為 tool，且 system 與 tool 之間存在 has_a 關係。",
+    "source_id": "question_IPAS-110-TEC-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "RAID 5",
+      "type": "tool"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "硬碟故障",
+      "type": "risk"
+    },
+    "reasoning": "RAID 5 的核心目的在於提供容錯能力，即使單顆硬碟故障，系統仍能運作且資料不遺失，因此 RAID 5 (tool) 能緩解硬碟故障 (risk) 帶來的風險。",
+    "source_id": "question_IPAS-110-TEC-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "RAID 5",
+      "type": "tool"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "Rebuild",
+      "type": "function"
+    },
+    "reasoning": "正確答案指出在硬碟故障後應執行 Rebuild。Rebuild 是 RAID 5 機制中用來恢復冗餘狀態的內建能力，因此將其定義為 RAID 5 (tool) 具有的 function。",
+    "source_id": "question_IPAS-110-TEC-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "資安人員",
+      "type": "securityTeam"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "Rebuild",
+      "type": "function"
+    },
+    "reasoning": "題目詢問應採取何種處理方式，正確答案為執行 Rebuild。這意味著負責維運的資安人員或系統管理員 (securityTeam) 需執行/實作 (implements) 此項恢復功能 (function)。",
+    "source_id": "question_IPAS-110-TEC-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4
+  }
+]

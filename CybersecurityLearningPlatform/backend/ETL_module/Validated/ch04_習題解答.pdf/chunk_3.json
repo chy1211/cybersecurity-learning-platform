@@ -1,6 +1,110 @@
 [
   {
     "subject": {
+      "name": "破解、盜用帳號",
+      "type": "attack",
+      "display_name": "破解、盜用帳號"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "認證資訊",
+      "type": "data",
+      "display_name": "認證資訊"
+    },
+    "reasoning": "文本提到『以破解、盜用或冒用他人帳號及密碼』，這是一種攻擊行為 (attack)，其直接損害的是帳號密碼等認證資訊 (data)。符合 Schema: (attack, can_harm, data)。",
+    "source_id": "chunk_3",
+    "source_file": "ch04_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "破解、盜用帳號 是 'attack' 的合理實例，認證資訊 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8 都不適用於此三元組，因為主體是攻擊類別，關係是 can_harm，受體是認證資訊，沒有違反任何規則。",
+        "response": "correct",
+        "reason": "此三元組沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源具有高度相似性，但不完全等價同義詞；受體與 Ldr 中的資源無直接關聯。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體雖然與 Ldr 中的資源相似，但不完全等價同義詞；受體無需標準化。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "破解、盜用帳號",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "認證資訊",
+        "type": "data"
+      },
+      "reasoning": "文本提到『以破解、盜用或冒用他人帳號及密碼』，這是一種攻擊行為 (attack)，其直接損害的是帳號密碼等認證資訊 (data)。符合 Schema: (attack, can_harm, data)。",
+      "source_id": "chunk_3",
+      "source_file": "ch04_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "散布電腦病毒",
+      "type": "attack",
+      "display_name": "散布非法軟體"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "文本提到『散布...非法軟體交易或其他違法之訊息』，散布非法軟體可視為一種攻擊 (attack)，其最終目的或結果通常是危害目標系統 (system)。符合 Schema: (attack, can_harm, system)。",
+    "source_id": "chunk_3",
+    "source_file": "ch04_習題解答.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '散布非法軟體' 是 'attack' 的合理實例，受體名稱 '系統' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「散布電腦病毒」為同義詞；受體與 Ldr 中的「系統」完全相同。",
+        "response": "duplicate",
+        "standard_subject": "散布電腦病毒",
+        "standard_object": "系統",
+        "reason": "主體與 Ldr 中的「散布電腦病毒」為同義詞；受體與 Ldr 中的「系統」完全相同，故判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "散布非法軟體",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "文本提到『散布...非法軟體交易或其他違法之訊息』，散布非法軟體可視為一種攻擊 (attack)，其最終目的或結果通常是危害目標系統 (system)。符合 Schema: (attack, can_harm, system)。",
+      "source_id": "chunk_3",
+      "source_file": "ch04_習題解答.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
       "name": "電子簽章法",
       "type": "policy",
       "display_name": "電子簽章法"
@@ -11,28 +115,28 @@
       "type": "risk",
       "display_name": "網路交易風險"
     },
-    "reasoning": "文本提到電子簽章法旨在強化網路交易之安全性與完整性，即透過法律規範來緩解交易中的風險，符合 ('policy', 'mitigates', 'risk')。",
+    "reasoning": "文本指出『電子簽章法』旨在『強化網路交易之安全性與完整性』，這意味著該法律 (policy) 用於緩解網路交易中可能出現的安全風險 (risk)。符合 Schema: (policy, mitigates, risk)。",
     "source_id": "chunk_3",
     "source_file": "ch04_習題解答.pdf",
     "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
-        "step_2_alignment_check": "電子簽章法 是 policy 的合理實例，網路交易風險 是 risk 的合理實例。",
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "電子簽章法 是一種政策 (policy)，網路交易風險 是一種風險 (risk)，且 'mitigates' 的語意與政策減輕風險的意義相符。",
         "response": "correct",
-        "reason": "電子簽章法與網路交易風險的三元組完全符合預先定義的類別與屬性清單。"
+        "reason": "電子簽章法 (policy) 的類別與屬性與網路交易風險 (risk) 的類別與屬性完全符合預先定義的類別與屬性清單 (Lc,p)。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，電子簽章法 (類別: policy) 執行 mitigates 動作，符合規則。其他規則不適用此三元組。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
         "response": "correct",
-        "reason": "電子簽章法 (類別: policy) 執行 mitigates 動作，符合規則2，無違反語義限制清單中的任何規則。"
+        "reason": "電子簽章法（policy）可以執行 mitigates 動作，符合規則2的條件。"
       },
       "step_2": {
-        "granularity_analysis": "網路交易風險與風險之間的關係是廣義/狹義從屬",
+        "granularity_analysis": "主體與 Ldr 中的資源無直接關係；受體與 Ldr 中的「風險」、「資訊安全風險」具有廣義/狹義從屬關係，但不完全等價",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "網路交易風險是風險的子類型，根據判斷準則3，判定為correct。"
+        "reason": "受體與 Ldr 中的資源具有廣義/狹義從屬關係，但不完全等價，且無法確定為同義詞重複，因此預設保留原名。"
       }
     },
     "original_raw_triple": {
@@ -45,7 +149,7 @@
         "name": "網路交易風險",
         "type": "risk"
       },
-      "reasoning": "文本提到電子簽章法旨在強化網路交易之安全性與完整性，即透過法律規範來緩解交易中的風險，符合 ('policy', 'mitigates', 'risk')。",
+      "reasoning": "文本指出『電子簽章法』旨在『強化網路交易之安全性與完整性』，這意味著該法律 (policy) 用於緩解網路交易中可能出現的安全風險 (risk)。符合 Schema: (policy, mitigates, risk)。",
       "source_id": "chunk_3",
       "source_file": "ch04_習題解答.pdf",
       "source_index": 4
@@ -63,28 +167,28 @@
       "type": "system",
       "display_name": "系統"
     },
-    "reasoning": "文本明確指出以灌爆信箱等方式影響系統之正常運作，這屬於攻擊行為對系統造成損害，符合 ('attack', 'can_harm', 'system')。",
+    "reasoning": "文本提到『以灌爆信箱、掠奪資源等方式，影響系統之正常運作』，灌爆信箱是攻擊手段 (attack)，其結果是危害系統 (system) 的可用性。符合 Schema: (attack, can_harm, system)。",
     "source_id": "chunk_3",
     "source_file": "ch04_習題解答.pdf",
     "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "實體 '灌爆信箱' 可被視為 'attack' 的合理實例，'系統' 也是一個 'system' 的合理實例，且 'can_harm' 的語意與攻擊對系統的危害相符。",
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '灌爆信箱' 是 'attack' 的合理實例，受體名稱 '系統' 是 'system' 的合理實例。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_harm'，發現無直接相關規則限制此類別組合的使用。",
+        "step_1_rule_matching": "規則1不適用，因為主體不是attacker或securityTeam。規則2不適用，因為主體不是policy, technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
         "response": "correct",
-        "reason": "三元組中的主體 '灌爆信箱' 類別為 'attack'，與 '系統' 類別的 'can_harm' 關係未在語義限制清單中找到直接的違反規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "受體 \"系統\" 與 Ldr 中的 \"系統\" 完全等價同義詞",
+        "granularity_analysis": "主體與 Ldr 中的資源沒有完全等價同義詞關係，受體與 Ldr 中的資源有完全等價同義詞關係。",
         "response": "correct",
         "standard_subject": "",
-        "standard_object": "系統",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源沒有完全等價同義詞關係，受體與 Ldr 中的資源雖然有相似關係，但根據規則，若一個實體是另一個的子類型或無法確定，預設保留原名。"
       }
     },
     "original_raw_triple": {
@@ -97,7 +201,7 @@
         "name": "系統",
         "type": "system"
       },
-      "reasoning": "文本明確指出以灌爆信箱等方式影響系統之正常運作，這屬於攻擊行為對系統造成損害，符合 ('attack', 'can_harm', 'system')。",
+      "reasoning": "文本提到『以灌爆信箱、掠奪資源等方式，影響系統之正常運作』，灌爆信箱是攻擊手段 (attack)，其結果是危害系統 (system) 的可用性。符合 Schema: (attack, can_harm, system)。",
       "source_id": "chunk_3",
       "source_file": "ch04_習題解答.pdf",
       "source_index": 2
@@ -105,155 +209,103 @@
   },
   {
     "subject": {
-      "name": "洩漏帳號密碼",
-      "type": "attack",
-      "display_name": "洩漏帳號密碼"
+      "name": "私密金鑰",
+      "type": "tool",
+      "display_name": "私密金鑰"
     },
-    "relation": "can_harm",
+    "relation": "generates",
     "object": {
-      "name": "認證資訊",
+      "name": "訊息摘要",
       "type": "data",
-      "display_name": "認證資訊"
+      "display_name": "數位簽章"
     },
-    "reasoning": "洩漏帳號及密碼是一種惡意行為，會危害到認證資訊的機密性，符合 ('attack', 'can_harm', 'data')。",
+    "reasoning": "文本描述『將訊息摘要使用私密金鑰...產生數位簽章』。私密金鑰在此扮演加密工具 (tool) 的角色，產出的數位簽章為資料 (data)。符合 Schema: (tool, generates, data)。",
     "source_id": "chunk_3",
     "source_file": "ch04_習題解答.pdf",
-    "source_index": 3,
+    "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體 '洩漏帳號密碼' 是 'attack' 的合理實例，'認證資訊' 是 'data' 的合理實例，且 'can_harm' 是描述攻擊對資料可能造成傷害的合理關係。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "私密金鑰是工具 (tool) 的合理實例，數位簽章是資料 (data) 的合理實例，且 'generates' 是描述私密金鑰與數位簽章之間關係的合理動詞。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "私密金鑰與數位簽章之間的 'generates' 關係完全符合預先定義的類別與屬性清單。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體 '洩漏帳號密碼' 的類別是 'attack'，具有主動執行能力，但關係 'can_harm' 不在規則8的限制中，且受體 '認證資訊' 的類別是 'data'，不違反任何規則。",
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
         "response": "correct",
-        "reason": "三元組不違反語義限制清單中的任何規則，主體和受體的類別與關係之間的關係合法。"
+        "reason": "三元組符合規則7所允許的條件，主體為 tool，關係為 generates，受體為 data，代表合法。"
       },
       "step_2": {
-        "granularity_analysis": "主體 '洩漏帳號密碼' 與 Ldr 中的 '盜用帳號及密碼' 類似，但非完全等價同義詞；受體 '認證資訊' 與 Ldr 中的 '認證資訊' 完全匹配，為同義詞。",
-        "response": "correct",
+        "granularity_analysis": "主體與 Ldr 中的雜湊函數不相關，受體與 Ldr 中的認證資訊、訊息摘要不完全等價同義詞，但數位簽章與訊息摘要在某些資安教材中可互換使用、指稱同一概念",
+        "response": "duplicate",
         "standard_subject": "",
-        "standard_object": "認證資訊",
-        "reason": "根據同義詞判定，受體 '認證資訊' 與 Ldr 中的 '認證資訊' 完全匹配，但主體 '洩漏帳號密碼' 與 '盜用帳號及密碼' 類似但不完全等價，故判定為 correct。"
+        "standard_object": "訊息摘要",
+        "reason": "受體與 Ldr 中的訊息摘要在某些資安教材中可互換使用、指稱同一概念，判定為 duplicate。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "洩漏帳號密碼",
-        "type": "attack"
+        "name": "私密金鑰",
+        "type": "tool"
       },
-      "relation": "can_harm",
+      "relation": "generates",
       "object": {
-        "name": "認證資訊",
+        "name": "數位簽章",
         "type": "data"
       },
-      "reasoning": "洩漏帳號及密碼是一種惡意行為，會危害到認證資訊的機密性，符合 ('attack', 'can_harm', 'data')。",
+      "reasoning": "文本描述『將訊息摘要使用私密金鑰...產生數位簽章』。私密金鑰在此扮演加密工具 (tool) 的角色，產出的數位簽章為資料 (data)。符合 Schema: (tool, generates, data)。",
       "source_id": "chunk_3",
       "source_file": "ch04_習題解答.pdf",
-      "source_index": 3
-    }
-  },
-  {
-    "subject": {
-      "name": "盜用帳號及密碼",
-      "type": "attack",
-      "display_name": "破解帳號"
-    },
-    "relation": "can_harm",
-    "object": {
-      "name": "網路資源",
-      "type": "system",
-      "display_name": "網路資源"
-    },
-    "reasoning": "文本提到以破解、盜用帳號方式未經授權使用網路資源，這是一種攻擊行為對系統資源造成危害，符合 ('attack', 'can_harm', 'system')。",
-    "source_id": "chunk_3",
-    "source_file": "ch04_習題解答.pdf",
-    "source_index": 1,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "破解帳號是 'attack' 的合理實例，網路資源是 'system' 的合理實例，且 'can_harm' 的語意與資安領域的常見用法相符。",
-        "response": "correct",
-        "reason": "破解帳號與網路資源之間的 'can_harm' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 '破解帳號' 的類別 'attack' 與受體 '網路資源' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
-        "response": "correct",
-        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "破解帳號與盜用帳號及密碼為同義詞",
-        "response": "duplicate",
-        "standard_subject": "盜用帳號及密碼",
-        "standard_object": "",
-        "reason": "根據同義詞判定，破解帳號與盜用帳號及密碼指稱同一概念。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "破解帳號",
-        "type": "attack"
-      },
-      "relation": "can_harm",
-      "object": {
-        "name": "網路資源",
-        "type": "system"
-      },
-      "reasoning": "文本提到以破解、盜用帳號方式未經授權使用網路資源，這是一種攻擊行為對系統資源造成危害，符合 ('attack', 'can_harm', 'system')。",
-      "source_id": "chunk_3",
-      "source_file": "ch04_習題解答.pdf",
-      "source_index": 1
+      "source_index": 6
     }
   },
   {
     "subject": {
       "name": "雜湊函數",
-      "type": "function",
+      "type": "tool",
       "display_name": "雜湊函數"
     },
-    "relation": "can_analyze",
+    "relation": "generates",
     "object": {
-      "name": "原始文件",
+      "name": "訊息摘要",
       "type": "data",
-      "display_name": "原始文件"
+      "display_name": "訊息摘要"
     },
-    "reasoning": "文本描述傳送者將文件經由雜湊函數處理以產生摘要，這表示該功能對資料進行分析處理，符合 ('function', 'can_analyze', 'data')。",
+    "reasoning": "文本描述『將文件，經由雜湊函數處理後，產生訊息摘要』。雜湊函數在此作為執行運算的工具 (tool)，產出的訊息摘要為資料 (data)。符合 Schema: (tool, generates, data)。",
     "source_id": "chunk_3",
     "source_file": "ch04_習題解答.pdf",
     "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "雜湊函數 (Hash Function) 是 'function' 的合理實例，原始文件 (Raw Data) 是 'data' 的合理實例，'can_analyze' 關係在資安領域中是合理的，因為雜湊函數可以分析原始文件。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "雜湊函數是工具的合理實例，訊息摘要是資料的合理實例。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 function，而不是 data。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用，因為關係不是 controls。",
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
         "response": "correct",
-        "reason": "三元組（雜湊函數 can_analyze 原始文件）未觸發語義限制清單中的任何規則，且主體的類別為 function，符合一般的語義理解。"
+        "reason": "三元組符合規則7所允許的條件，主體為 tool，關係為 generates，受體為 data，代表合法。"
       },
       "step_2": {
-        "granularity_analysis": "雜湊函數與現有近似資源清單中沒有直接相關的資源，原始文件與認證資訊可能相關，但不完全等價",
+        "granularity_analysis": "主體與 Ldr 中的資源不完全相同，但主體與 Ldr 中的資源之間存在同義詞關係",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "無法確定雜湊函數與現有資源的直接關聯，預設保留。"
+        "reason": "雜湊函數與認證資訊之間沒有直接的同義詞關係，且無法確認是否為子類型或廣義/狹義從屬關係，因此預設保留原名。"
       }
     },
     "original_raw_triple": {
       "subject": {
         "name": "雜湊函數",
-        "type": "function"
+        "type": "tool"
       },
-      "relation": "can_analyze",
+      "relation": "generates",
       "object": {
-        "name": "原始文件",
+        "name": "訊息摘要",
         "type": "data"
       },
-      "reasoning": "文本描述傳送者將文件經由雜湊函數處理以產生摘要，這表示該功能對資料進行分析處理，符合 ('function', 'can_analyze', 'data')。",
+      "reasoning": "文本描述『將文件，經由雜湊函數處理後，產生訊息摘要』。雜湊函數在此作為執行運算的工具 (tool)，產出的訊息摘要為資料 (data)。符合 Schema: (tool, generates, data)。",
       "source_id": "chunk_3",
       "source_file": "ch04_習題解答.pdf",
       "source_index": 5
@@ -261,54 +313,54 @@
   },
   {
     "subject": {
-      "name": "公開金鑰簽章演算法",
-      "type": "technique",
-      "display_name": "公開金鑰簽章演算法"
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
     },
-    "relation": "depends_on",
+    "relation": "can_exploit",
     "object": {
-      "name": "私密金鑰",
-      "type": "tool",
-      "display_name": "私密金鑰"
+      "name": "帳號密碼弱點",
+      "type": "vulnerability",
+      "display_name": "帳號密碼弱點"
     },
-    "reasoning": "文本指出利用公開金鑰簽章演算法並使用私密金鑰進行加密運算，表示該技術依賴金鑰工具才能執行，符合 ('technique', 'depends_on', 'tool')。",
+    "reasoning": "文本提到『破解、盜用或冒用他人帳號及密碼』，這隱含了攻擊者 (attacker) 利用了帳號密碼管理上的弱點 (vulnerability) 來達成目的。符合 Schema: (attacker, can_exploit, vulnerability)。",
     "source_id": "chunk_3",
     "source_file": "ch04_習題解答.pdf",
-    "source_index": 6,
+    "source_index": 7,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
-        "step_2_alignment_check": "公開金鑰簽章演算法 是 'technique' 的合理實例，私密金鑰 是 'tool' 的合理實例。",
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '駭客' 是 'attacker' 的合理實例，受體名稱 '帳號密碼弱點' 是 'vulnerability' 的合理實例。",
         "response": "correct",
-        "reason": "公開金鑰簽章演算法 依賴於 私密金鑰 的三元組完全符合預先定義的類別與屬性清單。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查關係 'depends_on'，未找到直接相關的規則限制。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組中的關係 'depends_on' 沒有在語義限制清單中找到直接相關的限制規則，因此根據無罪推定原則，判定為正確。"
+        "reason": "主體類別為 attacker，關係為 can_exploit，受體類別為 vulnerability，符合規則3的特例允許，且其他規則均不適用。"
       },
       "step_2": {
-        "granularity_analysis": "不相關",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "主體與受體不符合同義詞對照範例，且不屬於廣義/狹義從屬關係。"
+        "reason": "駭客與帳號密碼弱點之間不存在同義詞關係，且帳號密碼弱點不是漏洞的子類型，因此判定為 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "公開金鑰簽章演算法",
-        "type": "technique"
+        "name": "駭客",
+        "type": "attacker"
       },
-      "relation": "depends_on",
+      "relation": "can_exploit",
       "object": {
-        "name": "私密金鑰",
-        "type": "tool"
+        "name": "帳號密碼弱點",
+        "type": "vulnerability"
       },
-      "reasoning": "文本指出利用公開金鑰簽章演算法並使用私密金鑰進行加密運算，表示該技術依賴金鑰工具才能執行，符合 ('technique', 'depends_on', 'tool')。",
+      "reasoning": "文本提到『破解、盜用或冒用他人帳號及密碼』，這隱含了攻擊者 (attacker) 利用了帳號密碼管理上的弱點 (vulnerability) 來達成目的。符合 Schema: (attacker, can_exploit, vulnerability)。",
       "source_id": "chunk_3",
       "source_file": "ch04_習題解答.pdf",
-      "source_index": 6
+      "source_index": 7
     }
   }
 ]

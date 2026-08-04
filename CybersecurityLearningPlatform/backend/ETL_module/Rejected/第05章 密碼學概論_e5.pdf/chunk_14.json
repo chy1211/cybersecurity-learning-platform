@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "subject": {
+      "name": "https",
+      "type": "feature",
+      "display_name": "HTTPS"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "ssl",
+      "type": "feature",
+      "display_name": "SSL"
+    },
+    "reasoning": "文本明確指出『我們使用安全網頁協定 HTTPS，其底層即為 SSL 加密機制』，表示 HTTPS 依賴於 SSL 系統，符合 (app, depends_on, system) 的 Schema。",
+    "source_id": "chunk_14",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "HTTPS 是 'app' 的合理實例，SSL 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "HTTPS 依賴於 SSL 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "HTTPS 與 SSL 在資安領域中是相關但不同的概念，HTTPS 是一種使用 SSL/TLS 加密的 HTTP 通訊協定，SSL 是一種加密協定，兩者之間存在廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "HTTPS 與 SSL 之間存在廣義/狹義從屬關係，HTTPS 是使用 SSL/TLS 加密的 HTTP 通訊協定，兩者不完全等價。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> depends_on -> feature (original: app -> depends_on -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "HTTPS",
+        "type": "app"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "SSL",
+        "type": "system"
+      },
+      "reasoning": "文本明確指出『我們使用安全網頁協定 HTTPS，其底層即為 SSL 加密機制』，表示 HTTPS 依賴於 SSL 系統，符合 (app, depends_on, system) 的 Schema。",
+      "source_id": "chunk_14",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "ssl",
+      "type": "feature",
+      "display_name": "SSL"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "加密演算法",
+      "type": "tool",
+      "display_name": "加密演算法"
+    },
+    "reasoning": "SSL 作為一種安全傳輸協定（系統），其內部包含了加密演算法來實現加密功能，符合 (system, has_a, tool) 的 Schema。",
+    "source_id": "chunk_14",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "SSL 是 'system' 的合理實例，'加密演算法' 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "SSL 與加密演算法的類別與屬性完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 SSL 與 Ldr 中的 ssl 完全等價同義詞；受體 加密演算法 與 Ldr 中的 加密演算法 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "ssl",
+        "standard_object": "加密演算法",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> tool (original: system -> has_a -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "SSL",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "加密演算法",
+        "type": "tool"
+      },
+      "reasoning": "SSL 作為一種安全傳輸協定（系統），其內部包含了加密演算法來實現加密功能，符合 (system, has_a, tool) 的 Schema。",
+      "source_id": "chunk_14",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 3
+    }
+  }
+]

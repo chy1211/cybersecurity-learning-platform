@@ -1,7 +1,7 @@
 [
   {
     "subject": {
-      "name": "人員背景查核",
+      "name": "人員背景查核政策",
       "type": "policy"
     },
     "relation": "mitigates",
@@ -9,25 +9,10 @@
       "name": "聘僱風險",
       "type": "risk"
     },
-    "reasoning": "文本提到『人員在聘僱前，必須查核過去經歷與背景，以降低風險』。將背景查核視為一種聘僱政策 (policy)，其目的是緩解 (mitigates) 潛在的風險 (risk)。",
+    "reasoning": "文本提到『人員在聘僱前，必須查核過去經歷與背景，以降低風險』。將背景查核視為一種政策 (policy)，其目的是緩解 (mitigates) 聘僱過程中可能產生的風險 (risk)。",
     "source_id": "chunk_10",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "員工",
-      "type": "user"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "保密協議",
-      "type": "policy"
-    },
-    "reasoning": "文本提到『新進人員也應適當簽署保密協議』，簽署並遵守協議即為執行該政策。因此，使用者 (user) 實作/執行 (implements) 規範與策略 (policy)。",
-    "source_id": "chunk_10",
-    "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 2
   },
   {
     "subject": {
@@ -36,13 +21,13 @@
     },
     "relation": "mitigates",
     "object": {
-      "name": "資訊洩密",
+      "name": "資訊洩露",
       "type": "risk"
     },
-    "reasoning": "文本指出簽署保密協議可『避免其無意中洩密』。保密協議作為一種政策 (policy)，其功能是緩解 (mitigates) 資訊洩密這一風險 (risk)。",
+    "reasoning": "文本指出簽署保密協議可『避免其無意中洩密』。保密協議屬於規範與策略 (policy)，其作用是緩解 (mitigates) 資訊洩露這一風險 (risk)。",
     "source_id": "chunk_10",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 3
+    "source_index": 2
   },
   {
     "subject": {
@@ -54,52 +39,67 @@
       "name": "資訊資產",
       "type": "data"
     },
-    "reasoning": "文本提到『人員在職期間...會接觸不同等級的資訊資產』。接觸資產在知識圖譜中可定義為使用者 (user) 使用 (uses) 資料 (data)。",
+    "reasoning": "文本提到『人員在職期間...會接觸不同等級的資訊資產』。人員在此定義為使用者 (user)，接觸資產在 Schema 中對應為使用 (uses) 資料 (data)。",
+    "source_id": "chunk_10",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "疏忽",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到『若故意或疏忽而洩露資訊』。員工 (user) 的疏忽是一種人為的弱點 (vulnerability)，且這種狀態會導致風險暴露，符合 (user, can_expose, vulnerability) 的定義。",
     "source_id": "chunk_10",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "員工",
-      "type": "user"
+      "name": "安全專業技能教育訓練",
+      "type": "technique"
     },
-    "relation": "uses",
+    "relation": "can_analyze",
     "object": {
-      "name": "防火牆",
+      "name": "電腦網路",
       "type": "system"
     },
-    "reasoning": "文本提到提供『防火牆管理』的教育訓練，暗示員工在工作中需操作防火牆。根據 Schema，user 可 uses system，因此將防火牆歸類為 system。",
+    "reasoning": "文本將『電腦網路管理』列為安全專業技能教育訓練的內容。教育訓練是一種提升能力的技術/流程 (technique)，其目標是使人員能夠分析或管理 (can_analyze) 網路系統 (system)。",
     "source_id": "chunk_10",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "員工",
-      "type": "user"
+      "name": "安全專業技能教育訓練",
+      "type": "technique"
     },
-    "relation": "uses",
+    "relation": "can_analyze",
     "object": {
-      "name": "電腦網路",
-      "type": "system"
+      "name": "資料庫",
+      "type": "app"
     },
-    "reasoning": "文本提到提供『電腦網路管理』的教育訓練，暗示員工需操作網路系統。根據 Schema，user 可 uses system。",
+    "reasoning": "文本將『資料庫管理』列為教育訓練內容。教育訓練 (technique) 旨在使人員具備分析/管理 (can_analyze) 資料庫應用程式 (app) 的能力。",
     "source_id": "chunk_10",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "員工",
-      "type": "user"
+      "name": "資訊洩露",
+      "type": "attack"
     },
-    "relation": "uses",
+    "relation": "can_harm",
     "object": {
-      "name": "資料庫",
-      "type": "app"
+      "name": "組織資產",
+      "type": "data"
     },
-    "reasoning": "文本提到提供『資料庫管理』的教育訓練，暗示員工需操作資料庫應用程式。根據 Schema，user 可 uses app。",
+    "reasoning": "文本提到『洩露資訊，造成組織之損失』。將資訊洩露視為一種惡意或意外的攻擊行為 (attack)，它會危害 (can_harm) 組織的資料資產 (data)。",
     "source_id": "chunk_10",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 7

@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "緩衝溢位攻擊",
+      "type": "attack",
+      "display_name": "緩衝區溢位攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "根據題幹與正確答案，緩衝區溢位攻擊會影響記憶體中資料的正確性，這屬於攻擊對資料造成損害，符合 Schema 中的 ('attack', 'can_harm', 'data')。",
+    "source_id": "question_IPAS-112-TEC-072",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "緩衝區溢位攻擊是 'attack' 的合理實例，資料是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "緩衝區溢位攻擊可以對資料造成傷害，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是attacker或securityTeam。規則2不適用，因為主體不是policy, technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「緩衝溢位攻擊」為完全等價同義詞；受體與 Ldr 中的「資料」為完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "緩衝溢位攻擊",
+        "standard_object": "資料",
+        "reason": "主體與受體均與 Ldr 中的資源為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "緩衝區溢位攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "根據題幹與正確答案，緩衝區溢位攻擊會影響記憶體中資料的正確性，這屬於攻擊對資料造成損害，符合 Schema 中的 ('attack', 'can_harm', 'data')。",
+      "source_id": "question_IPAS-112-TEC-072",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "緩衝溢位攻擊",
+      "type": "attack",
+      "display_name": "緩衝區溢位攻擊"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "完整性",
+      "type": "principle",
+      "display_name": "完整性"
+    },
+    "reasoning": "題幹提到的「資料的正確性」在資安核心原則中即為「完整性 (Integrity)」，緩衝區溢位攻擊透過竄改記憶體內容破壞了此原則，符合 Schema 中的 ('attack', 'violates', 'principle')。",
+    "source_id": "question_IPAS-112-TEC-072",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "緩衝區溢位攻擊是攻擊的合理實例，完整性是資安原則的合理實例。",
+        "response": "correct",
+        "reason": "緩衝區溢位攻擊與完整性之間的 'violates' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。",
+        "response": "correct",
+        "reason": "緩衝區溢位攻擊作為主體，與完整性作為受體，關係為violates，符合規則4的描述，故判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的緩衝溢位攻擊為完全等價同義詞；受體與 Ldr 中的完整性為完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "緩衝溢位攻擊",
+        "standard_object": "完整性",
+        "reason": "主體與 Ldr 中的緩衝溢位攻擊為完全等價同義詞；受體與 Ldr 中的完整性為完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "緩衝區溢位攻擊",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "完整性",
+        "type": "principle"
+      },
+      "reasoning": "題幹提到的「資料的正確性」在資安核心原則中即為「完整性 (Integrity)」，緩衝區溢位攻擊透過竄改記憶體內容破壞了此原則，符合 Schema 中的 ('attack', 'violates', 'principle')。",
+      "source_id": "question_IPAS-112-TEC-072",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

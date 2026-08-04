@@ -4,12 +4,12 @@
       "name": "Wi-Fi",
       "type": "system"
     },
-    "relation": "has_a",
+    "relation": "is_part_of",
     "object": {
       "name": "IEEE 802.11",
       "type": "system"
     },
-    "reasoning": "文本提到 Wi-Fi 認證的產品需符合 IEEE 802.11 標準，將 Wi-Fi 視為一個整體系統，而 IEEE 802.11 是其核心標準/系統。",
+    "reasoning": "文本提到通過認證的 Wi-Fi 產品符合 IEEE 802.11 標準，因此將 Wi-Fi 視為基於 IEEE 802.11 系統的實作，符合 ('system', 'is_part_of', 'system')。",
     "source_id": "chunk_7",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 1
@@ -24,7 +24,7 @@
       "name": "基礎建設模式",
       "type": "feature"
     },
-    "reasoning": "文本明確指出 IEEE 802.11 的作業模式可分為基礎建設模式與簡易模式，模式屬於系統的屬性或組成部分，故選擇 feature。",
+    "reasoning": "文本明確指出 IEEE 802.11 的作業模式可分為基礎建設模式與簡易模式，模式屬於系統的特徵，符合 ('system', 'has_a', 'feature')。",
     "source_id": "chunk_7",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 2
@@ -39,7 +39,7 @@
       "name": "簡易模式",
       "type": "feature"
     },
-    "reasoning": "同上，簡易模式是 IEEE 802.11 標準定義的一種作業模式，屬於 feature。",
+    "reasoning": "文本明確指出 IEEE 802.11 的作業模式可分為基礎建設模式與簡易模式，模式屬於系統的特徵，符合 ('system', 'has_a', 'feature')。",
     "source_id": "chunk_7",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 3
@@ -51,10 +51,10 @@
     },
     "relation": "connects_to",
     "object": {
-      "name": "無線存取器 (AP)",
+      "name": "無線存取器",
       "type": "system"
     },
-    "reasoning": "文本描述在基礎建設模式中，無線設備（如筆電、手機）會連接到無線存取器 (AP)。兩者皆為硬體基礎設施，故定義為 system。",
+    "reasoning": "文本描述在基礎建設模式中，無線設備（如筆電、手機）會連接到無線存取器 (AP)，符合 ('system', 'connects_to', 'system')。",
     "source_id": "chunk_7",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 4
@@ -69,22 +69,22 @@
       "name": "無線設備",
       "type": "system"
     },
-    "reasoning": "文本描述在簡易模式（Ad-hoc）中，無線設備可以點對點的方式直接交換資訊，即設備與設備之間直接連接。",
+    "reasoning": "文本描述在簡易模式中，無線設備可以點對點 (P2P) 的方式直接交換資訊，即設備與設備之間直接連接，符合 ('system', 'connects_to', 'system')。",
     "source_id": "chunk_7",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "筆記型電腦",
+      "name": "無線存取器",
       "type": "system"
     },
-    "relation": "is_part_of",
+    "relation": "connects_to",
     "object": {
-      "name": "無線設備",
+      "name": "有線網路",
       "type": "system"
     },
-    "reasoning": "文本提到無線設備包含筆記型電腦，因此筆記型電腦是無線設備這一類別中的一個實體。",
+    "reasoning": "文本提到無線存取器大多數是有線的網路連接，表示 AP 與有線網路基礎設施之間存在連接，符合 ('system', 'connects_to', 'system')。",
     "source_id": "chunk_7",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 6
@@ -97,9 +97,9 @@
     "relation": "has_a",
     "object": {
       "name": "資料保密演算法",
-      "type": "tool"
+      "type": "feature"
     },
-    "reasoning": "文本提到 IEEE 802.11 定義了資料保密演算法。演算法在此作為實現加密功能的工具/機制，故選擇 tool。",
+    "reasoning": "文本提到 IEEE 802.11 標準制定了資料保密演算法，演算法在此作為標準系統的一項安全特徵，符合 ('system', 'has_a', 'feature')。",
     "source_id": "chunk_7",
     "source_file": "第14章 行動與無線通訊安全_e5.pdf",
     "source_index": 7

@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "公司",
+      "type": "securityTeam",
+      "display_name": "X 公司"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "災害復原計畫 (drp)",
+      "type": "policy",
+      "display_name": "災害復原計畫"
+    },
+    "reasoning": "文本提到 X 公司在制定該系統的災害復原計畫，這代表該組織（作為資安管理實體）正在實作/執行一項資安策略（policy）。",
+    "source_id": "question_IPAS-112-MGT-050",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'X 公司' 是 'securityTeam' 的合理實例，受體 '災害復原計畫' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體 X 公司 的類別是 securityTeam，符合規則3 的允許條件，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與災害復原計畫 (drp) 之間存在同義詞關係，受體與災害復原計畫 (drp) 之間存在同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "公司",
+        "standard_object": "災害復原計畫 (drp)",
+        "reason": "主體與災害復原計畫 (drp) 之間存在同義詞關係，受體與災害復原計畫 (drp) 之間存在同義詞關係"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "X 公司",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "災害復原計畫",
+        "type": "policy"
+      },
+      "reasoning": "文本提到 X 公司在制定該系統的災害復原計畫，這代表該組織（作為資安管理實體）正在實作/執行一項資安策略（policy）。",
+      "source_id": "question_IPAS-112-MGT-050",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "災害復原計畫",
+      "type": "policy",
+      "display_name": "災害復原計畫"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "系統中斷",
+      "type": "risk",
+      "display_name": "系統中斷"
+    },
+    "reasoning": "災害復原計畫（DRP）的核心目的在於降低或緩解系統在災難發生後長時間中斷的風險，因此選擇 policy mitigates risk。",
+    "source_id": "question_IPAS-112-MGT-050",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "災害復原計畫 是一種合理的政策實例，系統中斷 是一種合理的風險實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體為 policy，符合規則2所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的災害復原計畫 (drp) 為同義詞重複；受體與 Ldr 中的營運中斷、業務中斷為同義詞相關，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的災害復原計畫 (drp) 雖然相似，但考慮到實體名稱的微妙差異，判定為 correct；受體與 Ldr 中的營運中斷、業務中斷雖然相關，但非完全等價同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "災害復原計畫",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "系統中斷",
+        "type": "risk"
+      },
+      "reasoning": "災害復原計畫（DRP）的核心目的在於降低或緩解系統在災難發生後長時間中斷的風險，因此選擇 policy mitigates risk。",
+      "source_id": "question_IPAS-112-MGT-050",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "電子郵件系統",
+      "type": "system",
+      "display_name": "電子郵件系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "可用性目標",
+      "type": "feature",
+      "display_name": "可用性目標"
+    },
+    "reasoning": "電子郵件系統被設定了「不得中斷超過一天」的可用性目標，此目標是該系統的一個屬性（attribute），符合 feature 的定義。",
+    "source_id": "question_IPAS-112-MGT-050",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "電子郵件系統是 app 的合理實例，且可用性目標是 feature 的合理實例。",
+        "response": "correct",
+        "reason": "電子郵件系統與可用性目標的類別與屬性完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8 都不適用於此三元組，因為主體是電子郵件系統，關係是 has_a，受體是可用性目標，沒有違反任何規則。",
+        "response": "correct",
+        "reason": "此三元組沒有違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "電子郵件系統與可用性目標之間不存在同義詞關係，且無法確認彼此之間的從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子郵件系統",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "可用性目標",
+        "type": "feature"
+      },
+      "reasoning": "電子郵件系統被設定了「不得中斷超過一天」的可用性目標，此目標是該系統的一個屬性（attribute），符合 feature 的定義。",
+      "source_id": "question_IPAS-112-MGT-050",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

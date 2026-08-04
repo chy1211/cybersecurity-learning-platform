@@ -1,0 +1,216 @@
+[
+  {
+    "subject": {
+      "name": "資訊資產盤點作業",
+      "type": "technique",
+      "display_name": "資訊資產盤點作業"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "根據題幹與選項 A, B, C（否定式提問之正確知識），資訊資產盤點是一種作業流程（technique），其目的是分析與記錄資訊資產（system）的狀態。",
+    "source_id": "question_IPAS-113-MGT-015",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '資訊資產盤點作業' 是 'technique' 的合理實例；受體 '資訊資產' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源「資訊資產盤點」具有高度相似性，但不完全等價；受體與 Ldr 中的資源「資訊資產」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "資訊資產",
+        "reason": "主體與 Ldr 中的資源雖然相似，但不完全等價；受體與 Ldr 中的資源完全等價同義詞，但根據規則，主體不合併，受體合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產盤點作業",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "reasoning": "根據題幹與選項 A, B, C（否定式提問之正確知識），資訊資產盤點是一種作業流程（technique），其目的是分析與記錄資訊資產（system）的狀態。",
+      "source_id": "question_IPAS-113-MGT-015",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資訊資產的名稱",
+      "type": "feature",
+      "display_name": "資訊資產的名稱"
+    },
+    "reasoning": "選項 B 指出盤點需考慮名稱，因此「名稱」是資訊資產（system）的一項屬性或特徵（feature）。",
+    "source_id": "question_IPAS-113-MGT-015",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資訊資產的名稱可以被視為資訊資產的特徵（feature），因此語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組的關係為 has_a，不符合規則6的觸發條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資訊資產的名稱",
+        "type": "feature"
+      },
+      "reasoning": "選項 B 指出盤點需考慮名稱，因此「名稱」是資訊資產（system）的一項屬性或特徵（feature）。",
+      "source_id": "question_IPAS-113-MGT-015",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "資訊資產的價值",
+      "type": "feature",
+      "display_name": "資訊資產的價值"
+    },
+    "reasoning": "選項 A 指出盤點需考慮價值，因此「價值」是資訊資產（system）的一項屬性或特徵（feature）。",
+    "source_id": "question_IPAS-113-MGT-015",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '資訊資產' 可被視為 'system' 的合理實例；受體 '資訊資產的價值' 可被視為 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的關係 'has_a' 不在任何規則中被提及，因此無法判定違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中的資源名稱完全相同，無需進行合併或替換。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資訊資產的價值",
+        "type": "feature"
+      },
+      "reasoning": "選項 A 指出盤點需考慮價值，因此「價值」是資訊資產（system）的一項屬性或特徵（feature）。",
+      "source_id": "question_IPAS-113-MGT-015",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "存放位置",
+      "type": "feature",
+      "display_name": "資訊資產的存放位置"
+    },
+    "reasoning": "選項 C 指出盤點需考慮存放位置，因此「存放位置」是資訊資產（system）的一項屬性或特徵（feature）。",
+    "source_id": "question_IPAS-113-MGT-015",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '資訊資產' 的類別 'system' 合理對齊，受體 '資訊資產的存放位置' 的類別 'feature' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "violation",
+        "reason": "關係為 has_a，受體的類別是 feature，不符合規則6的條件。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "關係為 has_a，受體的類別是 feature，不符合規則6的條件。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "duplicate",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "資訊資產的存放位置",
+        "type": "feature"
+      },
+      "reasoning": "選項 C 指出盤點需考慮存放位置，因此「存放位置」是資訊資產（system）的一項屬性或特徵（feature）。",
+      "source_id": "question_IPAS-113-MGT-015",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

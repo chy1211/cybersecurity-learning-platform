@@ -9,7 +9,7 @@
       "name": "電力系統",
       "type": "system"
     },
-    "reasoning": "文本提到支援系統包含電力系統，兩者皆為基礎設施，符合 (system, has_a, system) 的 Schema。",
+    "reasoning": "文本明確提到支援系統包含電力系統，符合 system has_a system 的定義。",
     "source_id": "chunk_1",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 1
@@ -21,10 +21,10 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "冷暖氣與通風系統",
+      "name": "通風系統",
       "type": "system"
     },
-    "reasoning": "文本將冷暖氣與通風系統列為支援系統的一部分，符合 (system, has_a, system) 的 Schema。",
+    "reasoning": "文本提到支援系統包含溫度冷熱與通風系統，符合 system has_a system 的定義。",
     "source_id": "chunk_1",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 2
@@ -39,40 +39,10 @@
       "name": "消防系統",
       "type": "system"
     },
-    "reasoning": "文本將消防系統列為支援系統的一部分，符合 (system, has_a, system) 的 Schema。",
+    "reasoning": "文本提到支援系統包含消防系統，符合 system has_a system 的定義。",
     "source_id": "chunk_1",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 3
-  },
-  {
-    "subject": {
-      "name": "環境安全",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "機房位置選定",
-      "type": "feature"
-    },
-    "reasoning": "機房位置選定是環境安全設計中的一個屬性或特徵，符合 (system, has_a, feature) 的 Schema。",
-    "source_id": "chunk_1",
-    "source_file": "第03章 實體安全_e5.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "環境安全",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "建築物安全",
-      "type": "feature"
-    },
-    "reasoning": "建築物安全是環境安全設計中的一個屬性或特徵，符合 (system, has_a, feature) 的 Schema。",
-    "source_id": "chunk_1",
-    "source_file": "第03章 實體安全_e5.pdf",
-    "source_index": 5
   },
   {
     "subject": {
@@ -82,12 +52,12 @@
     "relation": "can_harm",
     "object": {
       "name": "資訊資產",
-      "type": "data"
+      "type": "system"
     },
-    "reasoning": "文本將恐怖攻擊列為資訊資產面臨的威脅，攻擊會對資產造成損害，符合 (attack, can_harm, data) 的 Schema。",
+    "reasoning": "恐怖攻擊被列為資訊資產面臨的威脅，屬於攻擊行為對系統/資產造成損害，符合 attack can_harm system。",
     "source_id": "chunk_1",
     "source_file": "第03章 實體安全_e5.pdf",
-    "source_index": 6
+    "source_index": 4
   },
   {
     "subject": {
@@ -97,9 +67,39 @@
     "relation": "can_harm",
     "object": {
       "name": "資訊資產",
-      "type": "data"
+      "type": "system"
     },
-    "reasoning": "惡意員工被列為人為破壞的威脅來源，屬於攻擊者角色，符合 (attacker, can_harm, data) 的 Schema。",
+    "reasoning": "惡意員工被列為人為破壞的來源，屬於攻擊者對資產造成損害，符合 attacker can_harm system。",
+    "source_id": "chunk_1",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "實體安全管理",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "恐怖攻擊",
+      "type": "attack"
+    },
+    "reasoning": "實體安全管理旨在透過規劃與管理來降低威脅（如恐怖攻擊）的影響，符合 policy mitigates attack。",
+    "source_id": "chunk_1",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "環境安全",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "人為破壞",
+      "type": "attack"
+    },
+    "reasoning": "環境安全（如機房位置、建築安全）是用於防禦人為破壞的手段，符合 policy mitigates attack。",
     "source_id": "chunk_1",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 7
@@ -114,54 +114,39 @@
       "name": "可用性",
       "type": "principle"
     },
-    "reasoning": "恐怖攻擊等實體威脅會導致資源無法使用，違反 CIA 三原則中的可用性，符合 (attack, violates, principle) 的 Schema。",
+    "reasoning": "實體安全威脅（如恐怖攻擊導致的破壞）會直接導致資源無法使用，違反 CIA 三原則中的可用性，符合 attack violates principle。",
     "source_id": "chunk_1",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 8
   },
   {
     "subject": {
-      "name": "監視系統",
-      "type": "tool"
+      "name": "支援系統",
+      "type": "system"
     },
-    "relation": "can_detect",
+    "relation": "can_expose",
     "object": {
-      "name": "實體安全威脅",
-      "type": "attack"
+      "name": "支援系統失誤",
+      "type": "vulnerability"
     },
-    "reasoning": "監視系統是用於偵測實體入侵或威脅的工具，符合 (tool, can_detect, attack) 的 Schema。",
+    "reasoning": "文本將『支援系統失誤』列為威脅類別，這在本質上是系統的缺陷或失效，符合 system can_expose vulnerability。",
     "source_id": "chunk_1",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 9
   },
   {
     "subject": {
-      "name": "實體安全技術",
-      "type": "technique"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "實體安全威脅",
-      "type": "attack"
-    },
-    "reasoning": "實體安全技術旨在減少或防止實體威脅的發生，符合 (technique, mitigates, attack) 的 Schema。",
-    "source_id": "chunk_1",
-    "source_file": "第03章 實體安全_e5.pdf",
-    "source_index": 10
-  },
-  {
-    "subject": {
-      "name": "通訊系統失效",
+      "name": "支援系統失誤",
       "type": "vulnerability"
     },
     "relation": "can_expose",
     "object": {
-      "name": "實體安全風險",
+      "name": "資產損毀",
       "type": "risk"
     },
-    "reasoning": "支援系統的失效（如通訊失效）是一種系統缺陷/弱點，會導致後續的風險暴露，符合 (vulnerability, can_expose, risk) 的 Schema。",
+    "reasoning": "支援系統的失效（漏洞/弱點）會導致資產面臨損毀的風險，符合 vulnerability can_expose risk。",
     "source_id": "chunk_1",
     "source_file": "第03章 實體安全_e5.pdf",
-    "source_index": 11
+    "source_index": 10
   }
 ]

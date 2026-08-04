@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "subject": {
+      "name": "邏輯性攻擊",
+      "type": "attack",
+      "display_name": "邏輯性攻擊"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "私密金鑰",
+      "type": "tool",
+      "display_name": "私密金鑰"
+    },
+    "reasoning": "文本提到邏輯性攻擊可『推導出私密金鑰』，這屬於對敏感資料的危害/非法獲取。",
+    "source_id": "chunk_6",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "邏輯性攻擊 (attack) 是攻擊類別的合理實例，私密金鑰 (data) 是資料類別的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attack -> can_harm -> tool (original: attack -> can_harm -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "邏輯性攻擊",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "私密金鑰",
+        "type": "data"
+      },
+      "reasoning": "文本提到邏輯性攻擊可『推導出私密金鑰』，這屬於對敏感資料的危害/非法獲取。",
+      "source_id": "chunk_6",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "雙因認證",
+      "type": "technique",
+      "display_name": "雙向認證程序"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "身分冒用",
+      "type": "risk",
+      "display_name": "身分冒用"
+    },
+    "reasoning": "雙向認證程序旨在確保卡片與讀卡機彼此認證，其目的是緩解身分冒用或未經授權的連線攻擊。",
+    "source_id": "chunk_6",
+    "source_file": "第15章 IC卡安全簡介_e5.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "雙向認證程序 是一種合理的 'technique' 實例，身分冒用 是一種合理的 'attack' 實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的雙因認證為同義詞，受體與 Ldr 中的身分冒用完全相同",
+        "response": "duplicate",
+        "standard_subject": "雙因認證",
+        "standard_object": "身分冒用",
+        "reason": "主體與 Ldr 中的雙因認證為同義詞，受體與 Ldr 中的身分冒用完全相同，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> mitigates -> risk (original: technique -> mitigates -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "雙向認證程序",
+        "type": "technique"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "身分冒用",
+        "type": "attack"
+      },
+      "reasoning": "雙向認證程序旨在確保卡片與讀卡機彼此認證，其目的是緩解身分冒用或未經授權的連線攻擊。",
+      "source_id": "chunk_6",
+      "source_file": "第15章 IC卡安全簡介_e5.pdf",
+      "source_index": 12
+    }
+  }
+]

@@ -1,1 +1,146 @@
-[]
+[
+  {
+    "subject": {
+      "name": "身分驗證",
+      "type": "technique",
+      "display_name": "身分驗證"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全漏洞",
+      "type": "vulnerability",
+      "display_name": "安全漏洞"
+    },
+    "reasoning": "文本提到『身分驗證不夠嚴謹或存在安全漏洞』，表示身分驗證這一特徵若實作不當會暴露漏洞。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '身分驗證' 是 'feature' 的合理實例，受體 '安全漏洞' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '身分驗證' 完全等價同義詞；受體與 Ldr 中的資源 '安全漏洞' 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域已知同義詞對照範例中的詞彙，但根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> can_expose -> vulnerability (original: feature -> can_expose -> vulnerability)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "身分驗證",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全漏洞",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到『身分驗證不夠嚴謹或存在安全漏洞』，表示身分驗證這一特徵若實作不當會暴露漏洞。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "漏洞測試",
+      "type": "technique",
+      "display_name": "漏洞測試"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "sql injection",
+      "type": "technique",
+      "display_name": "SQL injection"
+    },
+    "reasoning": "文本提到雲端介面需通過 SQL injection 等漏洞測試，表示使用漏洞測試技術來偵測 SQL 注入攻擊。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'can_detect' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '漏洞測試' 是 'technique' 的合理實例，受體名稱 'SQL injection' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的某資源完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "sql injection",
+        "reason": "主體與 Ldr 中的某資源完全等價同義詞，但受體為相同概念的不同表達方式，故判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> can_detect -> technique (original: technique -> can_detect -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "漏洞測試",
+        "type": "technique"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "SQL injection",
+        "type": "attack"
+      },
+      "reasoning": "文本提到雲端介面需通過 SQL injection 等漏洞測試，表示使用漏洞測試技術來偵測 SQL 注入攻擊。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "otp app",
+      "type": "app",
+      "display_name": "OTP APP"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "身分認證",
+      "type": "function",
+      "display_name": "身分認證"
+    },
+    "reasoning": "OTP APP 是用來執行身分認證程序的工具，因此它具有身分認證的功能。",
+    "source_id": "chunk_8",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "OTP APP 是一種工具（tool），身分認證是一種功能（function），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 OTP APP 與 Ldr 中的 otp app 完全等價同義詞；受體 身分認證 與 Ldr 中的 身分認證 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "otp app",
+        "standard_object": "身分認證",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): app -> has_a -> function (original: tool -> has_a -> function)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "OTP APP",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "身分認證",
+        "type": "function"
+      },
+      "reasoning": "OTP APP 是用來執行身分認證程序的工具，因此它具有身分認證的功能。",
+      "source_id": "chunk_8",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

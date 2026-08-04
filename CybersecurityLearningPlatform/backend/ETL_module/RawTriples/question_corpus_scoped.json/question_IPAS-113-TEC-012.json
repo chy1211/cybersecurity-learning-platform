@@ -1,0 +1,77 @@
+[
+  {
+    "subject": {
+      "name": "DNS Server",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "DNS Zone Transfer",
+      "type": "feature"
+    },
+    "reasoning": "文本提到企業架設 DNS Server 並使用一個特定功能（DNS Zone Transfer）來傳輸紀錄。DNS Server 作為基礎設施系統，其具備的傳輸功能可視為其 feature。",
+    "source_id": "question_IPAS-113-TEC-012",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "DNS Zone Transfer",
+      "type": "feature"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "DNS Record",
+      "type": "data"
+    },
+    "reasoning": "文本指出 DNS Zone Transfer 的目的是傳輸 DNS Record，因此該功能使用了這些資料。符合 ('feature', 'uses', 'data') 的 Schema。",
+    "source_id": "question_IPAS-113-TEC-012",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "DNS Zone Transfer",
+      "type": "feature"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "缺乏存取來源限制",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到『如果該功能沒有限制存取來源』，這是一種設定錯誤的漏洞。因此 DNS Zone Transfer 這個功能在特定條件下會暴露此漏洞。符合 ('feature', 'can_expose', 'vulnerability')。",
+    "source_id": "question_IPAS-113-TEC-012",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "缺乏存取來源限制",
+      "type": "vulnerability"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "內部網址外流",
+      "type": "risk"
+    },
+    "reasoning": "文本明確指出，因為沒有限制存取來源（漏洞），會導致任意使用者索取紀錄並造成內部網址外流（風險）。符合 ('vulnerability', 'can_expose', 'risk')。",
+    "source_id": "question_IPAS-113-TEC-012",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "DNS Server",
+      "type": "system"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "DNS Record",
+      "type": "data"
+    },
+    "reasoning": "DNS Server 的核心運作就是產生並維護 DNS Record。符合 ('system', 'generates', 'data')。",
+    "source_id": "question_IPAS-113-TEC-012",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5
+  }
+]

@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "subject": {
+      "name": "iso/iec 27001",
+      "type": "policy",
+      "display_name": "ISO/IEC 27001"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "iso 27000",
+      "type": "system",
+      "display_name": "ISO 27000"
+    },
+    "reasoning": "文本提到 ISO/IEC 27001 被編入 ISO 27000 的標準系列之中，符合 (system, is_part_of, system) 的關係。",
+    "source_id": "chunk_1",
+    "source_file": "第10章 資訊安全管理_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "ISO/IEC 27001 是一種資訊安全管理系統標準，'system' 是合理的類別。ISO 27000 是一系列資訊安全管理標準，'system' 也是合理的類別。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 ISO/IEC 27001 與 Ldr 中的 iso/iec 27001 完全等價同義詞；受體 ISO 27000 與 Ldr 中的 資訊安全管理系統 可能是廣義/狹義從屬關係，但不確定，因此預設保留。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 ISO/IEC 27001 與 Ldr 中的 iso/iec 27001 完全等價同義詞，但受體 ISO 27000 與 Ldr 中的 資訊安全管理系統 之間關係不明確，因此預設保留。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): policy -> is_part_of -> system (original: system -> is_part_of -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "ISO/IEC 27001",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "ISO 27000",
+        "type": "system"
+      },
+      "reasoning": "文本提到 ISO/IEC 27001 被編入 ISO 27000 的標準系列之中，符合 (system, is_part_of, system) 的關係。",
+      "source_id": "chunk_1",
+      "source_file": "第10章 資訊安全管理_e5.pdf",
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "iso/iec 27002",
+      "type": "policy",
+      "display_name": "ISO/IEC 27002"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "iso 27000",
+      "type": "system",
+      "display_name": "ISO 27000"
+    },
+    "reasoning": "文本提到 ISO/IEC 27002 同樣被編入 ISO 27000 的標準系列之中，符合 (system, is_part_of, system) 的關係。",
+    "source_id": "chunk_1",
+    "source_file": "第10章 資訊安全管理_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "ISO/IEC 27002 是一套資訊安全標準，合理歸類為 'system'。ISO 27000 是一系列資訊安全標準的總稱，同樣合理歸類為 'system'。",
+        "response": "correct",
+        "reason": "ISO/IEC 27002 與 ISO 27000 的類別與屬性完全符合預先定義的清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 ISO/IEC 27002 與 Ldr 中的 iso/iec 27002 完全等價同義詞；受體 ISO 27000 與 Ldr 中的 iso 27001 不相關，但 iso 27001 是 iso 27000 的子類型",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 ISO/IEC 27002 與 Ldr 中的 iso/iec 27002 完全等價同義詞，但受體 ISO 27000 與 Ldr 中的 iso 27001 不相關，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): policy -> is_part_of -> system (original: system -> is_part_of -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "ISO/IEC 27002",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "ISO 27000",
+        "type": "system"
+      },
+      "reasoning": "文本提到 ISO/IEC 27002 同樣被編入 ISO 27000 的標準系列之中，符合 (system, is_part_of, system) 的關係。",
+      "source_id": "chunk_1",
+      "source_file": "第10章 資訊安全管理_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

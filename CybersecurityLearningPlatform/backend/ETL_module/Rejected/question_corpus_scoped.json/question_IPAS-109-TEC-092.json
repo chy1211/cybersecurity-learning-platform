@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "事件紀錄檔",
+      "type": "system",
+      "display_name": "事件紀錄檔"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "軟體",
+      "type": "app",
+      "display_name": "軟體"
+    },
+    "reasoning": "題幹明確指出事件紀錄檔是由硬體、軟體、網路和媒體所組成，因此使用 system has_a system。",
+    "source_id": "question_IPAS-109-TEC-092",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "事件紀錄檔可以被視為系統的一部分，因此與 'system' 類別對齊。軟體也可以被視為系統的一部分，因此與 'system' 類別對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的事件紀錄檔完全等價同義詞；受體與 Ldr 中的軟體完全等價同義詞，但與 Ldr 中的應用程式具有廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的事件紀錄檔完全等價同義詞，但受體與 Ldr 中的軟體雖然完全等價同義詞，但與 Ldr 中的應用程式具有廣義/狹義從屬關係，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> has_a -> app (original: system -> has_a -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "事件紀錄檔",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "軟體",
+        "type": "system"
+      },
+      "reasoning": "題幹明確指出事件紀錄檔是由硬體、軟體、網路和媒體所組成，因此使用 system has_a system。",
+      "source_id": "question_IPAS-109-TEC-092",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

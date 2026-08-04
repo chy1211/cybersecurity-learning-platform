@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "subject": {
+      "name": "網路層",
+      "type": "feature",
+      "display_name": "網路層"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "應用層",
+      "type": "feature",
+      "display_name": "應用層"
+    },
+    "reasoning": "文本提到『網路層則是為了將感測資訊傳遞至應用層』，描述了兩層之間的通訊連接，故將兩者視為 system 並使用 connects_to。",
+    "source_id": "chunk_2",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '網路層' 與類別 'system' 合理對齊，受體名稱 '應用層' 與類別 'system' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的網路層完全等價同義詞；受體與 Ldr 中的應用層完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體在 Ldr 中有完全等價同義詞，但根據判斷準則 3，網路層與應用層之間不存在子類型關係，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> connects_to -> feature (original: system -> connects_to -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "網路層",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "應用層",
+        "type": "system"
+      },
+      "reasoning": "文本提到『網路層則是為了將感測資訊傳遞至應用層』，描述了兩層之間的通訊連接，故將兩者視為 system 並使用 connects_to。",
+      "source_id": "chunk_2",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "低功耗廣域網路 (lpwan)",
+      "type": "feature",
+      "display_name": "低功耗廣域網路 (LPWAN)"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "lora",
+      "type": "system",
+      "display_name": "LoRa"
+    },
+    "reasoning": "文本將 LoRa 列為 LPWAN 建置中的一種長距離無線通訊技術解決方案，將 LPWAN 視為較大的系統類別，LoRa 為其下之具體系統實作。",
+    "source_id": "chunk_2",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "LPWAN 是一種系統（system），LoRa 是一種系統（system），因此實體名稱與其類別合理對齊。",
+        "response": "correct",
+        "reason": "LPWAN 與 LoRa 的類別與屬性完全符合預先定義的清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「低功耗廣域網路 (lpwan)」完全等價同義詞；受體與 Ldr 中的「lora」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的「低功耗廣域網路 (lpwan)」完全等價同義詞，但受體與 Ldr 中的「lora」也完全等價同義詞，且無法確認兩者之間的從屬關係，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> system (original: system -> has_a -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "低功耗廣域網路 (LPWAN)",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "LoRa",
+        "type": "system"
+      },
+      "reasoning": "文本將 LoRa 列為 LPWAN 建置中的一種長距離無線通訊技術解決方案，將 LPWAN 視為較大的系統類別，LoRa 為其下之具體系統實作。",
+      "source_id": "chunk_2",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

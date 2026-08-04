@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "保管員(custodian)",
+      "type": "securityTeam",
+      "display_name": "保管員(Custodian)"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資訊保護與維護",
+      "type": "function",
+      "display_name": "資訊保護與維護"
+    },
+    "reasoning": "根據題幹與正確答案，保管員(Custodian)主要負責資訊的保護與維護。保管員是一個負責資安防禦的角色，對應至 securityTeam；而『保護與維護』是其執行的具體動作與能力，對應至 function。角色執行功能的關係使用 implements。",
+    "source_id": "question_IPAS-108-MGT-011",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "保管員 (Custodian) 是 'securityTeam' 的合理實例，資訊保護與維護是 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "保管員(Custodian)",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資訊保護與維護",
+        "type": "function"
+      },
+      "reasoning": "根據題幹與正確答案，保管員(Custodian)主要負責資訊的保護與維護。保管員是一個負責資安防禦的角色，對應至 securityTeam；而『保護與維護』是其執行的具體動作與能力，對應至 function。角色執行功能的關係使用 implements。",
+      "source_id": "question_IPAS-108-MGT-011",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊保護與維護",
+      "type": "function",
+      "display_name": "資訊保護與維護"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊(information)",
+      "type": "data",
+      "display_name": "資訊(Information)"
+    },
+    "reasoning": "『資訊保護與維護』這一功能是針對『資訊(Information)』(data) 進行的操作。在提供的 Schema Edges 中，function 與 data 之間唯一合法的關係是 can_analyze，且在實務上，維護資訊的完整性與可用性必然包含對資料狀態的分析與監控。",
+    "source_id": "question_IPAS-108-MGT-011",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '資訊保護與維護' 可被視為 'function' 的合理實例，受體 '資訊' 可被視為 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 function，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中的資源名稱完全相同，無需進一步判斷。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊保護與維護",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊(Information)",
+        "type": "data"
+      },
+      "reasoning": "『資訊保護與維護』這一功能是針對『資訊(Information)』(data) 進行的操作。在提供的 Schema Edges 中，function 與 data 之間唯一合法的關係是 can_analyze，且在實務上，維護資訊的完整性與可用性必然包含對資料狀態的分析與監控。",
+      "source_id": "question_IPAS-108-MGT-011",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

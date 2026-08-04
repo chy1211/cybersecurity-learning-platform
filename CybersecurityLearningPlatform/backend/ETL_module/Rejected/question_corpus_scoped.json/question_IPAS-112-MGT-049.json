@@ -1,0 +1,146 @@
+[
+  {
+    "subject": {
+      "name": "熱備援",
+      "type": "technique",
+      "display_name": "熱備援"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "系統中斷",
+      "type": "risk",
+      "display_name": "系統中斷"
+    },
+    "reasoning": "題幹指出公司無法接受重要系統中斷超過 1 小時，而正確答案為「熱備援」，這表示熱備援是用於緩解（mitigates）系統中斷（risk）之風險的最佳技術手段。由於 Schema 中只有 tool 與 policy 能 mitigates risk，而熱備援屬於技術實作，故將其歸類為 tool。",
+    "source_id": "question_IPAS-112-MGT-049",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "熱備援 (hot backup) 是一種工具 (tool)，系統中斷 (system interruption) 是一種風險 (risk)，而 'mitigates' 的語意是減輕或緩解，因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "熱備援 (hot backup) 減輕系統中斷 (system interruption) 的風險，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的熱備援完全等價同義詞；受體與 Ldr 中的營運中斷/業務中斷具有相似性，但不完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的熱備援完全等價同義詞，但受體與 Ldr 中的營運中斷/業務中斷不完全等價同義詞，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> mitigates -> risk (original: tool -> mitigates -> risk)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "熱備援",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "系統中斷",
+        "type": "risk"
+      },
+      "reasoning": "題幹指出公司無法接受重要系統中斷超過 1 小時，而正確答案為「熱備援」，這表示熱備援是用於緩解（mitigates）系統中斷（risk）之風險的最佳技術手段。由於 Schema 中只有 tool 與 policy 能 mitigates risk，而熱備援屬於技術實作，故將其歸類為 tool。",
+      "source_id": "question_IPAS-112-MGT-049",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "熱備援",
+      "type": "technique",
+      "display_name": "熱備援"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "異地備援",
+      "type": "system",
+      "display_name": "異地備援"
+    },
+    "reasoning": "題幹將熱備援列為「異地備援方式」的一種，因此熱備援在邏輯上屬於異地備援的子類或組成部分，符合 (\"tool\", \"is_part_of\", \"tool\")。",
+    "source_id": "question_IPAS-112-MGT-049",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "熱備援 (tool) 與 異地備援 (tool) 均為資安領域中備援系統的合理實例，且 'is_part_of' 關係描述了熱備援是異地備援的一部分，符合語意對齊。",
+        "response": "correct",
+        "reason": "熱備援與異地備援的類別與關係完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "熱備援與異地備援之間存在著廣義/狹義從屬關係，但無法確定彼此之間的具體關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定彼此之間的具體關係，預設保留原名"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> is_part_of -> system (original: tool -> is_part_of -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "熱備援",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "異地備援",
+        "type": "tool"
+      },
+      "reasoning": "題幹將熱備援列為「異地備援方式」的一種，因此熱備援在邏輯上屬於異地備援的子類或組成部分，符合 (\"tool\", \"is_part_of\", \"tool\")。",
+      "source_id": "question_IPAS-112-MGT-049",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "熱備援",
+      "type": "technique",
+      "display_name": "熱備援"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "重要系統",
+      "type": "system",
+      "display_name": "重要系統"
+    },
+    "reasoning": "熱備援的核心在於維持一個與主系統同步的備援系統，以便在主系統失效時能立即接管並控制系統運作，符合 (\"tool\", \"controls\", \"system\")。",
+    "source_id": "question_IPAS-112-MGT-049",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "熱備援 (tool) 是一種工具，重要系統 (system) 是一個系統，兩者名稱與類別合理對齊，且 'controls' 是一種合理的關係描述。",
+        "response": "correct",
+        "reason": "熱備援 (tool) 與 重要系統 (system) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_2": {
+        "granularity_analysis": "熱備援與熱備援完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "熱備援",
+        "standard_object": "",
+        "reason": "熱備援與熱備援完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> controls -> system (original: tool -> controls -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "熱備援",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "重要系統",
+        "type": "system"
+      },
+      "reasoning": "熱備援的核心在於維持一個與主系統同步的備援系統，以便在主系統失效時能立即接管並控制系統運作，符合 (\"tool\", \"controls\", \"system\")。",
+      "source_id": "question_IPAS-112-MGT-049",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

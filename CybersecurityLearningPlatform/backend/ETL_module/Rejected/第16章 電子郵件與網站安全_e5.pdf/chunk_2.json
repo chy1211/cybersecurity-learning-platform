@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "subject": {
+      "name": "outlook",
+      "type": "app",
+      "display_name": "Outlook"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "郵件",
+      "type": "tool",
+      "display_name": "郵件"
+    },
+    "reasoning": "使用者透過郵件客戶端軟體（如 Outlook）寄送郵件，即由應用程式產生郵件資料。符合 ('app', 'generates', 'data')。",
+    "source_id": "chunk_2",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Outlook 是一種電子郵件應用程式，郵件是其生成的資料，因此實體名稱與其類別是合理對齊的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別是合理對齊的。"
+      },
+      "step_2": {
+        "granularity_analysis": "郵件是郵件的完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "郵件",
+        "reason": "郵件與郵件是完全相同的實體名稱，判定為duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): app -> generates -> tool (original: app -> generates -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "Outlook",
+        "type": "app"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "郵件",
+        "type": "data"
+      },
+      "reasoning": "使用者透過郵件客戶端軟體（如 Outlook）寄送郵件，即由應用程式產生郵件資料。符合 ('app', 'generates', 'data')。",
+      "source_id": "chunk_2",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "郵件",
+      "type": "tool",
+      "display_name": "郵件"
+    },
+    "reasoning": "使用者透過電子郵件地址與朋友通信，涉及對郵件資料的使用。符合 ('user', 'uses', 'data')。",
+    "source_id": "chunk_2",
+    "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例，受體名稱 '郵件' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): user -> uses -> tool (original: user -> uses -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "郵件",
+        "type": "data"
+      },
+      "reasoning": "使用者透過電子郵件地址與朋友通信，涉及對郵件資料的使用。符合 ('user', 'uses', 'data')。",
+      "source_id": "chunk_2",
+      "source_file": "第16章 電子郵件與網站安全_e5.pdf",
+      "source_index": 8
+    }
+  }
+]

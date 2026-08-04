@@ -1,1 +1,146 @@
-[]
+[
+  {
+    "subject": {
+      "name": "個人電腦",
+      "type": "system",
+      "display_name": "個人電腦"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "代理伺服器",
+      "type": "app",
+      "display_name": "代理伺服器"
+    },
+    "reasoning": "文本描述個人電腦（客戶端）將封包送至代理伺服器，這是一種系統間的網路連線，符合 ('system', 'connects_to', 'system')。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
+        "step_2_alignment_check": "個人電腦是系統 (system) 的合理實例，代理伺服器也是系統 (system) 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「電腦」、「使用者的電腦」、「使用者電腦」、「工作站/個人電腦」、「computers」、「電腦主機」、「電腦網路」、「受控電腦」等資源具有高度相似性，但無法確認完全等價同義詞關係；受體「代理伺服器」與 Ldr 中的「代理伺服器」完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "代理伺服器",
+        "reason": "主體無法確認完全等價同義詞關係，受體與 Ldr 中的資源完全相同，但無法合併主體。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> connects_to -> app (original: system -> connects_to -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "個人電腦",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "代理伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本描述個人電腦（客戶端）將封包送至代理伺服器，這是一種系統間的網路連線，符合 ('system', 'connects_to', 'system')。",
+      "source_id": "chunk_4",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "ie 瀏覽器",
+      "type": "app",
+      "display_name": "IE 瀏覽器"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "代理伺服器",
+      "type": "app",
+      "display_name": "代理伺服器"
+    },
+    "reasoning": "文本描述在 IE 瀏覽器中設定代理伺服器位址以存取資料，表示瀏覽器的網路存取依賴於代理伺服器的設定，符合 ('app', 'depends_on', 'system')。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "IE 瀏覽器 是 'app' 的合理實例，代理伺服器 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的瀏覽器、網頁瀏覽器不完全等價同義詞；受體與 Ldr 中的代理伺服器完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的瀏覽器、網頁瀏覽器不完全等價同義詞；受體與 Ldr 中的代理伺服器雖然完全等價同義詞，但根據規則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): app -> depends_on -> app (original: app -> depends_on -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "IE 瀏覽器",
+        "type": "app"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "代理伺服器",
+        "type": "system"
+      },
+      "reasoning": "文本描述在 IE 瀏覽器中設定代理伺服器位址以存取資料，表示瀏覽器的網路存取依賴於代理伺服器的設定，符合 ('app', 'depends_on', 'system')。",
+      "source_id": "chunk_4",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "代理伺服器",
+      "type": "app",
+      "display_name": "代理伺服器"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "reasoning": "圖 18-5 的標題為「代理型防火牆原理」，說明代理伺服器在此情境下是防火牆的一種實作形式或組成部分，符合 ('tool', 'is_part_of', 'tool')。",
+    "source_id": "chunk_4",
+    "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'tool' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "代理伺服器是工具的合理實例，防火牆也是工具的合理實例。",
+        "response": "correct",
+        "reason": "代理伺服器與防火牆之間的 'is_part_of' 關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的代理伺服器完全等價同義詞；受體與 Ldr 中的防火牆完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域中的具體概念，無同義詞重複關係。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): app -> is_part_of -> tool (original: tool -> is_part_of -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "代理伺服器",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "reasoning": "圖 18-5 的標題為「代理型防火牆原理」，說明代理伺服器在此情境下是防火牆的一種實作形式或組成部分，符合 ('tool', 'is_part_of', 'tool')。",
+      "source_id": "chunk_4",
+      "source_file": "第18章 防火牆與入侵偵測_e5.pdf",
+      "source_index": 9
+    }
+  }
+]

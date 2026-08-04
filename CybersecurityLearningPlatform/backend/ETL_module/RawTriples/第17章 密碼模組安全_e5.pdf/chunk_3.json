@@ -9,7 +9,7 @@
       "name": "CryptoAPI",
       "type": "tool"
     },
-    "reasoning": "文本提到應用程式呼叫使用 CryptoAPI 來產出結果。根據 Schema，app 與 tool 之間合法的關係為 has_a，此處將 CryptoAPI 視為應用程式所採用的工具。",
+    "reasoning": "文本提到 CryptoAPI 提供應用程式一個簡單而多功能的密碼介面，在 Schema 中，應用程式與工具的關聯可透過 ('app', 'has_a', 'tool') 實作，表示應用程式使用了該工具介面。",
     "source_id": "chunk_3",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 1
@@ -22,27 +22,57 @@
     "relation": "is_part_of",
     "object": {
       "name": "軟體密碼模組",
-      "type": "tool"
+      "type": "system"
     },
-    "reasoning": "圖 17-2 顯示 CryptoAPI 是軟體密碼模組架構中的高階介面層。根據 Schema，tool 之間可以使用 is_part_of。",
+    "reasoning": "根據圖 17-2 與文本描述，CryptoAPI 是軟體密碼模組架構中的高階介面層，因此將其定義為工具並屬於軟體密碼模組系統 ('tool', 'is_part_of', 'system')。",
     "source_id": "chunk_3",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "CryptoAPI",
+      "name": "軟體密碼模組",
+      "type": "system"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "工作站/個人電腦",
+      "type": "system"
+    },
+    "reasoning": "圖 17-2 明確顯示軟體密碼模組部署於工作站/個人電腦之中，符合 ('system', 'is_part_of', 'system') 的層級關係。",
+    "source_id": "chunk_3",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "硬體密碼模組",
+      "type": "system"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "工作站/個人電腦",
+      "type": "system"
+    },
+    "reasoning": "圖 17-3 明確顯示硬體密碼模組部署於工作站/個人電腦之中，符合 ('system', 'is_part_of', 'system') 的層級關係。",
+    "source_id": "chunk_3",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "密碼服務提供模組 (CSP)",
       "type": "tool"
     },
     "relation": "is_part_of",
     "object": {
-      "name": "硬體密碼模組",
-      "type": "tool"
+      "name": "軟體密碼模組",
+      "type": "system"
     },
-    "reasoning": "圖 17-3 顯示 CryptoAPI 同樣作為硬體密碼模組架構的高階介面。根據 Schema，tool 之間可以使用 is_part_of。",
+    "reasoning": "文本提到 CSP 是軟體密碼模組架構的最底層，因此 CSP 作為工具屬於軟體密碼模組系統 ('tool', 'is_part_of', 'system')。",
     "source_id": "chunk_3",
     "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 3
+    "source_index": 5
   },
   {
     "subject": {
@@ -54,25 +84,10 @@
       "name": "Windows",
       "type": "system"
     },
-    "reasoning": "文本明確指出 CSP 可以『掛載在 Windows 作業系統』。根據 Schema，tool 部署於 system 使用 deployed_in。",
+    "reasoning": "文本指出各廠商可提供密碼模組掛載在 Windows 作業系統中，因此 CSP 工具部署於 Windows 系統 ('tool', 'deployed_in', 'system')。",
     "source_id": "chunk_3",
     "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 4
-  },
-  {
-    "subject": {
-      "name": "應用程式",
-      "type": "app"
-    },
-    "relation": "deployed_in",
-    "object": {
-      "name": "工作站/個人電腦",
-      "type": "system"
-    },
-    "reasoning": "圖 17-2 與 17-3 顯示應用程式位於工作站/個人電腦環境中。根據 Schema，app 部署於 system 使用 deployed_in。",
-    "source_id": "chunk_3",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 5
+    "source_index": 6
   },
   {
     "subject": {
@@ -81,13 +96,13 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "密碼服務提供模組 (CSP)",
-      "type": "tool"
+      "name": "高階介面",
+      "type": "feature"
     },
-    "reasoning": "根據圖 17-4 的層級結構，CryptoAPI 作為高階介面，其底層依賴並包含 CSP 模組層。根據 Schema，tool 之間可以使用 has_a。",
+    "reasoning": "文本將 CryptoAPI 定義為一套「密碼模組高階介面」，因此 CryptoAPI 這個工具具有「高階介面」的特徵 ('tool', 'has_a', 'feature')。",
     "source_id": "chunk_3",
     "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 6
+    "source_index": 7
   },
   {
     "subject": {
@@ -97,41 +112,11 @@
     "relation": "is_part_of",
     "object": {
       "name": "軟體密碼模組",
-      "type": "tool"
+      "type": "system"
     },
-    "reasoning": "文本將 PKCS#11 列為與 CryptoAPI 同類的高階介面，屬於密碼模組架構的一部分。根據 Schema，tool 之間使用 is_part_of。",
-    "source_id": "chunk_3",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "JCA",
-      "type": "tool"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "軟體密碼模組",
-      "type": "tool"
-    },
-    "reasoning": "文本將 JCA 列為高階介面，屬於密碼模組架構的一部分。根據 Schema，tool 之間使用 is_part_of。",
+    "reasoning": "文本將 PKCS#11 列為與 CryptoAPI 同類的高階介面，同樣屬於軟體密碼模組的組成部分 ('tool', 'is_part_of', 'system')。",
     "source_id": "chunk_3",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 8
-  },
-  {
-    "subject": {
-      "name": "JCE",
-      "type": "tool"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "軟體密碼模組",
-      "type": "tool"
-    },
-    "reasoning": "文本將 JCE 列為高階介面，屬於密碼模組架構的一部分。根據 Schema，tool 之間使用 is_part_of。",
-    "source_id": "chunk_3",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 9
   }
 ]

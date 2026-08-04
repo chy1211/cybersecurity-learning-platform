@@ -1,1 +1,221 @@
-[]
+[
+  {
+    "subject": {
+      "name": "書本關聯表",
+      "type": "feature",
+      "display_name": "書本關聯表"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "pid",
+      "type": "feature",
+      "display_name": "PID"
+    },
+    "reasoning": "文本提到在書本關聯表加上一個欄位『PID』，欄位作為系統（資料表）的組成屬性，因此定義為 system has_a feature。",
+    "source_id": "chunk_4",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '書本關聯表' 可以被視為 'system' 的合理實例；受體 'PID' 可以被視為 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意上合理對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "書本關聯表與關聯表之間存在狹義/廣義關係，但無法確定 PID 的具體定義與書本關聯表之間的關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定 PID 的具體定義與書本關聯表之間的關係，因此預設保留"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> feature (original: system -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "書本關聯表",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "PID",
+        "type": "feature"
+      },
+      "reasoning": "文本提到在書本關聯表加上一個欄位『PID』，欄位作為系統（資料表）的組成屬性，因此定義為 system has_a feature。",
+      "source_id": "chunk_4",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "書本關聯表",
+      "type": "feature",
+      "display_name": "書本關聯表"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "出版商關聯表",
+      "type": "system",
+      "display_name": "出版商關聯表"
+    },
+    "reasoning": "文本明確描述『建立出版商關聯表與書本關聯表之關聯』，兩者皆為資料表系統，符合 system connects_to system。",
+    "source_id": "chunk_4",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '書本關聯表' 與受體 '出版商關聯表' 的名稱與其類別 'system' 合理對齊，考慮到資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源「書本關聯表」完全等價同義詞；受體與 Ldr 中的資源無直接關聯。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全相同，受體無需標準化。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> connects_to -> system (original: system -> connects_to -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "書本關聯表",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "出版商關聯表",
+        "type": "system"
+      },
+      "reasoning": "文本明確描述『建立出版商關聯表與書本關聯表之關聯』，兩者皆為資料表系統，符合 system connects_to system。",
+      "source_id": "chunk_4",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "書本關聯表",
+      "type": "system",
+      "display_name": "書本關聯表"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "外來鍵",
+      "type": "feature",
+      "display_name": "外來鍵"
+    },
+    "reasoning": "圖 8-6 標記 PID 為『外來鍵』，外來鍵是資料表的一種結構特徵，符合 system has_a feature。",
+    "source_id": "chunk_4",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '書本關聯表' 的類別 'system' 合理對齊，但 '書本關聯表' 的名稱與 'system' 的類別之間的語意關聯不夠直接；受體 '外來鍵' 的類別 'feature' 合理對齊，'外來鍵' 的名稱與 'feature' 的類別之間的語意關聯直接。",
+        "response": "violation",
+        "reason": "雖然主體類別、受體類別與關係都在 Lc,p 中，但主體 '書本關聯表' 的名稱與 'system' 的類別之間的語意關聯不夠直接，導致整體語意對齊不完全。"
+      }
+    },
+    "reject_reason": "Step 1 (Class/Property Violation): 雖然主體類別、受體類別與關係都在 Lc,p 中，但主體 '書本關聯表' 的名稱與 'system' 的類別之間的語意關聯不夠直接，導致整體語意對齊不完全。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "書本關聯表",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "外來鍵",
+        "type": "feature"
+      },
+      "reasoning": "圖 8-6 標記 PID 為『外來鍵』，外來鍵是資料表的一種結構特徵，符合 system has_a feature。",
+      "source_id": "chunk_4",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "出版商關聯表",
+      "type": "system",
+      "display_name": "出版商關聯表"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "主鍵",
+      "type": "feature",
+      "display_name": "主鍵"
+    },
+    "reasoning": "圖 8-5 與 8-6 標記 ID 為『主鍵』，主鍵是資料表系統的關鍵特徵，符合 system has_a feature。",
+    "source_id": "chunk_4",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '出版商關聯表' 可能與類別 'system' 語意不完全對齊，出版商關聯表更可能是一個資料表或功能，而非系統；受體名稱 '主鍵' 是類別 'feature' 的合理實例。",
+        "response": "violation",
+        "reason": "主體名稱 '出版商關聯表' 與類別 'system' 語意不完全對齊，可能導致資安知識圖譜的不一致性。"
+      }
+    },
+    "reject_reason": "Step 1 (Class/Property Violation): 主體名稱 '出版商關聯表' 與類別 'system' 語意不完全對齊，可能導致資安知識圖譜的不一致性。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "出版商關聯表",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "主鍵",
+        "type": "feature"
+      },
+      "reasoning": "圖 8-5 與 8-6 標記 ID 為『主鍵』，主鍵是資料表系統的關鍵特徵，符合 system has_a feature。",
+      "source_id": "chunk_4",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "出版商關聯表",
+      "type": "system",
+      "display_name": "出版商關聯表"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "前瞻出版社",
+      "type": "data",
+      "display_name": "前瞻出版社"
+    },
+    "reasoning": "『前瞻出版社』是儲存在出版商關聯表中的具體記錄資訊，屬於 data，符合 system uses data。",
+    "source_id": "chunk_4",
+    "source_file": "第08章 資料庫安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '出版商關聯表' 可能與類別 'system' 語意不完全對齊，出版商關聯表更可能是一個資料庫或表格，與 'data' 類別更為接近；受體名稱 '前瞻出版社' 與類別 'data' 語意不完全對齊，前瞻出版社是一個實體或組織，與 'data' 類別不符。",
+        "response": "violation",
+        "reason": "主體與受體的類別與名稱之間的語意對齊不完全正確。"
+      }
+    },
+    "reject_reason": "Step 1 (Class/Property Violation): 主體與受體的類別與名稱之間的語意對齊不完全正確。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "出版商關聯表",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "前瞻出版社",
+        "type": "data"
+      },
+      "reasoning": "『前瞻出版社』是儲存在出版商關聯表中的具體記錄資訊，屬於 data，符合 system uses data。",
+      "source_id": "chunk_4",
+      "source_file": "第08章 資料庫安全_e5.pdf",
+      "source_index": 6
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "nmap",
+      "type": "tool",
+      "display_name": "Nmap"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "埠號 (port)",
+      "type": "feature",
+      "display_name": "通訊埠 (Port)"
+    },
+    "reasoning": "根據題幹與正確答案，Nmap 是用於探測通訊埠的軟體。在本體論中，Nmap 屬於工具 (tool)，通訊埠屬於系統的特徵 (feature)，而『探測』行為對應於 can_analyze 關係，且 ('tool', 'can_analyze', 'feature') 符合 Schema Edges 規範。",
+    "source_id": "question_IPAS-111-TEC-004",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "Nmap 是一種網絡掃描工具，合理對齊 'tool' 類別；'can_analyze' 關係描述 Nmap 可以分析通訊埠，合理對齊 'feature' 類別；'通訊埠' 是一種網絡功能，合理對齊 'feature' 類別。",
+        "response": "correct",
+        "reason": "Nmap、can_analyze 與通訊埠 之間的關係完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體 Nmap 的類別是 tool，符合規則3 的允許條件，且關係 can_analyze 不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源「nmap」完全等價同義詞；受體與 Ldr 中的資源「埠號 (port)」完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "nmap",
+        "standard_object": "埠號 (port)",
+        "reason": "主體與受體均與 Ldr 中的資源完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Nmap",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "通訊埠 (Port)",
+        "type": "feature"
+      },
+      "reasoning": "根據題幹與正確答案，Nmap 是用於探測通訊埠的軟體。在本體論中，Nmap 屬於工具 (tool)，通訊埠屬於系統的特徵 (feature)，而『探測』行為對應於 can_analyze 關係，且 ('tool', 'can_analyze', 'feature') 符合 Schema Edges 規範。",
+      "source_id": "question_IPAS-111-TEC-004",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

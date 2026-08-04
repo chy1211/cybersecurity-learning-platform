@@ -11,28 +11,28 @@
       "type": "data",
       "display_name": "密文"
     },
-    "reasoning": "AES 作為加密演算法（工具 tool），其運作結果是產生密文（資料 data）。符合 ('tool', 'generates', 'data')。",
+    "reasoning": "文本提到 AES 是加密演算法，其目的是將明文處理成密文。根據 Schema，工具 (tool) 可以產生 (generates) 資料 (data)。",
     "source_id": "chunk_8",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 2,
+    "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體的類別 'tool'、受體的類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "AES 是一種加密工具，合理對齊 'tool' 類別；'密文' 是加密後的資料，合理對齊 'data' 類別；'generates' 關係在資安領域中常用於描述工具產生資料的過程，因此 AES 生成密文是合理的。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "AES 是一種加密工具，合理對應 'tool' 類別；'generates' 關係描述 AES 生成密文的過程，密文是加密資料的結果，合理對應 'data' 類別。",
         "response": "correct",
-        "reason": "AES 生成密文的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "AES 生成密文的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到attacker或securityTeam。規則2不適用，因為動作是generates，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為關係是generates，而非violates。規則5不適用，因為關係是generates，而非uses。規則6不適用，因為關係是generates，而非deployed_in。規則7適用，且三元組符合規則所允許的條件，因為受體的類別是data。規則8不適用，因為關係是generates，而非controls。",
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
         "response": "correct",
-        "reason": "三元組符合規則7的允許條件，且未發現其他明確且直接的違反項目。"
+        "reason": "三元組符合規則7所允許的條件，受體的類別是data，代表合法。"
       },
       "step_2": {
-        "granularity_analysis": "主體 AES 與 Ldr 中的 aes 完全等價同義詞，受體 密文 與 Ldr 中的 密文 完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+        "granularity_analysis": "主體 AES 與 Ldr 中的 aes 完全等價同義詞；受體 密文 與 Ldr 中的 密文 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "aes",
+        "standard_object": "密文",
+        "reason": "主體 AES 與 Ldr 中的 aes 完全等價同義詞；受體 密文 與 Ldr 中的 密文 完全等價同義詞，判定為 duplicate。"
       }
     },
     "original_raw_triple": {
@@ -45,59 +45,7 @@
         "name": "密文",
         "type": "data"
       },
-      "reasoning": "AES 作為加密演算法（工具 tool），其運作結果是產生密文（資料 data）。符合 ('tool', 'generates', 'data')。",
-      "source_id": "chunk_8",
-      "source_file": "第05章 密碼學概論_e5.pdf",
-      "source_index": 2
-    }
-  },
-  {
-    "subject": {
-      "name": "nist",
-      "type": "securityTeam",
-      "display_name": "NIST"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "fips 標準",
-      "type": "policy",
-      "display_name": "FIPS 標準"
-    },
-    "reasoning": "文本提到 NIST 發佈了 FIPS 標準，在資安本體論中，發佈標準的組織可視為安全團隊 (securityTeam)，而標準屬於規範與策略 (policy)。",
-    "source_id": "chunk_8",
-    "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 1,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "NIST 是一支安全團隊（securityTeam），FIPS 標準是一種政策（policy），因此實體名稱與其類別合理對齊。",
-        "response": "correct",
-        "reason": "NIST 實施 FIPS 標準的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用，因為主體是安全團隊（securityTeam），沒有攻擊者（attacker）的身分。檢查規則2：不適用，因為關係是 implements，不是 mitigates。檢查規則3：不適用，因為主體類別是安全團隊（securityTeam），不是漏洞（vulnerability）。檢查規則4：不適用，因為主體類別是安全團隊（securityTeam），不是資安原則（principle）。檢查規則5：不適用，因為關係是 implements，不是 uses。檢查規則6：不適用，因為關係是 implements，不是 deployed_in。檢查規則7：不適用，因為關係是 implements，不是 generates。檢查規則8：不適用，因為關係是 implements，不是 controls。由於沒有直接觸發任何違規，",
-        "response": "correct",
-        "reason": "三元組中的主體（NIST）和關係（implements）以及受體（FIPS 標準）之間的關係沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "NIST 與 Ldr 中的 nist 完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "NIST",
-        "type": "securityTeam"
-      },
-      "relation": "implements",
-      "object": {
-        "name": "FIPS 標準",
-        "type": "policy"
-      },
-      "reasoning": "文本提到 NIST 發佈了 FIPS 標準，在資安本體論中，發佈標準的組織可視為安全團隊 (securityTeam)，而標準屬於規範與策略 (policy)。",
+      "reasoning": "文本提到 AES 是加密演算法，其目的是將明文處理成密文。根據 Schema，工具 (tool) 可以產生 (generates) 資料 (data)。",
       "source_id": "chunk_8",
       "source_file": "第05章 密碼學概論_e5.pdf",
       "source_index": 1
@@ -115,28 +63,28 @@
       "type": "feature",
       "display_name": "金鑰長度"
     },
-    "reasoning": "文本提到 AES 支援三種不同的金鑰長度，金鑰長度是該演算法的屬性/特徵 (feature)。符合 ('tool', 'has_a', 'feature')。",
+    "reasoning": "文本明確提到 AES 支援 128, 192, 256 bits 三種不同的金鑰長度，金鑰長度是演算法的屬性，因此定義為 feature。",
     "source_id": "chunk_8",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 3,
+    "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "AES 是一種加密工具，'tool' 是其合理類別；金鑰長度是加密工具的一個特徵，'feature' 是其合理類別。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "AES 是一種加密工具，金鑰長度是其特徵之一，因此實體名稱與其類別是合理對齊的。",
         "response": "correct",
-        "reason": "AES 和金鑰長度的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "AES 的金鑰長度是其特徵之一，完全符合預先定義的類別與屬性清單。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "無明確規則限制 tool 類別的主體與 feature 類別的受體之間的 has_a 關係，因此無法直接套用任何規則進行檢查。",
         "response": "correct",
-        "reason": "三元組中的主體 'AES' 是一個工具（tool），其關係 'has_a' 與受體 '金鑰長度'（feature）之間的關係在給定的語義限制清單中沒有被明確禁止或限制，因此不構成違規。"
+        "reason": "未發現明確且直接的違反項目，故無罪推定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "AES 是 Ldr 中的第一個元素，且完全匹配",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+        "reason": "主體 AES 與受體 金鑰長度 均為資安領域中特定的技術與特徵，無法進一步合併或替換。"
       }
     },
     "original_raw_triple": {
@@ -149,10 +97,10 @@
         "name": "金鑰長度",
         "type": "feature"
       },
-      "reasoning": "文本提到 AES 支援三種不同的金鑰長度，金鑰長度是該演算法的屬性/特徵 (feature)。符合 ('tool', 'has_a', 'feature')。",
+      "reasoning": "文本明確提到 AES 支援 128, 192, 256 bits 三種不同的金鑰長度，金鑰長度是演算法的屬性，因此定義為 feature。",
       "source_id": "chunk_8",
       "source_file": "第05章 密碼學概論_e5.pdf",
-      "source_index": 3
+      "source_index": 2
     }
   },
   {
@@ -167,28 +115,28 @@
       "type": "feature",
       "display_name": "回合數"
     },
-    "reasoning": "文本提到 AES 的加解密包含十個以上的回合數，回合數是演算法的結構特徵 (feature)。符合 ('tool', 'has_a', 'feature')。",
+    "reasoning": "文本提到 AES 的加解密包含十個以上的回合數，回合數是該工具的組成特徵。",
     "source_id": "chunk_8",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 4,
+    "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體的類別 'tool'、受體的類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "AES 是一種加密工具，'tool' 是其合理的類別；'回合數' 可以被視為是一種特徵或屬性，'feature' 是其合理的類別。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "AES 是一種加密工具，'tool' 是其合理類別；'回合數' 是 AES 的一項特徵，'feature' 是其合理類別。",
         "response": "correct",
-        "reason": "AES 和 '回合數' 的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+        "reason": "AES 與 '回合數' 的類別與屬性完全符合預先定義的清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'has_a'，與規則無直接關聯。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
         "response": "correct",
-        "reason": "三元組中的主體 'AES' 類別為 'tool'，關係 'has_a' 指向 '回合數' 類別為 'feature'，未觸發語義限制清單中的任何規則。"
+        "reason": "三元組中的主體 AES 屬於 tool 類別，具有主動執行能力，且關係 has_a 不違反任何規則。"
       },
       "step_2": {
-        "granularity_analysis": "主體 AES 與 Ldr 中的 aes 完全等價同義詞，受體 回合數 與 Ldr 中的 金鑰長度 不相關，但 AES 的特徵之一是回合數，金鑰長度也是 AES 的特徵之一，兩者皆為 AES 的特性，無法確認回合數與金鑰長度是否為同義詞。",
+        "granularity_analysis": "主體 AES 與 Ldr 中的 aes 完全等價同義詞；受體 回合數 與 Ldr 中無直接對應關係",
         "response": "correct",
-        "standard_subject": "aes",
+        "standard_subject": "",
         "standard_object": "",
-        "reason": "根據同義詞判定準則，主體 AES 與 Ldr 中的 aes 完全等價同義詞，但受體 回合數 與 Ldr 中的 金鑰長度 不相關，無法確認是否為同義詞，故預設保留。"
+        "reason": "主體 AES 與 Ldr 中的 aes 完全等價同義詞，但受體 回合數 與 Ldr 中無直接對應關係，無法判定為 duplicate"
       }
     },
     "original_raw_triple": {
@@ -201,10 +149,10 @@
         "name": "回合數",
         "type": "feature"
       },
-      "reasoning": "文本提到 AES 的加解密包含十個以上的回合數，回合數是演算法的結構特徵 (feature)。符合 ('tool', 'has_a', 'feature')。",
+      "reasoning": "文本提到 AES 的加解密包含十個以上的回合數，回合數是該工具的組成特徵。",
       "source_id": "chunk_8",
       "source_file": "第05章 密碼學概論_e5.pdf",
-      "source_index": 4
+      "source_index": 3
     }
   },
   {
@@ -219,28 +167,28 @@
       "type": "function",
       "display_name": "Add Round Key"
     },
-    "reasoning": "Add Round Key 是 AES 加密流程中的一個基本單元/動作，屬於功能 (function)。符合 ('tool', 'has_a', 'function')。",
+    "reasoning": "Add Round Key 是 AES 加密流程中的一個主要基本單元（動作/能力），因此定義為 function。",
     "source_id": "chunk_8",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 5,
+    "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "AES 是一種加密工具（tool），而 'Add Round Key' 是 AES 演算法中的一個功能（function），因此名稱與類別之間的語意對齊是合理的。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "AES 是一種加密工具，'tool' 是其合理類別；'Add Round Key' 是 AES 演算法的一部分，'function' 是其合理類別。關係 'has_a' 表示 AES 有一個 'Add Round Key' 的功能，語意上是合理的。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且名稱與類別之間具有合理的語意對齊。"
+        "reason": "AES 與 'Add Round Key' 的類別與屬性完全符合預先定義的類別與屬性清單，且語意上是合理的。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查每條規則，發現規則5與規則7可能相關，但主體為tool，關係為has_a，受體為function，不直接違反規則5和7。其他規則不直接適用此三元組。",
+        "step_1_rule_matching": "規則2不適用，因為has_a與mitigates無關。規則3不適用，因為主體AES類別為tool，非vulnerability。規則4不適用，因為主體AES類別為tool，非principle。規則5不適用，因為主體AES類別為tool，非data。規則6不適用，因為關係has_a與deployed_in無關。規則7不適用，因為關係has_a與generates無關。規則8不適用，因為關係has_a與controls無關。",
         "response": "correct",
-        "reason": "三元組中的主體為AES（工具），關係為has_a，受體為Add Round Key（函數），此組合未直接違反語義限制清單中的任何規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "主體 AES 與 Ldr 中的 aes 完全等價同義詞，受體 Add Round Key 與 Ldr 中的 add round key 完全等價同義詞",
-        "response": "correct",
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
         "standard_subject": "aes",
         "standard_object": "add round key",
-        "reason": "根據同義詞判定，AES 與 aes、Add Round Key 與 add round key 分別為完全等價同義詞。"
+        "reason": "主體與受體名稱與 Ldr 中的資源完全匹配，且無需進一步同義詞判定。"
       }
     },
     "original_raw_triple": {
@@ -253,10 +201,10 @@
         "name": "Add Round Key",
         "type": "function"
       },
-      "reasoning": "Add Round Key 是 AES 加密流程中的一個基本單元/動作，屬於功能 (function)。符合 ('tool', 'has_a', 'function')。",
+      "reasoning": "Add Round Key 是 AES 加密流程中的一個主要基本單元（動作/能力），因此定義為 function。",
       "source_id": "chunk_8",
       "source_file": "第05章 密碼學概論_e5.pdf",
-      "source_index": 5
+      "source_index": 4
     }
   },
   {
@@ -271,28 +219,28 @@
       "type": "function",
       "display_name": "SubBytes"
     },
-    "reasoning": "SubBytes 是 AES 加密流程中的一個基本單元/動作，屬於功能 (function)。符合 ('tool', 'has_a', 'function')。",
+    "reasoning": "SubBytes 是 AES 加密流程中的一個主要基本單元（動作/能力），因此定義為 function。",
     "source_id": "chunk_8",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 6,
+    "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "AES 是一種加密工具（tool），SubBytes 是 AES 中的一個函數（function），因此名稱與類別之間的語意對齊是合理的。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "AES 是一種加密工具，合理被歸類為 'tool'。SubBytes 是 AES 中的一個函數，合理被歸類為 'function'。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別之間具有合理的語意對齊。"
+        "reason": "AES 與 SubBytes 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
         "response": "correct",
-        "reason": "三元組（AES, has_a, SubBytes）不觸發任何語義限制清單中的規則，因此判定為正確。"
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "主體 AES 與 Ldr 中的 aes 完全等價同義詞，受體 SubBytes 與 Ldr 中的 subbytes 完全等價同義詞",
-        "response": "correct",
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
         "standard_subject": "aes",
         "standard_object": "subbytes",
-        "reason": "根據同義詞判定準則，AES 與 aes、SubBytes 與 subbytes 分別為同義詞，因此判定為 correct。"
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，且無需考慮廣義/狹義從屬關係。"
       }
     },
     "original_raw_triple": {
@@ -305,7 +253,59 @@
         "name": "SubBytes",
         "type": "function"
       },
-      "reasoning": "SubBytes 是 AES 加密流程中的一個基本單元/動作，屬於功能 (function)。符合 ('tool', 'has_a', 'function')。",
+      "reasoning": "SubBytes 是 AES 加密流程中的一個主要基本單元（動作/能力），因此定義為 function。",
+      "source_id": "chunk_8",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "add round key",
+      "type": "function",
+      "display_name": "Add Round Key"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "xor 運算",
+      "type": "feature",
+      "display_name": "XOR 運算"
+    },
+    "reasoning": "文本描述 Add Round Key 執行 XOR 運算，此運算方式是該功能的組成特徵。",
+    "source_id": "chunk_8",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Add Round Key 是一個密碼學函數中的步驟，合理對應 'function' 類別；XOR 運算是一種基本的邏輯運算，合理對應 'feature' 類別。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 'add round key' 完全等價同義詞；受體與 Ldr 中的資源 'XOR 運算' 無直接關聯，但根據資安知識圖譜，'Add Round Key' 這一過程確實涉及 XOR 運算，因此受體與 Ldr 中的資源 'XOR 運算' 可視為相關概念，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源 'add round key' 完全等價同義詞，但受體與 Ldr 中的資源 'XOR 運算' 非完全等價同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Add Round Key",
+        "type": "function"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "XOR 運算",
+        "type": "feature"
+      },
+      "reasoning": "文本描述 Add Round Key 執行 XOR 運算，此運算方式是該功能的組成特徵。",
       "source_id": "chunk_8",
       "source_file": "第05章 密碼學概論_e5.pdf",
       "source_index": 6
@@ -323,28 +323,28 @@
       "type": "feature",
       "display_name": "S-box"
     },
-    "reasoning": "SubBytes 功能是透過使用替換盒子 (S-box) 來實現，S-box 是該功能的組成特徵 (feature)。符合 ('function', 'has_a', 'feature')。",
+    "reasoning": "SubBytes 使用替換盒子 (S-box) 進行查表替換，S-box 是實現此功能的關鍵組成部分。",
     "source_id": "chunk_8",
     "source_file": "第05章 密碼學概論_e5.pdf",
     "source_index": 7,
     "validation_history": {
       "step_1": {
         "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "SubBytes 是一種函數（function），S-box 是一種特徵（feature），因此名稱與類別合理對齊。",
+        "step_2_alignment_check": "SubBytes 是一種函數（function），S-box 是一種特徵（feature），且 'has_a' 關係在此語境下合理，表示 SubBytes 函數具有 S-box 特徵。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係 'has_a' 與規則中沒有直接相關的限制，因此不觸發任何違規。",
+        "step_1_rule_matching": "無明確規則限制 function 類別的主體與 feature 類別的受體之間的 has_a 關係，因此無法直接套用任何規則進行檢查。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，且主體 'SubBytes' 的類別 'function' 與受體 'S-box' 的類別 'feature' 之間的關係 'has_a' 在給定的規則中沒有被定義為違規。"
+        "reason": "未發現明確且直接的違反項目，無法判定為違規。"
       },
       "step_2": {
-        "granularity_analysis": "SubBytes 與 Ldr 中的 'subbytes' 關係為完全等價同義詞，S-box 與 Ldr 中無直接同義詞關係，但 'S-box' 可能與 'feature' 類別下的其他項目相關，然而無法確定為同義詞或子類型關係。",
-        "response": "correct",
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "duplicate",
         "standard_subject": "subbytes",
         "standard_object": "",
-        "reason": "根據同義詞判定，SubBytes 與 'subbytes' 為同義詞，故標準化主體為 'subbytes'，而受體 S-box 無法確定與 Ldr 中項目的同義詞關係，故保留原狀。"
+        "reason": "主體 'SubBytes' 與 Ldr 中的 'subbytes' 是同義詞"
       }
     },
     "original_raw_triple": {
@@ -357,114 +357,10 @@
         "name": "S-box",
         "type": "feature"
       },
-      "reasoning": "SubBytes 功能是透過使用替換盒子 (S-box) 來實現，S-box 是該功能的組成特徵 (feature)。符合 ('function', 'has_a', 'feature')。",
+      "reasoning": "SubBytes 使用替換盒子 (S-box) 進行查表替換，S-box 是實現此功能的關鍵組成部分。",
       "source_id": "chunk_8",
       "source_file": "第05章 密碼學概論_e5.pdf",
       "source_index": 7
-    }
-  },
-  {
-    "subject": {
-      "name": "aes",
-      "type": "tool",
-      "display_name": "AES"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "混淆",
-      "type": "feature",
-      "display_name": "混淆"
-    },
-    "reasoning": "文本提到子金鑰能增加系統的混淆 (confusion) 程度，混淆是加密演算法追求的特性 (feature)。符合 ('tool', 'has_a', 'feature')。",
-    "source_id": "chunk_8",
-    "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 9,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "AES 是一種加密工具，'混淆' 是一種常見的加密特性，兩者之間的關係 'has_a' 合理，AES indeed 有 '混淆' 的特性。",
-        "response": "correct",
-        "reason": "AES 和 '混淆' 的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'has_a'，未在規則中明確定義限制，故無法直接判定違規。",
-        "response": "correct",
-        "reason": "由於三元組中的關係 'has_a' 未在語義限制清單中明確定義限制，且未發現明確且直接的違反項目，根據無罪推定原則，判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體 AES 與 Ldr 中的 aes 完全等價同義詞，受體 混淆 與 Ldr 中的 混淆 完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "aes",
-        "standard_object": "混淆",
-        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，故判定為正確無需合併。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "AES",
-        "type": "tool"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "混淆",
-        "type": "feature"
-      },
-      "reasoning": "文本提到子金鑰能增加系統的混淆 (confusion) 程度，混淆是加密演算法追求的特性 (feature)。符合 ('tool', 'has_a', 'feature')。",
-      "source_id": "chunk_8",
-      "source_file": "第05章 密碼學概論_e5.pdf",
-      "source_index": 9
-    }
-  },
-  {
-    "subject": {
-      "name": "add round key",
-      "type": "function",
-      "display_name": "Add Round Key"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "xor 運算",
-      "type": "feature",
-      "display_name": "XOR 運算"
-    },
-    "reasoning": "Add Round Key 功能的核心是執行 XOR 運算，此運算方式為該功能的特徵 (feature)。符合 ('function', 'has_a', 'feature')。",
-    "source_id": "chunk_8",
-    "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 8,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'function'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "Add Round Key 是一種密碼學中的函數（function），而 XOR 運算是一種基本的邏輯運算，屬於密碼學中的特徵（feature），因此名稱與類別合理對齊。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。無直接相關規則觸發違規。",
-        "response": "correct",
-        "reason": "三元組（Add Round Key, has_a, XOR 運算）未觸發語義限制清單中的任何規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體 Add Round Key 與 Ldr 中的 add round key 完全等價同義詞，受體 XOR 運算 與 Ldr 中的無直接對應關係，但無需進一步分析因為主體已經找到完全匹配",
-        "response": "correct",
-        "standard_subject": "add round key",
-        "standard_object": "",
-        "reason": "主體 Add Round Key 與 Ldr 中的 add round key 完全等價同義詞，受體無需標準化。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "Add Round Key",
-        "type": "function"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "XOR 運算",
-        "type": "feature"
-      },
-      "reasoning": "Add Round Key 功能的核心是執行 XOR 運算，此運算方式為該功能的特徵 (feature)。符合 ('function', 'has_a', 'feature')。",
-      "source_id": "chunk_8",
-      "source_file": "第05章 密碼學概論_e5.pdf",
-      "source_index": 8
     }
   },
   {
@@ -479,28 +375,28 @@
       "type": "risk",
       "display_name": "風險"
     },
-    "reasoning": "文本提到使用不同金鑰長度是為了「提高安全性」，在資安邏輯中，提高安全性即是緩解潛在的資安風險 (risk)。符合 ('tool', 'mitigates', 'risk')。",
+    "reasoning": "文本提到 AES 透過不同的金鑰長度來「提高安全性」，在資安本體論中，提高安全性等同於緩解 (mitigates) 潛在的風險 (risk)。",
     "source_id": "chunk_8",
     "source_file": "第05章 密碼學概論_e5.pdf",
-    "source_index": 10,
+    "source_index": 8,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
         "step_2_alignment_check": "AES 是一種加密工具，合理對齊 'tool' 類別；風險是資安領域中的常見術語，合理對齊 'risk' 類別。",
         "response": "correct",
-        "reason": "AES 作為一種加密工具，能夠減輕風險，符合 'mitigates' 關係的語意，且主體、關係和受體都符合 Lc,p 的定義。"
+        "reason": "AES (tool) mitigates 風險 (risk) 的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。由於主體 AES 的類別是 tool，符合規則2的條件，未發現違規。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
         "response": "correct",
-        "reason": "三元組中的主體 AES 屬於 tool 類別，符合規則2的允許條件，且未觸發其他規則的違規條件。因此，該三元組不違反語義限制清單中的任何規則。"
+        "reason": "主體 AES 的類別是 tool，符合規則2的條件，代表合法。"
       },
       "step_2": {
-        "granularity_analysis": "主體 AES 與 Ldr 中的 aes 完全等價，受體 風險 與 Ldr 中的 風險 完全等價",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+        "granularity_analysis": "主體 AES 與 Ldr 中的 aes 完全等價同義詞；受體 風險 與 Ldr 中的 風險 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "aes",
+        "standard_object": "風險",
+        "reason": "主體 AES 與 Ldr 中的 aes 完全等價同義詞；受體 風險 與 Ldr 中的 風險 完全等價同義詞。"
       }
     },
     "original_raw_triple": {
@@ -513,10 +409,62 @@
         "name": "風險",
         "type": "risk"
       },
-      "reasoning": "文本提到使用不同金鑰長度是為了「提高安全性」，在資安邏輯中，提高安全性即是緩解潛在的資安風險 (risk)。符合 ('tool', 'mitigates', 'risk')。",
+      "reasoning": "文本提到 AES 透過不同的金鑰長度來「提高安全性」，在資安本體論中，提高安全性等同於緩解 (mitigates) 潛在的風險 (risk)。",
       "source_id": "chunk_8",
       "source_file": "第05章 密碼學概論_e5.pdf",
-      "source_index": 10
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "3des",
+      "type": "tool",
+      "display_name": "3DES"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "密文",
+      "type": "data",
+      "display_name": "密文"
+    },
+    "reasoning": "圖 5-9 標題為 3DES 運算範例，且內容顯示其產出密文，因此 3DES 作為工具可產生密文資料。",
+    "source_id": "chunk_8",
+    "source_file": "第05章 密碼學概論_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "3DES 是一種加密工具，合理對應 'tool' 類別；'generates' 關係描述 3DES 生成密文的過程，密文是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "3DES 生成密文的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
+        "response": "correct",
+        "reason": "三元組符合規則7所允許的條件，主體為 tool，關係為 generates，受體為 data，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '3des' 完全等價同義詞；受體與 Ldr 中的資源 '密文' 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "3des",
+        "standard_object": "密文",
+        "reason": "主體與 Ldr 中的資源 '3des' 完全等價同義詞；受體與 Ldr 中的資源 '密文' 完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "3DES",
+        "type": "tool"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "密文",
+        "type": "data"
+      },
+      "reasoning": "圖 5-9 標題為 3DES 運算範例，且內容顯示其產出密文，因此 3DES 作為工具可產生密文資料。",
+      "source_id": "chunk_8",
+      "source_file": "第05章 密碼學概論_e5.pdf",
+      "source_index": 9
     }
   }
 ]

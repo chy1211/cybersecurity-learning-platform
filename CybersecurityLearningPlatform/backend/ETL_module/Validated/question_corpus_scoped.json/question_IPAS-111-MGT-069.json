@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "弱掃工具",
+      "type": "tool",
+      "display_name": "軟體掃描工具"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "軟體類資產",
+      "type": "system",
+      "display_name": "軟體類資產"
+    },
+    "reasoning": "根據考題否定式提問規則，選項 A 為正確知識。文中提到軟體掃描工具可用於輔助軟體類資產之盤點，盤點在本質上是一種分析與確認過程，因此將其對應至 Schema 中的 ('tool', 'can_analyze', 'system')。",
+    "source_id": "question_IPAS-111-MGT-069",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "軟體掃描工具是工具的合理實例，軟體類資產是系統的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為tool，不是vulnerability。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "軟體掃描工具與弱掃工具之間存在同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "弱掃工具",
+        "standard_object": "",
+        "reason": "軟體掃描工具與弱掃工具是同義詞，兩者都指的是用於掃描軟體漏洞的工具"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "軟體掃描工具",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "軟體類資產",
+        "type": "system"
+      },
+      "reasoning": "根據考題否定式提問規則，選項 A 為正確知識。文中提到軟體掃描工具可用於輔助軟體類資產之盤點，盤點在本質上是一種分析與確認過程，因此將其對應至 Schema 中的 ('tool', 'can_analyze', 'system')。",
+      "source_id": "question_IPAS-111-MGT-069",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "檔案搜尋工具",
+      "type": "tool",
+      "display_name": "檔案搜尋工具"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料資產",
+      "type": "data",
+      "display_name": "資訊類資產"
+    },
+    "reasoning": "根據考題否定式提問規則，選項 C 為正確知識。文中提到檔案搜尋工具可用於輔助資訊類資產之盤點，資訊類資產屬於資料實體，因此對應至 Schema 中的 ('tool', 'can_analyze', 'data')。",
+    "source_id": "question_IPAS-111-MGT-069",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "檔案搜尋工具 是 'tool' 的合理實例，資訊類資產 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "檔案搜尋工具 與 資訊類資產 的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 tool，關係為 can_analyze，符合規則2的允許條件，且未違反其他規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是：不相關；受體與 Ldr 中的資源之間的關係是：完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資料資產",
+        "reason": "受體「資訊類資產」與 Ldr 中的「資料資產」是完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "檔案搜尋工具",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊類資產",
+        "type": "data"
+      },
+      "reasoning": "根據考題否定式提問規則，選項 C 為正確知識。文中提到檔案搜尋工具可用於輔助資訊類資產之盤點，資訊類資產屬於資料實體，因此對應至 Schema 中的 ('tool', 'can_analyze', 'data')。",
+      "source_id": "question_IPAS-111-MGT-069",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

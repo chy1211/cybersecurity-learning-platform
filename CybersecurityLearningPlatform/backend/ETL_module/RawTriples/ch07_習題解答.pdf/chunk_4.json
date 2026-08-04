@@ -6,10 +6,10 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "緩衝區",
+      "name": "堆疊 (Stack)",
       "type": "feature"
     },
-    "reasoning": "文本提到緩衝區是指在記憶體中宣告的一個區域，屬於電腦系統記憶體管理的一個特徵/組成部分。",
+    "reasoning": "文本提到電腦系統中記憶體配置有堆疊 (Stack)，因此將電腦系統視為 system，堆疊視為其組成特徵 feature。",
     "source_id": "chunk_4",
     "source_file": "ch07_習題解答.pdf",
     "source_index": 1
@@ -21,28 +21,58 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "堆疊",
+      "name": "堆積 (Heap)",
       "type": "feature"
     },
-    "reasoning": "文本明確指出電腦系統中記憶體配置有堆疊 (Stack)，因此堆疊是系統的一個特徵。",
+    "reasoning": "文本提到電腦系統中記憶體配置有堆積 (Heap)，因此將電腦系統視為 system，堆積視為其組成特徵 feature。",
     "source_id": "chunk_4",
     "source_file": "ch07_習題解答.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "電腦系統",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "堆積",
+      "name": "堆疊 (Stack)",
       "type": "feature"
     },
-    "reasoning": "文本明確指出電腦系統中記憶體配置有堆積 (Heap)，因此堆積是系統的一個特徵。",
+    "relation": "uses",
+    "object": {
+      "name": "使用者資料",
+      "type": "data"
+    },
+    "reasoning": "文本指出緩衝區（在記憶體中）用來存放使用者資料，且參數、暫存記憶等存在堆疊中，符合 feature uses data 的定義。",
     "source_id": "chunk_4",
     "source_file": "ch07_習題解答.pdf",
     "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "系統程式",
+      "type": "app"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "未做範圍檢查",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到『程式未對存入堆疊的變數做範圍檢查』，這是一種系統缺陷，因此將系統程式視為 app，未做範圍檢查視為 vulnerability。",
+    "source_id": "chunk_4",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "C語言的指標",
+      "type": "feature"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "未做範圍檢查",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本將 C 語言的指標作為程式語言本身的漏洞示例，指標特性可能導致範圍檢查失效，符合 feature can_expose vulnerability。",
+    "source_id": "chunk_4",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 5
   },
   {
     "subject": {
@@ -54,10 +84,25 @@
       "name": "緩衝區溢位",
       "type": "attack"
     },
-    "reasoning": "文本將堆疊溢位描述為一種常見的攻擊法，而其本質屬於緩衝區溢位攻擊的一種具體形式。",
+    "reasoning": "堆疊溢位是緩衝區溢位的一種具體且常見的攻擊形式，符合 attack is_part_of attack。",
     "source_id": "chunk_4",
     "source_file": "ch07_習題解答.pdf",
-    "source_index": 4
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "未做範圍檢查",
+      "type": "vulnerability"
+    },
+    "reasoning": "文本提到『利用程式語言本身的漏洞...輸入大量資料』，雖然未明寫駭客，但此行為由 attacker 發起，利用 vulnerability 進行攻擊。",
+    "source_id": "chunk_4",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 7
   },
   {
     "subject": {
@@ -66,70 +111,25 @@
     },
     "relation": "can_harm",
     "object": {
-      "name": "資料",
+      "name": "使用者資料",
       "type": "data"
     },
-    "reasoning": "文本提到資料溢位後會覆蓋到其他的資料，造成錯誤，這符合攻擊危害資料的定義。",
-    "source_id": "chunk_4",
-    "source_file": "ch07_習題解答.pdf",
-    "source_index": 5
-  },
-  {
-    "subject": {
-      "name": "電腦系統",
-      "type": "system"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "程式語言本身的漏洞",
-      "type": "vulnerability"
-    },
-    "reasoning": "文本提到利用程式語言本身的漏洞（如 C 語言指標），說明系統所使用的語言特性可能暴露漏洞。",
-    "source_id": "chunk_4",
-    "source_file": "ch07_習題解答.pdf",
-    "source_index": 6
-  },
-  {
-    "subject": {
-      "name": "攻擊者",
-      "type": "attacker"
-    },
-    "relation": "can_exploit",
-    "object": {
-      "name": "程式語言本身的漏洞",
-      "type": "vulnerability"
-    },
-    "reasoning": "文本提到「利用程式語言本身的漏洞」來造成堆疊溢位，雖然未明寫「攻擊者」一詞，但「攻擊法」隱含了攻擊者的行為。",
-    "source_id": "chunk_4",
-    "source_file": "ch07_習題解答.pdf",
-    "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "堆疊",
-      "type": "feature"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "暫存記憶",
-      "type": "data"
-    },
-    "reasoning": "文本提到暫存記憶存在堆疊中，在 Schema 中 feature 與 data 的關聯使用 uses 來描述其承載或使用關係。",
+    "reasoning": "文本提到『資料溢位後會覆蓋到其他的資料，造成錯誤』，表示此攻擊會損害資料的完整性，符合 attack can_harm data。",
     "source_id": "chunk_4",
     "source_file": "ch07_習題解答.pdf",
     "source_index": 8
   },
   {
     "subject": {
-      "name": "緩衝區溢位",
+      "name": "堆疊溢位",
       "type": "attack"
     },
-    "relation": "violates",
+    "relation": "can_harm",
     "object": {
-      "name": "完整性",
-      "type": "principle"
+      "name": "電腦系統",
+      "type": "system"
     },
-    "reasoning": "文本提到溢位會「覆蓋到其他的資料」，這在資安原則中直接違反了資料的完整性 (Integrity)。",
+    "reasoning": "文本提到堆疊溢位會造成『區段錯誤 (Segmentation fault)』，這會導致系統程式崩潰或異常，符合 attack can_harm system。",
     "source_id": "chunk_4",
     "source_file": "ch07_習題解答.pdf",
     "source_index": 9

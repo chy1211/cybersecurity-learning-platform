@@ -1,0 +1,47 @@
+[
+  {
+    "subject": {
+      "name": "/etc/shadow",
+      "type": "data"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "Linux 系統",
+      "type": "system"
+    },
+    "reasoning": "根據題幹與正確答案，/etc/shadow 是 Linux 系統中存放密碼 Hash 值的檔案，因此該資料實體部署於 Linux 系統中。",
+    "source_id": "question_IPAS-108-TEC-016",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1
+  },
+  {
+    "subject": {
+      "name": "Dump 密碼 Hash",
+      "type": "technique"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "/etc/shadow",
+      "type": "data"
+    },
+    "reasoning": "題幹提到『若要 dump 出密碼的 Hash 值，需存取 /etc/shadow』，這描述了一種獲取資訊的技術流程（technique），該流程需要分析/讀取 /etc/shadow 這個資料檔。",
+    "source_id": "question_IPAS-108-TEC-016",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "Linux 系統",
+      "type": "system"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "密碼 Hash 值",
+      "type": "data"
+    },
+    "reasoning": "Linux 系統會產生並儲存使用者的密碼雜湊值（Hash），符合 system generates data 的 Schema 邊界。",
+    "source_id": "question_IPAS-108-TEC-016",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3
+  }
+]

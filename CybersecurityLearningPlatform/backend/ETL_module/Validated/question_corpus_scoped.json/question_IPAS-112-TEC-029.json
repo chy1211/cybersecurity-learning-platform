@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "cvss",
+      "type": "tool",
+      "display_name": "CVSS"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "弱點計分",
+      "type": "function",
+      "display_name": "弱點計分"
+    },
+    "reasoning": "根據題幹與正確答案，CVSS (Common Vulnerability Scoring System) 被定義為『弱點計分系統』。在本體論中，CVSS 是一個用於評分標準的工具 (tool)，而『弱點計分』是其執行的核心功能 (function)，因此使用 has_a 關係，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-029",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "CVSS 是一種工具，與 'tool' 類別對齊；弱點計分是功能，與 'function' 類別對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體 CVSS 是 tool，具有主動執行能力，符合規則8 的條件。另外，關係 has_a 不在任何規則中被限制，因此不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 CVSS 與受體 弱點計分 之間的關係是：主體 CVSS 是一個工具，用於評估弱點的嚴重程度，受體 弱點計分 是一個功能，描述了弱點的嚴重程度評估結果，因此兩者之間存在著功能與工具之間的關係，但非同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 CVSS 與受體 弱點計分 之間的關係是功能與工具之間的關係，非同義詞關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CVSS",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "弱點計分",
+        "type": "function"
+      },
+      "reasoning": "根據題幹與正確答案，CVSS (Common Vulnerability Scoring System) 被定義為『弱點計分系統』。在本體論中，CVSS 是一個用於評分標準的工具 (tool)，而『弱點計分』是其執行的核心功能 (function)，因此使用 has_a 關係，符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-029",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "cvss",
+      "type": "tool",
+      "display_name": "CVSS"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "由於 CVSS 的定義是『弱點計分系統』，其運作邏輯必然是透過分析弱點的特徵來給予分數，因此隱含了 CVSS 能夠分析弱點的能力，符合 ('tool', 'can_analyze', 'vulnerability') 的 Schema。",
+    "source_id": "question_IPAS-112-TEC-029",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "CVSS 是一種評估弱點嚴重性的工具，'can_analyze' 關係與 'tool' 類別的 CVSS 實例與 'vulnerability' 類別的弱點實例之間的語意對齊是合理的。",
+        "response": "correct",
+        "reason": "CVSS 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 tool，符合規則3的特例允許，且關係為 can_analyze，受體類別為 vulnerability，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，'漏洞'、'弱點'、'脆弱性' 均指 vulnerability。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "CVSS",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "由於 CVSS 的定義是『弱點計分系統』，其運作邏輯必然是透過分析弱點的特徵來給予分數，因此隱含了 CVSS 能夠分析弱點的能力，符合 ('tool', 'can_analyze', 'vulnerability') 的 Schema。",
+      "source_id": "question_IPAS-112-TEC-029",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

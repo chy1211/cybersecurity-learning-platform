@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "憤怒的員工",
+      "type": "attacker",
+      "display_name": "憤怒的員工"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "本題為否定式提問，正確答案 D（程式瑕疵）是被排除的選項，因此選項 B（憤怒的員工）是成立的正確知識。憤怒的員工屬於內部威脅行為者，對應實體類型為 attacker，而威脅來源的核心特徵是能對系統 (system) 造成危害 (can_harm)。",
+    "source_id": "question_IPAS-111-MGT-005",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "憤怒的員工 是 'attacker' 的合理實例；系統 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "憤怒的員工 can_harm 系統 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "憤怒的員工",
+        "type": "attacker"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "本題為否定式提問，正確答案 D（程式瑕疵）是被排除的選項，因此選項 B（憤怒的員工）是成立的正確知識。憤怒的員工屬於內部威脅行為者，對應實體類型為 attacker，而威脅來源的核心特徵是能對系統 (system) 造成危害 (can_harm)。",
+      "source_id": "question_IPAS-111-MGT-005",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "未經授權存取",
+      "type": "attack",
+      "display_name": "未經授權存取機密資料"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "機密資料",
+      "type": "data",
+      "display_name": "機密資料"
+    },
+    "reasoning": "本題為否定式提問，選項 C（未經授權存取機密資料）是成立的正確知識。雖然題幹將其列為『威脅來源』，但在本體論中，『未經授權存取』是一種具體的惡意行為，應歸類為 attack，其對象並造成損害的是機密資料 (data)。",
+    "source_id": "question_IPAS-111-MGT-005",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'data' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '未經授權存取機密資料' 是 'attack' 的合理實例，受體 '機密資料' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為attack，不是vulnerability。規則4不適用，因為主體類別不是principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「未經授權存取」為完全等價同義詞；受體與 Ldr 中的「機密資料」為完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "未經授權存取",
+        "standard_object": "機密資料",
+        "reason": "主體與受體均為 Ldr 中已有資源的完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "未經授權存取機密資料",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "機密資料",
+        "type": "data"
+      },
+      "reasoning": "本題為否定式提問，選項 C（未經授權存取機密資料）是成立的正確知識。雖然題幹將其列為『威脅來源』，但在本體論中，『未經授權存取』是一種具體的惡意行為，應歸類為 attack，其對象並造成損害的是機密資料 (data)。",
+      "source_id": "question_IPAS-111-MGT-005",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "windows",
+      "type": "system",
+      "display_name": "Windows"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "備份與還原",
+      "type": "technique",
+      "display_name": "備份與還原"
+    },
+    "reasoning": "文本提到 Windows 作業系統提供『備份與還原』選項，將 Windows 視為系統 (system)，備份與還原功能視為其內建的工具 (tool)。符合 Schema: (system, has_a, tool)。",
+    "source_id": "chunk_3",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'Windows' 是 'system' 的合理實例，受體 '備份與還原' 是 'tool' 的合理實例，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 'windows' 完全等價同義詞；受體與 Ldr 中的資源 '備份與還原' 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "windows",
+        "standard_object": "備份與還原",
+        "reason": "主體與受體均與 Ldr 中的資源完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> has_a -> technique (original: system -> has_a -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "Windows",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "備份與還原",
+        "type": "tool"
+      },
+      "reasoning": "文本提到 Windows 作業系統提供『備份與還原』選項，將 Windows 視為系統 (system)，備份與還原功能視為其內建的工具 (tool)。符合 Schema: (system, has_a, tool)。",
+      "source_id": "chunk_3",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 1
+    }
+  }
+]

@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "radius",
+      "type": "tool",
+      "display_name": "RADIUS"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "aaa",
+      "type": "tool",
+      "display_name": "AAA"
+    },
+    "reasoning": "題幹指出 RADIUS 是 AAA 服務的網路傳輸協定。根據本體論，協定屬於 feature，而 AAA 作為一個提供特定安全服務的框架/機制，在此被歸類為 tool，因此使用 is_part_of 描述協定與其對應服務框架的關係。",
+    "source_id": "question_IPAS-108-MGT-031",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'tool' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "RADIUS 是一種 'feature'，AAA 是一種 'tool'，且 RADIUS 可能是 AAA 的一部分，因此語意對齊。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合規則所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "RADIUS 與 Ldr 中的 radius 完全等價同義詞；AAA 與 Ldr 中的 aaa 沒有完全匹配，但 AAA 可能與 Authentication 有關，然而 Authentication 與 Authorization 是不同的概念，因此不應該合併",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "RADIUS 與 radius 完全等價同義詞，但 AAA 與 Authentication 有關，然而 Authentication 與 Authorization 是不同的概念，因此不應該合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RADIUS",
+        "type": "feature"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "AAA",
+        "type": "tool"
+      },
+      "reasoning": "題幹指出 RADIUS 是 AAA 服務的網路傳輸協定。根據本體論，協定屬於 feature，而 AAA 作為一個提供特定安全服務的框架/機制，在此被歸類為 tool，因此使用 is_part_of 描述協定與其對應服務框架的關係。",
+      "source_id": "question_IPAS-108-MGT-031",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "aaa",
+      "type": "tool",
+      "display_name": "AAA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "身分認證",
+      "type": "function",
+      "display_name": "Authentication"
+    },
+    "reasoning": "本題為否定式提問，正確答案 C (Access) 為錯誤選項，因此 A (Authentication) 為正確知識。AAA 框架包含驗證 (Authentication) 功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "question_IPAS-108-MGT-031",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'AAA' 可能是 'tool' 的合理實例，但具體取決於 'AAA' 的具體定義；受體 'Authentication' 是 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "雖然 'AAA' 的具體定義可能需要進一步確認，但整體而言，三元組的類別與屬性是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體 AAA 屬於 tool 類別，符合規則2 和規則8 的允許條件，無明確違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 AAA 與 Ldr 中的 aaa 名稱完全相同，受體 Authentication 與 Ldr 中的 身分認證 名稱具有高相似度且指稱同一概念",
+        "response": "duplicate",
+        "standard_subject": "aaa",
+        "standard_object": "身分認證",
+        "reason": "主體與 Ldr 中的 aaa 名稱完全相同，受體與 Ldr 中的 身分認證 名稱具有高相似度且指稱同一概念，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "AAA",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Authentication",
+        "type": "function"
+      },
+      "reasoning": "本題為否定式提問，正確答案 C (Access) 為錯誤選項，因此 A (Authentication) 為正確知識。AAA 框架包含驗證 (Authentication) 功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "question_IPAS-108-MGT-031",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "aaa",
+      "type": "tool",
+      "display_name": "AAA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "authorization",
+      "type": "function",
+      "display_name": "Authorization"
+    },
+    "reasoning": "本題為否定式提問，正確答案 C (Access) 為錯誤選項，因此 B (Authorization) 為正確知識。AAA 框架包含授權 (Authorization) 功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "question_IPAS-108-MGT-031",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'AAA' 可能是 'tool' 的合理實例，但 'Authorization' 通常被視為 'function' 的合理實例，然而 'Authorization' 也可能是 'tool' 的功能，因此這裡的語意對齊是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 AAA 與 Ldr 中的 aaa 完全等價同義詞；受體 Authorization 與 Ldr 中的 身分認證 不完全等價，但可參考對照表得知 Authentication ≠ Authorization，因此受體不為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的 aaa 完全等價同義詞，但受體與 Ldr 中的 身分認證 不完全等價，且 Authentication ≠ Authorization，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "AAA",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Authorization",
+        "type": "function"
+      },
+      "reasoning": "本題為否定式提問，正確答案 C (Access) 為錯誤選項，因此 B (Authorization) 為正確知識。AAA 框架包含授權 (Authorization) 功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "question_IPAS-108-MGT-031",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "aaa",
+      "type": "tool",
+      "display_name": "AAA"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "accounting",
+      "type": "function",
+      "display_name": "Accounting"
+    },
+    "reasoning": "本題為否定式提問，正確答案 C (Access) 為錯誤選項，因此 D (Accounting) 為正確知識。AAA 框架包含稽核 (Accounting) 功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "question_IPAS-108-MGT-031",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體 'AAA' 可能是工具的名稱，與類別 'tool' 合理對齊；實體 'Accounting' 可能是會計功能，與類別 'function' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體 AAA 屬於 tool 類別，符合規則2 和規則8 的允許條件，無明確違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 AAA 與 Ldr 中的 aaa 名稱完全相同，受體 Accounting 與 Ldr 中沒有完全相同的名稱，但沒有找到任何資安教材中可互換使用的同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 AAA 名稱與 Ldr 中的 aaa 完全相同，但受體 Accounting 沒有找到任何同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "AAA",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Accounting",
+        "type": "function"
+      },
+      "reasoning": "本題為否定式提問，正確答案 C (Access) 為錯誤選項，因此 D (Accounting) 為正確知識。AAA 框架包含稽核 (Accounting) 功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "question_IPAS-108-MGT-031",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

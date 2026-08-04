@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "公司",
+      "type": "securityTeam",
+      "display_name": "企業"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "雲端環境",
+      "type": "system",
+      "display_name": "雲端服務環境"
+    },
+    "reasoning": "文本描述企業在雲端環境中不再擁有基礎設施而必須依賴供應商提供的環境，因此企業（使用者）使用雲端服務環境（系統）。",
+    "source_id": "chunk_6",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "企業是使用者的合理實例，雲端服務環境是系統的合理實例。",
+        "response": "correct",
+        "reason": "企業使用雲端服務環境的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「公司」、「公司或組織」、「a 公司」、「全企業組織」為同義詞；受體與 Ldr 中的「雲端環境」、「雲端服務」、「雲服務」、「雲端運算服務」、「雲端平台」、「雲端運算」、「雲端基礎設施」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "公司",
+        "standard_object": "雲端環境",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): securityTeam -> uses -> system (original: user -> uses -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "企業",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "雲端服務環境",
+        "type": "system"
+      },
+      "reasoning": "文本描述企業在雲端環境中不再擁有基礎設施而必須依賴供應商提供的環境，因此企業（使用者）使用雲端服務環境（系統）。",
+      "source_id": "chunk_6",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 2
+    }
+  }
+]

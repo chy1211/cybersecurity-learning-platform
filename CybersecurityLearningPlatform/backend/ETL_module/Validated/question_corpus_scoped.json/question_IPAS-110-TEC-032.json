@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "備份資料還原測試",
+      "type": "technique",
+      "display_name": "備份資料還原測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "備份資料",
+      "type": "data",
+      "display_name": "副本資料"
+    },
+    "reasoning": "根據正確答案 C，備份資料還原測試是用於確保副本資料正常留存的手段。在本體論中，「備份資料還原測試」是一種驗證流程，屬於 technique；「副本資料」屬於 data。而執行測試的目的在於分析/驗證資料的可用性，因此使用 can_analyze 關係，且符合 Schema Edge 中的 ('technique', 'can_analyze', 'data')。",
+    "source_id": "question_IPAS-110-TEC-032",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '備份資料還原測試' 合理對齊其類別 'technique'，受體名稱 '副本資料' 合理對齊其類別 'data'。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 data，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「備份資料」為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "備份資料",
+        "reason": "受體與 Ldr 中的「備份資料」為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "備份資料還原測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "副本資料",
+        "type": "data"
+      },
+      "reasoning": "根據正確答案 C，備份資料還原測試是用於確保副本資料正常留存的手段。在本體論中，「備份資料還原測試」是一種驗證流程，屬於 technique；「副本資料」屬於 data。而執行測試的目的在於分析/驗證資料的可用性，因此使用 can_analyze 關係，且符合 Schema Edge 中的 ('technique', 'can_analyze', 'data')。",
+      "source_id": "question_IPAS-110-TEC-032",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

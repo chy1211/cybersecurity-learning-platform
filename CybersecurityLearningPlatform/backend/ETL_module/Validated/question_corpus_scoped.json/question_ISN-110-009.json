@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "windows",
+      "type": "system",
+      "display_name": "Windows"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ping",
+      "type": "tool",
+      "display_name": "PING"
+    },
+    "reasoning": "根據選項 D，PING 指令可以在 Windows 電腦上使用，這表示 Windows 系統內建或包含 PING 這個工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
+    "source_id": "question_ISN-110-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'Windows' 是 'system' 的合理實例，受體 'PING' 是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 'windows' 完全等價同義詞；受體與 Ldr 中的資源 'ping' 完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全等價同義詞，但根據判斷準則 1，若 Ldr 中有完全相同的 name，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Windows",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "PING",
+        "type": "tool"
+      },
+      "reasoning": "根據選項 D，PING 指令可以在 Windows 電腦上使用，這表示 Windows 系統內建或包含 PING 這個工具，符合 ('system', 'has_a', 'tool') 的 Schema。",
+      "source_id": "question_ISN-110-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "ping",
+      "type": "tool",
+      "display_name": "PING"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "網路連線狀態",
+      "type": "system",
+      "display_name": "網路連線狀態"
+    },
+    "reasoning": "題幹與選項 C 均提到 PING 指令用於檢測或檢查網路連線狀態。在此將『網路連線狀態』視為網路系統的運作狀態，符合 ('tool', 'can_analyze', 'system') 的 Schema。",
+    "source_id": "question_ISN-110-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "PING 是一種網路工具，合理對齊 'tool' 類別；網路連線狀態是系統的一部分，合理對齊 'system' 類別。",
+        "response": "correct",
+        "reason": "PING 與網路連線狀態的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為tool，而非vulnerability。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。其他規則不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源具有完全等價同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱 'PING' 與 Ldr 中的 'ping' 名稱完全相同，但考慮到資安領域的嚴謹性，仍判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "PING",
+        "type": "tool"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "網路連線狀態",
+        "type": "system"
+      },
+      "reasoning": "題幹與選項 C 均提到 PING 指令用於檢測或檢查網路連線狀態。在此將『網路連線狀態』視為網路系統的運作狀態，符合 ('tool', 'can_analyze', 'system') 的 Schema。",
+      "source_id": "question_ISN-110-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

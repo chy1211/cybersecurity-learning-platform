@@ -1,38 +1,92 @@
 [
   {
     "subject": {
+      "name": "技術型存取控制",
+      "type": "technique",
+      "display_name": "技術型存取控制"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "存取控制技術",
+      "type": "technique",
+      "display_name": "存取控制技術"
+    },
+    "reasoning": "文本將技術型存取控制作為存取控制的一種形式，因此將其定義為 technique 並使用 is_part_of 關係指向總體技術。",
+    "source_id": "chunk_4",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '技術型存取控制' 與類別 'technique' 合理對齊；受體 '存取控制技術' 與類別 'technique' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2_selfloop_reverted": true,
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合規則所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "存取控制技術",
+        "standard_object": "存取控制技術",
+        "reason": "主體與受體為同義詞，參考資安領域已知同義詞對照範例，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "技術型存取控制",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "存取控制技術",
+        "type": "technique"
+      },
+      "reasoning": "文本將技術型存取控制作為存取控制的一種形式，因此將其定義為 technique 並使用 is_part_of 關係指向總體技術。",
+      "source_id": "chunk_4",
+      "source_file": "第09章 存取控制_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
       "name": "管理型存取控制",
       "type": "technique",
       "display_name": "管理型存取控制"
     },
-    "relation": "mitigates",
+    "relation": "is_part_of",
     "object": {
-      "name": "非法存取",
-      "type": "attack",
-      "display_name": "非法存取"
+      "name": "存取控制技術",
+      "type": "technique",
+      "display_name": "存取控制技術"
     },
-    "reasoning": "文本提到管理型存取控制使作業遵循安全政策，其最終目的是防止未經授權的存取，因此將其定義為一種能緩解『非法存取』攻擊的技術。",
+    "reasoning": "文本將管理型存取控制作為存取控制的一種形式，因此將其定義為 technique 並使用 is_part_of 關係指向總體技術。",
     "source_id": "chunk_4",
     "source_file": "第09章 存取控制_e5.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
-        "step_2_alignment_check": "管理型存取控制是 technique 的合理實例，非法存取是 attack 的合理實例，且 'mitigates' 關係在資安領域中是合理的。",
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '管理型存取控制' 是 'technique' 的合理實例，受體 '存取控制技術' 也是 'technique' 的合理實例，兩者之間的關係 'is_part_of' 合理。",
         "response": "correct",
-        "reason": "管理型存取控制與非法存取的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
+      "step_2_selfloop_reverted": true,
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是管理型存取控制（technique），符合規則2的條件，未觸發違規。",
+        "step_1_rule_matching": "無明確匹配的規則，檢查規則1~8皆不觸發。",
         "response": "correct",
-        "reason": "三元組的主體是管理型存取控制（technique），符合規則2的條件，且未發現其他明確且直接的違反項目。"
+        "reason": "三元組不違反任何語義限制清單中的規則，故判定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "管理型存取控制與回復型存取控制、強制型存取控制等是不同的存取控制類型，非法存取與未授權存取、未經授權存取等是相關但不同的攻擊類型",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "無法找到完全等價的同義詞或廣義/狹義從屬關係，故保留原狀。"
+        "granularity_analysis": "主體與 Ldr 中的「存取控制技術」為同義詞重複，受體與 Ldr 中的「存取控制技術」完全相同",
+        "response": "duplicate",
+        "standard_subject": "存取控制技術",
+        "standard_object": "存取控制技術",
+        "reason": "主體與受體均與 Ldr 中的「存取控制技術」完全相同或為同義詞重複"
       }
     },
     "original_raw_triple": {
@@ -40,12 +94,12 @@
         "name": "管理型存取控制",
         "type": "technique"
       },
-      "relation": "mitigates",
+      "relation": "is_part_of",
       "object": {
-        "name": "非法存取",
-        "type": "attack"
+        "name": "存取控制技術",
+        "type": "technique"
       },
-      "reasoning": "文本提到管理型存取控制使作業遵循安全政策，其最終目的是防止未經授權的存取，因此將其定義為一種能緩解『非法存取』攻擊的技術。",
+      "reasoning": "文本將管理型存取控制作為存取控制的一種形式，因此將其定義為 technique 並使用 is_part_of 關係指向總體技術。",
       "source_id": "chunk_4",
       "source_file": "第09章 存取控制_e5.pdf",
       "source_index": 1
@@ -59,32 +113,32 @@
     },
     "relation": "mitigates",
     "object": {
-      "name": "非法存取",
+      "name": "非法存取資源",
       "type": "attack",
-      "display_name": "非法存取"
+      "display_name": "非法存取資源"
     },
-    "reasoning": "文本明確指出技術型存取控制是用於『防止非法存取資源』，符合 technique mitigates attack 的定義。",
+    "reasoning": "文本提到技術型存取控制是用於「防止非法存取資源」，非法存取屬於惡意行為 (attack)，因此使用 mitigates 關係。",
     "source_id": "chunk_4",
     "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 2,
+    "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "技術型存取控制 (technique) 是一種合理的技術類別實例，非法存取 (attack) 是一種合理的攻擊類別實例，'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，與技術型存取控制和非法存取之間的關係語意對齊。",
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '技術型存取控制' 合理對齊其類別 'technique'，受體名稱 '非法存取資源' 合理對齊其類別 'attack'。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是技術型存取控制（technique），符合規則2的條件。其他規則不直接適用於此三元組。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
         "response": "correct",
-        "reason": "三元組的主體和關係符合規則2的允許條件，且未發現其他明確違反的規則。"
+        "reason": "主體為技術型存取控制（technique），符合規則2的條件，允許執行 mitigates 動作。"
       },
       "step_2": {
-        "granularity_analysis": "技術型存取控制與非法存取分別為主體和受體，兩者之間無直接同義詞關係，但皆為資安領域的術語，主體與受體皆與資安相關，且無廣義/狹義從屬關係。",
+        "granularity_analysis": "主體與 Ldr 中的「存取控制技術」、「存取控制」、「技術控制」、「預防型存取控制」、「任意存取控制」、「管理型存取控制」等存在廣義/狹義從屬關係，但無完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "無同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+        "reason": "主體與 Ldr 中的資源存在廣義/狹義從屬關係，無完全等價同義詞，依據判斷準則 3，判定為 correct。"
       }
     },
     "original_raw_triple": {
@@ -94,114 +148,10 @@
       },
       "relation": "mitigates",
       "object": {
-        "name": "非法存取",
+        "name": "非法存取資源",
         "type": "attack"
       },
-      "reasoning": "文本明確指出技術型存取控制是用於『防止非法存取資源』，符合 technique mitigates attack 的定義。",
-      "source_id": "chunk_4",
-      "source_file": "第09章 存取控制_e5.pdf",
-      "source_index": 2
-    }
-  },
-  {
-    "subject": {
-      "name": "實體型存取控制",
-      "type": "technique",
-      "display_name": "實體型存取控制"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "門鎖",
-      "type": "tool",
-      "display_name": "門鎖"
-    },
-    "reasoning": "文本將門鎖列為實體型存取控制的設施例子，因此實體型存取控制（技術）包含門鎖（工具）。",
-    "source_id": "chunk_4",
-    "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 4,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體型存取控制是 technique 的合理實例，門鎖是 tool 的合理實例，且 'has_a' 關係在此語境下合理。",
-        "response": "correct",
-        "reason": "主體、受體與關係皆符合 Lc,p 的規定且語意對齊，故無違反。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
-        "response": "correct",
-        "reason": "三元組（實體型存取控制 has_a 門鎖）未觸發語義限制清單中的任何規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "實體型存取控制與偵查型存取控制、回復型存取控制等為同一類別下的不同實體，鎖與密碼鎖為同一類別下的不同實體",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "實體型存取控制與門鎖無直接同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "實體型存取控制",
-        "type": "technique"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "門鎖",
-        "type": "tool"
-      },
-      "reasoning": "文本將門鎖列為實體型存取控制的設施例子，因此實體型存取控制（技術）包含門鎖（工具）。",
-      "source_id": "chunk_4",
-      "source_file": "第09章 存取控制_e5.pdf",
-      "source_index": 4
-    }
-  },
-  {
-    "subject": {
-      "name": "實體型存取控制",
-      "type": "technique",
-      "display_name": "實體型存取控制"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "非法存取",
-      "type": "attack",
-      "display_name": "非法存取"
-    },
-    "reasoning": "文本提到實體型存取控制採用實體障礙以『防止直接接觸系統或設施』，這屬於防止物理層面的非法存取。",
-    "source_id": "chunk_4",
-    "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 3,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體型存取控制是 technique 的合理實例，非法存取是 attack 的合理實例，且 'mitigates' 是合理的關係描述。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則2：主體為 technique 時才可執行 mitigates 動作，該三元組的主體是實體型存取控制（technique），符合規則2的條件。其他規則不直接適用於此三元組。",
-        "response": "correct",
-        "reason": "三元組的主體是實體型存取控制（technique），符合規則2的條件，且未發現其他明確違反的規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "實體型存取控制與偵查型存取控制、回復型存取控制等相似，但非完全等價同義詞；非法存取為完全匹配",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "非法存取",
-        "reason": "根據同義詞判定，非法存取為完全匹配，但實體型存取控制與其他存取控制類型不完全等價，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "實體型存取控制",
-        "type": "technique"
-      },
-      "relation": "mitigates",
-      "object": {
-        "name": "非法存取",
-        "type": "attack"
-      },
-      "reasoning": "文本提到實體型存取控制採用實體障礙以『防止直接接觸系統或設施』，這屬於防止物理層面的非法存取。",
+      "reasoning": "文本提到技術型存取控制是用於「防止非法存取資源」，非法存取屬於惡意行為 (attack)，因此使用 mitigates 關係。",
       "source_id": "chunk_4",
       "source_file": "第09章 存取控制_e5.pdf",
       "source_index": 3
@@ -215,32 +165,32 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "機房安全門",
+      "name": "圍牆",
       "type": "tool",
-      "display_name": "機房安全門"
+      "display_name": "圍牆"
     },
-    "reasoning": "圖 9-13 提到機房安全門，且其屬於實體型存取控制的具體實作工具。",
+    "reasoning": "文本將圍牆列為實體型存取控制的具體設施/手段，符合 (technique, has_a, tool) 的 Schema。",
     "source_id": "chunk_4",
     "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 5,
+    "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "實體型存取控制是 technique 的合理實例，機房安全門是 tool 的合理實例。",
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體型存取控制是 'technique' 的合理實例，圍牆是 'tool' 的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 不在語義限制清單中被明確限制，因此無法判定為違規。"
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "實體型存取控制與現有近似資源清單中的實體型存取控制完全相同，屬於同一概念。",
+        "granularity_analysis": "實體型存取控制與存取控制之間存在廣義/狹義從屬關係，但實體型存取控制與Ldr中的其他資源之間沒有完全等價同義詞關係。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "實體型存取控制的名稱與現有近似資源清單中的實體型存取控制完全匹配，直接判定為正確。"
+        "reason": "實體型存取控制是存取控制的一種子類型，因此不應合併。"
       }
     },
     "original_raw_triple": {
@@ -250,62 +200,10 @@
       },
       "relation": "has_a",
       "object": {
-        "name": "機房安全門",
+        "name": "圍牆",
         "type": "tool"
       },
-      "reasoning": "圖 9-13 提到機房安全門，且其屬於實體型存取控制的具體實作工具。",
-      "source_id": "chunk_4",
-      "source_file": "第09章 存取控制_e5.pdf",
-      "source_index": 5
-    }
-  },
-  {
-    "subject": {
-      "name": "技術型存取控制",
-      "type": "technique",
-      "display_name": "技術型存取控制"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "密碼登入系統",
-      "type": "tool",
-      "display_name": "密碼登入系統"
-    },
-    "reasoning": "圖 9-12 提到密碼登入系統，這是一種邏輯性技術（技術型存取控制）所使用的具體工具。",
-    "source_id": "chunk_4",
-    "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 6,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "技術型存取控制 (technique) 與 密碼登入系統 (tool) 的名稱與其類別合理對齊，且 'has_a' 關係在資安領域中合理適用。",
-        "response": "correct",
-        "reason": "技術型存取控制與密碼登入系統的三元組完全符合預先定義的類別與屬性清單。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
-        "response": "correct",
-        "reason": "三元組中的關係 'has_a' 不在語義限制清單中被明確限制，且主體和受體的類別組合在給定的規則中沒有被指出為違規。"
-      },
-      "step_2": {
-        "granularity_analysis": "完全等價同義詞不存在，但主體與受體皆在 Ldr 中找到完全匹配的實體",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體與受體皆在 Ldr 中找到完全匹配的實體，無同義詞重複，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "技術型存取控制",
-        "type": "technique"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "密碼登入系統",
-        "type": "tool"
-      },
-      "reasoning": "圖 9-12 提到密碼登入系統，這是一種邏輯性技術（技術型存取控制）所使用的具體工具。",
+      "reasoning": "文本將圍牆列為實體型存取控制的具體設施/手段，符合 (technique, has_a, tool) 的 Schema。",
       "source_id": "chunk_4",
       "source_file": "第09章 存取控制_e5.pdf",
       "source_index": 6
@@ -313,112 +211,61 @@
   },
   {
     "subject": {
-      "name": "強制型存取控制",
+      "name": "實體型存取控制",
       "type": "technique",
-      "display_name": "強制型存取控制"
+      "display_name": "實體型存取控制"
     },
-    "relation": "can_analyze",
+    "relation": "is_part_of",
     "object": {
-      "name": "分類標籤",
-      "type": "data",
-      "display_name": "分類標籤"
+      "name": "存取控制技術",
+      "type": "technique",
+      "display_name": "存取控制技術"
     },
-    "reasoning": "強制型存取控制是依照主體與客體的分類標籤（Label）來給予權限，標籤在此視為資料的屬性資訊，因此技術在分析這些資料標籤。",
+    "reasoning": "文本將實體型存取控制作為存取控制的一種形式，因此將其定義為 technique 並使用 is_part_of 關係指向總體技術。",
     "source_id": "chunk_4",
     "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 9,
+    "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "強制型存取控制是 'technique' 的合理實例，分類標籤是 'data' 的合理實例，且 'can_analyze' 是一個合理的關係。",
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "實體型存取控制是存取控制技術的合理實例，語意對齊正常。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "實體型存取控制與存取控制技術的類別與屬性完全符合預先定義的清單，且語意對齊正常。"
       },
+      "step_2_selfloop_reverted": true,
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。無直接相關規則觸發違規。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
         "response": "correct",
-        "reason": "三元組中的主體（強制型存取控制）與受體（分類標籤）之間的關係（can_analyze）未觸發語義限制清單中的任何規則，故判定為正確。"
+        "reason": "主體為 technique，關係為 is_part_of，受體為 technique，未發現明確且直接的違反項目。"
       },
       "step_2": {
-        "granularity_analysis": "完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
+        "granularity_analysis": "主體與 Ldr 中的「存取控制技術」為同義詞重複",
+        "response": "duplicate",
+        "standard_subject": "存取控制技術",
+        "standard_object": "存取控制技術",
+        "reason": "主體與受體均為存取控制技術的同義詞重複"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "強制型存取控制",
+        "name": "實體型存取控制",
         "type": "technique"
       },
-      "relation": "can_analyze",
+      "relation": "is_part_of",
       "object": {
-        "name": "分類標籤",
-        "type": "data"
-      },
-      "reasoning": "強制型存取控制是依照主體與客體的分類標籤（Label）來給予權限，標籤在此視為資料的屬性資訊，因此技術在分析這些資料標籤。",
-      "source_id": "chunk_4",
-      "source_file": "第09章 存取控制_e5.pdf",
-      "source_index": 9
-    }
-  },
-  {
-    "subject": {
-      "name": "任意型存取控制",
-      "type": "technique",
-      "display_name": "任意型存取控制"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "檔案",
-      "type": "data",
-      "display_name": "檔案"
-    },
-    "reasoning": "文本以檔案為例，說明任意型存取控制如何根據使用者帳號分析並給予讀取、寫入等權限，符合 technique can_analyze data。",
-    "source_id": "chunk_4",
-    "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 8,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "主體 '任意型存取控制' 是 'technique' 的合理實例，受體 '檔案' 是 'data' 的合理實例，且 'can_analyze' 是合理的關係。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則，發現規則3不適用，因為主體類別是technique，不是vulnerability。其他規則也均不適用。",
-        "response": "correct",
-        "reason": "三元組中的主體是任意型存取控制，關係是can_analyze，受體是檔案，沒有違反任何語義限制清單中的規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體 \"任意型存取控制\" 與 Ldr 中的 \"強制型存取控制\"、\"實體型存取控制\" 等類似，但無完全匹配的同義詞；受體 \"檔案\" 完全匹配 Ldr 中的 \"檔案\"，為完全等價同義詞。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "檔案",
-        "reason": "根據同義詞判定準則，受體 \"檔案\" 與 Ldr 中的 \"檔案\" 完全匹配，故判定為同義詞重複；主體 \"任意型存取控制\" 無完全匹配的同義詞，保留原狀。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "任意型存取控制",
+        "name": "存取控制技術",
         "type": "technique"
       },
-      "relation": "can_analyze",
-      "object": {
-        "name": "檔案",
-        "type": "data"
-      },
-      "reasoning": "文本以檔案為例，說明任意型存取控制如何根據使用者帳號分析並給予讀取、寫入等權限，符合 technique can_analyze data。",
+      "reasoning": "文本將實體型存取控制作為存取控制的一種形式，因此將其定義為 technique 並使用 is_part_of 關係指向總體技術。",
       "source_id": "chunk_4",
       "source_file": "第09章 存取控制_e5.pdf",
-      "source_index": 8
+      "source_index": 4
     }
   },
   {
     "subject": {
       "name": "管理者",
-      "type": "user",
+      "type": "securityTeam",
       "display_name": "管理者"
     },
     "relation": "controls",
@@ -427,28 +274,28 @@
       "type": "system",
       "display_name": "系統資源"
     },
-    "reasoning": "文本提到『權限之控管掌握在管理者』且技術型存取控制是用以『管理系統資源』，因此管理者對系統資源具有控制權。",
+    "reasoning": "文本提到「權限之控管掌握在管理者」，管理者在此扮演資安管理角色 (securityTeam)，對系統資源進行控制。",
     "source_id": "chunk_4",
     "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 7,
+    "source_index": 8,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體 '管理者' 的名稱與其類別 'securityTeam' 合理對齊，實體 '系統資源' 的名稱與其類別 'system' 也合理對齊。",
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '管理者' 是 'securityTeam' 的合理實例，實體名稱 '系統資源' 是 'system' 的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為三元組中的關係是controls，而規則2是針對mitigates動作。規則3不適用，因為三元組中的主體類別是user，而規則3是針對vulnerability。規則4不適用，因為三元組中的關係是controls，而規則4是針對principle。規則5不適用，因為三元組中的關係是controls，而規則5是針對uses。規則6不適用，因為三元組中的關係是controls，而規則6是針對deployed_in。規則7不適用，因為三元組中的關係是controls，而規則7是針對generates。規則8適用，因為三元組中的關係是controls，且主體是管理者，受體是系統資源，符合規則8的允許條件。",
+        "step_1_rule_matching": "規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
         "response": "correct",
-        "reason": "三元組中的主體是管理者，關係是controls，受體是系統資源，符合規則8的允許條件，且未發現其他明確且直接的違反項目。"
+        "reason": "主體為管理者 (類別: securityTeam)，符合規則8所允許的條件，代表合法。"
       },
       "step_2": {
-        "granularity_analysis": "管理者與系統資源分別與Ldr中的管理者和系統有完全相符的關係，且無同義詞重複",
+        "granularity_analysis": "主體與 Ldr 中的「管理者」、「管理人員」、「系統管理者」為同義詞；受體與 Ldr 中的「系統」、「資通系統」為同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認和同義詞判定，管理者和系統資源與Ldr中的管理者和系統完全相符，無同義詞重複。"
+        "reason": "雖然主體與受體在 Ldr 中有相似的資源，但根據資安領域已知同義詞對照範例與禁止合併的母類/子類與易混淆概念範例，「管理者」與「系統」不應合併為同一實體。"
       }
     },
     "original_raw_triple": {
@@ -461,7 +308,59 @@
         "name": "系統資源",
         "type": "system"
       },
-      "reasoning": "文本提到『權限之控管掌握在管理者』且技術型存取控制是用以『管理系統資源』，因此管理者對系統資源具有控制權。",
+      "reasoning": "文本提到「權限之控管掌握在管理者」，管理者在此扮演資安管理角色 (securityTeam)，對系統資源進行控制。",
+      "source_id": "chunk_4",
+      "source_file": "第09章 存取控制_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "任意存取控制",
+      "type": "technique",
+      "display_name": "任意型存取控制"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "存取控制技術",
+      "type": "technique",
+      "display_name": "存取控制技術"
+    },
+    "reasoning": "任意型存取控制是存取控制技術中的一種具體實現方式。",
+    "source_id": "chunk_4",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '任意型存取控制' 是 'technique' 的合理實例，受體 '存取控制技術' 也是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "無明確規則限制主體為 technique 時不可執行 is_part_of 動作；無明確規則限制受體為 technique 時不可作為 is_part_of 的受體；無明確規則限制主體與受體的類別組合（technique-technique）不可執行 is_part_of 動作。",
+        "response": "correct",
+        "reason": "無明確規則限制此三元組的組合，故無法判定違規；無罪推定原則下，判定為合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「任意存取控制」為完全等價同義詞；受體與 Ldr 中的「存取控制技術」為同義詞重複。",
+        "response": "duplicate",
+        "standard_subject": "任意存取控制",
+        "standard_object": "存取控制技術",
+        "reason": "主體與受體均與 Ldr 中的資源為同義詞重複，應合併為相同的實體。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "任意型存取控制",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "存取控制技術",
+        "type": "technique"
+      },
+      "reasoning": "任意型存取控制是存取控制技術中的一種具體實現方式。",
       "source_id": "chunk_4",
       "source_file": "第09章 存取控制_e5.pdf",
       "source_index": 7
@@ -469,54 +368,210 @@
   },
   {
     "subject": {
-      "name": "資訊安全政策",
-      "type": "policy",
-      "display_name": "資訊安全政策"
+      "name": "強制存取控制",
+      "type": "technique",
+      "display_name": "強制型存取控制"
     },
-    "relation": "mitigates",
+    "relation": "is_part_of",
     "object": {
-      "name": "非法存取",
-      "type": "attack",
-      "display_name": "非法存取"
+      "name": "存取控制技術",
+      "type": "technique",
+      "display_name": "存取控制技術"
     },
-    "reasoning": "文本提到安全領域（MAC 的基礎）是為了執行一項安全政策，而這些政策的最終目的是防止非法存取。",
+    "reasoning": "強制型存取控制是存取控制技術中的一種具體實現方式。",
+    "source_id": "chunk_4",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '強制型存取控制' 是 'technique' 的合理實例，受體 '存取控制技術' 也是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "無明確規則限制主體為 technique 時不可執行 is_part_of 動作，且無規則限制受體為 technique 時不可作為 is_part_of 的受體。",
+        "response": "correct",
+        "reason": "無法在語義限制清單中找到相關規則限制此三元組的組合，故無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「強制存取控制」完全等價同義詞；受體與 Ldr 中的「存取控制技術」完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "強制存取控制",
+        "standard_object": "存取控制技術",
+        "reason": "主體與受體均為資安領域已知同義詞對照範例中的同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "強制型存取控制",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "存取控制技術",
+        "type": "technique"
+      },
+      "reasoning": "強制型存取控制是存取控制技術中的一種具體實現方式。",
+      "source_id": "chunk_4",
+      "source_file": "第09章 存取控制_e5.pdf",
+      "source_index": 9
+    }
+  },
+  {
+    "subject": {
+      "name": "強制存取控制 (mac)",
+      "type": "technique",
+      "display_name": "強制型存取控制"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "分類標籤",
+      "type": "data",
+      "display_name": "分類標籤"
+    },
+    "reasoning": "強制型存取控制依賴於對主體與客體之分類標籤 (classification label) 的分析來給予權限，標籤屬於 data。",
     "source_id": "chunk_4",
     "source_file": "第09章 存取控制_e5.pdf",
     "source_index": 10,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'attack' 與關係 'mitigates' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "資訊安全政策 (policy) 是一種合理的政策實例，非法存取 (attack) 是一種合理的攻擊實例，'mitigates' 關係在資安領域中指的是減輕或緩解攻擊的影響，與政策與攻擊之間的關係相符。",
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '強制型存取控制' 是 'technique' 的合理實例；受體 '分類標籤' 是 'data' 的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。該三元組的主體是資訊安全政策（policy），符合規則2的條件，沒有觸發違規。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組的主體是資訊安全政策，符合規則2的條件，且未發現其他明確且直接的違反項目。"
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 data，未發現明確且直接的違反項目。"
       },
       "step_2": {
-        "granularity_analysis": "主體 '資訊安全政策' 與 Ldr 中的 '安全政策' 和 '安全管理政策' 皆有相似性，但 '資訊安全政策' 與 '安全政策' 的相似度最高，受體 '非法存取' 與 Ldr 中的 '非法存取' 完全匹配，且 '非法存取' 的同義詞包括 '未授權存取' 和 '未經授權存取' 等，但這些同義詞不會改變判定結果。",
-        "response": "correct",
-        "standard_subject": "",
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "強制存取控制 (mac)",
         "standard_object": "",
-        "reason": "根據判斷準則，主體和受體皆不完全符合同義詞對照範例，且無法確認為 duplicate，因此預設為 correct。"
+        "reason": "根據資安領域已知同義詞對照範例，判定為 duplicate。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "資訊安全政策",
-        "type": "policy"
+        "name": "強制型存取控制",
+        "type": "technique"
       },
-      "relation": "mitigates",
+      "relation": "can_analyze",
       "object": {
-        "name": "非法存取",
-        "type": "attack"
+        "name": "分類標籤",
+        "type": "data"
       },
-      "reasoning": "文本提到安全領域（MAC 的基礎）是為了執行一項安全政策，而這些政策的最終目的是防止非法存取。",
+      "reasoning": "強制型存取控制依賴於對主體與客體之分類標籤 (classification label) 的分析來給予權限，標籤屬於 data。",
       "source_id": "chunk_4",
       "source_file": "第09章 存取控制_e5.pdf",
       "source_index": 10
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼登入系統",
+      "type": "tool",
+      "display_name": "密碼登入系統"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "密碼登入系統是一個具體的安全工具，部署於整體系統之中。",
+    "source_id": "chunk_4",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '密碼登入系統' 可被視為 'tool' 的合理實例；受體名稱 '系統' 可被視為 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 不符合規則6的觸發條件，且其他規則均不適用。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「密碼登入系統」完全等價同義詞；受體與 Ldr 中的「系統」廣義/狹義從屬關係，但不應合併",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全相同，受體與 Ldr 中的資源雖然相關但不應合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼登入系統",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "密碼登入系統是一個具體的安全工具，部署於整體系統之中。",
+      "source_id": "chunk_4",
+      "source_file": "第09章 存取控制_e5.pdf",
+      "source_index": 11
+    }
+  },
+  {
+    "subject": {
+      "name": "機房安全門",
+      "type": "tool",
+      "display_name": "機房安全門"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "機房安全門是實體安全工具，屬於基礎設施系統的一部分。",
+    "source_id": "chunk_4",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 12,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "機房安全門是工具的合理實例，系統是系統的合理實例。",
+        "response": "correct",
+        "reason": "機房安全門作為工具是系統的一部分，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2不適用，因為動作不是mitigates；規則3不適用，因為主體類別不是vulnerability；規則4不適用，因為主體類別不是principle；規則5不適用，因為關係不是uses或主體類別不是data；規則6不適用，因為關係不是deployed_in；規則7不適用，因為關係不是generates；規則8不適用，因為關係不是controls；規則1不適用，因為主體類別不是attacker或securityTeam；",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱與 Ldr 中的資源名稱完全相同，無需進行合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "機房安全門",
+        "type": "tool"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "機房安全門是實體安全工具，屬於基礎設施系統的一部分。",
+      "source_id": "chunk_4",
+      "source_file": "第09章 存取控制_e5.pdf",
+      "source_index": 12
     }
   }
 ]

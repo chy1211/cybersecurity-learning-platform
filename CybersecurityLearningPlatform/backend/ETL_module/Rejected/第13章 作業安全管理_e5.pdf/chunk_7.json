@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "資產管理",
+      "type": "technique",
+      "display_name": "資產管理"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "企業風險",
+      "type": "risk",
+      "display_name": "企業風險"
+    },
+    "reasoning": "文本明確指出「有效的資產管理可以...減少企業風險」，因此將資產管理視為一種管理策略 (policy) 用以緩解風險。",
+    "source_id": "chunk_7",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資產管理是政策的合理實例，企業風險是風險的合理實例，'mitigates' 的語意與資產管理與企業風險之間的關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源「資產管理」完全相同，受體與 Ldr 中的資源「企業風險」相似度達 0.902，屬於同義詞範圍。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然受體與 Ldr 中的資源「企業風險」相似，但根據資安領域已知同義詞對照範例，「企業風險」與「風險」不被視為完全相同的概念，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> mitigates -> risk (original: policy -> mitigates -> risk)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產管理",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "企業風險",
+        "type": "risk"
+      },
+      "reasoning": "文本明確指出「有效的資產管理可以...減少企業風險」，因此將資產管理視為一種管理策略 (policy) 用以緩解風險。",
+      "source_id": "chunk_7",
+      "source_file": "第13章 作業安全管理_e5.pdf",
+      "source_index": 6
+    }
+  }
+]

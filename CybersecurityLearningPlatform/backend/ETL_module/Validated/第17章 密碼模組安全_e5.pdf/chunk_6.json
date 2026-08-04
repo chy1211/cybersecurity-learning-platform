@@ -1,58 +1,6 @@
 [
   {
     "subject": {
-      "name": "密碼模組",
-      "type": "tool",
-      "display_name": "密碼模組"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "密碼金鑰保護",
-      "type": "function",
-      "display_name": "密碼金鑰保護"
-    },
-    "reasoning": "文本提到密碼模組主要用於保護密碼金鑰。在本體論中，密碼模組作為一種安全工具 (tool)，其保護金鑰的能力屬於其功能 (function)。",
-    "source_id": "chunk_6",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 1,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "密碼模組 (tool) 與 密碼金鑰保護 (function) 的名稱與其類別合理對齊，符合語意與同義詞寬容原則。",
-        "response": "correct",
-        "reason": "密碼模組與密碼金鑰保護的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
-        "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與給定的語義限制清單中沒有直接相關的規則，因此無法判定為違規。"
-      },
-      "step_2": {
-        "granularity_analysis": "密碼模組與密碼金鑰保護之間的關係是密碼模組提供密碼金鑰保護的功能，兩者在資安領域中有密切的關聯，但不是完全等價的同義詞。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【廣義/狹義一律保留】的判斷準則，密碼模組是工具，密碼金鑰保護是功能，兩者之間存在著從屬關係，因此判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "密碼模組",
-        "type": "tool"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "密碼金鑰保護",
-        "type": "function"
-      },
-      "reasoning": "文本提到密碼模組主要用於保護密碼金鑰。在本體論中，密碼模組作為一種安全工具 (tool)，其保護金鑰的能力屬於其功能 (function)。",
-      "source_id": "chunk_6",
-      "source_file": "第17章 密碼模組安全_e5.pdf",
-      "source_index": 1
-    }
-  },
-  {
-    "subject": {
       "name": "檢測實驗室",
       "type": "securityTeam",
       "display_name": "檢測實驗室"
@@ -60,31 +8,31 @@
     "relation": "can_analyze",
     "object": {
       "name": "密碼模組",
-      "type": "tool",
+      "type": "system",
       "display_name": "密碼模組"
     },
-    "reasoning": "文本說明檢測實驗室負責進行密碼模組的檢測業務。這符合安全團隊 (securityTeam) 分析 (can_analyze) 系統 (system) 的定義。",
+    "reasoning": "文本指出檢測實驗室負責『進行檢測密碼模組的相關業務』，這是一種分析與評估行為，符合 ('securityTeam', 'can_analyze', 'system') 的 Schema。",
     "source_id": "chunk_6",
     "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 3,
+    "source_index": 2,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
-        "step_2_alignment_check": "檢測實驗室 (securityTeam) 與 密碼模組 (system) 的名稱與其類別合理對齊，'can_analyze' 關係在資安領域中是合理的。",
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "檢測實驗室 (securityTeam) 與 密碼模組 (system) 的名稱與其類別合理對齊，符合語意。",
         "response": "correct",
-        "reason": "檢查實驗室可以分析密碼模組的三元組完全符合預先定義的類別與屬性清單。"
+        "reason": "檢測實驗室可以分析密碼模組的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：主體為 securityTeam，具有主動執行能力，符合 controls 的主體條件，但本三元組的關係為 can_analyze，不違反規則8。",
+        "step_1_rule_matching": "規則3不適用，因為主體類別為securityTeam，而規則3只檢查主體類別為vulnerability。規則8不適用，因為關係不是controls。其他規則不適用，因為不符合規則的條件。",
         "response": "correct",
-        "reason": "三元組中的主體為檢測實驗室（securityTeam），關係為 can_analyze，受體為密碼模組（tool），此組合未直接違反任何語義限制清單中的規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
       },
       "step_2": {
-        "granularity_analysis": "檢測實驗室與 Ldr 中的檢測實驗室完全相同，密碼模組與 Ldr 中的密碼模組完全相同，兩者皆無需進一步分析。",
+        "granularity_analysis": "檢測實驗室與檢測實驗室完全等價同義詞；密碼模組與密碼模組完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "主體與受體皆與 Ldr 中的資源完全匹配，無同義詞重複情況。"
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
@@ -97,59 +45,7 @@
         "name": "密碼模組",
         "type": "system"
       },
-      "reasoning": "文本說明檢測實驗室負責進行密碼模組的檢測業務。這符合安全團隊 (securityTeam) 分析 (can_analyze) 系統 (system) 的定義。",
-      "source_id": "chunk_6",
-      "source_file": "第17章 密碼模組安全_e5.pdf",
-      "source_index": 3
-    }
-  },
-  {
-    "subject": {
-      "name": "密碼模組",
-      "type": "tool",
-      "display_name": "密碼模組"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "重要參數 csp",
-      "type": "data",
-      "display_name": "重要參數 CSP"
-    },
-    "reasoning": "文本指出密碼模組用於儲存與使用重要參數 (CSP)。根據 Schema，系統 (system) 可以使用 (uses) 資料 (data)。",
-    "source_id": "chunk_6",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 2,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "密碼模組 (password module) 可被視為系統 (system) 的一部分，重要參數 CSP (critical security parameter) 可被視為資料 (data) 的一種，'uses' 關係在資安領域中是合理的，例如系統使用資料。",
-        "response": "correct",
-        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊的身分。規則2不適用，因為動作是uses，而非mitigates。規則3不適用，因為主體類別是tool，而非vulnerability。規則4不適用，因為主體類別是tool，而非principle。規則5觸發，因為關係是uses且主體類別是tool，但規則5指出當關係為uses時，如果主體的類別是data，則為違反；然而，這裡的主體是tool，受體是data，所以不觸發規則5的違反條件。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
-        "response": "correct",
-        "reason": "三元組中的主體是tool，關係是uses，受體是data，沒有觸發語義限制清單中的任何違反規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體與受體皆無同義詞重複，且無廣義/狹義從屬關係，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "密碼模組",
-        "type": "system"
-      },
-      "relation": "uses",
-      "object": {
-        "name": "重要參數 CSP",
-        "type": "data"
-      },
-      "reasoning": "文本指出密碼模組用於儲存與使用重要參數 (CSP)。根據 Schema，系統 (system) 可以使用 (uses) 資料 (data)。",
+      "reasoning": "文本指出檢測實驗室負責『進行檢測密碼模組的相關業務』，這是一種分析與評估行為，符合 ('securityTeam', 'can_analyze', 'system') 的 Schema。",
       "source_id": "chunk_6",
       "source_file": "第17章 密碼模組安全_e5.pdf",
       "source_index": 2
@@ -167,28 +63,28 @@
       "type": "data",
       "display_name": "檢測結果報告"
     },
-    "reasoning": "文本提到檢測結果報告送交 NIST 審驗。NIST 作為安全管理組織 (securityTeam)，對報告 (data) 進行分析審核。",
+    "reasoning": "文本提到檢測結果報告送交 NIST 『審驗合格後』，審驗過程即為分析資料，符合 ('securityTeam', 'can_analyze', 'data') 的 Schema。",
     "source_id": "chunk_6",
     "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 5,
+    "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "NIST 是一個安全團隊的合理實例，'檢測結果報告' 是資料的合理實例，'can_analyze' 關係在安全團隊與資料之間是合理的。",
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "NIST 是資安領域的知名組織，故 'NIST' 可以被視為 'securityTeam' 的合理實例；'檢測結果報告' 可以被視為 'data' 的合理實例。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用，因為主體是安全團隊（securityTeam），而非攻擊者（attacker）。檢查規則2：不適用，因為關係是 can_analyze，而非 mitigates。檢查規則3：不適用，因為主體類別是安全團隊（securityTeam），而非漏洞（vulnerability）。檢查規則4：不適用，因為關係是 can_analyze，而非 violates。檢查規則5：不適用，因為主體類別是安全團隊（securityTeam），而非資料（data）。檢查規則6：不適用，因為關係是 can_analyze，而非 deployed_in。檢查規則7：不適用，因為關係是 can_analyze，而非 generates。檢查規則8：不適用，因為關係是 can_analyze，而非 controls。由於沒有規則被觸發，三元組不違反任何規則。",
+        "step_1_rule_matching": "規則3不適用，因為主體類別是securityTeam，而非vulnerability。規則8不適用，因為關係不是controls。其他規則均不適用，因為不符合規則的條件。",
         "response": "correct",
-        "reason": "三元組中的主體（NIST）是安全團隊（securityTeam），可以執行分析（can_analyze）動作，且受體（檢測結果報告）是資料（data），符合語義限制清單中的規則。因此，三元組不違反任何規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
       },
       "step_2": {
-        "granularity_analysis": "主體 NIST 與 Ldr 中的 nist 完全等價，受體 檢測結果報告 與 Ldr 中的 測試報告 相似但不完全等價",
+        "granularity_analysis": "主體與 Ldr 中的「nist」完全等價同義詞；受體與 Ldr 中的「測試報告」具有高度相似性，但非完全等價同義詞。",
         "response": "correct",
-        "standard_subject": "nist",
+        "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認，主體 NIST 與 Ldr 中的 nist 完全等價，受體 檢測結果報告 與 Ldr 中的 測試報告 不完全等價，無法判定為同義詞重複。"
+        "reason": "主體與 Ldr 中的「nist」完全等價同義詞，但受體與 Ldr 中的「測試報告」不完全相符，故判定為 correct。"
       }
     },
     "original_raw_triple": {
@@ -201,10 +97,10 @@
         "name": "檢測結果報告",
         "type": "data"
       },
-      "reasoning": "文本提到檢測結果報告送交 NIST 審驗。NIST 作為安全管理組織 (securityTeam)，對報告 (data) 進行分析審核。",
+      "reasoning": "文本提到檢測結果報告送交 NIST 『審驗合格後』，審驗過程即為分析資料，符合 ('securityTeam', 'can_analyze', 'data') 的 Schema。",
       "source_id": "chunk_6",
       "source_file": "第17章 密碼模組安全_e5.pdf",
-      "source_index": 5
+      "source_index": 3
     }
   },
   {
@@ -213,34 +109,34 @@
       "type": "securityTeam",
       "display_name": "檢測實驗室"
     },
-    "relation": "implements",
+    "relation": "uses",
     "object": {
-      "name": "fips 140",
-      "type": "policy",
-      "display_name": "FIPS 140"
+      "name": "符合性測試",
+      "type": "technique",
+      "display_name": "符合性測試"
     },
-    "reasoning": "檢測實驗室依據 FIPS 140 的規範需求進行檢測，即實作 (implements) 該安全規範 (policy)。",
+    "reasoning": "文本提到對密碼模組做『符合性測試』，這是檢測實驗室採用的具體技術手段，符合 ('securityTeam', 'uses', 'technique') 的 Schema。",
     "source_id": "chunk_6",
     "source_file": "第17章 密碼模組安全_e5.pdf",
     "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "檢測實驗室 (securityTeam) 實施 FIPS 140 (policy) 的情境下，'檢測實驗室' 是 'securityTeam' 的合理實例，'FIPS 140' 是 'policy' 的合理實例。",
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "檢測實驗室 (securityTeam) 使用 符合性測試 (technique) 合理對齊，符合語意與實例關係。",
         "response": "correct",
-        "reason": "檢測實驗室實施 FIPS 140 的三元組完全符合預先定義的類別與屬性清單。"
+        "reason": "檢測實驗室使用符合性測試的三元組完全符合預先定義的類別與屬性清單。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者身份。檢查規則2：不適用，因為動作是 implements，而非 mitigates。檢查規則3：不適用，因為主體類別是 securityTeam，而非 vulnerability。檢查規則4：不適用，因為關係是 implements，而非 violates。檢查規則5：不適用，因為關係是 implements，而非 uses。檢查規則6：不適用，因為關係是 implements，而非 deployed_in。檢查規則7：不適用，因為關係是 implements，而非 generates。檢查規則8：不適用，因為關係是 implements，而非 controls。",
+        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
         "response": "correct",
-        "reason": "三元組中的主體是檢測實驗室（securityTeam），關係是 implements，受體是 FIPS 140（policy），這符合一般的資安實踐和政策實施邏輯，沒有違反任何給定的語義限制規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
       },
       "step_2": {
-        "granularity_analysis": "檢測實驗室與 Ldr 中的檢測實驗室完全相同，FIPS 140 與 Ldr 中的 fips 140 完全相同，兩者皆為完全等價同義詞。",
+        "granularity_analysis": "檢測實驗室與 Ldr 中的檢測實驗室完全等價同義詞；符合性測試與 Ldr 中的 fips 符合性測試、測試、驗收測試之間存在狹義/廣義從屬關係，但無法確定完全等價同義詞關係。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+        "reason": "無法確定完全等價同義詞關係，預設保留原實體名稱。"
       }
     },
     "original_raw_triple": {
@@ -248,67 +144,15 @@
         "name": "檢測實驗室",
         "type": "securityTeam"
       },
-      "relation": "implements",
+      "relation": "uses",
       "object": {
-        "name": "FIPS 140",
-        "type": "policy"
+        "name": "符合性測試",
+        "type": "technique"
       },
-      "reasoning": "檢測實驗室依據 FIPS 140 的規範需求進行檢測，即實作 (implements) 該安全規範 (policy)。",
+      "reasoning": "文本提到對密碼模組做『符合性測試』，這是檢測實驗室採用的具體技術手段，符合 ('securityTeam', 'uses', 'technique') 的 Schema。",
       "source_id": "chunk_6",
       "source_file": "第17章 密碼模組安全_e5.pdf",
       "source_index": 4
-    }
-  },
-  {
-    "subject": {
-      "name": "弱點評估",
-      "type": "technique",
-      "display_name": "弱點評估"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "密碼模組",
-      "type": "tool",
-      "display_name": "密碼模組"
-    },
-    "reasoning": "文本提到對密碼模組進行弱點評估。弱點評估是一種技術 (technique)，用於分析 (can_analyze) 系統 (system) 的缺陷。",
-    "source_id": "chunk_6",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 6,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體 '弱點評估' 的名稱與其類別 'technique' 合理對齊，實體 '密碼模組' 的名稱與其類別 'system' 也合理對齊，考慮到資安領域的同義詞、縮寫與翻譯。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用，因為主體類別是technique。檢查規則4：不適用。檢查規則5：不適用，因為關係不是uses。檢查規則6：不適用，因為關係不是deployed_in。檢查規則7：不適用，因為關係不是generates。檢查規則8：不適用，因為關係不是controls。由於三元組中的關係can_analyze沒有明確的限制規則，因此不觸發任何違規。",
-        "response": "correct",
-        "reason": "三元組中的關係can_analyze沒有明確的限制規則，且主體和受體的類別合理，因此判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與受體皆無完全等價同義詞，且無廣義/狹義從屬關係",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "無法確定主體與受體之間的同義詞或從屬關係，預設保留。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "弱點評估",
-        "type": "technique"
-      },
-      "relation": "can_analyze",
-      "object": {
-        "name": "密碼模組",
-        "type": "system"
-      },
-      "reasoning": "文本提到對密碼模組進行弱點評估。弱點評估是一種技術 (technique)，用於分析 (can_analyze) 系統 (system) 的缺陷。",
-      "source_id": "chunk_6",
-      "source_file": "第17章 密碼模組安全_e5.pdf",
-      "source_index": 6
     }
   },
   {
@@ -319,32 +163,32 @@
     },
     "relation": "mitigates",
     "object": {
-      "name": "安全風險",
+      "name": "風險",
       "type": "risk",
-      "display_name": "安全風險"
+      "display_name": "風險"
     },
-    "reasoning": "FIPS 140 是密碼模組的最低安全需求規範，其目的在於透過標準化要求來緩解 (mitigates) 潛在的安全風險 (risk)。",
+    "reasoning": "FIPS 140 作為密碼模組的最低安全需求規範，其目的在於確保密碼模組的安全性，從而緩解因加密失效而產生的風險，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
     "source_id": "chunk_6",
     "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 7,
+    "source_index": 8,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "FIPS 140 是一種安全政策（policy），'mitigates' 是一個合理的關係，描述了政策如何減輕安全風險（risk），這些名稱與其類別之間的對齊是合理的。",
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "FIPS 140 是一項安全政策，與 'policy' 類別對齊；風險是資安領域中的風險，與 'risk' 類別對齊。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則2：主體為 policy 時才可執行 mitigates 動作，三元組中的主體 FIPS 140 屬於 policy 類別，符合規則2的條件。其他規則不直接適用於此三元組。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
         "response": "correct",
-        "reason": "三元組中的主體 FIPS 140 屬於 policy 類別，符合規則2的條件，且未發現其他明確違反的規則。"
+        "reason": "主體 FIPS 140 的類別是 policy，符合規則2的條件，代表合法。"
       },
       "step_2": {
-        "granularity_analysis": "FIPS 140 與 Ldr 中的 \"fips 140\" 完全等價，且 \"安全風險\" 與 Ldr 中的 \"資訊安全風險\" 密切相關，但非完全等價同義詞。",
+        "granularity_analysis": "主體 FIPS 140 與 Ldr 中的 fips 140、fips 140-2、fips 140 密碼模組安全標準 均為同一概念；受體 風險 與 Ldr 中的 風險、項目風險、安全風險、資產風險、人員風險、資安風險、認證風險、風險項目、聘僱風險、基礎設施風險 均為同一概念，但風險是更廣泛的概念，其他為其子類型",
         "response": "correct",
-        "standard_subject": "fips 140",
+        "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認與同義詞判定，FIPS 140 的主體名稱與 Ldr 中的 \"fips 140\" 完全匹配，判定為 correct。"
+        "reason": "雖然主體與受體在 Ldr 中找到相似資源，但受體風險是更廣泛的概念，其他為其子類型，因此判定為 correct，禁止合併。"
       }
     },
     "original_raw_triple": {
@@ -354,10 +198,62 @@
       },
       "relation": "mitigates",
       "object": {
-        "name": "安全風險",
+        "name": "風險",
         "type": "risk"
       },
-      "reasoning": "FIPS 140 是密碼模組的最低安全需求規範，其目的在於透過標準化要求來緩解 (mitigates) 潛在的安全風險 (risk)。",
+      "reasoning": "FIPS 140 作為密碼模組的最低安全需求規範，其目的在於確保密碼模組的安全性，從而緩解因加密失效而產生的風險，符合 ('policy', 'mitigates', 'risk') 的 Schema。",
+      "source_id": "chunk_6",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 8
+    }
+  },
+  {
+    "subject": {
+      "name": "檢測實驗室",
+      "type": "securityTeam",
+      "display_name": "檢測實驗室"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "dtr (測試需求)",
+      "type": "policy",
+      "display_name": "測試者需求"
+    },
+    "reasoning": "文本提到『檢測實驗室依據測試者需求，測試送來檢驗的密碼模組產品』，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '檢測實驗室' 可以被視為 'securityTeam' 的合理實例，實體名稱 '測試者需求' 可以被視為 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，關係為 implements，受體類別為 policy，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的檢測實驗室完全等價同義詞；受體與 Ldr 中的測試需求（dtr）具有同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "檢測實驗室",
+        "standard_object": "dtr (測試需求)",
+        "reason": "主體與 Ldr 中的檢測實驗室完全等價同義詞；受體與 Ldr 中的測試需求（dtr）具有同義詞關係"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "檢測實驗室",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "測試者需求",
+        "type": "policy"
+      },
+      "reasoning": "文本提到『檢測實驗室依據測試者需求，測試送來檢驗的密碼模組產品』，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
       "source_id": "chunk_6",
       "source_file": "第17章 密碼模組安全_e5.pdf",
       "source_index": 7
@@ -371,32 +267,32 @@
     },
     "relation": "implements",
     "object": {
-      "name": "測試需求 dtr",
+      "name": "dtr (測試需求)",
       "type": "policy",
-      "display_name": "測試需求 DTR"
+      "display_name": "DTR (測試需求)"
     },
-    "reasoning": "檢測實驗室依據相應的測試需求 (DTR) 進行測試，DTR 在此作為一種具體的檢測規範 (policy) 被實作。",
+    "reasoning": "文本指出檢測依據 DTR (derived test requirements)，檢測實驗室必須執行這些規範要求，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
     "source_id": "chunk_6",
     "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 8,
+    "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 均在 Lc,p 中。",
-        "step_2_alignment_check": "檢測實驗室 (securityTeam) 實施測試需求 DTR (policy) 合理，實驗室可以實施政策，名稱與類別對齊。",
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '檢測實驗室' 合理對齊其類別 'securityTeam'，實體名稱 'DTR' 合理對齊其類別 'policy'，考慮到資安領域常見的同義詞、縮寫與翻譯。",
         "response": "correct",
-        "reason": "檢測實驗室實施測試需求 DTR 的三元組完全符合預先定義的類別與屬性清單。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查每條規則：規則1不適用，因為實體是檢測實驗室（securityTeam），不涉及攻擊者身份。規則2不適用，因為動作是implements，不是mitigates。規則3不適用，因為主體類別是securityTeam，不是vulnerability。規則4不適用，因為關係是implements，不是violates，且主體不是principle。規則5不適用，因為關係是implements，不是uses。規則6不適用，因為關係是implements，不是deployed_in。規則7不適用，因為關係是implements，不是generates。規則8不適用，因為關係是implements，不是controls。因此，沒有任何規則被觸發為違規。",
+        "step_1_rule_matching": "規則3不適用，因為主體類別為securityTeam，而非vulnerability。規則8不適用，因為關係為implements，而非controls。其他規則均不適用，因為不符合規則的條件。",
         "response": "correct",
-        "reason": "三元組（檢測實驗室 implements 測試需求 DTR）不觸發語義限制清單中的任何規則，故判定為正確。"
+        "reason": "未發現明確且直接的違反項目，且三元組符合規則所允許的條件。"
       },
       "step_2": {
-        "granularity_analysis": "檢測實驗室與 Ldr 中的檢測實驗室完全相同，測試需求 DTR 與 Ldr 中的 fips 140 不同，但測試需求 DTR 可能與 policy 類別下的其他實體同義或從屬",
+        "granularity_analysis": "檢測實驗室與 Ldr 中的檢測實驗室完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+        "reason": "實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
@@ -406,49 +302,107 @@
       },
       "relation": "implements",
       "object": {
-        "name": "測試需求 DTR",
+        "name": "DTR (測試需求)",
         "type": "policy"
       },
-      "reasoning": "檢測實驗室依據相應的測試需求 (DTR) 進行測試，DTR 在此作為一種具體的檢測規範 (policy) 被實作。",
+      "reasoning": "文本指出檢測依據 DTR (derived test requirements)，檢測實驗室必須執行這些規範要求，符合 ('securityTeam', 'implements', 'policy') 的 Schema。",
       "source_id": "chunk_6",
       "source_file": "第17章 密碼模組安全_e5.pdf",
-      "source_index": 8
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "廠商",
+      "type": "user",
+      "display_name": "廠商"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "廠商需求",
+      "type": "policy",
+      "display_name": "廠商需求"
+    },
+    "reasoning": "文本提到『密碼模組產品廠商依據廠商需求，開發製作其密碼模組』，將廠商視為 user，需求視為 policy，符合 ('user', 'implements', 'policy') 的 Schema。",
+    "source_id": "chunk_6",
+    "source_file": "第17章 密碼模組安全_e5.pdf",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '廠商' 可以被視為 'user' 的合理實例；受體名稱 '廠商需求' 可以被視為 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為user，非vulnerability。規則4不適用，因為主體類別為user，非principle。規則5不適用，因為關係為implements，非uses。規則6不適用，因為關係為implements，非deployed_in。規則7不適用，因為關係為implements，非generates。規則8不適用，因為關係為implements，非controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「廠商」完全等價同義詞；受體與 Ldr 中的「dtr (測試需求)」不相關，但「廠商需求」與「測試需求」在某些情況下可能相關，但無法確認完全等價同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認完全等價同義詞關係，且無法合併廣義/狹義從屬關係，預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "廠商",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "廠商需求",
+        "type": "policy"
+      },
+      "reasoning": "文本提到『密碼模組產品廠商依據廠商需求，開發製作其密碼模組』，將廠商視為 user，需求視為 policy，符合 ('user', 'implements', 'policy') 的 Schema。",
+      "source_id": "chunk_6",
+      "source_file": "第17章 密碼模組安全_e5.pdf",
+      "source_index": 6
     }
   },
   {
     "subject": {
       "name": "密碼模組",
-      "type": "tool",
+      "type": "system",
       "display_name": "密碼模組"
     },
-    "relation": "can_expose",
+    "relation": "uses",
     "object": {
-      "name": "弱點",
-      "type": "vulnerability",
-      "display_name": "弱點"
+      "name": "重要參數 (csp)",
+      "type": "data",
+      "display_name": "重要參數 (CSP)"
     },
-    "reasoning": "文本提到對密碼模組進行弱點評估，隱含了該系統 (system) 可能暴露 (can_expose) 弱點 (vulnerability) 的邏輯。",
+    "reasoning": "文本提到密碼模組用於『生產、儲存、使用與保護密碼金鑰與重要參數 (CSP)』。將密碼模組視為 system，CSP 視為 data，符合 ('system', 'uses', 'data') 的 Schema。",
     "source_id": "chunk_6",
     "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 9,
+    "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 均在 Lc,p 中。",
-        "step_2_alignment_check": "密碼模組 (password module) 可被視為系統 (system) 的一部分，弱點 (vulnerability) 是資安領域中常見的術語，'can_expose' 關係在此語境下合理，因為系統可能會暴露弱點。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '密碼模組' 合理對齊其類別 'system'，受體名稱 '重要參數 (CSP)' 合理對齊其類別 'data'，考慮到資安領域常見的同義詞、縮寫與翻譯。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：允許 vulnerability 發起 'can_expose' 動作，符合此規則。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。",
-        "response": "correct",
-        "reason": "三元組中的主體為密碼模組（tool），關係為 can_expose，受體為弱點（vulnerability），根據規則3的特例允許，vulnerability 可以發起 'can_expose' 動作，因此不違反語義限制清單中的任何規則。"
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體類別為 system，與規則5不符，觸發違規判定。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體類別為 system，與規則5不符，觸發違規判定。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
       },
       "step_2": {
-        "granularity_analysis": "主體 '密碼模組' 與 Ldr 中的 '密碼模組' 完全匹配，受體 '弱點' 與 Ldr 中的 '弱點' 完全匹配，兩者均為完全等價同義詞。",
         "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體和受體名稱與 Ldr 中的資源完全匹配，無需進行同義詞替換或合併。"
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
       }
     },
     "original_raw_triple": {
@@ -456,67 +410,15 @@
         "name": "密碼模組",
         "type": "system"
       },
-      "relation": "can_expose",
-      "object": {
-        "name": "弱點",
-        "type": "vulnerability"
-      },
-      "reasoning": "文本提到對密碼模組進行弱點評估，隱含了該系統 (system) 可能暴露 (can_expose) 弱點 (vulnerability) 的邏輯。",
-      "source_id": "chunk_6",
-      "source_file": "第17章 密碼模組安全_e5.pdf",
-      "source_index": 9
-    }
-  },
-  {
-    "subject": {
-      "name": "檢測實驗室",
-      "type": "securityTeam",
-      "display_name": "檢測實驗室"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "製作指導文件",
-      "type": "tool",
-      "display_name": "製作指導文件"
-    },
-    "reasoning": "文本提到相關疑義可參考製作指導文件。指導文件在此扮演輔助檢測的工具 (tool) 角色，由安全團隊 (securityTeam) 使用。",
-    "source_id": "chunk_6",
-    "source_file": "第17章 密碼模組安全_e5.pdf",
-    "source_index": 10,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'tool' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "檢測實驗室 (securityTeam) 使用製作指導文件 (tool) 的情境下，'檢測實驗室' 是 'securityTeam' 的合理實例，'製作指導文件' 是 'tool' 的合理實例。",
-        "response": "correct",
-        "reason": "檢測實驗室使用製作指導文件的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發違規檢查，因為主體的類別是 securityTeam，而非 data，但 uses 關係的主體類別不是 data，因此不違反規則5。規則6：不適用。規則7：不適用。規則8：不適用，但注意到 uses 關係的主體是 securityTeam，屬於具有主動執行能力的角色，與規則8的控制邏輯相關，但不直接違反。",
-        "response": "correct",
-        "reason": "三元組中的主體為檢測實驗室（類別：securityTeam），關係為 uses，受體為製作指導文件（類別：tool），未發現明確且直接的違反項目，符合無罪推定原則。"
-      },
-      "step_2": {
-        "granularity_analysis": "檢測實驗室與現有近似資源清單中的檢測實驗室完全相同，製作指導文件與現有近似資源清單中沒有完全相同的實體，但製作指導文件可以被視為工具的一種類型，與現有近似資源清單中的 tool 類別相關",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【前提確認】，主體與現有近似資源清單中的某資源完全相同，且受體與現有近似資源清單中的 tool 類別相關，但不完全相同，因此判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "檢測實驗室",
-        "type": "securityTeam"
-      },
       "relation": "uses",
       "object": {
-        "name": "製作指導文件",
-        "type": "tool"
+        "name": "重要參數 (CSP)",
+        "type": "data"
       },
-      "reasoning": "文本提到相關疑義可參考製作指導文件。指導文件在此扮演輔助檢測的工具 (tool) 角色，由安全團隊 (securityTeam) 使用。",
+      "reasoning": "文本提到密碼模組用於『生產、儲存、使用與保護密碼金鑰與重要參數 (CSP)』。將密碼模組視為 system，CSP 視為 data，符合 ('system', 'uses', 'data') 的 Schema。",
       "source_id": "chunk_6",
       "source_file": "第17章 密碼模組安全_e5.pdf",
-      "source_index": 10
+      "source_index": 1
     }
   }
 ]

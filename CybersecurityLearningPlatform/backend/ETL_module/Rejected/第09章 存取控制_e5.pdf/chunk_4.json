@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "實體型存取控制",
+      "type": "technique",
+      "display_name": "實體型存取控制"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "警衛",
+      "type": "securityTeam",
+      "display_name": "警衛"
+    },
+    "reasoning": "文本將警衛列為實體型存取控制的具體設施/手段，符合 (technique, has_a, tool) 的 Schema。",
+    "source_id": "chunk_4",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體型存取控制是 'technique' 的合理實例，警衛是 'tool' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "實體型存取控制與存取控制之間存在著廣義/狹義從屬關係，但實體型存取控制與Ldr中的其他資源之間沒有完全等價同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "實體型存取控制是存取控制的一種子類型，因此不應該合併為同一實體。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> has_a -> securityTeam (original: technique -> has_a -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "實體型存取控制",
+        "type": "technique"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "警衛",
+        "type": "tool"
+      },
+      "reasoning": "文本將警衛列為實體型存取控制的具體設施/手段，符合 (technique, has_a, tool) 的 Schema。",
+      "source_id": "chunk_4",
+      "source_file": "第09章 存取控制_e5.pdf",
+      "source_index": 5
+    }
+  }
+]

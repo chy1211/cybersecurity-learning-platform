@@ -1,21 +1,6 @@
 [
   {
     "subject": {
-      "name": "恐怖攻擊",
-      "type": "attack"
-    },
-    "relation": "can_harm",
-    "object": {
-      "name": "系統",
-      "type": "system"
-    },
-    "reasoning": "文本將恐怖攻擊列為政治因素引起的安全威脅，攻擊行為會對組織的系統或設施造成損害，符合 ('attack', 'can_harm', 'system')。",
-    "source_id": "chunk_2",
-    "source_file": "第03章 實體安全_e5.pdf",
-    "source_index": 1
-  },
-  {
-    "subject": {
       "name": "內部人員",
       "type": "attacker"
     },
@@ -24,10 +9,10 @@
       "name": "資訊資產",
       "type": "data"
     },
-    "reasoning": "文本提到安全威脅來自內部人員，其目的在於盜取有價值的資訊資產，將內部人員視為威脅行為者，符合 ('attacker', 'can_harm', 'data')。",
+    "reasoning": "文本提到安全威脅來自內部人員，他們會盜取有價值資訊資產。在此情境下，內部人員扮演威脅行為者 (attacker)，對資料 (data) 造成危害。",
     "source_id": "chunk_2",
     "source_file": "第03章 實體安全_e5.pdf",
-    "source_index": 2
+    "source_index": 1
   },
   {
     "subject": {
@@ -39,10 +24,10 @@
       "name": "實體設施",
       "type": "system"
     },
-    "reasoning": "文本描述內部人員對內部實體設施進行侵入，這是一種物理上的連接或進入行為，符合 ('attacker', 'connects_to', 'system')。",
+    "reasoning": "文本提到內部人員對內部實體設施進行侵入。侵入行為在邏輯上屬於與系統 (system) 建立非授權的連接或進入。",
     "source_id": "chunk_2",
     "source_file": "第03章 實體安全_e5.pdf",
-    "source_index": 3
+    "source_index": 2
   },
   {
     "subject": {
@@ -54,10 +39,40 @@
       "name": "實體安全流程",
       "type": "policy"
     },
-    "reasoning": "文本明確指出安全主管需要設計並實施實體安全流程，流程在此屬於規範與策略，符合 ('securityTeam', 'implements', 'policy')。",
+    "reasoning": "文本明確指出安全主管需要建立、設計與實施實體安全流程。安全主管屬於安全團隊 (securityTeam)，而流程屬於規範與策略 (policy)。",
+    "source_id": "chunk_2",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 3
+  },
+  {
+    "subject": {
+      "name": "安全主管",
+      "type": "securityTeam"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "風險評估",
+      "type": "technique"
+    },
+    "reasoning": "文本提到設計安全流程需要先做風險評估。這表示安全主管 (securityTeam) 在執行管理職責時使用了風險評估這項技術 (technique)。",
     "source_id": "chunk_2",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "安全主管",
+      "type": "securityTeam"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資產評估",
+      "type": "technique"
+    },
+    "reasoning": "文本提到設計安全流程需要先做資產評估。這表示安全主管 (securityTeam) 使用了資產評估這項技術 (technique)。",
+    "source_id": "chunk_2",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 5
   },
   {
     "subject": {
@@ -69,25 +84,25 @@
       "name": "風險",
       "type": "risk"
     },
-    "reasoning": "文本提到設置實體安全流程是為了符合可接受程度的風險，即透過流程來緩解風險，符合 ('policy', 'mitigates', 'risk')。",
-    "source_id": "chunk_2",
-    "source_file": "第03章 實體安全_e5.pdf",
-    "source_index": 5
-  },
-  {
-    "subject": {
-      "name": "風險評估",
-      "type": "technique"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "系統",
-      "type": "system"
-    },
-    "reasoning": "風險評估是一種技術手段，用於分析系統環境以找出潛在風險，符合 ('technique', 'can_analyze', 'system')。",
+    "reasoning": "文本提到實體安全流程的設置需要符合可接受程度的風險，暗示流程的目的是為了緩解或控制風險 (risk)。",
     "source_id": "chunk_2",
     "source_file": "第03章 實體安全_e5.pdf",
     "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "實體安全流程",
+      "type": "policy"
+    },
+    "reasoning": "文本提到實體安全管理主管與員工都有責任，員工需接受訓練並參與演習，這意味著員工 (user) 需執行/實作 (implements) 相關的安全政策 (policy)。",
+    "source_id": "chunk_2",
+    "source_file": "第03章 實體安全_e5.pdf",
+    "source_index": 7
   },
   {
     "subject": {
@@ -96,17 +111,17 @@
     },
     "relation": "can_expose",
     "object": {
-      "name": "運作故障",
+      "name": "營運停頓",
       "type": "vulnerability"
     },
-    "reasoning": "文本提到機房如無法正常運作（這是一種系統缺陷或弱點），會導致後續損失，符合 ('system', 'can_expose', 'vulnerability')。",
+    "reasoning": "文本提到機房如無法正常運作，會導致營運停頓。機房 (system) 的失效狀態可被視為一種系統缺陷或漏洞 (vulnerability)。",
     "source_id": "chunk_2",
     "source_file": "第03章 實體安全_e5.pdf",
-    "source_index": 7
+    "source_index": 8
   },
   {
     "subject": {
-      "name": "運作故障",
+      "name": "營運停頓",
       "type": "vulnerability"
     },
     "relation": "can_expose",
@@ -114,9 +129,9 @@
       "name": "財務損失",
       "type": "risk"
     },
-    "reasoning": "文本指出機房無法正常運作（弱點）會造成巨大的財務損失（風險），符合 ('vulnerability', 'can_expose', 'risk')。",
+    "reasoning": "文本指出營運停頓會造成巨大財務損失。根據 Schema，漏洞 (vulnerability) 可以導致風險 (risk) 的暴露。",
     "source_id": "chunk_2",
     "source_file": "第03章 實體安全_e5.pdf",
-    "source_index": 8
+    "source_index": 9
   }
 ]

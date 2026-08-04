@@ -1,90 +1,38 @@
 [
   {
     "subject": {
-      "name": "軟體工程師",
-      "type": "user",
-      "display_name": "軟體工程師"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "程式撰寫標準",
-      "type": "policy",
-      "display_name": "程式撰寫標準"
-    },
-    "reasoning": "文本提到實作階段包含『遵循程式撰寫標準』，軟體工程師作為操作個體，執行（implements）撰寫標準這一規範（policy）。",
-    "source_id": "chunk_8",
-    "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 1,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "軟體工程師是 user 的合理實例，程式撰寫標準是 policy 的合理實例。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'implements'，且主體是 '軟體工程師'，受體是 '程式撰寫標準'，這不觸發任何規則中的違規條件。",
-        "response": "correct",
-        "reason": "三元組不違反語義限制清單中的任何規則，軟體工程師實施程式撰寫標準是一種合理的動作。"
-      },
-      "step_2": {
-        "granularity_analysis": "完全不相關",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "Ldr 為空，且無法在資安領域已知同義詞對照範例中找到相似實體，故直接判定 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "軟體工程師",
-        "type": "user"
-      },
-      "relation": "implements",
-      "object": {
-        "name": "程式撰寫標準",
-        "type": "policy"
-      },
-      "reasoning": "文本提到實作階段包含『遵循程式撰寫標準』，軟體工程師作為操作個體，執行（implements）撰寫標準這一規範（policy）。",
-      "source_id": "chunk_8",
-      "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 1
-    }
-  },
-  {
-    "subject": {
-      "name": "原始碼檢測",
+      "name": "程式原碼檢測",
       "type": "technique",
       "display_name": "原始碼檢測"
     },
     "relation": "can_analyze",
     "object": {
-      "name": "軟體",
-      "type": "system",
-      "display_name": "軟體"
+      "name": "安全弱點",
+      "type": "vulnerability",
+      "display_name": "軟體安全弱點"
     },
-    "reasoning": "原始碼檢測是一種分析方法（technique），其目的是分析軟體（app）的程式碼以發現缺陷。",
+    "reasoning": "文本提到實作階段進行『原始碼檢測』可以降低『軟體安全弱點』的機會，因此將原始碼檢測視為一種技術 (technique)，其能力是分析/發現漏洞 (vulnerability)。",
     "source_id": "chunk_8",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 2,
+    "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'app' 與關係 'can_analyze' 均在 Lc,p 中。",
-        "step_2_alignment_check": "原始碼檢測 (technique) 可以分析 軟體 (app) 的語意是合理的，因為原始碼檢測是一種技術，軟體是一種應用程式，技術可以分析應用程式。",
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '原始碼檢測' 是 'technique' 的合理實例，受體 '軟體安全弱點' 是 'vulnerability' 的合理實例。",
         "response": "correct",
-        "reason": "原始碼檢測 (technique) 與 軟體 (app) 的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'can_analyze'，主體 '原始碼檢測' 屬於 'technique'，受體 '軟體' 屬於 'system'，未發現明確違反任何規則。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組中的主體和受體符合一般的語義關係，未觸發語義限制清單中的任何規則。"
+        "reason": "主體類別為 technique，受體類別為 vulnerability，符合規則3的特例允許，且關係為 can_analyze，故不違反語義限制清單中的任何規則。"
       },
       "step_2": {
-        "granularity_analysis": "原始碼檢測與源碼檢測為同義詞，軟體為完全等價的系統名稱",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "原始碼檢測與軟體不構成同義詞或廣義/狹義關係，故判定為 correct。"
+        "granularity_analysis": "主體與 Ldr 中的程式原碼檢測為完全等價同義詞；受體與 Ldr 中的安全弱點為完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "程式原碼檢測",
+        "standard_object": "安全弱點",
+        "reason": "主體與受體均與 Ldr 中的資源為完全等價同義詞，判定為 duplicate。"
       }
     },
     "original_raw_triple": {
@@ -94,221 +42,13 @@
       },
       "relation": "can_analyze",
       "object": {
-        "name": "軟體",
-        "type": "app"
-      },
-      "reasoning": "原始碼檢測是一種分析方法（technique），其目的是分析軟體（app）的程式碼以發現缺陷。",
-      "source_id": "chunk_8",
-      "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 2
-    }
-  },
-  {
-    "subject": {
-      "name": "安全測試",
-      "type": "technique",
-      "display_name": "安全性測試"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "軟體",
-      "type": "system",
-      "display_name": "軟體"
-    },
-    "reasoning": "確認階段提到的『集中特定目標的安全性測試』是一種技術手段（technique），用於分析軟體（app）的安全性。",
-    "source_id": "chunk_8",
-    "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 4,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'app' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "安全性測試 (technique) 可以分析軟體 (app) 是語意上合理的，符合同義詞寬容原則。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。關係 'can_analyze' 不在任何規則中被明確限制或定義，且主體 '安全性測試' 的類別 'technique' 與受體 '軟體' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
-        "response": "correct",
-        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "安全性測試與安全測試為同義詞，軟體為完全等價同義詞",
-        "response": "duplicate",
-        "standard_subject": "安全測試",
-        "standard_object": "軟體",
-        "reason": "根據同義詞判定準則，安全性測試與安全測試為同義詞，軟體為完全等價同義詞。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "安全性測試",
-        "type": "technique"
-      },
-      "relation": "can_analyze",
-      "object": {
-        "name": "軟體",
-        "type": "app"
-      },
-      "reasoning": "確認階段提到的『集中特定目標的安全性測試』是一種技術手段（technique），用於分析軟體（app）的安全性。",
-      "source_id": "chunk_8",
-      "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 4
-    }
-  },
-  {
-    "subject": {
-      "name": "開發團隊",
-      "type": "securityTeam",
-      "display_name": "開發團隊"
-    },
-    "relation": "implements",
-    "object": {
-      "name": "軟體安全測試標準",
-      "type": "policy",
-      "display_name": "軟體安全測試標準"
-    },
-    "reasoning": "文本提到實作階段包含『採用軟體安全測試標準』，開發團隊在此扮演防禦/維護角色（securityTeam），執行（implements）測試標準（policy）。",
-    "source_id": "chunk_8",
-    "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 3,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體 '開發團隊' 是 'securityTeam' 的合理實例，'軟體安全測試標準' 是 'policy' 的合理實例，關係 'implements' 在此語境下合理。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用，因為 implements 不是 mitigates。檢查規則3：不適用，因為主體類別是 securityTeam，不是 vulnerability。檢查規則4：不適用，因為主體類別是 securityTeam，不是 principle。檢查規則5：不適用，因為關係是 implements，不是 uses。檢查規則6：不適用，因為關係是 implements，不是 deployed_in。檢查規則7：不適用，因為關係是 implements，不是 generates。檢查規則8：不適用，因為關係是 implements，不是 controls。",
-        "response": "correct",
-        "reason": "三元組（開發團隊 implements 軟體安全測試標準）沒有觸發語義限制清單中的任何規則，且開發團隊作為主體具有實施政策的能力。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與受體皆與現有近似資源清單中之資源有相似性，但非完全等價同義詞；主體 '開發團隊' 與 '開發與維護人員' 可視為同一概念的不同表述，受體 '軟體安全測試標準' 與 '程式撰寫標準' 關聯性較低，但仍屬於安全政策的范疇。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，主體與受體皆不完全符合同義詞判定，且無明確的廣義/狹義從屬關係，故預設保留，判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "開發團隊",
-        "type": "securityTeam"
-      },
-      "relation": "implements",
-      "object": {
-        "name": "軟體安全測試標準",
-        "type": "policy"
-      },
-      "reasoning": "文本提到實作階段包含『採用軟體安全測試標準』，開發團隊在此扮演防禦/維護角色（securityTeam），執行（implements）測試標準（policy）。",
-      "source_id": "chunk_8",
-      "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 3
-    }
-  },
-  {
-    "subject": {
-      "name": "軟體",
-      "type": "system",
-      "display_name": "軟體"
-    },
-    "relation": "can_expose",
-    "object": {
-      "name": "弱點",
-      "type": "vulnerability",
-      "display_name": "弱點"
-    },
-    "reasoning": "文本提到『原先通過安全檢測的軟體便會出現弱點』，表示軟體（app）可能會暴露（can_expose）弱點（vulnerability）。",
-    "source_id": "chunk_8",
-    "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 6,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "軟體 (app) 可以暴露弱點 (vulnerability) 的情況是資安領域中常見的場景，軟體的類別與其名稱對齊，弱點的類別與其名稱也對齊，符合語意對齊原則。",
-        "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則3允許vulnerability發起'can_expose'動作，且三元組中的主體為軟體（system），關係為can_expose，受體為弱點（vulnerability），不觸發其他規則的違規條件。",
-        "response": "correct",
-        "reason": "三元組符合規則3的特例允許，且未違反其他規則。因此，該三元組不違反語義限制清單中的任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "軟體與系統弱點之間存在著廣義/狹義從屬關係，但根據給定的資安領域已知同義詞對照範例，軟體和弱點之間沒有直接的同義詞關係。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，軟體和弱點之間沒有直接的同義詞關係，且一個實體是另一個的子類型不一定成立，因此預設保留，判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "軟體",
-        "type": "app"
-      },
-      "relation": "can_expose",
-      "object": {
-        "name": "弱點",
+        "name": "軟體安全弱點",
         "type": "vulnerability"
       },
-      "reasoning": "文本提到『原先通過安全檢測的軟體便會出現弱點』，表示軟體（app）可能會暴露（can_expose）弱點（vulnerability）。",
+      "reasoning": "文本提到實作階段進行『原始碼檢測』可以降低『軟體安全弱點』的機會，因此將原始碼檢測視為一種技術 (technique)，其能力是分析/發現漏洞 (vulnerability)。",
       "source_id": "chunk_8",
       "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 6
-    }
-  },
-  {
-    "subject": {
-      "name": "新的攻擊方式",
-      "type": "attack",
-      "display_name": "新的攻擊方式"
-    },
-    "relation": "can_harm",
-    "object": {
-      "name": "軟體",
-      "type": "system",
-      "display_name": "軟體"
-    },
-    "reasoning": "文本指出『新的攻擊方式還是會被提出』導致軟體出現弱點，這意味著攻擊（attack）會危害（can_harm）軟體（app）。",
-    "source_id": "chunk_8",
-    "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 7,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "名稱 '新的攻擊方式' 是 'attack' 的合理實例，'軟體' 是 'app' 的合理實例，且 'can_harm' 是描述攻擊對軟體的影響的合理關係。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用。規則7：不適用。規則8：不適用。關係 'can_harm' 不在任何規則中被明確限制，且主體 '新的攻擊方式' 的類別 'attack' 與受體 '軟體' 的類別 'system' 在給定的規則中沒有直接的違反條件。",
-        "response": "correct",
-        "reason": "三元組中的主體、關係、受體組合在給定的語義限制清單中沒有被明確指出為違反規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "新的攻擊方式與攻擊手段、其他攻擊方式、攻擊等實體在資安領域中具有相似的概念，但不完全等價；軟體為完全匹配的資源",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "軟體",
-        "reason": "新的攻擊方式與現有資源不完全相同，且軟體為完全匹配的資源，根據判斷準則，判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "新的攻擊方式",
-        "type": "attack"
-      },
-      "relation": "can_harm",
-      "object": {
-        "name": "軟體",
-        "type": "app"
-      },
-      "reasoning": "文本指出『新的攻擊方式還是會被提出』導致軟體出現弱點，這意味著攻擊（attack）會危害（can_harm）軟體（app）。",
-      "source_id": "chunk_8",
-      "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 7
+      "source_index": 1
     }
   },
   {
@@ -320,31 +60,31 @@
     "relation": "can_analyze",
     "object": {
       "name": "軟體",
-      "type": "system",
+      "type": "app",
       "display_name": "軟體"
     },
-    "reasoning": "發行階段的『最終安全性審查』是一種評估流程（technique），用以分析軟體（app）是否準備好交付。",
+    "reasoning": "發行階段的『最終安全性審查』旨在確認『軟體』是否準備好交付，這是一種分析軟體安全狀態的技術。",
     "source_id": "chunk_8",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 5,
+    "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'app' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "主體 '最終安全性審查' 的類別 'technique' 合理對齊，因為最終安全性審查是一種安全技術；受體 '軟體' 的類別 'app' 也合理對齊，因為軟體是一種應用程式。",
+        "step_1_list_check": "主體類別 'technique'、受體類別 'app' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '最終安全性審查' 可被視為 'technique' 的合理實例；受體名稱 '軟體' 可被視為 'app' 的合理實例。",
         "response": "correct",
-        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的主體是「最終安全性審查」（technique），關係是「can_analyze」，受體是「軟體」（system），這符合一般的安全分析邏輯，沒有明確違反任何規則。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組中的主體、關係和受體之間的關係在安全分析的邏輯中是合理的，沒有違反語義限制清單中的任何規則。"
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 app，未發現明確且直接的違反項目。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體皆不直接出現在近似資源清單中，但可透過資安領域已知同義詞對照範例進行判斷，然而這裡的主體和受體並不直接對應到已知同義詞對照範例中，因此需要進一步分析。主體為「最終安全性審查」，是一種技術（technique），而受體為「軟體」，是一種系統（system）。根據給定的資訊，兩者之間沒有直接的同義詞關係或廣義/狹義從屬關係。",
+        "granularity_analysis": "完全等價同義詞",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "無法根據給定的同義詞對照表或廣義/狹義從屬關係判定為重複，因此預設為正確，保留原狀。"
+        "reason": "主體與受體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
       }
     },
     "original_raw_triple": {
@@ -357,46 +97,150 @@
         "name": "軟體",
         "type": "app"
       },
-      "reasoning": "發行階段的『最終安全性審查』是一種評估流程（technique），用以分析軟體（app）是否準備好交付。",
+      "reasoning": "發行階段的『最終安全性審查』旨在確認『軟體』是否準備好交付，這是一種分析軟體安全狀態的技術。",
       "source_id": "chunk_8",
       "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 5
+      "source_index": 3
     }
   },
   {
     "subject": {
-      "name": "開發團隊",
+      "name": "新的攻擊方式",
+      "type": "attack",
+      "display_name": "新的攻擊方式"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "軟體",
+      "type": "app",
+      "display_name": "軟體"
+    },
+    "reasoning": "文本提到支援與服務階段中『新的攻擊方式』會被提出，導致原先安全的『軟體』出現弱點，這代表攻擊會危害應用程式。",
+    "source_id": "chunk_8",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'app' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '新的攻擊方式' 合理對齊其類別 'attack'，受體名稱 '軟體' 合理對齊其類別 'app'，且考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「其他攻擊方式」、「攻擊」具有相似性，但無法確認完全等價同義詞；受體與 Ldr 中的「軟體」、「電腦軟體」、「應用軟體」、「套裝軟體」、「合法軟體」、「應用程式」、「免費軟體」具有相似性，但無法確認完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認完全等價同義詞，預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "新的攻擊方式",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "軟體",
+        "type": "app"
+      },
+      "reasoning": "文本提到支援與服務階段中『新的攻擊方式』會被提出，導致原先安全的『軟體』出現弱點，這代表攻擊會危害應用程式。",
+      "source_id": "chunk_8",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "安全測試",
+      "type": "technique",
+      "display_name": "安全性測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "軟體",
+      "type": "app",
+      "display_name": "軟體"
+    },
+    "reasoning": "文本在確認階段提到進行『安全性測試』，這是針對『軟體』完成版進行的檢測工作，符合 technique can_analyze app 的定義。",
+    "source_id": "chunk_8",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'app' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '安全性測試' 是 'technique' 的合理實例，受體名稱 '軟體' 是 'app' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 app，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「安全測試」完全等價同義詞；受體與 Ldr 中的「軟體」完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "安全測試",
+        "standard_object": "軟體",
+        "reason": "主體與 Ldr 中的「安全測試」完全等價同義詞；受體與 Ldr 中的「軟體」完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全性測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "軟體",
+        "type": "app"
+      },
+      "reasoning": "文本在確認階段提到進行『安全性測試』，這是針對『軟體』完成版進行的檢測工作，符合 technique can_analyze app 的定義。",
+      "source_id": "chunk_8",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "團隊",
       "type": "securityTeam",
       "display_name": "開發團隊"
     },
     "relation": "can_analyze",
     "object": {
-      "name": "弱點報告",
+      "name": "弱掃報告",
       "type": "data",
       "display_name": "弱點報告"
     },
-    "reasoning": "支援與服務階段提到開發團隊需要『評估弱點報告』，即安全團隊（securityTeam）分析（can_analyze）弱點報告這項資料（data）。",
+    "reasoning": "文本提到開發團隊在支援階段需要『評估弱點報告』，評估即為分析，弱點報告屬於資料 (data)，開發團隊在此扮演資安維運角色。",
     "source_id": "chunk_8",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 8,
+    "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "開發團隊 (securityTeam) 可以分析弱點報告 (data) 是合理的，因為開發團隊通常負責分析和處理弱點報告。",
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "開發團隊是安全團隊的合理實例，弱點報告是數據的合理實例。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有攻擊者身份；規則2不適用，因為動作不是mitigates；規則3不適用，因為主體類別不是vulnerability；規則4不適用，因為關係不是violates且主體不是principle；規則5不適用，因為關係不是uses；規則6不適用，因為關係不是deployed_in；規則7不適用，因為關係不是generates；規則8不適用，因為關係不是controls，但can_analyze的主體securityTeam具有主動分析能力，符合邏輯。",
+        "step_1_rule_matching": "規則3不適用，因為主體類別為securityTeam，而規則3只檢查主體類別為vulnerability。規則8不適用，因為關係不是controls。其他規則不適用，因為不符合規則的條件。",
         "response": "correct",
-        "reason": "三元組中的主體為開發團隊（securityTeam），關係為can_analyze，受體為弱點報告（data），這符合資安團隊可以分析弱點報告的邏輯，沒有違反任何語義限制規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
       },
       "step_2": {
-        "granularity_analysis": "主體與 Ldr 中的「開發團隊」完全等價同義詞，受體「弱點報告」與「漏洞」、「脆弱性」同義",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+        "granularity_analysis": "主體與 Ldr 中的「團隊」、「開發與維護人員」為同義詞；受體與 Ldr 中的「弱掃報告」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "團隊",
+        "standard_object": "弱掃報告",
+        "reason": "主體與受體分別與 Ldr 中的資源為同義詞，判定為 duplicate。"
       }
     },
     "original_raw_triple": {
@@ -409,62 +253,10 @@
         "name": "弱點報告",
         "type": "data"
       },
-      "reasoning": "支援與服務階段提到開發團隊需要『評估弱點報告』，即安全團隊（securityTeam）分析（can_analyze）弱點報告這項資料（data）。",
+      "reasoning": "文本提到開發團隊在支援階段需要『評估弱點報告』，評估即為分析，弱點報告屬於資料 (data)，開發團隊在此扮演資安維運角色。",
       "source_id": "chunk_8",
       "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 8
-    }
-  },
-  {
-    "subject": {
-      "name": "程式碼檢測",
-      "type": "technique",
-      "display_name": "程式碼檢測"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "弱點",
-      "type": "vulnerability",
-      "display_name": "弱點"
-    },
-    "reasoning": "文本提到透過檢測來排除安全缺陷與弱點，因此程式碼檢測（technique）可以用於分析/發現弱點（vulnerability）。",
-    "source_id": "chunk_8",
-    "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 9,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體 '程式碼檢測' 是 'technique' 的合理實例，'弱點' 是 'vulnerability' 的合理實例，且 'can_analyze' 是一個合理的關係。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則3：主體類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。該三元組的主體是 '程式碼檢測'，類別為 'technique'，不觸發規則3的限制；規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作，該三元組的關係是 'can_analyze'，不涉及 'mitigates'，不觸發規則2的限制。",
-        "response": "correct",
-        "reason": "該三元組的主體 '程式碼檢測' 類別為 'technique'，可以執行 'can_analyze' 動作，沒有違反任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體 '程式碼檢測' 與 Ldr 中的 '原始碼檢測' 和 '源碼檢測' 關係為同義詞，受體 '弱點' 與 Ldr 中的 '弱點' 關係為完全等價同義詞",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據資安領域已知同義詞對照範例，'漏洞'、'弱點'、'脆弱性' 均指 'vulnerability'，但 '程式碼檢測' 不是 '原始碼檢測' 或 '源碼檢測' 的完全等價同義詞，因此判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "程式碼檢測",
-        "type": "technique"
-      },
-      "relation": "can_analyze",
-      "object": {
-        "name": "弱點",
-        "type": "vulnerability"
-      },
-      "reasoning": "文本提到透過檢測來排除安全缺陷與弱點，因此程式碼檢測（technique）可以用於分析/發現弱點（vulnerability）。",
-      "source_id": "chunk_8",
-      "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 9
+      "source_index": 5
     }
   },
   {
@@ -475,32 +267,32 @@
     },
     "relation": "implements",
     "object": {
-      "name": "安全性建議公告",
+      "name": "程式撰寫標準",
       "type": "policy",
-      "display_name": "安全性建議公告"
+      "display_name": "程式撰寫標準"
     },
-    "reasoning": "開發團隊發行『安全性建議公告』，這是一種對外發布的安全指導方針（policy），由安全團隊（securityTeam）執行（implements）。",
+    "reasoning": "實作階段要求『遵循程式撰寫標準』，這意味著開發團隊 (securityTeam) 執行/實作了該項規範 (policy)。",
     "source_id": "chunk_8",
     "source_file": "第11章 應用系統發展管理_e5.pdf",
-    "source_index": 10,
+    "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "開發團隊 (securityTeam) 實施 (implements) 安全性建議公告 (policy) 是語意上合理的，開發團隊可以實施安全性政策。",
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '開發團隊' 合理對齊其類別 'securityTeam'，實體名稱 '程式撰寫標準' 合理對齊其類別 'policy'，關係 'implements' 合理描述開發團隊與程式撰寫標準之間的關係。",
         "response": "correct",
-        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用，因為三元組中沒有攻擊者身份。檢查規則2：不適用，因為動作是 implements，不是 mitigates。檢查規則3：不適用，因為主體類別是 securityTeam，不是 vulnerability。檢查規則4：不適用，因為關係是 implements，不是 violates，且主體不是 principle。檢查規則5：不適用，因為關係是 implements，不是 uses。檢查規則6：不適用，因為關係是 implements，不是 deployed_in。檢查規則7：不適用，因為關係是 implements，不是 generates。檢查規則8：不適用，因為關係是 implements，不是 controls。由於沒有規則被觸發，三元組不違反任何語義限制。",
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組中的主體（開發團隊）和受體（安全性建議公告）之間的 implements 關係，沒有違反語義限制清單中的任何規則。因此，該三元組是合法的。"
+        "reason": "主體類別為 securityTeam，未違反任何語義限制清單中的規則。"
       },
       "step_2": {
-        "granularity_analysis": "主體與現有近似資源清單中的「開發團隊」完全匹配，受體「安全性建議公告」與「程式撰寫標準」或「軟體安全測試標準」無直接同義詞關係，但皆屬於政策類別",
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在相似性，但不完全等價同義詞；受體與 Ldr 中的資源之間不存在直接關係。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認，主體名稱與現有近似資源清單中的某資源完全相同，且無同義詞關係，故判定為 correct。"
+        "reason": "主體與 Ldr 中的資源之間雖然相似，但不完全等價同義詞；受體與 Ldr 中的資源之間不存在直接關係，因此判定為 correct。"
       }
     },
     "original_raw_triple": {
@@ -510,13 +302,117 @@
       },
       "relation": "implements",
       "object": {
-        "name": "安全性建議公告",
+        "name": "程式撰寫標準",
         "type": "policy"
       },
-      "reasoning": "開發團隊發行『安全性建議公告』，這是一種對外發布的安全指導方針（policy），由安全團隊（securityTeam）執行（implements）。",
+      "reasoning": "實作階段要求『遵循程式撰寫標準』，這意味著開發團隊 (securityTeam) 執行/實作了該項規範 (policy)。",
       "source_id": "chunk_8",
       "source_file": "第11章 應用系統發展管理_e5.pdf",
-      "source_index": 10
+      "source_index": 6
+    }
+  },
+  {
+    "subject": {
+      "name": "軟體安全弱點",
+      "type": "vulnerability",
+      "display_name": "軟體安全弱點"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全風險",
+      "type": "risk",
+      "display_name": "安全風險"
+    },
+    "reasoning": "根據資安邏輯與文本中對弱點的描述，軟體中存在的『弱點』會導致潛在的『安全風險』暴露。",
+    "source_id": "chunk_8",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 均在 Lc,p 中。",
+        "step_2_alignment_check": "軟體安全弱點 (vulnerability) 可以合理地與 'can_expose' 關係連結到安全風險 (risk)，因為軟體安全弱點通常會導致安全風險的增加。",
+        "response": "correct",
+        "reason": "軟體安全弱點可以合理地與 'can_expose' 關係連結到安全風險，且所有實體類別與關係都在 Lc,p 中。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「安全弱點」、「程式弱點」、「程式安全漏洞」、「程式語言弱點」、「安全漏洞」等資源具有同義詞關係；受體與 Ldr 中的「安全風險」、「資安風險」、「安全管理風險」、「資訊安全風險」、「風險」、「人員風險」、「項目風險」、「雲端安全風險」、「認證風險」、「資產風險」等資源具有同義詞關係，但主體與受體之間存在著廣義/狹義從屬關係，主體是受體的子類型。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間存在著廣義/狹義從屬關係，主體是受體的子類型，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "軟體安全弱點",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全風險",
+        "type": "risk"
+      },
+      "reasoning": "根據資安邏輯與文本中對弱點的描述，軟體中存在的『弱點』會導致潛在的『安全風險』暴露。",
+      "source_id": "chunk_8",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 7
+    }
+  },
+  {
+    "subject": {
+      "name": "安全測試",
+      "type": "technique",
+      "display_name": "軟體安全測試"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "安全弱點",
+      "type": "vulnerability",
+      "display_name": "軟體安全弱點"
+    },
+    "reasoning": "文本提到採用『軟體安全測試標準』來排除缺陷與降低弱點，因此將其視為一種能分析漏洞的技術。",
+    "source_id": "chunk_8",
+    "source_file": "第11章 應用系統發展管理_e5.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "軟體安全測試 (technique) 可以分析軟體安全弱點 (vulnerability)，這是資安領域中合理的語意關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的特例允許，且受體類別為 vulnerability 不觸發規則3。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「安全測試」、「軟體測試」為同義詞；受體與 Ldr 中的「安全弱點」、「程式弱點」、「程式安全漏洞」、「程式語言弱點」、「安全漏洞」、「軟體安全弱點」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "安全測試",
+        "standard_object": "安全弱點",
+        "reason": "主體與 Ldr 中的「安全測試」為同義詞；受體與 Ldr 中的「安全弱點」為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "軟體安全測試",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "軟體安全弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到採用『軟體安全測試標準』來排除缺陷與降低弱點，因此將其視為一種能分析漏洞的技術。",
+      "source_id": "chunk_8",
+      "source_file": "第11章 應用系統發展管理_e5.pdf",
+      "source_index": 8
     }
   }
 ]

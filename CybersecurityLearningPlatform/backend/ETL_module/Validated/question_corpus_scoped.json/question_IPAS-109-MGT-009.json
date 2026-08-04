@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "資料分級",
+      "type": "technique",
+      "display_name": "資訊資產分級"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "根據題幹與正確答案 C，資訊資產分級的目的在於確認資產對組織的重要性。在本體論中，「資訊資產分級」是一種管理資產的流程/方法，故歸類為 technique；「資訊資產」涵蓋了硬體、軟體與資料，最適合歸類為 system。而「確認重要性」的行為在本體論的關係中對應於 can_analyze（分析），因此形成 (technique, can_analyze, system) 的合法邊界。",
+    "source_id": "question_IPAS-109-MGT-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '資訊資產分級' 是 'technique' 的合理實例，受體 '資訊資產' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 system，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊資產分級與資料分級為同義詞",
+        "response": "duplicate",
+        "standard_subject": "資料分級",
+        "standard_object": "",
+        "reason": "根據同義詞判定，資訊資產分級與資料分級指稱同一概念。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產分級",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "reasoning": "根據題幹與正確答案 C，資訊資產分級的目的在於確認資產對組織的重要性。在本體論中，「資訊資產分級」是一種管理資產的流程/方法，故歸類為 technique；「資訊資產」涵蓋了硬體、軟體與資料，最適合歸類為 system。而「確認重要性」的行為在本體論的關係中對應於 can_analyze（分析），因此形成 (technique, can_analyze, system) 的合法邊界。",
+      "source_id": "question_IPAS-109-MGT-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

@@ -9,7 +9,7 @@
       "name": "感測層",
       "type": "feature"
     },
-    "reasoning": "文本明確提到物聯網架構分為三層，其中之一為感測層。將架構視為 system，其組成層級視為 feature，符合 ('system', 'has_a', 'feature')。",
+    "reasoning": "文本明確提到『物聯網架構主要可以分為三層：感測層...』，因此物聯網架構（system）包含感測層（feature）。",
     "source_id": "chunk_2",
     "source_file": "第20章 物聯網安全_e5.pdf",
     "source_index": 1
@@ -24,7 +24,7 @@
       "name": "網路層",
       "type": "feature"
     },
-    "reasoning": "文本明確提到物聯網架構分為三層，其中之一為網路層。符合 ('system', 'has_a', 'feature')。",
+    "reasoning": "文本明確提到『物聯網架構主要可以分為三層：...網路層...』，因此物聯網架構（system）包含網路層（feature）。",
     "source_id": "chunk_2",
     "source_file": "第20章 物聯網安全_e5.pdf",
     "source_index": 2
@@ -39,7 +39,7 @@
       "name": "應用層",
       "type": "feature"
     },
-    "reasoning": "文本明確提到物聯網架構分為三層，其中之一為應用層。符合 ('system', 'has_a', 'feature')。",
+    "reasoning": "文本明確提到『物聯網架構主要可以分為三層：...與應用層』，因此物聯網架構（system）包含應用層（feature）。",
     "source_id": "chunk_2",
     "source_file": "第20章 物聯網安全_e5.pdf",
     "source_index": 3
@@ -54,7 +54,7 @@
       "name": "感測資料",
       "type": "data"
     },
-    "reasoning": "文本提到感測層由設備擷取資料或訊號。為了符合 Schema 中 ('system', 'generates', 'data') 的定義，將感測層在此處視為一個子系統。",
+    "reasoning": "文本提到感測層由設備針對場景進行感測，並將『擷取到的資料或訊號』傳輸，因此將感測層視為系統實體，其產生感測資料（data）。",
     "source_id": "chunk_2",
     "source_file": "第20章 物聯網安全_e5.pdf",
     "source_index": 4
@@ -69,10 +69,55 @@
       "name": "應用層",
       "type": "system"
     },
-    "reasoning": "文本提到網路層將資訊傳遞至應用層，描述了兩者之間的通訊連線。將兩層視為 system，符合 ('system', 'connects_to', 'system')。",
+    "reasoning": "文本提到『網路層則是為了將感測資訊傳遞至應用層』，描述了兩層之間的通訊連接，故將兩者視為 system 並使用 connects_to。",
     "source_id": "chunk_2",
     "source_file": "第20章 物聯網安全_e5.pdf",
     "source_index": 5
+  },
+  {
+    "subject": {
+      "name": "物聯網",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "低功耗廣域網路 (LPWAN)",
+      "type": "feature"
+    },
+    "reasoning": "文本提到物聯網採用各種通訊技術，其中包含 LPWAN，因此 LPWAN 是物聯網（system）的一種特徵/組成部分（feature）。",
+    "source_id": "chunk_2",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 6
+  },
+  {
+    "subject": {
+      "name": "低功耗廣域網路 (LPWAN)",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "LoRa",
+      "type": "system"
+    },
+    "reasoning": "文本將 LoRa 列為 LPWAN 建置中的一種長距離無線通訊技術解決方案，將 LPWAN 視為較大的系統類別，LoRa 為其下之具體系統實作。",
+    "source_id": "chunk_2",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "LoRa",
+      "type": "system"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "長距離無線通訊",
+      "type": "feature"
+    },
+    "reasoning": "文本描述 LoRa 是『專為物聯網所開發的...長距離的無線技術』，因此長距離通訊是 LoRa（system）的特徵（feature）。",
+    "source_id": "chunk_2",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 8
   },
   {
     "subject": {
@@ -84,52 +129,7 @@
       "name": "感測資料",
       "type": "data"
     },
-    "reasoning": "文本提到應用層結合資料分析技術來處理資訊。分析技術屬於 technique，其對象為 data，符合 ('technique', 'can_analyze', 'data')。",
-    "source_id": "chunk_2",
-    "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 6
-  },
-  {
-    "subject": {
-      "name": "LoRa",
-      "type": "tool"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "物聯網",
-      "type": "system"
-    },
-    "reasoning": "LoRa 被描述為專為物聯網開發的無線技術/解決方案。將其視為實現物聯網的 tool，符合 ('tool', 'is_part_of', 'system')。",
-    "source_id": "chunk_2",
-    "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "LPWAN",
-      "type": "tool"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "物聯網",
-      "type": "system"
-    },
-    "reasoning": "低功耗廣域網路 (LPWAN) 是物聯網採用的通訊技術解決方案。將其視為 tool，符合 ('tool', 'is_part_of', 'system')。",
-    "source_id": "chunk_2",
-    "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 8
-  },
-  {
-    "subject": {
-      "name": "感測層",
-      "type": "system"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "感測設備",
-      "type": "tool"
-    },
-    "reasoning": "文本提到感測層由具有感測能力的設備組成。將感測層視為 system，設備視為 tool，符合 ('system', 'has_a', 'tool')。",
+    "reasoning": "文本提到應用層結合『資料分析技術』來處理資訊，邏輯上資料分析技術（technique）是用來分析感測資料（data）的。",
     "source_id": "chunk_2",
     "source_file": "第20章 物聯網安全_e5.pdf",
     "source_index": 9

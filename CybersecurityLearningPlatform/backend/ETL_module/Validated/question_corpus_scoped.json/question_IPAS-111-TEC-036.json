@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "封包來源端 ip 與目的端 ip 相同",
+      "type": "technique",
+      "display_name": "封包來源端 IP 與目的端 IP 相同"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "land attack",
+      "type": "attack",
+      "display_name": "Land Attack"
+    },
+    "reasoning": "根據題幹與正確答案，Land Attack 的定義即為『封包來源端 IP 與目的端 IP 相同』的攻擊。將『來源端與目的端 IP 相同』視為一種達成攻擊目的的方法（technique），而『Land Attack』為該惡意行為的具體名稱（attack），兩者符合 Schema 中 ('technique', 'implements', 'attack') 的合法關係。",
+    "source_id": "question_IPAS-111-TEC-036",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '封包來源端 IP 與目的端 IP 相同' 可以被視為 'technique' 的合理實例，受體名稱 'Land Attack' 可以被視為 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，未違反規則3。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源沒有完全等價同義詞關係，受體與 Ldr 中的資源沒有完全等價同義詞關係，但主體與受體之間存在特定關係：主體是 Land Attack 的一種技術手法",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間存在特定關係，但不構成同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "封包來源端 IP 與目的端 IP 相同",
+        "type": "technique"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "Land Attack",
+        "type": "attack"
+      },
+      "reasoning": "根據題幹與正確答案，Land Attack 的定義即為『封包來源端 IP 與目的端 IP 相同』的攻擊。將『來源端與目的端 IP 相同』視為一種達成攻擊目的的方法（technique），而『Land Attack』為該惡意行為的具體名稱（attack），兩者符合 Schema 中 ('technique', 'implements', 'attack') 的合法關係。",
+      "source_id": "question_IPAS-111-TEC-036",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

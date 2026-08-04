@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "subject": {
+      "name": "雲端運算",
+      "type": "system",
+      "display_name": "雲端運算"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "大數據",
+      "type": "system",
+      "display_name": "大數據"
+    },
+    "reasoning": "文本指出雲端運算為大數據提供儲存與運算平台，意味著雲端運算系統在處理或承載大數據資料，符合 ('system', 'uses', 'data') 的 Schema。",
+    "source_id": "chunk_1",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "雲端運算是系統的合理實例，大數據是資料的合理實例。",
+        "response": "correct",
+        "reason": "雲端運算使用大數據的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_2": {
+        "granularity_analysis": "雲端運算與雲端運算服務之間存在狹義關係，但雲端運算與大數據之間不存在直接的同義詞或從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雲端運算與大數據之間不存在直接的同義詞或從屬關係，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> uses -> system (original: system -> uses -> data)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端運算",
+        "type": "system"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "大數據",
+        "type": "data"
+      },
+      "reasoning": "文本指出雲端運算為大數據提供儲存與運算平台，意味著雲端運算系統在處理或承載大數據資料，符合 ('system', 'uses', 'data') 的 Schema。",
+      "source_id": "chunk_1",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "雲端運算",
+      "type": "system",
+      "display_name": "雲端運算"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "雲端安全風險",
+      "type": "risk",
+      "display_name": "雲端安全風險"
+    },
+    "reasoning": "文本提到雲端運算『有其潛在的資訊安全風險』。根據 Schema，system 不能直接連接到 risk，因此將『雲端安全風險』定義為 vulnerability（漏洞/弱點），符合 ('system', 'can_expose', 'vulnerability')。",
+    "source_id": "chunk_1",
+    "source_file": "第19章 雲端與大數據安全_e5.pdf",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "雲端運算是系統的合理實例，雲端安全風險是漏洞的合理實例，且 'can_expose' 關係在語意上與系統與漏洞之間的關係相符。",
+        "response": "correct",
+        "reason": "雲端運算與雲端安全風險之間的 'can_expose' 關係完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「雲端運算」完全等價同義詞；受體與 Ldr 中的「雲端安全風險」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與受體在 Ldr 中找到完全等價同義詞，但根據判斷準則 3，若一個實體是另一個的子類型或具體概念 vs 泛稱，應一律保留原名。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): system -> can_expose -> risk (original: system -> can_expose -> vulnerability)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "雲端運算",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "雲端安全風險",
+        "type": "vulnerability"
+      },
+      "reasoning": "文本提到雲端運算『有其潛在的資訊安全風險』。根據 Schema，system 不能直接連接到 risk，因此將『雲端安全風險』定義為 vulnerability（漏洞/弱點），符合 ('system', 'can_expose', 'vulnerability')。",
+      "source_id": "chunk_1",
+      "source_file": "第19章 雲端與大數據安全_e5.pdf",
+      "source_index": 3
+    }
+  }
+]

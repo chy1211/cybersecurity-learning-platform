@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "linux 核心記憶體處理子程序",
+      "type": "feature",
+      "display_name": "Linux 核心記憶體處理子程序"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "dirty cow (cve 2016-5195)",
+      "type": "vulnerability",
+      "display_name": "Dirty Cow (CVE 2016-5195)"
+    },
+    "reasoning": "根據選項 B，Dirty Cow 漏洞是由於 Linux 核心記憶體處理子程序的異常所產生。在 Schema 中，特徵 (feature) 的異常可導致漏洞暴露，因此使用 ('feature', 'can_expose', 'vulnerability')。",
+    "source_id": "question_IPAS-112-TEC-015",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'Linux 核心記憶體處理子程序' 是 'feature' 的合理實例，受體 'Dirty Cow (CVE 2016-5195)' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 feature，受體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "不相關",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，且無法合併為同一實體。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Linux 核心記憶體處理子程序",
+        "type": "feature"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "Dirty Cow (CVE 2016-5195)",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據選項 B，Dirty Cow 漏洞是由於 Linux 核心記憶體處理子程序的異常所產生。在 Schema 中，特徵 (feature) 的異常可導致漏洞暴露，因此使用 ('feature', 'can_expose', 'vulnerability')。",
+      "source_id": "question_IPAS-112-TEC-015",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "dirty cow (cve 2016-5195)",
+      "type": "vulnerability",
+      "display_name": "Dirty Cow (CVE 2016-5195)"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "本地端服務提權",
+      "type": "risk",
+      "display_name": "本地端服務提權"
+    },
+    "reasoning": "根據選項 C，利用此漏洞可以進行本地端服務提權。提權是一種負面後果或風險，符合 ('vulnerability', 'can_expose', 'risk') 的定義。",
+    "source_id": "question_IPAS-112-TEC-015",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Dirty Cow (CVE 2016-5195) 是 'vulnerability' 的合理實例；本地端服務提權是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源為完全等價同義詞；受體與 Ldr 中無直接對應關係，但可視為狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源為完全等價同義詞，但受體與 Ldr 中無直接對應關係，且為狹義從屬關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Dirty Cow (CVE 2016-5195)",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "本地端服務提權",
+        "type": "risk"
+      },
+      "reasoning": "根據選項 C，利用此漏洞可以進行本地端服務提權。提權是一種負面後果或風險，符合 ('vulnerability', 'can_expose', 'risk') 的定義。",
+      "source_id": "question_IPAS-112-TEC-015",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "android 手機",
+      "type": "system",
+      "display_name": "Android 手機"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "dirty cow (cve 2016-5195)",
+      "type": "vulnerability",
+      "display_name": "Dirty Cow (CVE 2016-5195)"
+    },
+    "reasoning": "根據選項 D，此漏洞會影響特定版本的 Android 手機。Android 手機作為一個系統 (system)，其特定版本存在該漏洞，符合 ('system', 'can_expose', 'vulnerability')。",
+    "source_id": "question_IPAS-112-TEC-015",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Android 手機 是 'system' 的合理實例，Dirty Cow (CVE 2016-5195) 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 system，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「手機」為同義詞；受體與 Ldr 中的「dirty cow (cve 2016-5195)」完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「手機」為同義詞，但受體與 Ldr 中的「dirty cow (cve 2016-5195)」完全相同，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Android 手機",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "Dirty Cow (CVE 2016-5195)",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據選項 D，此漏洞會影響特定版本的 Android 手機。Android 手機作為一個系統 (system)，其特定版本存在該漏洞，符合 ('system', 'can_expose', 'vulnerability')。",
+      "source_id": "question_IPAS-112-TEC-015",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

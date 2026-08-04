@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "創用cc姓名標示規定",
+      "type": "policy",
+      "display_name": "創用CC姓名標示規定"
+    },
+    "reasoning": "根據考題處理規則第 4 點（否定式提問），正確答案 C 是違反規定者，而選項 A（必須表彰姓名）是成立的正確知識。使用者遵循姓名標示要求屬於執行資安/法律規範，因此選擇 user implements policy。",
+    "source_id": "question_IPAS-112-MGT-013",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例；受體名稱 '創用CC姓名標示規定' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且實體名稱與其類別合理對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均未與 Ldr 中的資源完全匹配，且無法確認為同義詞或子類型關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "創用CC姓名標示規定",
+        "type": "policy"
+      },
+      "reasoning": "根據考題處理規則第 4 點（否定式提問），正確答案 C 是違反規定者，而選項 A（必須表彰姓名）是成立的正確知識。使用者遵循姓名標示要求屬於執行資安/法律規範，因此選擇 user implements policy。",
+      "source_id": "question_IPAS-112-MGT-013",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "創用cc非商業使用規定",
+      "type": "policy",
+      "display_name": "創用CC非商業使用規定"
+    },
+    "reasoning": "正確答案 C 指出『將素材用於商業廣告』是違反規定的，這隱含了該授權標示包含『非商業使用 (Non-Commercial)』的限制。因此，正確的知識陳述應為使用者必須執行非商業使用的規範，選擇 user implements policy。",
+    "source_id": "question_IPAS-112-MGT-013",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例；關係 'implements' 合理地連接 '使用者' 與 '創用CC非商業使用規定'；受體名稱 '創用CC非商業使用規定' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「用戶」為同義詞；受體與 Ldr 中的「創用cc姓名標示規定」無直接關係，但類別相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「用戶」雖為同義詞，但受體未找到完全匹配的同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "創用CC非商業使用規定",
+        "type": "policy"
+      },
+      "reasoning": "正確答案 C 指出『將素材用於商業廣告』是違反規定的，這隱含了該授權標示包含『非商業使用 (Non-Commercial)』的限制。因此，正確的知識陳述應為使用者必須執行非商業使用的規範，選擇 user implements policy。",
+      "source_id": "question_IPAS-112-MGT-013",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "素材",
+      "type": "data",
+      "display_name": "素材"
+    },
+    "reasoning": "選項 B 指出使用者將素材用於公益用途是允許的（正確知識），描述了使用者與資料（素材）之間的互動關係，因此選擇 user uses data。",
+    "source_id": "question_IPAS-112-MGT-013",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '使用者' 是類別 'user' 的合理實例，實體名稱 '素材' 是類別 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認是否為同義詞，故預設保留。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "素材",
+        "type": "data"
+      },
+      "reasoning": "選項 B 指出使用者將素材用於公益用途是允許的（正確知識），描述了使用者與資料（素材）之間的互動關係，因此選擇 user uses data。",
+      "source_id": "question_IPAS-112-MGT-013",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "創用cc禁止修改規定",
+      "type": "policy",
+      "display_name": "創用CC禁止修改規定"
+    },
+    "reasoning": "根據考題處理規則第 4 點，選項 D（不得修改著作）是成立的正確知識。使用者遵守不修改著作的限制屬於執行規範，因此選擇 user implements policy。",
+    "source_id": "question_IPAS-112-MGT-013",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 是 'user' 的合理實例；受體名稱 '創用CC禁止修改規定' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「使用者」、「用戶」、「網路使用者」均為同義詞；受體與 Ldr 中的「創用cc姓名標示規定」概念相關但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的其他實體同義，但受體與 Ldr 中的實體概念相關但非完全等價同義詞，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "創用CC禁止修改規定",
+        "type": "policy"
+      },
+      "reasoning": "根據考題處理規則第 4 點，選項 D（不得修改著作）是成立的正確知識。使用者遵守不修改著作的限制屬於執行規範，因此選擇 user implements policy。",
+      "source_id": "question_IPAS-112-MGT-013",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

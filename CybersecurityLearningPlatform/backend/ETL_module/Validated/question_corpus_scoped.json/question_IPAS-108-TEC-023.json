@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "密碼雜湊系統",
+      "type": "app",
+      "display_name": "密碼雜湊系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "salt",
+      "type": "feature",
+      "display_name": "Salt"
+    },
+    "reasoning": "根據題幹，該程式設計師撰寫的『密碼雜湊系統』在運作過程中使用了 Salt（鹽值）來進行雜湊運算，Salt 是該系統雜湊功能的組成特徵。",
+    "source_id": "question_IPAS-108-TEC-023",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "密碼雜湊系統 (app) 可以有 Salt (feature) 是合理的實例關係，符合語意對齊。",
+        "response": "correct",
+        "reason": "密碼雜湊系統有 Salt 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "無明確規則限制主體為 app 時不可具有 feature。無相關規則限制主體為 app 時不可具有 feature。無相關規則限制主體為 app 時不可具有 feature。無相關規則限制主體為 app 時不可具有 feature。無相關規則限制主體為 app 時不可具有 feature。無相關規則限制主體為 app 時不可具有 feature。無相關規則限制主體為 app 時不可具有 feature。無相關規則限制主體為 app 時不可具有 feature。",
+        "response": "correct",
+        "reason": "無明確規則限制主體為 app 時不可具有 feature。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼雜湊系統",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "Salt",
+        "type": "feature"
+      },
+      "reasoning": "根據題幹，該程式設計師撰寫的『密碼雜湊系統』在運作過程中使用了 Salt（鹽值）來進行雜湊運算，Salt 是該系統雜湊功能的組成特徵。",
+      "source_id": "question_IPAS-108-TEC-023",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "密碼雜湊系統",
+      "type": "app",
+      "display_name": "密碼雜湊系統"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "重覆使用 salt",
+      "type": "vulnerability",
+      "display_name": "重覆使用 Salt"
+    },
+    "reasoning": "正確答案指出該程式的錯誤在於『重覆使用 Salt』。在資安脈絡中，實作上的錯誤（如 Salt 未隨密碼變更而變更）會導致系統產生弱點，因此將其歸類為 vulnerability。",
+    "source_id": "question_IPAS-108-TEC-023",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "密碼雜湊系統是 app 的合理實例，重覆使用 Salt 是 vulnerability 的合理實例。",
+        "response": "correct",
+        "reason": "密碼雜湊系統可以暴露重覆使用 Salt 的漏洞，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 app，受體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源為完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體名稱與 Ldr 中的資源名稱完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "密碼雜湊系統",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "重覆使用 Salt",
+        "type": "vulnerability"
+      },
+      "reasoning": "正確答案指出該程式的錯誤在於『重覆使用 Salt』。在資安脈絡中，實作上的錯誤（如 Salt 未隨密碼變更而變更）會導致系統產生弱點，因此將其歸類為 vulnerability。",
+      "source_id": "question_IPAS-108-TEC-023",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "程式設計師",
+      "type": "user",
+      "display_name": "程式設計師"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "重覆使用 salt",
+      "type": "vulnerability",
+      "display_name": "重覆使用 Salt"
+    },
+    "reasoning": "題幹描述由程式設計師撰寫此系統並犯錯，對應到 Schema 中使用者（user）的操作或設定錯誤可能導致漏洞暴露（can_expose vulnerability）。",
+    "source_id": "question_IPAS-108-TEC-023",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "程式設計師 (user) 合理對齊 'user' 類別，重覆使用 Salt (vulnerability) 合理對齊 'vulnerability' 類別。",
+        "response": "correct",
+        "reason": "程式設計師可以揭露重覆使用 Salt 的弱點，完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 user，受體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "重覆使用 salt",
+        "reason": "受體與現有近似資源清單中的項目完全相同，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "程式設計師",
+        "type": "user"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "重覆使用 Salt",
+        "type": "vulnerability"
+      },
+      "reasoning": "題幹描述由程式設計師撰寫此系統並犯錯，對應到 Schema 中使用者（user）的操作或設定錯誤可能導致漏洞暴露（can_expose vulnerability）。",
+      "source_id": "question_IPAS-108-TEC-023",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

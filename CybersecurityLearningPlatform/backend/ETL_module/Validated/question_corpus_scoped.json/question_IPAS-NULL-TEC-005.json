@@ -1,0 +1,112 @@
+[
+  {
+    "subject": {
+      "name": "管理人員",
+      "type": "securityTeam",
+      "display_name": "管理員"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "ip封包",
+      "type": "data",
+      "display_name": "IP 封包"
+    },
+    "reasoning": "題幹提到管理員在『監控網路上的 IP 封包』，監控封包標頭以識別協定屬於分析網路資料的行為，因此將管理員歸類為 securityTeam，IP 封包歸類為 data，關係為 can_analyze。",
+    "source_id": "question_IPAS-NULL-TEC-005",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '管理員' 是 'securityTeam' 的合理實例；受體名稱 'IP 封包' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別是securityTeam，而規則3只檢查主體類別為vulnerability。規則8不適用，因為關係不是controls。其他規則不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「管理人員」、「管理者」、「資安管理人員」、「系統管理者」、「系統管理人員」、「安全管理人員」、「管理階層」等實體之間存在同義詞關係；受體與 Ldr 中的「ip封包」、「網際網路封包」、「網路封包」、「封包」、「tcp 封包」、「vpn 封包」、「密碼封包」、「資料封包」等實體之間存在同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "管理人員",
+        "standard_object": "ip封包",
+        "reason": "主體與受體分別與 Ldr 中的實體存在同義詞關係，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理員",
+        "type": "securityTeam"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "IP 封包",
+        "type": "data"
+      },
+      "reasoning": "題幹提到管理員在『監控網路上的 IP 封包』，監控封包標頭以識別協定屬於分析網路資料的行為，因此將管理員歸類為 securityTeam，IP 封包歸類為 data，關係為 can_analyze。",
+      "source_id": "question_IPAS-NULL-TEC-005",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "icmp",
+      "type": "feature",
+      "display_name": "ICMP"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "ip封包",
+      "type": "data",
+      "display_name": "IP 封包"
+    },
+    "reasoning": "根據題幹與正確答案，當 IP 封包的協定欄位值為 1 時，該封包屬於 ICMP 協定。這表示 ICMP 協定使用 IP 封包作為其傳輸載體。根據定義，協定屬於 feature，封包屬於 data，且 Schema 允許 ('feature', 'uses', 'data')。",
+    "source_id": "question_IPAS-NULL-TEC-005",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "ICMP 是網路協議的一個功能特徵，屬於 'feature' 的合理實例；IP 封包是網路資料傳輸的基本單位，屬於 'data' 的合理實例；'uses' 關係描述了 ICMP 使用 IP 封包進行傳輸，語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體 ICMP 的類別是 feature，而非 data，且關係為 uses，違反規則5。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體 ICMP 的類別是 feature，而非 data，且關係為 uses，違反規則5。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "duplicate",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "ICMP",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "IP 封包",
+        "type": "data"
+      },
+      "reasoning": "根據題幹與正確答案，當 IP 封包的協定欄位值為 1 時，該封包屬於 ICMP 協定。這表示 ICMP 協定使用 IP 封包作為其傳輸載體。根據定義，協定屬於 feature，封包屬於 data，且 Schema 允許 ('feature', 'uses', 'data')。",
+      "source_id": "question_IPAS-NULL-TEC-005",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

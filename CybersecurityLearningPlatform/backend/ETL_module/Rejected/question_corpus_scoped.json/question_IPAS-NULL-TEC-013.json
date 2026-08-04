@@ -1,0 +1,91 @@
+[
+  {
+    "subject": {
+      "name": "電腦病毒",
+      "type": "tool",
+      "display_name": "電腦病毒"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "隱藏",
+      "type": "function",
+      "display_name": "隱藏"
+    },
+    "reasoning": "文本明確指出電腦病毒具有『隱藏』特性，將其視為工具的一項功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+    "source_id": "question_IPAS-NULL-TEC-013",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "電腦病毒 (tool) 合理、隱藏 (function) 合理，但 'has_a' 關係與 'tool' 和 'function' 之間的語意對齊不完全符合預期，因為 'has_a' 通常用於描述具有一般屬性或子功能的關係，電腦病毒與隱藏之間的關係更像是 'implements' 或 'uses'。",
+        "response": "violation",
+        "reason": "雖然主體類別、受體類別與關係都在合法清單中，但 'has_a' 關係與 'tool' 和 'function' 之間的語意對齊不完全符合預期。"
+      }
+    },
+    "reject_reason": "Step 1 (Class/Property Violation): 雖然主體類別、受體類別與關係都在合法清單中，但 'has_a' 關係與 'tool' 和 'function' 之間的語意對齊不完全符合預期。",
+    "original_raw_triple": {
+      "subject": {
+        "name": "電腦病毒",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "隱藏",
+        "type": "function"
+      },
+      "reasoning": "文本明確指出電腦病毒具有『隱藏』特性，將其視為工具的一項功能，符合 ('tool', 'has_a', 'function') 的 Schema。",
+      "source_id": "question_IPAS-NULL-TEC-013",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "蠕蟲",
+      "type": "tool",
+      "display_name": "蠕蟲"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "主機",
+      "type": "system",
+      "display_name": "主機"
+    },
+    "reasoning": "文本提到蠕蟲『利用網路感染其他主機』，感染主機是一種惡意攻擊行為導致系統受損，符合 ('attack', 'can_harm', 'system') 的 Schema。",
+    "source_id": "question_IPAS-NULL-TEC-013",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 9,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "蠕蟲 (Worm) 是一種常見的攻擊手法，屬於 'attack' 類別；主機 (Host) 是一種系統，屬於 'system' 類別。語意對齊合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '蠕蟲' 完全等價同義詞；受體與 Ldr 中的資源 '主機' 完全等價同義詞，但考慮到 '主機' 可能有多種子類型，因此受體不應與 '伺服主機' 或 '系統主機' 合併。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的資源 '蠕蟲' 完全等價同義詞，但受體 '主機' 考慮到可能有多種子類型，因此不應與 '伺服主機' 或 '系統主機' 合併，故判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): tool -> can_harm -> system (original: attack -> can_harm -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "蠕蟲",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "主機",
+        "type": "system"
+      },
+      "reasoning": "文本提到蠕蟲『利用網路感染其他主機』，感染主機是一種惡意攻擊行為導致系統受損，符合 ('attack', 'can_harm', 'system') 的 Schema。",
+      "source_id": "question_IPAS-NULL-TEC-013",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 9
+    }
+  }
+]

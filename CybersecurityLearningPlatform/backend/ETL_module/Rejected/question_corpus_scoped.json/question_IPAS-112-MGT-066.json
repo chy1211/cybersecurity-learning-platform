@@ -1,0 +1,50 @@
+[
+  {
+    "subject": {
+      "name": "資產分級",
+      "type": "policy",
+      "display_name": "資產分級"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "根據正確答案 B，「資產的分級主要為了便於釐清資產的重要性」。在資安管理中，資產分級是一種分析與評估資產價值的方法，因此將其定義為 `technique`；而資訊資產（包含硬體、軟體、資料等綜合環境）定義為 `system`。兩者之間的關係為 `can_analyze`（透過分級技術來分析資產的重要性），符合 Schema Edges 中的 (\"technique\", \"can_analyze\", \"system\")。",
+    "source_id": "question_IPAS-112-MGT-066",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資產分級 是一種合理的技術（technique），資訊資產 是一種合理的系統（system），且 'can_analyze' 的語意與資產分級與資訊資產之間的關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域已知概念，且無法合併為同義詞。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): policy -> can_analyze -> system (original: technique -> can_analyze -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產分級",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "reasoning": "根據正確答案 B，「資產的分級主要為了便於釐清資產的重要性」。在資安管理中，資產分級是一種分析與評估資產價值的方法，因此將其定義為 `technique`；而資訊資產（包含硬體、軟體、資料等綜合環境）定義為 `system`。兩者之間的關係為 `can_analyze`（透過分級技術來分析資產的重要性），符合 Schema Edges 中的 (\"technique\", \"can_analyze\", \"system\")。",
+      "source_id": "question_IPAS-112-MGT-066",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

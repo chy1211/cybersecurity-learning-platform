@@ -1,0 +1,98 @@
+[
+  {
+    "subject": {
+      "name": "ftp",
+      "type": "feature",
+      "display_name": "FTP"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "連接埠 21",
+      "type": "feature",
+      "display_name": "連接埠 21"
+    },
+    "reasoning": "根據正確答案 A，FTP 服務需要開放連接埠 21。在本體論中，FTP 屬於應用程式 (app)，而連接埠屬於系統或網路的屬性 (feature)，兩者關係為 has_a。",
+    "source_id": "question_IPAS-109-TEC-052",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "FTP 是一種應用程式（app），連接埠 21 是 FTP 的特徵（feature），因此語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間的關係是完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體 FTP 與 Ldr 中的 ftp 是相同的實體，無需合併"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> feature (original: app -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "FTP",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "連接埠 21",
+        "type": "feature"
+      },
+      "reasoning": "根據正確答案 A，FTP 服務需要開放連接埠 21。在本體論中，FTP 屬於應用程式 (app)，而連接埠屬於系統或網路的屬性 (feature)，兩者關係為 has_a。",
+      "source_id": "question_IPAS-109-TEC-052",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "ftp",
+      "type": "feature",
+      "display_name": "FTP"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "tcp 協定",
+      "type": "feature",
+      "display_name": "TCP"
+    },
+    "reasoning": "根據正確答案 A，FTP 服務使用 TCP 連線。TCP 協定在定義中被歸類為特徵 (feature)，FTP 作為應用程式 (app) 具有此協定屬性。",
+    "source_id": "question_IPAS-109-TEC-052",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "FTP 是一種應用程式（app），具有 TCP（傳輸控制協議）功能，因此語意對齊。",
+        "response": "correct",
+        "reason": "FTP 與 TCP 的類別與屬性完全符合預先定義的清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 FTP 與 Ldr 中的 ftp 完全等價同義詞；受體 TCP 與 Ldr 中的 tcp 協定 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "ftp",
+        "standard_object": "tcp 協定",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> has_a -> feature (original: app -> has_a -> feature)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "FTP",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "TCP",
+        "type": "feature"
+      },
+      "reasoning": "根據正確答案 A，FTP 服務使用 TCP 連線。TCP 協定在定義中被歸類為特徵 (feature)，FTP 作為應用程式 (app) 具有此協定屬性。",
+      "source_id": "question_IPAS-109-TEC-052",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

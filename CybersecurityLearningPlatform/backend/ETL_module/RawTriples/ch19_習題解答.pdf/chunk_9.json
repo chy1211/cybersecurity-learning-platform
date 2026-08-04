@@ -1,33 +1,18 @@
 [
   {
     "subject": {
-      "name": "物聯網",
-      "type": "system"
+      "name": "雲端安全聯盟",
+      "type": "securityTeam"
     },
-    "relation": "generates",
+    "relation": "implements",
     "object": {
-      "name": "行為資料",
-      "type": "data"
+      "name": "大數據安全與隱私十大挑戰",
+      "type": "policy"
     },
-    "reasoning": "文本提到研究者可藉由應用物聯網技術獲得巨量的行為資料，因此物聯網作為系統產生了資料。符合 Schema: (\"system\", \"generates\", \"data\")",
+    "reasoning": "文本提到雲端安全聯盟的大數據工作小組提出了該挑戰清單，這屬於定義安全指導方針或規範，因此將其視為 securityTeam 實作 (implements) 一項 policy。",
     "source_id": "chunk_9",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 1
-  },
-  {
-    "subject": {
-      "name": "網際網路",
-      "type": "system"
-    },
-    "relation": "generates",
-    "object": {
-      "name": "行為資料",
-      "type": "data"
-    },
-    "reasoning": "文本提到研究者可藉由網際網路技術獲得巨量的行為資料，因此網際網路作為系統產生了資料。符合 Schema: (\"system\", \"generates\", \"data\")",
-    "source_id": "chunk_9",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 2
   },
   {
     "subject": {
@@ -39,44 +24,59 @@
       "name": "行為資料",
       "type": "data"
     },
-    "reasoning": "文本提到獲得行為資料後「再進行資料探勘、分析研究」，說明資料探勘是一種分析資料的技術。符合 Schema: (\"technique\", \"can_analyze\", \"data\")",
+    "reasoning": "文本指出研究者獲得巨量的行為資料後，再進行資料探勘與分析研究。資料探勘是一種分析方法 (technique)，其對象是行為資料 (data)。",
+    "source_id": "chunk_9",
+    "source_file": "ch19_習題解答.pdf",
+    "source_index": 2
+  },
+  {
+    "subject": {
+      "name": "物聯網",
+      "type": "system"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "網際網路",
+      "type": "system"
+    },
+    "reasoning": "文本提到應用物聯網與網際網路的技術，在資安本體論中，物聯網設備與網際網路均為基礎設施系統，且彼此之間存在網路連線。",
     "source_id": "chunk_9",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 3
   },
   {
     "subject": {
-      "name": "雲端安全聯盟",
-      "type": "securityTeam"
+      "name": "基礎架構",
+      "type": "system"
     },
-    "relation": "implements",
+    "relation": "has_a",
     "object": {
-      "name": "大數據安全與隱私十大挑戰",
-      "type": "policy"
+      "name": "分散式架構",
+      "type": "system"
     },
-    "reasoning": "雲端安全聯盟（及其工作小組）提出了這套挑戰/規範，屬於安全團隊實作或制定資安政策/指南。符合 Schema: (\"securityTeam\", \"implements\", \"policy\")",
+    "reasoning": "文本明確指出基礎架構安全包含分散式架構的計算安全，顯示分散式架構是基礎架構中的一個組成部分。",
     "source_id": "chunk_9",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 4
   },
   {
     "subject": {
-      "name": "基礎架構安全",
+      "name": "基礎架構",
       "type": "system"
     },
     "relation": "has_a",
     "object": {
-      "name": "分散式架構的計算安全",
-      "type": "feature"
+      "name": "非關聯式資料庫",
+      "type": "tool"
     },
-    "reasoning": "文本明確指出基礎架構安全「包含」分散式架構的計算安全。將基礎架構安全視為一個安全系統，其包含的具體安全面向視為特徵。符合 Schema: (\"system\", \"has_a\", \"feature\")",
+    "reasoning": "文本提到基礎架構安全包含非關聯式資料庫的安全實現，將非關聯式資料庫視為部署在基礎架構中的工具 (tool)。",
     "source_id": "chunk_9",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 5
   },
   {
     "subject": {
-      "name": "分散式計算架構",
+      "name": "分散式架構",
       "type": "system"
     },
     "relation": "connects_to",
@@ -84,7 +84,7 @@
       "name": "網路",
       "type": "system"
     },
-    "reasoning": "文本提到分散式計算架構是「透過網路相互連結」，描述兩個系統實體之間的連線狀態。符合 Schema: (\"system\", \"connects_to\", \"system\")",
+    "reasoning": "文本描述分散式計算架構是透過網路相互連結以傳遞訊息與溝通協調而形成的。",
     "source_id": "chunk_9",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 6
@@ -99,7 +99,7 @@
       "name": "Mapper",
       "type": "tool"
     },
-    "reasoning": "MapReduce 是一種處理大數據的工具/框架，而 Mapper 是其內部的組成元件（工具）。符合 Schema: (\"tool\", \"has_a\", \"tool\")",
+    "reasoning": "MapReduce 是一種處理大數據的工具/框架，而 Mapper 是其內部的核心處理元件。",
     "source_id": "chunk_9",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 7
@@ -114,7 +114,7 @@
       "name": "Reducer",
       "type": "tool"
     },
-    "reasoning": "MapReduce 是一種處理大數據的工具/框架，而 Reducer 是其內部的組成元件（工具）。符合 Schema: (\"tool\", \"has_a\", \"tool\")",
+    "reasoning": "MapReduce 框架包含 Reducer 元件用於聚類結果。",
     "source_id": "chunk_9",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 8
@@ -129,24 +129,9 @@
       "name": "(key, value) 配對",
       "type": "data"
     },
-    "reasoning": "文本提到 Mapper 處理資料後「得到一系列的 (key, value) 配對」，即產生了特定格式的資料。符合 Schema: (\"tool\", \"generates\", \"data\")",
+    "reasoning": "文本提到 Mapper 處理後會得到一系列的 (key, value) 配對，這屬於工具產生資料的過程。",
     "source_id": "chunk_9",
     "source_file": "ch19_習題解答.pdf",
     "source_index": 9
-  },
-  {
-    "subject": {
-      "name": "Reducer",
-      "type": "tool"
-    },
-    "relation": "generates",
-    "object": {
-      "name": "結果",
-      "type": "data"
-    },
-    "reasoning": "文本提到 Reducer 聚類後「以得到結果」，即產生了最終的分析資料。符合 Schema: (\"tool\", \"generates\", \"data\")",
-    "source_id": "chunk_9",
-    "source_file": "ch19_習題解答.pdf",
-    "source_index": 10
   }
 ]

@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "設備",
+      "type": "tool",
+      "display_name": "設備"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "題幹提到「不同設備之日誌」，隱含了設備（system）會產生日誌（data）這一事實。符合 Schema: (\"system\", \"generates\", \"data\")。",
+    "source_id": "question_IPAS-110-TEC-089",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '設備' 是 'system' 的合理實例，受體 '日誌' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
+        "response": "correct",
+        "reason": "三元組符合規則7所允許的條件，主體為 tool，關係為 generates，受體為 data，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體「設備」與 Ldr 中的「設備」完全等價同義詞；受體「日誌」與 Ldr 中的「日誌檔」、「網路日誌」、「系統日誌」、「稽核日誌」、「網站日誌」、「日誌」等相關概念存在狹義/廣義從屬關係，但無完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全相同，受體雖有相關概念但無完全等價同義詞，依據判斷準則預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "設備",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "題幹提到「不同設備之日誌」，隱含了設備（system）會產生日誌（data）這一事實。符合 Schema: (\"system\", \"generates\", \"data\")。",
+      "source_id": "question_IPAS-110-TEC-089",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "正規化",
+      "type": "technique",
+      "display_name": "正規化"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "日誌",
+      "type": "data",
+      "display_name": "日誌"
+    },
+    "reasoning": "根據題幹與正確答案，面對不同設備日誌格式不一的分析難題時，需要進行「正規化」處理。正規化是一種處理資料的方法（technique），其目的是為了能有效分析日誌（data）。符合 Schema: (\"technique\", \"can_analyze\", \"data\")。",
+    "source_id": "question_IPAS-110-TEC-089",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '正規化' 是 'technique' 的合理實例；受體 '日誌' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別是technique，而非vulnerability；規則5不適用，因為主體類別不是data；規則8不適用，因為關係不是controls；其他規則不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「正規化」完全等價同義詞；受體與 Ldr 中的「日誌檔」、「網路日誌」、「系統日誌」、「稽核日誌」、「網站日誌」等相關但不完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「正規化」完全等價同義詞，但受體與 Ldr 中的相關日誌類型不完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "正規化",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "日誌",
+        "type": "data"
+      },
+      "reasoning": "根據題幹與正確答案，面對不同設備日誌格式不一的分析難題時，需要進行「正規化」處理。正規化是一種處理資料的方法（technique），其目的是為了能有效分析日誌（data）。符合 Schema: (\"technique\", \"can_analyze\", \"data\")。",
+      "source_id": "question_IPAS-110-TEC-089",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

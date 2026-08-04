@@ -1,0 +1,210 @@
+[
+  {
+    "subject": {
+      "name": "權責單位",
+      "type": "securityTeam",
+      "display_name": "權責單位"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "資訊資產盤點與異動檢核",
+      "type": "function",
+      "display_name": "資訊資產盤點與異動檢核"
+    },
+    "reasoning": "題幹指出權責單位應該進行資訊資產盤點與異動檢核，這是一個由安全管理角色執行的管理功能，因此選擇 securityTeam implements function。",
+    "source_id": "question_IPAS-108-MGT-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'function' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '權責單位' 是 'securityTeam' 的合理實例；受體 '資訊資產盤點與異動檢核' 是 'function' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 securityTeam，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "權責單位",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "資訊資產盤點與異動檢核",
+        "type": "function"
+      },
+      "reasoning": "題幹指出權責單位應該進行資訊資產盤點與異動檢核，這是一個由安全管理角色執行的管理功能，因此選擇 securityTeam implements function。",
+      "source_id": "question_IPAS-108-MGT-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊資產盤點與異動檢核",
+      "type": "function",
+      "display_name": "資訊資產盤點與異動檢核"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "作業環境",
+      "type": "system",
+      "display_name": "作業環境"
+    },
+    "reasoning": "根據否定式提問的處理規則，選項 B（作業環境變更）是正確的知識來源。這表示當作業環境變更時需要進行檢核，即該功能可分析作業環境之狀態，符合 function can_analyze system。",
+    "source_id": "question_IPAS-108-MGT-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '資訊資產盤點與異動檢核' 的名稱與其類別 'function' 合理對齊；受體 '作業環境' 的名稱與其類別 'system' 合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為function，而規則3只檢查主體類別為vulnerability。規則4不適用，因為主體類別為function，而規則4只限制principle。規則5不適用，因為關係為can_analyze，而規則5只限制uses關係。規則6不適用，因為關係為can_analyze，而規則6只限制deployed_in關係。規則7不適用，因為關係為can_analyze，而規則7只限制generates關係。規則8不適用，因為關係為can_analyze，而規則8只限制controls關係。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源不完全相同，但主體與 Ldr 中的資源之間存在廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間存在廣義/狹義從屬關係，禁止合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產盤點與異動檢核",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "作業環境",
+        "type": "system"
+      },
+      "reasoning": "根據否定式提問的處理規則，選項 B（作業環境變更）是正確的知識來源。這表示當作業環境變更時需要進行檢核，即該功能可分析作業環境之狀態，符合 function can_analyze system。",
+      "source_id": "question_IPAS-108-MGT-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊資產盤點與異動檢核",
+      "type": "function",
+      "display_name": "資訊資產盤點與異動檢核"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資訊資產"
+    },
+    "reasoning": "盤點與異動檢核的目的在於確保資訊資產的更新與正確性，這屬於對系統資產的分析與核對，符合 function can_analyze system。",
+    "source_id": "question_IPAS-108-MGT-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'system' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '資訊資產盤點與異動檢核' 是 'function' 的合理實例；受體 '資訊資產' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 function，與規則3無關；關係為 can_analyze，主體類別為 function，符合規則允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間存在同義詞關係，但根據規則 3，若一個實體是另一個的子類型，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產盤點與異動檢核",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊資產",
+        "type": "system"
+      },
+      "reasoning": "盤點與異動檢核的目的在於確保資訊資產的更新與正確性，這屬於對系統資產的分析與核對，符合 function can_analyze system。",
+      "source_id": "question_IPAS-108-MGT-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "資訊資產盤點與異動檢核",
+      "type": "function",
+      "display_name": "資訊資產盤點與異動檢核"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "根據否定式提問的處理規則，選項 D（系統有重大異動）是正確的知識來源。這表示系統異動時需執行檢核功能，符合 function can_analyze system。",
+    "source_id": "question_IPAS-108-MGT-009",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '資訊資產盤點與異動檢核' 可被視為 'function' 的合理實例；受體 '系統' 可被視為 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 function，與規則3無關；關係為 can_analyze，受體類別為 system，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，無需進行合併或替換。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊資產盤點與異動檢核",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "根據否定式提問的處理規則，選項 D（系統有重大異動）是正確的知識來源。這表示系統異動時需執行檢核功能，符合 function can_analyze system。",
+      "source_id": "question_IPAS-108-MGT-009",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "阻斷服務攻擊",
+      "type": "attack",
+      "display_name": "阻斷式服務攻擊 (Denial-of-Service Attack)"
+    },
+    "relation": "can_harm",
+    "object": {
+      "name": "目標系統",
+      "type": "system",
+      "display_name": "目標主機系統"
+    },
+    "reasoning": "根據題幹與正確答案，阻斷式服務攻擊會使目標主機系統超出工作負荷量並導致系統癱瘓，這符合 'attack' 對 'system' 造成危害的邏輯，因此選擇 can_harm。",
+    "source_id": "question_IPAS-NULL-TEC-006",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'system' 與關係 'can_harm' 均在 Lc,p 中。",
+        "step_2_alignment_check": "阻斷式服務攻擊 (Denial-of-Service Attack) 是攻擊 (attack) 的合理實例，目標主機系統是系統 (system) 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體不是attacker或securityTeam。規則2不適用，因為主體不是policy, technique或tool。規則3不適用，因為主體不是vulnerability。規則4不適用，因為主體不是principle。規則5不適用，因為關係不是uses或主體不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，無任何規則適用。",
+        "response": "correct",
+        "reason": "無任何規則適用，且無明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "阻斷服務攻擊",
+        "standard_object": "目標系統",
+        "reason": "主體與受體分別與 Ldr 中的「阻斷服務攻擊」與「目標系統」完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "阻斷式服務攻擊 (Denial-of-Service Attack)",
+        "type": "attack"
+      },
+      "relation": "can_harm",
+      "object": {
+        "name": "目標主機系統",
+        "type": "system"
+      },
+      "reasoning": "根據題幹與正確答案，阻斷式服務攻擊會使目標主機系統超出工作負荷量並導致系統癱瘓，這符合 'attack' 對 'system' 造成危害的邏輯，因此選擇 can_harm。",
+      "source_id": "question_IPAS-NULL-TEC-006",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "阻斷服務攻擊",
+      "type": "attack",
+      "display_name": "阻斷式服務攻擊 (Denial-of-Service Attack)"
+    },
+    "relation": "violates",
+    "object": {
+      "name": "可用性",
+      "type": "principle",
+      "display_name": "可用性"
+    },
+    "reasoning": "系統癱瘓（System Paralysis）直接導致服務無法被正常使用，這在資安原則中屬於對『可用性 (Availability)』的破壞，因此選擇 violates。",
+    "source_id": "question_IPAS-NULL-TEC-006",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'principle' 與關係 'violates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "阻斷式服務攻擊 (Denial-of-Service Attack) 是 'attack' 的合理實例；可用性是 'principle' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。",
+        "response": "correct",
+        "reason": "主體為阻斷式服務攻擊 (Denial-of-Service Attack)，類別為 attack，與受體可用性 (類別: principle) 的關係為 violates，符合規則4所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "阻斷服務攻擊",
+        "standard_object": "",
+        "reason": "主體「阻斷式服務攻擊」與 Ldr 中的「阻斷服務攻擊」為同義詞，且「阻斷服務」、「DoS攻擊」、「阻斷服務攻擊」為已知同義詞對照範例中的同義詞組。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "阻斷式服務攻擊 (Denial-of-Service Attack)",
+        "type": "attack"
+      },
+      "relation": "violates",
+      "object": {
+        "name": "可用性",
+        "type": "principle"
+      },
+      "reasoning": "系統癱瘓（System Paralysis）直接導致服務無法被正常使用，這在資安原則中屬於對『可用性 (Availability)』的破壞，因此選擇 violates。",
+      "source_id": "question_IPAS-NULL-TEC-006",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "安全通道",
+      "type": "feature",
+      "display_name": "安全通道"
+    },
+    "reasoning": "根據選項 A，系統在通訊時需確保透過安全通道進行，安全通道可視為系統通訊的一項特徵或屬性。",
+    "source_id": "question_IPAS-112-TEC-011",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '系統' 是 'system' 的合理實例；受體 '安全通道' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係為 has_a，與規則6無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「系統」完全等價同義詞；受體與 Ldr 中的「安全性」具有相關概念，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「系統」完全等價同義詞，但受體與 Ldr 中的「安全性」非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "安全通道",
+        "type": "feature"
+      },
+      "reasoning": "根據選項 A，系統在通訊時需確保透過安全通道進行，安全通道可視為系統通訊的一項特徵或屬性。",
+      "source_id": "question_IPAS-112-TEC-011",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "電子郵件",
+      "type": "app",
+      "display_name": "電子郵件"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "tls",
+      "type": "feature",
+      "display_name": "TLS"
+    },
+    "reasoning": "根據選項 D，TLS 可用於加密處理電子郵件，表示電子郵件應用程式使用了 TLS 工具。",
+    "source_id": "question_IPAS-112-TEC-011",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'tool' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "電子郵件 (Email) 是一種合理的 'app' 實例，TLS (Transport Layer Security) 是一種合理的 'tool' 實例，且 'has_a' 關係在此語境下合理。",
+        "response": "correct",
+        "reason": "電子郵件與 TLS 的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體電子郵件不是攻擊者或安全團隊。規則2不適用，因為主體電子郵件不是policy、technique或tool。規則3不適用，因為主體電子郵件不是漏洞。規則4不適用，因為主體電子郵件不是資安原則。規則5不適用，因為關係不是uses或主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。因此，無任何規則適用。",
+        "response": "correct",
+        "reason": "無任何規則適用，且無明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "電子郵件與 Ldr 中的電子郵件完全等價同義詞；TLS 與 Ldr 中的 tls 完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "電子郵件",
+        "standard_object": "tls",
+        "reason": "電子郵件與 TLS 分別與 Ldr 中的電子郵件和 tls 完全等價同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "電子郵件",
+        "type": "app"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "TLS",
+        "type": "tool"
+      },
+      "reasoning": "根據選項 D，TLS 可用於加密處理電子郵件，表示電子郵件應用程式使用了 TLS 工具。",
+      "source_id": "question_IPAS-112-TEC-011",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 6
+    }
+  }
+]

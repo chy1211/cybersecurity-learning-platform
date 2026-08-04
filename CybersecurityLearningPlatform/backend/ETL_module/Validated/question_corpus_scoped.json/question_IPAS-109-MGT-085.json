@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "委外作業人員",
+      "type": "user",
+      "display_name": "委外作業人員"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "安全保密協議",
+      "type": "policy",
+      "display_name": "保密合約"
+    },
+    "reasoning": "根據選項 B，委外作業人員應簽署保密合約。在本體論中，使用者簽署或遵守合約/規範屬於 'user' implements 'policy' 的關係。",
+    "source_id": "question_IPAS-109-MGT-085",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "委外作業人員 是 user 的合理實例，保密合約 是 policy 的合理實例。",
+        "response": "correct",
+        "reason": "委外作業人員 實施 保密合約 的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "保密合約與安全保密協議為同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "安全保密協議",
+        "reason": "根據同義詞對照範例，保密合約與安全保密協議是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "委外作業人員",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "保密合約",
+        "type": "policy"
+      },
+      "reasoning": "根據選項 B，委外作業人員應簽署保密合約。在本體論中，使用者簽署或遵守合約/規範屬於 'user' implements 'policy' 的關係。",
+      "source_id": "question_IPAS-109-MGT-085",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "管理階層",
+      "type": "securityTeam",
+      "display_name": "管理階層"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "委外使用者存取管理",
+      "type": "policy",
+      "display_name": "委外使用者存取管理"
+    },
+    "reasoning": "題幹與選項 A、D 共同描述了委外使用者存取管理的實作流程（如核准權限、移除權限），這些管理動作由管理階層執行，符合 'securityTeam' implements 'policy'。",
+    "source_id": "question_IPAS-109-MGT-085",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '管理階層' 是 'securityTeam' 的合理實例，受體 '委外使用者存取管理' 是 'policy' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為securityTeam，而非vulnerability。規則8不適用，因為關係為implements，而非controls。其他規則均不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，且三元組符合語義限制清單中沒有被禁止的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「高階管理層」和「管理人員」為同義詞，但考慮到「管理階層」可能是更廣義的概念，因此判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖然相似，但無法確認完全等價同義詞關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理階層",
+        "type": "securityTeam"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "委外使用者存取管理",
+        "type": "policy"
+      },
+      "reasoning": "題幹與選項 A、D 共同描述了委外使用者存取管理的實作流程（如核准權限、移除權限），這些管理動作由管理階層執行，符合 'securityTeam' implements 'policy'。",
+      "source_id": "question_IPAS-109-MGT-085",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "管理階層",
+      "type": "securityTeam",
+      "display_name": "管理階層"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "系統"
+    },
+    "reasoning": "選項 A 提到核准系統權限，選項 D 提到移除或封鎖存取權限，這代表管理階層對系統的存取權限具有控制權，符合 'securityTeam' controls 'system'。",
+    "source_id": "question_IPAS-109-MGT-085",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'securityTeam'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '管理階層' 可以被視為 'securityTeam' 的合理實例，受體名稱 '系統' 可以被視為 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為管理階層 (類別: securityTeam)，符合規則8所允許的條件，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「管理人員」、「高階管理層」、「管理階層」相關，但不完全等價同義詞；受體與 Ldr 中的「系統」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的相關實體不完全等價同義詞，受體雖然與 Ldr 中的實體完全等價同義詞，但根據判斷準則 3，若一個實體是另一個的子類型或具體概念 vs 泛稱，判定為 correct，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "管理階層",
+        "type": "securityTeam"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "系統",
+        "type": "system"
+      },
+      "reasoning": "選項 A 提到核准系統權限，選項 D 提到移除或封鎖存取權限，這代表管理階層對系統的存取權限具有控制權，符合 'securityTeam' controls 'system'。",
+      "source_id": "question_IPAS-109-MGT-085",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

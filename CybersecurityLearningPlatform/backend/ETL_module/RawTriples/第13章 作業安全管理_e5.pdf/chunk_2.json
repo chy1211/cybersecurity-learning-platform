@@ -9,40 +9,25 @@
       "name": "風險",
       "type": "risk"
     },
-    "reasoning": "文本提到指示型控制（如安全政策）是用來實現安全目標的，在資安本體論中，政策的目的是緩解風險，符合 ('policy', 'mitigates', 'risk')。",
+    "reasoning": "文本提到指示型控制（如安全政策）是用來實現安全目標的，在資安本體論中，政策的目的是緩解風險。符合 Schema: ('policy', 'mitigates', 'risk')。",
     "source_id": "chunk_2",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 1
   },
   {
     "subject": {
-      "name": "標準作業程序",
-      "type": "policy"
+      "name": "IC卡刷卡管制",
+      "type": "tool"
     },
     "relation": "mitigates",
     "object": {
       "name": "風險",
       "type": "risk"
     },
-    "reasoning": "標準作業程序（SOP）屬於指示型控制的範例，其本質是規範與策略，用於降低風險，符合 ('policy', 'mitigates', 'risk')。",
+    "reasoning": "文本將 IC 卡刷卡管制列為預防型控制的範例，旨在降低風險。符合 Schema: ('tool', 'mitigates', 'risk')。",
     "source_id": "chunk_2",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 2
-  },
-  {
-    "subject": {
-      "name": "卡刷卡管制",
-      "type": "tool"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "攻擊",
-      "type": "attack"
-    },
-    "reasoning": "文本將卡刷卡管制列為預防型控制，旨在降低風險並防止未經授權進入（一種物理攻擊），符合 ('tool', 'mitigates', 'attack')。",
-    "source_id": "chunk_2",
-    "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 3
   },
   {
     "subject": {
@@ -51,13 +36,13 @@
     },
     "relation": "can_detect",
     "object": {
-      "name": "攻擊",
+      "name": "攻擊事件",
       "type": "attack"
     },
-    "reasoning": "文本明確指出偵測型控制使用閉路監視器來紀錄或監控場域安全，即偵測惡意行為或攻擊，符合 ('tool', 'can_detect', 'attack')。",
+    "reasoning": "文本提到偵測型控制使用閉路監視器來監控場域安全，其功能是偵測是否違反安全目標（即偵測攻擊或異常行為）。符合 Schema: ('tool', 'can_detect', 'attack')。",
     "source_id": "chunk_2",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 4
+    "source_index": 3
   },
   {
     "subject": {
@@ -69,10 +54,10 @@
       "name": "風險",
       "type": "risk"
     },
-    "reasoning": "災害復原計畫是修正型控制配合的計畫，用於因應事件損害並降低風險，符合 ('policy', 'mitigates', 'risk')。",
+    "reasoning": "文本提到修正型控制需要配合災害復原計畫以降低或停止損害，這屬於透過政策緩解風險。符合 Schema: ('policy', 'mitigates', 'risk')。",
     "source_id": "chunk_2",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 5
+    "source_index": 4
   },
   {
     "subject": {
@@ -84,29 +69,14 @@
       "name": "風險",
       "type": "risk"
     },
-    "reasoning": "持續營運計畫（BCP）與災害復原計畫類似，屬於規範與策略，旨在緩解業務中斷的風險，符合 ('policy', 'mitigates', 'risk')。",
+    "reasoning": "同上，持續營運計畫是修正型控制的配套政策，用於降低事件造成的損害（風險）。符合 Schema: ('policy', 'mitigates', 'risk')。",
     "source_id": "chunk_2",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 6
+    "source_index": 5
   },
   {
     "subject": {
-      "name": "Windows 系統更新",
-      "type": "tool"
-    },
-    "relation": "mitigates",
-    "object": {
-      "name": "攻擊",
-      "type": "attack"
-    },
-    "reasoning": "文本提到 Windows 系統更新機制是用來修補漏洞，使系統不致於受到攻擊之危害，符合 ('tool', 'mitigates', 'attack')。",
-    "source_id": "chunk_2",
-    "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 7
-  },
-  {
-    "subject": {
-      "name": "Windows 系統更新",
+      "name": "Windows系統更新",
       "type": "tool"
     },
     "relation": "can_analyze",
@@ -114,25 +84,25 @@
       "name": "漏洞",
       "type": "vulnerability"
     },
-    "reasoning": "系統更新的過程包含對已知漏洞的識別與修補，在 Schema 中，工具對漏洞的處理可定義為分析/處理，符合 ('tool', 'can_analyze', 'vulnerability')。",
+    "reasoning": "文本提到 Windows 更新機制是用來修補作業系統的漏洞，修補的前提是工具能識別/分析出哪些漏洞需要更新。符合 Schema: ('tool', 'can_analyze', 'vulnerability')。",
     "source_id": "chunk_2",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 8
+    "source_index": 6
   },
   {
     "subject": {
-      "name": "Windows",
-      "type": "system"
+      "name": "Windows系統更新",
+      "type": "tool"
     },
-    "relation": "can_expose",
+    "relation": "mitigates",
     "object": {
-      "name": "漏洞",
-      "type": "vulnerability"
+      "name": "攻擊",
+      "type": "attack"
     },
-    "reasoning": "文本提到需要修補 Windows 作業系統的漏洞，暗示該系統可能存在或暴露漏洞，符合 ('system', 'can_expose', 'vulnerability')。",
+    "reasoning": "文本明確指出修補漏洞是為了使系統「不致於受到攻擊之危害」，即透過更新工具緩解攻擊。符合 Schema: ('tool', 'mitigates', 'attack')。",
     "source_id": "chunk_2",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 9
+    "source_index": 7
   },
   {
     "subject": {
@@ -144,9 +114,9 @@
       "name": "攻擊",
       "type": "attack"
     },
-    "reasoning": "備份與還原屬於回復型控制，用於在系統無法運行（如遭受勒索軟體攻擊導致資料毀損）後恢復狀態，從而緩解攻擊造成的影響，符合 ('technique', 'mitigates', 'attack')。",
+    "reasoning": "備份與還原被列為回復型控制，用於在系統無法運行時恢復狀態，這在實務上是用於緩解如勒索軟體等攻擊造成的損害。符合 Schema: ('technique', 'mitigates', 'attack')。",
     "source_id": "chunk_2",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 10
+    "source_index": 8
   }
 ]

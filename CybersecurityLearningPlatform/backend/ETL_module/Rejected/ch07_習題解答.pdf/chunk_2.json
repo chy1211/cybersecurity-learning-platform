@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "subject": {
+      "name": "外部人員",
+      "type": "attacker",
+      "display_name": "外部人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "文本提到外部人員需要透過網際網路來存取資源，符合 (user, uses, system) 的 Schema。",
+    "source_id": "chunk_2",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 11,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '外部人員' 是 'user' 的合理實例；受體名稱 '網際網路' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「外部人員」完全等價同義詞；受體與 Ldr 中的「網際網路」具有廣義/狹義從屬關係，但考慮到「網際網路」與「網路」、「網路環境」、「網路系統」之間的語義差異，判定為不相關。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「外部人員」完全等價同義詞，但受體與 Ldr 中的「網際網路」之間的語義差異導致不合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attacker -> uses -> system (original: user -> uses -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "外部人員",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到外部人員需要透過網際網路來存取資源，符合 (user, uses, system) 的 Schema。",
+      "source_id": "chunk_2",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 11
+    }
+  }
+]

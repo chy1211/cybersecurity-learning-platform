@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "經授權之人",
+      "type": "user",
+      "display_name": "經授權之人"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資訊資產",
+      "type": "system",
+      "display_name": "資產"
+    },
+    "reasoning": "本題為否定式提問，選項 B 為正確知識。選項 B 提到可用性是指『經授權之人...可存取或使用...資產』，在此脈絡下資產指涉基礎設施或系統，建立了『使用者 (user)』使用『系統 (system)』的關係，符合 Schema Edge 中的 ('user', 'uses', 'system')。",
+    "source_id": "question_IPAS-109-MGT-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '經授權之人' 是 'user' 的合理實例；受體名稱 '資產' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5不適用，因為主體類別不是data；規則6不適用，因為關係不是deployed_in；規則7不適用，因為關係不是generates；規則8不適用，因為關係不是controls；其他規則不適用，因為不涉及相關類別或關係。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間存在同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "經授權之人",
+        "standard_object": "資訊資產",
+        "reason": "主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間存在同義詞關係，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "經授權之人",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資產",
+        "type": "system"
+      },
+      "reasoning": "本題為否定式提問，選項 B 為正確知識。選項 B 提到可用性是指『經授權之人...可存取或使用...資產』，在此脈絡下資產指涉基礎設施或系統，建立了『使用者 (user)』使用『系統 (system)』的關係，符合 Schema Edge 中的 ('user', 'uses', 'system')。",
+      "source_id": "question_IPAS-109-MGT-002",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "經授權之人",
+      "type": "user",
+      "display_name": "經授權之人"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "資訊(information)",
+      "type": "data",
+      "display_name": "資訊"
+    },
+    "reasoning": "本題為否定式提問（何者不正確），因此未被選為答案的選項 B 為正確知識。選項 B 提到可用性是指『經授權之人...可存取或使用資訊』，這建立了『使用者 (user)』使用『資料 (data)』的關係，符合 Schema Edge 中的 ('user', 'uses', 'data')。",
+    "source_id": "question_IPAS-109-MGT-002",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '經授權之人' 是 'user' 的合理實例，受體名稱 '資訊' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，不是 data，因此不觸發規則5。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊與 Ldr 中的資訊(information)為完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "資訊(information)",
+        "reason": "根據資安領域已知同義詞對照範例，資訊與資訊(information)為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "經授權之人",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "資訊",
+        "type": "data"
+      },
+      "reasoning": "本題為否定式提問（何者不正確），因此未被選為答案的選項 B 為正確知識。選項 B 提到可用性是指『經授權之人...可存取或使用資訊』，這建立了『使用者 (user)』使用『資料 (data)』的關係，符合 Schema Edge 中的 ('user', 'uses', 'data')。",
+      "source_id": "question_IPAS-109-MGT-002",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

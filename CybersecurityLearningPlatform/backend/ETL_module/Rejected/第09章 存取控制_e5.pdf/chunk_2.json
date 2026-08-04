@@ -1,48 +1,116 @@
 [
   {
     "subject": {
-      "name": "認證系統",
-      "type": "system",
-      "display_name": "認證系統"
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
     },
     "relation": "uses",
     "object": {
-      "name": "認知密碼",
-      "type": "data",
-      "display_name": "認知密碼"
+      "name": "usb 符記",
+      "type": "tool",
+      "display_name": "USB 符記"
     },
-    "reasoning": "文本提到系統預先設定訊息作為認知密碼的答案，並在認證時要求提供。符合 (system, uses, data) 的 Schema。",
+    "reasoning": "文本提到使用者在認證時需要攜帶此設施（如 USB 符記），因此使用者使用該工具來進行認證。",
     "source_id": "chunk_2",
     "source_file": "第09章 存取控制_e5.pdf",
-    "source_index": 5,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體 '認證系統' 是 'system' 的合理實例，'認知密碼' 是 'data' 的合理實例，關係 'uses' 在資安領域中是合理的。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為關係不是violates，且主體不是principle。規則5觸發違規，因為主體的類別是system，但使用了'uses'關係，且受體的類別是data。規則6、7、8不適用，因為三元組中的關係不是deployed_in、generates或controls。",
-        "response": "violation",
-        "reason": "三元組違反了規則5，因為當關係為'uses'時，如果主體的類別是system，則為合法；但如果data僅是出現在受體位置，則屬合法，然而這裡主體是system，使用了'uses'關係，且受體的類別是data，符合規則5的違規條件。"
-      }
-    },
-    "reject_reason": "Step 3 (Semantic Violation): 三元組違反了規則5，因為當關係為'uses'時，如果主體的類別是system，則為合法；但如果data僅是出現在受體位置，則屬合法，然而這裡主體是system，使用了'uses'關係，且受體的類別是data，符合規則5的違規條件。",
+    "source_index": 1,
+    "reject_reason": "Phase 1 (Schema Edge Violation): user -> uses -> tool",
     "original_raw_triple": {
       "subject": {
-        "name": "認證系統",
-        "type": "system"
+        "name": "使用者",
+        "type": "user"
       },
       "relation": "uses",
       "object": {
-        "name": "認知密碼",
-        "type": "data"
+        "name": "USB 符記",
+        "type": "tool"
       },
-      "reasoning": "文本提到系統預先設定訊息作為認知密碼的答案，並在認證時要求提供。符合 (system, uses, data) 的 Schema。",
+      "reasoning": "文本提到使用者在認證時需要攜帶此設施（如 USB 符記），因此使用者使用該工具來進行認證。",
       "source_id": "chunk_2",
       "source_file": "第09章 存取控制_e5.pdf",
-      "source_index": 5
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "ic 卡",
+      "type": "tool",
+      "display_name": "IC 卡"
+    },
+    "reasoning": "IC 卡被列為符記裝置的一種，使用者需攜帶其進行認證，符合 user uses tool 的關係。",
+    "source_id": "chunk_2",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 2,
+    "reject_reason": "Phase 1 (Schema Edge Violation): user -> uses -> tool",
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "IC 卡",
+        "type": "tool"
+      },
+      "reasoning": "IC 卡被列為符記裝置的一種，使用者需攜帶其進行認證，符合 user uses tool 的關係。",
+      "source_id": "chunk_2",
+      "source_file": "第09章 存取控制_e5.pdf",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "生物特徵認證",
+      "type": "function",
+      "display_name": "生物特徵認證"
+    },
+    "relation": "depends_on",
+    "object": {
+      "name": "認證設備",
+      "type": "tool",
+      "display_name": "認證設備"
+    },
+    "reasoning": "文本明確提到生物特徵認證是『經由認證設備判別後』作出判斷，表示此技術依賴於該工具的運作。",
+    "source_id": "chunk_2",
+    "source_file": "第09章 存取控制_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'tool' 與關係 'depends_on' 均在 Lc,p 中。",
+        "step_2_alignment_check": "生物特徵認證 是一種合理的技術（technique），而認證設備 是一種合理的工具（tool）；此外，'depends_on' 關係在此語境下是合理的。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「生物特徵認證」完全等價同義詞；受體與 Ldr 中的「認證設備」完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "生物特徵認證",
+        "standard_object": "認證設備",
+        "reason": "主體與受體均為完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): function -> depends_on -> tool (original: technique -> depends_on -> tool)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "生物特徵認證",
+        "type": "technique"
+      },
+      "relation": "depends_on",
+      "object": {
+        "name": "認證設備",
+        "type": "tool"
+      },
+      "reasoning": "文本明確提到生物特徵認證是『經由認證設備判別後』作出判斷，表示此技術依賴於該工具的運作。",
+      "source_id": "chunk_2",
+      "source_file": "第09章 存取控制_e5.pdf",
+      "source_index": 7
     }
   }
 ]

@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "subject": {
+      "name": "控制項",
+      "type": "feature",
+      "display_name": "控制措施"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資訊安全風險",
+      "type": "risk",
+      "display_name": "資訊風險"
+    },
+    "reasoning": "文本提到『透過控制措施，降低資訊風險』。在 Schema 中，policy 可以 mitigates risk，因此將控制措施視為一種策略/規範。",
+    "source_id": "chunk_4",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '控制措施' 是 'policy' 的合理實例，受體名稱 '資訊風險' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「控制項」為同義詞；受體與 Ldr 中的「資訊安全風險」為同義詞。",
+        "response": "duplicate",
+        "standard_subject": "控制項",
+        "standard_object": "資訊安全風險",
+        "reason": "主體與受體均為同義詞重複，應合併為標準名稱。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): feature -> mitigates -> risk (original: policy -> mitigates -> risk)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "控制措施",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資訊風險",
+        "type": "risk"
+      },
+      "reasoning": "文本提到『透過控制措施，降低資訊風險』。在 Schema 中，policy 可以 mitigates risk，因此將控制措施視為一種策略/規範。",
+      "source_id": "chunk_4",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "資產管理",
+      "type": "technique",
+      "display_name": "資產管理"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "企業風險",
+      "type": "risk",
+      "display_name": "企業風險"
+    },
+    "reasoning": "文本明確提到『有效的資產管理可以...減少企業風險』。將資產管理視為一種管理策略。符合 ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_4",
+    "source_file": "第01章 資訊安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'policy'、受體類別 'risk' 與關係 'mitigates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "資產管理是政策的合理實例，企業風險是風險的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「資產管理」完全等價同義詞；受體與 Ldr 中的「企業風險」無直接關係，但「企業風險」與「風險」之間存在狹義關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源完全匹配，受體與 Ldr 中的資源無直接關係，因此判定為 correct。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): technique -> mitigates -> risk (original: policy -> mitigates -> risk)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "資產管理",
+        "type": "policy"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "企業風險",
+        "type": "risk"
+      },
+      "reasoning": "文本明確提到『有效的資產管理可以...減少企業風險』。將資產管理視為一種管理策略。符合 ('policy', 'mitigates', 'risk')。",
+      "source_id": "chunk_4",
+      "source_file": "第01章 資訊安全_e5.pdf",
+      "source_index": 7
+    }
+  }
+]

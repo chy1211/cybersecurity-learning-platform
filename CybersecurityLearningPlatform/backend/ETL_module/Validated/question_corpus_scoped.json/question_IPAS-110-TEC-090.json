@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "留存系統"
+    },
+    "relation": "generates",
+    "object": {
+      "name": "網路日誌",
+      "type": "data",
+      "display_name": "網路日誌"
+    },
+    "reasoning": "根據題幹提到的「留存系統、網路日誌」，在資安情境中，留存系統是用於產生或儲存日誌資料的基礎設施。這符合 Schema 中 ('system', 'generates', 'data') 的合法邊界。",
+    "source_id": "question_IPAS-110-TEC-090",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "留存系統是系統的合理實例，網路日誌是資料的合理實例。",
+        "response": "correct",
+        "reason": "留存系統生成網路日誌的三元組完全符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
+        "response": "correct",
+        "reason": "三元組符合規則7所允許的條件，主體為system，關係為generates，受體為data，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「系統」為同義詞；受體與 Ldr 中的「網路日誌」完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "系統",
+        "standard_object": "網路日誌",
+        "reason": "主體與 Ldr 中的「系統」為同義詞；受體與 Ldr 中的「網路日誌」完全等價同義詞，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "留存系統",
+        "type": "system"
+      },
+      "relation": "generates",
+      "object": {
+        "name": "網路日誌",
+        "type": "data"
+      },
+      "reasoning": "根據題幹提到的「留存系統、網路日誌」，在資安情境中，留存系統是用於產生或儲存日誌資料的基礎設施。這符合 Schema 中 ('system', 'generates', 'data') 的合法邊界。",
+      "source_id": "question_IPAS-110-TEC-090",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

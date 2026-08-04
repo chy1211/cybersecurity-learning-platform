@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "https",
+      "type": "feature",
+      "display_name": "HTTPS"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "網路封包",
+      "type": "data",
+      "display_name": "網際網路封包"
+    },
+    "reasoning": "根據題幹與正確答案，HTTPS 是一種通訊協定（對應 feature），其功能是將網際網路封包（對應 data）進行加密。在提供的 Schema 中，協定對資料的處理（如加密、分析）最符合 'can_analyze' 關係。",
+    "source_id": "question_IPAS-111-TEC-059",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "HTTPS 是 'feature' 的合理實例，網際網路封包是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "HTTPS 與網際網路封包的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體HTTPS的類別是feature，而非vulnerability。規則5不適用，因為關係不是uses，且主體的類別不是data。規則8不適用，因為關係不是controls。其他規則不適用，因為不符合規則的條件。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，根據無罪推定原則，判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體 HTTPS 與 Ldr 中的 https 完全等價同義詞；受體 網際網路封包 與 Ldr 中的 網路封包 互為同義詞",
+        "response": "duplicate",
+        "standard_subject": "https",
+        "standard_object": "網路封包",
+        "reason": "HTTPS 與 https 完全等價同義詞；網際網路封包 與 網路封包 互為同義詞"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "HTTPS",
+        "type": "feature"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "網際網路封包",
+        "type": "data"
+      },
+      "reasoning": "根據題幹與正確答案，HTTPS 是一種通訊協定（對應 feature），其功能是將網際網路封包（對應 data）進行加密。在提供的 Schema 中，協定對資料的處理（如加密、分析）最符合 'can_analyze' 關係。",
+      "source_id": "question_IPAS-111-TEC-059",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "加密",
+      "type": "feature",
+      "display_name": "加密"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "網際網路封包",
+      "type": "data",
+      "display_name": "網際網路封包"
+    },
+    "reasoning": "加密被定義為一種功能（function），而該功能作用於網際網路封包（data）之上，符合 'function' -> 'can_analyze' -> 'data' 的合法邊界。",
+    "source_id": "question_IPAS-111-TEC-059",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'function'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "加密是 function 的合理實例，網際網路封包是 data 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 feature，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「加密」完全等價同義詞；受體與 Ldr 中的「網路封包」具有高相似度，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「加密」完全等價同義詞，但受體與 Ldr 中的「網路封包」非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "加密",
+        "type": "function"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "網際網路封包",
+        "type": "data"
+      },
+      "reasoning": "加密被定義為一種功能（function），而該功能作用於網際網路封包（data）之上，符合 'function' -> 'can_analyze' -> 'data' 的合法邊界。",
+      "source_id": "question_IPAS-111-TEC-059",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

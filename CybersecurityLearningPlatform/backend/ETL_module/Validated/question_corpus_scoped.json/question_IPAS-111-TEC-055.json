@@ -1,0 +1,164 @@
+[
+  {
+    "subject": {
+      "name": "主機",
+      "type": "system",
+      "display_name": "主機"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "ip 位址協定",
+      "type": "feature",
+      "display_name": "IP 位址協定"
+    },
+    "reasoning": "題幹指出『每台主機都需要使用 IP 位址協定』，協定被定義為系統的組成部分或屬性 (feature)，因此主機具有此特徵，符合 (system, has_a, feature) 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-055",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '主機' 是 'system' 的合理實例，受體 'IP 位址協定' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 has_a，與規則6無關。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「主機」完全等價同義詞；受體與 Ldr 中的「icmp 協定」、「tcp 協定」不相關，但「IP 位址協定」與「icmp 協定」、「tcp 協定」是相關概念，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「主機」完全等價同義詞，但受體與 Ldr 中的資源不完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "主機",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "IP 位址協定",
+        "type": "feature"
+      },
+      "reasoning": "題幹指出『每台主機都需要使用 IP 位址協定』，協定被定義為系統的組成部分或屬性 (feature)，因此主機具有此特徵，符合 (system, has_a, feature) 的 Schema。",
+      "source_id": "question_IPAS-111-TEC-055",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "主機",
+      "type": "system",
+      "display_name": "主機"
+    },
+    "reasoning": "題幹提到『在網際網路的世界中,每台主機...』，表示網際網路這個大系統包含許多主機實體，符合 (system, has_a, system) 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-055",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "主體 '網際網路' 可以被視為 'system' 的合理實例，受體 '主機' 也可以被視為 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 has_a，而非 deployed_in，因此不觸發規則6。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「網路系統」、「網路環境」、「企業網路」、「內外網路」等相關系統概念存在廣義/狹義從屬關係，但主體「網際網路」與受體「主機」之間無直接從屬關係；受體「主機」與 Ldr 中的「伺服主機」、「備份主機」等相關主機概念存在廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體之間無直接從屬關係，且無法確定同義詞重複，預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "主機",
+        "type": "system"
+      },
+      "reasoning": "題幹提到『在網際網路的世界中,每台主機...』，表示網際網路這個大系統包含許多主機實體，符合 (system, has_a, system) 的 Schema。",
+      "source_id": "question_IPAS-111-TEC-055",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "公用 ip 位址",
+      "type": "feature",
+      "display_name": "公用 IP 位址"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "100.100.100.100",
+      "type": "data",
+      "display_name": "100.100.100.100"
+    },
+    "reasoning": "根據正確答案 B，100.100.100.100 是一個公用 IP 位址。公用 IP 位址是一種屬性 (feature)，而具體的 IP 數值是資料 (data)，符合 (feature, uses, data) 的 Schema。",
+    "source_id": "question_IPAS-111-TEC-055",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'feature'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '公用 IP 位址' 是 'feature' 的合理實例，受體 '100.100.100.100' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "主體類別為 feature，與規則5不符，且關係為 uses，受體類別為 data。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "主體類別為 feature，與規則5不符，且關係為 uses，受體類別為 data。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "公用 IP 位址",
+        "type": "feature"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "100.100.100.100",
+        "type": "data"
+      },
+      "reasoning": "根據正確答案 B，100.100.100.100 是一個公用 IP 位址。公用 IP 位址是一種屬性 (feature)，而具體的 IP 數值是資料 (data)，符合 (feature, uses, data) 的 Schema。",
+      "source_id": "question_IPAS-111-TEC-055",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

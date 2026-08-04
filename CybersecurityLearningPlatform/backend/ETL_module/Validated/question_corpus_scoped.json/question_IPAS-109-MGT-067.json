@@ -1,0 +1,54 @@
+[
+  {
+    "subject": {
+      "name": "資料分級",
+      "type": "technique",
+      "display_name": "資訊分級"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資訊(information)",
+      "type": "data",
+      "display_name": "資訊"
+    },
+    "reasoning": "根據考題，這是一個否定式提問（何者『不』是適當依據），正確答案為 D（檔案大小），因此 A（法律要求）、B（資訊價值）、C（資訊重要性）均為進行資訊分級的正確依據。這表示『資訊分級』是一種分析『資訊（資料）』其屬性（如價值、重要性、法律要求）以決定等級的技術流程，因此選擇 technique -> can_analyze -> data。",
+    "source_id": "question_IPAS-109-MGT-067",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '資訊分級' 可以被視為 'technique' 的合理實例，受體名稱 '資訊' 可以被視為 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 data，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "資訊分級與資料分級為同義詞；資訊與資訊(information)、資料、重要資訊、認證資訊、自有資訊等為同義詞或相關概念，但非完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "資料分級",
+        "standard_object": "資訊(information)",
+        "reason": "根據同義詞判定準則，資訊分級與資料分級、資訊與資訊(information)等為同義詞，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資訊分級",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資訊",
+        "type": "data"
+      },
+      "reasoning": "根據考題，這是一個否定式提問（何者『不』是適當依據），正確答案為 D（檔案大小），因此 A（法律要求）、B（資訊價值）、C（資訊重要性）均為進行資訊分級的正確依據。這表示『資訊分級』是一種分析『資訊（資料）』其屬性（如價值、重要性、法律要求）以決定等級的技術流程，因此選擇 technique -> can_analyze -> data。",
+      "source_id": "question_IPAS-109-MGT-067",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

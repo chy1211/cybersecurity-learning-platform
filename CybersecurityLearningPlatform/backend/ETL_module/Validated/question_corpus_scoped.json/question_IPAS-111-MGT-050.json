@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "服務資產",
+      "type": "system",
+      "display_name": "服務資產"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "資訊安全管理系統 (isms)",
+      "type": "system",
+      "display_name": "資訊安全管理系統 (ISMS)"
+    },
+    "reasoning": "題幹指出服務資產是『資訊安全管理系統 (ISMS)』中的一種資產類型。ISMS 是一個整體的管理系統，服務資產是其組成部分，符合 ('system', 'is_part_of', 'system') 的 Schema 規範。",
+    "source_id": "question_IPAS-111-MGT-050",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "服務資產是系統的合理實例，資訊安全管理系統也是系統的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係 'is_part_of' 不符合規則6的觸發條件，無法判定違規。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱在資安領域中均為特定概念，無法合併為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "服務資產",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "資訊安全管理系統 (ISMS)",
+        "type": "system"
+      },
+      "reasoning": "題幹指出服務資產是『資訊安全管理系統 (ISMS)』中的一種資產類型。ISMS 是一個整體的管理系統，服務資產是其組成部分，符合 ('system', 'is_part_of', 'system') 的 Schema 規範。",
+      "source_id": "question_IPAS-111-MGT-050",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "企業網路電路",
+      "type": "system",
+      "display_name": "企業網路電路"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "服務資產",
+      "type": "system",
+      "display_name": "服務資產"
+    },
+    "reasoning": "根據題幹與正確答案，企業網路電路被歸類為『服務資產』。在本體論中，網路電路屬於基礎設施(system)，而服務資產在此作為一種資產類別，亦可視為系統性的分類，兩者關係為隸屬關係，故使用 is_part_of。",
+    "source_id": "question_IPAS-111-MGT-050",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "企業網路電路 可以被視為系統 (system) 的合理實例；服務資產也可以被視為系統 (system) 的合理實例。",
+        "response": "correct",
+        "reason": "企業網路電路與服務資產的類別與屬性完全符合預先定義的類別與屬性清單 Lc,p。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係是 is_part_of，而非 deployed_in，因此不觸發規則6。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的企業網路具有高相似度，受體與 Ldr 中的服務資產完全相同",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "雖然主體與 Ldr 中的企業網路具有高相似度，但未達完全相同，且無法確認為同義詞；受體與 Ldr 中的服務資產完全相同，但根據規則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "企業網路電路",
+        "type": "system"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "服務資產",
+        "type": "system"
+      },
+      "reasoning": "根據題幹與正確答案，企業網路電路被歸類為『服務資產』。在本體論中，網路電路屬於基礎設施(system)，而服務資產在此作為一種資產類別，亦可視為系統性的分類，兩者關係為隸屬關係，故使用 is_part_of。",
+      "source_id": "question_IPAS-111-MGT-050",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

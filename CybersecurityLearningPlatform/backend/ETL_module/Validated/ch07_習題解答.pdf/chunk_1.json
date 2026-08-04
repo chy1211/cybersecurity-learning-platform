@@ -1,7 +1,7 @@
 [
   {
     "subject": {
-      "name": "網際網路",
+      "name": "網路系統",
       "type": "system",
       "display_name": "網際網路"
     },
@@ -11,28 +11,28 @@
       "type": "system",
       "display_name": "WAN"
     },
-    "reasoning": "文本提到 Internet 包含無數的電腦組成之 WAN，根據 Schema，system 可以 has_a system。",
+    "reasoning": "文本提到 Internet 包含無數的電腦組成之 WAN，WAN 作為廣域網路是一種基礎設施系統，符合 ('system', 'has_a', 'system')。",
     "source_id": "chunk_1",
     "source_file": "ch07_習題解答.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "網際網路 (Internet) 是 'system' 的合理實例，WAN (Wide Area Network) 也是 'system' 的合理實例，兩者之間的 'has_a' 關係在資安領域中是合理的，因為網際網路可以包含多個 WAN。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '網際網路' 可以被視為 'system' 的合理實例，受體 'WAN' 也可以被視為 'system' 的合理實例，尤其是在資安領域中，WAN 是一個常見的系統類型。",
         "response": "correct",
-        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係為 'has_a'，不涉及 'uses'。檢查規則6：不適用，因為關係為 'has_a'，不涉及 'deployed_in'。檢查規則7：不適用，因為關係為 'has_a'，不涉及 'generates'。檢查規則8：不適用，因為關係為 'has_a'，不涉及 'controls'。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組（網際網路 has_a WAN）未觸發語義限制清單中的任何規則，且無明確違反項目。"
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
       },
       "step_2": {
-        "granularity_analysis": "網際網路與網路資源之間存在廣義/狹義從屬關係，但兩者並非完全等價同義詞。",
-        "response": "correct",
-        "standard_subject": "",
+        "granularity_analysis": "網際網路與網路系統是同義詞",
+        "response": "duplicate",
+        "standard_subject": "網路系統",
         "standard_object": "",
-        "reason": "根據判斷準則，若一個實體是另一個的子類型，則判定為 correct，禁止合併。"
+        "reason": "網際網路與網路系統是同義詞，根據同義詞判定準則，判定為 duplicate。"
       }
     },
     "original_raw_triple": {
@@ -45,114 +45,10 @@
         "name": "WAN",
         "type": "system"
       },
-      "reasoning": "文本提到 Internet 包含無數的電腦組成之 WAN，根據 Schema，system 可以 has_a system。",
+      "reasoning": "文本提到 Internet 包含無數的電腦組成之 WAN，WAN 作為廣域網路是一種基礎設施系統，符合 ('system', 'has_a', 'system')。",
       "source_id": "chunk_1",
       "source_file": "ch07_習題解答.pdf",
       "source_index": 1
-    }
-  },
-  {
-    "subject": {
-      "name": "網際網路",
-      "type": "system",
-      "display_name": "網際網路"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "lan",
-      "type": "system",
-      "display_name": "LAN"
-    },
-    "reasoning": "文本提到 Internet 包含無數的電腦組成之 LAN，根據 Schema，system 可以 has_a system。",
-    "source_id": "chunk_1",
-    "source_file": "ch07_習題解答.pdf",
-    "source_index": 2,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "網際網路 (Internet) 和 LAN (Local Area Network) 都是 'system' 的合理實例，符合語意對齊和同義詞寬容原則。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
-        "response": "correct",
-        "reason": "三元組（網際網路 has_a LAN）未觸發語義限制清單中的任何規則，且無法直接與任何規則相違反。"
-      },
-      "step_2": {
-        "granularity_analysis": "網際網路與網路資源之間存在相似性，但非完全等價同義詞；LAN 屬於網路系統的子類型",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據廣義/狹義一律保留原則，網際網路與 LAN 之間的關係不構成同義詞重複。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "網際網路",
-        "type": "system"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "LAN",
-        "type": "system"
-      },
-      "reasoning": "文本提到 Internet 包含無數的電腦組成之 LAN，根據 Schema，system 可以 has_a system。",
-      "source_id": "chunk_1",
-      "source_file": "ch07_習題解答.pdf",
-      "source_index": 2
-    }
-  },
-  {
-    "subject": {
-      "name": "網站",
-      "type": "app",
-      "display_name": "WWW"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "圖形化介面",
-      "type": "feature",
-      "display_name": "圖形化介面"
-    },
-    "reasoning": "文本提到 WWW 提供圖形化 (GUI) 介面，GUI 為系統屬性，對應 app has_a feature。",
-    "source_id": "chunk_1",
-    "source_file": "ch07_習題解答.pdf",
-    "source_index": 4,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'app'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "WWW 可被視為 'app' 的實例，圖形化介面可被視為 'feature' 的實例，且 'has_a' 關係在此語境下合理。",
-        "response": "correct",
-        "reason": "WWW 與圖形化介面之間的 'has_a' 關係，符合預先定義的類別與屬性清單，且語意對齊。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體類別是 app，不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。由於三元組中的關係 'has_a' 與受體 '圖形化介面' 並未在給定的語義限制清單中被明確限制，因此不觸發任何違規。",
-        "response": "correct",
-        "reason": "三元組不違反任何語義限制清單中的規則，因此被判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "WWW 與網站為同義詞，圖形化介面與 Ldr 中無直接相關資源",
-        "response": "correct",
-        "standard_subject": "網站",
-        "standard_object": "",
-        "reason": "WWW 與網站為同義詞，根據同義詞判定準則，判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "WWW",
-        "type": "app"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "圖形化介面",
-        "type": "feature"
-      },
-      "reasoning": "文本提到 WWW 提供圖形化 (GUI) 介面，GUI 為系統屬性，對應 app has_a feature。",
-      "source_id": "chunk_1",
-      "source_file": "ch07_習題解答.pdf",
-      "source_index": 4
     }
   },
   {
@@ -167,28 +63,29 @@
       "type": "system",
       "display_name": "網際網路"
     },
-    "reasoning": "文本明確指出 WWW 是 Internet 的一種應用，對應到 app is_part_of system。",
+    "reasoning": "文本明確指出 WWW 是 Internet 的一種應用，符合 ('app', 'is_part_of', 'system')。",
     "source_id": "chunk_1",
     "source_file": "ch07_習題解答.pdf",
     "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "WWW 是 'app' 的合理實例，網際網路是 'system' 的合理實例，兩者之間的 'is_part_of' 關係在資安領域中是合理的。",
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "WWW 是 'app' 的合理實例，網際網路是 'system' 的合理實例。",
         "response": "correct",
-        "reason": "WWW 與網際網路的三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "WWW 是網際網路的一部分，符合預先定義的類別與屬性清單。"
       },
+      "step_2_selfloop_reverted": true,
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。檢查規則沒有直接觸發違規條件。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'is_part_of' 與主體 'WWW' 的類別 'app'、受體 '網際網路' 的類別 'system' 沒有明確違反任何語義限制清單中的規則。"
+        "reason": "三元組中的關係 'is_part_of' 不符合規則6的觸發條件，且其他規則均不適用。"
       },
       "step_2": {
-        "granularity_analysis": "WWW 與網站是同義詞，網際網路與網際網路是完全相同的實體",
-        "response": "correct",
-        "standard_subject": "",
+        "granularity_analysis": "WWW 與網際網路之間的關係是完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "網際網路",
         "standard_object": "",
-        "reason": "WWW 與網站雖然相似，但 WWW 是特指萬維網，與網站不是完全相同的概念；網際網路與網際網路是完全相同的實體，無需進行標準化。"
+        "reason": "WWW 是網際網路的同義詞"
       }
     },
     "original_raw_triple": {
@@ -201,10 +98,62 @@
         "name": "網際網路",
         "type": "system"
       },
-      "reasoning": "文本明確指出 WWW 是 Internet 的一種應用，對應到 app is_part_of system。",
+      "reasoning": "文本明確指出 WWW 是 Internet 的一種應用，符合 ('app', 'is_part_of', 'system')。",
       "source_id": "chunk_1",
       "source_file": "ch07_習題解答.pdf",
       "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "lan",
+      "type": "system",
+      "display_name": "LAN"
+    },
+    "reasoning": "文本提到 Internet 包含無數的電腦組成之 LAN，LAN 作為區域網路是一種基礎設施系統，符合 ('system', 'has_a', 'system')。",
+    "source_id": "chunk_1",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '網際網路' 可以被視為 'system' 的合理實例，受體名稱 'LAN' 也可以被視為 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係為 has_a，與規則6無關；受體的類別為 system，符合規則6的條件，但關係不符，無法觸發此規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "網際網路是 LAN 的廣義概念，兩者之間存在從屬關係，禁止合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "LAN",
+        "type": "system"
+      },
+      "reasoning": "文本提到 Internet 包含無數的電腦組成之 LAN，LAN 作為區域網路是一種基礎設施系統，符合 ('system', 'has_a', 'system')。",
+      "source_id": "chunk_1",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 2
     }
   },
   {
@@ -215,32 +164,32 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "icmp",
+      "name": "icmp 協定",
       "type": "feature",
-      "display_name": "ICMP"
+      "display_name": "ICMP 協定"
     },
-    "reasoning": "文本提到 Ping 工具的底層是 ICMP 協定，協定在此被視為工具的組成特徵，對應 tool has_a feature。",
+    "reasoning": "文本提到 Ping 工具的底層是 ICMP 協定，協定在此被視為系統的特徵/組成部分，符合 ('tool', 'has_a', 'feature')。",
     "source_id": "chunk_1",
     "source_file": "ch07_習題解答.pdf",
-    "source_index": 5,
+    "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "Ping 是一種工具（tool），ICMP 是一種功能（feature），因此實體名稱與其類別合理對齊。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Ping 是一種工具（tool），ICMP 協定是一種網路協定特徵（feature），因此實體名稱與其類別合理對齊。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且實體名稱與其類別合理對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
         "response": "correct",
-        "reason": "三元組中的主體 'Ping' 是一種工具（tool），關係 'has_a' 表示 'Ping' 擁有 'ICMP' 這一特徵，沒有明確違反任何語義限制清單中的規則。"
+        "reason": "主體 Ping 的類別是 tool，符合規則2 和規則8 的條件，且未發現其他明確且直接的違反項目。"
       },
       "step_2": {
-        "granularity_analysis": "Ping 與 ICMP 皆為網路工具或功能，Ping 使用 ICMP 協定，但兩者非完全等價同義詞，且無廣義/狹義從屬關係，故判定不相關。",
+        "granularity_analysis": "不相關",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "Ping 與 ICMP 皆為獨立概念，無同義詞或從屬關係，故判定為 correct。"
+        "reason": "主體與受體之間不存在同義詞關係或從屬關係，且無法合併。"
       }
     },
     "original_raw_triple": {
@@ -250,13 +199,13 @@
       },
       "relation": "has_a",
       "object": {
-        "name": "ICMP",
+        "name": "ICMP 協定",
         "type": "feature"
       },
-      "reasoning": "文本提到 Ping 工具的底層是 ICMP 協定，協定在此被視為工具的組成特徵，對應 tool has_a feature。",
+      "reasoning": "文本提到 Ping 工具的底層是 ICMP 協定，協定在此被視為系統的特徵/組成部分，符合 ('tool', 'has_a', 'feature')。",
       "source_id": "chunk_1",
       "source_file": "ch07_習題解答.pdf",
-      "source_index": 5
+      "source_index": 4
     }
   },
   {
@@ -267,32 +216,32 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "icmp",
+      "name": "icmp 協定",
       "type": "feature",
-      "display_name": "ICMP"
+      "display_name": "ICMP 協定"
     },
-    "reasoning": "文本提到 Traceroute 工具的底層是 ICMP 協定，對應 tool has_a feature。",
+    "reasoning": "文本提到 Traceroute 工具的底層是 ICMP 協定，符合 ('tool', 'has_a', 'feature')。",
     "source_id": "chunk_1",
     "source_file": "ch07_習題解答.pdf",
-    "source_index": 6,
+    "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "Traceroute 是一種網路診斷工具，可以使用 ICMP 協定，因此 Traceroute 的類別 'tool' 和 ICMP 的類別 'feature' 合理對齊。",
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Traceroute 是一種工具（tool），ICMP 協定是一種功能（feature），且 'has_a' 關係在此語境下合理，表示 Traceroute 使用 ICMP 協定。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查每條規則，發現規則5與規則8可能相關，但三元組中的關係是 'has_a'，不符合規則5的觸發條件（uses），也不符合規則8的觸發條件（controls）。其他規則與三元組無直接關聯。",
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
         "response": "correct",
-        "reason": "三元組不觸發語義限制清單中的任何規則，故判定為正確。"
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "受體 (Object) ICMP 與 Ldr 中的資源 'icmp' 完全等價同義詞",
+        "granularity_analysis": "Traceroute 與 Ldr 中的資源不完全相同，但 ICMP 協定與 Ldr 中的 icmp 協定相同",
         "response": "correct",
         "standard_subject": "",
-        "standard_object": "icmp",
-        "reason": "根據同義詞判定，ICMP 與 'icmp' 完全等價同義詞，故判定為 correct。"
+        "standard_object": "icmp 協定",
+        "reason": "受體 ICMP 協定與 Ldr 中的 icmp 協定相同，但主體 Traceroute 與 Ldr 中的資源不完全相同，因此判定為 correct。"
       }
     },
     "original_raw_triple": {
@@ -302,62 +251,62 @@
       },
       "relation": "has_a",
       "object": {
-        "name": "ICMP",
+        "name": "ICMP 協定",
         "type": "feature"
       },
-      "reasoning": "文本提到 Traceroute 工具的底層是 ICMP 協定，對應 tool has_a feature。",
+      "reasoning": "文本提到 Traceroute 工具的底層是 ICMP 協定，符合 ('tool', 'has_a', 'feature')。",
       "source_id": "chunk_1",
       "source_file": "ch07_習題解答.pdf",
-      "source_index": 6
+      "source_index": 5
     }
   },
   {
     "subject": {
-      "name": "tcp",
+      "name": "tcp/ip 協定組",
       "type": "system",
-      "display_name": "TCP"
+      "display_name": "TCP/IP 協定組"
     },
     "relation": "has_a",
     "object": {
-      "name": "可靠傳送機制",
+      "name": "tcp 協定",
       "type": "feature",
-      "display_name": "可靠傳送機制"
+      "display_name": "TCP 協定"
     },
-    "reasoning": "文本提到 TCP 提供一種可靠的傳送機制。將 TCP 視為協定組系統 (system)，其機制為其特徵 (feature)，對應 system has_a feature。",
+    "reasoning": "文本將 TCP 描述為傳輸層的協定，它是 TCP/IP 這一整體網路系統中的一個組成特徵，符合 ('system', 'has_a', 'feature')。",
     "source_id": "chunk_1",
     "source_file": "ch07_習題解答.pdf",
     "source_index": 7,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "TCP 是一個系統（system），可靠傳送機制是其特徵（feature），因此語意對齊。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "TCP/IP 協定組 可以被視為一個系統 (system)，而 TCP 協定可以被視為一個特徵 (feature)。因此，語意對齊是合理的。",
         "response": "correct",
-        "reason": "TCP 的類別為 system，'has_a' 關係與 'feature' 類別的可靠傳送機制之間的三元組完全符合預先定義的類別與屬性清單。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊是合理的。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與主體 'TCP' 和受體 '可靠傳送機制' 的類別組合，沒有明確違反語義限制清單中的任何規則。因此，根據無罪推定原則，判定為正確。"
+        "reason": "三元組中的關係是 has_a，與規則6無關。"
       },
       "step_2": {
-        "granularity_analysis": "受體 '可靠傳送機制' 與現有近似資源清單中的 'icmp' 並不完全等價，但 '可靠傳送機制' 可能與 'icmp' 有關，然而 'icmp' 是一種特定的可靠傳送機制，兩者概念不同，'可靠傳送機制' 更接近於 TCP 的特性，因此判定為 correct。",
+        "granularity_analysis": "主體與 Ldr 中的網際網路之間存在廣義/狹義從屬關係，TCP/IP 協定組是網際網路的一部分；受體 TCP 協定與 Ldr 中的 icmp 協定之間存在廣義/狹義從屬關係，TCP 協定是網路協定的子類型。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據廣義/狹義一律保留原則，'可靠傳送機制' 是 TCP 的特性，與 'icmp' 並不完全等價。"
+        "reason": "主體與受體與 Ldr 中的資源之間存在廣義/狹義從屬關係，禁止合併。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "TCP",
+        "name": "TCP/IP 協定組",
         "type": "system"
       },
       "relation": "has_a",
       "object": {
-        "name": "可靠傳送機制",
+        "name": "TCP 協定",
         "type": "feature"
       },
-      "reasoning": "文本提到 TCP 提供一種可靠的傳送機制。將 TCP 視為協定組系統 (system)，其機制為其特徵 (feature)，對應 system has_a feature。",
+      "reasoning": "文本將 TCP 描述為傳輸層的協定，它是 TCP/IP 這一整體網路系統中的一個組成特徵，符合 ('system', 'has_a', 'feature')。",
       "source_id": "chunk_1",
       "source_file": "ch07_習題解答.pdf",
       "source_index": 7
@@ -365,106 +314,54 @@
   },
   {
     "subject": {
-      "name": "使用者",
-      "type": "user",
-      "display_name": "使用者"
+      "name": "icmp 協定",
+      "type": "feature",
+      "display_name": "ICMP 協定"
     },
-    "relation": "uses",
+    "relation": "can_analyze",
     "object": {
-      "name": "tcp",
+      "name": "網路環境",
       "type": "system",
-      "display_name": "TCP"
+      "display_name": "網路環境"
     },
-    "reasoning": "文本描述使用者端送出 SYN 信號以透過 TCP 建立連線，對應 user uses system。",
+    "reasoning": "文本提到 ICMP 的目的是偵測線路斷線、設備失效等狀況，這是一種對網路系統狀態的分析能力，符合 ('feature', 'can_analyze', 'system')。",
     "source_id": "chunk_1",
     "source_file": "ch07_習題解答.pdf",
-    "source_index": 9,
+    "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "使用者 (user) 是 'user' 類別的合理實例，TCP 是 'system' 類別的合理實例，且 'uses' 關係在資安領域中是合理的描述使用者與系統之間的關係。",
+        "step_1_list_check": "主體類別 'feature'、受體類別 'system' 與關係 'can_analyze' 均在 Lc,p 中。",
+        "step_2_alignment_check": "ICMP 協定是 'feature' 的合理實例，網路環境是 'system' 的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊與同義詞寬容原則均通過檢查。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：觸發檢查，因為關係為 'uses'，但主體類別為 'user'，不違反此規則。規則6：不適用。規則7：不適用。規則8：不適用。",
+        "step_1_rule_matching": "規則3不適用，因為主體類別是feature，而非vulnerability；規則4不適用，因為主體類別是feature，而非principle；規則5不適用，因為關係不是uses；規則6不適用，因為關係不是deployed_in；規則7不適用，因為關係不是generates；規則8不適用，因為關係不是controls；",
         "response": "correct",
-        "reason": "三元組中的主體為 '使用者'，關係為 'uses'，受體為 'TCP'，此組合未違反語義限制清單中的任何規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "受體 (Object) 的 TCP 與 Ldr 中的 tcp 名稱相似，但考慮到中文與英文的不同，仍視為同義詞",
+        "granularity_analysis": "主體 ICMP 協定與 Ldr 中的 icmp 協定為完全等價同義詞；受體網路環境與 Ldr 中的網路系統為相似概念，但非完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
-        "standard_object": "tcp",
-        "reason": "根據同義詞判定，TCP 與 tcp 視為同義詞，但依據規則 3，若一個實體是另一個的子類型或無法確定，預設保留，因此判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "使用者",
-        "type": "user"
-      },
-      "relation": "uses",
-      "object": {
-        "name": "TCP",
-        "type": "system"
-      },
-      "reasoning": "文本描述使用者端送出 SYN 信號以透過 TCP 建立連線，對應 user uses system。",
-      "source_id": "chunk_1",
-      "source_file": "ch07_習題解答.pdf",
-      "source_index": 9
-    }
-  },
-  {
-    "subject": {
-      "name": "tcp",
-      "type": "system",
-      "display_name": "TCP"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "三向交握",
-      "type": "feature",
-      "display_name": "三向交握"
-    },
-    "reasoning": "文本提到 TCP 採用三向交握式建立連線，這是 TCP 運作的特徵，對應 system has_a feature。",
-    "source_id": "chunk_1",
-    "source_file": "ch07_習題解答.pdf",
-    "source_index": 8,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "TCP 是一個系統（system），三向交握（三向握手）是 TCP 的一項特徵（feature），因此名稱與類別之間的對齊是合理的。",
-        "response": "correct",
-        "reason": "TCP 與三向交握的類別與屬性完全符合預先定義的清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。檢查關係 'has_a'，主體 'TCP' 的類別是 'system'，受體 '三向交握' 的類別是 'feature'，未發現明確違反任何規則。",
-        "response": "correct",
-        "reason": "三元組中，TCP是一個系統，具有三向交握的特徵，沒有違反語義限制清單中的任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體 'TCP' 與 Ldr 中的 'tcp' 關係為完全等價同義詞，受體 '三向交握' 與 Ldr 中的 '可靠傳送機制' 關係為同一概念的不同描述",
-        "response": "correct",
-        "standard_subject": "tcp",
         "standard_object": "",
-        "reason": "根據同義詞判定，主體 'TCP' 等同於 'tcp'，但受體 '三向交握' 雖與 '可靠傳送機制' 相關，卻非完全等價同義詞，故保留原狀。"
+        "reason": "雖然主體 ICMP 協定與 Ldr 中的 icmp 協定為完全等價同義詞，但受體網路環境與 Ldr 中的網路系統不完全相符，因此判定為 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "TCP",
-        "type": "system"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "三向交握",
+        "name": "ICMP 協定",
         "type": "feature"
       },
-      "reasoning": "文本提到 TCP 採用三向交握式建立連線，這是 TCP 運作的特徵，對應 system has_a feature。",
+      "relation": "can_analyze",
+      "object": {
+        "name": "網路環境",
+        "type": "system"
+      },
+      "reasoning": "文本提到 ICMP 的目的是偵測線路斷線、設備失效等狀況，這是一種對網路系統狀態的分析能力，符合 ('feature', 'can_analyze', 'system')。",
       "source_id": "chunk_1",
       "source_file": "ch07_習題解答.pdf",
-      "source_index": 8
+      "source_index": 6
     }
   }
 ]

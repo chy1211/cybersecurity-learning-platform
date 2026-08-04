@@ -9,7 +9,7 @@
       "name": "攻擊",
       "type": "attack"
     },
-    "reasoning": "文本提到『實施最小權限原則有助於遏止攻擊來源的範圍』，這符合 policy (規範與策略) 可緩解 (mitigates) attack (攻擊) 的邏輯。",
+    "reasoning": "文本提到『實施最小權限原則有助於遏止攻擊來源的範圍』，這表示該原則（作為一種安全策略 policy）能緩解或防禦攻擊（attack）。符合 Schema: ('policy', 'mitigates', 'attack')。",
     "source_id": "chunk_6",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 1
@@ -24,40 +24,25 @@
       "name": "資安事件",
       "type": "attack"
     },
-    "reasoning": "文本指出『大部份的資安事件都與內部人員有關』，在此情境下，內部人員扮演威脅行為者 (attacker) 並執行 (implements) 攻擊行為 (attack)。",
+    "reasoning": "文本指出『大部份的資安事件都與內部人員有關』，在資安知識圖譜中，發起資安事件的內部人員被視為威脅行為者（attacker），其行為實作了攻擊（attack）。符合 Schema: ('attacker', 'implements', 'attack')。",
     "source_id": "chunk_6",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 2
   },
   {
     "subject": {
-      "name": "可攜式與外接儲存設備",
-      "type": "tool"
-    },
-    "relation": "can_analyze",
-    "object": {
-      "name": "敏感資料",
-      "type": "data"
-    },
-    "reasoning": "文本提到設備『可以輕易竊取敏感資料』，竊取的前提是能存取並分析資料，因此選擇 tool (工具) 可分析 (can_analyze) data (資料)。",
-    "source_id": "chunk_6",
-    "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 3
-  },
-  {
-    "subject": {
       "name": "惡意程式",
       "type": "attack"
     },
-    "relation": "can_harm",
+    "relation": "depends_on",
     "object": {
-      "name": "系統",
-      "type": "system"
+      "name": "可攜式設備",
+      "type": "tool"
     },
-    "reasoning": "文本提到設備連網可能造成『惡意程式攻擊的威脅』，這代表 attack (攻擊) 會危害 (can_harm) system (系統)。",
+    "reasoning": "文本提到可攜式設備可能『造成病毒傳播或惡意程式攻擊的威脅』，這意味著惡意程式（attack）利用或依賴可攜式設備（tool）作為傳播媒介。符合 Schema: ('attack', 'depends_on', 'tool')。",
     "source_id": "chunk_6",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 4
+    "source_index": 3
   },
   {
     "subject": {
@@ -69,7 +54,22 @@
       "name": "安全政策",
       "type": "policy"
     },
-    "reasoning": "文本指出『企業組織...需要建立安全政策』，這符合安全團隊 (securityTeam) 實作/執行 (implements) 政策 (policy) 的定義。",
+    "reasoning": "文本提到『企業組織...需要建立安全政策』，企業的資安管理部門（securityTeam）負責制定並執行安全政策（policy）。符合 Schema: ('securityTeam', 'implements', 'policy')。",
+    "source_id": "chunk_6",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 4
+  },
+  {
+    "subject": {
+      "name": "員工",
+      "type": "user"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "安全政策",
+      "type": "policy"
+    },
+    "reasoning": "文本提到政策包括允許員工使用哪些裝置，暗示員工（user）在操作時必須遵守並執行（implements）這些安全政策（policy）。符合 Schema: ('user', 'implements', 'policy')。",
     "source_id": "chunk_6",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 5
@@ -84,25 +84,40 @@
       "name": "應用程式",
       "type": "app"
     },
-    "reasoning": "文本討論政策中關於『允許員工使用哪些...應用程式』，這符合 user (使用者) 使用 (uses) app (應用程式) 的關係。",
+    "reasoning": "文本提到『什麼應用程式將被允許或禁止使用』，描述了使用者（user）與應用程式（app）之間的使用關係。符合 Schema: ('user', 'uses', 'app')。",
     "source_id": "chunk_6",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 6
   },
   {
     "subject": {
-      "name": "權限管理失效",
-      "type": "vulnerability"
+      "name": "權限管理",
+      "type": "policy"
     },
-    "relation": "can_expose",
+    "relation": "mitigates",
     "object": {
       "name": "資訊外洩",
       "type": "risk"
     },
-    "reasoning": "文本提到『如果權限無法有效地管理，將會有資訊外洩...的風險』。權限管理失效屬於系統設定錯誤 (vulnerability)，而資訊外洩是其導致的風險 (risk)。",
+    "reasoning": "文本提到『如果權限無法有效地管理，將會有資訊外洩...的風險』，反之，有效的權限管理（在此視為一種管理策略 policy）可以緩解資訊外洩（risk）。符合 Schema: ('policy', 'mitigates', 'risk')。",
     "source_id": "chunk_6",
     "source_file": "第13章 作業安全管理_e5.pdf",
     "source_index": 7
+  },
+  {
+    "subject": {
+      "name": "權限管理",
+      "type": "policy"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "權限濫用",
+      "type": "risk"
+    },
+    "reasoning": "同上，有效的權限管理（policy）能緩解權限濫用（risk）的風險。符合 Schema: ('policy', 'mitigates', 'risk')。",
+    "source_id": "chunk_6",
+    "source_file": "第13章 作業安全管理_e5.pdf",
+    "source_index": 8
   },
   {
     "subject": {
@@ -111,12 +126,12 @@
     },
     "relation": "has_a",
     "object": {
-      "name": "角色為基礎的授權方式",
+      "name": "角色為基礎的授權",
       "type": "feature"
     },
-    "reasoning": "文本提到『有些系統採用以角色為基礎的授權方式』，這是一種系統的屬性或組成部分，因此定義為 system (系統) 具有 (has_a) feature (特徵)。",
+    "reasoning": "文本提到『有些系統採用以角色為基礎的授權方式』，這將授權方式視為系統（system）的一項屬性或組成特徵（feature）。符合 Schema: ('system', 'has_a', 'feature')。",
     "source_id": "chunk_6",
     "source_file": "第13章 作業安全管理_e5.pdf",
-    "source_index": 8
+    "source_index": 9
   }
 ]

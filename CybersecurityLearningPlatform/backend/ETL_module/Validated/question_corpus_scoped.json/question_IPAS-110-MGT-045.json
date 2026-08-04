@@ -1,0 +1,106 @@
+[
+  {
+    "subject": {
+      "name": "事件處理",
+      "type": "technique",
+      "display_name": "事件處理"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "弱點",
+      "type": "vulnerability",
+      "display_name": "弱點"
+    },
+    "reasoning": "根據選項 B，事件處理的移除或復原階段需要『根據各種被利用之弱點』盤點影響程度，這表示『事件處理』這一技術流程需要分析『弱點』。符合 Schema Edge: (technique, can_analyze, vulnerability)。",
+    "source_id": "question_IPAS-110-MGT-045",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'vulnerability' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "事件處理 (technique) 可以分析弱點 (vulnerability)，這是資安領域中合理的語意關係。",
+        "response": "correct",
+        "reason": "事件處理可以分析弱點的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，受體類別為 vulnerability，符合規則3的特例允許，且其他規則均不觸發。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "",
+        "standard_object": "弱點",
+        "reason": "根據資安領域已知同義詞對照範例，'弱點'、'漏洞'、'脆弱性' 均指 vulnerability，因此判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "事件處理",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "弱點",
+        "type": "vulnerability"
+      },
+      "reasoning": "根據選項 B，事件處理的移除或復原階段需要『根據各種被利用之弱點』盤點影響程度，這表示『事件處理』這一技術流程需要分析『弱點』。符合 Schema Edge: (technique, can_analyze, vulnerability)。",
+      "source_id": "question_IPAS-110-MGT-045",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "事件處理",
+      "type": "technique",
+      "display_name": "事件處理"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "鑑識分析報告",
+      "type": "data",
+      "display_name": "鑑識分析報告"
+    },
+    "reasoning": "根據選項 A，事件處理的移除或復原階段需要『根據鑑識分析報告』來修補成因，這表示『事件處理』這一技術流程需要分析『鑑識分析報告』這項資料。符合 Schema Edge: (technique, can_analyze, data)。",
+    "source_id": "question_IPAS-110-MGT-045",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "事件處理 (technique) 可以分析鑑識分析報告 (data)，這符合資安領域的常見語意與實踐。",
+        "response": "correct",
+        "reason": "事件處理可以分析鑑識分析報告的三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 data，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Ldr 為空，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "事件處理",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "鑑識分析報告",
+        "type": "data"
+      },
+      "reasoning": "根據選項 A，事件處理的移除或復原階段需要『根據鑑識分析報告』來修補成因，這表示『事件處理』這一技術流程需要分析『鑑識分析報告』這項資料。符合 Schema Edge: (technique, can_analyze, data)。",
+      "source_id": "question_IPAS-110-MGT-045",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  }
+]

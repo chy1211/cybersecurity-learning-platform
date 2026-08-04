@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "subject": {
+      "name": "外部人員",
+      "type": "attacker",
+      "display_name": "外部人員"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "網際網路",
+      "type": "system",
+      "display_name": "網際網路"
+    },
+    "reasoning": "文本提到外部人員需要透過網際網路來存取資源，符合 (user, uses, system) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'system' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '外部人員' 是 'user' 的合理實例；受體名稱 '網際網路' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「外部人員」完全等價同義詞；受體與 Ldr 中的「網際網路」具有廣義/狹義從屬關係，但根據規則 3，判定為 correct。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據規則 3，廣義/狹義一律保留，禁止合併。"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attacker -> uses -> system (original: user -> uses -> system)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "外部人員",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "網際網路",
+        "type": "system"
+      },
+      "reasoning": "文本提到外部人員需要透過網際網路來存取資源，符合 (user, uses, system) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "ddos",
+      "type": "attack",
+      "display_name": "DDoS"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "dos",
+      "type": "system",
+      "display_name": "DoS"
+    },
+    "reasoning": "文本明確指出 DDoS 是 DoS 的一種，符合 (attack, is_part_of, attack) 的 Schema。",
+    "source_id": "chunk_3",
+    "source_file": "ch07_習題解答.pdf",
+    "source_index": 8,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attack'、受體類別 'attack' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "DDoS 是 'attack' 的合理實例，DoS 也是一種 'attack'，因此語意對齊。",
+        "response": "correct",
+        "reason": "DDoS 與 DoS 的類別與屬性完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_2": {
+        "granularity_analysis": "DDoS 是 DoS 的子類型，兩者之間存在狹義關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "DDoS 是 DoS 的子類型，禁止合併"
+      }
+    },
+    "reject_reason": "Step 2 (Post-standardization Schema Violation): attack -> is_part_of -> system (original: attack -> is_part_of -> attack)",
+    "original_raw_triple": {
+      "subject": {
+        "name": "DDoS",
+        "type": "attack"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "DoS",
+        "type": "attack"
+      },
+      "reasoning": "文本明確指出 DDoS 是 DoS 的一種，符合 (attack, is_part_of, attack) 的 Schema。",
+      "source_id": "chunk_3",
+      "source_file": "ch07_習題解答.pdf",
+      "source_index": 8
+    }
+  }
+]

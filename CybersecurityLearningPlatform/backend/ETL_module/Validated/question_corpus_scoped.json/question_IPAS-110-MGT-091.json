@@ -1,0 +1,268 @@
+[
+  {
+    "subject": {
+      "name": "蜜罐",
+      "type": "tool",
+      "display_name": "蜜罐"
+    },
+    "relation": "can_detect",
+    "object": {
+      "name": "駭客攻擊",
+      "type": "attack",
+      "display_name": "駭客攻擊"
+    },
+    "reasoning": "題幹指出蜜罐是用來吸引駭客攻擊以瞭解其行為模式，這符合工具偵測攻擊的邏輯。根據 Schema，('tool', 'can_detect', 'attack') 是合法邊界。",
+    "source_id": "question_IPAS-110-MGT-091",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'attack' 與關係 'can_detect' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '蜜罐' 是 'tool' 的合理實例；受體名稱 '駭客攻擊' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 tool，關係為 can_detect，符合規則8的允許條件，且未發現其他明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "蜜罐",
+        "standard_object": "駭客攻擊",
+        "reason": "主體與 Ldr 中的資源完全等價同義詞；受體與 Ldr 中的資源完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "蜜罐",
+        "type": "tool"
+      },
+      "relation": "can_detect",
+      "object": {
+        "name": "駭客攻擊",
+        "type": "attack"
+      },
+      "reasoning": "題幹指出蜜罐是用來吸引駭客攻擊以瞭解其行為模式，這符合工具偵測攻擊的邏輯。根據 Schema，('tool', 'can_detect', 'attack') 是合法邊界。",
+      "source_id": "question_IPAS-110-MGT-091",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "伺服主機",
+      "type": "system",
+      "display_name": "伺服主機"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "脆弱性",
+      "type": "vulnerability",
+      "display_name": "脆弱性"
+    },
+    "reasoning": "題幹明確提到『故意設置脆弱性的伺服主機』，表示該系統暴露了漏洞。根據 Schema，('system', 'can_expose', 'vulnerability') 是合法邊界。",
+    "source_id": "question_IPAS-110-MGT-091",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '伺服主機' 是 'system' 的合理實例，受體 '脆弱性' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 system，關係為 can_expose，受體類別為 vulnerability，符合規則3的特例允許，故不違反語義限制清單中的任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '伺服主機' 完全等價同義詞；受體與 Ldr 中的資源 '脆弱性' 完全等價同義詞。",
+        "response": "duplicate",
+        "standard_subject": "伺服主機",
+        "standard_object": "脆弱性",
+        "reason": "主體與 Ldr 中的資源 '伺服主機' 完全等價同義詞；受體與 Ldr 中的資源 '脆弱性' 完全等價同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "伺服主機",
+        "type": "system"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "脆弱性",
+        "type": "vulnerability"
+      },
+      "reasoning": "題幹明確提到『故意設置脆弱性的伺服主機』，表示該系統暴露了漏洞。根據 Schema，('system', 'can_expose', 'vulnerability') 是合法邊界。",
+      "source_id": "question_IPAS-110-MGT-091",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "蜜罐",
+      "type": "tool",
+      "display_name": "蜜罐"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "伺服主機",
+      "type": "system",
+      "display_name": "伺服主機"
+    },
+    "reasoning": "題幹提到『設置脆弱性的伺服主機』來實作蜜罐，表示蜜罐部署在伺服主機系統中。根據 Schema，('tool', 'deployed_in', 'system') 是合法邊界。",
+    "source_id": "question_IPAS-110-MGT-091",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '蜜罐' 是 'tool' 的合理實例，受體名稱 '伺服主機' 是 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組符合規則6所允許的條件，受體的類別是system，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間存在近似關係，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間存在同義詞關係，但受體與 Ldr 中的資源之間不完全等價，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "蜜罐",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "伺服主機",
+        "type": "system"
+      },
+      "reasoning": "題幹提到『設置脆弱性的伺服主機』來實作蜜罐，表示蜜罐部署在伺服主機系統中。根據 Schema，('tool', 'deployed_in', 'system') 是合法邊界。",
+      "source_id": "question_IPAS-110-MGT-091",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "入侵技術",
+      "type": "technique",
+      "display_name": "入侵技術"
+    },
+    "reasoning": "題幹提到要『瞭解駭客入侵技術』，說明駭客在攻擊時會使用特定的入侵技術。根據 Schema，('attacker', 'uses', 'technique') 是合法邊界。",
+    "source_id": "question_IPAS-110-MGT-091",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'technique' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '駭客' 是 'attacker' 的合理實例，受體 '入侵技術' 是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「駭客」完全等價同義詞；受體與 Ldr 中的「入侵偵測技術」或「攻擊技術」具有廣義/狹義從屬關係，但無法確定完全等價同義詞關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確定完全等價同義詞關係，預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "入侵技術",
+        "type": "technique"
+      },
+      "reasoning": "題幹提到要『瞭解駭客入侵技術』，說明駭客在攻擊時會使用特定的入侵技術。根據 Schema，('attacker', 'uses', 'technique') 是合法邊界。",
+      "source_id": "question_IPAS-110-MGT-091",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "駭客",
+      "type": "attacker",
+      "display_name": "駭客"
+    },
+    "relation": "can_exploit",
+    "object": {
+      "name": "脆弱性",
+      "type": "vulnerability",
+      "display_name": "脆弱性"
+    },
+    "reasoning": "蜜罐的運作邏輯是利用脆弱性吸引駭客進行攻擊，隱含了攻擊者利用漏洞的行為。根據 Schema，('attacker', 'can_exploit', 'vulnerability') 是合法邊界。",
+    "source_id": "question_IPAS-110-MGT-091",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'attacker'、受體類別 'vulnerability' 與關係 'can_exploit' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '駭客' 是 'attacker' 的合理實例，受體名稱 '脆弱性' 是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "violation",
+        "reason": "駭客 (類別: attacker) 的主體可以執行 can_exploit 動作，受體為脆弱性 (類別: vulnerability) 不違反規則3，但主體類別若為 vulnerability 時才會觸發規則3，駭客 (類別: attacker) 不受規則3限制。然而，駭客 (類別: attacker) 執行 can_exploit 動作，受體為脆弱性 (類別: vulnerability) 合理，無法違反規則3。檢查其他規則後，無法發現任何違反項目。"
+      },
+      "step_3_recheck": {
+        "override": true,
+        "mechanical_hits": [],
+        "cites_rule1": false,
+        "llm_reason": "駭客 (類別: attacker) 的主體可以執行 can_exploit 動作，受體為脆弱性 (類別: vulnerability) 不違反規則3，但主體類別若為 vulnerability 時才會觸發規則3，駭客 (類別: attacker) 不受規則3限制。然而，駭客 (類別: attacker) 執行 can_exploit 動作，受體為脆弱性 (類別: vulnerability) 合理，無法違反規則3。檢查其他規則後，無法發現任何違反項目。",
+        "repaired_at": "2026-07-11T03:01:22+08:00",
+        "repair": true
+      },
+      "step_2": {
+        "response": "correct",
+        "reason": "reconstructed by F13 repair pass: inline 03 stores res_2 on the accept path only, so step3-rejected triples carry no step_2; response inferred from original_raw_triple vs final-name rename evidence",
+        "reconstructed": true
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "駭客",
+        "type": "attacker"
+      },
+      "relation": "can_exploit",
+      "object": {
+        "name": "脆弱性",
+        "type": "vulnerability"
+      },
+      "reasoning": "蜜罐的運作邏輯是利用脆弱性吸引駭客進行攻擊，隱含了攻擊者利用漏洞的行為。根據 Schema，('attacker', 'can_exploit', 'vulnerability') 是合法邊界。",
+      "source_id": "question_IPAS-110-MGT-091",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  }
+]

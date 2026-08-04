@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "完整備份 (full backup)",
+      "type": "technique",
+      "display_name": "完全備份 (Completely Backup)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "企業資料備分策略",
+      "type": "technique",
+      "display_name": "企業資料備分策略"
+    },
+    "reasoning": "本題為否定式提問（何項不包含在內），根據處理規則，正確答案 D 為錯誤選項，而 A、B、C 為正確知識。完全備份是一種具體的備份方法，屬於一種技術 (technique)，而企業資料備分策略在此被視為一種高階的技術框架或方法論 (technique)，因此使用 is_part_of 關係。",
+    "source_id": "question_ISN-107-017",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '完全備份' 是 'technique' 的合理實例，受體 '企業資料備分策略' 也是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "完全備份與企業資料備分策略之間的 'is_part_of' 關係符合預先定義的類別與屬性清單。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 technique，關係為 is_part_of，受體為 technique，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "duplicate",
+        "standard_subject": "完整備份 (full backup)",
+        "standard_object": "",
+        "reason": "根據同義詞對照範例，完全備份與完整備份 (full backup) 是同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "完全備份 (Completely Backup)",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "企業資料備分策略",
+        "type": "technique"
+      },
+      "reasoning": "本題為否定式提問（何項不包含在內），根據處理規則，正確答案 D 為錯誤選項，而 A、B、C 為正確知識。完全備份是一種具體的備份方法，屬於一種技術 (technique)，而企業資料備分策略在此被視為一種高階的技術框架或方法論 (technique)，因此使用 is_part_of 關係。",
+      "source_id": "question_ISN-107-017",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "選擇性備份 (selective backup)",
+      "type": "technique",
+      "display_name": "選擇性備份 (Selective Backup)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "企業資料備分策略",
+      "type": "technique",
+      "display_name": "企業資料備分策略"
+    },
+    "reasoning": "本題為否定式提問，選項 B 為正確知識。選擇性備份是一種具體的備份技術 (technique)，屬於企業資料備分策略 (technique) 的一部分，符合 Schema 中 ('technique', 'is_part_of', 'technique') 的定義。",
+    "source_id": "question_ISN-107-017",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體 '選擇性備份' 是 'technique' 的合理實例，受體 '企業資料備分策略' 也是 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則4：principle (資安原則) 僅能作為被違反(violates)的受體(Object)，不可作為發起動作的主體(Subject)。規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 technique，關係為 is_part_of，受體為 technique，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "企業資料備分策略是備份策略的一種，兩者之間存在著廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "企業資料備分策略是備份策略的一種，兩者之間存在著廣義/狹義從屬關係，因此不應該合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "選擇性備份 (Selective Backup)",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "企業資料備分策略",
+        "type": "technique"
+      },
+      "reasoning": "本題為否定式提問，選項 B 為正確知識。選擇性備份是一種具體的備份技術 (technique)，屬於企業資料備分策略 (technique) 的一部分，符合 Schema 中 ('technique', 'is_part_of', 'technique') 的定義。",
+      "source_id": "question_ISN-107-017",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "增量備份 (incremental backup)",
+      "type": "technique",
+      "display_name": "增量備份 (Incremental Backup)"
+    },
+    "relation": "is_part_of",
+    "object": {
+      "name": "企業資料備分策略",
+      "type": "technique",
+      "display_name": "企業資料備分策略"
+    },
+    "reasoning": "本題為否定式提問，選項 C 為正確知識。增量備份是一種具體的備份技術 (technique)，屬於企業資料備分策略 (technique) 的一部分，符合 Schema 中 ('technique', 'is_part_of', 'technique') 的定義。",
+    "source_id": "question_ISN-107-017",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'technique' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "增量備份 (Incremental Backup) 是備份技術的一種，屬於 'technique' 的合理實例；企業資料備分策略也是一種備份技術，屬於 'technique' 的合理實例。",
+        "response": "correct",
+        "reason": "增量備份 (Incremental Backup) 與企業資料備分策略的類別與屬性完全符合預先定義的類別與屬性清單 (Lc,p)。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為 technique，關係為 is_part_of，受體為 technique，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "企業資料備分策略與增量備份之間不存在同義詞關係，且無法確認為子類型或母類關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "增量備份 (Incremental Backup)",
+        "type": "technique"
+      },
+      "relation": "is_part_of",
+      "object": {
+        "name": "企業資料備分策略",
+        "type": "technique"
+      },
+      "reasoning": "本題為否定式提問，選項 C 為正確知識。增量備份是一種具體的備份技術 (technique)，屬於企業資料備分策略 (technique) 的一部分，符合 Schema 中 ('technique', 'is_part_of', 'technique') 的定義。",
+      "source_id": "question_ISN-107-017",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

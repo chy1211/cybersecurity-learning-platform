@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "raid 1",
+      "type": "tool",
+      "display_name": "RAID 1"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "雲端平台",
+      "type": "system",
+      "display_name": "雲端平台"
+    },
+    "reasoning": "題幹提到在雲端平台建置過程中常會使用磁碟陣列(RAID)，因此 RAID 1 作為其中一種模式，被部署於雲端平台系統中。",
+    "source_id": "question_IPAS-109-TEC-094",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'deployed_in' 均在 Lc,p 中。",
+        "step_2_alignment_check": "RAID 1 是一種工具（tool），雲端平台是系統（system），且 'deployed_in' 關係描述了工具在系統上的部署，因此語意對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組符合規則6的條件，受體的類別是system，代表合法。"
+      },
+      "step_2": {
+        "granularity_analysis": "受體與 Ldr 中的「雲端平台」、「雲端環境」、「雲端服務」、「雲端基礎設施」、「雲端運算」等相關概念存在廣義/狹義從屬關係，但無法確定完全等價同義詞關係；主體「RAID 1」與 Ldr 中的「raid 1」完全相同。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "受體與 Ldr 中的相關概念存在廣義/狹義從屬關係，無法確定完全等價同義詞關係；主體與 Ldr 中的「raid 1」完全相同，但受體不完全等價，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RAID 1",
+        "type": "tool"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "雲端平台",
+        "type": "system"
+      },
+      "reasoning": "題幹提到在雲端平台建置過程中常會使用磁碟陣列(RAID)，因此 RAID 1 作為其中一種模式，被部署於雲端平台系統中。",
+      "source_id": "question_IPAS-109-TEC-094",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "raid 1",
+      "type": "tool",
+      "display_name": "RAID 1"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "容錯",
+      "type": "function",
+      "display_name": "容錯"
+    },
+    "reasoning": "題目詢問何種模式容錯率最高，正確答案為 RAID 1，這表示 RAID 1 具備「容錯」這一功能能力。",
+    "source_id": "question_IPAS-109-TEC-094",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "RAID 1 是一種工具（tool），其具有容錯（fault tolerance）功能，故實體名稱與類別合理對齊。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "三元組中的主體 RAID 1 是 tool，具有主動執行能力，且關係 has_a 不違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "RAID 1 與容錯之間存在著功能上的關聯，但非完全等價同義詞；容錯是 RAID 1 的功能之一，但 RAID 1 不是容錯的唯一實現方式。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "RAID 1 與容錯之間存在著功能上的關聯，但非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RAID 1",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "容錯",
+        "type": "function"
+      },
+      "reasoning": "題目詢問何種模式容錯率最高，正確答案為 RAID 1，這表示 RAID 1 具備「容錯」這一功能能力。",
+      "source_id": "question_IPAS-109-TEC-094",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "raid 1",
+      "type": "tool",
+      "display_name": "RAID 1"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "設備故障",
+      "type": "risk",
+      "display_name": "設備故障"
+    },
+    "reasoning": "容錯 (Fault Tolerance) 的核心目的即是為了緩解或降低因硬體設備故障而導致系統停止運作的風險。",
+    "source_id": "question_IPAS-109-TEC-094",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "RAID 1 是一種資料備份技術，合理歸類為 'tool'。設備故障是一種風險，合理歸類為 'risk'。關係 'mitigates' 表示 RAID 1 可以減輕設備故障的風險，語意上合理。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意上合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 RAID 1 的類別是 tool，符合規則2所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "RAID 1 與 設備故障 分別為 tool 與 risk，無法判定為同義詞或子類型關係，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "RAID 1",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "設備故障",
+        "type": "risk"
+      },
+      "reasoning": "容錯 (Fault Tolerance) 的核心目的即是為了緩解或降低因硬體設備故障而導致系統停止運作的風險。",
+      "source_id": "question_IPAS-109-TEC-094",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

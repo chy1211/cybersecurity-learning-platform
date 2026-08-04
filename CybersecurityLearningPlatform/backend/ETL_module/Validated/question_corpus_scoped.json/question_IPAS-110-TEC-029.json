@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "sniffing",
+      "type": "technique",
+      "display_name": "Sniffing"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "中間人攻擊",
+      "type": "attack",
+      "display_name": "中間人攻擊"
+    },
+    "reasoning": "根據考題的否定式提問，正確答案 A (Clickjacking) 是不屬於 MITM 的技巧，因此其餘選項 B (Sniffing) 屬於進行中間人攻擊所採用的技巧。在 Schema 中，技術實作攻擊的關係定義為 ('technique', 'implements', 'attack')。",
+    "source_id": "question_IPAS-110-TEC-029",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 'Sniffing' 是 'technique' 的合理實例，受體 '中間人攻擊' 是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，未違反規則3。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間存在著廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Sniffing 是一種技術，中間人攻擊是一種攻擊，兩者之間存在著廣義/狹義從屬關係，禁止合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Sniffing",
+        "type": "technique"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "中間人攻擊",
+        "type": "attack"
+      },
+      "reasoning": "根據考題的否定式提問，正確答案 A (Clickjacking) 是不屬於 MITM 的技巧，因此其餘選項 B (Sniffing) 屬於進行中間人攻擊所採用的技巧。在 Schema 中，技術實作攻擊的關係定義為 ('technique', 'implements', 'attack')。",
+      "source_id": "question_IPAS-110-TEC-029",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "packet injecting",
+      "type": "technique",
+      "display_name": "Packet Injecting"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "中間人攻擊",
+      "type": "attack",
+      "display_name": "中間人攻擊"
+    },
+    "reasoning": "根據考題的否定式提問，正確答案 A (Clickjacking) 是不屬於 MITM 的技巧，因此其餘選項 C (Packet Injecting) 屬於進行中間人攻擊所採用的技巧。在 Schema 中，技術實作攻擊的關係定義為 ('technique', 'implements', 'attack')。",
+    "source_id": "question_IPAS-110-TEC-029",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Packet Injecting 是一種合理的 'technique' 實例，中間人攻擊是 'attack' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與受體之間存在著廣義/狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Packet Injecting 是一種技術，中間人攻擊是一種攻擊，兩者之間存在著廣義/狹義從屬關係，故不應合併"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Packet Injecting",
+        "type": "technique"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "中間人攻擊",
+        "type": "attack"
+      },
+      "reasoning": "根據考題的否定式提問，正確答案 A (Clickjacking) 是不屬於 MITM 的技巧，因此其餘選項 C (Packet Injecting) 屬於進行中間人攻擊所採用的技巧。在 Schema 中，技術實作攻擊的關係定義為 ('technique', 'implements', 'attack')。",
+      "source_id": "question_IPAS-110-TEC-029",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "session hijacking",
+      "type": "technique",
+      "display_name": "Session Hijacking"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "中間人攻擊",
+      "type": "attack",
+      "display_name": "中間人攻擊"
+    },
+    "reasoning": "根據考題的否定式提問，正確答案 A (Clickjacking) 是不屬於 MITM 的技巧，因此其餘選項 D (Session Hijacking) 屬於進行中間人攻擊所採用的技巧。在 Schema 中，技術實作攻擊的關係定義為 ('technique', 'implements', 'attack')。",
+    "source_id": "question_IPAS-110-TEC-029",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'attack' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "Session Hijacking 是一種 'technique'，中間人攻擊是 'attack' 的合理實例，語意對齊正常。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊正常。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體 Session Hijacking 的類別是 technique，未違反任何語義限制清單中的規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "Session Hijacking 與中間人攻擊是不同的攻擊技術，前者是透過劫持會話來取得未授權的存取權限，後者則是透過截取或竄改通訊內容來取得未授權的存取權限。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "Session Hijacking 與中間人攻擊是不同的攻擊技術，無法合併為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "Session Hijacking",
+        "type": "technique"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "中間人攻擊",
+        "type": "attack"
+      },
+      "reasoning": "根據考題的否定式提問，正確答案 A (Clickjacking) 是不屬於 MITM 的技巧，因此其餘選項 D (Session Hijacking) 屬於進行中間人攻擊所採用的技巧。在 Schema 中，技術實作攻擊的關係定義為 ('technique', 'implements', 'attack')。",
+      "source_id": "question_IPAS-110-TEC-029",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  }
+]

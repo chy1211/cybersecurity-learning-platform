@@ -8,31 +8,31 @@
     "relation": "has_a",
     "object": {
       "name": "網路層",
-      "type": "system",
+      "type": "feature",
       "display_name": "網路層"
     },
-    "reasoning": "文本明確提到『物聯網架構包含三層』，其中之一為網路層。根據 Schema，系統包含系統使用 ('system', 'has_a', 'system')。",
+    "reasoning": "文本明確提到物聯網架構包含三層，其中之一為網路層。根據 Schema，system 與 system 之間可以使用 has_a 關係。",
     "source_id": "chunk_3",
     "source_file": "第20章 物聯網安全_e5.pdf",
     "source_index": 1,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "物聯網架構與網路層皆為系統的合理實例，符合語意對齊原則。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "主體 '物聯網架構' 是 'system' 的合理實例，受體 '網路層' 也是 'system' 的合理實例。",
         "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+        "reason": "主體、受體與關係皆符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 system，不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則沒有發現明確違反。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組（物聯網架構 has_a 網路層）沒有觸發語義限制清單中的任何規則，且關係 has_a 沒有在規則中被明確限制，故判定為正確。"
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體皆為系統類別，且受體「網路層」出現在近似資源清單中，與主體「物聯網架構」無直接同義詞關係，但兩者皆屬於系統類別，且無明顯的廣義/狹義從屬關係。",
+        "granularity_analysis": "主體與 Ldr 中的「物聯網架構」完全等價同義詞；受體與 Ldr 中的「網路層」完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "無法確定主體與受體之間的同義詞或從屬關係，依據不確定時預設保留原則，判定為 correct。"
+        "reason": "主體與受體均為資安領域中的具體概念，無法合併為同義詞。"
       }
     },
     "original_raw_triple": {
@@ -45,62 +45,10 @@
         "name": "網路層",
         "type": "system"
       },
-      "reasoning": "文本明確提到『物聯網架構包含三層』，其中之一為網路層。根據 Schema，系統包含系統使用 ('system', 'has_a', 'system')。",
+      "reasoning": "文本明確提到物聯網架構包含三層，其中之一為網路層。根據 Schema，system 與 system 之間可以使用 has_a 關係。",
       "source_id": "chunk_3",
       "source_file": "第20章 物聯網安全_e5.pdf",
       "source_index": 1
-    }
-  },
-  {
-    "subject": {
-      "name": "物聯網架構",
-      "type": "system",
-      "display_name": "物聯網架構"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "應用層",
-      "type": "system",
-      "display_name": "應用層"
-    },
-    "reasoning": "文本明確提到『物聯網架構包含三層』，其中之一為應用層。根據 Schema，系統包含系統使用 ('system', 'has_a', 'system')。",
-    "source_id": "chunk_3",
-    "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 2,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體的類別 'system' 和受體的類別 'system' 都存在於 Lc,p 的 'Classes' 中，關係 'has_a' 也存在於 'Properties' 中。",
-        "step_2_alignment_check": "實體 '物聯網架構' 和 '應用層' 的名稱與其被賦予的類別 'system' 合理對齊，因為 '物聯網架構' 和 '應用層' 都可以被視為系統的一部分。",
-        "response": "correct",
-        "reason": "主體、受體和關係都符合預先定義的類別和屬性清單，且實體名稱與其類別合理對齊。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
-        "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與給定的語義限制清單中沒有直接相關的規則，因此無法判定為違規。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與受體皆為資安領域中的系統類別，且受體「應用層」與 Ldr 中的「應用層」完全匹配，主體「物聯網架構」與 Ldr 中的「物聯網架構」完全匹配，兩者皆無同義詞關係，且非廣義/狹義從屬關係。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "主體與受體皆為完全匹配的系統類別，無同義詞或從屬關係，故判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "物聯網架構",
-        "type": "system"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "應用層",
-        "type": "system"
-      },
-      "reasoning": "文本明確提到『物聯網架構包含三層』，其中之一為應用層。根據 Schema，系統包含系統使用 ('system', 'has_a', 'system')。",
-      "source_id": "chunk_3",
-      "source_file": "第20章 物聯網安全_e5.pdf",
-      "source_index": 2
     }
   },
   {
@@ -115,28 +63,28 @@
       "type": "system",
       "display_name": "感測層"
     },
-    "reasoning": "文本提到網路層介於感測層與應用層之間，且架構分為三層，推論感測層為其中之一。根據 Schema，系統包含系統使用 ('system', 'has_a', 'system')。",
+    "reasoning": "文本提到網路層介於感測層與應用層之間，暗示感測層是架構的一部分。根據 Schema，system 與 system 之間可以使用 has_a 關係。",
     "source_id": "chunk_3",
     "source_file": "第20章 物聯網安全_e5.pdf",
     "source_index": 3,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體 '物聯網架構' 和 '感測層' 都是 'system' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "主體 '物聯網架構' 可以被視為 'system' 的合理實例，受體 '感測層' 也可以被視為 'system' 的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "主體、受體與關係都符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用，因為關係為 has_a，不是 deployed_in。檢查規則7：不適用，因為關係為 has_a，不是 generates。檢查規則8：不適用，因為關係為 has_a，不是 controls。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的主體和受體類別與關係之間的組合，沒有明確違反語義限制清單中的任何規則。"
+        "reason": "三元組中的關係為 has_a，與規則6無關。"
       },
       "step_2": {
-        "granularity_analysis": "主體與受體皆為資安領域中明確定義的系統類別，且兩者之間無直接同義詞關係或廣義/狹義從屬關係。",
+        "granularity_analysis": "主體與 Ldr 中的「物聯網架構」完全等價同義詞；受體與 Ldr 中的「感測層」完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據判斷準則，兩實體無同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+        "reason": "主體與受體均為資安領域中的具體概念，無法合併為同義詞。"
       }
     },
     "original_raw_triple": {
@@ -149,7 +97,7 @@
         "name": "感測層",
         "type": "system"
       },
-      "reasoning": "文本提到網路層介於感測層與應用層之間，且架構分為三層，推論感測層為其中之一。根據 Schema，系統包含系統使用 ('system', 'has_a', 'system')。",
+      "reasoning": "文本提到網路層介於感測層與應用層之間，暗示感測層是架構的一部分。根據 Schema，system 與 system 之間可以使用 has_a 關係。",
       "source_id": "chunk_3",
       "source_file": "第20章 物聯網安全_e5.pdf",
       "source_index": 3
@@ -161,102 +109,50 @@
       "type": "system",
       "display_name": "聯網裝置"
     },
-    "relation": "has_a",
+    "relation": "connects_to",
     "object": {
-      "name": "感測功能",
-      "type": "function",
-      "display_name": "感測功能"
-    },
-    "reasoning": "文本指出『聯網裝置具有感測功能』。將聯網裝置視為工具 (tool) 以符合 ('tool', 'has_a', 'function') 的 Schema 限制。",
-    "source_id": "chunk_3",
-    "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 4,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "聯網裝置 (tool) 與感測功能 (function) 的名稱與其類別合理對齊，符合語意與同義詞寬容原則。",
-        "response": "correct",
-        "reason": "聯網裝置與感測功能的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
-        "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與規則清單中沒有直接相關的限制，因此無法觸發任何違規條件。"
-      },
-      "step_2": {
-        "granularity_analysis": "聯網裝置與 Ldr 中的「聯網裝置」完全等價同義詞，且「聯網裝置」與「物聯網裝置」等其他選項之間存在廣義/狹義從屬關係，但根據規則，廣義/狹義一律保留，不進行合併。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【前提確認】和【廣義/狹義一律保留】判斷準則，聯網裝置與 Ldr 中的「聯網裝置」完全匹配，且不存在需要合併的同義詞關係。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "聯網裝置",
-        "type": "tool"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "感測功能",
-        "type": "function"
-      },
-      "reasoning": "文本指出『聯網裝置具有感測功能』。將聯網裝置視為工具 (tool) 以符合 ('tool', 'has_a', 'function') 的 Schema 限制。",
-      "source_id": "chunk_3",
-      "source_file": "第20章 物聯網安全_e5.pdf",
-      "source_index": 4
-    }
-  },
-  {
-    "subject": {
-      "name": "聯網裝置",
+      "name": "閘道器",
       "type": "system",
-      "display_name": "聯網裝置"
+      "display_name": "閘道器"
     },
-    "relation": "has_a",
-    "object": {
-      "name": "辨識功能",
-      "type": "function",
-      "display_name": "辨識功能"
-    },
-    "reasoning": "文本指出『聯網裝置具有...辨識功能』。將聯網裝置視為工具 (tool) 以符合 ('tool', 'has_a', 'function') 的 Schema 限制。",
+    "reasoning": "文本提到聯網裝置將資訊傳回後端閘道器，描述了兩者之間的通訊連接。符合 Schema 中的 (\"system\", \"connects_to\", \"system\")。",
     "source_id": "chunk_3",
     "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 5,
+    "source_index": 6,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'function' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "聯網裝置可以被視為一種工具（tool），而辨識功能可以被視為一種功能（function），因此實體名稱與其類別合理對齊。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "聯網裝置 (system) 與 閘道器 (system) 的名稱與類別合理對齊，符合資安領域的常見用語。",
         "response": "correct",
-        "reason": "聯網裝置與辨識功能的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：不適用。檢查規則7：不適用。檢查規則8：不適用。由於三元組中的關係是 'has_a'，而這個關係在給定的規則中沒有被明確限制，因此不觸發任何違規。",
+        "step_1_rule_matching": "規則1不適用，因為主體與受體皆非攻擊者或安全團隊。規則2不適用，因為主體非policy、technique或tool。規則3不適用，因為主體類別非vulnerability。規則4不適用，因為受體非principle。規則5不適用，因為主體類別非data且關係非uses。規則6不適用，因為關係非deployed_in。規則7不適用，因為關係非generates。規則8不適用，因為關係非controls。",
         "response": "correct",
-        "reason": "三元組中的關係 'has_a' 沒有在語義限制清單中被明確限制，且主體和受體的類別組合沒有違反任何給定的規則。"
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
       },
       "step_2": {
-        "granularity_analysis": "聯網裝置與物聯網裝置之間存在高度相似性，兩者皆指涉及網際網路連接的裝置，然而聯網裝置是一個更廣泛的術語，涵蓋了所有連接網際網路的裝置，而物聯網裝置則特指物聯網（IoT）領域中的裝置。辨識功能在資安領域中是一種常見的功能，與認證功能有相似的概念，但兩者並非完全等同。因此，聯網裝置與辨識功能之間的關係是正確的主體和受體關係，不需要進行同義詞合併。",
+        "granularity_analysis": "聯網裝置與 Ldr 中的「聯網裝置」、「物聯網裝置」、「網路設備」、「物聯網設備」、「終端裝置」、「物聯網網路」、「網路」、「行動裝置」、「電腦網路」、「網際網路」等相關概念之間的關係是同義詞或相關概念，但非完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "聯網裝置和辨識功能之間的關係是正確的主體和受體關係，不需要進行同義詞合併。"
+        "reason": "聯網裝置與 Ldr 中的相關概念之間的關係是同義詞或相關概念，但非完全等價同義詞，因此判定為 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
         "name": "聯網裝置",
-        "type": "tool"
+        "type": "system"
       },
-      "relation": "has_a",
+      "relation": "connects_to",
       "object": {
-        "name": "辨識功能",
-        "type": "function"
+        "name": "閘道器",
+        "type": "system"
       },
-      "reasoning": "文本指出『聯網裝置具有...辨識功能』。將聯網裝置視為工具 (tool) 以符合 ('tool', 'has_a', 'function') 的 Schema 限制。",
+      "reasoning": "文本提到聯網裝置將資訊傳回後端閘道器，描述了兩者之間的通訊連接。符合 Schema 中的 (\"system\", \"connects_to\", \"system\")。",
       "source_id": "chunk_3",
       "source_file": "第20章 物聯網安全_e5.pdf",
-      "source_index": 5
+      "source_index": 6
     }
   },
   {
@@ -271,44 +167,96 @@
       "type": "data",
       "display_name": "感測資料"
     },
-    "reasoning": "文本提到聯網裝置將『收集、量測的資訊傳回』，即產生感測資料。符合 ('tool', 'generates', 'data')。",
+    "reasoning": "文本提到聯網裝置將收集、量測的資訊（資料）傳回後端。根據 Schema，system 可以 generates data。",
     "source_id": "chunk_3",
     "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 6,
+    "source_index": 5,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'data' 與關係 'generates' 均在 Lc,p 中。",
-        "step_2_alignment_check": "聯網裝置 (tool) 可以生成感測資料 (data)，這是語意上合理的。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "聯網裝置 (system) 可以生成感測資料 (data)，這是合理的實例關係。",
         "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為三元組中沒有提到principle。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
         "response": "correct",
-        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+        "reason": "三元組中的受體 (感測資料) 類別是 data，符合規則7的條件。"
       },
       "step_2": {
-        "granularity_analysis": "聯網裝置與物聯網裝置之間存在同義詞關係，兩者均指涉及網際網路連接的裝置；而感測資料則直接與資料存在同義詞關係，兩者均指收集或傳輸的數據。",
+        "granularity_analysis": "主體與 Ldr 中的「聯網裝置」、「物聯網裝置」、「網路設備」、「物聯網設備」、「終端裝置」、「物聯網網路」、「網路」、「行動裝置」、「電腦網路」、「網際網路」等相關實體之間存在廣義/狹義從屬關係；受體與 Ldr 中的「感測資料」、「感測資訊」、「資料」等相關實體之間存在同義詞關係。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據同義詞判定準則，聯網裝置與物聯網裝置、感測資料與資料之間的關係，均不構成完全相同的實體名稱，但由於兩者分別屬於同一類別且無需進一步合併，故判定為 correct。"
+        "reason": "主體與 Ldr 中的相關實體之間存在廣義/狹義從屬關係，受體與 Ldr 中的相關實體之間存在同義詞關係，但根據判斷準則，廣義/狹義一律保留，故判定為 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
         "name": "聯網裝置",
-        "type": "tool"
+        "type": "system"
       },
       "relation": "generates",
       "object": {
         "name": "感測資料",
         "type": "data"
       },
-      "reasoning": "文本提到聯網裝置將『收集、量測的資訊傳回』，即產生感測資料。符合 ('tool', 'generates', 'data')。",
+      "reasoning": "文本提到聯網裝置將收集、量測的資訊（資料）傳回後端。根據 Schema，system 可以 generates data。",
       "source_id": "chunk_3",
       "source_file": "第20章 物聯網安全_e5.pdf",
-      "source_index": 6
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "物聯網架構",
+      "type": "system",
+      "display_name": "物聯網架構"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "應用層",
+      "type": "feature",
+      "display_name": "應用層"
+    },
+    "reasoning": "文本明確提到物聯網架構包含三層，其中之一為應用層。根據 Schema，system 與 system 之間可以使用 has_a 關係。",
+    "source_id": "chunk_3",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 中。",
+        "step_2_alignment_check": "主體 '物聯網架構' 可以被視為 'system' 的合理實例；受體 '應用層' 也可以被視為 'system' 的合理實例，考慮到資安領域的同義詞寬容原則。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「物聯網架構」完全等價同義詞；受體與 Ldr 中的「應用層」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均為資安領域中的具體概念，無法合併為同義詞。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "物聯網架構",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "應用層",
+        "type": "system"
+      },
+      "reasoning": "文本明確提到物聯網架構包含三層，其中之一為應用層。根據 Schema，system 與 system 之間可以使用 has_a 關係。",
+      "source_id": "chunk_3",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 2
     }
   },
   {
@@ -317,47 +265,99 @@
       "type": "system",
       "display_name": "聯網裝置"
     },
-    "relation": "is_part_of",
+    "relation": "has_a",
     "object": {
-      "name": "物聯網架構",
-      "type": "system",
-      "display_name": "物聯網架構"
+      "name": "感測能力",
+      "type": "feature",
+      "display_name": "感測能力"
     },
-    "reasoning": "聯網裝置被列為物聯網架構的四大組成元件之一。符合 ('tool', 'is_part_of', 'system')。",
+    "reasoning": "文本提到聯網裝置具有感測功能/能力。將其定義為 system 的 feature 符合 Schema 中的 (\"system\", \"has_a\", \"feature\")。",
     "source_id": "chunk_3",
     "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 7,
+    "source_index": 4,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "聯網裝置 (tool) 與 物聯網架構 (system) 的名稱與其被賦予的類別合理對齊，符合資安領域的常見用語與同義詞寬容原則。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "聯網裝置是系統的合理實例，感測能力是特徵的合理實例。",
         "response": "correct",
-        "reason": "聯網裝置與物聯網架構的三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 is_part_of，不是 deployed_in。規則7：不適用，因為關係為 is_part_of，不是 generates。規則8：不適用，因為關係為 is_part_of，不是 controls。",
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
         "response": "correct",
-        "reason": "三元組中的關係 is_part_of 與主體、受體的類別（system）不觸發任何語義限制清單中的規則，故判定為正確。"
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
       },
       "step_2": {
-        "granularity_analysis": "聯網裝置與物聯網裝置之間存在語義上的相似性，但非完全等價同義詞；物聯網架構為獨立概念，非聯網裝置的同義詞。",
+        "granularity_analysis": "聯網裝置與 Ldr 中的「聯網裝置」、「物聯網裝置」、「網路設備」、「物聯網設備」、「終端裝置」、「物聯網網路」、「網路」、「行動裝置」、「電腦網路」、「網際網路」等存在廣義/狹義從屬關係，但感測能力與 Ldr 中的「感測層」存在同義詞關係。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據判斷準則，聯網裝置與物聯網裝置非完全等價同義詞，且物聯網架構為獨立概念，故判定為 correct。"
+        "reason": "聯網裝置與 Ldr 中的其他資源存在廣義/狹義從屬關係，感測能力與 Ldr 中的「感測層」存在同義詞關係，但根據判斷準則，廣義/狹義一律保留，因此判定為 correct。"
       }
     },
     "original_raw_triple": {
       "subject": {
         "name": "聯網裝置",
-        "type": "tool"
-      },
-      "relation": "is_part_of",
-      "object": {
-        "name": "物聯網架構",
         "type": "system"
       },
-      "reasoning": "聯網裝置被列為物聯網架構的四大組成元件之一。符合 ('tool', 'is_part_of', 'system')。",
+      "relation": "has_a",
+      "object": {
+        "name": "感測能力",
+        "type": "feature"
+      },
+      "reasoning": "文本提到聯網裝置具有感測功能/能力。將其定義為 system 的 feature 符合 Schema 中的 (\"system\", \"has_a\", \"feature\")。",
+      "source_id": "chunk_3",
+      "source_file": "第20章 物聯網安全_e5.pdf",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "閘道器",
+      "type": "system",
+      "display_name": "閘道器"
+    },
+    "relation": "connects_to",
+    "object": {
+      "name": "物聯網平台",
+      "type": "system",
+      "display_name": "物聯網平台"
+    },
+    "reasoning": "文本提到聯網裝置傳回閘道器或物聯網平台，且閘道器是用來解決傳輸問題的中繼設備。符合 Schema 中的 (\"system\", \"connects_to\", \"system\")。",
+    "source_id": "chunk_3",
+    "source_file": "第20章 物聯網安全_e5.pdf",
+    "source_index": 7,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "閘道器 (system) 與 物聯網平台 (system) 的名稱與其類別 'system' 合理對齊，符合資安領域的常見用語。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1、規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源 '閘道器' 完全相同，受體與 Ldr 中的資源 '物聯網平台' 不存在完全相同的名稱，但 '物聯網平台' 的名稱與 '物聯網雲端平台' 的名稱相似度最高，達到 0.9135。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源 '閘道器' 完全相同，受體與 Ldr 中的資源 '物聯網平台' 雖然沒有完全相同的名稱，但與 '物聯網雲端平台' 的相似度最高，仍不構成同義詞重複。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "閘道器",
+        "type": "system"
+      },
+      "relation": "connects_to",
+      "object": {
+        "name": "物聯網平台",
+        "type": "system"
+      },
+      "reasoning": "文本提到聯網裝置傳回閘道器或物聯網平台，且閘道器是用來解決傳輸問題的中繼設備。符合 Schema 中的 (\"system\", \"connects_to\", \"system\")。",
       "source_id": "chunk_3",
       "source_file": "第20章 物聯網安全_e5.pdf",
       "source_index": 7
@@ -365,142 +365,38 @@
   },
   {
     "subject": {
-      "name": "閘道器",
-      "type": "tool",
-      "display_name": "閘道器"
+      "name": "系統應用程式",
+      "type": "app",
+      "display_name": "應用軟體子系統"
     },
-    "relation": "is_part_of",
+    "relation": "uses",
     "object": {
-      "name": "物聯網架構",
-      "type": "system",
-      "display_name": "物聯網架構"
+      "name": "感測資料",
+      "type": "data",
+      "display_name": "感測資料"
     },
-    "reasoning": "閘道器被列為物聯網架構的四大組成元件之一。符合 ('tool', 'is_part_of', 'system')。",
-    "source_id": "chunk_3",
-    "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 8,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'is_part_of' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "閘道器 (tool) 和 物聯網架構 (system) 的名稱與其被賦予的類別合理對齊，閘道器可以被視為工具的一種，物聯網架構可以被視為系統的一種。",
-        "response": "correct",
-        "reason": "該三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用。檢查規則6：關係為 is_part_of，不是 deployed_in，故不適用。檢查規則7：關係為 is_part_of，不是 generates，故不適用。檢查規則8：關係為 is_part_of，不是 controls，故不適用。無直接相關規則被觸發違規。",
-        "response": "correct",
-        "reason": "三元組（閘道器 is_part_of 物聯網架構）未觸發語義限制清單中的任何規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "閘道器與物聯網閘道器之間存在狹義關係，閘道器是工具類別，物聯網架構是系統類別，兩者之間沒有直接的同義詞關係，但閘道器可以是物聯網架構的一部分。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【廣義/狹義一律保留】原則，閘道器是工具類別，物聯網架構是系統類別，兩者之間沒有直接的同義詞關係，且閘道器可以是物聯網架構的一部分，因此判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "閘道器",
-        "type": "tool"
-      },
-      "relation": "is_part_of",
-      "object": {
-        "name": "物聯網架構",
-        "type": "system"
-      },
-      "reasoning": "閘道器被列為物聯網架構的四大組成元件之一。符合 ('tool', 'is_part_of', 'system')。",
-      "source_id": "chunk_3",
-      "source_file": "第20章 物聯網安全_e5.pdf",
-      "source_index": 8
-    }
-  },
-  {
-    "subject": {
-      "name": "物聯網平台",
-      "type": "system",
-      "display_name": "物聯網平台"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "物聯網架構",
-      "type": "system",
-      "display_name": "物聯網架構"
-    },
-    "reasoning": "物聯網平台被列為物聯網架構的四大組成元件之一。符合 ('system', 'is_part_of', 'system')。",
+    "reasoning": "文本提到應用軟體子系統將收集到的資料做後續處理。符合 Schema 中的 (\"app\", \"uses\", \"data\")。",
     "source_id": "chunk_3",
     "source_file": "第20章 物聯網安全_e5.pdf",
     "source_index": 9,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'is_part_of' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "實體名稱 '物聯網平台' 和 '物聯網架構' 都是 'system' 的合理實例，符合語意對齊和同義詞寬容原則。",
+        "step_1_list_check": "主體類別 'app'、受體類別 'data' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '應用軟體子系統' 的類別 'app' 合理對齊，受體 '感測資料' 的類別 'data' 合理對齊。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "主體類別、受體類別與關係皆在 Lc,p 中，且實體名稱與其類別合理對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體的類別是 system，不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則，發現無直接違反規則的情況。",
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組中的主體和受體類別與關係之間的關聯沒有明顯違反語義限制清單中的任何規則。"
+        "reason": "主體類別為 app，與規則5不符，無法觸發違規判定。"
       },
       "step_2": {
-        "granularity_analysis": "主體 \"物聯網平台\" 與 Ldr 中的 \"物聯網雲端平台\" 類別相同，但非完全等價同義詞；受體 \"物聯網架構\" 與 Ldr 中的 \"物聯網架構\" 完全匹配，為同一概念。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "物聯網架構",
-        "reason": "根據同義詞判定準則，受體 \"物聯網架構\" 與 Ldr 中的 \"物聯網架構\" 完全匹配，判定為同一概念；主體 \"物聯網平台\" 與 Ldr 中的 \"物聯網雲端平台\" 類別相同，但非完全等價同義詞，依據廣義/狹義一律保留原則，判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "物聯網平台",
-        "type": "system"
-      },
-      "relation": "is_part_of",
-      "object": {
-        "name": "物聯網架構",
-        "type": "system"
-      },
-      "reasoning": "物聯網平台被列為物聯網架構的四大組成元件之一。符合 ('system', 'is_part_of', 'system')。",
-      "source_id": "chunk_3",
-      "source_file": "第20章 物聯網安全_e5.pdf",
-      "source_index": 9
-    }
-  },
-  {
-    "subject": {
-      "name": "應用軟體子系統",
-      "type": "app",
-      "display_name": "應用軟體子系統"
-    },
-    "relation": "is_part_of",
-    "object": {
-      "name": "應用層",
-      "type": "system",
-      "display_name": "應用層"
-    },
-    "reasoning": "文本提到在應用層『開發相應的應用軟體子系統』。符合 ('app', 'is_part_of', 'system')。",
-    "source_id": "chunk_3",
-    "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 10,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'is_part_of' 均在 Lc,p 中。",
-        "step_2_alignment_check": "實體 '應用軟體子系統' 的類別 'app' 合理對齊，實體 '應用層' 的類別 'system' 合理對齊。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：無關。檢查規則2：無關。檢查規則3：無關。檢查規則4：無關。檢查規則5：無關，因為關係不是 'uses'。檢查規則6：無關，因為關係不是 'deployed_in'。檢查規則7：無關，因為關係不是 'generates'。檢查規則8：無關，因為關係不是 'controls'。",
-        "response": "correct",
-        "reason": "三元組中的關係 'is_part_of' 與給定的語義限制清單中沒有直接相關的規則，因此無法觸發任何違規。"
-      },
-      "step_2": {
-        "granularity_analysis": "主體與受體皆有完全等價的同義詞或近似資源存在，但無直接同義詞關係",
-        "response": "correct",
-        "standard_subject": "",
+        "granularity_analysis": "應用軟體子系統與系統應用程式之間是同義詞關係",
+        "response": "duplicate",
+        "standard_subject": "系統應用程式",
         "standard_object": "",
-        "reason": "根據判斷準則，主體與受體無直接同義詞關係，且無廣義/狹義從屬關係，故判定為 correct。"
+        "reason": "應用軟體子系統與系統應用程式是同義詞，且兩者都屬於 app 類別"
       }
     },
     "original_raw_triple": {
@@ -508,171 +404,15 @@
         "name": "應用軟體子系統",
         "type": "app"
       },
-      "relation": "is_part_of",
+      "relation": "uses",
       "object": {
-        "name": "應用層",
-        "type": "system"
+        "name": "感測資料",
+        "type": "data"
       },
-      "reasoning": "文本提到在應用層『開發相應的應用軟體子系統』。符合 ('app', 'is_part_of', 'system')。",
+      "reasoning": "文本提到應用軟體子系統將收集到的資料做後續處理。符合 Schema 中的 (\"app\", \"uses\", \"data\")。",
       "source_id": "chunk_3",
       "source_file": "第20章 物聯網安全_e5.pdf",
-      "source_index": 10
-    }
-  },
-  {
-    "subject": {
-      "name": "網路層",
-      "type": "system",
-      "display_name": "網路層"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "內部網路",
-      "type": "system",
-      "display_name": "內部網路"
-    },
-    "reasoning": "文本提到網路層的類型可能為『一般企業的內部網路』。符合 ('system', 'has_a', 'system')。",
-    "source_id": "chunk_3",
-    "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 11,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "網路層和內部網路都是系統的合理實例，符合語意對齊和同義詞寬容原則。",
-        "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單，通過類別與屬性檢查。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體類別不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查完所有規則，沒有發現明確且直接的違反項目。",
-        "response": "correct",
-        "reason": "三元組中的主體和受體類別與關係之間的組合，沒有觸發語義限制清單中的任何規則，故判定為正確。"
-      },
-      "step_2": {
-        "granularity_analysis": "網路層與內部網路為不同系統，無直接同義詞關係，但皆屬於系統類別",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "無法確定兩實體之間的同義詞或從屬關係，依據規則預設保留。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "網路層",
-        "type": "system"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "內部網路",
-        "type": "system"
-      },
-      "reasoning": "文本提到網路層的類型可能為『一般企業的內部網路』。符合 ('system', 'has_a', 'system')。",
-      "source_id": "chunk_3",
-      "source_file": "第20章 物聯網安全_e5.pdf",
-      "source_index": 11
-    }
-  },
-  {
-    "subject": {
-      "name": "網路層",
-      "type": "system",
-      "display_name": "網路層"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "廣域網路",
-      "type": "system",
-      "display_name": "廣域網路"
-    },
-    "reasoning": "文本提到網路層的類型可能為『電信業者的廣域網路』。符合 ('system', 'has_a', 'system')。",
-    "source_id": "chunk_3",
-    "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 12,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'has_a' 均存在於 Lc,p 的 'Classes' 和 'Properties' 中。",
-        "step_2_alignment_check": "主體 '網路層' 和受體 '廣域網路' 均為 'system' 的合理實例，符合語意對齊和同義詞寬容原則。",
-        "response": "correct",
-        "reason": "主體、受體和關係均符合預先定義的類別和屬性清單，且語意對齊合理。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "規則1：不適用。規則2：不適用。規則3：不適用。規則4：不適用。規則5：不適用。規則6：不適用，因為關係為 has_a，不是 deployed_in。規則7：不適用，因為關係為 has_a，不是 generates。規則8：不適用，因為關係為 has_a，不是 controls。",
-        "response": "correct",
-        "reason": "三元組中的主體和受體類別與關係之間的組合，沒有明確違反語義限制清單中的任何規則。"
-      },
-      "step_2": {
-        "granularity_analysis": "網路層與網路之間存在著廣義/狹義的關係，但根據給定的資安領域已知同義詞對照範例和判斷準則，兩者並不完全等價，且網路層是網路的一個子類型，因此不進行合併。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據【廣義/狹義一律保留】判斷準則，網路層是網路的子類型，因此判定為 correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "網路層",
-        "type": "system"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "廣域網路",
-        "type": "system"
-      },
-      "reasoning": "文本提到網路層的類型可能為『電信業者的廣域網路』。符合 ('system', 'has_a', 'system')。",
-      "source_id": "chunk_3",
-      "source_file": "第20章 物聯網安全_e5.pdf",
-      "source_index": 12
-    }
-  },
-  {
-    "subject": {
-      "name": "網路層",
-      "type": "system",
-      "display_name": "網路層"
-    },
-    "relation": "has_a",
-    "object": {
-      "name": "傳輸協定",
-      "type": "feature",
-      "display_name": "傳輸協定"
-    },
-    "reasoning": "文本提到資料透過『傳輸協定轉送到網路層』，協定是網路層運作的特徵。符合 ('system', 'has_a', 'feature')。",
-    "source_id": "chunk_3",
-    "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 13,
-    "validation_history": {
-      "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
-        "step_2_alignment_check": "網路層是系統的一部分，傳輸協定是網路層的特徵，故語意對齊。",
-        "response": "correct",
-        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
-      },
-      "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為關係不是 'uses'。檢查規則6：不適用，因為關係不是 'deployed_in'。檢查規則7：不適用，因為關係不是 'generates'。檢查規則8：不適用，因為關係不是 'controls'。",
-        "response": "correct",
-        "reason": "三元組中的關係 'has_a' 與規則清單中沒有直接相關的限制，因此無法觸發任何違規條件。"
-      },
-      "step_2": {
-        "granularity_analysis": "網路層與網路系統、網際網路等相關概念在Ldr中均有出現，但網路層與傳輸協定之間的關係是系統與其特徵的關係，而非同義詞或廣義/狹義從屬關係。",
-        "response": "correct",
-        "standard_subject": "",
-        "standard_object": "",
-        "reason": "根據判斷準則，網路層和傳輸協定之間的關係不構成同義詞或廣義/狹義從屬關係，故判定為correct。"
-      }
-    },
-    "original_raw_triple": {
-      "subject": {
-        "name": "網路層",
-        "type": "system"
-      },
-      "relation": "has_a",
-      "object": {
-        "name": "傳輸協定",
-        "type": "feature"
-      },
-      "reasoning": "文本提到資料透過『傳輸協定轉送到網路層』，協定是網路層運作的特徵。符合 ('system', 'has_a', 'feature')。",
-      "source_id": "chunk_3",
-      "source_file": "第20章 物聯網安全_e5.pdf",
-      "source_index": 13
+      "source_index": 9
     }
   },
   {
@@ -687,28 +427,28 @@
       "type": "data",
       "display_name": "資訊"
     },
-    "reasoning": "文本提到物聯網平台用於『處理及分享資訊』，在知識圖譜中，處理並產出資訊可視為 generates。符合 ('system', 'generates', 'data')。",
+    "reasoning": "文本提到物聯網平台用於處理及分享資訊。符合 Schema 中的 (\"system\", \"generates\", \"data\")。",
     "source_id": "chunk_3",
     "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 14,
+    "source_index": 13,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 分別存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
-        "step_2_alignment_check": "實體 '物聯網平台' 是 'system' 的合理實例，'資訊' 是 'data' 的合理實例，且 'generates' 是描述系統與資料之間關係的合理屬性。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'generates' 均在 Lc,p 中。",
+        "step_2_alignment_check": "物聯網平台是系統的合理實例，資訊是資料的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊合理。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "規則1不適用，因為三元組中沒有提到攻擊者或安全團隊。規則2不適用，因為三元組中的關係不是mitigates。規則3不適用，因為主體的類別不是vulnerability。規則4不適用，因為關係不是violates。規則5不適用，因為關係不是uses。規則6不適用，因為關係不是deployed_in。規則7適用，且三元組中的關係是generates，受體的類別是data，符合規則。規則8不適用，因為關係不是controls。",
+        "step_1_rule_matching": "規則7：當關係為 generates (產生) 時，受體 (Object) 的類別必須是 data (資料)。",
         "response": "correct",
-        "reason": "三元組中的關係是generates，受體的類別是data，符合規則7的允許條件。因此，三元組不違反語義限制清單中的任何規則。"
+        "reason": "三元組符合規則7所允許的條件，主體為物聯網平台，關係為generates，受體為資訊，且受體的類別是data，代表合法。"
       },
       "step_2": {
-        "granularity_analysis": "主體 \"物聯網平台\" 與 Ldr 中的 \"物聯網平台\" 完全等價，受體 \"資訊\" 與 Ldr 中的 \"資訊\" 完全等價",
+        "granularity_analysis": "主體與 Ldr 中的「物聯網平台」完全等價同義詞；受體與 Ldr 中的「資訊」完全等價同義詞。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "主體和受體名稱與 Ldr 中的資源 name 完全相同，直接判定 correct。"
+        "reason": "主體與受體均為資安領域中具體且明確的概念，無法合併為同義詞。"
       }
     },
     "original_raw_triple": {
@@ -721,62 +461,62 @@
         "name": "資訊",
         "type": "data"
       },
-      "reasoning": "文本提到物聯網平台用於『處理及分享資訊』，在知識圖譜中，處理並產出資訊可視為 generates。符合 ('system', 'generates', 'data')。",
+      "reasoning": "文本提到物聯網平台用於處理及分享資訊。符合 Schema 中的 (\"system\", \"generates\", \"data\")。",
       "source_id": "chunk_3",
       "source_file": "第20章 物聯網安全_e5.pdf",
-      "source_index": 14
+      "source_index": 13
     }
   },
   {
     "subject": {
-      "name": "物聯網平台",
-      "type": "system",
-      "display_name": "物聯網平台"
-    },
-    "relation": "connects_to",
-    "object": {
       "name": "服務層",
       "type": "system",
       "display_name": "服務層"
     },
-    "reasoning": "文本提到『物聯物平台提供的資料送往服務層』，描述了兩者之間的資料流向與連接。符合 ('system', 'connects_to', 'system')。",
+    "relation": "uses",
+    "object": {
+      "name": "資訊",
+      "type": "data",
+      "display_name": "資訊"
+    },
+    "reasoning": "文本提到物聯網平台提供的資料（資訊）送往服務層以發展應用。符合 Schema 中的 (\"system\", \"uses\", \"data\")。",
     "source_id": "chunk_3",
     "source_file": "第20章 物聯網安全_e5.pdf",
-    "source_index": 15,
+    "source_index": 14,
     "validation_history": {
       "step_1": {
-        "step_1_list_check": "主體類別 'system'、受體類別 'system' 與關係 'connects_to' 均在 Lc,p 中。",
-        "step_2_alignment_check": "實體 '物聯網平台' 與 '服務層' 均為 'system' 的合理實例，符合語意對齊與同義詞寬容原則。",
+        "step_1_list_check": "主體類別 'system'、受體類別 'data' 與關係 'uses' 均在 Lc,p 中。",
+        "step_2_alignment_check": "主體名稱 '服務層' 可以被視為 'system' 的合理實例；受體名稱 '資訊' 可以被視為 'data' 的合理實例。",
         "response": "correct",
-        "reason": "待檢查三元組完全符合預先定義的類別與屬性清單 Lc,p。"
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
       },
       "step_3": {
-        "step_1_rule_matching": "檢查規則1：不適用。檢查規則2：不適用。檢查規則3：不適用。檢查規則4：不適用。檢查規則5：不適用，因為主體類別是 system，不是 data。檢查規則6：不適用，因為關係不是 deployed_in。檢查規則7：不適用，因為關係不是 generates。檢查規則8：不適用，因為關係不是 controls。檢查規則沒有發現明確且直接的違反項目。",
+        "step_1_rule_matching": "規則5：僅當關係為 uses 且主體 (Subject) 的類別是 data 時，才違反本規則。【僅檢查主體】：主體類別不是 data 時本規則一律不觸發——即使受體 (Object) 是 data 也完全合法（例：system uses data、user uses data 皆為合法，不得引用本規則判違規）。",
         "response": "correct",
-        "reason": "三元組中的主體和受體類別與關係之間的組合沒有違反任何語義限制清單中的規則。"
+        "reason": "主體類別為 system，與規則5不符，無法觸發違規判定。"
       },
       "step_2": {
-        "granularity_analysis": "主體 \"物聯網平台\" 與 Ldr 中的 \"物聯網平台\" 完全相同，受體 \"服務層\" 與 Ldr 中的資源無直接同義詞關係，但 \"服務層\" 可能是 \"物聯網平台\" 的子類型或相關概念，但無法確定為同義詞或子類型關係。",
+        "granularity_analysis": "受體資訊與 Ldr 中的資訊、明文資訊、資訊(information)、ip資訊、公開資訊、資料、重要資訊、通訊資訊、認證資訊、標的之資訊等具有高度相似性，但無法確認完全等價同義詞關係。",
         "response": "correct",
         "standard_subject": "",
         "standard_object": "",
-        "reason": "根據前提確認與同義詞判定，主體 \"物聯網平台\" 與 Ldr 中的 \"物聯網平台\" 完全相同，無同義詞重複；受體 \"服務層\" 與 Ldr 中的資源無直接同義詞關係，且無法確定為同義詞或子類型關係，故預設保留。"
+        "reason": "無法確認完全等價同義詞關係，依據第四判斷準則，預設保留原名。"
       }
     },
     "original_raw_triple": {
       "subject": {
-        "name": "物聯網平台",
-        "type": "system"
-      },
-      "relation": "connects_to",
-      "object": {
         "name": "服務層",
         "type": "system"
       },
-      "reasoning": "文本提到『物聯物平台提供的資料送往服務層』，描述了兩者之間的資料流向與連接。符合 ('system', 'connects_to', 'system')。",
+      "relation": "uses",
+      "object": {
+        "name": "資訊",
+        "type": "data"
+      },
+      "reasoning": "文本提到物聯網平台提供的資料（資訊）送往服務層以發展應用。符合 Schema 中的 (\"system\", \"uses\", \"data\")。",
       "source_id": "chunk_3",
       "source_file": "第20章 物聯網安全_e5.pdf",
-      "source_index": 15
+      "source_index": 14
     }
   }
 ]

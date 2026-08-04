@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "資料外洩防護 (dlp)",
+      "type": "tool",
+      "display_name": "資料外洩防護 (DLP)"
+    },
+    "relation": "mitigates",
+    "object": {
+      "name": "資料洩露",
+      "type": "risk",
+      "display_name": "資料洩露"
+    },
+    "reasoning": "根據選項 C，DLP 策略可用於防止資料洩露。在 Schema 中，tool (工具) 可以 mitigates (緩解/防禦) risk (風險)。",
+    "source_id": "question_IPAS-112-TEC-085",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'risk' 與關係 'mitigates' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "資料外洩防護 (DLP) 是一種工具 (tool)，資料洩露是一種風險 (risk)，且 'mitigates' 表示減輕或緩解的關係，與資料外洩防護與資料洩露之間的邏輯關係相符。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2：主體為 policy, technique 或 tool 時才可執行 mitigates 動作。",
+        "response": "correct",
+        "reason": "主體 DLP 的類別是 tool，符合規則2 的允許條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「資料外洩防護 (dlp)」完全等價同義詞；受體與 Ldr 中的「資料外洩」高度相似，但非完全等價同義詞，受體與 Ldr 中的「機密資料外洩」、「機敏性資料外洩」、「機敏資訊外洩」等也存在高度相似性，但非完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「資料外洩防護 (dlp)」完全等價同義詞，但受體與 Ldr 中的資源不完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料外洩防護 (DLP)",
+        "type": "tool"
+      },
+      "relation": "mitigates",
+      "object": {
+        "name": "資料洩露",
+        "type": "risk"
+      },
+      "reasoning": "根據選項 C，DLP 策略可用於防止資料洩露。在 Schema 中，tool (工具) 可以 mitigates (緩解/防禦) risk (風險)。",
+      "source_id": "question_IPAS-112-TEC-085",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "零信任 (zero trust)",
+      "type": "technique",
+      "display_name": "零信任 (Zero Trust)"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "根據選項 B，零信任設計要求資料須能自動分類和標記。分類與標記本質上是對資料進行分析的過程，因此將零信任視為一種技術 (technique) 並對資料 (data) 進行分析 (can_analyze) 符合 Schema。",
+    "source_id": "question_IPAS-112-TEC-085",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "零信任 (Zero Trust) 是一種安全技術，因此其類別 'technique' 合理；資料 (data) 是資安領域中的常見實體，因此其類別 'data' 合理；'can_analyze' 是一種合理的關係，因為零信任技術可以分析資料。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3不適用，因為主體類別為technique，規則5不適用，因為主體類別不是data，規則8不適用，因為關係不是controls",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "根據前提確認，實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "零信任 (Zero Trust)",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "根據選項 B，零信任設計要求資料須能自動分類和標記。分類與標記本質上是對資料進行分析的過程，因此將零信任視為一種技術 (technique) 並對資料 (data) 進行分析 (can_analyze) 符合 Schema。",
+      "source_id": "question_IPAS-112-TEC-085",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "資料審核",
+      "type": "technique",
+      "display_name": "資料審核"
+    },
+    "relation": "can_analyze",
+    "object": {
+      "name": "資料",
+      "type": "data",
+      "display_name": "資料"
+    },
+    "reasoning": "根據選項 D，透過定期審核資料來瞭解標籤與分類。審核是一種技術手段 (technique)，其目的是分析 (can_analyze) 資料 (data)。",
+    "source_id": "question_IPAS-112-TEC-085",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'technique'、受體類別 'data' 與關係 'can_analyze' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '資料審核' 是 'technique' 的合理實例，受體名稱 '資料' 是 'data' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 technique，符合規則3的特例允許，且關係為 can_analyze，受體類別為 data，未發現明確且直接的違反項目。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「資料庫稽核」具有相似性，但非完全等價同義詞；受體與 Ldr 中的「資料」完全相同，為同義詞重複。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "資料",
+        "reason": "主體與 Ldr 中的資源不完全相同，受體與 Ldr 中的資源完全相同，但根據判斷準則，受體的同義詞重複不影響主體的判定結果。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "資料審核",
+        "type": "technique"
+      },
+      "relation": "can_analyze",
+      "object": {
+        "name": "資料",
+        "type": "data"
+      },
+      "reasoning": "根據選項 D，透過定期審核資料來瞭解標籤與分類。審核是一種技術手段 (technique)，其目的是分析 (can_analyze) 資料 (data)。",
+      "source_id": "question_IPAS-112-TEC-085",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]

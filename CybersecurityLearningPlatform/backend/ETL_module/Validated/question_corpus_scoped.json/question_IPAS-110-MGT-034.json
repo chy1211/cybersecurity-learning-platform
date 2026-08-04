@@ -1,0 +1,314 @@
+[
+  {
+    "subject": {
+      "name": "全球網站",
+      "type": "app",
+      "display_name": "全球網站"
+    },
+    "relation": "deployed_in",
+    "object": {
+      "name": "dmz 區",
+      "type": "system",
+      "display_name": "DMZ 區"
+    },
+    "reasoning": "根據選項 A，全球網站被放置於 DMZ 區。全球網站屬於應用程式 (app)，DMZ 區屬於基礎設施系統 (system)，符合 Schema 中的 ('app', 'deployed_in', 'system')。",
+    "source_id": "question_IPAS-110-MGT-034",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'system' 與關係 'deployed_in' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '全球網站' 可以被視為 'app' 的合理實例；受體名稱 'DMZ 區' 可以被視為 'system' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的受體 (Object) 類別為 system，符合規則6的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「全球網站」完全等價同義詞；受體與 Ldr 中的「非軍事區(dmz)」和「隔離區 (dmz)」具有相同概念，但非完全等價同義詞，受體為狹義從屬關係",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「全球網站」完全等價同義詞，但受體與 Ldr 中的「非軍事區(dmz)」和「隔離區 (dmz)」具有相同概念，但非完全等價同義詞，受體為狹義從屬關係，因此判定為 correct"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "全球網站",
+        "type": "app"
+      },
+      "relation": "deployed_in",
+      "object": {
+        "name": "DMZ 區",
+        "type": "system"
+      },
+      "reasoning": "根據選項 A，全球網站被放置於 DMZ 區。全球網站屬於應用程式 (app)，DMZ 區屬於基礎設施系統 (system)，符合 Schema 中的 ('app', 'deployed_in', 'system')。",
+      "source_id": "question_IPAS-110-MGT-034",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "連接埠",
+      "type": "feature",
+      "display_name": "連接埠"
+    },
+    "reasoning": "根據選項 A，防火牆可以關閉非必要的連接埠。連接埠是網路系統的組成屬性 (feature)，符合 Schema 中的 ('tool', 'has_a', 'feature')。",
+    "source_id": "question_IPAS-110-MGT-034",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'feature' 與關係 'has_a' 均在 Lc,p 中。",
+        "step_2_alignment_check": "防火牆是工具（tool）的合理實例，連接埠是功能特徵（feature）的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則2、規則3、規則4、規則5、規則6、規則7、規則8",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「防火牆」完全等價同義詞；受體與 Ldr 中的「tcp/udp 埠」相關但非完全等價同義詞，「連接埠」是「tcp/udp 埠」的廣義概念。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「防火牆」完全等價同義詞，但受體與 Ldr 中的「tcp/udp 埠」相關但非完全等價同義詞，故判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "連接埠",
+        "type": "feature"
+      },
+      "reasoning": "根據選項 A，防火牆可以關閉非必要的連接埠。連接埠是網路系統的組成屬性 (feature)，符合 Schema 中的 ('tool', 'has_a', 'feature')。",
+      "source_id": "question_IPAS-110-MGT-034",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "防火牆",
+      "type": "tool",
+      "display_name": "防火牆"
+    },
+    "relation": "controls",
+    "object": {
+      "name": "內外網路",
+      "type": "system",
+      "display_name": "內外網路"
+    },
+    "reasoning": "根據選項 A，使用防火牆來區隔內外網路。防火牆是資安工具 (tool)，內外網路是基礎設施 (system)，符合 Schema 中的 ('tool', 'controls', 'system')。",
+    "source_id": "question_IPAS-110-MGT-034",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'tool'、受體類別 'system' 與關係 'controls' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "防火牆是工具的合理實例，內外網路是系統的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則8：當關係為 controls (控制) 時，主體 (Subject) 必須是具有主動執行能力的角色或工具（如 attacker, securityTeam, tool），不可是被動資料或特徵。",
+        "response": "correct",
+        "reason": "主體為防火牆 (類別: tool)，符合規則8所允許的條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「防火牆」完全等價同義詞；受體與 Ldr 中的「內部網路」、「外部網路」、「網路」等相關概念不完全等價，但「內外網路」可視為「內部網路」與「外部網路」的合稱，因此與 Ldr 中的「內部網路」、「外部網路」具有廣義/狹義從屬關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的「防火牆」完全等價同義詞，但受體與 Ldr 中的相關概念不完全等價，且無法確定，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "防火牆",
+        "type": "tool"
+      },
+      "relation": "controls",
+      "object": {
+        "name": "內外網路",
+        "type": "system"
+      },
+      "reasoning": "根據選項 A，使用防火牆來區隔內外網路。防火牆是資安工具 (tool)，內外網路是基礎設施 (system)，符合 Schema 中的 ('tool', 'controls', 'system')。",
+      "source_id": "question_IPAS-110-MGT-034",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "機密檔案加密系統",
+      "type": "app",
+      "display_name": "機密檔案加密系統"
+    },
+    "reasoning": "根據選項 C，提到機密檔案加密系統的使用者。使用者 (user) 使用該加密應用程式 (app)，符合 Schema 中的 ('user', 'uses', 'app')。",
+    "source_id": "question_IPAS-110-MGT-034",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 4,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'app' 與關係 'uses' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '使用者' 合理對齊其類別 'user'，受體名稱 '機密檔案加密系統' 合理對齊其類別 'app'，考慮到資安領域常見的同義詞、縮寫與翻譯。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊合理。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則1不適用，因為主體類別不是attacker或securityTeam。規則2不適用，因為關係不是mitigates。規則3不適用，因為主體類別不是vulnerability。規則4不適用，因為受體類別不是principle。規則5不適用，因為主體類別不是data。規則6不適用，因為關係不是deployed_in。規則7不適用，因為關係不是generates。規則8不適用，因為關係不是controls。",
+        "response": "correct",
+        "reason": "未發現明確且直接的違反項目，無罪推定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「使用者」完全等價同義詞；受體與 Ldr 中的「機密檔案加密系統」完全等價同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體均與 Ldr 中的資源完全匹配，但根據規則 1，若實體名稱與 Ldr 中某資源的 name 字串完全相同，直接判定 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "uses",
+      "object": {
+        "name": "機密檔案加密系統",
+        "type": "app"
+      },
+      "reasoning": "根據選項 C，提到機密檔案加密系統的使用者。使用者 (user) 使用該加密應用程式 (app)，符合 Schema 中的 ('user', 'uses', 'app')。",
+      "source_id": "question_IPAS-110-MGT-034",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 4
+    }
+  },
+  {
+    "subject": {
+      "name": "使用者",
+      "type": "user",
+      "display_name": "使用者"
+    },
+    "relation": "implements",
+    "object": {
+      "name": "群組權限",
+      "type": "policy",
+      "display_name": "群組權限"
+    },
+    "reasoning": "根據選項 C，使用者依工作性質設定群組權限。權限設定屬於一種存取控制策略 (policy)，使用者執行此設定，符合 Schema 中的 ('user', 'implements', 'policy')。",
+    "source_id": "question_IPAS-110-MGT-034",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 5,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'user'、受體類別 'policy' 與關係 'implements' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "實體名稱 '使用者' 合理對齊其類別 'user'，實體名稱 '群組權限' 合理對齊其類別 'policy'，關係 'implements' 合理描述使用者與群組權限之間的關係。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單 Lc,p，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。【僅檢查主體】：本規則只看主體類別；受體(Object)為 vulnerability 完全不觸發本規則（例：technique can_analyze vulnerability 為合法，不得引用本規則判違規）。",
+        "response": "correct",
+        "reason": "主體類別為 user，未違反任何規則。"
+      },
+      "step_2": {
+        "granularity_analysis": "完全等價同義詞",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與受體名稱未出現在同義詞對照範例中，且無法確認是否為同義詞，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "使用者",
+        "type": "user"
+      },
+      "relation": "implements",
+      "object": {
+        "name": "群組權限",
+        "type": "policy"
+      },
+      "reasoning": "根據選項 C，使用者依工作性質設定群組權限。權限設定屬於一種存取控制策略 (policy)，使用者執行此設定，符合 Schema 中的 ('user', 'implements', 'policy')。",
+      "source_id": "question_IPAS-110-MGT-034",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 5
+    }
+  },
+  {
+    "subject": {
+      "name": "系統",
+      "type": "system",
+      "display_name": "重要系統"
+    },
+    "relation": "has_a",
+    "object": {
+      "name": "自動登出",
+      "type": "feature",
+      "display_name": "自動登出"
+    },
+    "reasoning": "根據選項 D，重要系統設定了自動登出功能。自動登出是系統的一項安全屬性/特徵 (feature)，符合 Schema 中的 ('system', 'has_a', 'feature')。",
+    "source_id": "question_IPAS-110-MGT-034",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 6,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'system'、受體類別 'feature' 與關係 'has_a' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '重要系統' 是 'system' 的合理實例；關係 'has_a' 合理地連接 '重要系統' 與 '自動登出'；受體 '自動登出' 是 'feature' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則6：當關係為 deployed_in (部署於) 時，受體 (Object) 的類別必須是 system (系統)。",
+        "response": "correct",
+        "reason": "三元組中的關係為 has_a，不符合規則6的觸發條件。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的「系統」具有完全等價同義詞關係；受體與 Ldr 中的「自動登出」具有完全等價同義詞關係。",
+        "response": "duplicate",
+        "standard_subject": "系統",
+        "standard_object": "自動登出",
+        "reason": "主體與受體均與 Ldr 中的資源具有完全等價同義詞關係，判定為 duplicate。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "重要系統",
+        "type": "system"
+      },
+      "relation": "has_a",
+      "object": {
+        "name": "自動登出",
+        "type": "feature"
+      },
+      "reasoning": "根據選項 D，重要系統設定了自動登出功能。自動登出是系統的一項安全屬性/特徵 (feature)，符合 Schema 中的 ('system', 'has_a', 'feature')。",
+      "source_id": "question_IPAS-110-MGT-034",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 6
+    }
+  }
+]

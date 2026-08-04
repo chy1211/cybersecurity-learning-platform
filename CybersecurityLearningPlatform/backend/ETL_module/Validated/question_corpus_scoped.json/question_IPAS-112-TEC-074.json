@@ -1,0 +1,158 @@
+[
+  {
+    "subject": {
+      "name": "網站應用程式伺服器",
+      "type": "app",
+      "display_name": "網站應用程式伺服器"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "安全設定錯誤",
+      "type": "vulnerability",
+      "display_name": "安全設定錯誤"
+    },
+    "reasoning": "題幹描述伺服器允許顯示錯誤訊息（如 Stack traces）是一種缺陷，而正確答案將此缺陷定義為「安全設定錯誤 (Security Misconfiguration)」，因此網站應用程式伺服器可能暴露此漏洞。",
+    "source_id": "question_IPAS-112-TEC-074",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 1,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'app'、受體類別 'vulnerability' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "網站應用程式伺服器是 'app' 的合理實例，安全設定錯誤是 'vulnerability' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 app，關係為 can_expose，受體類別為 vulnerability，符合規則3的特例允許，故判定為正確。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源存在同義詞關係，但受體與 Ldr 中的資源無直接關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源雖然存在同義詞關係，但受體與 Ldr 中的資源無直接關係，因此判定為 correct。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "網站應用程式伺服器",
+        "type": "app"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "安全設定錯誤",
+        "type": "vulnerability"
+      },
+      "reasoning": "題幹描述伺服器允許顯示錯誤訊息（如 Stack traces）是一種缺陷，而正確答案將此缺陷定義為「安全設定錯誤 (Security Misconfiguration)」，因此網站應用程式伺服器可能暴露此漏洞。",
+      "source_id": "question_IPAS-112-TEC-074",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 1
+    }
+  },
+  {
+    "subject": {
+      "name": "安全設定錯誤",
+      "type": "vulnerability",
+      "display_name": "安全設定錯誤"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "底層元件弱點被發現",
+      "type": "risk",
+      "display_name": "底層元件弱點被發現"
+    },
+    "reasoning": "題幹提到安全設定錯誤可能導致「底層元件的弱點被發現」，這種被發現的狀態或結果構成了一種安全風險。",
+    "source_id": "question_IPAS-112-TEC-074",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 3,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體 '安全設定錯誤' 是 'vulnerability' 的合理實例，受體 '底層元件弱點被發現' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源之間存在同義詞關係；受體與 Ldr 中的資源之間不存在直接關係。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "主體與 Ldr 中的資源之間雖然存在同義詞關係，但受體與 Ldr 中的資源之間不存在直接關係，因此無法合併。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全設定錯誤",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "底層元件弱點被發現",
+        "type": "risk"
+      },
+      "reasoning": "題幹提到安全設定錯誤可能導致「底層元件的弱點被發現」，這種被發現的狀態或結果構成了一種安全風險。",
+      "source_id": "question_IPAS-112-TEC-074",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 3
+    }
+  },
+  {
+    "subject": {
+      "name": "安全設定錯誤",
+      "type": "vulnerability",
+      "display_name": "安全設定錯誤"
+    },
+    "relation": "can_expose",
+    "object": {
+      "name": "機敏資訊外洩",
+      "type": "risk",
+      "display_name": "機敏資訊外洩"
+    },
+    "reasoning": "題幹明確指出，允許顯示錯誤訊息（即安全設定錯誤）將可能導致「機敏資訊外洩」，這在資安本體論中屬於漏洞導致的風險。",
+    "source_id": "question_IPAS-112-TEC-074",
+    "source_file": "question_corpus_scoped.json",
+    "source_index": 2,
+    "validation_history": {
+      "step_1": {
+        "step_1_list_check": "主體類別 'vulnerability'、受體類別 'risk' 與關係 'can_expose' 都存在於 Lc,p 的 'Classes' 與 'Properties' 中。",
+        "step_2_alignment_check": "主體名稱 '安全設定錯誤' 是 'vulnerability' 的合理實例；關係 'can_expose' 合理地連接主體與受體；受體名稱 '機敏資訊外洩' 是 'risk' 的合理實例。",
+        "response": "correct",
+        "reason": "三元組完全符合預先定義的類別與屬性清單，且語意對齊。"
+      },
+      "step_3": {
+        "step_1_rule_matching": "規則3：主體(Subject)類別若為 vulnerability (漏洞)，其身分為被動缺陷，原則上不可發起主動行為（如 can_analyze, implements, controls 等）。【特例允許】：可發起 'can_expose' (暴露) 動作。",
+        "response": "correct",
+        "reason": "主體類別為 vulnerability，關係為 can_expose，符合規則3的特例允許。"
+      },
+      "step_2": {
+        "granularity_analysis": "主體與 Ldr 中的資源無完全相同的名稱；受體與 Ldr 中的資源有相似的名稱，但非完全相同，且無法確認是否為同義詞。",
+        "response": "correct",
+        "standard_subject": "",
+        "standard_object": "",
+        "reason": "無法確認主體與 Ldr 中的資源是否為同義詞，且受體與 Ldr 中的資源雖有相似名稱，但無法確認是否為同義詞，因此預設保留原名。"
+      }
+    },
+    "original_raw_triple": {
+      "subject": {
+        "name": "安全設定錯誤",
+        "type": "vulnerability"
+      },
+      "relation": "can_expose",
+      "object": {
+        "name": "機敏資訊外洩",
+        "type": "risk"
+      },
+      "reasoning": "題幹明確指出，允許顯示錯誤訊息（即安全設定錯誤）將可能導致「機敏資訊外洩」，這在資安本體論中屬於漏洞導致的風險。",
+      "source_id": "question_IPAS-112-TEC-074",
+      "source_file": "question_corpus_scoped.json",
+      "source_index": 2
+    }
+  }
+]
