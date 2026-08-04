@@ -4,7 +4,7 @@
 - **正式流程**：每個受測模型各自執行 Step 1 題幹／選項主張分解、受限候選集實體連結、Step 2 關係選擇與二跳子圖擷取；不得共用其他模型的 mention 或 subgraph。
 - **模型**：`gemma-4-e4b-it`、`openai/gpt-oss-20b`、`meta/llama-3.1-70b-instruct`、`google/gemma-4-31b-it`，皆由同一受測模型完成該模型自己的檢索判斷。
 - **權威執行來源**：
-  - `論文\交接\CybersecurityLearningPlatform\backend\exp_3\exp_3_nf1_pipeline.py`
+  - `論文\交接\platform\backend\exp_3\exp_3_nf1_pipeline.py`
   - `backend\prompts\exp_3\nf1_step1_system.md`
   - `backend\prompts\exp_3\nf1_step1_sentence_divide_json_zh.txt`
   - `backend\prompts\exp_3\b4_node_linking.md`

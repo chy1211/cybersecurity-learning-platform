@@ -15,17 +15,17 @@
 
 | 檔案 | 提示詞 | 論文章節 | 模型 |
 |------|--------|----------|------|
-| [`01_知識萃取_三元組擷取.md`](01_知識萃取_三元組擷取.md) | 教材／考題分流之本體論三元組萃取 | §參-四 ETL 管線與知識萃取 | `gemma-4-31b-it` |
-| [`02_四階段品質驗證.md`](02_四階段品質驗證.md) | 共用系統提示詞＋Step 1 類別屬性對齊＋Step 2 URI 標準化＋Step 3 語意一致性 | §參-五.1 三元組品質驗證 | Llama-3.1-70B-Instruct |
-| [`03_MatchGPT節點整併.md`](03_MatchGPT節點整併.md) | 全圖同義節點整併判定 | §參-五.2 MatchGPT 節點整併模組 | Llama-3.1-70B-Instruct |
-| [`04_GraphRAG知識輔助問答.md`](04_GraphRAG知識輔助問答.md) | 基於知識圖譜子圖脈絡之問答 | §參-七 知識輔助問答設計 | 平台端可切換 |
+| [`01_triple_extraction.md`](01_triple_extraction.md) | 教材／考題分流之本體論三元組萃取 | §參-四 ETL 管線與知識萃取 | `gemma-4-31b-it` |
+| [`02_four_stage_validation.md`](02_four_stage_validation.md) | 共用系統提示詞＋Step 1 類別屬性對齊＋Step 2 URI 標準化＋Step 3 語意一致性 | §參-五.1 三元組品質驗證 | Llama-3.1-70B-Instruct |
+| [`03_matchgpt_node_merging.md`](03_matchgpt_node_merging.md) | 全圖同義節點整併判定 | §參-五.2 MatchGPT 節點整併模組 | Llama-3.1-70B-Instruct |
+| [`04_graphrag_qa.md`](04_graphrag_qa.md) | 基於知識圖譜子圖脈絡之問答 | §參-七 知識輔助問答設計 | 平台端可切換 |
 
 ### 評估實驗（§參-八／第肆章）
 
 | 檔案 | 提示詞 | 論文章節 | 模型 |
 |------|--------|----------|------|
-| [`05_實驗3_GraphRAG事實正確性作答.md`](05_實驗3_GraphRAG事實正確性作答.md) | 正式 `base`／`rag` 共用 System 與 User Prompt；僅 evidence set 不同 | 評估實驗三：Graph RAG 事實正確性 | `gemma-4-e4b-it`／`openai/gpt-oss-20b`／`meta/llama-3.1-70b-instruct`／`google/gemma-4-31b-it` |
-| [`06_實驗3_NF1子圖檢索.md`](06_實驗3_NF1子圖檢索.md) | B4 route 2：完整題目分解、受測模型在環實體連結、關係選擇與二跳子圖擷取 | 評估實驗三：逐模型子圖檢索 | 同上（per-model） |
+| [`05_exp3_graphrag_answering.md`](05_exp3_graphrag_answering.md) | 正式 `base`／`rag` 共用 System 與 User Prompt；僅 evidence set 不同 | 評估實驗三：Graph RAG 事實正確性 | `gemma-4-e4b-it`／`openai/gpt-oss-20b`／`meta/llama-3.1-70b-instruct`／`google/gemma-4-31b-it` |
+| [`06_exp3_nf1_subgraph_retrieval.md`](06_exp3_nf1_subgraph_retrieval.md) | B4 route 2：完整題目分解、受測模型在環實體連結、關係選擇與二跳子圖擷取 | 評估實驗三：逐模型子圖檢索 | 同上（per-model） |
 
 ### 平台應用功能（第肆章）
 
@@ -33,9 +33,9 @@
 
 | 檔案 | 提示詞 | 對應 API | 模型 |
 |------|--------|----------|------|
-| [`07_平台應用_錯題解釋.md`](07_平台應用_錯題解釋.md) | 答錯後概念釐清解析 | `POST /api/mistakes/explain` | 平台端可切換 |
-| [`08_平台應用_測驗生成.md`](08_平台應用_測驗生成.md) | 單主題出題＋多主題批量出題 | `POST /api/quiz/generate` | 平台端可切換 |
-| [`09_平台應用_查詢意圖與實體提取.md`](09_平台應用_查詢意圖與實體提取.md) | 查詢術語識別＋文字實體關係提取 | `POST /api/chat`（fallback）／內部 | 平台端可切換 |
+| [`07_platform_mistake_explanation.md`](07_platform_mistake_explanation.md) | 答錯後概念釐清解析 | `POST /api/mistakes/explain` | 平台端可切換 |
+| [`08_platform_quiz_generation.md`](08_platform_quiz_generation.md) | 單主題出題＋多主題批量出題 | `POST /api/quiz/generate` | 平台端可切換 |
+| [`09_platform_query_intent_extraction.md`](09_platform_query_intent_extraction.md) | 查詢術語識別＋文字實體關係提取 | `POST /api/chat`（fallback）／內部 | 平台端可切換 |
 
 ---
 
@@ -66,5 +66,5 @@
 
 ## 四、來源與說明
 
-- 本資料夾為研究呈現用鏡像；可執行提示詞的**單一權威來源**為 `論文\交接\CybersecurityLearningPlatform\backend\prompts\` 與載入該模板的 ETL／B4 程式。若本資料夾與 runtime 來源有差異，以最後正式執行所載入的 runtime 來源為準。
+- 本資料夾為研究呈現用鏡像；可執行提示詞的**單一權威來源**為 `論文\交接\platform\backend\prompts\` 與載入該模板的 ETL／B4 程式。若本資料夾與 runtime 來源有差異，以最後正式執行所載入的 runtime 來源為準。
 - 知識萃取與 NF1 檢索之提示詞設計分別參酌 Xu et al. (2024)／Huang & Xiao (2024) 之 LLM 資訊萃取，以及 Kim et al. (2023) 之 KG-GPT；MatchGPT 整併參酌 Peeters & Bizer (2023)；四階段驗證參酌 Regino & dos Reis (2025)。各檔案內另有逐項對應說明。

@@ -5,8 +5,8 @@
 - **用途**：依知識圖譜內容，針對主題自動生成單選題。含「單主題出題」與「多主題批量出題」兩函式。
 - **模型**：平台端可切換
 - **來源檔案**：
-  - `論文\CybersecurityLearningPlatform\backend\llm_service.py` → `generate_quiz()`、`generate_batch_quiz()`
-  - 對照彙整：`論文\CybersecurityLearningPlatform\LLM_PROMPTS.md` §1.5、§1.6
+  - `論文\platform\backend\llm_service.py` → `generate_quiz()`、`generate_batch_quiz()`
+  - 對照彙整：`論文\platform\LLM_PROMPTS.md` §1.5、§1.6
 
 ---
 

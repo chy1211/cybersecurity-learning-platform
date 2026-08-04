@@ -28,7 +28,9 @@ ROOT_FILES = {
     "HANDOFF_README_FOR_SUCCESSOR.md",
 }
 # result/ 為三個實驗的最終結果，data/ 為可還原的圖譜快照，兩者都是復現必需
-ROOT_TREES = {"Prompt", "本體論", "result", "data"}
+ROOT_TREES = {"ontology", "result", "data"}
+# docs/ 下可公開的子樹（Prompt 說明已於 2026-08-04 併入 docs/prompts/）
+DOCS_TREES = {"images", "prompts"}
 TOOL_FILES = {
     "build_clean_release.py",
     "check_neo4j_env.py",
@@ -196,12 +198,12 @@ def _allowlisted(relative: Path) -> bool:
     if len(parts) == 1:
         return parts[0] in ROOT_FILES
     if parts[0] == "docs":
-        return len(parts) > 2 and parts[1] == "images" and relative.suffix.lower() in ALLOWED_SUFFIXES
+        return len(parts) > 2 and parts[1] in DOCS_TREES and relative.suffix.lower() in ALLOWED_SUFFIXES
     if parts[0] in ROOT_TREES:
         return relative.suffix.lower() in ALLOWED_SUFFIXES
     if parts[0] == "tools":
         return len(parts) == 2 and parts[1] in TOOL_FILES
-    if parts[0] != "CybersecurityLearningPlatform":
+    if parts[0] != "platform":
         return False
     if len(parts) == 2:
         return parts[1] in PLATFORM_ROOT_FILES

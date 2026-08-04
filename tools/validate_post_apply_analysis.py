@@ -13,7 +13,7 @@ from pathlib import Path
 HANDOFF_ROOT = Path(__file__).resolve().parents[1]
 PHASE2_DIR = (
     HANDOFF_ROOT
-    / "CybersecurityLearningPlatform"
+    / "platform"
     / "backend"
     / "exp_2"
     / "phase2"

@@ -96,7 +96,7 @@ def main() -> int:
         from neo4j import GraphDatabase
     except ImportError:
         record(FAIL, "driver", "python package 'neo4j' is not installed "
-                               "(pip install -r CybersecurityLearningPlatform/backend/requirements-platform.txt)")
+                               "(pip install -r platform/backend/requirements-platform.txt)")
         return 1
 
     if not args.password:

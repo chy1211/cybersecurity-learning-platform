@@ -44,7 +44,7 @@ backend/exp_1/MatchGPT/
 ### 方法 A：一行指令（推薦）
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\exp_1\MatchGPT'
+Set-Location -LiteralPath '.\platform\backend\exp_1\MatchGPT'
 python phase1_scripts\apply_matchgpt_to_platform.py
 ```
 
@@ -59,7 +59,7 @@ python phase1_scripts\apply_matchgpt_to_platform.py
 若 `final_platform_kg.json` 備份存在，可直接用 `neo4j_backup_restore.py` 還原：
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\exp_1\MatchGPT'
+Set-Location -LiteralPath '.\platform\backend\exp_1\MatchGPT'
 python neo4j_backup_restore.py restore phase1_backups\final_platform_kg.json --yes
 ```
 

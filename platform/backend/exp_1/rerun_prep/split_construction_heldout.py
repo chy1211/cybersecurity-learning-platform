@@ -20,7 +20,7 @@ DEFAULT_ITE = (
     WORKSPACE_ROOT
     / "論文"
     / "交接"
-    / "CybersecurityLearningPlatform"
+    / "platform"
     / "backend"
     / "exp_3"
     / "data"

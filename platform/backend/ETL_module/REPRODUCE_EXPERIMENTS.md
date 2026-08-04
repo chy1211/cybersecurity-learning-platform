@@ -14,7 +14,7 @@
 ## 1. 準備後端環境
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend'
+Set-Location -LiteralPath '.\platform\backend'
 Copy-Item .env.example .env
 ```
 
@@ -35,7 +35,7 @@ python -m pip install -r requirements.txt
 公開交接包已收錄 `Validated/`，因此可在沒有原始教材切塊的情況下重建 Neo4j 圖譜。
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\ETL_module'
+Set-Location -LiteralPath '.\platform\backend\ETL_module'
 python 03b_restore_neo4j.py
 ```
 
@@ -46,14 +46,14 @@ python 03b_restore_neo4j.py
 後端：
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend'
+Set-Location -LiteralPath '.\platform\backend'
 python app.py
 ```
 
 前端：
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\frontend'
+Set-Location -LiteralPath '.\platform\frontend'
 npm install
 npm run dev
 ```
@@ -69,7 +69,7 @@ npm run dev
 常用腳本：
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\ETL_module'
+Set-Location -LiteralPath '.\platform\backend\ETL_module'
 python 04_count_raw_triples_stats.py
 python 03c_analyze_validated_changes.py
 python 03d_deep_analysis.py
@@ -81,8 +81,8 @@ python 03d_deep_analysis.py
 
 | 實驗 | 路徑 | 用途 |
 |---|---|---|
-| 1 | `CybersecurityLearningPlatform/backend/exp_1/` | 圖譜品質驗證 |
-| 2 | `CybersecurityLearningPlatform/backend/exp_2/` | Leiden 分群有效性驗證 |
-| 3 | `CybersecurityLearningPlatform/backend/exp_3/` | Graph RAG 事實正確性評估 |
+| 1 | `platform/backend/exp_1/` | 圖譜品質驗證 |
+| 2 | `platform/backend/exp_2/` | Leiden 分群有效性驗證 |
+| 3 | `platform/backend/exp_3/` | Graph RAG 事實正確性評估 |
 
 各資料夾可能包含論文實驗腳本、輸出與中間檔。建議先閱讀該資料夾內的 README（若存在），再檢查腳本名稱與 JSON/CSV 輸出檔。

@@ -4,7 +4,7 @@
 - **模型**：`meta/llama-3.1-70b-instruct`（NVIDIA）
 - **呼叫參數**：`temperature=0.0`、`max_tokens=8192`、`response_format={"type":"json_object"}`
 - **權威執行來源**：
-  - `論文\交接\CybersecurityLearningPlatform\backend\ETL_module\03_validate_and_import_fixed.py`
+  - `論文\交接\platform\backend\ETL_module\03_validate_and_import_fixed.py`
   - `backend\prompts\etl\validate_system.md`
   - `backend\prompts\etl\validate_class_property.md`
   - `backend\prompts\etl\validate_uri_standardization.md`

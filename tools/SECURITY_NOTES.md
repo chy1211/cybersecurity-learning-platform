@@ -26,15 +26,15 @@
 - `LM_STUDIO_CHAT_URL_ALT`
 - `EMBEDDING_BASE_URL`
 
-`CybersecurityLearningPlatform/backend/.env.example` 可安全提交，因為所有憑證欄位皆為空白佔位符。
+`platform/backend/.env.example` 可安全提交，因為所有憑證欄位皆為空白佔位符。
 
 ### 若 `.env` 曾被 Git 追蹤
 
 先在交接 repo 根目錄確認狀態；以下命令只解除索引追蹤，不刪除本機 `.env`：
 
 ```powershell
-git ls-files --error-unmatch CybersecurityLearningPlatform/backend/.env
-git rm --cached -- CybersecurityLearningPlatform/backend/.env
+git ls-files --error-unmatch platform/backend/.env
+git rm --cached -- platform/backend/.env
 git commit -m "security: stop tracking local environment file"
 ```
 

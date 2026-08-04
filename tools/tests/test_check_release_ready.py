@@ -18,20 +18,20 @@ class ReleaseCheckerTests(unittest.TestCase):
             "LICENSE": "license",
             ".gitignore": (
                 ".env\nnode_modules/\n"
-                "CybersecurityLearningPlatform/backend/ETL_module/Chunks/\n"
-                "CybersecurityLearningPlatform/graphify-out/\n"
-                "CybersecurityLearningPlatform/backend/exp_1/MatchGPT/phase1_backups/\n"
-                "CybersecurityLearningPlatform/backend/exp_3/cache/\n"
-                "CybersecurityLearningPlatform/backend/exp_2/phase2/_migration_output/\n"
+                "platform/backend/ETL_module/Chunks/\n"
+                "platform/graphify-out/\n"
+                "platform/backend/exp_1/MatchGPT/phase1_backups/\n"
+                "platform/backend/exp_3/cache/\n"
+                "platform/backend/exp_2/phase2/_migration_output/\n"
             ),
-            "Prompt/README.md": "public",
-            "本體論/schema.csv": "a,b\n",
-            "CybersecurityLearningPlatform/backend/.env.example": "OPENAI_API_KEY=<your_api_key>\nNEO4J_PASSWORD=<your_password>\n",
-            "CybersecurityLearningPlatform/backend/ETL_module/Validated/item.json": "{}",
-            "CybersecurityLearningPlatform/backend/exp_1/main.py": "pass\n",
-            "CybersecurityLearningPlatform/backend/exp_2/main.py": "pass\n",
-            "CybersecurityLearningPlatform/backend/exp_3/main.py": "pass\n",
-            "CybersecurityLearningPlatform/frontend/src/App.jsx": "export default function App() {}",
+            "docs/prompts/README.md": "public",
+            "ontology/schema.csv": "a,b\n",
+            "platform/backend/.env.example": "OPENAI_API_KEY=<your_api_key>\nNEO4J_PASSWORD=<your_password>\n",
+            "platform/backend/ETL_module/Validated/item.json": "{}",
+            "platform/backend/exp_1/main.py": "pass\n",
+            "platform/backend/exp_2/main.py": "pass\n",
+            "platform/backend/exp_3/main.py": "pass\n",
+            "platform/frontend/src/App.jsx": "export default function App() {}",
         }
         for relative, content in required_files.items():
             path = root / relative
@@ -51,7 +51,7 @@ class ReleaseCheckerTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir) / "release"
             self._minimal_release(root)
-            secret = root / "CybersecurityLearningPlatform" / "backend" / "logs" / "request.log"
+            secret = root / "platform" / "backend" / "logs" / "request.log"
             secret.parent.mkdir(parents=True)
             secret.write_text("OPENAI_API_KEY=sk-" + "x" * 32, encoding="utf-8")
 
@@ -66,7 +66,7 @@ class ReleaseCheckerTests(unittest.TestCase):
             self._minimal_release(root)
             backup = (
                 root
-                / "CybersecurityLearningPlatform"
+                / "platform"
                 / "backend"
                 / "exp_2"
                 / "phase2"
@@ -86,7 +86,7 @@ class ReleaseCheckerTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir) / "release"
             self._minimal_release(root)
-            backup = root / "CybersecurityLearningPlatform" / "backend" / "exp_2" / "analysis_properties_before.json"
+            backup = root / "platform" / "backend" / "exp_2" / "analysis_properties_before.json"
             backup.parent.mkdir(parents=True, exist_ok=True)
             backup.write_text("{}", encoding="utf-8")
 
@@ -98,7 +98,7 @@ class ReleaseCheckerTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir) / "release"
             self._minimal_release(root)
-            large = root / "CybersecurityLearningPlatform" / "backend" / "exp_3" / "large.json"
+            large = root / "platform" / "backend" / "exp_3" / "large.json"
             large.write_text("{\"payload\":\"" + "x" * (2 * 1024 * 1024) + "\"}", encoding="utf-8")
 
             result = ReleaseChecker(root).run(check_git=False)

@@ -219,7 +219,7 @@ alias 表必須版本化並可人工檢查。可包含：
 
 建議設定檔位置：
 
-- `CybersecurityLearningPlatform/backend/exp_3/config/entity_aliases.json`
+- `platform/backend/exp_3/config/entity_aliases.json`
 
 ### 8.3 第三層：語意候選與信心閘門
 
@@ -234,7 +234,7 @@ alias 表必須版本化並可人工檢查。可包含：
 
 門檻與 margin 必須使用建構集校準，並在接觸正式留測執行前寫入版本化設定檔。建議設定檔位置：
 
-- `CybersecurityLearningPlatform/backend/exp_3/config/entity_linker_config.json`
+- `platform/backend/exp_3/config/entity_linker_config.json`
 
 校準目標為 precision-first：在建構集人工標註樣本上，優先滿足已接受連結 precision ≥ 95%，再於此限制下提高 recall。若無法達到 95%，不得以降低門檻換取表面覆蓋率，必須回到候選生成或 alias 品質處理。
 

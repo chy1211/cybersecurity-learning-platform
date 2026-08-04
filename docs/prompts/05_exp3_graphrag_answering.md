@@ -9,7 +9,7 @@
   - `llama70b` → `meta/llama-3.1-70b-instruct`
   - `gemma31b` → `google/gemma-4-31b-it`
 - **權威執行來源**：
-  - `論文\交接\CybersecurityLearningPlatform\backend\exp_3\exp_3_eval_batch.py`
+  - `論文\交接\platform\backend\exp_3\exp_3_eval_batch.py`
   - `backend\prompts\exp_3\b4_eval_system.md`
   - `backend\prompts\exp_3\graph_rag_fewshot.md`
   - `backend\prompts\exp_3\eval_user.md`

@@ -20,7 +20,7 @@ from neo4j import GraphDatabase
 
 TOOLS_DIR = Path(__file__).resolve().parent
 HANDOFF_DIR = TOOLS_DIR.parent
-PLATFORM_DIR = HANDOFF_DIR / "CybersecurityLearningPlatform"
+PLATFORM_DIR = HANDOFF_DIR / "platform"
 BACKEND_DIR = PLATFORM_DIR / "backend"
 DEFAULT_NAMES = PLATFORM_DIR / "frontend" / "src" / "data" / "community-names-20260715.json"
 DEFAULT_OUTPUT_DIR = HANDOFF_DIR / "analysis"

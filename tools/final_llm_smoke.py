@@ -17,7 +17,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BACKEND = ROOT / "CybersecurityLearningPlatform" / "backend"
+BACKEND = ROOT / "platform" / "backend"
 MISTAKES_FILE = BACKEND / "user_mistakes.json"
 DEFAULT_OUTPUT = ROOT / "analysis" / "final_llm_smoke_20260716.json"
 

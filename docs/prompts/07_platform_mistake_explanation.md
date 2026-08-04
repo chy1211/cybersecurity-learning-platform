@@ -8,8 +8,8 @@
 - **模型**：平台端可切換（論文示範：Llama-3.3-70b-instruct via NVIDIA）
 - **輸出格式**：Markdown 純文字
 - **來源檔案**：
-  - `論文\CybersecurityLearningPlatform\backend\llm_service.py` → `explain_mistake()`
-  - 對照彙整：`論文\CybersecurityLearningPlatform\LLM_PROMPTS.md` §1.1
+  - `論文\platform\backend\llm_service.py` → `explain_mistake()`
+  - 對照彙整：`論文\platform\LLM_PROMPTS.md` §1.1
 
 ---
 

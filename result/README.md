@@ -12,7 +12,7 @@ result/
 ```
 
 > 實驗一（圖譜品質驗證與 MatchGPT）的指標仍位於
-> `CybersecurityLearningPlatform/backend/exp_1/MatchGPT/phase1_results/`，
+> `platform/backend/exp_1/MatchGPT/phase1_results/`，
 > 尚未搬遷，以免影響該階段腳本既有的讀寫路徑。
 
 ---

@@ -60,19 +60,19 @@ flowchart LR
 
 | 路徑 | 說明 |
 |---|---|
-| `CybersecurityLearningPlatform/frontend/` | React 18 + Vite 前端 |
-| `CybersecurityLearningPlatform/backend/` | Flask API、Neo4j service、LLM service 與平台核心邏輯 |
-| `CybersecurityLearningPlatform/backend/prompts/` | 平台、ETL、MatchGPT 與實驗使用的 Prompt 檔案 |
-| `CybersecurityLearningPlatform/backend/ETL_module/RawTriples/` | LLM 萃取出的候選三元組 |
-| `CybersecurityLearningPlatform/backend/ETL_module/Rejected/` | 品質驗證流程拒絕的三元組與驗證紀錄 |
-| `CybersecurityLearningPlatform/backend/ETL_module/Validated/` | 已通過驗證、可用於重建 Neo4j 圖譜的三元組 |
-| `CybersecurityLearningPlatform/backend/exp_1/` | 實驗 1：圖譜品質驗證 |
-| `CybersecurityLearningPlatform/backend/exp_1/MatchGPT/` | 實驗 1 的 MatchGPT 節點整併腳本與分析輸出 |
-| `CybersecurityLearningPlatform/backend/exp_2/` | 實驗 2：Leiden 分群有效性驗證 |
-| `CybersecurityLearningPlatform/backend/exp_2/phase2/` | 實驗 2 的 Leiden/章節結構化執行鏈 |
-| `CybersecurityLearningPlatform/backend/exp_3/` | 實驗 3：Graph RAG 事實正確性評估 |
-| `本體論/` | 本體論檔案，包含實體、關係與合法 Schema Edge |
-| `Prompt/` | 論文方法與附錄使用的 Prompt 彙整說明 |
+| `platform/frontend/` | React 18 + Vite 前端 |
+| `platform/backend/` | Flask API、Neo4j service、LLM service 與平台核心邏輯 |
+| `platform/backend/prompts/` | 平台、ETL、MatchGPT 與實驗使用的 Prompt 檔案 |
+| `platform/backend/ETL_module/RawTriples/` | LLM 萃取出的候選三元組 |
+| `platform/backend/ETL_module/Rejected/` | 品質驗證流程拒絕的三元組與驗證紀錄 |
+| `platform/backend/ETL_module/Validated/` | 已通過驗證、可用於重建 Neo4j 圖譜的三元組 |
+| `platform/backend/exp_1/` | 實驗 1：圖譜品質驗證 |
+| `platform/backend/exp_1/MatchGPT/` | 實驗 1 的 MatchGPT 節點整併腳本與分析輸出 |
+| `platform/backend/exp_2/` | 實驗 2：Leiden 分群有效性驗證 |
+| `platform/backend/exp_2/phase2/` | 實驗 2 的 Leiden/章節結構化執行鏈 |
+| `platform/backend/exp_3/` | 實驗 3：Graph RAG 事實正確性評估 |
+| `ontology/` | 本體論檔案，包含實體、關係與合法 Schema Edge |
+| `docs/prompts/` | 論文方法與附錄使用的 Prompt 彙整說明 |
 | `DATA_MANIFEST.md` | 公開資料收錄與排除清單 |
 | `DATA_MANIFEST.md` | 內部工作樹與公開發布包的資料邊界 |
 | `tools/SECURITY_NOTES.md` | 憑證、敏感資料與發布注意事項 |
@@ -105,7 +105,7 @@ NEO4J_USER=neo4j
 ### 2. 啟動後端
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend'
+Set-Location -LiteralPath '.\platform\backend'
 Copy-Item .env.example .env
 python -m pip install -r requirements-platform.txt
 python app.py
@@ -127,7 +127,7 @@ Invoke-WebRequest http://localhost:5000/api/health/ready
 ### 3. 啟動前端
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\frontend'
+Set-Location -LiteralPath '.\platform\frontend'
 npm ci
 npm run dev -- --port 3000
 ```
@@ -154,7 +154,7 @@ Windows 若 PowerShell 找不到 `npm`，可改用 `& "$env:ProgramFiles\nodejs\
 本 repository 不從原始 PDF 切塊開始復現，原因是原始教材內容可能涉及著作權。公開復現路徑從已驗證三元組 `Validated/` 開始。
 
 ```powershell
-Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\ETL_module'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\platform\backend\ETL_module'
 python 03b_restore_neo4j.py
 ```
 
@@ -203,22 +203,22 @@ LLM_PROVIDER=lm_studio
 
 | 實驗 | 路徑 | 說明 |
 |---|---|---|
-| 1 | `CybersecurityLearningPlatform/backend/exp_1/` | 圖譜品質驗證與 MatchGPT 相關指標 |
-| 2 | `CybersecurityLearningPlatform/backend/exp_2/` | Leiden 分群有效性與三層驗證 |
-| 3 | `CybersecurityLearningPlatform/backend/exp_3/` | Graph RAG 與純 LLM 的回答正確性比較 |
+| 1 | `platform/backend/exp_1/` | 圖譜品質驗證與 MatchGPT 相關指標 |
+| 2 | `platform/backend/exp_2/` | Leiden 分群有效性與三層驗證 |
+| 3 | `platform/backend/exp_3/` | Graph RAG 與純 LLM 的回答正確性比較 |
 
 部分實驗腳本會依賴特定 LLM provider、Neo4j 狀態或本機模型服務。若只是檢查公開資料與平台功能，可以先從 `Validated/` 還原圖譜，再啟動前後端。
 
 ## 程式驗證與復現腳本說明
 
-MatchGPT 已歸入實驗 1：`CybersecurityLearningPlatform/backend/exp_1/MatchGPT/`。`phase2` 已歸入實驗 2：`CybersecurityLearningPlatform/backend/exp_2/phase2/`。後端根目錄下同名資料夾不再作為執行入口。
+MatchGPT 已歸入實驗 1：`platform/backend/exp_1/MatchGPT/`。`phase2` 已歸入實驗 2：`platform/backend/exp_2/phase2/`。後端根目錄下同名資料夾不再作為執行入口。
 
 ### 共通檢查
 
 先做語法層級檢查，確認搬移後的 Python 檔案仍可編譯：
 
 ```powershell
-Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\platform\backend'
 Get-ChildItem .\exp_1,.\exp_2,.\exp_3 -Recurse -Filter *.py |
   ForEach-Object { python -m py_compile $_.FullName }
 ```
@@ -236,7 +236,7 @@ python tools/check_release_ready.py --root ..\交接_release
 `backend/exp_1/run_mock_tests.py` 是實驗 1 的離線檢查入口，用來確認指標彙整邏輯可在不連線 Neo4j、不呼叫 LLM 的情況下執行。
 
 ```powershell
-Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\exp_1'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\platform\backend\exp_1'
 python run_mock_tests.py
 python exp_1_indicator2_matchgpt.py
 python exp_1_indicator3_prepost.py
@@ -261,7 +261,7 @@ MatchGPT 的可執行腳本位於 `backend/exp_1/MatchGPT/phase1_scripts/`：
 常用檢查順序：
 
 ```powershell
-Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\exp_1\MatchGPT'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\platform\backend\exp_1\MatchGPT'
 python phase1_scripts\check_env.py
 python phase1_scripts\preflight_check.py
 ```
@@ -273,7 +273,7 @@ python phase1_scripts\preflight_check.py
 `backend/exp_2/run_mock_tests.py` 是實驗 2 的離線檢查入口；`backend/exp_2/phase2/` 則保留原本的 Leiden/章節結構化執行鏈。
 
 ```powershell
-Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\exp_2'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\platform\backend\exp_2'
 python run_mock_tests.py
 ```
 
@@ -294,7 +294,7 @@ python run_mock_tests.py
 常用順序：
 
 ```powershell
-Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\exp_2\phase2'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\platform\backend\exp_2\phase2'
 python smoke_test.py
 python step2_1_leiden.py
 python step2_1_leiden.py --finalize --gamma 1.5 --min_community_size 3
@@ -324,14 +324,14 @@ python step2_6_chapter_dict.py
 快速 smoke run 可先加 `--limit`：
 
 ```powershell
-Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\exp_3'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\platform\backend\exp_3'
 python exp_3_nf1_pipeline.py --model phi --questions data\question_bank_329.json --output data\eval_results\phi_NF1_smoke.json --limit 5
 ```
 
 完整批次評估範例：
 
 ```powershell
-Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend\exp_3'
+Set-Location -LiteralPath '.\cybersecurity-learning-platform\platform\backend\exp_3'
 python exp_3_eval_batch.py --questions data\question_bank_329.json --subgraphs data\subgraph --output_dir data\eval_results --models phi,llama8b,gemma,llama70b --conditions llm_only,graph_rag
 python exp_3_thesis_tables.py
 python exp_3_paper_tables.py
@@ -381,7 +381,7 @@ python tools/check_release_ready.py
 
 1. 不提交 `.env`、API key、個人日誌或本機資料庫備份。
 2. 不提交可能含受著作權保護內容的原文切塊或 PDF。
-3. 若修改 Prompt，請同步更新 `backend/prompts/` 或 `Prompt/` 中對應文件。
+3. 若修改 Prompt，請同步更新 `backend/prompts/` 或 `docs/prompts/` 中對應文件。
 4. 若修改圖譜資料處理流程，請同步更新 `DATA_MANIFEST.md` 與本 README 的實驗復現段落。
 
 ## 引用

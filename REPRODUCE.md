@@ -11,7 +11,7 @@
 
 | 元件 | 版本 | 備註 |
 |---|---|---|
-| Python | 3.11–3.13 | 相依依用途分檔，見 `CybersecurityLearningPlatform/backend/requirements-*.txt` |
+| Python | 3.11–3.13 | 相依依用途分檔，見 `platform/backend/requirements-*.txt` |
 | Node.js | 18+ | 前端以 Vite 5 建置 |
 | Java | **17 或 21** | Neo4j 5.26 LTS 的支援範圍 |
 | Neo4j | **5.26.28** Community | 見下方外掛版本對應 |
@@ -62,7 +62,7 @@ $env:NEO4J_HOME = 'C:\neo4j'
 repo 內附權威圖譜快照（平台格式，含分群屬性）：
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\exp_1\MatchGPT'
+Set-Location -LiteralPath '.\platform\backend\exp_1\MatchGPT'
 python neo4j_backup_restore.py restore ..\..\..\..\data\kg_snapshot\platform_kg.json --wipe
 ```
 
@@ -93,13 +93,13 @@ python tools\check_neo4j_env.py
 
 ```powershell
 # 後端（Flask，預設 127.0.0.1:5000）
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend'
+Set-Location -LiteralPath '.\platform\backend'
 copy .env.example .env      # 填入 NEO4J_* 與你要用的 LLM 供應商金鑰
 pip install -r requirements-platform.txt
 python app.py
 
 # 前端（Vite，預設 127.0.0.1:3000）
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\frontend'
+Set-Location -LiteralPath '.\platform\frontend'
 npm install
 npm run dev -- --host 127.0.0.1 --port 3000
 ```
@@ -122,7 +122,7 @@ npm run dev -- --host 127.0.0.1 --port 3000
 實驗二的分群、群內中心性與拓樸分層可直接在既有圖上重算：
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\exp_2\phase2'
+Set-Location -LiteralPath '.\platform\backend\exp_2\phase2'
 python step2_1_leiden.py            # 參數掃描與 finalize（需要 GDS）
 python step2_3_centrality.py        # 群內 degree/betweenness/closeness（預設 min_size=10）
 python step2_4_topo_layer.py        # 拓樸分層（Centrality 與 DAG 雙方法）
@@ -134,7 +134,7 @@ python step2_4_topo_layer.py        # 拓樸分層（Centrality 與 DAG 雙方�
 
 ### 路線 B：重跑 Graph RAG 評測（需要 LLM 額度）
 
-見 `CybersecurityLearningPlatform/backend/exp_3/B4_RUNBOOK.md`。
+見 `platform/backend/exp_3/B4_RUNBOOK.md`。
 需自備四個受測模型的端點與金鑰，以及**原始題庫**——
 本 repo 依著作權考量不散布考題，`result/exp3_graphrag/heldout_question_index.json`
 提供題號與原始題庫檔的 SHA-256 供核對。
@@ -143,7 +143,7 @@ python step2_4_topo_layer.py        # 拓樸分層（Centrality 與 DAG 雙方�
 
 ### 路線 C：從教材重跑完整 ETL（需要 LLM 額度與原始教材）
 
-`CybersecurityLearningPlatform/backend/ETL_module/` 內的 `01_chunk_data.py` →
+`platform/backend/ETL_module/` 內的 `01_chunk_data.py` →
 `02_extract_triples.py` → `03_validate_and_import*.py`。
 公開包**不含**原始教材 PDF 與其切塊（`Chunks/`），因此路線 C 無法從公開內容完整重現；
 可從 `ETL_module/Validated/` 的已驗證三元組重建圖譜（見 `DATA_MANIFEST.md`）。
@@ -156,7 +156,7 @@ python step2_4_topo_layer.py        # 拓樸分層（Centrality 與 DAG 雙方�
 
 ```powershell
 # 後端與實驗程式
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend'
+Set-Location -LiteralPath '.\platform\backend'
 python -m pytest tests/ exp_1/rerun_prep/ exp_2/phase2/tests/ -q
 
 # 發布工具
@@ -164,7 +164,7 @@ Set-Location -LiteralPath '..\..'
 python -m pytest tools/tests/ -q
 
 # 前端
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\frontend'
+Set-Location -LiteralPath '.\platform\frontend'
 npm test
 ```
 

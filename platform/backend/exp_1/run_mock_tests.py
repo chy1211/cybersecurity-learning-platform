@@ -6,7 +6,7 @@
 依序執行三支腳本，驗證輸出 JSON / Markdown 格式正確性。
 
 執行：
-  cd 論文/CybersecurityLearningPlatform/backend/ETL_module/exp_1
+  cd 論文/platform/backend/ETL_module/exp_1
   python run_mock_tests.py
 """
 

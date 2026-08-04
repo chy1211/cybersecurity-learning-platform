@@ -34,8 +34,8 @@ PROJECT_DIR = SCRIPT_PATH.parents[2]
 WORKSPACE_DIR = SCRIPT_PATH.parents[5] if len(SCRIPT_PATH.parents) > 5 else Path.cwd()
 ONTOLOGY_DIR = WORKSPACE_DIR / "論文" / "本體論"
 
-DEFAULT_SCHEMA_CSV = ONTOLOGY_DIR / "本體論Ontology - 結構描述邊緣 (Schema Edges) 總表.csv"
-DEFAULT_RELATIONS_CSV = ONTOLOGY_DIR / "本體論Ontology - 核心關係 (Relations) 總表.csv"
+DEFAULT_SCHEMA_CSV = ONTOLOGY_DIR / "schema_edges.csv"
+DEFAULT_RELATIONS_CSV = ONTOLOGY_DIR / "relations.csv"
 DEFAULT_CANDIDATES = BACKEND_DIR / "ETL_module" / "RawTriples"
 DEFAULT_VALIDATED = BACKEND_DIR / "ETL_module" / "Validated"
 DEFAULT_REJECTED = BACKEND_DIR / "ETL_module" / "Rejected"

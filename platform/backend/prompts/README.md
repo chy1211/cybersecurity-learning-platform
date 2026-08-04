@@ -2,7 +2,7 @@
 
 本資料夾是後端服務與實驗腳本實際載入的 runtime prompt 來源。
 
-程式碼應呼叫 `prompts.load_prompt("relative/path.md")`，而不是在 `.py` 檔中內嵌長 prompt 字串。研究方法與附錄導向的說明文件放在交接根目錄的 `Prompt/`；可執行的 prompt 模板則保留在本資料夾。
+程式碼應呼叫 `prompts.load_prompt("relative/path.md")`，而不是在 `.py` 檔中內嵌長 prompt 字串。研究方法與附錄導向的說明文件放在交接根目錄的 `docs/prompts/`；可執行的 prompt 模板則保留在本資料夾。
 
 目前分組：
 

@@ -10,7 +10,7 @@ from typing import Any, Iterable
 
 
 ROOT = Path(__file__).resolve().parents[6]
-BACKEND = ROOT / "論文" / "交接" / "CybersecurityLearningPlatform" / "backend"
+BACKEND = ROOT / "論文" / "交接" / "platform" / "backend"
 DATA_DIR = BACKEND / "exp_3" / "data"
 SOURCE_DIR = DATA_DIR / "source"
 REPORT_PATH = ROOT / "_tooling" / "rerun_test" / "ite_pool_audit.txt"

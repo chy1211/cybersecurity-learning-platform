@@ -16,7 +16,7 @@
 ## 還原
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\exp_1\MatchGPT'
+Set-Location -LiteralPath '.\platform\backend\exp_1\MatchGPT'
 python neo4j_backup_restore.py restore ..\..\..\..\data\kg_snapshot\platform_kg.json --wipe
 ```
 

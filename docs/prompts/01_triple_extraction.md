@@ -6,7 +6,7 @@
 - **參數**：`thinking_level="high"`、`temperature=0.1`
 - **輸出格式**：JSON 陣列；每筆包含 `subject`、`relation`、`object` 與 `reasoning`。
 - **權威執行來源**：
-  - `論文\交接\CybersecurityLearningPlatform\backend\ETL_module\02_extract_triples.py`
+  - `論文\交接\platform\backend\ETL_module\02_extract_triples.py`
   - `backend\prompts\etl\extract_triples_system.md`
   - `backend\prompts\etl\extract_triples_user.md`
   - `backend\prompts\etl\extract_triples_user_question.md`

@@ -20,17 +20,17 @@ python tools/check_release_ready.py --root ..\交接_release
 
 | 路徑 | 用途 |
 |---|---|
-| `CybersecurityLearningPlatform/backend/ETL_module/RawTriples/` | 萃取階段產生的候選三元組 |
-| `CybersecurityLearningPlatform/backend/ETL_module/Rejected/` | 品質控制分析所需的拒絕三元組與驗證紀錄 |
-| `CybersecurityLearningPlatform/backend/ETL_module/Validated/` | 可用於重建或檢查最終圖譜的已驗證三元組 |
-| `CybersecurityLearningPlatform/backend/exp_1/` | 實驗一：圖譜品質驗證之可公開程式與產物 |
-| `CybersecurityLearningPlatform/backend/exp_2/` | 實驗二：Leiden 分群有效性之可公開程式與產物 |
-| `CybersecurityLearningPlatform/backend/exp_2/phase2/migrate_analysis_properties.py` | 可公開的安全 migration 程式碼；不包含任何實際備份、manifest 或本機連線資訊 |
-| `CybersecurityLearningPlatform/backend/exp_3/` | 實驗三：Graph RAG 事實正確性之可公開程式與產物；正式凍結結果僅供讀取驗證 |
-| `CybersecurityLearningPlatform/backend/prompts/` | 執行所需之 Prompt 模板；不含逐次完整 Prompt／回答日誌 |
-| `CybersecurityLearningPlatform/frontend/` | 前端原始碼、設定與套件鎖定檔 |
-| `本體論/` | 實體、關係與合法邊之本體論權威檔案 |
-| `Prompt/` | 論文方法與附錄使用之 Prompt 說明 |
+| `platform/backend/ETL_module/RawTriples/` | 萃取階段產生的候選三元組 |
+| `platform/backend/ETL_module/Rejected/` | 品質控制分析所需的拒絕三元組與驗證紀錄 |
+| `platform/backend/ETL_module/Validated/` | 可用於重建或檢查最終圖譜的已驗證三元組 |
+| `platform/backend/exp_1/` | 實驗一：圖譜品質驗證之可公開程式與產物 |
+| `platform/backend/exp_2/` | 實驗二：Leiden 分群有效性之可公開程式與產物 |
+| `platform/backend/exp_2/phase2/migrate_analysis_properties.py` | 可公開的安全 migration 程式碼；不包含任何實際備份、manifest 或本機連線資訊 |
+| `platform/backend/exp_3/` | 實驗三：Graph RAG 事實正確性之可公開程式與產物；正式凍結結果僅供讀取驗證 |
+| `platform/backend/prompts/` | 執行所需之 Prompt 模板；不含逐次完整 Prompt／回答日誌 |
+| `platform/frontend/` | 前端原始碼、設定與套件鎖定檔 |
+| `ontology/` | 實體、關係與合法邊之本體論權威檔案 |
+| `docs/prompts/` | 論文方法與附錄使用之 Prompt 說明 |
 | `docs/`、根目錄文件與發布工具 | 部署、復現、安全與驗收說明 |
 
 上述目錄仍受打包器的檔名、路徑、副檔名與單檔大小限制；位於允許目錄內不代表所有檔案都會自動公開。
@@ -58,7 +58,7 @@ python tools/check_release_ready.py --root ..\交接_release
 公開復現自 `Validated/` 開始，不包含原始 PDF 或 `Chunks/`。這可重建公開的結構化圖譜資料，但不等同於從教材原文重跑完整 ETL。
 
 ```powershell
-Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend\ETL_module'
+Set-Location -LiteralPath '.\platform\backend\ETL_module'
 python 03b_restore_neo4j.py
 ```
 

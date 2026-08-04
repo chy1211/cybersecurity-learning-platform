@@ -6,9 +6,9 @@
 - **模型**：平台端可切換（`LLM_PROVIDER`：NVIDIA／Groq／LM Studio／OpenAI；論文示範 Llama-3.3-70b-instruct）
 - **輸出格式**：Markdown 純文字
 - **來源檔案**：
-  - `論文\CybersecurityLearningPlatform\backend\llm_service.py`
+  - `論文\platform\backend\llm_service.py`
     - 函式：`generate_answer_with_context(query, context, log_file)`
-  - 對照彙整：`論文\CybersecurityLearningPlatform\LLM_PROMPTS.md` §1.4
+  - 對照彙整：`論文\platform\LLM_PROMPTS.md` §1.4
 
 ---
 
@@ -45,4 +45,4 @@
 
 - 問答機制以 Graph RAG（圖檢索增強生成）為基礎，含「概念定位 → 知識檢索 → 推理生成」三階段（論文圖 3）。
 - 回答受限於已驗證子圖脈絡，杜絕幻覺並保留結果可追溯性。
-- 此為平台端問答之系統設計；對應之事實正確性量化評估見 [`05_實驗3_GraphRAG事實正確性作答.md`](05_實驗3_GraphRAG事實正確性作答.md)。
+- 此為平台端問答之系統設計；對應之事實正確性量化評估見 [`05_exp3_graphrag_answering.md`](05_exp3_graphrag_answering.md)。

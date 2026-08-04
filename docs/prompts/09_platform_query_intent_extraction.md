@@ -3,8 +3,8 @@
 > **範圍說明**：本檔屬第肆章「平台實作功能」之應用層下游 LLM 功能，**不在第參章驗證論述範圍內**。整理於此以求完整。
 
 - **來源檔案**：
-  - `論文\CybersecurityLearningPlatform\backend\llm_service.py` → `identify_entities_in_query()`、`extract_entities_from_text()`
-  - 對照彙整：`論文\CybersecurityLearningPlatform\LLM_PROMPTS.md` §1.3、§1.2
+  - `論文\platform\backend\llm_service.py` → `identify_entities_in_query()`、`extract_entities_from_text()`
+  - 對照彙整：`論文\platform\LLM_PROMPTS.md` §1.3、§1.2
 
 ---
 
@@ -59,4 +59,4 @@
 
 ## 備註
 
-- 此二函式為平台端輔助性質之輕量提示詞，與第參章正式知識萃取（[`01_知識萃取_三元組擷取.md`](01_知識萃取_三元組擷取.md)，採完整本體論約束之 Gemma 萃取）不同，**不參與圖譜建構與品質驗證**，僅供平台互動時之即時識別。
+- 此二函式為平台端輔助性質之輕量提示詞，與第參章正式知識萃取（[`01_triple_extraction.md`](01_triple_extraction.md)，採完整本體論約束之 Gemma 萃取）不同，**不參與圖譜建構與品質驗證**，僅供平台互動時之即時識別。

@@ -8,7 +8,7 @@
 - **整併門檻**：先行掃描 confidence 門檻 {0.5, 0.7, 0.9} 後以 **t=0.7** 定案；現行程式固定 `THRESHOLDS=[0.7]`。
 - **輸出格式**：JSON，含 `decision`（`same` / `different`）、`confidence`（0.0–1.0）、`reason`。
 - **來源檔案**：
-  - `論文\交接\CybersecurityLearningPlatform\backend\exp_1\MatchGPT\phase1_scripts\run_matchgpt.py`
+  - `論文\交接\platform\backend\exp_1\MatchGPT\phase1_scripts\run_matchgpt.py`
     - 使用者提示詞：`build_matchgpt_prompt()`（第 237 行起）
     - 系統提示詞：`call_llama_once()` 的 messages（第 247 行起）
     - 模型／參數常數：`LLAMA_MODEL`（第 131 行）、`EMBED_MODEL`（第 143 行）、`EMBED_SIM_THRESHOLD`／`TOP_K`／`THRESHOLDS`（第 154–159 行）

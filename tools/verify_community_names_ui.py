@@ -12,7 +12,7 @@ from playwright.sync_api import sync_playwright
 HANDOFF_DIR = Path(__file__).resolve().parents[1]
 NAMES_PATH = (
     HANDOFF_DIR
-    / "CybersecurityLearningPlatform"
+    / "platform"
     / "frontend"
     / "src"
     / "data"
