@@ -20,15 +20,18 @@ ROOT_FILES = {
     "LICENSE",
     "NOTICE",
     "README.md",
+    "REPRODUCE.md",
     "REPRODUCE_EXPERIMENTS.md",
     "SECURITY_NOTES.md",
     "GITHUB_RELEASE_CHECKLIST.md",
     "GITHUB_PUBLISH_PLAN.md",
     "HANDOFF_README_FOR_SUCCESSOR.md",
 }
-ROOT_TREES = {"Prompt", "本體論"}
+# result/ 為三個實驗的最終結果，data/ 為可還原的圖譜快照，兩者都是復現必需
+ROOT_TREES = {"Prompt", "本體論", "result", "data"}
 TOOL_FILES = {
     "build_clean_release.py",
+    "check_neo4j_env.py",
     "check_release_ready.py",
     "export_community_naming_evidence.py",
     "final_api_acceptance.py",
