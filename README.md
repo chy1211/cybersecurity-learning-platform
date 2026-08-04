@@ -14,9 +14,9 @@
 
 - **知識圖譜建構**：由 LLM 萃取資安實體與關係三元組，經品質驗證後匯入 Neo4j。
 - **本體論約束驗證**：以實體類型、關係類型與合法邊規格約束三元組品質。
-- **Graph RAG 智慧導師**：以 Neo4j 子圖作為回答脈絡，降低純 LLM 回答時的幻覺風險。
-- **Leiden 社群偵測**：將資安知識節點分群為主題模組，用於主題瀏覽與學習路徑規劃。
-- **章節與學習路徑視覺化**：提供章節導覽、主題模組、技能樹、全知識圖譜與智慧導師介面。
+- **平台 Graph RAG 智慧導師**：以實體名稱排序檢索與 Neo4j 一跳子圖作為回答脈絡，並回傳可檢視的圖譜依據。此流程不是實驗三的正式二階 Graph RAG 評估管線。
+- **Leiden 社群偵測**：將資安知識節點分群為主題模組，用於探索式主題瀏覽。
+- **章節與結構導覽視覺化**：提供章節、主題社群、全知識圖譜與智慧導師介面；一般圖譜關係不得解讀為先備關係。
 - **實驗復現材料**：收錄圖譜品質驗證、Graph RAG 事實正確性評估、Leiden 分群有效性分析所需腳本與輸出。
 
 ## 系統架構
@@ -74,8 +74,8 @@ flowchart LR
 | `本體論/` | 本體論檔案，包含實體、關係與合法 Schema Edge |
 | `Prompt/` | 論文方法與附錄使用的 Prompt 彙整說明 |
 | `DATA_MANIFEST.md` | 公開資料收錄與排除清單 |
-| `REPRODUCE_EXPERIMENTS.md` | 實驗與圖譜復現流程 |
-| `SECURITY_NOTES.md` | 憑證、敏感資料與發布注意事項 |
+| `DATA_MANIFEST.md` | 內部工作樹與公開發布包的資料邊界 |
+| `tools/SECURITY_NOTES.md` | 憑證、敏感資料與發布注意事項 |
 
 ## 快速開始
 
@@ -105,9 +105,9 @@ NEO4J_USER=neo4j
 ### 2. 啟動後端
 
 ```powershell
-Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\backend'
+Set-Location -LiteralPath '.\CybersecurityLearningPlatform\backend'
 Copy-Item .env.example .env
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-platform.txt
 python app.py
 ```
 
@@ -120,13 +120,14 @@ http://localhost:5000
 健康檢查：
 
 ```powershell
-Invoke-WebRequest http://localhost:5000/api/health
+Invoke-WebRequest http://localhost:5000/api/health/live
+Invoke-WebRequest http://localhost:5000/api/health/ready
 ```
 
 ### 3. 啟動前端
 
 ```powershell
-Set-Location -LiteralPath '.\cybersecurity-learning-platform\CybersecurityLearningPlatform\frontend'
+Set-Location -LiteralPath '.\CybersecurityLearningPlatform\frontend'
 npm ci
 npm run dev -- --port 3000
 ```
@@ -144,6 +145,10 @@ $env:VITE_API_PROXY_TARGET='http://localhost:5003'
 npm run dev -- --port 3000
 ```
 
+Windows 若 PowerShell 找不到 `npm`，可改用 `& "$env:ProgramFiles\nodejs\npm.cmd" ci`；若安裝腳本受限，先確認 Node.js/npm PATH 與組織安全政策，不要以提交 `node_modules/` 代替安裝。
+
+後端依用途拆分依賴：平台為 `requirements-platform.txt`，ETL 為 `requirements-etl.txt`，三項實驗依序為 `requirements-exp1.txt`、`requirements-exp2.txt`、`requirements-exp3.txt`。只安裝要執行的群組，避免把所有研究工具灌入平台環境。
+
 ## 還原示例圖譜
 
 本 repository 不從原始 PDF 切塊開始復現，原因是原始教材內容可能涉及著作權。公開復現路徑從已驗證三元組 `Validated/` 開始。
@@ -155,7 +160,23 @@ python 03b_restore_neo4j.py
 
 還原腳本會連線至 `.env` 指定的 Neo4j。執行前請確認目標資料庫可以被寫入，並先閱讀腳本提示。
 
-以本專案目前資料重建後，平台首頁統計會由後端 API 動態計算；近期驗證資料約為 2,862 個知識節點、4,506 條知識關聯、73 個學習社群與 25 個章節/模組統計單位。若你匯入不同資料，數值會隨圖譜內容改變。
+以 2026-07-15 交接驗證快照而言，圖譜共有 2,763 個節點、3,803 條關係、87 個有效 Leiden 社群與 20 個正規化章節／模組。平台首頁仍由 API 動態計算；匯入不同版本後，數值會隨實際圖譜改變。
+
+### 2026-07-16 分析欄位 migration 狀態
+
+現行受控 Neo4j 已透過 `backend/exp_2/phase2/migrate_analysis_properties.py` 完成一次正式寫入，run id 為 `20260715T165835Z`。寫入前／預期／寫入後的 community node coverage 分別為：
+
+| 欄位 | before | expected | after |
+|---|---:|---:|---:|
+| `outDegree_inCommunity` | 0 / 2,554 | 2,375 / 2,554 | 2,375 / 2,554 |
+| `betweenness_inCommunity` | 0 / 2,554 | 2,375 / 2,554 | 2,375 / 2,554 |
+| `closeness_inCommunity` | 0 / 2,554 | 2,375 / 2,554 | 2,375 / 2,554 |
+| `nodeLayerInCommunity`（centrality layer） | 0 / 2,554 | 2,554 / 2,554 | 2,554 / 2,554 |
+| `nodeLayerInCommunity_dag`（DAG layer） | 0 / 2,554 | 2,554 / 2,554 | 2,554 / 2,554 |
+
+中心性只套用權威分析範圍中的 40 個主要社群，共 2,375 個節點；其餘社群不以 0 偽裝已分析。平台因此回報整體 `partial` coverage，對完整社群提供探索性圖結構排序，對未分析社群明確回覆 `analysis_unavailable`。這些欄位不構成真正先備關係、最佳學習路徑或學習成效驗證。
+
+內部備份、manifest 與分析驗收保留於 `backend/exp_2/phase2/_migration_output/20260715T165835Z/` 與內部 `analysis/`，不納入公開發布包。40 個主要社群均已有描述性名稱；平台聊天 API 的 retrieval mode 為 `platform_one_hop`，不等同實驗三的正式 route-2 管線。
 
 ## LLM Provider 設定
 
@@ -186,10 +207,6 @@ LLM_PROVIDER=lm_studio
 | 2 | `CybersecurityLearningPlatform/backend/exp_2/` | Leiden 分群有效性與三層驗證 |
 | 3 | `CybersecurityLearningPlatform/backend/exp_3/` | Graph RAG 與純 LLM 的回答正確性比較 |
 
-多階段品質驗證完整復現流程請見：
-
-- `REPRODUCE_EXPERIMENTS.md`
-
 部分實驗腳本會依賴特定 LLM provider、Neo4j 狀態或本機模型服務。若只是檢查公開資料與平台功能，可以先從 `Validated/` 還原圖譜，再啟動前後端。
 
 ## 程式驗證與復現腳本說明
@@ -210,7 +227,8 @@ Get-ChildItem .\exp_1,.\exp_2,.\exp_3 -Recurse -Filter *.py |
 
 ```powershell
 Set-Location -LiteralPath '.'
-python tools/check_release_ready.py
+python tools/build_clean_release.py
+python tools/check_release_ready.py --root ..\交接_release
 ```
 
 ### 實驗 1：圖譜品質驗證與 MatchGPT
@@ -269,6 +287,7 @@ python run_mock_tests.py
 | `step2_2_ccod.py` | 產生社群間概念/依賴分析。 |
 | `step2_3_centrality.py` | 計算社群內中心性與核心節點。 |
 | `step2_4_topo_layer.py` | 建立社群拓樸層級。 |
+| `migrate_analysis_properties.py` | 以 dry-run、確認 token、備份、SHA-256、精確 coverage 與失敗自動 restore 包裝 step2_3／step2_4；正式套用前須先讀取腳本說明。 |
 | `step2_5_topic_label.py` | 產生主題標籤。 |
 | `step2_6_chapter_dict.py` | 產生章節字典與平台章節資料。 |
 
@@ -335,14 +354,15 @@ python tools/check_release_ready.py
 - 應被 `.gitignore` 排除的建置輸出或快取
 - Graphify、`node_modules`、`dist` 等本機產物
 
-更多細節請見 `SECURITY_NOTES.md`。
+更多細節請見 `tools/SECURITY_NOTES.md` 與 `DATA_MANIFEST.md`。
 
 ## 已知限制
 
 - 本專案是研究原型，不是完整商用 LMS（Learning Management System，學習管理系統）。
 - `backend/ETL_module/Chunks/` 未收錄；公開版本不包含教材原文切塊。
-- `placement-test` 端點已廢棄，會固定回傳空結果。
-- `complete_node` 目前是佔位端點，尚未實作完整學習解鎖狀態同步。
+- 已移除未實作的 `placement-test` 與 `complete_node` 端點，不以空陣列或固定成功值偽裝功能。
+- 學習進度與錯題紀錄是單機、單使用者示範資料，採原子 JSON 寫入；不是多使用者 LMS 的正式持久化層。
+- 現行受控圖譜已完成 run `20260715T165835Z`；中心性覆蓋 2,375 / 2,554 個 community nodes，分層覆蓋 2,554 / 2,554。未納入中心性分析的社群仍會明確顯示「分析資料不可用」，不產生假路徑。
 - 平台功能需要可連線的 Neo4j；沒有圖譜資料時，多數視覺化與 Graph RAG 功能無法正常展示。
 - LLM 產生式功能的效果會受模型、temperature、prompt 與 provider 穩定度影響。
 
@@ -362,7 +382,7 @@ python tools/check_release_ready.py
 1. 不提交 `.env`、API key、個人日誌或本機資料庫備份。
 2. 不提交可能含受著作權保護內容的原文切塊或 PDF。
 3. 若修改 Prompt，請同步更新 `backend/prompts/` 或 `Prompt/` 中對應文件。
-4. 若修改圖譜資料處理流程，請同步更新 `DATA_MANIFEST.md` 與 `REPRODUCE_EXPERIMENTS.md`。
+4. 若修改圖譜資料處理流程，請同步更新 `DATA_MANIFEST.md` 與本 README 的實驗復現段落。
 
 ## 引用
 

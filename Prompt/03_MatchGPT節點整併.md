@@ -2,16 +2,16 @@
 
 - **論文章節**：§參-五.2 MatchGPT 節點整併模組（四階段驗證之後置全圖整併）
 - **用途**：對通過四階段驗證並寫入之全圖節點，於本體論類別約束下判定同類別之兩節點是否指稱同一概念，以整併語意重複之同義節點。
-- **模型**：`meta/llama-3.3-70b-instruct`（NVIDIA，多 key 並行）
+- **模型**：`meta/llama-3.1-70b-instruct`（NVIDIA，多 key 並行）
 - **參數**：`temperature=0.0`、`max_tokens=256`、`response_format={"type":"json_object"}`
 - **候選篩選（blocking）**：第一層依本體論 15 類實體分桶（同類別才比對）；第二層於同類別內以 `text-embedding-embeddinggemma-300m-qat` 餘弦相似度做 top-k 篩選（`EMBED_SIM_THRESHOLD=0.80`、`TOP_K=10`）。
-- **整併門檻**：掃描 confidence 門檻 {0.5, 0.7, 0.9}，最終以 **t=0.7** 定案。
+- **整併門檻**：先行掃描 confidence 門檻 {0.5, 0.7, 0.9} 後以 **t=0.7** 定案；現行程式固定 `THRESHOLDS=[0.7]`。
 - **輸出格式**：JSON，含 `decision`（`same` / `different`）、`confidence`（0.0–1.0）、`reason`。
 - **來源檔案**：
-  - `論文\CybersecurityLearningPlatform\backend\exp_1\MatchGPT\phase1_scripts\run_matchgpt.py`
-    - 使用者提示詞：`build_matchgpt_prompt()`（第 173–188 行）
-    - 系統提示詞：`call_llama_once()` 的 messages（第 199 行）
-    - 模型／參數常數：`LLAMA_MODEL`（第 68 行）、`EMBED_MODEL`（第 80 行）、`EMBED_SIM_THRESHOLD`／`TOP_K`／`THRESHOLDS`（第 91–93 行）
+  - `論文\交接\CybersecurityLearningPlatform\backend\exp_1\MatchGPT\phase1_scripts\run_matchgpt.py`
+    - 使用者提示詞：`build_matchgpt_prompt()`（第 237 行起）
+    - 系統提示詞：`call_llama_once()` 的 messages（第 247 行起）
+    - 模型／參數常數：`LLAMA_MODEL`（第 131 行）、`EMBED_MODEL`（第 143 行）、`EMBED_SIM_THRESHOLD`／`TOP_K`／`THRESHOLDS`（第 154–159 行）
 
 ---
 
