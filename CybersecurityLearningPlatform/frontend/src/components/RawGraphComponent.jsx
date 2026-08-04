@@ -98,6 +98,7 @@ function drawNeo4jOverviewNode(node, ctx, globalScale, options = {}) {
 
 export default function RawGraphComponent() {
   const [rawGraphData, setRawGraphData] = useState({ nodes: [], links: [] });
+  const [graphMeta, setGraphMeta] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedTypes, setSelectedTypes] = useState(new Set());
   const [availableTypes, setAvailableTypes] = useState([]);
@@ -123,6 +124,13 @@ export default function RawGraphComponent() {
           name: e.relationship
         }));
         setRawGraphData({ nodes: prepareNeo4jRawGraphLayout(data.nodes, links), links });
+        setGraphMeta({
+          totalNodes: data.total_nodes,
+          totalEdges: data.total_edges,
+          returnedNodes: data.returned_nodes,
+          returnedEdges: data.returned_edges,
+          truncated: Boolean(data.truncated),
+        });
         
         const types = new Set(data.nodes.map(n => n.type || 'Concept'));
         const typesArray = Array.from(types).sort();
@@ -395,9 +403,14 @@ export default function RawGraphComponent() {
 
       {/* Graph Area */}
       <div className="flex-1 min-w-0 h-[600px] lg:h-[800px]">
+        {graphMeta?.truncated && (
+          <div className="mb-2 rounded border border-amber-600/60 bg-amber-950/40 px-3 py-2 text-sm text-amber-200">
+            大型圖譜已截斷顯示：節點 {graphMeta.returnedNodes}/{graphMeta.totalNodes}，關係 {graphMeta.returnedEdges}/{graphMeta.totalEdges}。完整數量不等於目前畫布數量。
+          </div>
+        )}
         <Neo4jGraphShell
           title="neo4j$"
-          subtitle={`${filteredGraphData.nodes.length} nodes · ${filteredGraphData.links.length} relationships`}
+          subtitle={`${filteredGraphData.nodes.length} nodes · ${filteredGraphData.links.length} relationships${graphMeta?.truncated ? ' · truncated view' : ''}`}
           graphData={filteredGraphData}
           loading={false}
           onZoomIn={() => fgRef.current?.zoom(fgRef.current.zoom() * 1.5, 300)}

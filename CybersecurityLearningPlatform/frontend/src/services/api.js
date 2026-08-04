@@ -3,12 +3,6 @@ import axios from 'axios'
 const API_BASE = '/api'
 
 const api = {
-  async getSkillTree() {
-    const response = await axios.get(`${API_BASE}/skill-tree`)
-    return response.data
-  },
-
-
   async getRawKnowledgeGraph() {
     const response = await axios.get(`${API_BASE}/knowledge-graph/raw`)
     return response.data
@@ -45,26 +39,6 @@ const api = {
   },
 
 
-  async getHealth() {
-    const response = await axios.get(`${API_BASE}/health`)
-    return response.data
-  },
-
-  async getPlacementTest() {
-    const response = await axios.get(`${API_BASE}/placement-test`)
-    return response.data
-  },
-
-  async submitPlacementTest(answers, testId) {
-    const response = await axios.post(`${API_BASE}/placement-test/submit`, { answers, test_id: testId })
-    return response.data
-  },
-
-  async completeNode(nodeId) {
-    const response = await axios.post(`${API_BASE}/node/complete`, { node_id: nodeId })
-    return response.data
-  },
-
   async getNodeNeighbors(nodeId, limit = 20) {
     const response = await axios.get(`${API_BASE}/node/${encodeURIComponent(nodeId)}/neighbors?limit=${limit}`)
     return response.data
@@ -92,11 +66,6 @@ const api = {
 
   async getCommunityLearningPaths() {
     const response = await axios.get(`${API_BASE}/learning-paths/communities`)
-    return response.data
-  },
-
-  async getChapterLearningPaths() {
-    const response = await axios.get(`${API_BASE}/learning-paths/chapters`)
     return response.data
   },
 

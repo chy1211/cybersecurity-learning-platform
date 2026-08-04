@@ -1,3 +1,5 @@
+import majorCommunityNames from '../data/community-names-20260715.json';
+
 /**
  * Leiden Community 描述性名稱對照表
  * 來源：Leiden_Community_Analysis.md
@@ -130,15 +132,20 @@ const COMMUNITY_NAMES = {
   287: "CH01",
   288: "資訊安全管理概論與政策",
   289: "資訊安全管理概論與政策",
+  // The 40 size>=10 communities below were re-reviewed against the current graph.
+  // They intentionally override any legacy ID labels retained above for small-community fallback.
+  ...majorCommunityNames.names,
 };
+
+export const COMMUNITY_NAMES_VERSION = majorCommunityNames.version;
 
 /**
  * 取得社群的描述性名稱
  * @param {number|string} communityId
- * @returns {string} 描述性名稱，若無對照則回傳 "社群 {id}"
+ * @returns {string} 描述性名稱，若無對照則明確標示待人工確認
  */
 export function getCommunityName(communityId) {
-  return COMMUNITY_NAMES[communityId] || `社群 ${communityId}`;
+  return COMMUNITY_NAMES[communityId] || `待人工確認（社群 ${communityId}）`;
 }
 
 /**
@@ -148,7 +155,7 @@ export function getCommunityName(communityId) {
  */
 export function getCommunityDisplayName(communityId) {
   const name = COMMUNITY_NAMES[communityId];
-  if (!name) return `社群 ${communityId}`;
+  if (!name) return `待人工確認（社群 ${communityId}）`;
   return `${name} (#${communityId})`;
 }
 

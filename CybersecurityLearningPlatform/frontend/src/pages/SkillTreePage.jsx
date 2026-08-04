@@ -5,7 +5,8 @@ import dagre from 'dagre'
 import api from '../services/api'
 import LearningMode from '../components/LearningMode'
 import { getCommunityName } from '../services/communityNames'
-import { filterDisplayCommunities, filterSearchResultsByVisibleCommunities } from '../utils/communityFilters'
+import { filterDisplayCommunities } from '../utils/communityFilters'
+import { getAnalysisSummary } from '../utils/analysisStatus'
 
 const NODE_W = 180;
 const NODE_H = 44;
@@ -39,6 +40,8 @@ function degreeBg(d) {
 export default function SkillTreePage() {
   const pathMode = 'community'
   const [communities, setCommunities] = useState([])
+  const [analysisState, setAnalysisState] = useState(null)
+  const analysisSummary = useMemo(() => getAnalysisSummary(analysisState || {}), [analysisState])
   const [loading, setLoading] = useState(true)
   const [learnedNodes, setLearnedNodes] = useState(new Set())
   const [expandedComm, setExpandedComm] = useState(null)
@@ -59,10 +62,13 @@ export default function SkillTreePage() {
     Promise.all([
       fetchPaths,
       api.getUserProgress()
-    ]).then(([paths, progress]) => {
-      let nextCommunities = filterDisplayCommunities(paths)
+    ]).then(([payload, progress]) => {
+      const unavailable = payload?.status === 'analysis_unavailable'
+      const groups = Array.isArray(payload) ? payload : (payload?.groups || [])
+      let nextCommunities = unavailable ? [] : filterDisplayCommunities(groups)
       let initialCommunity = nextCommunities.length > 0 ? nextCommunities[0].community : null
       setCommunities(nextCommunities)
+      setAnalysisState(payload && !Array.isArray(payload) ? payload : { status: 'ok' })
       setLearnedNodes(new Set(progress.learned_nodes || []))
       setExpandedComm(initialCommunity)
       setLoading(false)
@@ -99,7 +105,7 @@ export default function SkillTreePage() {
     }
     searchTimerRef.current = setTimeout(() => {
       api.searchNodes(searchQuery, pathMode)
-        .then((results) => setSearchResults(filterSearchResultsByVisibleCommunities(results, communities)))
+        .then((results) => setSearchResults(Array.isArray(results) ? results : []))
         .catch(console.error)
     }, 300)
     return () => { if (searchTimerRef.current) clearTimeout(searchTimerRef.current) }
@@ -156,7 +162,23 @@ export default function SkillTreePage() {
       <div className="flex items-center justify-center h-screen bg-slate-950">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500 mx-auto mb-4"></div>
-          <p className="text-slate-400">載入學習路徑資料...</p>
+          <p className="text-slate-400">載入結構導覽資料...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (analysisSummary.isUnavailable && analysisState) {
+    return (
+      <div className="h-full bg-slate-950 flex items-center justify-center p-6">
+        <div className="max-w-xl rounded-2xl border border-amber-700/50 bg-amber-950/20 p-8 text-center">
+          <div className="text-4xl mb-4">🧭</div>
+          <h1 className="text-2xl font-bold text-white mb-3">社群內分析結果尚未產生</h1>
+          <p className="text-slate-300 mb-4">{analysisState.message}</p>
+          <p className="text-sm text-amber-300">
+            {analysisSummary.coverageText}。系統不會以 0 或空路徑假裝分析成功。
+          </p>
+          <p className="text-xs text-slate-500 mt-4">分析完成後，本頁僅提供探索性圖結構導覽，不代表經驗證之先備次序。</p>
         </div>
       </div>
     )
@@ -168,9 +190,9 @@ export default function SkillTreePage() {
       <div className="shrink-0 z-[90] bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <h1 className="text-xl font-bold text-white flex items-center gap-2">
-            <span>🗺️</span> 學習路徑導覽
+            <span>🗺️</span> 探索性圖結構導覽
             
-            <span className="ml-4 text-xs font-medium text-indigo-300 bg-indigo-900/30 border border-indigo-800/60 px-2 py-0.5 rounded">🌐 主題模組學習</span>
+            <span className="ml-4 text-xs font-medium text-indigo-300 bg-indigo-900/30 border border-indigo-800/60 px-2 py-0.5 rounded">🌐 主題模組導覽</span>
           </h1>
           
           <div className="text-xs text-slate-500">
@@ -210,7 +232,6 @@ export default function SkillTreePage() {
               handlePlan={handlePlan}
               learnedNodes={learnedNodes}
               toggleLearned={toggleLearned}
-              onStartLearning={handleStartLearning}
               pathMode={pathMode}
             />
           </div>
@@ -247,7 +268,7 @@ function CommunityPathsView({ communities, learnedNodes, expandedComm, setExpand
             className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
           />
           <p className="text-xs text-slate-500 mt-2">
-            共 {totalComms} 個{pathMode === 'community' ? '主題' : '章節'} · 依學習先後順序排列
+            共 {totalComms} 個{pathMode === 'community' ? '主題' : '章節'} · 依分析層級與連結性排列
           </p>
           {/* Layout toggle */}
           <div className="flex gap-1 mt-2 bg-slate-800 rounded-lg p-0.5">
@@ -284,7 +305,7 @@ function CommunityPathsView({ communities, learnedNodes, expandedComm, setExpand
                 </div>
                 {comm.interOutDegree > 0 && (
                   <p className="text-[10px] text-slate-600 ml-6 mt-1">
-                    跨{pathMode === 'community' ? '主題' : '章節'}基礎度: {comm.interOutDegree}
+                    跨{pathMode === 'community' ? '主題' : '章節'}連結數: {comm.interOutDegree}
                   </p>
                 )}
               </button>
@@ -319,8 +340,8 @@ function CommunityPathsView({ communities, learnedNodes, expandedComm, setExpand
           <div className="flex items-center justify-center h-full text-slate-600">
             <div className="text-center">
               <p className="text-5xl mb-4">📖</p>
-              <p className="text-lg font-medium">選擇左側社群以查看學習順序</p>
-              <p className="text-sm mt-2">Out-Degree 越高的節點越基礎，應優先學習</p>
+              <p className="text-lg font-medium">選擇左側社群以查看結構排序</p>
+              <p className="text-sm mt-2">分群內連結性較高的節點會優先顯示；此排序不代表先備次序</p>
             </div>
           </div>
         )}
@@ -339,7 +360,7 @@ function CommNodeInner({ data }) {
   return (
     <div style={{ width: NODE_W, height: NODE_H, background: bg, border: `2px solid ${border}`, borderRadius: 22, display: 'flex', alignItems: 'center', gap: 6, padding: '0 12px', color: '#fff', fontSize: 12, fontWeight: 700, cursor: 'pointer', transition: 'all .2s', boxShadow: glow }}>
       <Handle type="target" position={Position.Top} style={{ opacity: 0 }} />
-      <span style={{ flexShrink: 0, fontSize: 10 }}>{learned ? '✓' : `OD:${data.outDegree}`}</span>
+      <span style={{ flexShrink: 0, fontSize: 10 }}>{learned ? '✓' : (data.outDegree == null ? '未分析' : `OD:${data.outDegree}`)}</span>
       {isTarget && <span style={{ flexShrink: 0 }}>★</span>}
       <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>{data.label}</span>
       <Handle type="source" position={Position.Bottom} style={{ opacity: 0 }} />
@@ -351,14 +372,13 @@ const commNodeTypes = { commNode: CommNode };
 
 /* ── Community Detail: Dagre Graph Mode ───────── */
 function CommunityDetailGraph({ community, learnedNodes, toggleLearned, onStartLearning, pathMode, selectedTarget }) {
-  if (!community) return null;
   const [selectedName, setSelectedName] = useState(null);
 
   const { flowNodes, flowEdges } = useMemo(() => {
     const rawNodes = (community?.nodes || []).map(n => ({
       id: n.name, type: 'commNode',
       position: { x: 0, y: 0 },
-      data: { label: n.name, learned: learnedNodes.has(n.name), outDegree: n.outDegree ?? 0, _selected: false, isTarget: selectedTarget?.name === n.name }
+      data: { label: n.name, learned: learnedNodes.has(n.name), outDegree: n.outDegree, _selected: false, isTarget: selectedTarget?.name === n.name }
     }));
     
     const nodeNames = new Set(rawNodes.map(n => n.id));
@@ -374,13 +394,15 @@ function CommunityDetailGraph({ community, learnedNodes, toggleLearned, onStartL
     return { flowNodes: laid, flowEdges: rawEdges };
   }, [community, learnedNodes, selectedTarget]);
 
+  if (!community) return null;
+
   const learnedCount = community.nodes.filter(n => learnedNodes.has(n.name)).length;
   const pct = community.size > 0 ? Math.round((learnedCount / community.size) * 100) : 0;
   const sel = community.nodes.find(n => n.name === selectedName);
 
   return (
     <div className="flex flex-col h-full">
-      <CommunityHeader community={community} pct={pct} learnedCount={learnedCount} hint="箭頭方向代表知識依賴：從上到下為先備到進階。點擊節點可操作。" pathMode={pathMode} />
+      <CommunityHeader community={community} pct={pct} learnedCount={learnedCount} hint="箭頭僅呈現圖譜原始關係，不等同先備關係；節點位置依分析層級排列。" pathMode={pathMode} />
       <div className="flex-1 relative" style={{ minHeight: 400 }}>
         <ReactFlow
           nodes={flowNodes} edges={flowEdges} nodeTypes={commNodeTypes}
@@ -415,14 +437,14 @@ function CommunityDetailGraph({ community, learnedNodes, toggleLearned, onStartL
 function CommunityDetailList({ community, learnedNodes, toggleLearned, onStartLearning, pathMode, selectedTarget }) {
   if (!community) return null;
   const byDegree = {};
-  community.nodes.forEach(n => { const d = n.outDegree ?? 0; if (!byDegree[d]) byDegree[d] = []; byDegree[d].push(n); });
+  community.nodes.forEach(n => { const d = n.outDegree; if (d == null) return; if (!byDegree[d]) byDegree[d] = []; byDegree[d].push(n); });
   const sortedDegrees = Object.keys(byDegree).map(Number).sort((a, b) => b - a);
   const learnedCount = community.nodes.filter(n => learnedNodes.has(n.name)).length;
   const pct = community.size > 0 ? Math.round((learnedCount / community.size) * 100) : 0;
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <CommunityHeader community={community} pct={pct} learnedCount={learnedCount} hint="Out-Degree 越高代表越基礎的知識，建議由上往下依序學習。" pathMode={pathMode} />
+      <CommunityHeader community={community} pct={pct} learnedCount={learnedCount} hint="Out-Degree 僅用於辨識分群內較具連結性的概念，不代表基礎程度或固定學習次序。" pathMode={pathMode} />
       <div className="space-y-4 mt-4">
         {sortedDegrees.map(degree => (
           <div
@@ -431,7 +453,7 @@ function CommunityDetailList({ community, learnedNodes, toggleLearned, onStartLe
           >
             <div className="px-4 py-2 bg-slate-800/50 flex items-center gap-2 border-b border-slate-800">
               <span className={`px-2 py-0.5 rounded-full text-xs font-bold border ${degreeBg(degree)}`}>Out-Degree {degree}</span>
-              <span className="text-xs text-slate-500">{degree > 5 ? '🏛️ 核心基礎' : degree > 2 ? '📗 中階知識' : degree > 0 ? '📘 進階知識' : '🎯 末端知識'}</span>
+              <span className="text-xs text-slate-500">{degree > 5 ? '高連結性' : degree > 2 ? '中連結性' : degree > 0 ? '低連結性' : '無分群內出邊'}</span>
               <span className="ml-auto text-xs text-slate-600">{byDegree[degree].length} 個</span>
             </div>
             <div className="p-3 flex flex-wrap gap-2">
@@ -469,9 +491,11 @@ function CommunityHeader({ community, pct, learnedCount, hint, pathMode }) {
           <span className="text-sm font-normal text-slate-500 ml-2">#{community.community}</span>
         </h2>
         <span className="px-2 py-0.5 bg-slate-800 rounded text-xs text-slate-400">{community.size} 個知識點</span>
-        <span className="ml-auto text-xs text-slate-500">
-          跨{pathMode === 'community' ? '主題' : '章節'}基礎度: <span className="text-indigo-400 font-bold">{community.interOutDegree}</span>
-        </span>
+        {community.interOutDegree != null && (
+          <span className="ml-auto text-xs text-slate-500">
+            跨{pathMode === 'community' ? '主題' : '章節'}連結數: <span className="text-indigo-400 font-bold">{community.interOutDegree}</span>
+          </span>
+        )}
       </div>
       <div className="flex items-center gap-3">
         <div className="flex-1 max-w-xs h-2 bg-slate-800 rounded-full overflow-hidden">
@@ -487,7 +511,7 @@ function CommunityHeader({ community, pct, learnedCount, hint, pathMode }) {
 /* ══════════════════════════════════════════════════
    Tab 2: Path Planner View
    ══════════════════════════════════════════════════ */
-function PathPlannerView({ searchQuery, setSearchQuery, setSearchResults, searchResults, selectedTarget, setSelectedTarget, plannedPath, planning, handlePlan, learnedNodes, toggleLearned, onStartLearning, pathMode }) {
+function PathPlannerView({ searchQuery, setSearchQuery, setSearchResults, searchResults, selectedTarget, setSelectedTarget, plannedPath, planning, handlePlan, learnedNodes, toggleLearned, pathMode }) {
   return (
     <div className="h-full overflow-y-auto">
       <div className="max-w-3xl mx-auto p-6">
@@ -533,7 +557,7 @@ function PathPlannerView({ searchQuery, setSearchQuery, setSearchResults, search
               disabled={!selectedTarget || planning}
               className={`px-6 py-3 rounded-xl font-bold text-sm transition-all shrink-0 ${selectedTarget && !planning ? 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-500/20' : 'bg-slate-700 text-slate-500 cursor-not-allowed'}`}
             >
-              {planning ? '規劃中...' : '🚀 規劃路徑'}
+              {planning ? '分析中...' : '🚀 產生導覽'}
             </button>
           </div>
           {selectedTarget && (
@@ -573,7 +597,7 @@ function PathPlannerView({ searchQuery, setSearchQuery, setSearchResults, search
               ))}
             </div>
           ) : (
-            <p className="text-xs text-slate-600">尚未標記任何已學會的知識點。可以在「社群學習順序」中標記。</p>
+            <p className="text-xs text-slate-600">尚未標記任何已學會的知識點。可以在「社群結構列表」中標記。</p>
           )}
         </div>
 
@@ -585,19 +609,29 @@ function PathPlannerView({ searchQuery, setSearchQuery, setSearchResults, search
 
 /* ── Planned Path Result ───────────────────────── */
 function PlannedPathResult({ result, learnedNodes, pathMode }) {
-
-  if (result.error) {
+  if (result.status === 'analysis_unavailable') {
     return (
-      <div className="p-4 bg-red-900/20 border border-red-800 rounded-xl text-red-300 text-sm">
-        ⚠️ {result.error}
+      <div className="p-4 bg-amber-950/30 border border-amber-700/50 rounded-xl text-amber-200 text-sm">
+        <div className="font-bold mb-1">社群內分析結果尚未產生</div>
+        <div>{result.message}</div>
+        <div className="text-xs text-amber-400 mt-2">已分析 {result.analysis_node_count ?? 0} / {result.community_node_count ?? 0} 個節點；未以全 0 結果代替分析。</div>
       </div>
     )
   }
 
-  if (!result.path || result.path.length === 0) {
+  if (result.error || result.status === 'target_not_found') {
+    return (
+      <div className="p-4 bg-red-900/20 border border-red-800 rounded-xl text-red-300 text-sm">
+        ⚠️ {result.error || result.message}
+      </div>
+    )
+  }
+
+  const items = result.items || []
+  if (items.length === 0) {
     return (
       <div className="p-4 bg-slate-800 rounded-xl text-slate-400 text-sm text-center">
-        找不到從目前知識到目標節點的學習路徑。
+        找不到可供探索的同群組分析節點。
       </div>
     )
   }
@@ -611,7 +645,8 @@ function PlannedPathResult({ result, learnedNodes, pathMode }) {
   return (
     <div className="space-y-4">
       <div className="p-4 bg-indigo-950/30 rounded-xl border border-indigo-800/50">
-        <h3 className="text-lg font-bold text-white mb-3">前往「{result.target}」的學習路徑</h3>
+        <h3 className="text-lg font-bold text-white mb-2">「{result.target}」的探索性結構導覽</h3>
+        <p className="text-xs text-slate-400 mb-3">{result.message}</p>
         <div className="space-y-1.5 text-sm">
           <div className="text-sky-400">
             🎯 到「{result.target}」大概還要學習 <span className="font-bold">{remainingToTarget}</span> 個節點
@@ -620,6 +655,13 @@ function PlannedPathResult({ result, learnedNodes, pathMode }) {
           <div className="text-emerald-400">✓ 已標記瀏覽 <span className="font-bold">{result.already_reviewed ?? 0}</span></div>
           <div className="text-amber-400">🧭 同{scopeLabel}分析節點 <span className="font-bold">{items.length}</span></div>
         </div>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {items.slice(0, 30).map((item) => (
+          <span key={item.name} className={`px-2 py-1 rounded border text-xs ${learnedNodes.has(item.name) ? 'border-emerald-700 text-emerald-300 bg-emerald-950/30' : 'border-slate-700 text-slate-300 bg-slate-900/60'}`}>
+            {item.name} · Layer {item.layer} · OD {item.outDegree}
+          </span>
+        ))}
       </div>
     </div>
   )

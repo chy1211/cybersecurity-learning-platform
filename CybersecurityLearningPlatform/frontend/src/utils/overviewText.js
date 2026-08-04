@@ -11,8 +11,8 @@ export function buildOverviewDescription({ nodeCount, communityCount, chapterCou
   const formattedChapterCount = formatCount(chapterCount)
 
   if (!formattedNodeCount || !formattedCommunityCount || !formattedChapterCount) {
-    return '本平台透過 Neo4j 知識圖譜建構資安知識體系，利用 Leiden 社群偵測演算法整理知識節點、學習社群與章節模組，搭配拓撲分層與 Graph RAG 智慧導師，為你量身打造個人化的學習路徑。'
+    return '本平台透過 Neo4j 知識圖譜整理資安概念、分群與章節模組，並以平台展示版 Graph RAG 輔助問答。結構排序僅供探索，不代表經驗證之先備次序或個人化學習成效。'
   }
 
-  return `本平台透過 Neo4j 知識圖譜建構資安知識體系，利用 Leiden 社群偵測演算法將 ${formattedNodeCount} 個知識節點分為 ${formattedCommunityCount} 個學習社群，搭配 ${formattedChapterCount} 個章節模組、拓撲分層與 Graph RAG 智慧導師，為你量身打造個人化的學習路徑。`
+  return `本平台以 Neo4j 管理 ${formattedNodeCount} 個資安知識節點、${formattedCommunityCount} 個分群與 ${formattedChapterCount} 個章節模組，並以平台展示版 Graph RAG 輔助問答。結構排序僅供探索，不代表經驗證之先備次序或個人化學習成效。`
 }

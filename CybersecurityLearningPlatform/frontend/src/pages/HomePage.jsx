@@ -52,7 +52,7 @@ export default function HomePage() {
           歡迎來到資安職能學習平台
         </h1>
         <p className="text-xl text-slate-400 mb-4">
-          結合知識圖譜與 AI 的適性化學習體驗
+          結合知識圖譜與 AI 的探索性資安知識導覽
         </p>
         <p className="text-sm text-slate-500 max-w-2xl mx-auto mb-12">
           {buildOverviewDescription(stats)}
@@ -98,9 +98,9 @@ export default function HomePage() {
           
           <Link to="/skill-tree" className="bg-slate-800/60 border border-slate-700 p-6 rounded-xl shadow-lg hover:shadow-emerald-500/10 hover:border-emerald-500/50 hover:scale-[1.03] transition-all duration-300 cursor-pointer block group">
             <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">🗺️</div>
-            <h2 className="text-lg font-bold mb-2 text-white group-hover:text-emerald-400 transition-colors">學習路徑</h2>
+            <h2 className="text-lg font-bold mb-2 text-white group-hover:text-emerald-400 transition-colors">結構導覽</h2>
             <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
-              以拓撲分層排序的學習路徑，清楚了解先備知識與進階順序
+              依圖譜分群與連結結構提供排序建議；不代表經驗證之先備次序或固定學習路徑
             </p>
           </Link>
           
@@ -115,12 +115,12 @@ export default function HomePage() {
 
         {/* Quick Start CTA */}
         <div className="mt-12 p-6 bg-gradient-to-r from-indigo-950/40 to-fuchsia-950/40 rounded-xl border border-indigo-800/30">
-          <h3 className="text-lg font-bold text-white mb-2">🚀 快速開始學習</h3>
+          <h3 className="text-lg font-bold text-white mb-2">🚀 開始探索知識結構</h3>
           <p className="text-sm text-slate-400 mb-4">
-            前往學習路徑頁面，系統已依照拓撲分層為你排好最佳學習順序。從基礎社群開始，逐步掌握資安核心知識。
+            前往結構導覽頁面，依分群與連結性查看概念排序。此排序用於探索，不是個人化成效建議或固定學習次序。
           </p>
           <Link to="/skill-tree" className="inline-block px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition-colors shadow-lg shadow-indigo-500/20">
-            開始學習 →
+            開始探索 →
           </Link>
         </div>
         </div>

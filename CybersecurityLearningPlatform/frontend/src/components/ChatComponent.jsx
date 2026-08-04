@@ -175,10 +175,10 @@ export default function ChatComponent() {
           
           {messages.map((msg, idx) => (
             <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-              <div className={`max-w-[85%] rounded-lg p-4 ${
-                msg.role === 'user' 
-                  ? 'bg-indigo-600 text-white' 
-                  : 'bg-slate-800 text-slate-200'
+              <div className={`rounded-lg p-4 ${
+                msg.role === 'user'
+                  ? 'max-w-[85%] bg-indigo-600 text-white'
+                  : 'max-w-[92%] w-full bg-slate-800 text-slate-200'
               }`}>
                 {msg.role === 'assistant' ? (
                   <div>
@@ -238,7 +238,7 @@ export default function ChatComponent() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-              placeholder="輸入您的問題..."
+              placeholder="輸入資安問題；回答以平台一跳子圖為依據..."
               className="flex-1 bg-slate-800 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               disabled={loading}
             />

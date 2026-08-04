@@ -81,7 +81,7 @@ const ChapterPage = () => {
   return (
     <div className="max-w-[1600px] mx-auto px-4 py-8 h-full overflow-hidden flex flex-col">
       <h1 className="text-3xl font-bold mb-6 text-indigo-400 shrink-0">📖 章節導覽</h1>
-      <p className="text-slate-400 mb-6 shrink-0">各章節包含的知識點，依據頻率與重要性排序。</p>
+      <p className="text-slate-400 mb-6 shrink-0">章節列表顯示各原始來源單元的紀錄數加總；圖面合併同名章節後會依節點 ID 去重，因此兩者可能不同。</p>
       
       <div className="flex flex-col md:flex-row gap-6 flex-1 min-h-0">
         <div className="w-full md:w-1/4 shrink-0 flex flex-col">
@@ -100,7 +100,7 @@ const ChapterPage = () => {
                   <span className="font-medium">{unitName}</span>
                   {nodeCount !== undefined && (
                     <span className={`text-xs px-2 py-1 rounded-full ${selectedChapter === unitName ? 'bg-indigo-500 text-white' : 'bg-slate-800 text-slate-500'}`}>
-                      {nodeCount} 節點
+                      {nodeCount} 來源紀錄
                     </span>
                   )}
                 </button>

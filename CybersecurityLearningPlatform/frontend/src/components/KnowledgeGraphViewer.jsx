@@ -150,7 +150,7 @@ const KnowledgeGraphViewer = ({
       dimmed: !isHighlighted,
       radius: 28,
     });
-  }, [hoverNode, highlightNodes]);
+  }, [hoverNode, highlightNodes, searchedNode?.id]);
 
   const paintLink = useCallback((link, ctx, globalScale) => {
     const isHighlighted = highlightLinks.size === 0 || highlightLinks.has(getLinkKey(link));
@@ -185,8 +185,6 @@ const KnowledgeGraphViewer = ({
   const handleLinkClick = useCallback(link => {
     const sourceId = getEndpointId(link.source);
     const targetId = getEndpointId(link.target);
-    const sourceNode = graphData?.nodes?.find(n => n.id === sourceId);
-    const targetNode = graphData?.nodes?.find(n => n.id === targetId);
     setHoverLink(link);
     setHoverNode(null);
     const nextNodes = new Set([sourceId, targetId]);
@@ -199,7 +197,7 @@ const KnowledgeGraphViewer = ({
       const midY = (link.source.y + link.target.y) / 2;
       fgRef.current.centerAt(midX, midY, 500);
     }
-  }, [graphData]);
+  }, []);
 
   return (
     <div ref={containerRef} className="w-full h-full">

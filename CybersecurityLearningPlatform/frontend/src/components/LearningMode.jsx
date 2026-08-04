@@ -36,7 +36,7 @@ const LearningMode = ({ chapter, onClose, onComplete }) => {
     return () => {
       isMounted = false;
     };
-  }, [chapter.id]);
+  }, [chapter.id, questions.length]);
 
   const currentQuestion = questions[currentQuestionIndex];
 
@@ -76,21 +76,14 @@ const LearningMode = ({ chapter, onClose, onComplete }) => {
     }
   };
 
-  const handleComplete = async () => {
+  const handleComplete = () => {
     setSubmitting(true);
-    try {
-      await api.completeNode(chapter.id);
-      if (onComplete) {
-        onComplete();
-      } else {
-        onClose();
-      }
-    } catch (error) {
-      console.error("Failed to complete node", error);
+    if (onComplete) {
+      onComplete();
+    } else {
       onClose();
-    } finally {
-      setSubmitting(false);
     }
+    setSubmitting(false);
   };
 
   if (generating) {
@@ -99,7 +92,7 @@ const LearningMode = ({ chapter, onClose, onComplete }) => {
         <div className="bg-slate-800 p-8 rounded-xl max-w-md w-full text-center border border-slate-700">
           <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-indigo-500 mx-auto mb-4"></div>
           <h2 className="text-2xl font-bold text-white mb-4">題目生成中...</h2>
-          <p className="text-slate-300">AI 正在根據知識圖譜為您量身打造測驗題目，請稍候。</p>
+          <p className="text-slate-300">AI 正在根據知識圖譜產生本機展示用測驗題目，請稍候。</p>
         </div>
       </div>
     );
@@ -123,7 +116,6 @@ const LearningMode = ({ chapter, onClose, onComplete }) => {
   }
 
   if (completed) {
-    // If we have remedialInfo, it means the quiz was submitted and failed
     const percentage = (correctCount / questions.length) * 100;
     const passed = percentage >= 60;
 
@@ -139,23 +131,8 @@ const LearningMode = ({ chapter, onClose, onComplete }) => {
              <p className="text-slate-300">
                {passed 
                  ? `恭喜你完成了 ${chapter.data.label} 的學習單元。` 
-                 : `很遺憾，您需要達到 60% 的正確率才能解鎖下一個單元。`}
+                 : `本次未達 60%，可返回後重新檢視此概念。`}
              </p>
-             {!passed && remedialInfo && (
-                <div className="mt-4 p-4 bg-red-900/20 border border-red-800 rounded-lg">
-                    <h3 className="text-red-400 font-bold mb-2">💡 建議先學習</h3>
-                    <p className="text-slate-300 text-sm mb-3">{remedialInfo.remedial_message}</p>
-                    {remedialInfo.remedial_nodes && remedialInfo.remedial_nodes.length > 0 && (
-                      <div className="space-y-2">
-                          {remedialInfo.remedial_nodes.map(nodeId => (
-                              <div key={nodeId} className="w-full text-left p-2 bg-slate-800 rounded border border-slate-700 text-sm text-slate-300">
-                                  推薦先備節點：{nodeId}
-                              </div>
-                          ))}
-                      </div>
-                    )}
-                </div>
-            )}
           </div>
           {passed ? (
             <button 
@@ -167,11 +144,11 @@ const LearningMode = ({ chapter, onClose, onComplete }) => {
             </button>
           ) : (
             <button 
-              onClick={remedialInfo ? onClose : handleComplete}
+              onClick={onClose}
               disabled={submitting}
               className="w-full py-3 bg-slate-600 hover:bg-slate-500 text-white rounded-xl font-bold transition-colors shadow-[0_4px_0_0_#475569] disabled:opacity-50"
             >
-              {submitting ? '處理中...' : (remedialInfo ? '返回重試' : '送出成績並查看建議')}
+              返回重試
             </button>
           )}
         </div>
