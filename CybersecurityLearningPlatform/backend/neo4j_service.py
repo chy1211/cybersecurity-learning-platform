@@ -82,6 +82,15 @@ class Neo4jService:
     def close(self):
         if self.driver:
             self.driver.close()
+
+    def check_readiness(self):
+        try:
+            self.driver.verify_connectivity()
+            with self.driver.session() as session:
+                record = session.run("RETURN 1 AS ok").single()
+            return (bool(record and record["ok"] == 1), "ok")
+        except Exception:
+            return (False, "database_unavailable")
     
     def get_entity_context(self, entity_name):
         with self.driver.session() as session:
@@ -89,18 +98,43 @@ class Neo4jService:
                 """
                 MATCH (e {name: $entity_name})
                 OPTIONAL MATCH (e)-[r]-(neighbor)
-                RETURN e.name AS entity, e.description AS description,
-                       collect({name: neighbor.name, description: neighbor.description, relationship: type(r)}) AS neighbors
+                RETURN e.name AS entity, e.description AS description, e.source_file AS entity_source,
+                       collect({
+                           name: neighbor.name,
+                           description: neighbor.description,
+                           relationship: type(r),
+                           source_file: neighbor.source_file,
+                           relation_source: r.source_file
+                       }) AS neighbors
                 """,
                 entity_name=entity_name
             )
             record = result.single()
             if not record:
                 return None
+            neighbors = [n for n in record["neighbors"] if n["name"] is not None]
+            def source_refs(value):
+                if isinstance(value, list):
+                    return [str(item) for item in value if item]
+                return [str(value)] if value else []
+
+            evidence = [
+                {
+                    "entity": record["entity"],
+                    "relationship": neighbor["relationship"],
+                    "neighbor": neighbor["name"],
+                    "source": source_refs(
+                        neighbor.get("relation_source") or neighbor.get("source_file") or record["entity_source"]
+                    ),
+                }
+                for neighbor in neighbors
+            ]
             return {
                 "entity": record["entity"],
                 "description": record["description"],
-                "neighbors": [n for n in record["neighbors"] if n["name"] is not None]
+                "source_file": record["entity_source"],
+                "neighbors": neighbors,
+                "evidence": evidence,
             }
 
     @staticmethod
@@ -274,11 +308,27 @@ class Neo4jService:
         with self.driver.session() as session:
             result = session.run("""
                 MATCH (e)
-                WHERE e.name CONTAINS $search_query OR e.description CONTAINS $search_query
-                RETURN e.name AS name
-                LIMIT 5
-            """, search_query=query)
-            return [record["name"] for record in result]
+                WHERE e.name IS NOT NULL AND (
+                    toLower($search_query) CONTAINS toLower(e.name)
+                    OR any(term IN $terms WHERE toLower(e.name) = term)
+                    OR any(term IN $terms WHERE toLower(e.name) CONTAINS term)
+                )
+                WITH e, CASE
+                    WHEN any(term IN $terms WHERE toLower(e.name) = term) THEN 100
+                    WHEN toLower($search_query) CONTAINS toLower(e.name) THEN 80
+                    ELSE 60
+                END AS score
+                RETURN e.name AS name, score,
+                       CASE score WHEN 100 THEN 'exact' WHEN 80 THEN 'query_contains_name' ELSE 'partial' END AS match_type
+                ORDER BY score DESC, size(e.name), toLower(e.name)
+                LIMIT $limit
+            """, search_query=query, terms=terms, limit=limit)
+            candidates = [
+                {"name": record["name"], "score": record["score"], "match_type": record["match_type"]}
+                for record in result
+                if int(record["score"] or 0) >= min_score
+            ]
+            return candidates
     
 
 
@@ -302,37 +352,35 @@ class Neo4jService:
 
 
     def get_raw_knowledge_graph(self, limit=5000):
-        """Task 5: 獲取全知識圖譜 (包含所有節點與關係)"""
+        """Return all nodes plus a bounded, explicitly counted relationship page."""
         with self.driver.session() as session:
-            result = session.run("""
+            node_count_record = session.run("MATCH (n) RETURN count(n) AS total_nodes").single()
+            edge_count_record = session.run("MATCH ()-[r]->() RETURN count(r) AS total_edges").single()
+            node_result = session.run("""
+                MATCH (n)
+                RETURN elementId(n) AS id, coalesce(n.name, elementId(n)) AS label,
+                       coalesce(n.type, labels(n)[0], 'unknown') AS type
+                ORDER BY id
+            """)
+            edge_result = session.run("""
                 MATCH (n)-[r]->(m)
-                RETURN n.name AS source, labels(n)[0] AS source_type, type(r) AS relationship, m.name AS target, labels(m)[0] AS target_type
+                RETURN elementId(n) AS source, type(r) AS relationship, elementId(m) AS target
+                ORDER BY elementId(r)
                 LIMIT $limit
             """, limit=limit)
-            
-            nodes_dict = {}
-            edges = []
-            
-            for record in result:
-                source = record["source"]
-                source_type = record["source_type"]
-                target = record["target"]
-                target_type = record["target_type"]
-                rel = record["relationship"]
-                
-                if source not in nodes_dict:
-                    nodes_dict[source] = {"id": source, "label": source, "type": source_type}
-                if target not in nodes_dict:
-                    nodes_dict[target] = {"id": target, "label": target, "type": target_type}
-                
-                edges.append({
-                    "source": source,
-                    "target": target,
-                    "relationship": rel
-                })
-                
-            formatted_nodes = list(nodes_dict.values())
-            return {"nodes": formatted_nodes, "edges": edges}
+            nodes = [dict(record) for record in node_result]
+            edges = [dict(record) for record in edge_result]
+            total_nodes = int(node_count_record["total_nodes"] or 0) if node_count_record else 0
+            total_edges = int(edge_count_record["total_edges"] or 0) if edge_count_record else 0
+            return {
+                "nodes": nodes,
+                "edges": edges,
+                "total_nodes": total_nodes,
+                "total_edges": total_edges,
+                "returned_nodes": len(nodes),
+                "returned_edges": len(edges),
+                "truncated": len(nodes) < total_nodes or len(edges) < total_edges,
+            }
 
     def get_overview_stats(self):
         with self.driver.session() as session:
@@ -382,15 +430,7 @@ class Neo4jService:
     def get_node_neighbors(self, node_id, limit=20):
         """獲取特定節點的相鄰節點與關係"""
         with self.driver.session() as session:
-            node_count_record = session.run("MATCH (n) RETURN count(n) AS total_nodes").single()
-            edge_count_record = session.run("MATCH ()-[r]->() RETURN count(r) AS total_edges").single()
-            node_result = session.run("""
-                MATCH (n)
-                RETURN elementId(n) AS id, coalesce(n.name, elementId(n)) AS label,
-                       coalesce(n.type, labels(n)[0], 'unknown') AS type
-                ORDER BY id
-            """)
-            edge_result = session.run("""
+            result = session.run("""
                 MATCH (n)-[r]-(m)
                 WHERE n.name = $node_id
                 RETURN startNode(r).name AS source, type(r) AS relationship, endNode(r).name AS target
@@ -462,6 +502,9 @@ class Neo4jService:
                     "unit_mentions": 1,
                     "layer": r["layer"],
                     "labels": r["labels"],
+                    # 節點型別存在 n.type 屬性（B3 平台格式轉換後 label 僅 Entity/KGNode），
+                    # 前端 getNeo4jNodeType 優先吃這個欄位來上色與統計
+                    "type": r["type"],
                     "top_3_units": r["source_files"],
                     "final_community": r["final_community"]
                 })
@@ -503,9 +546,6 @@ class Neo4jService:
                 RETURN n.name AS id,
                        coalesce(n.display_name, n.name) AS name,
                        n.source_file AS top_3_units,
-                    # 節點型別存在 n.type 屬性（B3 平台格式轉換後 label 僅 Entity/KGNode），
-                    # 前端 getNeo4jNodeType 優先吃這個欄位來上色與統計
-                    "type": r["type"],
                        n.communityId AS final_community,
                        n.outDegree_inCommunity AS degree,
                        n.betweenness_inCommunity AS betweenness,
@@ -532,6 +572,8 @@ class Neo4jService:
                     "betweenness": r["betweenness"],
                     "layer": r["layer"],
                     "labels": r["labels"],
+                    # 同 get_chapter_graph：型別在 n.type，不在 label
+                    "type": r["type"],
                     "top_3_units": r["top_3_units"],
                     "final_community": r["final_community"]
                 })
@@ -553,86 +595,133 @@ class Neo4jService:
             
             return {"nodes": nodes, "links": links}
 
+    @staticmethod
+    def _analysis_state(coverage):
+        eligible = int(coverage.get("community_node_count") or 0)
+        analyzed = int(coverage.get("analysis_node_count") or 0)
+        if eligible <= 0 or analyzed <= 0:
+            return "unavailable"
+        if analyzed < eligible:
+            return "partial"
+        return "complete"
+
+    @classmethod
+    def _analysis_unavailable(cls, coverage, message=None):
+        state = cls._analysis_state(coverage)
+        return {
+            "status": "analysis_unavailable",
+            "analysis_state": state,
+            "message": message or "目前目標範圍尚未寫入完整的社群內中心性與分層分析結果。",
+            "navigation_type": "exploratory_structure",
+            "path": [],
+            "items": [],
+            **coverage,
+        }
+
+    @staticmethod
+    def _analysis_coverage(session, mode="community", community=None, source_files=None):
+        if mode == "chapter":
+            if source_files is not None:
+                record = session.run("""
+                    MATCH (n)
+                    WHERE n.source_file IS NOT NULL
+                    WITH n, CASE apoc.meta.cypher.type(n.source_file)
+                        WHEN 'LIST OF STRING' THEN n.source_file
+                        WHEN 'STRING' THEN [n.source_file]
+                        ELSE []
+                    END AS node_files
+                    WHERE any(unit IN node_files WHERE unit IN $source_files)
+                    RETURN count(n) AS community_node_count,
+                           sum(CASE WHEN n.outDegree_inCommunity IS NOT NULL
+                                         AND n.nodeLayerInCommunity IS NOT NULL
+                                    THEN 1 ELSE 0 END) AS analysis_node_count
+                """, source_files=source_files).single()
+            else:
+                record = session.run("""
+                    MATCH (n)
+                    WHERE n.source_file IS NOT NULL
+                    RETURN count(n) AS community_node_count,
+                           sum(CASE WHEN n.outDegree_inCommunity IS NOT NULL
+                                         AND n.nodeLayerInCommunity IS NOT NULL
+                                    THEN 1 ELSE 0 END) AS analysis_node_count
+                """).single()
+        elif community is not None:
+            record = session.run("""
+                MATCH (n)
+                WHERE n.communityId = $community
+                RETURN count(n) AS community_node_count,
+                       sum(CASE WHEN n.outDegree_inCommunity IS NOT NULL
+                                     AND n.nodeLayerInCommunity IS NOT NULL
+                                THEN 1 ELSE 0 END) AS analysis_node_count
+            """, community=community).single()
+        else:
+            record = session.run("""
+                MATCH (n)
+                WHERE n.communityId IS NOT NULL
+                RETURN count(n) AS community_node_count,
+                       sum(CASE WHEN n.outDegree_inCommunity IS NOT NULL
+                                     AND n.nodeLayerInCommunity IS NOT NULL
+                                THEN 1 ELSE 0 END) AS analysis_node_count
+            """).single()
+        eligible = int(record["community_node_count"] or 0) if record else 0
+        analyzed = int(record["analysis_node_count"] or 0) if record else 0
+        return {
+            "community_node_count": eligible,
+            "analysis_node_count": analyzed,
+            "analysis_coverage": (analyzed / eligible) if eligible else 0.0,
+        }
+
     def get_community_learning_paths(self):
-        """取得所有社群的學習路徑，按社群內 out-degree 排序節點"""
+        """Return exploratory community structure only when analysis properties exist."""
         with self.driver.session() as session:
-            # 1. 各社群內節點的社群內 out-degree
-            intra_result = session.run("""
-                MATCH (n) WHERE n.communityId IS NOT NULL
+            coverage = self._analysis_coverage(session, "community")
+            state = self._analysis_state(coverage)
+            if state == "unavailable":
+                return self._analysis_unavailable(coverage)
+            groups_result = session.run("""
+                MATCH (n)
+                WHERE n.communityId IS NOT NULL
+                  AND n.outDegree_inCommunity IS NOT NULL
+                  AND n.nodeLayerInCommunity IS NOT NULL
                 WITH n.communityId AS community, n.name AS node,
                      n.nodeLayerInCommunity AS layer,
                      n.outDegree_inCommunity AS outDegree
-                ORDER BY community, outDegree DESC, node
-                RETURN community, collect({
-                    name: node,
-                    outDegree: outDegree,
-                    layer: layer
-                }) AS nodes
+                ORDER BY community, layer, outDegree DESC, node
+                RETURN community, collect({name: node, outDegree: outDegree, layer: layer}) AS nodes
             """)
-            communities = {}
-            for record in intra_result:
-                comm_id = record["community"]
-                    # 同 get_chapter_graph：型別在 n.type，不在 label
-                    "type": r["type"],
-                communities[comm_id] = {
-                    "community": comm_id,
+            groups = [
+                {
+                    "community": record["community"],
                     "nodes": record["nodes"],
-                    "size": len(record["nodes"])
+                    "size": len(record["nodes"]),
                 }
-
-            # 2. 跨社群 out-degree（基礎程度排序）
-            inter_result = session.run("""
-                MATCH (a)-->(b)
-                                WHERE a.communityId IS NOT NULL AND b.communityId IS NOT NULL
-                                    AND a.communityId <> b.communityId
-                                WITH a.communityId AS source_comm, count(*) AS interOutDegree
-                ORDER BY interOutDegree DESC
-                RETURN source_comm, interOutDegree
-            """)
-            inter_ranking = {}
-            for i, record in enumerate(inter_result):
-                inter_ranking[record["source_comm"]] = {
-                    "interOutDegree": record["interOutDegree"],
-                    "rank": i
-                }
-
-            # 3. 社群內部邊（供 dagre layout 使用）
-            edges_result = session.run("""
-                MATCH (a)-[r]->(b)
-                                WHERE a.communityId IS NOT NULL
-                                    AND a.communityId = b.communityId
-                                RETURN a.communityId AS community,
-                       a.name AS source, b.name AS target, type(r) AS rel
-            """)
-            comm_edges = {}
-            for record in edges_result:
-                cid = record["community"]
-                if cid not in comm_edges:
-                    comm_edges[cid] = []
-                comm_edges[cid].append({
-                    "source": record["source"],
-                    "target": record["target"],
-                    "rel": record["rel"]
-                })
-
-            # 合併結果
-            result = []
-            for comm_id, comm_data in communities.items():
-                inter = inter_ranking.get(comm_id, {"interOutDegree": 0, "rank": 9999})
-                comm_data["interOutDegree"] = inter["interOutDegree"]
-                comm_data["rank"] = inter["rank"]
-                comm_data["edges"] = comm_edges.get(comm_id, [])
-                result.append(comm_data)
-
-            result.sort(key=lambda x: x["rank"])
-            return result
+                for record in groups_result
+            ]
+            return {
+                "status": "partial" if state == "partial" else "ok",
+                "analysis_state": state,
+                "navigation_type": "exploratory_structure",
+                "message": (
+                    "目前僅顯示已完成分析的分群；未分析分群不會被視為空路徑。"
+                    if state == "partial"
+                    else "排序僅反映分群與連結結構，不代表經驗證之先備次序。"
+                ),
+                "groups": groups,
+                **coverage,
+            }
 
     def get_chapter_learning_paths(self):
-        """取得所有章節的學習路徑，按章節內 out-degree 排序節點"""
+        """Return exploratory chapter groupings only when analysis properties exist."""
         with self.driver.session() as session:
-            # 1. 各章節內節點的章節內 out-degree
-            intra_result = session.run("""
-                MATCH (n) WHERE n.source_file IS NOT NULL
+            coverage = self._analysis_coverage(session, "chapter")
+            state = self._analysis_state(coverage)
+            if state == "unavailable":
+                return self._analysis_unavailable(coverage)
+            groups_result = session.run("""
+                MATCH (n)
+                WHERE n.source_file IS NOT NULL
+                  AND n.outDegree_inCommunity IS NOT NULL
+                  AND n.nodeLayerInCommunity IS NOT NULL
                 WITH n, CASE apoc.meta.cypher.type(n.source_file)
                     WHEN 'LIST OF STRING' THEN n.source_file
                     WHEN 'STRING' THEN [n.source_file]
@@ -641,194 +730,133 @@ class Neo4jService:
                 UNWIND source_files AS chapter
                 WITH chapter, n.name AS node, n.nodeLayerInCommunity AS layer,
                      n.outDegree_inCommunity AS outDegree
-                ORDER BY chapter, outDegree DESC, node
-                RETURN chapter, collect({
-                    name: node,
-                    outDegree: outDegree,
-                    layer: layer
-                }) AS nodes
+                ORDER BY chapter, layer, outDegree DESC, node
+                RETURN chapter AS community,
+                       collect({name: node, outDegree: outDegree, layer: layer}) AS nodes
             """)
-            chapters = {}
-            for record in intra_result:
-                ch_id = record["chapter"]
-                chapters[ch_id] = {
-                    "community": ch_id, # Reusing the 'community' key name for frontend compatibility
+            groups = [
+                {
+                    "community": record["community"],
                     "nodes": record["nodes"],
-                    "size": len(record["nodes"])
+                    "size": len(record["nodes"]),
                 }
-
-            # 2. 跨章節 out-degree（基礎程度排序）
-            inter_result = session.run("""
-                MATCH (a)-[]->(b)
-                     WHERE a.source_file IS NOT NULL AND b.source_file IS NOT NULL
-                     WITH a, b,
-                            CASE apoc.meta.cypher.type(a.source_file)
-                                WHEN 'LIST OF STRING' THEN a.source_file
-                                WHEN 'STRING' THEN [a.source_file]
-                                ELSE []
-                            END AS a_files,
-                            CASE apoc.meta.cypher.type(b.source_file)
-                                WHEN 'LIST OF STRING' THEN b.source_file
-                                WHEN 'STRING' THEN [b.source_file]
-                                ELSE []
-                            END AS b_files
-                     UNWIND a_files AS source_comm
-                     UNWIND b_files AS target_comm
-                     WITH source_comm, target_comm
-                     WHERE source_comm <> target_comm
-                     WITH source_comm, count(*) AS interOutDegree
-                ORDER BY interOutDegree DESC
-                RETURN source_comm, interOutDegree
-            """)
-            inter_ranking = {}
-            for i, record in enumerate(inter_result):
-                inter_ranking[record["source_comm"]] = {
-                    "interOutDegree": record["interOutDegree"],
-                    "rank": i
-                }
-
-            # 3. 章節內部邊（供 dagre layout 使用）
-            edges_result = session.run("""
-                MATCH (a)-[r]->(b)
-                     WHERE a.source_file IS NOT NULL AND b.source_file IS NOT NULL
-                     WITH a, b, r,
-                            CASE apoc.meta.cypher.type(a.source_file)
-                                WHEN 'LIST OF STRING' THEN a.source_file
-                                WHEN 'STRING' THEN [a.source_file]
-                                ELSE []
-                            END AS a_files,
-                            CASE apoc.meta.cypher.type(b.source_file)
-                                WHEN 'LIST OF STRING' THEN b.source_file
-                                WHEN 'STRING' THEN [b.source_file]
-                                ELSE []
-                            END AS b_files
-                     UNWIND a_files AS chapter
-                     WITH a, b, r, chapter, b_files
-                     WHERE chapter IN b_files
-                     RETURN chapter AS community,
-                       a.name AS source, b.name AS target, type(r) AS rel
-            """)
-            comm_edges = {}
-            for record in edges_result:
-                cid = record["community"]
-                if cid not in comm_edges:
-                    comm_edges[cid] = []
-                comm_edges[cid].append({
-                    "source": record["source"],
-                    "target": record["target"],
-                    "rel": record["rel"]
-                })
-
-            # 合併結果
-            result = []
-            for comm_id, comm_data in chapters.items():
-                inter = inter_ranking.get(comm_id, {"interOutDegree": 0, "rank": 9999})
-                comm_data["interOutDegree"] = inter["interOutDegree"]
-                comm_data["rank"] = inter["rank"]
-                comm_data["edges"] = comm_edges.get(comm_id, [])
-                result.append(comm_data)
-
-            result.sort(key=lambda x: x["rank"])
-            return result
+                for record in groups_result
+            ]
+            return {
+                "status": "partial" if state == "partial" else "ok",
+                "analysis_state": state,
+                "navigation_type": "exploratory_structure",
+                "message": (
+                    "目前僅顯示已完成分析的章節節點；未分析節點不會被視為空路徑。"
+                    if state == "partial"
+                    else "排序僅反映章節與連結結構，不代表經驗證之先備次序。"
+                ),
+                "groups": groups,
+                **coverage,
+            }
 
     def plan_learning_path(self, target_node, learned_nodes, mode='community'):
-        """根據已學節點和目標節點，用反向 BFS 規劃學習路徑"""
+        """Return a target-scoped exploratory ranking; never infer prerequisites from general edges."""
         with self.driver.session() as session:
-            # 確認目標節點存在
-            check = session.run("MATCH (n {name: $name}) RETURN n.name AS name", name=target_node)
-            target_record = check.single()
-            if not target_record:
-                return {"error": "目標節點不存在", "path": []}
+            if mode == 'chapter':
+                scope = session.run("""
+                    MATCH (target {name: $name})
+                    WITH target, CASE apoc.meta.cypher.type(target.source_file)
+                        WHEN 'LIST OF STRING' THEN target.source_file
+                        WHEN 'STRING' THEN [target.source_file]
+                        ELSE []
+                    END AS source_files
+                    RETURN target.name AS name, source_files
+                    ORDER BY size(source_files) DESC
+                    LIMIT 1
+                """, name=target_node).single()
+                if not scope:
+                    return {"status": "target_not_found", "message": "目標節點不存在", "path": [], "items": []}
+                source_files = list(scope.get("source_files") or [])
+                coverage = self._analysis_coverage(session, mode, source_files=source_files)
+                target_scope = {"mode": "chapter", "source_files": source_files}
+            else:
+                scope = session.run("""
+                    MATCH (target {name: $name})
+                    RETURN target.name AS name, target.communityId AS community
+                    ORDER BY target.communityId
+                    LIMIT 1
+                """, name=target_node).single()
+                if not scope:
+                    return {"status": "target_not_found", "message": "目標節點不存在", "path": [], "items": []}
+                community = scope.get("community")
+                coverage = self._analysis_coverage(session, mode, community=community)
+                target_scope = {"mode": "community", "community": community}
 
-            # 取得所有 prerequisite 邊（低 layer → 高 layer）
-            edges_result = session.run("""
-                MATCH (s)-[r]->(t)
-                                WHERE s.nodeLayerInCommunity IS NOT NULL
-                                    AND t.nodeLayerInCommunity IS NOT NULL
-                RETURN s.name AS source, t.name AS target
-            """)
-            # 建立反向鄰接表（target → sources）
-            reverse_adj = {}
-            for record in edges_result:
-                t = record["target"]
-                s = record["source"]
-                if t not in reverse_adj:
-                    reverse_adj[t] = []
-                reverse_adj[t].append(s)
+            target_scope.update(coverage)
+            target_scope["analysis_state"] = self._analysis_state(coverage)
 
-            # BFS 反向追蹤：從目標節點往前找先備知識
-            learned_set = set(learned_nodes or [])
-            visited = set()
-            path_nodes = []
-            queue = [target_node]
-            parent = {target_node: None}
-
-            while queue:
-                current = queue.pop(0)
-                if current in visited:
-                    continue
-                visited.add(current)
-                path_nodes.append(current)
-
-                # 如果已學會就不再往前追蹤
-                if current in learned_set and current != target_node:
-                    continue
-
-                for prereq in reverse_adj.get(current, []):
-                    if prereq not in visited:
-                        queue.append(prereq)
-                        if prereq not in parent:
-                            parent[prereq] = current
-
-            # 取得路徑上所有節點的詳細資訊
-            if not path_nodes:
-                return {"path": [], "target": target_node}
+            if self._analysis_state(coverage) != "complete":
+                unavailable = self._analysis_unavailable(
+                    coverage,
+                    "目標所在範圍的分析資料尚未完整，系統不會回傳空結果並標示成功。",
+                )
+                unavailable.update({"target": target_node, "target_scope": target_scope})
+                return unavailable
 
             if mode == 'chapter':
                 nodes_result = session.run("""
-                    MATCH (n) WHERE n.name IN $names
+                    MATCH (n)
+                    WHERE n.outDegree_inCommunity IS NOT NULL
+                      AND n.nodeLayerInCommunity IS NOT NULL
                     WITH n, CASE apoc.meta.cypher.type(n.source_file)
                         WHEN 'LIST OF STRING' THEN n.source_file
                         WHEN 'STRING' THEN [n.source_file]
                         ELSE []
-                    END AS source_files
-                    WITH n.name AS name,
-                         head(source_files) AS community,
-                         n.nodeLayerInCommunity AS layer,
-                         n.outDegree_inCommunity AS outDegree
-                    RETURN name, community, layer, outDegree
-                """, names=path_nodes)
-            else:
-                nodes_result = session.run("""
-                    MATCH (n) WHERE n.name IN $names
-                    RETURN n.name AS name,
-                           n.communityId AS community,
+                    END AS node_files
+                    WHERE any(unit IN node_files WHERE unit IN $source_files)
+                    RETURN n.name AS name, head(node_files) AS community,
                            n.nodeLayerInCommunity AS layer,
                            n.outDegree_inCommunity AS outDegree
-                """, names=path_nodes)
+                """, source_files=source_files)
+            else:
+                nodes_result = session.run("""
+                    MATCH (n)
+                    WHERE n.communityId = $community
+                      AND n.outDegree_inCommunity IS NOT NULL
+                      AND n.nodeLayerInCommunity IS NOT NULL
+                    RETURN n.name AS name, n.communityId AS community,
+                           n.nodeLayerInCommunity AS layer,
+                           n.outDegree_inCommunity AS outDegree
+                """, community=community)
 
-            node_info = {}
-            for record in nodes_result:
-                node_info[record["name"]] = {
+            learned_set = set(learned_nodes or [])
+            items = [
+                {
                     "name": record["name"],
                     "community": record["community"],
                     "layer": record["layer"],
                     "outDegree": record["outDegree"],
-                    "learned": record["name"] in learned_set
+                    "learned": record["name"] in learned_set,
                 }
-
-            # 按 layer 升序排列（先學基礎）
-            ordered_path = sorted(
-                [node_info[n] for n in path_nodes if n in node_info],
-                key=lambda x: (x.get("layer") or 0, -(x.get("outDegree") or 0))
-            )
+                for record in nodes_result
+            ]
+            items.sort(key=lambda item: (item["layer"], -item["outDegree"], item["name"]))
+            if not items:
+                unavailable = self._analysis_unavailable(
+                    coverage,
+                    "分析覆蓋統計與查詢結果不一致；已拒絕回傳 ok 與空項目。",
+                )
+                unavailable.update({"target": target_node, "target_scope": target_scope})
+                return unavailable
 
             return {
-                "path": ordered_path,
+                "status": "ok",
+                "analysis_state": "complete",
+                "navigation_type": "exploratory_structure",
+                "message": "此建議依分群、分析層級與連結性排序，不代表先備關係或固定學習路徑。",
                 "target": target_node,
-                "total": len(ordered_path),
-                "already_learned": sum(1 for n in ordered_path if n["learned"]),
-                "to_learn": sum(1 for n in ordered_path if not n["learned"])
+                "target_scope": target_scope,
+                "items": items,
+                "total": len(items),
+                "already_reviewed": sum(1 for item in items if item["learned"]),
+                "to_review": sum(1 for item in items if not item["learned"]),
+                **coverage,
             }
 
     def search_nodes_by_name(self, query, limit=15, mode='community'):

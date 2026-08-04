@@ -78,36 +78,45 @@ class LLMService:
             return ChatGroq(
                 temperature=0.7, 
                 groq_api_key=Config.GROQ_API_KEY, 
-                model_name=Config.GROQ_MODEL
+                model_name=Config.GROQ_MODEL,
+                timeout=Config.LLM_TIMEOUT_SECONDS,
+                max_retries=Config.LLM_MAX_RETRIES,
             )
         elif self.provider == 'lm_studio':
             return ChatOpenAI(
                 base_url=Config.LM_STUDIO_BASE_URL,
                 api_key="lm-studio",
                 temperature=0,
-                model_name=Config.LM_STUDIO_MODEL
+                model_name=Config.LM_STUDIO_MODEL,
+                timeout=Config.LLM_TIMEOUT_SECONDS,
+                max_retries=Config.LLM_MAX_RETRIES,
             )
         else:
             return ChatOpenAI(
                 model="gpt-4o", 
                 temperature=0.7, 
-                openai_api_key=Config.OPENAI_API_KEY
+                openai_api_key=Config.OPENAI_API_KEY,
+                timeout=Config.LLM_TIMEOUT_SECONDS,
+                max_retries=Config.LLM_MAX_RETRIES,
             )
 
     def _log_interaction(self, log_file, prompt_input, response_content):
-        """Helper to log LLM interaction to file"""
+        """Log metadata only; prompts, evidence, and model output stay out of logs."""
         if not log_file:
             return
             
         try:
             with open(log_file, 'a', encoding='utf-8') as f:
-                f.write("\n" + "="*50 + "\n")
-                f.write(f"LLM Interaction Time: {datetime.datetime.now().isoformat()}\n")
-                f.write("-" * 20 + " PROMPT INPUT " + "-" * 20 + "\n")
-                f.write(json.dumps(prompt_input, ensure_ascii=False, indent=2))
-                f.write("\n" + "-" * 20 + " LLM RESPONSE " + "-" * 20 + "\n")
-                f.write(str(response_content))
-                f.write("\n" + "="*50 + "\n")
+                input_data = prompt_input.get("input", {}) if isinstance(prompt_input, dict) else {}
+                metadata = {
+                    "time": datetime.datetime.now().isoformat(),
+                    "template": prompt_input.get("template") if isinstance(prompt_input, dict) else None,
+                    "input_keys": sorted(input_data.keys()),
+                    "input_lengths": {key: len(str(value)) for key, value in input_data.items()},
+                    "response_length": len(str(response_content)),
+                    "status": "pending" if response_content == "Waiting for response..." else "completed",
+                }
+                f.write(json.dumps(metadata, ensure_ascii=False) + "\n")
         except Exception as e:
             print(f"Error writing to log file: {e}")
     
@@ -116,7 +125,6 @@ class LLMService:
             ("system", load_prompt("platform/explain_mistake_system.md")),
             ("user", load_prompt("platform/explain_mistake_user.md"))
         ])
-        chain = prompt | self.llm
         
         # Log input
         input_vars = {
@@ -139,7 +147,6 @@ class LLMService:
             ("system", load_prompt("platform/extract_entities_system.md")),
             ("user", "{text}")
         ])
-        chain = prompt | self.llm
         
         input_vars = {"text": text}
         self._log_interaction(log_file, {"template": "extract_entities", "input": input_vars}, "Waiting for response...")
@@ -163,7 +170,6 @@ class LLMService:
             ("system", load_prompt("platform/identify_entities_system.md")),
             ("user", "{query}")
         ])
-        chain = prompt | self.llm
         
         input_vars = {"query": query}
         self._log_interaction(log_file, {"template": "identify_entities", "input": input_vars}, "Waiting for response...")
@@ -180,16 +186,6 @@ class LLMService:
         except:
             return []
     
-    def generate_answer_with_context(self, query, context, log_file=None):
-        if isinstance(context, dict) and "edges" in context:
-            context_str = self.build_graph_context_string(context)
-        else:
-            # 舊格式（單一實體＋鄰居清單）保留相容
-            context_str = f"主題: {context['entity']}\n說明: {context.get('description')}\n\n相關知識:\n"
-            for neighbor in context.get('neighbors', []):
-                context_str += f"- {neighbor['name']}: {neighbor.get('description')}\n"
-
-        prompt = ChatPromptTemplate.from_messages([
     @staticmethod
     def build_graph_context_string(graph_context):
         """把子圖攤成三元組文字，這份字串就是模型實際看到的圖內容。
@@ -225,10 +221,19 @@ class LLMService:
             )
         return "\n".join(lines)
 
+    def generate_answer_with_context(self, query, context, log_file=None):
+        if isinstance(context, dict) and "edges" in context:
+            context_str = self.build_graph_context_string(context)
+        else:
+            # 舊格式（單一實體＋鄰居清單）保留相容
+            context_str = f"主題: {context['entity']}\n說明: {context.get('description')}\n\n相關知識:\n"
+            for neighbor in context.get('neighbors', []):
+                context_str += f"- {neighbor['name']}: {neighbor.get('description')}\n"
+
+        prompt = ChatPromptTemplate.from_messages([
             ("system", load_prompt("platform/graph_rag_answer_system.md")),
             ("user", "{query}")
         ])
-        chain = prompt | self.llm
         
         input_vars = {"query": query, "context": context_str}
         self._log_interaction(log_file, {"template": "generate_answer", "input": input_vars}, "Waiting for response...")
@@ -247,7 +252,6 @@ class LLMService:
             ("user", prompt_text)
         ])
         
-        chain = prompt | self.llm
         
         # Convert context_json to string if it's a dict/list
         context_str = json.dumps(context_json, ensure_ascii=False) if isinstance(context_json, (dict, list)) else str(context_json)
@@ -305,7 +309,6 @@ class LLMService:
             ("user", prompt_text)
         ])
         
-        chain = prompt | self.llm
         
         # Build context string
         full_context_str = ""
