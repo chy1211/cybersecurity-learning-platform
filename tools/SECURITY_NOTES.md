@@ -28,6 +28,18 @@
 
 `CybersecurityLearningPlatform/backend/.env.example` 可安全提交，因為所有憑證欄位皆為空白佔位符。
 
+### 若 `.env` 曾被 Git 追蹤
+
+先在交接 repo 根目錄確認狀態；以下命令只解除索引追蹤，不刪除本機 `.env`：
+
+```powershell
+git ls-files --error-unmatch CybersecurityLearningPlatform/backend/.env
+git rm --cached -- CybersecurityLearningPlatform/backend/.env
+git commit -m "security: stop tracking local environment file"
+```
+
+接著在 OpenAI、Google/Gemini、Groq、NVIDIA 與 Neo4j 等實際使用的服務端撤銷並重建曾出現在該檔的憑證；不要只修改本機檔名。若秘密曾進入公開 Git 歷史，另以 `git filter-repo` 在隔離副本重寫歷史、強制推送，並通知所有協作者重新 clone。歷史清除不能取代 provider 端輪替。
+
 ## 刻意排除的檔案
 
 | 排除項目 | 原因 |
