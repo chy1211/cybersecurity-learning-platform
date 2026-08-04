@@ -47,8 +47,8 @@
 ("data", "deployed_in", "system"),
 ("feature", "uses", "data"), ("feature", "is_part_of", "tool"),
 ("function", "has_a", "feature"),
-("system", "generates", "data"), ("system", "uses", "data"), ("system", "has_a", "feature"), ("system", "connects_to", "system"), ("system", "has_a", "system"), ("system", "has_a", "system"), ("system", "is_part_of", "system"), ("system", "is_part_of", "system"), ("system", "has_a", "tool"),
-("technique", "can_analyze", "app"), ("technique", "can_analyze", "data"), ("technique", "can_analyze", "system"), ("technique", "is_part_of", "technique"), ("technique", "is_part_of", "technique"), ("technique", "has_a", "tool"),
+("system", "generates", "data"), ("system", "uses", "data"), ("system", "has_a", "feature"), ("system", "connects_to", "system"), ("system", "has_a", "system"), ("system", "is_part_of", "system"), ("system", "has_a", "tool"),
+("technique", "can_analyze", "app"), ("technique", "can_analyze", "data"), ("technique", "can_analyze", "system"), ("technique", "is_part_of", "technique"), ("technique", "has_a", "tool"),
 ("tool", "is_part_of", "app"), ("tool", "generates", "data"), ("tool", "has_a", "feature"), ("tool", "has_a", "function"), ("tool", "deployed_in", "system"), ("tool", "is_part_of", "system"), ("tool", "uses", "technique"), ("tool", "has_a", "tool"), ("tool", "is_part_of", "tool"),
 ("user", "uses", "app"), ("user", "uses", "data"), ("user", "implements", "policy"), ("user", "uses", "system"), ("user", "can_expose", "vulnerability"),
 
@@ -59,8 +59,7 @@
 ("data", "can_expose", "vulnerability"),
 ("feature", "can_expose", "vulnerability"),
 ("system", "can_expose", "vulnerability"),
-("technique", "implements", "attack"), ("technique", "depends_on", "tool"),
-("tool", "controls", "system"),
+("technique", "implements", "attack"),
 ("vulnerability", "can_expose", "risk"),
 
 **[安全防禦視角]**

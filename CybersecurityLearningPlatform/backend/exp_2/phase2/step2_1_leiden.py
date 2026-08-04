@@ -8,8 +8,9 @@ Phase 2 Step 2.1: Leiden parameter grid scan + finalize.
     不寫入 communityId，等人工確認後再 finalize。
 
 定案模式：
-  python step2_1_leiden.py --finalize --gamma 2.0 --min_community_size 3
+  python step2_1_leiden.py --finalize --gamma 1.5 --min_community_size 3
   → 將選定組的社群 ID 寫入 communityId，清除臨時掃描屬性。
+  定案參數以重跑掃描結果為準。
 """
 
 from __future__ import annotations
@@ -49,13 +50,29 @@ def _config_key(gamma: float, min_size: int) -> str:
 
 # ─── GDS 投影 ──────────────────────────────────────────────────────────────────
 
-def project_graph(session) -> dict:
-    drop_gds_graph(session, GRAPH_NAME)
+def build_size_distribution(sizes: list[int]) -> dict[str, int]:
+    buckets = {"1-2": 0, "3-9": 0, "10-49": 0, "50-99": 0, ">=100": 0}
+    for s in sizes:
+        if s <= 2:
+            buckets["1-2"] += 1
+        elif s <= 9:
+            buckets["3-9"] += 1
+        elif s <= 49:
+            buckets["10-49"] += 1
+        elif s <= 99:
+            buckets["50-99"] += 1
+        else:
+            buckets[">=100"] += 1
+    return buckets
+
+
+def project_graph(session, graph_name: str = GRAPH_NAME) -> dict:
+    drop_gds_graph(session, graph_name)
     rec = session.run(
         "CALL gds.graph.project($gn, 'KGNode', $rp) "
         "YIELD graphName, nodeCount, relationshipCount "
         "RETURN graphName, nodeCount, relationshipCount",
-        gn=GRAPH_NAME,
+        gn=graph_name,
         rp=platform_rel_projection("UNDIRECTED"),
     ).single()
     return dict(rec) if rec else {}
@@ -72,7 +89,8 @@ def fetch_community_sizes(session, prop: str) -> list[int]:
     return [int(r["sz"]) for r in rows]
 
 
-def run_one_config(session, gamma: float, min_size: int) -> dict:
+def run_one_config(session, gamma: float, min_size: int,
+                   graph_name: str = GRAPH_NAME) -> dict:
     prop = _prop_name(gamma, min_size)
     gds_cfg = {
         "writeProperty":    prop,
@@ -84,7 +102,7 @@ def run_one_config(session, gamma: float, min_size: int) -> dict:
     rec = session.run(
         "CALL gds.leiden.write($gn, $cfg) YIELD communityCount, modularity "
         "RETURN communityCount, modularity",
-        gn=GRAPH_NAME, cfg=gds_cfg,
+        gn=graph_name, cfg=gds_cfg,
     ).single()
     if rec is None:
         raise RuntimeError(f"Leiden returned no result for γ={gamma} min={min_size}")
@@ -95,13 +113,7 @@ def run_one_config(session, gamma: float, min_size: int) -> dict:
     top50_cov   = round(top50_nodes / total_nodes, 4) if total_nodes else 0.0
     largest_pct = round(max(sizes) / total_nodes, 4) if sizes else 0.0
 
-    buckets = {"1-2": 0, "3-9": 0, "10-49": 0, "50-99": 0, ">=100": 0}
-    for s in sizes:
-        if s <= 2:           buckets["1-2"]   += 1
-        elif s <= 9:         buckets["3-9"]   += 1
-        elif s <= 49:        buckets["10-49"] += 1
-        elif s <= 99:        buckets["50-99"] += 1
-        else:                buckets[">=100"] += 1
+    buckets = build_size_distribution(sizes)
 
     return {
         "gamma":             gamma,
@@ -139,7 +151,8 @@ def print_comparison_table(results: list[dict]) -> None:
     print("  • modularity：同等社群數下選較高者\n")
 
 
-def run_scan(uri: str, user: str, password: str, output: Path) -> list[dict]:
+def run_scan(uri: str, user: str, password: str, output: Path,
+             graph_name: str = GRAPH_NAME) -> list[dict]:
     driver = open_driver(uri, user, password)
     results = []
     total = len(GAMMAS) * len(MIN_SIZES)
@@ -147,7 +160,7 @@ def run_scan(uri: str, user: str, password: str, output: Path) -> list[dict]:
     try:
         with driver.session() as session:
             print(f"[1/2] 建立 GDS 投影（KGNode × 16 關係，UNDIRECTED）...")
-            proj = project_graph(session)
+            proj = project_graph(session, graph_name)
             print(f"  節點：{proj.get('nodeCount')}，關係：{proj.get('relationshipCount')}")
 
             print(f"\n[2/2] 掃描 {total} 組參數（γ × minCommunitySize）...")
@@ -156,13 +169,13 @@ def run_scan(uri: str, user: str, password: str, output: Path) -> list[dict]:
                 for min_size in MIN_SIZES:
                     idx += 1
                     print(f"  [{idx:2d}/{total}] γ={gamma}, minSize={min_size}", end=" ... ", flush=True)
-                    result = run_one_config(session, gamma, min_size)
+                    result = run_one_config(session, gamma, min_size, graph_name)
                     results.append(result)
                     print(f"社群數={result['communityCount']}, modularity={result['modularity']:.4f}")
 
     finally:
         with driver.session() as s:
-            drop_gds_graph(s, GRAPH_NAME)
+            drop_gds_graph(s, graph_name)
         driver.close()
 
     payload = {
@@ -247,14 +260,18 @@ def run_finalize(uri: str, user: str, password: str,
 
 # ─── CLI ───────────────────────────────────────────────────────────────────────
 
-def parse_args() -> argparse.Namespace:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--uri",      default=DEFAULT_NEO4J_URI)
     parser.add_argument("--user",     default=DEFAULT_NEO4J_USER)
     parser.add_argument("--password", default=DEFAULT_NEO4J_PASSWORD)
+    parser.add_argument("--graph-name", default=GRAPH_NAME,
+                        help="GDS graph projection name")
+    parser.add_argument("--result-dir", default=None,
+                        help="比較表 JSON 輸出目錄；預設沿用 phase2_common.DEFAULT_RESULT_DIR")
     parser.add_argument(
         "--output",
-        default=str(default_output_path(OUTPUT_FILENAME)),
+        default=None,
         help="比較表 JSON 輸出路徑",
     )
     # 定案模式旗標
@@ -264,7 +281,10 @@ def parse_args() -> argparse.Namespace:
                         help="[定案模式] 選定的 gamma 值")
     parser.add_argument("--min_community_size", type=int,
                         help="[定案模式] 選定的 minCommunitySize 值")
-    return parser.parse_args()
+    args = parser.parse_args(argv)
+    if args.output is None:
+        args.output = str(default_output_path(OUTPUT_FILENAME, args.result_dir))
+    return args
 
 
 def main() -> None:
@@ -284,7 +304,7 @@ def main() -> None:
         run_finalize(args.uri, args.user, args.password,
                      args.gamma, args.min_community_size, output)
     else:
-        run_scan(args.uri, args.user, args.password, output)
+        run_scan(args.uri, args.user, args.password, output, args.graph_name)
 
 
 if __name__ == "__main__":

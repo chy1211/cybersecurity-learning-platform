@@ -6,14 +6,71 @@ from pathlib import Path
 PHASE2_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PHASE2_DIR))
 
+from migrate_analysis_properties import (
+    APPLY_TOKEN,
+    RESTORE_TOKEN,
+    ensure_clean_apply_state,
+    parse_args,
+    require_confirmation,
+    validate_post_apply_coverage,
+)
 from step2_1_leiden import build_size_distribution
 from step2_2_ccod import build_ccod_ranking
-from step2_4_topo_layer import assign_layers_with_cycle_breaks
-from step2_5_topic_label import build_labeling_rows
-from step2_6_chapter_dict import parse_source_file, summarize_chapter_counts
+from step2_4_topo_layer import centrality_layers, dag_layers
+from step2_5_topic_label import fetch_community_data
+from step2_6_chapter_dict import build_source_mapping, summarize_chapter_counts
 
 
 class Phase2HelperTests(unittest.TestCase):
+    def test_migration_defaults_to_read_only_dry_run(self):
+        args = parse_args([])
+        self.assertFalse(args.apply)
+        self.assertIsNone(args.restore)
+
+    def test_migration_apply_requires_exact_confirmation(self):
+        with self.assertRaises(ValueError):
+            require_confirmation("apply", "wrong")
+        self.assertIsNone(require_confirmation("apply", APPLY_TOKEN))
+
+    def test_migration_restore_requires_exact_confirmation(self):
+        with self.assertRaises(ValueError):
+            require_confirmation("restore", None)
+        self.assertIsNone(require_confirmation("restore", RESTORE_TOKEN))
+
+    def test_migration_refuses_repeated_apply_when_analysis_properties_exist(self):
+        with self.assertRaises(RuntimeError):
+            ensure_clean_apply_state({
+                "out_degree": 10,
+                "betweenness": 0,
+                "closeness": 0,
+                "centrality_layer": 0,
+                "dag_layer": 0,
+            })
+        self.assertIsNone(ensure_clean_apply_state({
+            "out_degree": 0,
+            "betweenness": 0,
+            "closeness": 0,
+            "centrality_layer": 0,
+            "dag_layer": 0,
+        }))
+
+    def test_migration_requires_exact_expected_coverage(self):
+        planned = {"all_nodes": 100, "centrality_nodes": 80}
+        after = {
+            "community_nodes": 100,
+            "out_degree": 80,
+            "betweenness": 80,
+            "closeness": 80,
+            "centrality_layer": 100,
+            "dag_layer": 100,
+        }
+        self.assertEqual(after, validate_post_apply_coverage(after, planned))
+
+        broken = dict(after)
+        broken["betweenness"] = 79
+        with self.assertRaises(RuntimeError):
+            validate_post_apply_coverage(broken, planned)
+
     def test_leiden_size_distribution_uses_expected_buckets(self):
         sizes = [1, 2, 3, 9, 10, 49, 50, 99, 100, 101]
 
@@ -43,56 +100,123 @@ class Phase2HelperTests(unittest.TestCase):
         self.assertEqual([row["rank"] for row in rows], [1, 2, 3])
         self.assertEqual([row["community_size"] for row in rows], [4, 2, 1])
 
-    def test_topological_layers_handle_dag(self):
-        layers, removed_edges = assign_layers_with_cycle_breaks(
-            nodes=["A", "B", "C", "D"],
-            edges=[("A", "B"), ("A", "C"), ("B", "D"), ("C", "D")],
+    def test_centrality_layers_keep_ties_and_zero_degree_nodes(self):
+        layers = centrality_layers(
+            [
+                {"node_id": 1, "out_deg": 3},
+                {"node_id": 2, "out_deg": 3},
+                {"node_id": 3, "out_deg": 1},
+                {"node_id": 4, "out_deg": 0},
+            ]
         )
 
-        self.assertEqual(layers, {"A": 0, "B": 1, "C": 1, "D": 2})
+        self.assertEqual(layers, {1: 0, 2: 0, 3: 1, 4: 2})
+
+    def test_dag_layers_handle_acyclic_graph_and_isolated_node(self):
+        layers, removed_edges = dag_layers(
+            node_ids=[1, 2, 3, 4, 99],
+            edges=[(1, 2), (1, 3), (2, 4), (3, 4)],
+        )
+
+        self.assertEqual(layers, {1: 0, 99: 0, 2: 1, 3: 1, 4: 2})
         self.assertEqual(removed_edges, [])
 
-    def test_topological_layers_break_cycles_deterministically(self):
-        layers, removed_edges = assign_layers_with_cycle_breaks(
-            nodes=["A", "B", "C"],
-            edges=[("A", "B"), ("B", "C"), ("C", "B")],
+    def test_dag_layers_break_cycles_deterministically(self):
+        layers, removed_edges = dag_layers(
+            node_ids=[1, 2, 3, 99],
+            edges=[(1, 2), (2, 3), (3, 2)],
         )
 
-        self.assertEqual(set(layers), {"A", "B", "C"})
-        self.assertTrue(all(isinstance(value, int) and value >= 0 for value in layers.values()))
-        self.assertEqual(len(removed_edges), 1)
+        self.assertEqual(layers, {1: 0, 3: 0, 99: 0, 2: 1})
+        self.assertEqual(removed_edges, [(2, 3)])
 
-    def test_labeling_export_rows_sort_by_rank_then_name(self):
+    def test_topic_label_rows_sort_by_community_and_out_degree(self):
         records = [
-            {"cid": 7, "community_size": 4, "node_name": "zeta", "rank": 2},
-            {"cid": 7, "community_size": 4, "node_name": "alpha", "rank": 1},
-            {"cid": 7, "community_size": 4, "node_name": "beta", "rank": None},
-            {"cid": 8, "community_size": 1, "node_name": "small", "rank": 1},
+            {
+                "cid": 8,
+                "sz": 1,
+                "node_data": [
+                    {
+                        "name": "small",
+                        "out_deg": 0,
+                        "layer": 0,
+                        "dag_layer": 0,
+                        "ccod_rank": 2,
+                        "ccod": 0,
+                    }
+                ],
+            },
+            {
+                "cid": 7,
+                "sz": 3,
+                "node_data": [
+                    {
+                        "name": "zeta",
+                        "out_deg": 1,
+                        "layer": 1,
+                        "dag_layer": 1,
+                        "ccod_rank": 1,
+                        "ccod": 2,
+                    },
+                    {
+                        "name": "alpha",
+                        "out_deg": 2,
+                        "layer": 0,
+                        "dag_layer": 0,
+                        "ccod_rank": 1,
+                        "ccod": 2,
+                    },
+                    {
+                        "name": "beta",
+                        "out_deg": 1,
+                        "layer": 1,
+                        "dag_layer": 1,
+                        "ccod_rank": 1,
+                        "ccod": 2,
+                    },
+                ],
+            },
         ]
 
-        rows = build_labeling_rows(records, min_size=2)
+        class FakeSession:
+            def run(self, _query):
+                return records
 
-        self.assertEqual(len(rows), 1)
-        self.assertEqual(rows[0]["cid"], 7)
-        self.assertEqual(rows[0]["top3_nodes"], "alpha, zeta, beta")
-        self.assertEqual(rows[0]["assigned_name"], "")
+        rows = fetch_community_data(FakeSession())
+
+        self.assertEqual([row["cid"] for row in rows], [7, 8])
+        self.assertEqual(rows[0]["top3_nodes"], "alpha, beta, zeta")
+        self.assertEqual(rows[0]["layer_count"], 2)
+        self.assertEqual(rows[0]["layer_count_dag"], 2)
 
     def test_source_file_parser_handles_chapters_modules_and_unmatched(self):
+        source_files = [
+            "第06章 系統安全技術與規範_e5.pdf",
+            "教材_第10章_資訊安全管理.pdf",
+            "iPAS_網路安全簡介_模組4-保護組織.pdf",
+            "other_type.json",
+        ]
+
         self.assertEqual(
-            parse_source_file("第06章 系統安全技術與規範_e5.pdf"),
-            {"chapter_unit": "06_系統安全技術與規範", "category": "章節"},
-        )
-        self.assertEqual(
-            parse_source_file("教材_第10章_資訊安全管理.pdf"),
-            {"chapter_unit": "10_資訊安全管理", "category": "章節"},
-        )
-        self.assertEqual(
-            parse_source_file("iPAS_網路安全簡介_模組4-保護組織.pdf"),
-            {"chapter_unit": "M_保護組織", "category": "模組"},
-        )
-        self.assertEqual(
-            parse_source_file("other_type.json"),
-            {"chapter_unit": "UNMATCHED", "category": "UNMATCHED"},
+            build_source_mapping(source_files),
+            {
+                "iPAS_網路安全簡介_模組4-保護組織.pdf": {
+                    "chapter_unit": "M_保護組織",
+                    "category": "模組",
+                },
+                "other_type.json": {
+                    "chapter_unit": "UNMATCHED",
+                    "category": "UNMATCHED",
+                },
+                "教材_第10章_資訊安全管理.pdf": {
+                    "chapter_unit": "10_資訊安全管理",
+                    "category": "章節",
+                },
+                "第06章 系統安全技術與規範_e5.pdf": {
+                    "chapter_unit": "06_系統安全技術與規範",
+                    "category": "章節",
+                },
+            },
         )
 
     def test_chapter_summary_counts_nodes_and_source_files(self):
@@ -112,8 +236,18 @@ class Phase2HelperTests(unittest.TestCase):
         self.assertEqual(
             rows,
             [
-                {"chapter_unit": "01_導論", "node_count": 3, "source_file_count": 2},
-                {"chapter_unit": "UNMATCHED", "node_count": 1, "source_file_count": 1},
+                {
+                    "chapter_unit": "01_導論",
+                    "category": "章節",
+                    "node_count": 3,
+                    "source_file_count": 2,
+                },
+                {
+                    "chapter_unit": "UNMATCHED",
+                    "category": "UNMATCHED",
+                    "node_count": 1,
+                    "source_file_count": 1,
+                },
             ],
         )
 

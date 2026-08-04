@@ -486,6 +486,33 @@ def compute_statistics(
     }
 
 
+def format_table16_markdown(stat: dict) -> str:
+    header = (
+        "| scope | n_in | n_cross | mean_in | mean_cross | mean_diff | "
+        "Welch_t | Welch_p | Mann_Whitney_U | Mann_Whitney_p | Cohen_d |"
+    )
+    separator = (
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|"
+    )
+    row = (
+        "| Table 16 | {n_in:d} | {n_cross:d} | {mean_in:.4f} | "
+        "{mean_cross:.4f} | {mean_diff:.4f} | {t_stat:.4f} | {p_t:.4e} | "
+        "{u_stat:.4f} | {p_u:.4e} | {cohen_d:.4f} |"
+    ).format(
+        n_in=int(stat["n_in"]),
+        n_cross=int(stat["n_cross"]),
+        mean_in=float(stat["mean_in"]),
+        mean_cross=float(stat["mean_cross"]),
+        mean_diff=float(stat["mean_diff"]),
+        t_stat=float(stat["t_stat"]),
+        p_t=float(stat["p_t"]),
+        u_stat=float(stat["u_stat"]),
+        p_u=float(stat["p_u"]),
+        cohen_d=float(stat["cohen_d"]),
+    )
+    return "\n".join([header, separator, row])
+
+
 # ─── CLI ──────────────────────────────────────────────────────────────────────
 
 def main() -> int:
@@ -628,6 +655,9 @@ def main() -> int:
     print(f"  Mann-Whitney U={stat['u_stat']:.4f}  p={stat['p_u']:.4e}  "
           f"({'顯著' if stat['significant_u'] else '不顯著'})")
     print(f"  Cohen's d = {stat['cohen_d']:.4f}")
+    table16_markdown = format_table16_markdown(stat)
+    print("  Table 16 dual-test row:")
+    print(table16_markdown)
 
     # ─── 輸出 JSON ──────────────────────────────────────────────────────────────
     results = {
@@ -642,6 +672,7 @@ def main() -> int:
             "embedding_base_url":         args.embedding_base_url,
         },
         "statistics": stat,
+        "table16_dual_test_markdown": table16_markdown,
         "narrative": NARRATIVE,
         "paths": {
             "pairs_csv":       str(args.output_pairs),

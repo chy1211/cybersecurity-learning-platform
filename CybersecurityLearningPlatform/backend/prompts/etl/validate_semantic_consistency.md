@@ -14,7 +14,7 @@
 
 ### 輸出格式（JSON，思維鏈）：
 {{
-"step_1_rule_matching": "針對每條相關規則，說明三元組是否觸發違規。",
+"step_1_rule_matching": "針對每條相關規則的說明，整合為單一字串。此欄位必須是字串，禁止使用 JSON 陣列。",
 "response": "correct 或 violation",
 "reason": "最終判定理由（不超過兩句話）。"
 }}
