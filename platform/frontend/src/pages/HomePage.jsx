@@ -70,7 +70,7 @@ export default function HomePage() {
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-emerald-400">{formatStat(stats.communityCount)}</div>
-            <div className="text-xs text-slate-500 mt-1">學習社群</div>
+            <div className="text-xs text-slate-500 mt-1">學習分群</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-amber-400">{formatStat(stats.chapterCount)}</div>
@@ -92,7 +92,7 @@ export default function HomePage() {
             <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">🧠</div>
             <h2 className="text-lg font-bold mb-2 text-white group-hover:text-fuchsia-400 transition-colors">主題模組</h2>
             <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
-              基於社群偵測自動分類的主題模組，探索知識的關聯性
+              基於分群偵測自動分類的主題模組，探索知識的關聯性
             </p>
           </Link>
           

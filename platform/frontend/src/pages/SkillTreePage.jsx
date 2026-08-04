@@ -173,7 +173,7 @@ export default function SkillTreePage() {
       <div className="h-full bg-slate-950 flex items-center justify-center p-6">
         <div className="max-w-xl rounded-2xl border border-amber-700/50 bg-amber-950/20 p-8 text-center">
           <div className="text-4xl mb-4">🧭</div>
-          <h1 className="text-2xl font-bold text-white mb-3">社群內分析結果尚未產生</h1>
+          <h1 className="text-2xl font-bold text-white mb-3">分群內分析結果尚未產生</h1>
           <p className="text-slate-300 mb-4">{analysisState.message}</p>
           <p className="text-sm text-amber-300">
             {analysisSummary.coverageText}。系統不會以 0 或空路徑假裝分析成功。
@@ -340,7 +340,7 @@ function CommunityPathsView({ communities, learnedNodes, expandedComm, setExpand
           <div className="flex items-center justify-center h-full text-slate-600">
             <div className="text-center">
               <p className="text-5xl mb-4">📖</p>
-              <p className="text-lg font-medium">選擇左側社群以查看結構排序</p>
+              <p className="text-lg font-medium">選擇左側分群以查看結構排序</p>
               <p className="text-sm mt-2">分群內連結性較高的節點會優先顯示；此排序不代表先備次序</p>
             </div>
           </div>
@@ -543,7 +543,7 @@ function PathPlannerView({ searchQuery, setSearchQuery, setSearchResults, search
                     >
                       <span className="text-sm text-white font-medium">{r.name}</span>
                       <div className="flex items-center gap-2 text-xs text-slate-500">
-                        <span>社群 {r.community}</span>
+                        <span>分群 {r.community}</span>
                         {r.layer != null && <span>Layer {r.layer}</span>}
                         {learnedNodes.has(r.name) && <span className="text-emerald-400">✓ 已學</span>}
                       </div>
@@ -564,7 +564,7 @@ function PathPlannerView({ searchQuery, setSearchQuery, setSearchResults, search
             <div className="mt-2 flex items-center gap-2 text-sm">
               <span className="text-slate-500">已選目標:</span>
               <span className="px-2 py-0.5 bg-indigo-900/40 border border-indigo-700/50 rounded-full text-indigo-300 font-medium">{selectedTarget.name}</span>
-              <span className="text-slate-600">· 社群 {selectedTarget.community}</span>
+              <span className="text-slate-600">· 分群 {selectedTarget.community}</span>
               <button onClick={() => { setSelectedTarget(null); setSearchQuery('') }} className="text-slate-600 hover:text-white text-xs ml-2">✕ 清除</button>
             </div>
           )}
@@ -597,7 +597,7 @@ function PathPlannerView({ searchQuery, setSearchQuery, setSearchResults, search
               ))}
             </div>
           ) : (
-            <p className="text-xs text-slate-600">尚未標記任何已學會的知識點。可以在「社群結構列表」中標記。</p>
+            <p className="text-xs text-slate-600">尚未標記任何已學會的知識點。可以在「分群結構列表」中標記。</p>
           )}
         </div>
 
@@ -612,7 +612,7 @@ function PlannedPathResult({ result, learnedNodes, pathMode }) {
   if (result.status === 'analysis_unavailable') {
     return (
       <div className="p-4 bg-amber-950/30 border border-amber-700/50 rounded-xl text-amber-200 text-sm">
-        <div className="font-bold mb-1">社群內分析結果尚未產生</div>
+        <div className="font-bold mb-1">分群內分析結果尚未產生</div>
         <div>{result.message}</div>
         <div className="text-xs text-amber-400 mt-2">已分析 {result.analysis_node_count ?? 0} / {result.community_node_count ?? 0} 個節點；未以全 0 結果代替分析。</div>
       </div>

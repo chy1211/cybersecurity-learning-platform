@@ -9,7 +9,7 @@ Phase 2 Step 2.1: Leiden parameter grid scan + finalize.
 
 定案模式：
   python step2_1_leiden.py --finalize --gamma 1.5 --min_community_size 3
-  → 將選定組的社群 ID 寫入 communityId，清除臨時掃描屬性。
+  → 將選定組的分群 ID 寫入 communityId，清除臨時掃描屬性。
   定案參數以重跑掃描結果為準。
 """
 
@@ -131,7 +131,7 @@ def run_one_config(session, gamma: float, min_size: int,
 
 def print_comparison_table(results: list[dict]) -> None:
     print("\n" + "=" * 82)
-    print(f"{'γ':>5} {'minSz':>6} {'社群數':>7} {'modularity':>12} {'Top50覆蓋':>10} {'最大社群%':>10} {'>=10社群':>8}")
+    print(f"{'γ':>5} {'minSz':>6} {'分群數':>7} {'modularity':>12} {'Top50覆蓋':>10} {'最大分群%':>10} {'>=10分群':>8}")
     print("-" * 82)
     for r in results:
         large_comm = (r["sizeDistribution"].get("10-49", 0)
@@ -145,10 +145,10 @@ def print_comparison_table(results: list[dict]) -> None:
         )
     print("=" * 82)
     print("  選擇提示：")
-    print("  • 社群數：建議 20-60（配合技能樹粒度）")
+    print("  • 分群數：建議 20-60（配合技能樹粒度）")
     print("  • Top50覆蓋：越高越好（>90% 代表 Top 50 能代表大部分知識）")
-    print("  • 最大社群%：建議 <25%（避免一個雜物桶社群）")
-    print("  • modularity：同等社群數下選較高者\n")
+    print("  • 最大分群%：建議 <25%（避免一個雜物桶分群）")
+    print("  • modularity：同等分群數下選較高者\n")
 
 
 def run_scan(uri: str, user: str, password: str, output: Path,
@@ -171,7 +171,7 @@ def run_scan(uri: str, user: str, password: str, output: Path,
                     print(f"  [{idx:2d}/{total}] γ={gamma}, minSize={min_size}", end=" ... ", flush=True)
                     result = run_one_config(session, gamma, min_size, graph_name)
                     results.append(result)
-                    print(f"社群數={result['communityCount']}, modularity={result['modularity']:.4f}")
+                    print(f"分群數={result['communityCount']}, modularity={result['modularity']:.4f}")
 
     finally:
         with driver.session() as s:

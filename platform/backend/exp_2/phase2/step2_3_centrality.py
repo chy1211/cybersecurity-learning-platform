@@ -22,7 +22,7 @@ from phase2_common import (
 FIELDNAMES = ["cid", "metric", "rank", "node_name", "node_type", "score"]
 
 # (metric_name, gds_procedure, rank_property, score_property)
-# rank_property：社群內排名（1 = 最重要），供論文分析
+# rank_property：分群內排名（1 = 最重要），供論文分析
 # score_property：實際分數，供平台計算學習順序
 METRICS = [
     ("out_degree", "gds.degree.stream",
@@ -122,7 +122,7 @@ def execute(uri: str, user: str, password: str, min_size: int, output: str | Pat
         with driver.session() as session:
             communities = fetch_target_communities(session, min_size)
             if not communities:
-                print(f"[WARN] 沒有規模 >= {min_size} 的社群，輸出空 CSV")
+                print(f"[WARN] 沒有規模 >= {min_size} 的分群，輸出空 CSV")
                 write_csv(output, FIELDNAMES, csv_rows)
                 return csv_rows
 

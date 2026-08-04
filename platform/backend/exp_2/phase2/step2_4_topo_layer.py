@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Phase 2 Step 2.4: 社群內拓樸分層（雙方法比較實驗）
+Phase 2 Step 2.4: 分群內拓樸分層（雙方法比較實驗）
 
 方法一：Centrality-based（選定正式方法）
-  - 依社群內出度（in-community out-degree）分層
+  - 依分群內出度（in-community out-degree）分層
   - 同出度 = 同 layer；最高出度組 = layer 0
   - 對應 Liu & Wen (2019) 之出度中心性理論
   - 寫入屬性：nodeLayerInCommunity
@@ -35,7 +35,7 @@ from phase2_common import (
 )
 
 CYCLE_FIELDNAMES = ["cid", "source_id", "source_name", "target_id", "target_name", "reason"]
-MIN_EXAMPLE_SIZE = 10   # 論文典型案例：只挑此規模以上的社群
+MIN_EXAMPLE_SIZE = 10   # 論文典型案例：只挑此規模以上的分群
 N_EXAMPLES       = 3    # 自動挑幾個典型案例
 
 
@@ -45,7 +45,7 @@ N_EXAMPLES       = 3    # 自動挑幾個典型案例
 
 def fetch_nodes_with_in_community_outdegree(session) -> dict[int, list[dict]]:
     """
-    每個節點計算其在社群內的出度（只算同社群的出邊）。
+    每個節點計算其在分群內的出度（只算同分群的出邊）。
     回傳 {cid: [{node_id, name, type, in_comm_outdegree}, ...]}
     """
     result = session.run("""
@@ -72,7 +72,7 @@ def fetch_nodes_with_in_community_outdegree(session) -> dict[int, list[dict]]:
 
 
 def fetch_intra_community_edges(session) -> dict[int, list[tuple]]:
-    """回傳社群內有向邊 {cid: [(src_id, dst_id), ...]}"""
+    """回傳分群內有向邊 {cid: [(src_id, dst_id), ...]}"""
     result = session.run("""
         MATCH (a:KGNode)-[r]->(b:KGNode)
         WHERE a.communityId IS NOT NULL
@@ -177,9 +177,9 @@ def export_centrality_md(
         "# 基於中心性指標的拓樸分層 (Topological Stratification via Centrality)",
         "",
         "此方法依 Liu & Wen (2019) 之出度中心性理論。",
-        "社群內出度越高的節點代表其知識被更多其他概念依賴，為較基礎之先修知識。",
+        "分群內出度越高的節點代表其知識被更多其他概念依賴，為較基礎之先修知識。",
         "",
-        "## 各社群內的學習先後順序 (Intra-Community)",
+        "## 各分群內的學習先後順序 (Intra-Community)",
         "",
     ]
     for cid in sorted(communities.keys()):
@@ -187,7 +187,7 @@ def export_centrality_md(
         if len(nodes) < 2:
             continue
         layers = centrality_results.get(cid, {})
-        lines.append(f"### 社群 {cid}（共 {len(nodes)} 節點）")
+        lines.append(f"### 分群 {cid}（共 {len(nodes)} 節點）")
         # 按出度分組
         by_deg: dict[int, list[str]] = defaultdict(list)
         for n in nodes:
@@ -210,9 +210,9 @@ def export_dag_md(
         "# 基於有向邊的拓樸分層 (Topological Stratification via Directed Edges)",
         "",
         "此方法依 Course-prerequisite networks (2023) 之有向無環圖 (DAG) 分層法。",
-        "社群內入度為 0 的節點視為最基礎（Layer 0）。",
+        "分群內入度為 0 的節點視為最基礎（Layer 0）。",
         "",
-        "## 各社群內的學習先後順序 (Intra-Community)",
+        "## 各分群內的學習先後順序 (Intra-Community)",
         "",
     ]
     for cid in sorted(communities.keys()):
@@ -224,7 +224,7 @@ def export_dag_md(
         if not layers:
             continue
         max_layer = max(layers.values())
-        lines.append(f"### 社群 {cid}（共 {len(nodes)} 節點，{max_layer+1} 層）")
+        lines.append(f"### 分群 {cid}（共 {len(nodes)} 節點，{max_layer+1} 層）")
         by_layer: dict[int, list[str]] = defaultdict(list)
         for nid in node_ids:
             layer = layers.get(nid, 0)
@@ -240,7 +240,7 @@ def export_dag_md(
 def pick_examples(communities: dict[int, list[dict]],
                   centrality_results: dict[int, dict[int, int]],
                   id_to_name: dict[int, str], n: int) -> list[int]:
-    """挑選最具代表性的社群 id（規模 ≥ MIN_EXAMPLE_SIZE，層數最多）。"""
+    """挑選最具代表性的分群 id（規模 ≥ MIN_EXAMPLE_SIZE，層數最多）。"""
     candidates = []
     for cid, nodes in communities.items():
         if len(nodes) < MIN_EXAMPLE_SIZE:
@@ -264,12 +264,12 @@ def execute(uri: str, user: str, password: str, min_size: int,
 
     try:
         with driver.session() as session:
-            print("[1/5] 擷取社群節點與社群內出度...")
+            print("[1/5] 擷取分群節點與分群內出度...")
             communities = fetch_nodes_with_in_community_outdegree(session)
             total_nodes = sum(len(v) for v in communities.values())
-            print(f"  社群數：{len(communities)}，節點數：{total_nodes}")
+            print(f"  分群數：{len(communities)}，節點數：{total_nodes}")
 
-            print("[2/5] 擷取社群內有向邊（DAG 方法用）...")
+            print("[2/5] 擷取分群內有向邊（DAG 方法用）...")
             comm_edges = fetch_intra_community_edges(session)
             id_to_name = {n["node_id"]: n["name"]
                           for nodes in communities.values() for n in nodes}
@@ -329,7 +329,7 @@ def execute(uri: str, user: str, password: str, min_size: int,
             layers_cnt = len({v for v in cent_results.get(cid, {}).values()})
             dag_cnt = max(dag_results.get(cid, {0: 0}).values()) + 1 \
                       if cid in dag_results else "?"
-            print(f"  社群 {cid}：{len(nodes)} 節點，"
+            print(f"  分群 {cid}：{len(nodes)} 節點，"
                   f"Centrality {layers_cnt} 層 / DAG {dag_cnt} 層")
 
     finally:
@@ -350,7 +350,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--user",     default=DEFAULT_NEO4J_USER)
     p.add_argument("--password", default=DEFAULT_NEO4J_PASSWORD)
     p.add_argument("--min_size", type=int, default=3,
-                   help="DAG 方法最小社群規模（Centrality 方法對所有社群都算）")
+                   help="DAG 方法最小分群規模（Centrality 方法對所有分群都算）")
     p.add_argument("--cycle_log",
                    default=str(default_output_path("cycle_edges_removed.csv")))
     p.add_argument("--md_centrality",

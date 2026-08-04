@@ -95,7 +95,7 @@ def execute(uri: str, user: str, password: str, output: str | Path) -> list[dict
             if not community_sizes:
                 print("  [WARN] 找不到 communityId，請先執行 step2_1_leiden.py")
 
-            print("[2/4] 聚合跨社群有向邊...")
+            print("[2/4] 聚合跨分群有向邊...")
             cross_edges = fetch_cross_edges(session)
 
             print("[3/4] 建立 CCOD 排名...")

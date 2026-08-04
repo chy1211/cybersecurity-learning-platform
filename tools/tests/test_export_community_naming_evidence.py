@@ -16,7 +16,7 @@ class CommunityNamingEvidenceSelectionTests(unittest.TestCase):
                 {
                     "names": {
                         "1": "Existing reviewed name",
-                        "2": "待人工確認（社群 2）",
+                        "2": "待人工確認（分群 2）",
                     }
                 },
                 ensure_ascii=False,

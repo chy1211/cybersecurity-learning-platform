@@ -16,7 +16,7 @@ except Exception:
     pass
 """Exp 2 Layer 2 Method 2: Distributional Semantic Alignment
 
-用外部預訓練語意向量（不接觸 Leiden 結果）驗證同社群節點是否更相近。
+用外部預訓練語意向量（不接觸 Leiden 結果）驗證同分群節點是否更相近。
 
 流程：
   1. 從 Neo4j 重新抽樣節點對（layer2a 邏輯） → 覆寫 layer2_pairs.csv
@@ -26,7 +26,7 @@ except Exception:
 
 Embedding API：由 EMBEDDING_BASE_URL 指定，預設 http://127.0.0.1:1234/v1/embeddings
 論文語氣定稿（寫死於輸出 JSON）：
-  "社群內相似度穩定高於跨社群，但效果量偏小，顯示 Leiden 社群具有
+  "分群內相似度穩定高於跨分群，但效果量偏小，顯示 Leiden 分群具有
    統計上一致的語意凝聚趨勢，而非強烈語意分隔。"
 
 用法：
@@ -69,7 +69,7 @@ EMBEDDING_BASE_URL = os.getenv("EMBEDDING_BASE_URL", "http://127.0.0.1:1234/v1")
 EMBEDDING_BATCH    = 64   # 單次請求傳入的最大文字數
 
 NARRATIVE = (
-    "社群內相似度穩定高於跨社群，但效果量偏小，顯示 Leiden 社群具有"
+    "分群內相似度穩定高於跨分群，但效果量偏小，顯示 Leiden 分群具有"
     "統計上一致的語意凝聚趨勢，而非強烈語意分隔。"
 )
 
@@ -109,7 +109,7 @@ def fetch_nodes_from_neo4j(uri: str, user: str, password: str) -> list[dict]:
 
 
 def build_mock_nodes() -> list[dict]:
-    """4 個模擬社群，每個 12 節點，確保 ≥ min_size=10 並能抽出足夠節點對。"""
+    """4 個模擬分群，每個 12 節點，確保 ≥ min_size=10 並能抽出足夠節點對。"""
     domain_nodes = {
         0: ["防火牆", "封包過濾", "入侵偵測", "存取控制",
             "VPN", "網路隔離", "流量分析", "白名單",
@@ -239,8 +239,8 @@ def sample_pairs(
     groups = group_eligible_nodes(nodes, min_size)
     if len(groups) < 2:
         raise RuntimeError(
-            f"有效社群數 {len(groups)} < 2，無法抽取跨社群對。"
-            f"請確認圖譜中有足夠社群（size ≥ {min_size}），或使用 --mock_neo4j。"
+            f"有效分群數 {len(groups)} < 2，無法抽取跨分群對。"
+            f"請確認圖譜中有足夠分群（size ≥ {min_size}），或使用 --mock_neo4j。"
         )
 
     all_pairs: list[dict] = []

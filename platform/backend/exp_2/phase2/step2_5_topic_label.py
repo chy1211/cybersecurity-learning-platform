@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Phase 2 Step 2.5: 社群組成匯出（論文附錄用）
+Phase 2 Step 2.5: 分群組成匯出（論文附錄用）
 
 設計決定（2026-05-20）：
-  不進行人工社群命名，避免主觀命名。
-  社群以 ID + Top 節點呈現。
+  不進行人工分群命名，避免主觀命名。
+  分群以 ID + Top 節點呈現。
 
 輸出：
-  community_composition.csv  — 各社群的節點組成與中心性排名，供論文表 4-3 與附錄
+  community_composition.csv  — 各分群的節點組成與中心性排名，供論文表 4-3 與附錄
 
 （若未來需要命名，可在此 CSV 增加 assigned_name 欄後重跑 import 模式）
 """
@@ -38,7 +38,7 @@ FIELDNAMES = [
 
 def fetch_community_data(session) -> list[dict]:
     """
-    取得每個社群的組成資訊：
+    取得每個分群的組成資訊：
     - 節點依 outDegree_inCommunity 降冪排列（=中心性方法的先修順序）
     - ccod_rank / ccod 來自步驟 2.2
     - layer_count 來自步驟 2.4（Centrality 方法）
@@ -75,7 +75,7 @@ def fetch_community_data(session) -> list[dict]:
         top3      = ", ".join(names[:3])
         top10     = ", ".join(names[:10])
 
-        # CCOD 從第一個節點取（同社群的 ccod_rank 值都一樣）
+        # CCOD 從第一個節點取（同分群的 ccod_rank 值都一樣）
         ccod_rank = nd_sorted[0]["ccod_rank"] if nd_sorted else 9999
         ccod      = nd_sorted[0]["ccod"]      if nd_sorted else 0
 
@@ -102,18 +102,18 @@ def execute(uri: str, user: str, password: str, output: Path) -> list[dict]:
     driver = open_driver(uri, user, password)
     try:
         with driver.session() as session:
-            print("擷取社群組成資料...")
+            print("擷取分群組成資料...")
             rows = fetch_community_data(session)
     finally:
         driver.close()
 
     write_csv(output, FIELDNAMES, rows)
-    print(f"✅ 社群組成 CSV → {output}")
-    print(f"   社群數：{len(rows)}")
+    print(f"✅ 分群組成 CSV → {output}")
+    print(f"   分群數：{len(rows)}")
     if rows:
         sizes = [r["community_size"] for r in rows]
         print(f"   規模範圍：{min(sizes)} ~ {max(sizes)}")
-        print(f"   Top-5 社群（依規模）：")
+        print(f"   Top-5 分群（依規模）：")
         for r in sorted(rows, key=lambda x: -x["community_size"])[:5]:
             print(f"     cid={r['cid']}  size={r['community_size']}  "
                   f"ccod_rank={r['ccod_rank']}  top3=【{r['top3_nodes']}】")

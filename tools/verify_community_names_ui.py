@@ -48,7 +48,7 @@ def main() -> int:
 
         page.goto(f"{BASE_URL}/topics", wait_until="domcontentloaded")
         page.wait_for_load_state("networkidle")
-        page.wait_for_selector("text=社群列表")
+        page.wait_for_selector("text=分群列表")
 
         communities_response = page.request.get(f"{BASE_URL}/api/communities")
         require(communities_response.ok, "communities API request failed")

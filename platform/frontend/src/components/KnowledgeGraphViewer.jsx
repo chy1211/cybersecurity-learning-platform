@@ -234,7 +234,7 @@ const KnowledgeGraphViewer = ({
               <p className="text-[#BEDCF0]">Betweenness: {hoverNode.betweenness?.toFixed(2)}</p>
             )}
             {hoverNode.final_community !== undefined && (
-              <p className="text-slate-300">社群 ID: {hoverNode.final_community}</p>
+              <p className="text-slate-300">分群 ID: {hoverNode.final_community}</p>
             )}
             {hoverTopUnits.length > 0 && (
               <p className="text-slate-400 text-xs mt-2">

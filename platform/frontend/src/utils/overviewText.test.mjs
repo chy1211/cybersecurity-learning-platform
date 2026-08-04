@@ -14,7 +14,7 @@ test('builds overview description from live statistics', () => {
   assert.match(text, /87 個分群/)
   assert.match(text, /20 個章節模組/)
   assert.doesNotMatch(text, /近 3,500/)
-  assert.doesNotMatch(text, /111 個學習社群/)
+  assert.doesNotMatch(text, /111 個學習分群/)
 })
 
 test('uses neutral copy before statistics finish loading', () => {

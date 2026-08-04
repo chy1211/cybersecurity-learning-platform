@@ -16,17 +16,17 @@ except Exception:
     pass
 """Exp 2 Layer 2 Method 1: Ontology Attribute Enrichment Analysis
 
-驗證 Leiden 拓樸社群是否與本體論 entity type 有非隨機的收斂性。
+驗證 Leiden 拓樸分群是否與本體論 entity type 有非隨機的收斂性。
 
 方法：
   1. Shannon entropy per community（描述統計）
-     - 計算各社群的 entity type 分布熵，對比全圖背景熵
+     - 計算各分群的 entity type 分布熵，對比全圖背景熵
   2. Hypergeometric enrichment test + BH correction（正式推論）
      - 對每個 (community, entity_type) 組合計算富集顯著性
      - Benjamini-Hochberg FDR 校正，主要門檻 q < 0.05
 
-社群範圍：size ≥ 10（36 個有效社群）
-文獻依據：Halu et al. (2019) 以 ≥10 為有效社群門檻
+分群範圍：size ≥ 10（36 個有效分群）
+文獻依據：Halu et al. (2019) 以 ≥10 為有效分群門檻
 
 資料來源：直接從 Neo4j 查詢（非從 pairs.csv 重建），確保母體 M 完整。
 
@@ -99,7 +99,7 @@ def fetch_nodes_from_neo4j(uri: str, user: str, password: str) -> list[dict]:
 
 
 def build_mock_nodes() -> list[dict]:
-    """8 個模擬社群（每個 ≥ 10 節點），entity type 分布差異明顯，用於離線測試。"""
+    """8 個模擬分群（每個 ≥ 10 節點），entity type 分布差異明顯，用於離線測試。"""
     type_distributions = [
         (0,  [("policy", 8), ("tool", 4), ("attack", 1)]),
         (1,  [("attack", 9), ("technique", 3), ("tool", 1)]),
@@ -175,7 +175,7 @@ def run_analysis(nodes: list[dict], min_size: int = MIN_COMMUNITY_SIZE) -> dict:
     df["entity_type"] = df["entity_type"].fillna("Unknown").astype(str)
     df["entity_type"] = df["entity_type"].replace("", "Unknown")
 
-    # ── 篩選 size ≥ min_size 的社群 ──────────────────────────────────────────
+    # ── 篩選 size ≥ min_size 的分群 ──────────────────────────────────────────
     comm_sizes    = df.groupby("community_id").size()
     eligible_cids = sorted(
         [c for c, s in comm_sizes.items() if s >= min_size],
@@ -184,7 +184,7 @@ def run_analysis(nodes: list[dict], min_size: int = MIN_COMMUNITY_SIZE) -> dict:
     df_eligible = df[df["community_id"].isin(eligible_cids)].copy()
 
     print(f"  全圖節點數（有 communityId）：{len(df)}")
-    print(f"  ≥{min_size} 節點社群數：{len(eligible_cids)}")
+    print(f"  ≥{min_size} 節點分群數：{len(eligible_cids)}")
     print(f"  納入分析節點數：{len(df_eligible)}")
 
     # Cross-tabulation: rows=community, cols=entity_type
@@ -205,8 +205,8 @@ def run_analysis(nodes: list[dict], min_size: int = MIN_COMMUNITY_SIZE) -> dict:
 
     print(f"\n[Shannon Entropy]")
     print(f"  全圖背景 entropy：{global_entropy:.4f}")
-    print(f"  社群 entropy 平均：{mean_entropy:.4f}，中位：{median_entropy:.4f}")
-    print(f"  entropy < 全圖背景的社群數：{below_global} / {len(communities)}")
+    print(f"  分群 entropy 平均：{mean_entropy:.4f}，中位：{median_entropy:.4f}")
+    print(f"  entropy < 全圖背景的分群數：{below_global} / {len(communities)}")
 
     # ─── 2. Hypergeometric Enrichment + BH ────────────────────────────────────
     M                      = len(df_eligible)
@@ -237,9 +237,9 @@ def run_analysis(nodes: list[dict], min_size: int = MIN_COMMUNITY_SIZE) -> dict:
     sig_comms_q10  = len({r["community_id"] for r in records if r["q_value"] < Q_THRESHOLD_SUPP})
 
     print(f"\n[Hypergeometric Enrichment — BH 校正]")
-    print(f"  多重比較次數：{len(records)}（{len(communities)} 社群 × {len(types)} 類型）")
+    print(f"  多重比較次數：{len(records)}（{len(communities)} 分群 × {len(types)} 類型）")
     print(f"  顯著 (community, type) 對：q<0.05 → {sig_q05}；q<0.10 → {sig_q10}")
-    print(f"  涉及社群數：q<0.05 → {sig_comms_q05}；q<0.10 → {sig_comms_q10}")
+    print(f"  涉及分群數：q<0.05 → {sig_comms_q05}；q<0.10 → {sig_comms_q10}")
 
     enrichment_table = [
         {
@@ -356,27 +356,27 @@ def write_markdown_summary(results: dict, output_path: Path) -> None:
         f"**生成時間**：{results['generated_at']}",
         "",
         "## 分析範圍",
-        f"- 社群最小節點數門檻：{p['min_community_size']}（依據 Halu et al., 2019）",
-        f"- 有效社群數：{p['n_communities']}",
+        f"- 分群最小節點數門檻：{p['min_community_size']}（依據 Halu et al., 2019）",
+        f"- 有效分群數：{p['n_communities']}",
         f"- Entity type 種類：{p['n_entity_types']}",
         f"- 多重比較次數：{p['n_comparisons']}",
         f"- 母體節點數 (M)：{p['total_nodes_M']}",
         "",
         "## Shannon Entropy（描述統計）",
         f"- 全圖背景 entropy：**{es['global_entropy']}**",
-        f"- 社群 entropy 平均：**{es['mean_community_entropy']}**",
-        f"- 社群 entropy 中位：**{es['median_community_entropy']}**",
-        f"- entropy 低於全圖背景的社群：{es['communities_below_global']} / {es['total_communities']}",
+        f"- 分群 entropy 平均：**{es['mean_community_entropy']}**",
+        f"- 分群 entropy 中位：**{es['median_community_entropy']}**",
+        f"- entropy 低於全圖背景的分群：{es['communities_below_global']} / {es['total_communities']}",
         "",
         "## Hypergeometric Enrichment + BH 校正（正式推論）",
         f"- 顯著 (community, type) 對（q < 0.05）：**{en['sig_pairs_q05']}**",
-        f"- 涉及社群數（q < 0.05）：**{en['sig_communities_q05']} / {p['n_communities']}**",
-        f"- 補充分析（q < 0.10）：{en['sig_pairs_q10']} 對，涉及 {en['sig_communities_q10']} 個社群",
+        f"- 涉及分群數（q < 0.05）：**{en['sig_communities_q05']} / {p['n_communities']}**",
+        f"- 補充分析（q < 0.10）：{en['sig_pairs_q10']} 對，涉及 {en['sig_communities_q10']} 個分群",
         "",
         "## 論文引用語（草稿）",
         "",
-        f"在 {p['n_communities']} 個有效社群（≥{p['min_community_size']} 節點）中，"
-        f"共有 {en['sig_communities_q05']} 個社群呈現至少一種 entity type 的顯著富集"
+        f"在 {p['n_communities']} 個有效分群（≥{p['min_community_size']} 節點）中，"
+        f"共有 {en['sig_communities_q05']} 個分群呈現至少一種 entity type 的顯著富集"
         f"（Hypergeometric test，BH-adjusted q < {p['q_threshold_primary']}），"
         "佐證 Leiden 拓樸分群具有非隨機的本體論型別收斂性（Singh et al., 2023）。",
     ]
@@ -395,7 +395,7 @@ def main() -> int:
     parser.add_argument("--user",     default=NEO4J_USER)
     parser.add_argument("--password", default=NEO4J_PASSWORD)
     parser.add_argument("--min_size", type=int, default=MIN_COMMUNITY_SIZE,
-                        help="社群最小節點數門檻（預設 10）")
+                        help="分群最小節點數門檻（預設 10）")
     parser.add_argument("--output_json",    type=Path, default=DEFAULT_OUTPUT_JSON)
     parser.add_argument("--output_heatmap", type=Path, default=DEFAULT_OUTPUT_HEATMAP)
     parser.add_argument("--output_md",      type=Path, default=DEFAULT_OUTPUT_MD)

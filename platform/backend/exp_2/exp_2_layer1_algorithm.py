@@ -160,7 +160,7 @@ def write_markdown(data: dict[str, Any], path: Path) -> None:
     lines = [
         "# 表 4-9 第一層：演算法層指標草稿",
         "",
-        "| 參數組 | γ | k | Modularity | 有效社群數 | Top-50 覆蓋率 | 最大社群% | 最大社群節點數 |",
+        "| 參數組 | γ | k | Modularity | 有效分群數 | Top-50 覆蓋率 | 最大分群% | 最大分群節點數 |",
         "|---|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for row in data["table_rows"]:
@@ -190,9 +190,9 @@ def write_markdown(data: dict[str, Any], path: Path) -> None:
         f"**選定參數組**：`{selected.get('label', 'N/A')}`（{data['selection_rule']}）",
         "",
         f"- Modularity = {_fmt(selected.get('modularity'), 4)}",
-        f"- 有效社群數 = {selected.get('community_count', 'N/A')}",
+        f"- 有效分群數 = {selected.get('community_count', 'N/A')}",
         f"- Top-50 覆蓋率 = {t50_str}",
-        f"- 最大社群比例 = {lp_str2}",
+        f"- 最大分群比例 = {lp_str2}",
         "",
     ])
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -264,7 +264,7 @@ def main() -> int:
     write_size_distribution_plot(metrics, args.output_plot)
     sel = metrics.get("selected_config") or {}
     print(f"wrote layer1 metrics to {args.output_json}")
-    print(f"  選定參數組: {sel.get('label')}  modularity={sel.get('modularity')}  社群數={sel.get('community_count')}  top50={sel.get('top50_coverage')}  最大社群%={sel.get('largest_community_pct')}")
+    print(f"  選定參數組: {sel.get('label')}  modularity={sel.get('modularity')}  分群數={sel.get('community_count')}  top50={sel.get('top50_coverage')}  最大分群%={sel.get('largest_community_pct')}")
     return 0
 
 

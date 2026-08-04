@@ -174,17 +174,17 @@ def fetch_community_evidence(session, community_id: int, top_n: int) -> dict:
 
 def render_markdown(payload: dict) -> str:
     lines = [
-        "# 社群命名文字證據",
+        "# 分群命名文字證據",
         "",
         f"- 產生時間（UTC）：{payload['generated_utc']}",
-        f"- 稽核社群數：{len(payload['communities'])}",
+        f"- 稽核分群數：{len(payload['communities'])}",
         "- 資料來源：現行 Neo4j，只讀查詢",
         "- 注意：此檔不以節點出度直接宣稱先備關係；僅供主題命名稽核。",
         "",
     ]
     for item in payload["communities"]:
         lines.extend([
-            f"## 社群 {item['community_id']}（{item['node_count']} 節點）",
+            f"## 分群 {item['community_id']}（{item['node_count']} 節點）",
             "",
             "### 分析欄位覆蓋",
             "",
@@ -192,7 +192,7 @@ def render_markdown(payload: dict) -> str:
             f"- betweenness：{item['analysis_coverage']['betweenness']}",
             f"- layer：{item['analysis_coverage']['layer']}",
             "",
-            "### 高連結節點（即時計算社群內出入度）",
+            "### 高連結節點（即時計算分群內出入度）",
             "",
         ])
         for node in item["top_nodes"]:

@@ -2,7 +2,7 @@
 
 知識圖譜與大型語言模型驅動的資安職能學習平台。
 
-本專案是一個研究型開源原型，目標是探索如何以知識圖譜（Knowledge Graph）、本體論約束（Ontology Constraint）、Graph RAG（Graph-based Retrieval-Augmented Generation）與圖論社群分析，支援資安教育中的知識組織、學習路徑導引與智慧問答。
+本專案是一個研究型開源原型，目標是探索如何以知識圖譜（Knowledge Graph）、本體論約束（Ontology Constraint）、Graph RAG（Graph-based Retrieval-Augmented Generation）與圖論分群分析，支援資安教育中的知識組織、學習路徑導引與智慧問答。
 
 專案原型來自碩士論文：
 
@@ -15,8 +15,8 @@
 - **知識圖譜建構**：由 LLM 萃取資安實體與關係三元組，經品質驗證後匯入 Neo4j。
 - **本體論約束驗證**：以實體類型、關係類型與合法邊規格約束三元組品質。
 - **平台 Graph RAG 智慧導師**：以實體名稱排序檢索與 Neo4j 一跳子圖作為回答脈絡，並回傳可檢視的圖譜依據。此流程不是實驗三的正式二階 Graph RAG 評估管線。
-- **Leiden 社群偵測**：將資安知識節點分群為主題模組，用於探索式主題瀏覽。
-- **章節與結構導覽視覺化**：提供章節、主題社群、全知識圖譜與智慧導師介面；一般圖譜關係不得解讀為先備關係。
+- **Leiden 分群偵測**：將資安知識節點分群為主題模組，用於探索式主題瀏覽。
+- **章節與結構導覽視覺化**：提供章節、主題分群、全知識圖譜與智慧導師介面；一般圖譜關係不得解讀為先備關係。
 - **實驗復現材料**：收錄圖譜品質驗證、Graph RAG 事實正確性評估、Leiden 分群有效性分析所需腳本與輸出。
 
 ## 系統架構
@@ -38,7 +38,7 @@ flowchart LR
     Validate --> Rejected["Rejected"]
     Validated --> Neo4j
 
-    Neo4j --> Leiden["Leiden 社群偵測"]
+    Neo4j --> Leiden["Leiden 分群偵測"]
     Neo4j --> GraphRAG["Graph RAG 子圖檢索"]
     Leiden --> Frontend
     GraphRAG --> Backend
@@ -85,13 +85,13 @@ flowchart LR
 
 > **必要外掛提醒**
 >
-> 本專案的知識圖譜還原、Graph RAG 與 Leiden 社群偵測流程會依賴 Neo4j 外掛。
+> 本專案的知識圖譜還原、Graph RAG 與 Leiden 分群偵測流程會依賴 Neo4j 外掛。
 > 啟動 Neo4j 前，請確認 Neo4j 的 `plugins/` 資料夾已包含下列模組：
 >
 > - `apoc-2026.03.1-core.jar`
 > - `neo4j-graph-data-science-2026.03.0.jar`
 >
-> 若缺少上述外掛，部分 Cypher 查詢、圖演算法與社群偵測相關功能可能無法正常執行。
+> 若缺少上述外掛，部分 Cypher 查詢、圖演算法與分群偵測相關功能可能無法正常執行。
 
 請先啟動 Neo4j，並確認 Bolt 連線可用。預設連線資訊如下：
 
@@ -160,7 +160,7 @@ python 03b_restore_neo4j.py
 
 還原腳本會連線至 `.env` 指定的 Neo4j。執行前請確認目標資料庫可以被寫入，並先閱讀腳本提示。
 
-以 2026-07-15 交接驗證快照而言，圖譜共有 2,763 個節點、3,803 條關係、87 個有效 Leiden 社群與 20 個正規化章節／模組。平台首頁仍由 API 動態計算；匯入不同版本後，數值會隨實際圖譜改變。
+以 2026-07-15 交接驗證快照而言，圖譜共有 2,763 個節點、3,803 條關係、87 個有效 Leiden 分群與 20 個正規化章節／模組。平台首頁仍由 API 動態計算；匯入不同版本後，數值會隨實際圖譜改變。
 
 ### 2026-07-16 分析欄位 migration 狀態
 
@@ -174,9 +174,9 @@ python 03b_restore_neo4j.py
 | `nodeLayerInCommunity`（centrality layer） | 0 / 2,554 | 2,554 / 2,554 | 2,554 / 2,554 |
 | `nodeLayerInCommunity_dag`（DAG layer） | 0 / 2,554 | 2,554 / 2,554 | 2,554 / 2,554 |
 
-中心性只套用權威分析範圍中的 40 個主要社群，共 2,375 個節點；其餘社群不以 0 偽裝已分析。平台因此回報整體 `partial` coverage，對完整社群提供探索性圖結構排序，對未分析社群明確回覆 `analysis_unavailable`。這些欄位不構成真正先備關係、最佳學習路徑或學習成效驗證。
+中心性只套用權威分析範圍中的 40 個主要分群，共 2,375 個節點；其餘分群不以 0 偽裝已分析。平台因此回報整體 `partial` coverage，對完整分群提供探索性圖結構排序，對未分析分群明確回覆 `analysis_unavailable`。這些欄位不構成真正先備關係、最佳學習路徑或學習成效驗證。
 
-內部備份、manifest 與分析驗收保留於 `backend/exp_2/phase2/_migration_output/20260715T165835Z/` 與內部 `analysis/`，不納入公開發布包。40 個主要社群均已有描述性名稱；平台聊天 API 的 retrieval mode 為 `platform_one_hop`，不等同實驗三的正式 route-2 管線。
+內部備份、manifest 與分析驗收保留於 `backend/exp_2/phase2/_migration_output/20260715T165835Z/` 與內部 `analysis/`，不納入公開發布包。40 個主要分群均已有描述性名稱；平台聊天 API 的 retrieval mode 為 `platform_one_hop`，不等同實驗三的正式 route-2 管線。
 
 ## LLM Provider 設定
 
@@ -284,9 +284,9 @@ python run_mock_tests.py
 | `smoke_test.py` | 檢查 phase2 路徑、Neo4j 連線與基本資料狀態。 |
 | `step2_1_leiden.py` | 掃描 Leiden 參數並輸出比較表。 |
 | `step2_1_leiden.py --finalize --gamma 1.5 --min_community_size 3` | 將定案參數寫回 Neo4j 的 `communityId`。 |
-| `step2_2_ccod.py` | 產生社群間概念/依賴分析。 |
-| `step2_3_centrality.py` | 計算社群內中心性與核心節點。 |
-| `step2_4_topo_layer.py` | 建立社群拓樸層級。 |
+| `step2_2_ccod.py` | 產生分群間概念/依賴分析。 |
+| `step2_3_centrality.py` | 計算分群內中心性與核心節點。 |
+| `step2_4_topo_layer.py` | 建立分群拓樸層級。 |
 | `migrate_analysis_properties.py` | 以 dry-run、確認 token、備份、SHA-256、精確 coverage 與失敗自動 restore 包裝 step2_3／step2_4；正式套用前須先讀取腳本說明。 |
 | `step2_5_topic_label.py` | 產生主題標籤。 |
 | `step2_6_chapter_dict.py` | 產生章節字典與平台章節資料。 |
@@ -362,7 +362,7 @@ python tools/check_release_ready.py
 - `backend/ETL_module/Chunks/` 未收錄；公開版本不包含教材原文切塊。
 - 已移除未實作的 `placement-test` 與 `complete_node` 端點，不以空陣列或固定成功值偽裝功能。
 - 學習進度與錯題紀錄是單機、單使用者示範資料，採原子 JSON 寫入；不是多使用者 LMS 的正式持久化層。
-- 現行受控圖譜已完成 run `20260715T165835Z`；中心性覆蓋 2,375 / 2,554 個 community nodes，分層覆蓋 2,554 / 2,554。未納入中心性分析的社群仍會明確顯示「分析資料不可用」，不產生假路徑。
+- 現行受控圖譜已完成 run `20260715T165835Z`；中心性覆蓋 2,375 / 2,554 個 community nodes，分層覆蓋 2,554 / 2,554。未納入中心性分析的分群仍會明確顯示「分析資料不可用」，不產生假路徑。
 - 平台功能需要可連線的 Neo4j；沒有圖譜資料時，多數視覺化與 Graph RAG 功能無法正常展示。
 - LLM 產生式功能的效果會受模型、temperature、prompt 與 provider 穩定度影響。
 

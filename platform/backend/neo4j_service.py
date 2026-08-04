@@ -611,7 +611,7 @@ class Neo4jService:
         return {
             "status": "analysis_unavailable",
             "analysis_state": state,
-            "message": message or "目前目標範圍尚未寫入完整的社群內中心性與分層分析結果。",
+            "message": message or "目前目標範圍尚未寫入完整的分群內中心性與分層分析結果。",
             "navigation_type": "exploratory_structure",
             "path": [],
             "items": [],

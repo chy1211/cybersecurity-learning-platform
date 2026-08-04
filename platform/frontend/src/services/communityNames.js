@@ -140,12 +140,12 @@ const COMMUNITY_NAMES = {
 export const COMMUNITY_NAMES_VERSION = majorCommunityNames.version;
 
 /**
- * 取得社群的描述性名稱
+ * 取得分群的描述性名稱
  * @param {number|string} communityId
  * @returns {string} 描述性名稱，若無對照則明確標示待人工確認
  */
 export function getCommunityName(communityId) {
-  return COMMUNITY_NAMES[communityId] || `待人工確認（社群 ${communityId}）`;
+  return COMMUNITY_NAMES[communityId] || `待人工確認（分群 ${communityId}）`;
 }
 
 /**
@@ -155,7 +155,7 @@ export function getCommunityName(communityId) {
  */
 export function getCommunityDisplayName(communityId) {
   const name = COMMUNITY_NAMES[communityId];
-  if (!name) return `待人工確認（社群 ${communityId}）`;
+  if (!name) return `待人工確認（分群 ${communityId}）`;
   return `${name} (#${communityId})`;
 }
 
