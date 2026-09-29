@@ -47,6 +47,10 @@
 
 ![結構導覽](./docs/images/screenshots/04-structure.png)
 
+切換到「分層」檢視時，分群內節點依分析層級由上而下分區排列。
+
+![結構導覽分層檢視](./docs/images/screenshots/04b-structure-layers.png)
+
 ### 智慧導師
 
 以問題中的實體為種子，擷取 Neo4j 一跳子圖作為 LLM 回答脈絡，回答中標示所依據的圖譜關係。
@@ -121,16 +125,17 @@ flowchart LR
 
 ### 1. 準備 Neo4j
 
-![Neo4j plugins 資料夾需包含 APOC 與 Graph Data Science](./docs/images/neo4j-plugins.png)
-
 > **必要外掛提醒**
 >
-> 本專案的知識圖譜還原、Graph RAG 與 Leiden 分群偵測流程會依賴 Neo4j 外掛。
-> 啟動 Neo4j 前，請確認 Neo4j 的 `plugins/` 資料夾已包含下列模組：
+> 本專案以 **Neo4j 5.26.28 Community** 驗證。啟動 Neo4j 前，請確認 `plugins/` 資料夾已包含下列模組：
 >
-> - `apoc-2026.03.1-core.jar`
-> - `neo4j-graph-data-science-2026.03.0.jar`
+> ```text
+> plugins/
+> ├── apoc-5.26.28-core.jar                     # 平台查詢必要（apoc.meta.cypher.type）
+> └── neo4j-graph-data-science-2.13.11.jar      # Leiden 分群與結構導覽屬性計算
+> ```
 >
+> APOC 須與 Neo4j 同版；GDS 須依 Neo4j patch 版對照，**不能直接裝最新版**（詳見 `REPRODUCE.md` 的版本矩陣與下載連結）。
 > 若缺少上述外掛，部分 Cypher 查詢、圖演算法與分群偵測相關功能可能無法正常執行。
 
 請先啟動 Neo4j，並確認 Bolt 連線可用。預設連線資訊如下：
