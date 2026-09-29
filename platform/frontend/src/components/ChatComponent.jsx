@@ -135,7 +135,7 @@ export default function ChatComponent() {
   return (
     <div className="flex flex-1 min-h-0 gap-0 p-4 overflow-hidden">
       {/* Mistakes Sidebar */}
-      <div className={`w-1/4 bg-slate-900 border border-slate-700 rounded-lg flex flex-col min-h-0 ${showMistakes ? '' : 'hidden'}`}>
+      <div className={`w-1/4 shrink-0 bg-slate-900 border border-slate-700 rounded-lg flex flex-col min-h-0 ${showMistakes ? '' : 'hidden'}`}>
         <div className="p-4 border-b border-slate-700 bg-red-900/20 rounded-t-lg flex justify-between items-center shrink-0">
           <h3 className="font-bold text-red-400">錯題本 ({mistakes.length})</h3>
           <button onClick={loadMistakes} className="text-sm text-indigo-400 hover:underline">重新整理</button>
@@ -164,7 +164,7 @@ export default function ChatComponent() {
       </div>
 
       {/* Chat Area */}
-      <div className="flex-1 flex flex-col bg-slate-900 border border-slate-700 rounded-lg min-h-0 ml-4">
+      <div className="flex-1 flex flex-col bg-slate-900 border border-slate-700 rounded-lg min-h-0 min-w-0 ml-4">
         <div className="flex-1 overflow-y-auto p-6 space-y-4">
           {messages.length === 0 && (
             <div className="text-center text-slate-500 mt-20">

@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo, memo } from 'react'
 import { ReactFlow, Background, Controls, Handle, Position } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
-import dagre from 'dagre'
 import api from '../services/api'
 import LearningMode from '../components/LearningMode'
 import { getCommunityName } from '../services/communityNames'
@@ -11,14 +10,38 @@ import { getAnalysisSummary } from '../utils/analysisStatus'
 const NODE_W = 180;
 const NODE_H = 44;
 
-function dagreLayout(nodes, edges) {
-  const g = new dagre.graphlib.Graph();
-  g.setDefaultEdgeLabel(() => ({}));
-  g.setGraph({ rankdir: 'TB', nodesep: 30, ranksep: 60, acyclicer: 'greedy', ranker: 'tight-tree' });
-  nodes.forEach(n => g.setNode(n.id, { width: NODE_W, height: NODE_H }));
-  edges.forEach(e => g.setEdge(e.source, e.target));
-  dagre.layout(g);
-  return nodes.map(n => { const p = g.node(n.id); return { ...n, position: { x: p.x - NODE_W/2, y: p.y - NODE_H/2 } }; });
+const PER_ROW = 3;
+const GAP_X = 20;
+const GAP_Y = 16;
+const LAYER_GAP = 40;
+const LABEL_H = 24;
+
+// 分群結構 API 只提供節點的分析層級（layer）與 Out-Degree、不提供邊，
+// 故依 layer 由上而下分區排列；同層沿用 API 的 Out-Degree 遞減順序。
+function layerLayout(nodes) {
+  const byLayer = new Map();
+  nodes.forEach(n => {
+    const key = n.data.layer ?? Infinity;
+    if (!byLayer.has(key)) byLayer.set(key, []);
+    byLayer.get(key).push(n);
+  });
+  const out = [];
+  let y = 0;
+  [...byLayer.keys()].sort((a, b) => a - b).forEach(key => {
+    const row = byLayer.get(key);
+    out.push({
+      id: `__layer-${key}`, type: 'layerLabel', position: { x: 0, y },
+      data: { label: Number.isFinite(key) ? `Layer ${key}` : '未分層', count: row.length },
+      selectable: false, draggable: false,
+    });
+    y += LABEL_H + 8;
+    row.forEach((n, i) => out.push({
+      ...n,
+      position: { x: (i % PER_ROW) * (NODE_W + GAP_X), y: y + Math.floor(i / PER_ROW) * (NODE_H + GAP_Y) },
+    }));
+    y += Math.ceil(row.length / PER_ROW) * (NODE_H + GAP_Y) + LAYER_GAP;
+  });
+  return out;
 }
 
 /* ── Color palette for communities ─────────────── */
@@ -273,7 +296,7 @@ function CommunityPathsView({ communities, learnedNodes, expandedComm, setExpand
           {/* Layout toggle */}
           <div className="flex gap-1 mt-2 bg-slate-800 rounded-lg p-0.5">
             <button onClick={() => setLayoutMode('list')} className={`flex-1 px-2 py-1 rounded text-xs font-medium transition-all ${layoutMode === 'list' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'}`}>📋 列表</button>
-            <button onClick={() => setLayoutMode('graph')} className={`flex-1 px-2 py-1 rounded text-xs font-medium transition-all ${layoutMode === 'graph' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'}`}>🔀 DAG</button>
+            <button onClick={() => setLayoutMode('graph')} className={`flex-1 px-2 py-1 rounded text-xs font-medium transition-all ${layoutMode === 'graph' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'}`}>🔀 分層</button>
           </div>
         </div>
         <div className="divide-y divide-slate-800/50">
@@ -350,7 +373,7 @@ function CommunityPathsView({ communities, learnedNodes, expandedComm, setExpand
   )
 }
 
-/* ── Custom Node for dagre graph ───────────────── */
+/* ── Custom Node for layer view ────────────────── */
 function CommNodeInner({ data }) {
   const learned = data.learned;
   const isTarget = data.isTarget;
@@ -368,30 +391,28 @@ function CommNodeInner({ data }) {
   );
 }
 const CommNode = memo(CommNodeInner);
-const commNodeTypes = { commNode: CommNode };
+
+function LayerLabelInner({ data }) {
+  return (
+    <div style={{ width: PER_ROW * NODE_W + (PER_ROW - 1) * GAP_X, height: LABEL_H, borderBottom: '1px solid #334155', color: '#94a3b8', fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8, pointerEvents: 'none' }}>
+      <span style={{ color: '#a5b4fc' }}>{data.label}</span>
+      <span style={{ fontWeight: 400 }}>{data.count} 個</span>
+    </div>
+  );
+}
+const commNodeTypes = { commNode: CommNode, layerLabel: memo(LayerLabelInner) };
 
 /* ── Community Detail: Dagre Graph Mode ───────── */
 function CommunityDetailGraph({ community, learnedNodes, toggleLearned, onStartLearning, pathMode, selectedTarget }) {
   const [selectedName, setSelectedName] = useState(null);
 
-  const { flowNodes, flowEdges } = useMemo(() => {
+  const flowNodes = useMemo(() => {
     const rawNodes = (community?.nodes || []).map(n => ({
       id: n.name, type: 'commNode',
       position: { x: 0, y: 0 },
-      data: { label: n.name, learned: learnedNodes.has(n.name), outDegree: n.outDegree, _selected: false, isTarget: selectedTarget?.name === n.name }
+      data: { label: n.name, learned: learnedNodes.has(n.name), outDegree: n.outDegree, layer: n.layer, _selected: false, isTarget: selectedTarget?.name === n.name }
     }));
-    
-    const nodeNames = new Set(rawNodes.map(n => n.id));
-    const rawEdges = (community?.edges || [])
-      .filter(e => nodeNames.has(e.source) && nodeNames.has(e.target))
-      .map((e, i) => ({
-        id: `ce-${i}`, source: e.source, target: e.target,
-        style: { stroke: '#475569', strokeWidth: 1.5 },
-        markerEnd: { type: 'arrowclosed', color: '#475569', width: 12, height: 12 },
-      }));
-      
-    const laid = dagreLayout(rawNodes, rawEdges);
-    return { flowNodes: laid, flowEdges: rawEdges };
+    return layerLayout(rawNodes);
   }, [community, learnedNodes, selectedTarget]);
 
   if (!community) return null;
@@ -402,20 +423,21 @@ function CommunityDetailGraph({ community, learnedNodes, toggleLearned, onStartL
 
   return (
     <div className="flex flex-col h-full">
-      <CommunityHeader community={community} pct={pct} learnedCount={learnedCount} hint="箭頭僅呈現圖譜原始關係，不等同先備關係；節點位置依分析層級排列。" pathMode={pathMode} />
+      <CommunityHeader community={community} pct={pct} learnedCount={learnedCount} hint="節點依分析層級由上而下分區、同層依 Out-Degree 排列；位置僅供探索，不等同先備關係。" pathMode={pathMode} />
       <div className="flex-1 relative" style={{ minHeight: 400 }}>
         <ReactFlow
-          nodes={flowNodes} edges={flowEdges} nodeTypes={commNodeTypes}
-          fitView fitViewOptions={{ padding: 0.15 }}
+          key={community.community}
+          nodes={flowNodes} edges={[]} nodeTypes={commNodeTypes}
+          defaultViewport={{ x: 24, y: 20, zoom: 1 }}
           minZoom={0.2} maxZoom={1.5}
+          panOnScroll
           proOptions={{ hideAttribution: true }}
           style={{ background: 'transparent' }}
-          defaultEdgeOptions={{ type: 'smoothstep' }}
           nodesDraggable={false} nodesConnectable={false}
-          onNodeClick={(_, node) => setSelectedName(node.id)}
+          onNodeClick={(_, node) => { if (node.type === 'commNode') setSelectedName(node.id) }}
         >
           <Background color="#1e293b" gap={24} size={1} />
-          <Controls position="bottom-left" style={{ background: '#1e293b', borderColor: '#334155', borderRadius: 8 }} />
+          <Controls position="bottom-right"style={{ background: '#1e293b', borderColor: '#334155', borderRadius: 8 }} />
         </ReactFlow>
       </div>
       {sel && (
