@@ -533,7 +533,7 @@ function PathPlannerView({ searchQuery, setSearchQuery, setSearchResults, search
                 className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
               />
               {/* Autocomplete dropdown */}
-              {searchResults.length > 0 && searchQuery.trim().length > 0 && (
+              {!selectedTarget && searchResults.length > 0 && searchQuery.trim().length > 0 && (
                 <div className="absolute top-full left-0 right-0 mt-1 bg-slate-800 border border-slate-700 rounded-xl shadow-xl z-20 max-h-60 overflow-y-auto">
                   {searchResults.map(r => (
                     <button
